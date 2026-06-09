@@ -15,7 +15,7 @@ export default function HeaderNav() {
           {/* ロゴ */}
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold tracking-tight">
-              <span className="text-[#f59e0b]">保険</span>データ
+              <span className="text-[#f59e0b]">保険</span>データドットコム
             </span>
           </Link>
 
