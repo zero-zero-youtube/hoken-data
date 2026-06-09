@@ -59,9 +59,6 @@ export default function PrivacyPage() {
           <h2 className="text-lg font-bold text-[#0f172a] mb-4 pb-2 border-b border-gray-200">4. アフィリエイト広告について</h2>
           <p className="mb-3">本サイトはアフィリエイト広告を掲載しています。本サイト内のリンクから保険会社・比較サービス等への誘導が発生し、申込み等があった場合に運営者が紹介料を受け取ることがあります。</p>
           <p>掲載している情報・相場データは広告主からの影響を受けておらず、公的統計データに基づいた中立的な情報提供を目的としています。</p>
-          <p className="mt-3 text-xs bg-[#f8fafc] rounded p-3 border-l-4 border-[#f59e0b]">
-            本サイトはアフィリエイト広告を含みます（PR）
-          </p>
         </section>
 
         <section>

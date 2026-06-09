@@ -450,16 +450,6 @@ export default async function OccupationPage({ params }: Props) {
           >
             無料で保険相談する →
           </Link>
-          <p className="text-gray-500 text-xs mt-4">※本サイトはアフィリエイト広告を含みます（PR）</p>
-        </div>
-      </section>
-
-      {/* 免責事項 */}
-      <section className="py-8 px-4 bg-[#f8fafc] border-t">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs text-gray-500 leading-relaxed">
-            【免責事項】本ページの保険料は公的統計データを基にした推計参考値です。実際の保険料は保険会社・年齢・健康状態・契約内容により大きく異なります。保険の加入・変更は必ず各保険会社または保険代理店にご確認ください。
-          </p>
         </div>
       </section>
     </>

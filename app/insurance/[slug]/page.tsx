@@ -323,7 +323,6 @@ export default async function InsurancePage({ params }: Props) {
           <Link href="/consult" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
             無料で保険相談する →
           </Link>
-          <p className="text-gray-500 text-xs mt-4">※本サイトはアフィリエイト広告を含みます（PR）</p>
         </div>
       </section>
     </>

@@ -372,7 +372,6 @@ export default async function AgeInsurancePage(
           <Link href="/consult" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
             無料で保険相談する →
           </Link>
-          <p className="text-gray-600 text-xs mt-3">※本サイトはアフィリエイト広告を含みます</p>
         </section>
 
         {/* 年齢別リンク */}
@@ -430,9 +429,6 @@ export default async function AgeInsurancePage(
           </div>
         </section>
 
-        <p className="text-xs text-gray-500 leading-relaxed border-t pt-6">
-          【免責事項】本ページの情報は公的統計データをもとにした参考情報です。保険の加入・変更は必ず各保険会社または保険代理店にご確認ください。本サイトはアフィリエイト広告を含みます。
-        </p>
       </div>
     </>
   )

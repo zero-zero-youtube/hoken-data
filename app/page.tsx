@@ -127,11 +127,6 @@ export default async function Home() {
             <span><span className="text-white font-bold">484</span>ページのデータ</span>
           </div>
 
-          {/* PR表記 */}
-          <p className="text-gray-500 text-xs mb-8">
-            ※本サイトはアフィリエイト広告を含みます（PR）
-          </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/simulator"
@@ -436,15 +431,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 免責事項 */}
-      <section className="py-10 px-4 bg-white border-t border-gray-200">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-sm font-bold text-gray-500 mb-3">免責事項</h2>
-          <p className="text-xs text-gray-500 leading-relaxed">
-            本サイトに掲載の保険料は公的統計データを基にした参考値です。実際の保険料は保険会社・契約内容により異なります。保険の加入・変更は各保険会社または代理店にご相談ください。本サイトはアフィリエイト広告を含み、保険会社・比較サービス等からの紹介手数料を収益源の一部としています。掲載情報の正確性には万全を期していますが、その内容を保証するものではありません。
-          </p>
-        </div>
-      </section>
     </>
   )
 }
