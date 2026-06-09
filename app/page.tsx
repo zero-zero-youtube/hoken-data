@@ -140,12 +140,12 @@ export default async function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#occupations"
+            <Link
+              href="/simulator"
               className="bg-[#2563eb] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-700 transition-colors"
             >
-              職業から調べる ↓
-            </a>
+              無料で保険料診断する →
+            </Link>
             <Link
               href="/consult"
               className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition-colors"
