@@ -104,7 +104,7 @@ export default async function Home() {
           {/* バッジ */}
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm mb-6">
             <span className="text-[#f59e0b]">●</span>
-            <span>国交省・厚労省 公式データ準拠</span>
+            <span>厚生労働省 賃金構造基本統計調査 準拠</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
@@ -116,6 +116,15 @@ export default async function Home() {
             職業・年齢・家族構成から適正な保険料の目安を無料で確認。<br />
             政府統計データに基づく客観的な情報を提供します。
           </p>
+
+          {/* データ規模 */}
+          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-5 py-2 text-sm text-gray-300 mb-6">
+            <span><span className="text-white font-bold">20</span>職業</span>
+            <span className="text-gray-600">×</span>
+            <span><span className="text-white font-bold">10</span>保険種類</span>
+            <span className="text-gray-600">×</span>
+            <span><span className="text-white font-bold">484</span>ページのデータ</span>
+          </div>
 
           {/* PR表記 */}
           <p className="text-gray-500 text-xs mb-8">

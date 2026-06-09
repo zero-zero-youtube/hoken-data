@@ -86,7 +86,7 @@ export default function AboutPage() {
               {[
                 { value: '20職業', label: '対象職業数' },
                 { value: '10種類', label: '保険種類' },
-                { value: '237ページ', label: '相場データ数' },
+                { value: '484ページ', label: '相場データ数' },
               ].map(item => (
                 <div key={item.label} className="bg-white rounded-xl p-4 text-center border">
                   <p className="text-2xl font-bold text-[#2563eb]">{item.value}</p>
@@ -139,6 +139,116 @@ export default function AboutPage() {
                 <p className="text-sm text-gray-600 mb-2">{source.desc}</p>
                 <a href={source.url} target="_blank" rel="noopener noreferrer"
                   className="text-xs text-[#2563eb] hover:underline">{source.url}</a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* データの計算方法 */}
+        <section>
+          <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+            データの計算方法
+          </h2>
+          <div className="bg-white border border-gray-100 rounded-xl p-6 space-y-5">
+            <div>
+              <h3 className="font-bold text-[#0f172a] mb-2 text-sm">推定保険料の計算式</h3>
+              <div className="bg-[#f8fafc] rounded-lg p-4 font-mono text-sm text-[#0f172a] border border-gray-200">
+                推定月額 = 年収（万円）× 10,000 × 保険種類別係数 ÷ 12
+              </div>
+            </div>
+            <div>
+              <h3 className="font-bold text-[#0f172a] mb-3 text-sm">保険種類別係数（目安）</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-[#0f172a] text-white">
+                      <th className="text-left p-3">保険種類</th>
+                      <th className="text-right p-3">係数</th>
+                      <th className="text-right p-3">年収500万円の月額目安</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { name: '医療保険',         rate: 0.005,  monthly: Math.round(500 * 10000 * 0.005 / 12) },
+                      { name: '生命保険',         rate: 0.010,  monthly: Math.round(500 * 10000 * 0.010 / 12) },
+                      { name: '就業不能保険',     rate: 0.008,  monthly: Math.round(500 * 10000 * 0.008 / 12) },
+                      { name: 'がん保険',         rate: 0.004,  monthly: Math.round(500 * 10000 * 0.004 / 12) },
+                      { name: '傷害保険',         rate: 0.003,  monthly: Math.round(500 * 10000 * 0.003 / 12) },
+                      { name: '個人年金',         rate: 0.020,  monthly: Math.round(500 * 10000 * 0.020 / 12) },
+                      { name: '終身保険',         rate: 0.015,  monthly: Math.round(500 * 10000 * 0.015 / 12) },
+                      { name: '学資保険',         rate: 0.015,  monthly: Math.round(500 * 10000 * 0.015 / 12) },
+                      { name: '自動車保険',       rate: null,   monthly: null },
+                      { name: '火災保険',         rate: null,   monthly: null },
+                    ].map((row, i) => (
+                      <tr key={row.name} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                        <td className="p-3">{row.name}</td>
+                        <td className="p-3 text-right text-gray-600 font-mono">{row.rate ?? '固定額'}</td>
+                        <td className="p-3 text-right font-semibold">
+                          {row.monthly ? `${row.monthly.toLocaleString()}円` : '1,000〜8,000円（固定）'}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-sm text-gray-700">
+              <p className="font-semibold text-yellow-800 mb-1">⚠️ 重要な注意事項</p>
+              <p>上記の係数はあくまで参考値です。実際の保険料は保険会社・年齢・健康状態・保障内容・契約期間などにより大きく異なります。本サイトのデータは「おおよその目安」として参考にしてください。正確な保険料は各保険会社で見積もりを取ることをおすすめします。</p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-600">年収データの出典：</p>
+              <a
+                href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00450091"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2563eb] text-sm hover:underline"
+              >
+                e-Stat（政府統計の総合窓口）賃金構造基本統計調査 →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* 更新履歴 */}
+        <section>
+          <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+            更新履歴
+          </h2>
+          <div className="space-y-3">
+            {[
+              {
+                date: '2026年6月9日',
+                title: 'サイト公開・20職業×10保険種類データ掲載',
+                desc: '厚生労働省賃金構造基本統計調査に基づく職業別保険料相場データを公開。',
+              },
+              {
+                date: '2026年6月9日',
+                title: '保険料シミュレーター追加',
+                desc: '職業・年齢・性別・家族構成から推奨保険TOP3を診断するシミュレーターを追加。',
+              },
+              {
+                date: '2026年6月9日',
+                title: '484ページのデータベース構築完了',
+                desc: '職業×保険（200ページ）・都道府県×職業（200ページ）・年齢×保険（40ページ）等484ページを公開。',
+              },
+              {
+                date: '今後の予定',
+                title: '都道府県別データ拡充・最新統計データへの更新',
+                desc: '現在10都道府県のデータを47都道府県に拡充予定。また、毎年公開される最新の賃金統計データに順次更新します。',
+                future: true,
+              },
+            ].map((item, i) => (
+              <div key={i} className={`flex gap-4 bg-white rounded-xl p-5 border ${item.future ? 'border-dashed border-gray-300' : 'border-gray-100'}`}>
+                <div className="flex-shrink-0 text-right">
+                  <span className={`text-xs font-semibold whitespace-nowrap ${item.future ? 'text-gray-400' : 'text-[#2563eb]'}`}>
+                    {item.date}
+                  </span>
+                </div>
+                <div>
+                  <p className={`font-bold text-sm mb-1 ${item.future ? 'text-gray-400' : 'text-[#0f172a]'}`}>{item.title}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
