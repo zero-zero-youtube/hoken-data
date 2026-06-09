@@ -11,6 +11,9 @@ import {
   getOccupationInsuranceNeeds,
 } from '@/lib/data'
 import Disclaimer from '@/components/Disclaimer'
+import OccupationInsuranceCharts from '@/components/OccupationInsuranceCharts'
+import DataCalculationBadge from '@/components/DataCalculationBadge'
+import OccupationRiskDataSection from '@/components/OccupationRiskDataSection'
 
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
@@ -246,15 +249,52 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const schema = faqSchema(faqs)
   const cta = getCTACopy(occ.slug, occ.name_ja, occ.category, ins.slug, ins.name_ja)
 
-  const isFixedRange = Array.isArray([est.man, est.woman]) && ins.slug === 'auto' || ins.slug === 'fire'
+  const isFixedRange = ins.slug === 'auto' || ins.slug === 'fire'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
-  // 年収別推定月額: estimateMonthlyPremiumをその年収で呼び出す
+  // 年収別推定月額
   const incomeBracketRows = INCOME_BRACKETS.map(income => {
     const bracketEst = estimateMonthlyPremium(ins.slug, income, income)
     return { income, monthly: bracketEst.man ?? bracketEst.woman ?? null }
   })
+
+  // グラフ用レートマップ
+  const rateMap: Record<string, number | null> = {
+    'medical':           0.005,
+    'life':              0.01,
+    'income-protection': 0.008,
+    'cancer':            0.004,
+    'auto':              null,
+    'fire':              null,
+    'personal-accident': 0.003,
+    'pension':           0.02,
+    'child':             0.015,
+    'whole-life':        0.015,
+  }
+  const chartRate = rateMap[ins.slug] ?? null
+
+  // BarChart用データ（年収別）
+  const incomeChartData = isFixedRange ? [] : INCOME_BRACKETS.map(income => ({
+    income: `${income}万`,
+    man: chartRate ? Math.round(income * 10000 * chartRate / 12) : null,
+    woman: chartRate ? Math.round(income * 10000 * chartRate / 12) : null,
+  }))
+
+  // LineChart用データ（年齢別）
+  const ageChartData = isFixedRange ? [] : AGE_ROWS.map(row => ({
+    age: row.age.replace('〜', '〜').replace('歳', ''),
+    man: est.man ? Math.round(est.man * row.factor) : null,
+    woman: est.woman ? Math.round(est.woman * row.factor) : null,
+  }))
+
+  // 国民平均年収との比較（参考値）
+  const AVG_MAN = 540
+  const AVG_WOMAN = 400
+  const avgManMonthly = chartRate ? Math.round(AVG_MAN * 10000 * chartRate / 12) : null
+  const avgWomanMonthly = chartRate ? Math.round(AVG_WOMAN * 10000 * chartRate / 12) : null
+  const occManRatio = (est.man && avgManMonthly) ? Math.round(est.man / avgManMonthly * 100) : null
+  const occWomanRatio = (est.woman && avgWomanMonthly) ? Math.round(est.woman / avgWomanMonthly * 100) : null
 
   return (
     <>
@@ -287,32 +327,64 @@ export default async function OccupationInsurancePage({ params }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {!isFixedRange ? (
               <>
-                <div className="bg-[#f8fafc] rounded-xl p-5 text-center border">
-                  <p className="text-xs text-gray-500 mb-1">男性（年収{occ.avg_income_man || '-'}万円）</p>
-                  <p className="text-3xl font-bold text-[#0f172a]">
-                    月額 {est.man ? `${est.man.toLocaleString()}円` : '-'}
+                <div className="bg-gradient-to-br from-[#0f172a] to-[#1e3a5f] rounded-xl p-5 text-center text-white shadow-lg">
+                  <p className="text-xs text-blue-300 mb-1">男性（年収{occ.avg_income_man || '-'}万円）</p>
+                  <p className="text-3xl font-bold">
+                    {est.man ? `${est.man.toLocaleString()}円` : '-'}
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">推計参考値</p>
+                  <p className="text-xs text-blue-200 mt-1">/ 月（推計参考値）</p>
+                  {occManRatio && avgManMonthly && (
+                    <div className="mt-3">
+                      <p className="text-xs text-blue-300 mb-1">国民平均（{avgManMonthly.toLocaleString()}円）比</p>
+                      <div className="bg-white/10 rounded-full h-2 overflow-hidden">
+                        <div
+                          className="h-2 rounded-full bg-[#2563eb]"
+                          style={{ width: `${Math.min(occManRatio, 200) / 2}%` }}
+                        />
+                      </div>
+                      <p className="text-xs text-blue-200 mt-1 font-semibold">{occManRatio}%</p>
+                    </div>
+                  )}
                 </div>
-                <div className="bg-[#f8fafc] rounded-xl p-5 text-center border">
-                  <p className="text-xs text-gray-500 mb-1">女性（年収{occ.avg_income_woman || '-'}万円）</p>
-                  <p className="text-3xl font-bold text-[#0f172a]">
-                    月額 {est.woman ? `${est.woman.toLocaleString()}円` : '-'}
+                <div className="bg-gradient-to-br from-[#0f172a] to-[#3d1d00] rounded-xl p-5 text-center text-white shadow-lg">
+                  <p className="text-xs text-amber-300 mb-1">女性（年収{occ.avg_income_woman || '-'}万円）</p>
+                  <p className="text-3xl font-bold">
+                    {est.woman ? `${est.woman.toLocaleString()}円` : '-'}
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">推計参考値</p>
+                  <p className="text-xs text-amber-200 mt-1">/ 月（推計参考値）</p>
+                  {occWomanRatio && avgWomanMonthly && (
+                    <div className="mt-3">
+                      <p className="text-xs text-amber-300 mb-1">国民平均（{avgWomanMonthly.toLocaleString()}円）比</p>
+                      <div className="bg-white/10 rounded-full h-2 overflow-hidden">
+                        <div
+                          className="h-2 rounded-full bg-[#f59e0b]"
+                          style={{ width: `${Math.min(occWomanRatio, 200) / 2}%` }}
+                        />
+                      </div>
+                      <p className="text-xs text-amber-200 mt-1 font-semibold">{occWomanRatio}%</p>
+                    </div>
+                  )}
                 </div>
               </>
             ) : (
-              <div className="sm:col-span-2 bg-[#f8fafc] rounded-xl p-5 text-center border">
-                <p className="text-xs text-gray-500 mb-1">{ins.name_ja}（年収による変動なし）</p>
-                <p className="text-3xl font-bold text-[#0f172a]">月額 {est.label}</p>
-                <p className="text-xs text-gray-400 mt-1">推計参考値</p>
+              <div className="sm:col-span-2 bg-gradient-to-br from-[#0f172a] to-[#1e3a5f] rounded-xl p-5 text-center text-white shadow-lg">
+                <p className="text-xs text-blue-300 mb-1">{ins.name_ja}（年収による変動なし）</p>
+                <p className="text-3xl font-bold">月額 {est.label}</p>
+                <p className="text-xs text-blue-200 mt-1">推計参考値</p>
               </div>
             )}
           </div>
           <p className="text-xs text-gray-400">
             ※実際の保険料は年齢・健康状態・保険会社・保障内容により大きく異なります。必ず各保険会社で見積もりを取ってください。
           </p>
+          <DataCalculationBadge
+            occName={occ.name_ja}
+            manIncome={occ.avg_income_man}
+            womanIncome={occ.avg_income_woman}
+            insName={ins.name_ja}
+            insSlug={ins.slug}
+            rate={chartRate}
+          />
         </div>
       </section>
 
@@ -328,13 +400,18 @@ export default async function OccupationInsurancePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 年収別推定月額テーブル */}
+      {/* 年収別グラフ + テーブル */}
       <section className="py-10 px-4 bg-white border-b">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-[#0f172a] mb-2">年収別 推定月額保険料（参考値）</h2>
           <p className="text-xs text-gray-500 mb-6">
             ※年収が高いほど必要保障額が増えるため、保険料の目安も変化します。
           </p>
+          <OccupationInsuranceCharts
+            incomeData={incomeChartData}
+            ageData={[]}
+            hasFixed={isFixedRange}
+          />
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
@@ -387,13 +464,20 @@ export default async function OccupationInsurancePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 年齢別推奨保険料テーブル */}
+      <OccupationRiskDataSection occSlug={occ.slug} occName={occ.name_ja} />
+
+      {/* 年齢別グラフ + テーブル */}
       <section className="py-10 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-[#0f172a] mb-2">年齢別 推奨月額保険料（参考値）</h2>
           <p className="text-xs text-gray-500 mb-6">
             ※年齢とともに保険料は変動します。若いうちに加入するほど有利な場合が多いです。
           </p>
+          <OccupationInsuranceCharts
+            incomeData={[]}
+            ageData={ageChartData}
+            hasFixed={isFixedRange}
+          />
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
