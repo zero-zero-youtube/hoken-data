@@ -9,7 +9,7 @@ export default function HeaderNav() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="bg-[#0f172a] text-white sticky top-0 z-50 shadow-md">
+    <header className="bg-[#0f172a] text-white sticky top-0 z-50 shadow-md border-b border-gray-700">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* ロゴ */}

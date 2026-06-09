@@ -196,12 +196,15 @@ export default async function Home() {
               <Link
                 key={card.title}
                 href={card.href}
-                className="group bg-[#f8fafc] rounded-2xl p-6 border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all"
+                className="group bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-500 hover:shadow-md transition-all shadow-sm overflow-hidden"
               >
-                <div className="text-4xl mb-4">{card.icon}</div>
-                <h3 className="text-lg font-bold text-[#0f172a] mb-2">{card.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4">{card.desc}</p>
-                <span className="text-[#2563eb] text-sm font-semibold group-hover:underline">{card.cta}</span>
+                <div className="h-1 bg-blue-600 rounded-t-xl" />
+                <div className="p-6">
+                  <div className="text-4xl mb-4">{card.icon}</div>
+                  <h3 className="text-lg font-bold text-[#0f172a] mb-2">{card.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{card.desc}</p>
+                  <span className="text-blue-600 font-semibold text-sm border-b border-blue-600 pb-0.5">{card.cta}</span>
+                </div>
               </Link>
             ))}
           </div>
@@ -373,30 +376,39 @@ export default async function Home() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { occ: 'engineer', occName: 'システムエンジニア', ins: 'medical', insName: '医療保険', income: 558, rate: 0.005 },
-              { occ: 'nurse', occName: '看護師', ins: 'income-protection', insName: '就業不能保険', income: 574, rate: 0.008 },
-              { occ: 'freelance-engineer', occName: 'フリーランスエンジニア', ins: 'income-protection', insName: '収入保障保険', income: 550, rate: 0.008 },
-              { occ: 'manager', occName: '会社管理職', ins: 'life', insName: '生命保険', income: 885, rate: 0.01 },
-              { occ: 'sales', occName: '営業職', ins: 'cancer', insName: 'がん保険', income: 620, rate: 0.004 },
-              { occ: 'civil-servant', occName: '地方公務員', ins: 'pension', insName: '個人年金', income: 885, rate: 0.02 },
+              { occ: 'engineer',          occName: 'システムエンジニア',       ins: 'medical',           insName: '医療保険',     income: 558,  rate: 0.005, grad: 'from-blue-600 to-blue-400' },
+              { occ: 'nurse',             occName: '看護師',                   ins: 'income-protection', insName: '就業不能保険', income: 574,  rate: 0.008, grad: 'from-emerald-600 to-emerald-400' },
+              { occ: 'freelance-engineer',occName: 'フリーランスエンジニア',   ins: 'income-protection', insName: '収入保障保険', income: 550,  rate: 0.008, grad: 'from-blue-600 to-blue-400' },
+              { occ: 'manager',           occName: '会社管理職',               ins: 'life',              insName: '生命保険',     income: 885,  rate: 0.01,  grad: 'from-orange-500 to-orange-300' },
+              { occ: 'sales',             occName: '営業職',                   ins: 'cancer',            insName: 'がん保険',     income: 620,  rate: 0.004, grad: 'from-orange-500 to-orange-300' },
+              { occ: 'civil-servant',     occName: '地方公務員',               ins: 'pension',           insName: '個人年金',     income: 885,  rate: 0.02,  grad: 'from-violet-600 to-violet-400' },
             ].map(item => {
               const monthly = Math.round(item.income * 10000 * item.rate / 12)
               return (
                 <Link
                   key={`${item.occ}-${item.ins}`}
                   href={`/occupation/${item.occ}/${item.ins}`}
-                  className="group bg-[#f8fafc] rounded-xl p-5 border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all"
+                  className="group block bg-white rounded-2xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all overflow-hidden"
                 >
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">{item.occName}</span>
-                    <span className="text-gray-400 text-xs">×</span>
-                    <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">{item.insName}</span>
+                  <div className={`h-1.5 bg-gradient-to-r ${item.grad}`} />
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">{item.occName}</span>
+                      <span className="text-gray-400 text-xs">×</span>
+                      <span className="text-xs bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full font-medium">{item.insName}</span>
+                    </div>
+                    <div className="mb-1">
+                      <span className="text-xs text-gray-500">推定月額保険料（参考値）</span>
+                    </div>
+                    <div className="flex items-baseline gap-1 mb-4">
+                      <span className="text-3xl font-bold text-gray-900">{monthly.toLocaleString()}</span>
+                      <span className="text-sm text-gray-500">円/月</span>
+                    </div>
+                    <div className="flex items-center text-blue-600 text-sm font-medium gap-1 group-hover:gap-2 transition-all">
+                      詳細を見る
+                      <span>→</span>
+                    </div>
                   </div>
-                  <p className="text-xs text-gray-500 mb-1">推定月額保険料（参考値）</p>
-                  <p className="text-2xl font-bold text-[#0f172a] mb-3">
-                    {monthly.toLocaleString()}<span className="text-sm font-normal text-gray-500 ml-1">円/月</span>
-                  </p>
-                  <span className="text-[#2563eb] text-xs font-semibold group-hover:underline">詳細を見る →</span>
                 </Link>
               )
             })}
