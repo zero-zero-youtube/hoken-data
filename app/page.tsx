@@ -286,8 +286,50 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* よく見られている組み合わせ */}
       <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-[#0f172a] mb-3">
+            よく見られている組み合わせ
+          </h2>
+          <p className="text-center text-gray-500 text-sm mb-10">
+            職業と保険種類の人気の組み合わせから調べる
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { occ: 'engineer', occName: 'システムエンジニア', ins: 'medical', insName: '医療保険', income: 558, rate: 0.005 },
+              { occ: 'nurse', occName: '看護師', ins: 'income-protection', insName: '就業不能保険', income: 574, rate: 0.008 },
+              { occ: 'freelance-engineer', occName: 'フリーランスエンジニア', ins: 'income-protection', insName: '収入保障保険', income: 550, rate: 0.008 },
+              { occ: 'manager', occName: '会社管理職', ins: 'life', insName: '生命保険', income: 885, rate: 0.01 },
+              { occ: 'sales', occName: '営業職', ins: 'cancer', insName: 'がん保険', income: 620, rate: 0.004 },
+              { occ: 'civil-servant', occName: '地方公務員', ins: 'pension', insName: '個人年金', income: 885, rate: 0.02 },
+            ].map(item => {
+              const monthly = Math.round(item.income * 10000 * item.rate / 12)
+              return (
+                <Link
+                  key={`${item.occ}-${item.ins}`}
+                  href={`/occupation/${item.occ}/${item.ins}`}
+                  className="group bg-[#f8fafc] rounded-xl p-5 border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">{item.occName}</span>
+                    <span className="text-gray-400 text-xs">×</span>
+                    <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">{item.insName}</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-1">推定月額保険料（参考値）</p>
+                  <p className="text-2xl font-bold text-[#0f172a] mb-3">
+                    {monthly.toLocaleString()}<span className="text-sm font-normal text-gray-500 ml-1">円/月</span>
+                  </p>
+                  <span className="text-[#2563eb] text-xs font-semibold group-hover:underline">詳細を見る →</span>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 px-4 bg-[#f8fafc]">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-center text-[#0f172a] mb-10">
             よくある質問
@@ -314,7 +356,7 @@ export default async function Home() {
       </section>
 
       {/* 免責事項 */}
-      <section className="py-10 px-4 bg-[#f8fafc] border-t border-gray-200">
+      <section className="py-10 px-4 bg-white border-t border-gray-200">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-sm font-bold text-gray-500 mb-3">免責事項</h2>
           <p className="text-xs text-gray-500 leading-relaxed">

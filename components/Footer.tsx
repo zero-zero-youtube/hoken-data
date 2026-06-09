@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SITE_NAME, FOOTER_LINKS } from '@/lib/constants'
+import { FOOTER_LINKS } from '@/lib/constants'
 
 export default function Footer() {
   return (
