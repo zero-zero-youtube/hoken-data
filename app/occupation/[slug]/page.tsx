@@ -11,6 +11,93 @@ import {
   getOccupationInsuranceNeeds,
 } from '@/lib/data'
 
+type RiskItem = { label: string; detail: string; severity: 'high' | 'medium' }
+
+const OCCUPATION_RISKS: Record<string, RiskItem[]> = {
+  'freelance-engineer': [
+    { label: '傷病手当金がない',     detail: '病気・怪我での休業時に国の傷病手当金が受け取れない。収入が即ゼロになるリスクがある。',         severity: 'high' },
+    { label: '収入の不安定性',        detail: '案件の受注状況により収入が大幅に変動。固定収入がないため保険による安全網が重要。',               severity: 'high' },
+    { label: '老齢年金が少ない',      detail: '国民年金のみのため、厚生年金加入者より将来の年金が少ない。個人年金での補完が必要。',             severity: 'medium' },
+  ],
+  'engineer': [
+    { label: '精神疾患・燃え尽き症候群', detail: 'IT業界は長時間労働・過度なストレスによるメンタルヘルス悪化が多く、就業不能リスクが高い。', severity: 'high' },
+    { label: '眼精疲労・腱鞘炎',      detail: '長時間のPC作業による職業病リスク。手術・治療費の負担が増大する場合がある。',                 severity: 'medium' },
+  ],
+  'nurse': [
+    { label: '感染症リスク',           detail: '患者からの感染症リスクが常にある。新型ウイルスや結核など職業上の感染リスクは一般より高い。', severity: 'high' },
+    { label: '腰痛・筋骨格系障害',    detail: '患者の体位変換・移乗介助による腰痛が職業病。長期休職につながるケースも多い。',               severity: 'high' },
+    { label: '精神的ストレス',         detail: '夜勤・緊急対応・患者の死に直面するストレスによるメンタルヘルスリスクがある。',               severity: 'medium' },
+  ],
+  'doctor': [
+    { label: '高額な賠償責任リスク',   detail: '医療過誤による患者からの損害賠償請求リスク。高額訴訟に発展するケースも。',                   severity: 'high' },
+    { label: '感染症・被爆リスク',     detail: '手術・検査時の針刺し事故や放射線被爆など、職業特有の健康リスクがある。',                     severity: 'medium' },
+  ],
+  'construction': [
+    { label: '労働災害リスク',         detail: '高所作業・重機操作など、生命に関わる事故リスクが業界平均を大幅に上回る。',                   severity: 'high' },
+    { label: '騒音性難聴・振動障害',   detail: '重機の振動・騒音による職業病。長年の作業で慢性的な障害につながるリスクがある。',             severity: 'medium' },
+    { label: '将来の体力限界',         detail: '体を酷使する仕事のため40〜50代での体力限界リスクが高く、早めの老後準備が必要。',             severity: 'medium' },
+  ],
+  'manufacturing': [
+    { label: '工場内事故リスク',       detail: '機械・設備による挟まれ・巻き込まれ事故のリスクがある。労災だけでは不足することも。',         severity: 'high' },
+    { label: '化学物質・粉塵リスク',   detail: '有害物質・粉塵への長期暴露による職業性疾病（じん肺等）のリスクがある。',                     severity: 'medium' },
+  ],
+  'driver': [
+    { label: '交通事故リスク',         detail: '年間の走行距離が長く、統計的に交通事故に遭遇するリスクが高い。高額賠償リスクも。',           severity: 'high' },
+    { label: '腰痛・頸椎障害',         detail: '長時間の運転姿勢による腰痛・椎間板ヘルニアのリスク。休職につながるケースも多い。',           severity: 'medium' },
+  ],
+  'hairdresser': [
+    { label: '立ち仕事による下肢疾患', detail: '長時間の立ち仕事による腰痛・下肢静脈瘤のリスク。就業不能につながるケースがある。',           severity: 'high' },
+    { label: '薬剤による皮膚炎',       detail: 'カラー剤・パーマ液などへの長期接触による接触性皮膚炎のリスクがある。',                       severity: 'medium' },
+    { label: '収入の不安定性（個人事業主）', detail: '独立開業している場合は傷病手当金がない。病気・怪我で休業すると即収入ゼロに。',         severity: 'high' },
+  ],
+  'designer': [
+    { label: '眼精疲労・頸椎障害',     detail: '長時間のモニター作業による眼精疲労・頸椎ヘルニアのリスク。慢性化しやすい。',               severity: 'medium' },
+    { label: '収入不安定（フリーランス）', detail: 'フリーランスの場合は傷病手当金なし。長期休業時の収入保障が特に重要。',                   severity: 'high' },
+  ],
+  'teacher': [
+    { label: '精神疾患・うつ病',       detail: '教員の精神疾患による休職は増加傾向。長期休職になると収入への影響が大きい。',               severity: 'high' },
+    { label: '声帯・喉の疾患',         detail: '毎日大声を出す職業のため、声帯ポリープなど喉の疾患リスクがある。',                         severity: 'medium' },
+  ],
+  'restaurant': [
+    { label: '食中毒・衛生事故リスク', detail: '調理中の食中毒事故では業務中断・損害賠償リスクが発生する。',                               severity: 'medium' },
+    { label: '火傷・刃物による怪我',   detail: '調理中の火傷や包丁による切り傷のリスクが高く、手の怪我は即業務に支障をきたす。',           severity: 'high' },
+    { label: '腰痛・長時間労働',       detail: '長時間の立ち仕事・重い食材運搬による腰痛リスク。外食産業は労働時間も長い傾向。',           severity: 'medium' },
+  ],
+  'civil-servant': [
+    { label: '精神疾患リスク',         detail: '公務員の精神疾患による休職は増加傾向。共済は手厚いが長期休職への対策は必要。',             severity: 'medium' },
+    { label: '老後の年金格差',         detail: '共済年金と厚生年金の統合で老後保障が変わりつつある。個人年金での補完を検討したい。',       severity: 'medium' },
+  ],
+  'sales': [
+    { label: '高ストレス・生活習慣病', detail: '目標プレッシャーや長時間労働による高血圧・糖尿病・心疾患リスクが高い職業。',               severity: 'high' },
+    { label: '通勤・外出中の事故',     detail: '頻繁な外出・移動による交通事故リスクがある。傷害保険での備えが重要。',                     severity: 'medium' },
+  ],
+  'manager': [
+    { label: '過重労働・脳卒中リスク', detail: '管理職は長時間労働・高ストレスによる脳卒中・心筋梗塞リスクが高い世代。',                   severity: 'high' },
+    { label: '高収入に見合った死亡保障', detail: '扶養家族の多い管理職は、万が一の際に家族の生活費・教育費をカバーする高額保障が必要。', severity: 'high' },
+  ],
+  'part-time': [
+    { label: '社会保険未加入リスク',   detail: '週20時間未満等の場合、社会保険（健康保険・厚生年金）に加入できないケースがある。',         severity: 'high' },
+    { label: '傷病手当金がない',       detail: '国民健康保険加入者は傷病手当金がない（一部自治体を除く）。医療保険で補完が必要。',         severity: 'high' },
+  ],
+}
+
+function getOccupationRisks(slug: string, category: string): RiskItem[] {
+  if (OCCUPATION_RISKS[slug]) return OCCUPATION_RISKS[slug]
+  const categoryDefaults: Record<string, RiskItem[]> = {
+    it:           [{ label: 'メンタルヘルスリスク', detail: 'IT業界は精神疾患リスクが高く、就業不能状態になるケースが増えています。', severity: 'high' }],
+    medical:      [{ label: '感染症・身体的負担', detail: '医療現場での感染リスクと体力的負担が大きく、休職リスクに備えることが重要です。', severity: 'high' }],
+    construction: [{ label: '労働災害リスク', detail: '現場作業による怪我・事故リスクが高く、傷害保険での備えが重要です。', severity: 'high' }],
+    transport:    [{ label: '交通事故リスク', detail: '長時間運転による交通事故リスクが統計的に高い職業です。', severity: 'high' }],
+    public:       [{ label: '精神疾患リスク', detail: 'ストレスによる精神疾患での休職が増加傾向にあります。', severity: 'medium' }],
+    manufacturing:[{ label: '工場内事故リスク', detail: '機械・設備による事故リスクがあり、労災の上乗せ保険が重要です。', severity: 'high' }],
+    food:         [{ label: '業務中の怪我リスク', detail: '火傷・刃物による怪我リスクが高く、傷害保険での備えが重要です。', severity: 'medium' }],
+    beauty:       [{ label: '職業病リスク', detail: '立ち仕事・薬剤接触による職業病リスクがあります。', severity: 'medium' }],
+  }
+  return categoryDefaults[category] || [
+    { label: '収入途絶リスク', detail: '病気・怪我で働けなくなった際の収入減少に備えることが重要です。', severity: 'medium' },
+  ]
+}
+
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
@@ -36,14 +123,17 @@ const INSURANCE_ICONS: Record<string, string> = {
 
 export default async function OccupationPage({ params }: Props) {
   const { slug } = await params
-  const [occ, insuranceTypes] = await Promise.all([
+  const [occ, insuranceTypes, allOccupations] = await Promise.all([
     getOccupationBySlug(slug),
     getAllInsuranceTypes(),
+    getAllOccupations(),
   ])
   if (!occ) notFound()
 
   const avgIncome = Math.round(((occ.avg_income_man || 400) + (occ.avg_income_woman || 350)) / 2)
   const needs = getOccupationInsuranceNeeds(occ.category)
+  const risks = getOccupationRisks(occ.slug, occ.category)
+  const sameCategory = allOccupations.filter(o => o.category === occ.category && o.slug !== occ.slug)
 
   const schema = {
     '@context': 'https://schema.org',
@@ -161,6 +251,50 @@ export default async function OccupationPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* この職業特有のリスク */}
+      <section className="py-10 px-4 bg-[#f8fafc]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-[#0f172a] mb-4">
+            {occ.name_ja}特有のリスク
+          </h2>
+          <div className="space-y-3">
+            {risks.map((risk, i) => (
+              <div key={i} className={`flex gap-4 bg-white rounded-xl p-4 border ${risk.severity === 'high' ? 'border-red-200' : 'border-gray-100'}`}>
+                <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 ${risk.severity === 'high' ? 'bg-red-100 text-red-600' : 'bg-yellow-100 text-yellow-700'}`}>
+                  {risk.severity === 'high' ? '!' : '△'}
+                </div>
+                <div>
+                  <p className="font-semibold text-[#0f172a] text-sm mb-1">{risk.label}</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">{risk.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 同じカテゴリの職業 */}
+      {sameCategory.length > 0 && (
+        <section className="py-10 px-4 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-lg font-bold text-[#0f172a] mb-4">
+              同じ{CATEGORY_LABELS[occ.category] || 'カテゴリ'}の職業も調べる
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {sameCategory.map(o => (
+                <Link
+                  key={o.slug}
+                  href={`/occupation/${o.slug}`}
+                  className="text-sm bg-[#f8fafc] border border-gray-200 hover:border-[#2563eb] text-[#2563eb] px-4 py-2 rounded-lg font-medium transition-all"
+                >
+                  {o.name_ja}の保険料 →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-12 px-4 bg-[#0f172a] text-white text-center">

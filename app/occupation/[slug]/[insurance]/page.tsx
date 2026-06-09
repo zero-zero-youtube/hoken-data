@@ -80,6 +80,72 @@ function getReason(occCategory: string, insSlug: string): string {
     || `${getOccupationInsuranceNeeds(occCategory)} ${getInsuranceDescription(insSlug)}`
 }
 
+type CTACopy = { badge: string; headline: string; sub: string }
+
+function getCTACopy(occSlug: string, occName: string, occCategory: string, insSlug: string, insName: string): CTACopy {
+  // 特定の組み合わせ
+  const key = `${occSlug}:${insSlug}`
+  const specific: Record<string, CTACopy> = {
+    'freelance-engineer:income-protection': {
+      badge: 'フリーランス専門 | 無料相談',
+      headline: 'フリーランスの収入リスクに備えるなら、\nまず専門家に無料で相談してみましょう',
+      sub: '傷病手当金がないフリーランスだからこそ、就業不能保険の選び方が重要です。FPに最適な保障額を無料で試算してもらえます。',
+    },
+    'nurse:medical': {
+      badge: '医療職向け | 無料相談',
+      headline: '医療職だからこそ知っておきたい\n保険の選び方をFPに無料相談できます',
+      sub: '感染リスク・腰痛リスクを抱える看護師向けの医療保険。職業特性を理解したFPが最適なプランを提案します。',
+    },
+    'nurse:income-protection': {
+      badge: '医療職向け | 無料相談',
+      headline: '看護師の就業不能リスクに対応した\n保険プランを無料で相談できます',
+      sub: '体力的負担の大きい看護師こそ、就業不能保険で収入を守ることが重要。無料でFPに試算してもらいましょう。',
+    },
+    'construction:personal-accident': {
+      badge: '現場職向け | 無料相談',
+      headline: '建設業の高い怪我リスクに対応した\n傷害保険プランをFPに無料で相談',
+      sub: '労災保険だけでは不十分なケースも。建設業特有のリスクを理解したFPが最適な上乗せ保険を提案します。',
+    },
+    'freelance-engineer:medical': {
+      badge: 'フリーランス向け | 無料相談',
+      headline: '社会保険が手薄なフリーランスのための\n医療保険プランを無料相談できます',
+      sub: '傷病手当金のないフリーランスは入院・手術リスクへの備えが特に重要。FPが最適な保障額を無料で試算します。',
+    },
+    'manager:life': {
+      badge: '管理職向け | 無料相談',
+      headline: '高収入管理職の家族を守る\n生命保険プランをFPに無料で相談',
+      sub: '扶養家族の多い管理職は、万が一の際の保障額設計が重要です。収入・資産に合わせた最適な死亡保障を提案します。',
+    },
+    'civil-servant:pension': {
+      badge: '公務員向け | 無料相談',
+      headline: '公務員の共済を活かした上乗せ設計で\n老後資産を最大化する無料相談',
+      sub: '共済と個人年金の最適な組み合わせはFPに相談するのが確実。税制優遇を活かした積み立て方法を無料で提案します。',
+    },
+    'sales:cancer': {
+      badge: 'ストレス職向け | 無料相談',
+      headline: '営業職に多い生活習慣病・がんリスクに\n備える保険プランを無料相談',
+      sub: '高ストレスの営業職はがん・生活習慣病リスクが高め。最適ながん保険の選び方をFPに無料で相談できます。',
+    },
+  }
+  if (specific[key]) return specific[key]
+
+  // カテゴリ×保険種類の汎用コピー
+  const categoryIns: Record<string, Partial<CTACopy>> = {
+    'it:income-protection':   { headline: `IT・エンジニアの就業不能リスクに備える\n${insName}プランをFPに無料で相談` },
+    'medical:medical':        { headline: `医療従事者向けの${insName}プランを\nFPに無料で相談できます` },
+    'construction:income-protection': { headline: `現場職の怪我・病気リスクに対応した\n${insName}プランを無料相談` },
+    'public:pension':         { headline: `公務員の共済を補完する個人年金プランを\nFPに無料で相談できます` },
+  }
+  const catKey = `${occCategory}:${insSlug}`
+  const catCopy = categoryIns[catKey]
+
+  return {
+    badge: 'PR・無料・強引な勧誘なし',
+    headline: catCopy?.headline || `${occName}に最適な${insName}を\nプロに無料で相談する`,
+    sub: `${insName}の相場データを確認した上で、${occName}の職業特性に合ったプランを提案してもらえます。強引な勧誘は一切ありません。`,
+  }
+}
+
 const faqTemplate = (occName: string, insName: string, monthly: string) => [
   {
     q: `${occName}は${insName}に必ず入るべきですか？`,
@@ -117,6 +183,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const reason = getReason(occ.category, ins.slug)
   const faqs = faqTemplate(occ.name_ja, ins.name_ja, est.label)
   const schema = faqSchema(faqs)
+  const cta = getCTACopy(occ.slug, occ.name_ja, occ.category, ins.slug, ins.name_ja)
 
   const isFixedRange = Array.isArray([est.man, est.woman]) && ins.slug === 'auto' || ins.slug === 'fire'
 
@@ -229,13 +296,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
       {/* CTA */}
       <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
-        <p className="text-[#f59e0b] text-sm font-semibold mb-2">PR・無料・強引な勧誘なし</p>
-        <h2 className="text-xl font-bold mb-2">
-          {occ.name_ja}に最適な{ins.name_ja}を<br />プロに無料で相談する
-        </h2>
-        <p className="text-gray-400 text-sm mb-6">
-          相場データを確認した上で、あなたに合った保険を提案してもらえます
-        </p>
+        <p className="text-[#f59e0b] text-sm font-semibold mb-2">{cta.badge}</p>
+        <h2 className="text-xl font-bold mb-3 whitespace-pre-line">{cta.headline}</h2>
+        <p className="text-gray-400 text-sm mb-6 max-w-xl mx-auto leading-relaxed">{cta.sub}</p>
         <Link
           href="/consult"
           className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-3"

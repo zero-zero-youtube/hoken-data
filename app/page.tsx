@@ -218,6 +218,69 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* データで見る保険市場 */}
+      <section className="py-16 px-4 bg-[#f8fafc]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-[#0f172a] mb-3">
+            データで見る保険市場
+          </h2>
+          <p className="text-center text-gray-500 text-sm mb-10">政府統計データから読み解く、知っておくべき3つのポイント</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* インサイト1：最高年収職業 */}
+            {(() => {
+              const topOcc = [...occupations].sort((a, b) => ((b.avg_income_man || 0) - (a.avg_income_man || 0)))[0]
+              return (
+                <div className="bg-white rounded-2xl p-6 border-2 border-[#f59e0b] relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-[#f59e0b]/10 rounded-bl-full" />
+                  <div className="text-[#f59e0b] text-2xl mb-3">👑</div>
+                  <p className="text-xs font-bold text-[#f59e0b] uppercase tracking-wide mb-1">最も保険料が高い職業</p>
+                  <h3 className="text-lg font-bold text-[#0f172a] mb-2">
+                    {topOcc ? topOcc.name_ja : '医師・弁護士'}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                    {topOcc ? `平均年収${topOcc.avg_income_man}万円（男性）。` : ''}
+                    高収入職業ほど保険料も高くなる傾向があります。収入に見合った保障額の設計が特に重要です。
+                  </p>
+                  {topOcc && (
+                    <Link href={`/occupation/${topOcc.slug}`} className="text-xs text-[#f59e0b] font-bold hover:underline">
+                      {topOcc.name_ja}の保険料を見る →
+                    </Link>
+                  )}
+                </div>
+              )
+            })()}
+
+            {/* インサイト2：フリーランス */}
+            <div className="bg-white rounded-2xl p-6 border-2 border-[#2563eb] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#2563eb]/10 rounded-bl-full" />
+              <div className="text-[#2563eb] text-2xl mb-3">⚠️</div>
+              <p className="text-xs font-bold text-[#2563eb] uppercase tracking-wide mb-1">フリーランスが最も注意すべき保険</p>
+              <h3 className="text-lg font-bold text-[#0f172a] mb-2">就業不能・収入保障保険</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                フリーランスには傷病手当金がありません。病気・怪我で働けなくなると収入が即ゼロに。収入保障保険は必須の備えです。
+              </p>
+              <Link href="/occupation/freelance-engineer/income-protection" className="text-xs text-[#2563eb] font-bold hover:underline">
+                フリーランスの収入保障相場を見る →
+              </Link>
+            </div>
+
+            {/* インサイト3：30代 */}
+            <div className="bg-white rounded-2xl p-6 border-2 border-[#10b981] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#10b981]/10 rounded-bl-full" />
+              <div className="text-[#10b981] text-2xl mb-3">📅</div>
+              <p className="text-xs font-bold text-[#10b981] uppercase tracking-wide mb-1">30代が最も加入すべき保険</p>
+              <h3 className="text-lg font-bold text-[#0f172a] mb-2">医療保険＋収入保障の組み合わせ</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                結婚・出産・住宅購入が重なる30代はリスクが最大化。医療保険と収入保障保険の2本柱で働き盛りを守りましょう。
+              </p>
+              <Link href="/age/30dai/income-protection" className="text-xs text-[#10b981] font-bold hover:underline">
+                30代の収入保障相場を見る →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 職業一覧 */}
       <section id="occupations" className="py-16 px-4 bg-[#f8fafc]">
         <div className="max-w-6xl mx-auto">
