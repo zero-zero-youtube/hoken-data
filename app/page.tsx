@@ -126,12 +126,14 @@ export default async function Home() {
             <Link
               href="/simulator"
               className="bg-[#2563eb] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-700 transition-colors"
+              aria-label="無料で保険料診断ツールを使う"
             >
               無料で保険料診断する →
             </Link>
             <Link
               href="/consult"
               className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition-colors"
+              aria-label="ファイナンシャルプランナーに無料で保険相談する"
             >
               無料で保険相談する →
             </Link>

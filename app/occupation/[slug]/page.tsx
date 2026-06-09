@@ -11,6 +11,7 @@ import {
   getOccupationInsuranceNeeds,
 } from '@/lib/data'
 import Disclaimer from '@/components/Disclaimer'
+import { getOccupationInsight } from '@/lib/occupationInsights'
 
 type RiskItem = { label: string; detail: string; severity: 'high' | 'medium' }
 
@@ -135,6 +136,7 @@ export default async function OccupationPage({ params }: Props) {
   const needs = getOccupationInsuranceNeeds(occ.category)
   const risks = getOccupationRisks(occ.slug, occ.category)
   const sameCategory = allOccupations.filter(o => o.category === occ.category && o.slug !== occ.slug)
+  const insight = getOccupationInsight(occ.slug)
 
   const faqItems = [
     {
@@ -303,6 +305,47 @@ export default async function OccupationPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* この職業の保険選びのポイント */}
+      {insight && (
+        <section className="py-10 px-4 bg-white border-b">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl font-bold text-[#0f172a] mb-6">
+              {occ.name_ja}の保険選びのポイント
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* 推奨保障額 */}
+              <div className="bg-blue-50 rounded-xl p-5 border border-blue-100">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-2 flex items-center gap-2">
+                  <span className="text-[#2563eb]">🎯</span> 推奨保障額の目安
+                </h3>
+                <p className="text-sm text-gray-700 leading-relaxed">{insight.recommendedCoverage}</p>
+              </div>
+              {/* 税制優遇 */}
+              <div className="bg-green-50 rounded-xl p-5 border border-green-100">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-2 flex items-center gap-2">
+                  <span className="text-green-600">💡</span> 活用できる税制優遇
+                </h3>
+                <p className="text-sm text-gray-700 leading-relaxed">{insight.taxBenefit}</p>
+              </div>
+              {/* よくある間違い */}
+              <div className="bg-red-50 rounded-xl p-5 border border-red-100 md:col-span-2">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-3 flex items-center gap-2">
+                  <span className="text-red-500">⚠️</span> よくある間違い
+                </h3>
+                <ul className="space-y-2">
+                  {insight.commonMistakes.map((mistake, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-red-500 flex-shrink-0 font-bold mt-0.5">×</span>
+                      <span>{mistake}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 同じカテゴリの職業 */}
       {sameCategory.length > 0 && (

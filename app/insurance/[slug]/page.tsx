@@ -11,6 +11,7 @@ import {
   getInsuranceDescription,
 } from '@/lib/data'
 import Disclaimer from '@/components/Disclaimer'
+import { getInsuranceDetail } from '@/lib/insuranceDetails'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -60,6 +61,7 @@ export default async function InsurancePage({ params }: Props) {
 
   const description = ins.description || getInsuranceDescription(ins.slug)
   const recommend = RECOMMEND[ins.slug] || {}
+  const detail = getInsuranceDetail(ins.slug)
 
   const faqItems = [
     {
@@ -123,7 +125,62 @@ export default async function InsurancePage({ params }: Props) {
       <section className="py-10 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-[#0f172a] mb-4">{ins.name_ja}とは</h2>
-          <p className="text-gray-700 leading-relaxed">{description}</p>
+          <p className="text-gray-700 leading-relaxed mb-6">{detail?.mechanism || description}</p>
+          {detail && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* こんな人に必要 */}
+              <div className="bg-blue-50 rounded-xl p-5 border border-blue-100">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-3 flex items-center gap-2">
+                  <span className="text-[#2563eb]">✓</span> こんな人に必要
+                </h3>
+                <ul className="space-y-2">
+                  {detail.whoNeeds.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-[#2563eb] flex-shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* 不要な場合 */}
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-3 flex items-center gap-2">
+                  <span className="text-gray-500">△</span> 不要な場合もある
+                </h3>
+                <ul className="space-y-2">
+                  {detail.whoDoesntNeed.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                      <span className="text-gray-400 flex-shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* 相場・税制 */}
+              <div className="bg-yellow-50 rounded-xl p-5 border border-yellow-100">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-2">💰 保険料の相場</h3>
+                <p className="text-sm text-gray-700">{detail.averagePremium}</p>
+              </div>
+              <div className="bg-green-50 rounded-xl p-5 border border-green-100">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-2">💡 税制上の扱い</h3>
+                <p className="text-sm text-gray-700">{detail.taxTreatment}</p>
+              </div>
+              {/* 注意点 */}
+              <div className="bg-red-50 rounded-xl p-5 border border-red-100 md:col-span-2">
+                <h3 className="font-bold text-[#0f172a] text-sm mb-3 flex items-center gap-2">
+                  <span className="text-red-500">⚠️</span> 加入前に確認すべき注意点
+                </h3>
+                <ul className="space-y-2">
+                  {detail.cautions.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-red-500 flex-shrink-0 font-bold">!</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

@@ -132,8 +132,9 @@ function getRecommendations(answers: Answers): RecommendedInsurance[] {
 function buildShareText(answers: Answers, recs: RecommendedInsurance[]): string {
   const occ = answers.occupation?.name_ja ?? ''
   const top = recs[0]
+  if (!top) return encodeURIComponent('保険データドットコムで保険料を無料診断しました。')
   return encodeURIComponent(
-    `【保険料診断結果】${occ}・${answers.age}歳の推奨1位は「${top?.name}」（月額約${top?.monthlyEst.toLocaleString()}円）\n保険データドットコムで無料診断できます。`
+    `私の保険料診断結果：${occ}の場合、${top.name}の推定月額は約${top.monthlyEst.toLocaleString()}円でした。\nあなたも調べてみて👇\nhttps://hoken-data.com/simulator\n#保険料診断 #保険データドットコム`
   )
 }
 
@@ -243,8 +244,10 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             <h2 className="text-xl font-bold text-[#0f172a] mb-2">あなたの職業は？</h2>
             <p className="text-sm text-gray-500 mb-5">最も近い職業を選んでください</p>
             <div className="relative mb-4">
+              <label htmlFor="occ-search" className="sr-only">職業名で検索</label>
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
               <input
+                id="occ-search"
                 type="text"
                 placeholder="職業名で検索（例：エンジニア、看護師）"
                 value={occSearch}
@@ -290,12 +293,15 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
               <span className="text-8xl font-bold text-[#2563eb] tabular-nums">{answers.age}</span>
               <span className="text-3xl text-gray-400 ml-2">歳</span>
             </div>
+            <label htmlFor="age-slider" className="sr-only">年齢を選択（20〜70歳）</label>
             <input
+              id="age-slider"
               type="range"
               min={20}
               max={70}
               value={answers.age}
               onChange={e => setAnswers(a => ({ ...a, age: parseInt(e.target.value) }))}
+              aria-label={`年齢: ${answers.age}歳`}
               className="w-full accent-[#2563eb] mb-2"
             />
             <div className="flex justify-between text-xs text-gray-400">
@@ -448,9 +454,41 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
               })}
             </div>
 
+            {/* 次のステップ */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-5 mb-4">
+              <h3 className="font-bold text-[#0f172a] text-sm mb-4">次のステップ</h3>
+              <div className="space-y-3">
+                {recommendations[0] && (
+                  <Link
+                    href={`/occupation/${recommendations[0].occupationSlug}/${recommendations[0].slug}`}
+                    className="flex items-center justify-between bg-blue-50 rounded-xl px-4 py-3 hover:bg-blue-100 transition-colors"
+                    aria-label={`${recommendations[0].name}の詳しいデータを見る`}
+                  >
+                    <div>
+                      <p className="text-xs text-gray-500 mb-0.5">1位の詳しいデータを見る</p>
+                      <p className="font-semibold text-[#0f172a] text-sm">{recommendations[0].name}の相場データ</p>
+                    </div>
+                    <span className="text-[#2563eb] text-lg">→</span>
+                  </Link>
+                )}
+                <Link
+                  href="/insurance"
+                  className="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3 hover:bg-gray-100 transition-colors"
+                  aria-label="別の保険種類を調べる"
+                >
+                  <div>
+                    <p className="text-xs text-gray-500 mb-0.5">別の保険種類も調べる</p>
+                    <p className="font-semibold text-[#0f172a] text-sm">全保険種類一覧を見る</p>
+                  </div>
+                  <span className="text-[#2563eb] text-lg">→</span>
+                </Link>
+              </div>
+            </div>
+
             {/* もう一度診断する（目立つ位置） */}
             <button
               onClick={reset}
+              aria-label="もう一度保険料診断をする"
               className="w-full py-4 mb-4 bg-white border-2 border-[#2563eb] text-[#2563eb] rounded-xl font-bold text-base hover:bg-blue-50 transition-colors"
             >
               🔄 もう一度診断する
@@ -459,13 +497,14 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             {/* CTA */}
             <div className="bg-[#0f172a] text-white rounded-2xl p-6 text-center mb-4">
               <p className="text-[#f59e0b] text-xs font-bold mb-2">PR・無料・強引な勧誘なし</p>
-              <h3 className="text-lg font-bold mb-2">診断結果をもとにプロに相談する</h3>
+              <h3 className="text-lg font-bold mb-2">無料でFPに保険相談する</h3>
               <p className="text-gray-400 text-xs mb-5">
                 FP（ファイナンシャルプランナー）が、{answers.occupation?.name_ja}に最適な保険を無料で提案します
               </p>
               <Link
                 href="/consult"
                 className="block bg-[#2563eb] text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-2"
+                aria-label="無料で保険相談を申し込む"
               >
                 無料で保険相談する →
               </Link>
@@ -475,6 +514,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             {/* 回答修正 */}
             <button
               onClick={goBack}
+              aria-label="回答を修正して診断し直す"
               className="w-full py-3 border border-gray-200 rounded-xl text-sm text-gray-500 hover:bg-gray-50 transition-colors"
             >
               ← 回答を修正する
