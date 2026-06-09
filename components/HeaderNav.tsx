@@ -35,10 +35,10 @@ export default function HeaderNav() {
           {/* PC 無料相談ボタン */}
           <div className="hidden md:block">
             <Link
-              href="/consult"
+              href="/simulator"
               className="bg-[#2563eb] text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              無料相談
+              無料診断
             </Link>
           </div>
 

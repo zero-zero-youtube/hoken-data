@@ -136,11 +136,11 @@ export default async function Home() {
               無料で保険料診断する →
             </Link>
             <Link
-              href="/consult"
+              href="/simulator"
               className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition-colors"
-              aria-label="ファイナンシャルプランナーに無料で保険相談する"
+              aria-label="ファイナンシャルプランナーに無料で保険料診断する"
             >
-              無料で保険相談する →
+              無料で保険料診断する →
             </Link>
           </div>
         </div>
@@ -182,15 +182,15 @@ export default async function Home() {
                 icon: '📅',
                 title: '年齢・家族構成別に比較する',
                 desc: '20代独身から50代家族持ちまで、ライフステージ別の保険料目安を政府統計データで比較できます。',
-                href: '/age',
+                href: '/age/30dai/life',
                 cta: '年齢別データを見る →',
               },
               {
                 icon: '💬',
-                title: '無料で保険相談する',
+                title: '無料で保険料診断する',
                 desc: 'データを確認した上で、専門のファイナンシャルプランナーに無料で相談できます。強引な勧誘はありません。',
-                href: '/consult',
-                cta: '無料相談を申し込む →',
+                href: '/simulator',
+                cta: '無料診断を始める →',
               },
             ].map(card => (
               <Link
@@ -222,8 +222,9 @@ export default async function Home() {
             {/* インサイト1：最高年収職業 */}
             {(() => {
               const topOcc = [...occupations].sort((a, b) => ((b.avg_income_man || 0) - (a.avg_income_man || 0)))[0]
+              const href = topOcc ? `/occupation/${topOcc.slug}` : '/occupation/doctor'
               return (
-                <div className="bg-white rounded-2xl p-6 border-2 border-[#f59e0b] relative overflow-hidden">
+                <Link href={href} className="bg-white rounded-2xl p-6 border-2 border-[#f59e0b] relative overflow-hidden cursor-pointer hover:shadow-md transition-all block">
                   <div className="absolute top-0 right-0 w-20 h-20 bg-[#f59e0b]/10 rounded-bl-full" />
                   <div className="text-[#f59e0b] text-2xl mb-3">👑</div>
                   <p className="text-xs font-bold text-[#f59e0b] uppercase tracking-wide mb-1">最も保険料が高い職業</p>
@@ -234,17 +235,15 @@ export default async function Home() {
                     {topOcc ? `平均年収${topOcc.avg_income_man}万円（男性）。` : ''}
                     高収入職業ほど保険料も高くなる傾向があります。収入に見合った保障額の設計が特に重要です。
                   </p>
-                  {topOcc && (
-                    <Link href={`/occupation/${topOcc.slug}`} className="text-xs text-[#f59e0b] font-bold hover:underline">
-                      {topOcc.name_ja}の保険料を見る →
-                    </Link>
-                  )}
-                </div>
+                  <span className="text-xs text-[#f59e0b] font-bold hover:underline">
+                    {topOcc ? topOcc.name_ja : '医師'}の保険料を見る →
+                  </span>
+                </Link>
               )
             })()}
 
             {/* インサイト2：フリーランス */}
-            <div className="bg-white rounded-2xl p-6 border-2 border-[#2563eb] relative overflow-hidden">
+            <Link href="/occupation/freelance-engineer/income-protection" className="bg-white rounded-2xl p-6 border-2 border-[#2563eb] relative overflow-hidden cursor-pointer hover:shadow-md transition-all block">
               <div className="absolute top-0 right-0 w-20 h-20 bg-[#2563eb]/10 rounded-bl-full" />
               <div className="text-[#2563eb] text-2xl mb-3">⚠️</div>
               <p className="text-xs font-bold text-[#2563eb] uppercase tracking-wide mb-1">フリーランスが最も注意すべき保険</p>
@@ -252,13 +251,13 @@ export default async function Home() {
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
                 フリーランスには傷病手当金がありません。病気・怪我で働けなくなると収入が即ゼロに。収入保障保険は必須の備えです。
               </p>
-              <Link href="/occupation/freelance-engineer/income-protection" className="text-xs text-[#2563eb] font-bold hover:underline">
+              <span className="text-xs text-[#2563eb] font-bold hover:underline">
                 フリーランスの収入保障相場を見る →
-              </Link>
-            </div>
+              </span>
+            </Link>
 
             {/* インサイト3：30代 */}
-            <div className="bg-white rounded-2xl p-6 border-2 border-[#10b981] relative overflow-hidden">
+            <Link href="/age/30dai/life" className="bg-white rounded-2xl p-6 border-2 border-[#10b981] relative overflow-hidden cursor-pointer hover:shadow-md transition-all block">
               <div className="absolute top-0 right-0 w-20 h-20 bg-[#10b981]/10 rounded-bl-full" />
               <div className="text-[#10b981] text-2xl mb-3">📅</div>
               <p className="text-xs font-bold text-[#10b981] uppercase tracking-wide mb-1">30代が最も加入すべき保険</p>
@@ -266,10 +265,10 @@ export default async function Home() {
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
                 結婚・出産・住宅購入が重なる30代はリスクが最大化。医療保険と収入保障保険の2本柱で働き盛りを守りましょう。
               </p>
-              <Link href="/age/30dai/income-protection" className="text-xs text-[#10b981] font-bold hover:underline">
-                30代の収入保障相場を見る →
-              </Link>
-            </div>
+              <span className="text-xs text-[#10b981] font-bold hover:underline">
+                30代の生命保険相場を見る →
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -376,40 +375,39 @@ export default async function Home() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { occ: 'engineer',          occName: 'システムエンジニア',       ins: 'medical',           insName: '医療保険',     income: 558,  rate: 0.005, grad: 'from-blue-600 to-blue-400' },
-              { occ: 'nurse',             occName: '看護師',                   ins: 'income-protection', insName: '就業不能保険', income: 574,  rate: 0.008, grad: 'from-emerald-600 to-emerald-400' },
-              { occ: 'freelance-engineer',occName: 'フリーランスエンジニア',   ins: 'income-protection', insName: '収入保障保険', income: 550,  rate: 0.008, grad: 'from-blue-600 to-blue-400' },
-              { occ: 'manager',           occName: '会社管理職',               ins: 'life',              insName: '生命保険',     income: 885,  rate: 0.01,  grad: 'from-orange-500 to-orange-300' },
-              { occ: 'sales',             occName: '営業職',                   ins: 'cancer',            insName: 'がん保険',     income: 620,  rate: 0.004, grad: 'from-orange-500 to-orange-300' },
-              { occ: 'civil-servant',     occName: '地方公務員',               ins: 'pension',           insName: '個人年金',     income: 885,  rate: 0.02,  grad: 'from-violet-600 to-violet-400' },
+              { occ: 'engineer',          occName: 'システムエンジニア',     ins: 'medical',           insName: '医療保険',     income: 558,  rate: 0.005, color: '#2563eb', colorLight: '#eff6ff' },
+              { occ: 'nurse',             occName: '看護師',                 ins: 'income-protection', insName: '就業不能保険', income: 574,  rate: 0.008, color: '#059669', colorLight: '#ecfdf5' },
+              { occ: 'freelance-engineer',occName: 'フリーランスエンジニア', ins: 'income-protection', insName: '収入保障保険', income: 550,  rate: 0.008, color: '#2563eb', colorLight: '#eff6ff' },
+              { occ: 'manager',           occName: '会社管理職',             ins: 'life',              insName: '生命保険',     income: 885,  rate: 0.01,  color: '#ea580c', colorLight: '#fff7ed' },
+              { occ: 'sales',             occName: '営業職',                 ins: 'cancer',            insName: 'がん保険',     income: 620,  rate: 0.004, color: '#d97706', colorLight: '#fffbeb' },
+              { occ: 'civil-servant',     occName: '地方公務員',             ins: 'pension',           insName: '個人年金',     income: 885,  rate: 0.02,  color: '#7c3aed', colorLight: '#f5f3ff' },
             ].map(item => {
               const monthly = Math.round(item.income * 10000 * item.rate / 12)
               return (
-                <Link
+                <a
                   key={`${item.occ}-${item.ins}`}
                   href={`/occupation/${item.occ}/${item.ins}`}
-                  className="group block bg-white rounded-2xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all overflow-hidden"
+                  className="group block bg-white rounded-2xl p-5 border-2 hover:shadow-md transition-all cursor-pointer"
+                  style={{ borderColor: item.color }}
                 >
-                  <div className={`h-1.5 bg-gradient-to-r ${item.grad}`} />
-                  <div className="p-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium">{item.occName}</span>
-                      <span className="text-gray-400 text-xs">×</span>
-                      <span className="text-xs bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full font-medium">{item.insName}</span>
-                    </div>
-                    <div className="mb-1">
-                      <span className="text-xs text-gray-500">推定月額保険料（参考値）</span>
-                    </div>
-                    <div className="flex items-baseline gap-1 mb-4">
-                      <span className="text-3xl font-bold text-gray-900">{monthly.toLocaleString()}</span>
-                      <span className="text-sm text-gray-500">円/月</span>
-                    </div>
-                    <div className="flex items-center text-blue-600 text-sm font-medium gap-1 group-hover:gap-2 transition-all">
-                      詳細を見る
-                      <span>→</span>
-                    </div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xs px-2 py-0.5 rounded-full font-medium text-white" style={{ backgroundColor: item.color }}>
+                      {item.occName}
+                    </span>
+                    <span className="text-gray-400 text-xs">×</span>
+                    <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: item.colorLight, color: item.color }}>
+                      {item.insName}
+                    </span>
                   </div>
-                </Link>
+                  <div className="text-xs text-gray-500 mb-1">推定月額保険料（参考値）</div>
+                  <div className="flex items-baseline gap-1 mb-4">
+                    <span className="text-3xl font-bold" style={{ color: item.color }}>{monthly.toLocaleString()}</span>
+                    <span className="text-sm text-gray-500">円/月</span>
+                  </div>
+                  <div className="text-sm font-semibold" style={{ color: item.color }}>
+                    詳細を見る →
+                  </div>
+                </a>
               )
             })}
           </div>
