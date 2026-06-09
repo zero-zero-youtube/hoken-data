@@ -7,37 +7,6 @@ export const metadata: Metadata = {
   description: '職業・年齢・家族構成から適正な保険料の目安を調べられる無料データベース。政府統計に基づく客観的な保険料相場情報を提供。',
 }
 
-// カテゴリ日本語マッピング
-const CATEGORY_LABELS: Record<string, string> = {
-  it:           'IT・エンジニア',
-  medical:      '医療・介護',
-  public:       '公務員・教育',
-  office:       'オフィス系',
-  transport:    '運輸・物流',
-  construction: '建設・土木',
-  food:         '飲食・調理',
-  beauty:       '美容・理容',
-  professional: '専門職',
-  creative:     'クリエイティブ',
-  manufacturing:'製造業',
-  parttime:     'パート・アルバイト',
-}
-
-// カテゴリカラー
-const CATEGORY_COLORS: Record<string, string> = {
-  it:           'bg-blue-100 text-blue-700',
-  medical:      'bg-red-100 text-red-700',
-  public:       'bg-green-100 text-green-700',
-  office:       'bg-gray-100 text-gray-700',
-  transport:    'bg-orange-100 text-orange-700',
-  construction: 'bg-yellow-100 text-yellow-700',
-  food:         'bg-pink-100 text-pink-700',
-  beauty:       'bg-purple-100 text-purple-700',
-  professional: 'bg-indigo-100 text-indigo-700',
-  creative:     'bg-fuchsia-100 text-fuchsia-700',
-  manufacturing:'bg-teal-100 text-teal-700',
-  parttime:     'bg-slate-100 text-slate-700',
-}
 
 type Occupation = {
   id: number
@@ -122,13 +91,6 @@ const organizationSchema = {
 
 export default async function Home() {
   const occupations = await getOccupations()
-
-  // カテゴリ別グループ化
-  const grouped = occupations.reduce<Record<string, Occupation[]>>((acc, occ) => {
-    if (!acc[occ.category]) acc[occ.category] = []
-    acc[occ.category].push(occ)
-    return acc
-  }, {})
 
   return (
     <>
@@ -302,71 +264,41 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 職業一覧 */}
+      {/* 職業から調べる */}
       <section id="occupations" className="py-16 px-4 bg-[#f8fafc]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-[#0f172a] mb-3">
-            職業別・保険料相場データ
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-[#0f172a] mb-3">
+            20の職業から保険料を調べる
           </h2>
-          <p className="text-center text-gray-500 text-sm mb-10">
-            職業を選んで、あなたに合った保険料の目安を確認しましょう
+          <p className="text-gray-500 text-sm mb-8">
+            IT・医療・公務員・建設業など、あなたの職業カテゴリから確認できます
           </p>
-
-          {occupations.length === 0 ? (
-            <div className="text-center py-12 text-gray-400">
-              <p className="text-4xl mb-4">📋</p>
-              <p>データを準備中です。しばらくお待ちください。</p>
-            </div>
-          ) : (
-            <div className="space-y-10">
-              {Object.entries(grouped).map(([category, occs]) => (
-                <div key={category}>
-                  <h3 className="text-lg font-bold text-[#0f172a] mb-4 flex items-center gap-2">
-                    <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${CATEGORY_COLORS[category] || 'bg-gray-100 text-gray-700'}`}>
-                      {CATEGORY_LABELS[category] || category}
-                    </span>
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {occs.map(occ => (
-                      <Link
-                        key={occ.id}
-                        href={`/occupation/${occ.slug}`}
-                        className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all"
-                      >
-                        <div className="flex items-start justify-between mb-3">
-                          <span className={`text-xs px-2 py-0.5 rounded-full ${CATEGORY_COLORS[occ.category] || 'bg-gray-100 text-gray-700'}`}>
-                            {CATEGORY_LABELS[occ.category] || occ.category}
-                          </span>
-                        </div>
-                        <h4 className="font-bold text-[#0f172a] text-sm leading-snug mb-3">
-                          {occ.name_ja}
-                        </h4>
-                        {(occ.avg_income_man || occ.avg_income_woman) && (
-                          <div className="text-xs text-gray-500 space-y-1 mb-3">
-                            {occ.avg_income_man && (
-                              <div className="flex justify-between">
-                                <span>男性平均年収</span>
-                                <span className="font-semibold text-[#0f172a]">{occ.avg_income_man}万円</span>
-                              </div>
-                            )}
-                            {occ.avg_income_woman && (
-                              <div className="flex justify-between">
-                                <span>女性平均年収</span>
-                                <span className="font-semibold text-[#0f172a]">{occ.avg_income_woman}万円</span>
-                              </div>
-                            )}
-                          </div>
-                        )}
-                        <span className="text-[#2563eb] text-xs font-semibold group-hover:underline">
-                          保険料を調べる →
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {[
+              { label: 'IT・エンジニア',     color: 'bg-blue-100 text-blue-700 hover:bg-blue-200' },
+              { label: '医療・介護',         color: 'bg-red-100 text-red-700 hover:bg-red-200' },
+              { label: '公務員・教育',       color: 'bg-green-100 text-green-700 hover:bg-green-200' },
+              { label: 'オフィス・営業',     color: 'bg-gray-100 text-gray-700 hover:bg-gray-200' },
+              { label: '建設・製造・運輸',   color: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200' },
+              { label: '飲食・美容',         color: 'bg-pink-100 text-pink-700 hover:bg-pink-200' },
+              { label: 'フリーランス',       color: 'bg-purple-100 text-purple-700 hover:bg-purple-200' },
+              { label: 'パート・アルバイト', color: 'bg-slate-100 text-slate-700 hover:bg-slate-200' },
+            ].map(tag => (
+              <Link
+                key={tag.label}
+                href="/occupation"
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${tag.color}`}
+              >
+                {tag.label}
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/occupation"
+            className="inline-block bg-[#2563eb] text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
+          >
+            全職業を見る →
+          </Link>
         </div>
       </section>
 
