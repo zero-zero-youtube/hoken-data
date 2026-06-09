@@ -326,6 +326,51 @@ export default async function OccupationPage({ params }: Props) {
         </section>
       )}
 
+      {/* 都道府県別データへのリンク */}
+      <section className="py-10 px-4 bg-[#f8fafc]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-lg font-bold text-[#0f172a] mb-4">
+            {occ.name_ja}の都道府県別保険料データ
+          </h2>
+          <p className="text-xs text-gray-500 mb-4">地域によって平均年収・保険料の目安が異なります</p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { slug: 'tokyo',    name: '東京都' },
+              { slug: 'osaka',    name: '大阪府' },
+              { slug: 'aichi',    name: '愛知県' },
+              { slug: 'kanagawa', name: '神奈川県' },
+              { slug: 'fukuoka',  name: '福岡県' },
+            ].map(pref => (
+              <Link
+                key={pref.slug}
+                href={`/prefecture/${pref.slug}/${occ.slug}`}
+                className="text-sm bg-white border border-gray-200 hover:border-[#2563eb] text-[#2563eb] px-4 py-2 rounded-lg font-medium transition-all"
+              >
+                {pref.name}の{occ.name_ja} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 関連ガイド */}
+      <section className="py-10 px-4 bg-white border-b">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-lg font-bold text-[#0f172a] mb-4">保険の選び方ガイド</h2>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/guide" className="text-sm bg-[#f8fafc] border border-gray-200 hover:border-[#2563eb] text-[#2563eb] px-4 py-2 rounded-lg font-medium transition-all">
+              保険の選び方ガイド →
+            </Link>
+            <Link href="/guide/medical-insurance" className="text-sm bg-[#f8fafc] border border-gray-200 hover:border-[#2563eb] text-[#2563eb] px-4 py-2 rounded-lg font-medium transition-all">
+              医療保険の選び方 →
+            </Link>
+            <Link href="/guide/insurance-by-occupation" className="text-sm bg-[#f8fafc] border border-gray-200 hover:border-[#2563eb] text-[#2563eb] px-4 py-2 rounded-lg font-medium transition-all">
+              職業別の保険選び方 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-10 px-4 bg-white">
         <div className="max-w-4xl mx-auto">

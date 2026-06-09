@@ -204,6 +204,57 @@ export default async function InsurancePage({ params }: Props) {
         </div>
       </section>
 
+      {/* 関連職業ページ */}
+      <section className="py-10 px-4 bg-white border-b">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-lg font-bold text-[#0f172a] mb-4">
+            職業別の{ins.name_ja}相場を調べる
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { slug: 'engineer',           name: 'システムエンジニア' },
+              { slug: 'nurse',              name: '看護師' },
+              { slug: 'freelance-engineer', name: 'フリーランスエンジニア' },
+              { slug: 'civil-servant',      name: '地方公務員' },
+              { slug: 'construction',       name: '建設業・現場作業員' },
+            ].map(occ => (
+              <Link
+                key={occ.slug}
+                href={`/occupation/${occ.slug}/${ins.slug}`}
+                className="text-sm bg-[#f8fafc] border border-gray-200 hover:border-[#2563eb] text-[#2563eb] px-4 py-2 rounded-lg font-medium transition-all"
+              >
+                {occ.name}の{ins.name_ja} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 年齢別データへのリンク */}
+      <section className="py-10 px-4 bg-[#f8fafc]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-lg font-bold text-[#0f172a] mb-4">
+            年齢別の{ins.name_ja}相場を調べる
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { slug: '20dai', label: '20代' },
+              { slug: '30dai', label: '30代' },
+              { slug: '40dai', label: '40代' },
+              { slug: '50dai', label: '50代' },
+            ].map(age => (
+              <Link
+                key={age.slug}
+                href={`/age/${age.slug}/${ins.slug}`}
+                className="text-sm bg-white border border-gray-200 hover:border-[#2563eb] text-[#2563eb] px-4 py-2 rounded-lg font-medium transition-all"
+              >
+                {age.label}の{ins.name_ja} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
         <div className="max-w-2xl mx-auto">

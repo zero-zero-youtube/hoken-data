@@ -35,9 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     getInsuranceTypeBySlug(insurance),
   ])
   if (!occ || !ins) return {}
+  const est = estimateMonthlyPremium(ins.slug, occ.avg_income_man, occ.avg_income_woman)
+  const monthlyStr = est.man ? `${est.man.toLocaleString()}円` : est.label
   return {
-    title: `${occ.name_ja}の${ins.name_ja}相場【2023年版】月額推定と選び方`,
-    description: `${occ.name_ja}（平均年収${occ.avg_income_man || '-'}万円）に合った${ins.name_ja}の月額相場・選び方を解説。政府統計データに基づく推計値を無料公開。`,
+    title: `${occ.name_ja}の${ins.name_ja}相場【2025年版】推定月額${monthlyStr}｜保険データドットコム`,
+    description: `${occ.name_ja}の${ins.name_ja}の推定月額保険料は約${monthlyStr}。年収別・年齢別の保険料目安と、${occ.name_ja}特有のリスクへの備え方を政府統計データで解説。無料の保険料診断も。`,
   }
 }
 

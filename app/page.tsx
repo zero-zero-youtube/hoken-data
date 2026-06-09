@@ -302,6 +302,76 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ライフステージから調べる */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-[#0f172a] mb-3">
+            ライフステージから保険を調べる
+          </h2>
+          <p className="text-center text-gray-500 text-sm mb-10">年代ごとに変わる保険ニーズ。今の自分に合った備えを確認しましょう</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                age: '20代',
+                badge: '社会人スタート期',
+                title: '社会人になったら最初に考える保険',
+                recs: '医療保険・収入保障保険',
+                href: '/age/20dai/medical',
+                color: 'border-[#2563eb]',
+                badgeBg: 'bg-blue-100 text-blue-700',
+                icon: '🌱',
+              },
+              {
+                age: '30代',
+                badge: '結婚・子育て期',
+                title: '結婚・出産・住宅購入で見直す保険',
+                recs: '生命保険・医療保険',
+                href: '/age/30dai/life',
+                color: 'border-[#10b981]',
+                badgeBg: 'bg-green-100 text-green-700',
+                icon: '👨‍👩‍👧',
+              },
+              {
+                age: '40代',
+                badge: '収入ピーク・健康管理期',
+                title: 'がんリスクが高まる40代の保険',
+                recs: 'がん保険・就業不能保険',
+                href: '/age/40dai/cancer',
+                color: 'border-[#f59e0b]',
+                badgeBg: 'bg-yellow-100 text-yellow-800',
+                icon: '⚕️',
+              },
+              {
+                age: '50代',
+                badge: '老後準備期',
+                title: '老後に備える50代の保険',
+                recs: '個人年金・終身保険',
+                href: '/age/50dai/pension',
+                color: 'border-purple-400',
+                badgeBg: 'bg-purple-100 text-purple-700',
+                icon: '🏦',
+              },
+            ].map(item => (
+              <Link
+                key={item.age}
+                href={item.href}
+                className={`group bg-white rounded-xl p-5 border-2 ${item.color} hover:shadow-md transition-all flex flex-col`}
+              >
+                <div className="text-3xl mb-3">{item.icon}</div>
+                <span className={`self-start text-xs px-2 py-0.5 rounded-full font-semibold mb-2 ${item.badgeBg}`}>
+                  {item.age}・{item.badge}
+                </span>
+                <h3 className="font-bold text-[#0f172a] text-sm leading-snug mb-2">{item.title}</h3>
+                <p className="text-xs text-gray-500 mb-4">推奨：{item.recs}</p>
+                <span className="mt-auto text-[#2563eb] text-xs font-semibold group-hover:underline">
+                  保険料を調べる →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* よく見られている組み合わせ */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
