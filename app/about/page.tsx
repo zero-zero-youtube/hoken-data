@@ -15,6 +15,94 @@ const breadcrumbSchema = {
   ],
 }
 
+const rules = [
+  {
+    icon: '✅',
+    title: '特定商品の推薦・ランキングを行わない',
+    desc: '本サイトは「おすすめ」「ランキング」など主観的な評価を一切掲載しません。表示順は保険料の低い順・保険種類のアルファベット順など客観的基準のみです。',
+  },
+  {
+    icon: '✅',
+    title: '一次統計データのみを使用',
+    desc: '政府・公的研究機関が公開する一次統計データのみを情報源とし、民間調査や口コミ情報は使用しません。',
+  },
+  {
+    icon: '✅',
+    title: '保険募集行為を行わない',
+    desc: '本サイトは保険募集の許可を受けておらず、保険商品の販売・勧誘・申込受付を行いません。加入手続きは各保険会社または代理店で行ってください。',
+  },
+  {
+    icon: '✅',
+    title: 'アフィリエイト広告の完全開示',
+    desc: '本サイトはアフィリエイト広告を含み、紹介料を収益源の一部としています。ただし広告収益は掲載情報の中立性に一切影響しません。',
+  },
+  {
+    icon: '✅',
+    title: '参考値であることの明示',
+    desc: '全ての保険料は推計参考値であり、実際の保険料は年齢・健康状態・保険会社により大きく異なることを全ページで明示しています。',
+  },
+]
+
+const history = [
+  {
+    date: '2026年6月9日',
+    title: 'サイト公開',
+    desc: '20職業×10保険種類・484ページのデータベースを公開。厚生労働省 賃金構造基本統計調査2023年版データを使用。',
+    future: false,
+  },
+  {
+    date: '2026年6月9日',
+    title: '保険料シミュレーター追加',
+    desc: '職業・年齢・性別・家族構成から推奨保険TOP3を3STEPで診断するツールを追加。',
+    future: false,
+  },
+  {
+    date: '2026年6月9日',
+    title: '職業別リスクデータ追加',
+    desc: '厚生労働省の労働災害統計・過労死等防止対策白書等から18職業の職業リスクデータを追加。',
+    future: false,
+  },
+  {
+    date: '2026年6月（予定）',
+    title: 'アフィリエイト提携開始',
+    desc: 'ほけんの縁結び（レントラックス）・保険クリニック（A8.net）等との提携申請予定。',
+    future: true,
+  },
+  {
+    date: '2026年秋（予定）',
+    title: '都道府県データ拡充',
+    desc: '現在10都道府県のデータを全47都道府県に拡充予定。',
+    future: true,
+  },
+]
+
+const calcSteps = [
+  {
+    step: 1,
+    icon: '🏛️',
+    title: 'データ取得',
+    desc: '厚生労働省「賃金構造基本統計調査」（e-Stat）から職業別・男女別の平均年収を取得',
+  },
+  {
+    step: 2,
+    icon: '📊',
+    title: '年収データの整形',
+    desc: '各職業の男性・女性別の平均年収（万円単位）を確認。数値がない場合は業界平均を代用',
+  },
+  {
+    step: 3,
+    icon: '✖️',
+    title: '保険種類別係数を適用',
+    desc: '「年収 × 10,000 × 係数 ÷ 12」で月額を算出。係数は業界平均の保険料率を参考に設定',
+  },
+  {
+    step: 4,
+    icon: '💴',
+    title: '推定月額保険料を表示',
+    desc: '算出した月額を「推計参考値」として表示。職業の実際のリスクや保障ニーズは別途掲載',
+  },
+]
+
 export default function AboutPage() {
   return (
     <>
@@ -149,13 +237,48 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
             データの計算方法
           </h2>
-          <div className="bg-white border border-gray-100 rounded-xl p-6 space-y-5">
+          <div className="bg-white border border-gray-100 rounded-xl p-6 space-y-8">
+
+            {/* 計算フロー（縦並び矢印付き） */}
+            <div>
+              <h3 className="font-bold text-[#0f172a] mb-5 text-sm">計算フロー</h3>
+              <div className="flex flex-col items-stretch gap-0">
+                {calcSteps.map((s, i) => (
+                  <div key={s.step} className="flex flex-col items-center">
+                    {/* ステップカード */}
+                    <div className="w-full bg-[#f8fafc] border border-gray-200 rounded-xl p-4 flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        {s.step}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-lg">{s.icon}</span>
+                          <span className="font-semibold text-[#0f172a] text-sm">{s.title}</span>
+                        </div>
+                        <p className="text-xs text-gray-600 leading-relaxed">{s.desc}</p>
+                      </div>
+                    </div>
+                    {/* 矢印（最後のステップ以外） */}
+                    {i < calcSteps.length - 1 && (
+                      <div className="flex flex-col items-center py-1">
+                        <div className="w-0.5 h-4 bg-[#2563eb]" />
+                        <div className="w-0 h-0 border-l-4 border-r-4 border-t-8 border-l-transparent border-r-transparent border-t-[#2563eb]" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 計算式 */}
             <div>
               <h3 className="font-bold text-[#0f172a] mb-2 text-sm">推定保険料の計算式</h3>
               <div className="bg-[#f8fafc] rounded-lg p-4 font-mono text-sm text-[#0f172a] border border-gray-200">
                 推定月額 = 年収（万円）× 10,000 × 保険種類別係数 ÷ 12
               </div>
             </div>
+
+            {/* 係数テーブル */}
             <div>
               <h3 className="font-bold text-[#0f172a] mb-3 text-sm">保険種類別係数（目安）</h3>
               <div className="overflow-x-auto">
@@ -169,16 +292,16 @@ export default function AboutPage() {
                   </thead>
                   <tbody>
                     {[
-                      { name: '医療保険',         rate: 0.005,  monthly: Math.round(500 * 10000 * 0.005 / 12) },
-                      { name: '生命保険',         rate: 0.010,  monthly: Math.round(500 * 10000 * 0.010 / 12) },
-                      { name: '就業不能保険',     rate: 0.008,  monthly: Math.round(500 * 10000 * 0.008 / 12) },
-                      { name: 'がん保険',         rate: 0.004,  monthly: Math.round(500 * 10000 * 0.004 / 12) },
-                      { name: '傷害保険',         rate: 0.003,  monthly: Math.round(500 * 10000 * 0.003 / 12) },
-                      { name: '個人年金',         rate: 0.020,  monthly: Math.round(500 * 10000 * 0.020 / 12) },
-                      { name: '終身保険',         rate: 0.015,  monthly: Math.round(500 * 10000 * 0.015 / 12) },
-                      { name: '学資保険',         rate: 0.015,  monthly: Math.round(500 * 10000 * 0.015 / 12) },
-                      { name: '自動車保険',       rate: null,   monthly: null },
-                      { name: '火災保険',         rate: null,   monthly: null },
+                      { name: '医療保険',     rate: 0.005,  monthly: Math.round(500 * 10000 * 0.005 / 12) },
+                      { name: '生命保険',     rate: 0.010,  monthly: Math.round(500 * 10000 * 0.010 / 12) },
+                      { name: '就業不能保険', rate: 0.008,  monthly: Math.round(500 * 10000 * 0.008 / 12) },
+                      { name: 'がん保険',     rate: 0.004,  monthly: Math.round(500 * 10000 * 0.004 / 12) },
+                      { name: '傷害保険',     rate: 0.003,  monthly: Math.round(500 * 10000 * 0.003 / 12) },
+                      { name: '個人年金',     rate: 0.020,  monthly: Math.round(500 * 10000 * 0.020 / 12) },
+                      { name: '終身保険',     rate: 0.015,  monthly: Math.round(500 * 10000 * 0.015 / 12) },
+                      { name: '学資保険',     rate: 0.015,  monthly: Math.round(500 * 10000 * 0.015 / 12) },
+                      { name: '自動車保険',   rate: null,   monthly: null },
+                      { name: '火災保険',     rate: null,   monthly: null },
                     ].map((row, i) => (
                       <tr key={row.name} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
                         <td className="p-3">{row.name}</td>
@@ -192,6 +315,7 @@ export default function AboutPage() {
                 </table>
               </div>
             </div>
+
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-sm text-gray-700">
               <p className="font-semibold text-yellow-800 mb-1">⚠️ 重要な注意事項</p>
               <p>上記の係数はあくまで参考値です。実際の保険料は保険会社・年齢・健康状態・保障内容・契約期間などにより大きく異なります。本サイトのデータは「おおよその目安」として参考にしてください。正確な保険料は各保険会社で見積もりを取ることをおすすめします。</p>
@@ -210,47 +334,60 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 更新履歴 */}
+        {/* このサイトが守るルール（YMYL対応） */}
+        <section>
+          <h2 className="text-xl font-bold text-[#0f172a] mb-2 pb-2 border-b-2 border-[#10b981]">
+            このサイトが守るルール
+          </h2>
+          <p className="text-sm text-gray-500 mb-5">保険業法・景品表示法への対応と、中立性確保のための編集方針</p>
+          <div className="space-y-3">
+            {rules.map((rule, i) => (
+              <div key={i} className="bg-white border border-gray-200 rounded-xl p-5 flex gap-4">
+                <span className="text-xl flex-shrink-0 mt-0.5">{rule.icon}</span>
+                <div>
+                  <p className="font-semibold text-[#0f172a] text-sm mb-1">{rule.title}</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">{rule.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 更新履歴（タイムライン形式） */}
         <section>
           <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
             更新履歴
           </h2>
-          <div className="space-y-3">
-            {[
-              {
-                date: '2026年6月9日',
-                title: 'サイト公開・20職業×10保険種類データ掲載',
-                desc: '厚生労働省賃金構造基本統計調査に基づく職業別保険料相場データを公開。',
-              },
-              {
-                date: '2026年6月9日',
-                title: '保険料シミュレーター追加',
-                desc: '職業・年齢・性別・家族構成から推奨保険TOP3を診断するシミュレーターを追加。',
-              },
-              {
-                date: '2026年6月9日',
-                title: '484ページのデータベース構築完了',
-                desc: '職業×保険（200ページ）・都道府県×職業（200ページ）・年齢×保険（40ページ）等484ページを公開。',
-              },
-              {
-                date: '今後の予定',
-                title: '都道府県別データ拡充・最新統計データへの更新',
-                desc: '現在10都道府県のデータを47都道府県に拡充予定。また、毎年公開される最新の賃金統計データに順次更新します。',
-                future: true,
-              },
-            ].map((item, i) => (
-              <div key={i} className={`flex gap-4 bg-white rounded-xl p-5 border ${item.future ? 'border-dashed border-gray-300' : 'border-gray-100'}`}>
-                <div className="flex-shrink-0 text-right">
-                  <span className={`text-xs font-semibold whitespace-nowrap ${item.future ? 'text-gray-400' : 'text-[#2563eb]'}`}>
-                    {item.date}
-                  </span>
+          <div className="relative">
+            {/* 縦線 */}
+            <div className="absolute left-[88px] top-0 bottom-0 w-0.5 bg-gray-200" />
+
+            <div className="space-y-6">
+              {history.map((item, i) => (
+                <div key={i} className="flex gap-6 relative">
+                  {/* 左：日付 */}
+                  <div className="w-20 flex-shrink-0 text-right pt-3">
+                    <span className={`text-xs font-semibold leading-tight ${item.future ? 'text-gray-400' : 'text-[#2563eb]'}`}>
+                      {item.date.replace('年', '\n年').replace('月', '\n月')}
+                    </span>
+                  </div>
+
+                  {/* ドット */}
+                  <div className="relative flex-shrink-0 flex items-start pt-3.5">
+                    <div className={`w-3 h-3 rounded-full border-2 ${item.future ? 'border-gray-300 bg-white' : 'border-[#2563eb] bg-[#2563eb]'}`} />
+                  </div>
+
+                  {/* 右：内容 */}
+                  <div className={`flex-1 bg-white border rounded-xl p-4 ${item.future ? 'border-dashed border-gray-300' : 'border-gray-100'}`}>
+                    <p className={`font-bold text-sm mb-1 ${item.future ? 'text-gray-400' : 'text-[#0f172a]'}`}>
+                      {item.future && <span className="text-xs font-normal text-gray-400 mr-2">（予定）</span>}
+                      {item.title}
+                    </p>
+                    <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className={`font-bold text-sm mb-1 ${item.future ? 'text-gray-400' : 'text-[#0f172a]'}`}>{item.title}</p>
-                  <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
@@ -267,23 +404,35 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* お問い合わせ */}
+        {/* お問い合わせ（カード化） */}
         <section>
           <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
             お問い合わせ
           </h2>
-          <div className="bg-[#f8fafc] rounded-xl p-6 text-sm text-gray-700">
-            <p className="mb-3">ご意見・ご要望・データの誤り等のご指摘は、X（旧Twitter）のDMにてお受けしています。</p>
+          <div className="border-2 border-[#2563eb] rounded-xl p-6 bg-white flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-[#0f172a]">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                <span className="font-bold text-[#0f172a]">@anime_blog_info へ DM</span>
+              </div>
+              <p className="text-sm text-gray-500">データの誤り・修正依頼はお気軽にご連絡ください</p>
+            </div>
             <a
               href="https://x.com/anime_blog_info"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center gap-2 bg-black text-white px-5 py-3 rounded-xl text-sm font-bold hover:bg-gray-800 transition-colors whitespace-nowrap"
             >
-              X @anime_blog_info へ連絡する →
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X でメッセージを送る →
             </a>
           </div>
         </section>
+
       </div>
     </>
   )
