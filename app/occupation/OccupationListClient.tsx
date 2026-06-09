@@ -68,13 +68,18 @@ const FILTER_GROUPS: FilterGroup[] = [
 
 export default function OccupationListClient({ occupations }: { occupations: Occupation[] }) {
   const [activeFilter, setActiveFilter] = useState('全て')
+  const [searchText, setSearchText] = useState('')
 
-  const filtered = activeFilter === '全て'
-    ? occupations
-    : occupations.filter(occ => {
-        const group = FILTER_GROUPS.find(g => g.label === activeFilter)
-        return group?.cats?.includes(occ.category)
-      })
+  const filtered = occupations
+    .filter(occ => {
+      if (activeFilter === '全て') return true
+      const group = FILTER_GROUPS.find(g => g.label === activeFilter)
+      return group?.cats?.includes(occ.category)
+    })
+    .filter(occ => {
+      if (!searchText.trim()) return true
+      return occ.name_ja.includes(searchText.trim())
+    })
 
   const grouped = filtered.reduce<Record<string, Occupation[]>>((acc, occ) => {
     if (!acc[occ.category]) acc[occ.category] = []
@@ -92,7 +97,17 @@ export default function OccupationListClient({ occupations }: { occupations: Occ
             <span>職業から調べる</span>
           </div>
           <h1 className="text-2xl md:text-4xl font-bold mb-3">職業別 保険料相場一覧</h1>
-          <p className="text-gray-300">20職業の保険料相場を政府統計データで確認できます</p>
+          <p className="text-gray-300 mb-5">20職業の保険料相場を政府統計データで確認できます</p>
+          <div className="relative max-w-md">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg pointer-events-none">🔍</span>
+            <input
+              type="text"
+              placeholder="職業名で検索（例：看護師、エンジニア）"
+              value={searchText}
+              onChange={e => setSearchText(e.target.value)}
+              className="w-full bg-white/10 border border-white/20 text-white placeholder-gray-400 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:bg-white/20 transition-all"
+            />
+          </div>
         </div>
       </section>
 
@@ -117,7 +132,7 @@ export default function OccupationListClient({ occupations }: { occupations: Occ
         {filtered.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
             <p className="text-4xl mb-4">🔍</p>
-            <p>該当する職業が見つかりませんでした</p>
+            <p>「{searchText || activeFilter}」に該当する職業が見つかりませんでした</p>
           </div>
         ) : (
           <div className="space-y-10">

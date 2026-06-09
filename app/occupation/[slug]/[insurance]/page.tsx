@@ -41,6 +41,64 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+const INCOME_BRACKETS = [300, 400, 500, 600, 800]
+
+function getCautionPoints(occCategory: string, insSlug: string, occName: string, insName: string): string[] {
+  const key = `${occCategory}:${insSlug}`
+  const map: Record<string, string[]> = {
+    'it:income-protection': [
+      '精神疾患・うつ病を免責とする商品が多いため、特約や支払要件を必ず確認してください',
+      '待機期間（60〜90日）は保障されないため、緊急の貯蓄と併用して備えることが重要です',
+      'フリーランスの場合は収入証明が難しいケースがあるため、契約前に保険会社に確認を',
+    ],
+    'it:medical': [
+      '長時間労働・過労が原因の疾病は労災と医療保険の境界が曖昧なため、給付条件を確認してください',
+      'リモートワーク中の怪我（通勤外）は労災対象外になる場合があり、私傷病特約の確認が必要です',
+      '入院日数の短期化傾向により、入院一時金型も選択肢として比較することをおすすめします',
+    ],
+    'medical:medical': [
+      '感染症による入院は職業上のリスクが高く、感染症特約の有無を必ず確認してください',
+      '腰痛・ぎっくり腰など業務起因の疾病は労災と重複するため、給付条件の整合性を確認を',
+      '夜勤・シフト勤務が多い職種は疲労蓄積による疾病リスクが高く、保障内容を手厚くすることを推奨します',
+    ],
+    'medical:income-protection': [
+      '医療職は体力的負担が大きく、腰痛・腱鞘炎等での休業リスクが高いため、就業不能の定義を確認してください',
+      '夜勤手当を含む収入を基準に保障額を設定すると、休業時の収入減が大きくなる点に注意してください',
+      '育児休業中の収入変動と保障期間の整合性を事前に保険会社に確認することをおすすめします',
+    ],
+    'construction:personal-accident': [
+      '労災保険の上乗せ傷害保険であることを確認し、支払対象と労災給付の重複・調整条件を確認してください',
+      '建設現場特有の危険作業（高所・重機など）が免責事由に含まれていないか必ず確認してください',
+      '仕事中・通勤中・日常生活の3区分での保障範囲を確認し、業務中の保障が十分かを確かめてください',
+    ],
+    'construction:income-protection': [
+      '建設業は季節・受注状況による収入変動が大きいため、基準収入の計算方法を保険会社に確認してください',
+      '高所作業・重機作業による怪我での休業は、就業不能の認定基準を事前に確認することが重要です',
+      '個人事業主・一人親方の場合、社会保険が薄いため民間の就業不能保険の保障を手厚くすることを推奨します',
+    ],
+    'transport:auto': [
+      '業務用車両と私用車両で保険が分かれる場合があるため、使用目的の届け出を正確に行ってください',
+      '対人・対物賠償は無制限を強くおすすめします。最低限の保障額では重大事故の賠償に不足するリスクがあります',
+      '等級の引き継ぎ・事故有係数の影響を理解した上で、補償範囲と保険料のバランスを検討してください',
+    ],
+    'public:pension': [
+      '共済年金（退職等年金）との合算で年金収入を考え、過剰な積み立てにならないよう設計してください',
+      '個人年金保険料控除（年間最大4万円の所得控除）を活用できるタイプを選ぶことで節税効果があります',
+      '物価変動リスクに備えて、変額型と定額型の組み合わせや運用商品の分散を検討してください',
+    ],
+    'office:medical': [
+      '健康保険の傷病手当金（最長18ヶ月）との重複期間を確認し、入院日数に応じた保障設計をしてください',
+      '女性特有の疾病（子宮・乳房等）への保障特約の有無を確認し、必要に応じて追加してください',
+      '通院保障・先進医療特約の必要性を自身の医療履歴や家族歴をもとに検討することをおすすめします',
+    ],
+  }
+  return map[key] || [
+    `${insName}の保障内容・免責事由・待機期間を複数社で比較検討してください`,
+    `${occName}の職業リスクに対応した特約・オプションの有無を保険会社に確認してください`,
+    `保険料・保障額・保障期間のバランスを、ファイナンシャルプランナーに相談した上で決定することをおすすめします`,
+  ]
+}
+
 const AGE_ROWS = [
   { age: '20〜24歳', factor: 0.75 },
   { age: '25〜29歳', factor: 0.85 },
@@ -188,6 +246,14 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
   const isFixedRange = Array.isArray([est.man, est.woman]) && ins.slug === 'auto' || ins.slug === 'fire'
 
+  const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
+
+  // 年収別推定月額: estimateMonthlyPremiumをその年収で呼び出す
+  const incomeBracketRows = INCOME_BRACKETS.map(income => {
+    const bracketEst = estimateMonthlyPremium(ins.slug, income, income)
+    return { income, monthly: bracketEst.man ?? bracketEst.woman ?? null }
+  })
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
@@ -256,6 +322,65 @@ export default async function OccupationInsurancePage({ params }: Props) {
           </h2>
           <div className="bg-white border-l-4 border-[#2563eb] rounded-r-xl p-5 text-gray-700 leading-relaxed">
             {reason}
+          </div>
+        </div>
+      </section>
+
+      {/* 年収別推定月額テーブル */}
+      <section className="py-10 px-4 bg-white border-b">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-[#0f172a] mb-2">年収別 推定月額保険料（参考値）</h2>
+          <p className="text-xs text-gray-500 mb-6">
+            ※年収が高いほど必要保障額が増えるため、保険料の目安も変化します。
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-[#0f172a] text-white">
+                  <th className="text-left p-3">年収</th>
+                  <th className="text-right p-3">推定月額保険料</th>
+                  <th className="text-right p-3">年間保険料目安</th>
+                </tr>
+              </thead>
+              <tbody>
+                {incomeBracketRows.map((row, i) => (
+                  <tr key={row.income} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                    <td className="p-3 font-medium">{row.income}万円</td>
+                    <td className="p-3 text-right font-semibold text-[#0f172a]">
+                      {row.monthly ? `${row.monthly.toLocaleString()}円` : '-'}
+                    </td>
+                    <td className="p-3 text-right text-gray-600">
+                      {row.monthly ? `約${(row.monthly * 12).toLocaleString()}円` : '-'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-400 mt-2">
+            ※上記は年収を基に算出した参考値です。実際の保険料は年齢・健康状態・保障内容により大きく異なります。
+          </p>
+        </div>
+      </section>
+
+      {/* この保険に加入する際の注意点 */}
+      <section className="py-10 px-4 bg-[#f8fafc]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-[#0f172a] mb-2">
+            {occ.name_ja}が{ins.name_ja}に加入する際の注意点
+          </h2>
+          <p className="text-xs text-gray-500 mb-6">
+            職業特性を踏まえた重要なチェックポイントです
+          </p>
+          <div className="space-y-4">
+            {cautionPoints.map((point, i) => (
+              <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 flex gap-4">
+                <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#f59e0b] text-white flex items-center justify-center text-sm font-bold">
+                  {i + 1}
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed pt-0.5">{point}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -25,14 +25,20 @@ type RecommendedInsurance = {
 
 const STEP_LABELS = ['職業', '年齢', '性別', '家族構成', '診断結果']
 
-const FAMILY_OPTIONS: { value: Family; label: string; icon: string }[] = [
-  { value: 'single', label: '独身', icon: '🧑' },
-  { value: 'married', label: '既婚（子供なし）', icon: '👫' },
-  { value: 'married-1child', label: '既婚（子供1人）', icon: '👨‍👩‍👦' },
-  { value: 'married-2children', label: '既婚（子供2人以上）', icon: '👨‍👩‍👧‍👦' },
+const FAMILY_OPTIONS: { value: Family; label: string; icon: string; desc: string }[] = [
+  { value: 'single',           label: '独身',          icon: '🧑',       desc: '一人暮らし・実家暮らし' },
+  { value: 'married',          label: '既婚（子なし）', icon: '👫',       desc: 'パートナーあり・子供なし' },
+  { value: 'married-1child',   label: '子供1人',        icon: '👨‍👩‍👦',      desc: '配偶者＋子供1人' },
+  { value: 'married-2children',label: '子供2人以上',    icon: '👨‍👩‍👧‍👦', desc: '配偶者＋子供2人以上' },
 ]
 
 const FREELANCE_SLUGS = ['freelance-engineer', 'designer', 'restaurant', 'hairdresser']
+
+const RANK_STYLES = [
+  { badge: '🥇 第1位', border: 'border-[#f59e0b]', shadow: 'shadow-lg', badgeBg: 'bg-[#f59e0b]', label: '最優先' },
+  { badge: '🥈 第2位', border: 'border-[#2563eb]',  shadow: 'shadow-md', badgeBg: 'bg-[#2563eb]',  label: 'おすすめ' },
+  { badge: '🥉 第3位', border: 'border-gray-300',   shadow: '',          badgeBg: 'bg-gray-400',    label: '検討を' },
+]
 
 function calcMonthlyPremium(annualIncome: number, rate: number): number {
   return Math.round(annualIncome * 10000 * rate / 12)
@@ -123,6 +129,14 @@ function getRecommendations(answers: Answers): RecommendedInsurance[] {
     .map(({ score: _score, ...rest }) => rest)
 }
 
+function buildShareText(answers: Answers, recs: RecommendedInsurance[]): string {
+  const occ = answers.occupation?.name_ja ?? ''
+  const top = recs[0]
+  return encodeURIComponent(
+    `【保険料診断結果】${occ}・${answers.age}歳の推奨1位は「${top?.name}」（月額約${top?.monthlyEst.toLocaleString()}円）\n保険データドットコムで無料診断できます。`
+  )
+}
+
 export default function SimulatorClient({ occupations }: { occupations: Occupation[] }) {
   const [step, setStep] = useState(1)
   const [answers, setAnswers] = useState<Answers>({
@@ -135,10 +149,8 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
   const [occSearch, setOccSearch] = useState('')
 
   const filteredOcc = occSearch
-    ? occupations.filter(o => o.name_ja.includes(occSearch))
+    ? occupations.filter(o => o.name_ja.includes(occSearch) || o.slug.includes(occSearch))
     : occupations
-
-  const progress = (step / 5) * 100
 
   const goNext = () => {
     if (step < 5) setStep(s => s + 1)
@@ -147,6 +159,12 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
   const goBack = () => {
     if (step > 1) setStep(s => s - 1)
     if (step === 5) setShowResult(false)
+  }
+  const reset = () => {
+    setStep(1)
+    setShowResult(false)
+    setAnswers({ occupation: null, age: 30, gender: 'male', family: 'single' })
+    setOccSearch('')
   }
 
   const canNext =
@@ -161,63 +179,104 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
     <div className="min-h-screen bg-[#f8fafc]">
       {/* ヘッダー */}
       <section className="bg-[#0f172a] text-white py-10 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="inline-block bg-[#f59e0b] text-[#0f172a] text-xs font-bold px-3 py-1 rounded-full mb-3">
-            PR・完全無料
+        <div className="max-w-2xl mx-auto">
+          <div className="flex flex-wrap items-center gap-2 text-sm text-gray-400 mb-4">
+            <Link href="/" className="hover:text-white">トップ</Link>
+            <span>›</span>
+            <span>保険料診断</span>
           </div>
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">保険料 無料診断</h1>
-          <p className="text-gray-300 text-sm">職業・年齢・家族構成から最適な保険を診断します</p>
+          <div className="text-center">
+            <div className="inline-block bg-[#f59e0b] text-[#0f172a] text-xs font-bold px-3 py-1 rounded-full mb-3">
+              PR・完全無料
+            </div>
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">保険料 無料診断</h1>
+            <p className="text-gray-300 text-sm">職業・年齢・家族構成から最適な保険を診断します</p>
+          </div>
         </div>
       </section>
 
       <div className="max-w-2xl mx-auto px-4 py-8">
-        {/* プログレスバー */}
+
+        {/* ステップインジケーター */}
         <div className="mb-8">
-          <div className="flex justify-between mb-2">
-            {STEP_LABELS.map((label, i) => (
-              <span key={label} className={`text-xs font-semibold ${i + 1 <= step ? 'text-[#2563eb]' : 'text-gray-400'}`}>
-                {label}
-              </span>
-            ))}
+          <div className="flex items-center justify-between">
+            {STEP_LABELS.map((label, i) => {
+              const num = i + 1
+              const isDone    = num < step
+              const isCurrent = num === step
+              return (
+                <div key={label} className="flex flex-col items-center gap-1 flex-1">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
+                    isDone    ? 'bg-[#10b981] text-white' :
+                    isCurrent ? 'bg-[#2563eb] text-white scale-110 shadow-md' :
+                                'bg-gray-200 text-gray-400'
+                  }`}>
+                    {isDone ? '✓' : num}
+                  </div>
+                  <span className={`text-xs font-semibold hidden sm:block ${
+                    isDone    ? 'text-[#10b981]' :
+                    isCurrent ? 'text-[#2563eb]' :
+                                'text-gray-400'
+                  }`}>
+                    {label}
+                  </span>
+                  {/* コネクター */}
+                  {i < STEP_LABELS.length - 1 && (
+                    <div className="absolute" style={{ display: 'none' }} />
+                  )}
+                </div>
+              )
+            })}
           </div>
-          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+          {/* プログレスバー */}
+          <div className="mt-3 h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#2563eb] rounded-full transition-all duration-500"
-              style={{ width: `${progress}%` }}
+              className="h-full bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-full transition-all duration-500"
+              style={{ width: `${((step - 1) / (STEP_LABELS.length - 1)) * 100}%` }}
             />
           </div>
-          <p className="text-right text-xs text-gray-400 mt-1">STEP {step} / 5</p>
         </div>
 
         {/* STEP 1: 職業選択 */}
         {step === 1 && (
-          <div className="animate-in fade-in duration-300">
+          <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-2">あなたの職業は？</h2>
             <p className="text-sm text-gray-500 mb-5">最も近い職業を選んでください</p>
-            <input
-              type="text"
-              placeholder="職業名で絞り込む..."
-              value={occSearch}
-              onChange={e => setOccSearch(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm mb-4 focus:outline-none focus:border-[#2563eb]"
-            />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-96 overflow-y-auto">
+            <div className="relative mb-4">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+              <input
+                type="text"
+                placeholder="職業名で検索（例：エンジニア、看護師）"
+                value={occSearch}
+                onChange={e => setOccSearch(e.target.value)}
+                className="w-full border border-gray-200 rounded-xl pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 bg-white"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-80 overflow-y-auto pr-1">
               {filteredOcc.map(occ => (
                 <button
                   key={occ.id}
                   onClick={() => setAnswers(a => ({ ...a, occupation: occ }))}
                   className={`text-left p-4 rounded-xl border-2 transition-all ${
                     answers.occupation?.id === occ.id
-                      ? 'border-[#2563eb] bg-blue-50'
+                      ? 'border-[#2563eb] bg-blue-50 shadow-sm'
                       : 'border-gray-100 bg-white hover:border-[#2563eb] hover:bg-blue-50'
                   }`}
                 >
-                  <p className="font-semibold text-[#0f172a] text-sm">{occ.name_ja}</p>
+                  <div className="flex items-center justify-between">
+                    <p className="font-semibold text-[#0f172a] text-sm">{occ.name_ja}</p>
+                    {answers.occupation?.id === occ.id && (
+                      <span className="text-[#2563eb] text-xs font-bold">✓ 選択中</span>
+                    )}
+                  </div>
                   {occ.avg_income_man && (
-                    <p className="text-xs text-gray-500 mt-1">平均年収 {occ.avg_income_man}万円〜</p>
+                    <p className="text-xs text-gray-400 mt-0.5">平均年収 {occ.avg_income_man}万円〜</p>
                   )}
                 </button>
               ))}
+              {filteredOcc.length === 0 && (
+                <p className="col-span-2 text-center text-gray-400 text-sm py-8">該当する職業が見つかりませんでした</p>
+              )}
             </div>
           </div>
         )}
@@ -227,9 +286,9 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-2">年齢を入力してください</h2>
             <p className="text-sm text-gray-500 mb-8">20〜70歳の範囲で入力してください</p>
-            <div className="text-center mb-8">
-              <span className="text-7xl font-bold text-[#2563eb]">{answers.age}</span>
-              <span className="text-2xl text-gray-500 ml-2">歳</span>
+            <div className="text-center mb-6">
+              <span className="text-8xl font-bold text-[#2563eb] tabular-nums">{answers.age}</span>
+              <span className="text-3xl text-gray-400 ml-2">歳</span>
             </div>
             <input
               type="range"
@@ -237,18 +296,18 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
               max={70}
               value={answers.age}
               onChange={e => setAnswers(a => ({ ...a, age: parseInt(e.target.value) }))}
-              className="w-full accent-[#2563eb]"
+              className="w-full accent-[#2563eb] mb-2"
             />
-            <div className="flex justify-between text-xs text-gray-400 mt-2">
+            <div className="flex justify-between text-xs text-gray-400">
               <span>20歳</span>
               <span>70歳</span>
             </div>
-            <div className="flex gap-3 justify-center mt-6 flex-wrap">
+            <div className="flex gap-2 justify-center mt-6 flex-wrap">
               {[25, 30, 35, 40, 45, 50].map(age => (
                 <button
                   key={age}
                   onClick={() => setAnswers(a => ({ ...a, age }))}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all ${
+                  className={`px-4 py-2 rounded-full text-sm font-semibold border-2 transition-all ${
                     answers.age === age
                       ? 'bg-[#2563eb] text-white border-[#2563eb]'
                       : 'bg-white border-gray-200 text-gray-600 hover:border-[#2563eb]'
@@ -268,20 +327,21 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             <p className="text-sm text-gray-500 mb-8">保険料の計算に使用します</p>
             <div className="grid grid-cols-2 gap-4">
               {([
-                { value: 'male', label: '男性', icon: '👨' },
-                { value: 'female', label: '女性', icon: '👩' },
+                { value: 'male', label: '男性', icon: '👨', sub: '男性平均年収を適用' },
+                { value: 'female', label: '女性', icon: '👩', sub: '女性平均年収を適用' },
               ] as const).map(opt => (
                 <button
                   key={opt.value}
                   onClick={() => setAnswers(a => ({ ...a, gender: opt.value }))}
                   className={`p-8 rounded-2xl border-2 text-center transition-all ${
                     answers.gender === opt.value
-                      ? 'border-[#2563eb] bg-blue-50'
-                      : 'border-gray-100 bg-white hover:border-[#2563eb] hover:bg-blue-50'
+                      ? 'border-[#2563eb] bg-blue-50 shadow-md'
+                      : 'border-gray-100 bg-white hover:border-[#2563eb]'
                   }`}
                 >
                   <span className="text-5xl block mb-3">{opt.icon}</span>
-                  <span className="text-lg font-bold text-[#0f172a]">{opt.label}</span>
+                  <span className="text-lg font-bold text-[#0f172a] block">{opt.label}</span>
+                  <span className="text-xs text-gray-400 mt-1 block">{opt.sub}</span>
                 </button>
               ))}
             </div>
@@ -293,19 +353,25 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-2">家族構成を選んでください</h2>
             <p className="text-sm text-gray-500 mb-6">推奨保険の優先度に影響します</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {FAMILY_OPTIONS.map(opt => (
                 <button
                   key={opt.value}
                   onClick={() => setAnswers(a => ({ ...a, family: opt.value }))}
-                  className={`p-6 rounded-2xl border-2 text-center transition-all ${
+                  className={`p-5 rounded-2xl border-2 text-left flex items-center gap-4 transition-all ${
                     answers.family === opt.value
-                      ? 'border-[#2563eb] bg-blue-50'
-                      : 'border-gray-100 bg-white hover:border-[#2563eb] hover:bg-blue-50'
+                      ? 'border-[#2563eb] bg-blue-50 shadow-md'
+                      : 'border-gray-100 bg-white hover:border-[#2563eb]'
                   }`}
                 >
-                  <span className="text-4xl block mb-2">{opt.icon}</span>
-                  <span className="font-bold text-[#0f172a] text-sm">{opt.label}</span>
+                  <span className="text-3xl flex-shrink-0">{opt.icon}</span>
+                  <div>
+                    <span className="font-bold text-[#0f172a] text-sm block">{opt.label}</span>
+                    <span className="text-xs text-gray-400">{opt.desc}</span>
+                  </div>
+                  {answers.family === opt.value && (
+                    <span className="ml-auto text-[#2563eb] font-bold text-sm">✓</span>
+                  )}
                 </button>
               ))}
             </div>
@@ -315,59 +381,83 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
         {/* STEP 5: 結果 */}
         {step === 5 && showResult && (
           <div>
-            <div className="text-center mb-8">
-              <div className="inline-block bg-[#2563eb] text-white text-sm font-bold px-4 py-1.5 rounded-full mb-3">
-                診断完了 🎉
+            {/* 結果ヘッダー */}
+            <div className="text-center mb-8 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+              <div className="inline-block bg-[#10b981] text-white text-sm font-bold px-4 py-1.5 rounded-full mb-3">
+                ✓ 診断完了
               </div>
-              <h2 className="text-xl font-bold text-[#0f172a] mb-1">
-                {answers.occupation?.name_ja}・{answers.age}歳・{answers.gender === 'male' ? '男性' : '女性'}の診断結果
+              <h2 className="text-lg font-bold text-[#0f172a] mb-1">
+                {answers.occupation?.name_ja}・{answers.age}歳
+                （{answers.gender === 'male' ? '男性' : '女性'}）の診断結果
               </h2>
-              <p className="text-sm text-gray-500">推奨保険 TOP{recommendations.length}</p>
+              <p className="text-sm text-gray-500 mb-4">推奨保険 TOP{recommendations.length}</p>
+
+              {/* シェアボタン */}
+              <a
+                href={`https://twitter.com/intent/tweet?text=${buildShareText(answers, recommendations)}&url=${encodeURIComponent('https://hoken-data.com/simulator')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                この診断結果をポストする
+              </a>
             </div>
 
-            <div className="space-y-4 mb-8">
-              {recommendations.map((rec, i) => (
-                <div
-                  key={rec.slug}
-                  className={`bg-white rounded-2xl border-2 p-5 ${
-                    i === 0 ? 'border-[#f59e0b] shadow-md' : 'border-gray-100'
-                  }`}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white ${
-                      i === 0 ? 'bg-[#f59e0b]' : i === 1 ? 'bg-[#2563eb]' : 'bg-gray-400'
-                    }`}>
-                      {i + 1}
+            {/* 推奨保険TOP3 */}
+            <div className="space-y-4 mb-6">
+              {recommendations.map((rec, i) => {
+                const rank = RANK_STYLES[i]
+                return (
+                  <div
+                    key={rec.slug}
+                    className={`bg-white rounded-2xl border-2 p-5 ${rank.border} ${rank.shadow}`}
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-base font-bold">{rank.badge}</span>
+                      <span className={`text-xs text-white px-2 py-0.5 rounded-full font-semibold ${rank.badgeBg}`}>
+                        {rank.label}
+                      </span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-2xl">{rec.icon}</span>
-                        <h3 className="font-bold text-[#0f172a]">{rec.name}</h3>
-                        {i === 0 && <span className="text-xs bg-[#f59e0b] text-white px-2 py-0.5 rounded-full">最優先</span>}
-                      </div>
-                      <p className="text-sm text-gray-600 leading-relaxed mb-3">{rec.reason}</p>
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-xs text-gray-400">推定月額（参考値）</p>
-                          <p className="text-xl font-bold text-[#0f172a]">
-                            {rec.monthlyEst.toLocaleString()}<span className="text-sm font-normal text-gray-500 ml-1">円/月</span>
-                          </p>
+                    <div className="flex items-start gap-3">
+                      <span className="text-3xl">{rec.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-[#0f172a] text-lg mb-1">{rec.name}</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed mb-3">{rec.reason}</p>
+                        <div className="flex items-end justify-between">
+                          <div>
+                            <p className="text-xs text-gray-400 mb-0.5">推定月額（参考値）</p>
+                            <p className="text-2xl font-bold text-[#0f172a]">
+                              {rec.monthlyEst.toLocaleString()}
+                              <span className="text-sm font-normal text-gray-500 ml-1">円/月</span>
+                            </p>
+                          </div>
+                          <Link
+                            href={`/occupation/${rec.occupationSlug}/${rec.slug}`}
+                            className="text-sm text-[#2563eb] font-semibold hover:underline whitespace-nowrap"
+                          >
+                            詳しく調べる →
+                          </Link>
                         </div>
-                        <Link
-                          href={`/occupation/${rec.occupationSlug}/${rec.slug}`}
-                          className="text-xs text-[#2563eb] font-semibold hover:underline whitespace-nowrap"
-                        >
-                          詳しく調べる →
-                        </Link>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
+            {/* もう一度診断する（目立つ位置） */}
+            <button
+              onClick={reset}
+              className="w-full py-4 mb-4 bg-white border-2 border-[#2563eb] text-[#2563eb] rounded-xl font-bold text-base hover:bg-blue-50 transition-colors"
+            >
+              🔄 もう一度診断する
+            </button>
+
             {/* CTA */}
-            <div className="bg-[#0f172a] text-white rounded-2xl p-6 text-center mb-6">
+            <div className="bg-[#0f172a] text-white rounded-2xl p-6 text-center mb-4">
               <p className="text-[#f59e0b] text-xs font-bold mb-2">PR・無料・強引な勧誘なし</p>
               <h3 className="text-lg font-bold mb-2">診断結果をもとにプロに相談する</h3>
               <p className="text-gray-400 text-xs mb-5">
@@ -382,11 +472,12 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
               <p className="text-gray-600 text-xs">※本サイトはアフィリエイト広告を含みます</p>
             </div>
 
+            {/* 回答修正 */}
             <button
-              onClick={() => { setStep(1); setShowResult(false); setAnswers({ occupation: null, age: 30, gender: 'male', family: 'single' }) }}
+              onClick={goBack}
               className="w-full py-3 border border-gray-200 rounded-xl text-sm text-gray-500 hover:bg-gray-50 transition-colors"
             >
-              もう一度診断する
+              ← 回答を修正する
             </button>
 
             <p className="text-xs text-gray-400 text-center mt-4 leading-relaxed">
@@ -401,7 +492,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             {step > 1 && (
               <button
                 onClick={goBack}
-                className="flex-1 py-4 border border-gray-200 rounded-xl font-semibold text-gray-600 hover:bg-gray-50 transition-colors"
+                className="flex-1 py-4 border-2 border-gray-200 rounded-xl font-semibold text-gray-600 hover:bg-gray-50 transition-colors"
               >
                 ← 戻る
               </button>
@@ -409,21 +500,15 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             <button
               onClick={goNext}
               disabled={!canNext}
-              className={`flex-1 py-4 rounded-xl font-bold text-white transition-colors ${
+              className={`flex-1 py-4 rounded-xl font-bold text-white text-base transition-colors ${
                 canNext
-                  ? 'bg-[#2563eb] hover:bg-blue-700'
+                  ? 'bg-[#2563eb] hover:bg-blue-700 shadow-md'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
             >
-              {step === 4 ? '診断する 🎉' : '次へ →'}
+              {step === 4 ? '✨ 診断する' : '次へ →'}
             </button>
           </div>
-        )}
-
-        {step === 5 && (
-          <button onClick={goBack} className="w-full mt-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-500 hover:bg-gray-50 transition-colors">
-            ← 回答を修正する
-          </button>
         )}
       </div>
     </div>
