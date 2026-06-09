@@ -1,3 +1,5 @@
+'use client'
+
 import { getOccupationRiskData } from '@/lib/occupationRiskData'
 
 type Props = {
