@@ -37,11 +37,6 @@ const AGE_LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-[#0f172a] text-gray-400 mt-auto">
-      {/* PR表記 */}
-      <div className="bg-[#f59e0b] text-[#0f172a] text-center text-xs font-bold py-2">
-        本ページはアフィリエイト広告を含みます（PR）
-      </div>
-
       <div className="max-w-6xl mx-auto px-4 py-10">
         {/* サイト説明 */}
         <div className="mb-10">
@@ -133,7 +128,7 @@ export default function Footer() {
         {/* 免責事項 */}
         <div className="pt-6 border-t border-white/10">
           <p className="text-xs leading-relaxed text-gray-500">
-            【免責事項】本サイトはアフィリエイト広告を含みます。掲載情報は公的データ（厚生労働省・金融庁等）に基づく参考値であり、実際の保険料は保険会社・個人の状況により異なります。保険の加入・変更は必ず各保険会社または保険代理店にご確認ください。本サイトは情報提供を目的としており、特定の保険商品を推薦するものではありません。
+            【免責事項・PR表記】本サイトはアフィリエイト広告（PR）を含みます。掲載情報は公的データ（厚生労働省・金融庁等）に基づく参考値であり、実際の保険料は保険会社・個人の状況により異なります。保険の加入・変更は必ず各保険会社または保険代理店にご確認ください。本サイトは情報提供を目的としており、特定の保険商品を推薦するものではありません。
           </p>
           <p className="text-xs text-gray-600 mt-3 text-center">
             &copy; {new Date().getFullYear()} 保険データドットコム All Rights Reserved.

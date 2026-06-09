@@ -70,6 +70,10 @@ export default function HeaderNav() {
           </nav>
         </div>
       )}
+      {/* ヘッダー直下PRバー（景表法ステマ規制対応） */}
+      <div className="bg-[#f3f4f6] text-center text-xs text-[#6b7280] py-1">
+        ※本サイトはアフィリエイト広告（PR）を含みます
+      </div>
     </header>
   )
 }
