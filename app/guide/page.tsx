@@ -6,6 +6,15 @@ export const metadata: Metadata = {
   description: '保険の基礎知識から職業別・年齢別の選び方まで、保険料相場データと合わせてわかりやすく解説します。',
 }
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'トップ', item: 'https://hoken-data.com' },
+    { '@type': 'ListItem', position: 2, name: '保険の選び方ガイド', item: 'https://hoken-data.com/guide' },
+  ],
+}
+
 const INSURANCE_BASICS = [
   { slug: 'medical', name: '医療保険', desc: '入院・手術・通院の自己負担をカバー', icon: '🏥' },
   { slug: 'life', name: '生命保険・死亡保険', desc: '死亡時に遺族の生活を守る', icon: '🛡️' },
@@ -68,6 +77,7 @@ const AGE_GUIDES = [
 export default function GuidePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="bg-[#0f172a] text-white py-14 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">

@@ -10,6 +10,7 @@ import {
   getInsuranceDescription,
   getOccupationInsuranceNeeds,
 } from '@/lib/data'
+import Disclaimer from '@/components/Disclaimer'
 
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
@@ -296,16 +297,19 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
       {/* CTA */}
       <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
-        <p className="text-[#f59e0b] text-sm font-semibold mb-2">{cta.badge}</p>
-        <h2 className="text-xl font-bold mb-3 whitespace-pre-line">{cta.headline}</h2>
-        <p className="text-gray-400 text-sm mb-6 max-w-xl mx-auto leading-relaxed">{cta.sub}</p>
-        <Link
-          href="/consult"
-          className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-3"
-        >
-          無料で保険相談する →
-        </Link>
-        <p className="text-gray-600 text-xs">※本サイトはアフィリエイト広告を含みます</p>
+        <div className="max-w-2xl mx-auto">
+          <Disclaimer />
+          <p className="text-[#f59e0b] text-sm font-semibold mb-2">{cta.badge}</p>
+          <h2 className="text-xl font-bold mb-3 whitespace-pre-line">{cta.headline}</h2>
+          <p className="text-gray-400 text-sm mb-6 leading-relaxed">{cta.sub}</p>
+          <Link
+            href="/consult"
+            className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-3"
+          >
+            無料で保険相談する →
+          </Link>
+          <p className="text-gray-600 text-xs">※本サイトはアフィリエイト広告を含みます</p>
+        </div>
       </section>
 
       {/* FAQ */}

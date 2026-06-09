@@ -10,6 +10,7 @@ import {
   INSURANCE_CATEGORY_LABELS,
   getInsuranceDescription,
 } from '@/lib/data'
+import Disclaimer from '@/components/Disclaimer'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -60,8 +61,45 @@ export default async function InsurancePage({ params }: Props) {
   const description = ins.description || getInsuranceDescription(ins.slug)
   const recommend = RECOMMEND[ins.slug] || {}
 
+  const faqItems = [
+    {
+      q: `${ins.name_ja}は必要ですか？`,
+      a: `${description} 必要性はライフステージ・家族構成・職業によって異なります。まず公的保険（健康保険・雇用保険等）でカバーされる範囲を確認し、不足分を民間保険で補う形が基本的な考え方です。`,
+    },
+    {
+      q: `${ins.name_ja}の月額保険料の目安はいくらですか？`,
+      a: `職業・年齢・健康状態・保障内容により大きく異なります。本サイトの職業別データでは、平均年収をもとにした推計参考値を確認できます。一般的な目安として収入の3〜5%程度を保険料として考える方も多いです。`,
+    },
+    {
+      q: `${ins.name_ja}を選ぶときのポイントは何ですか？`,
+      a: `保障内容・免責期間・保険会社の信頼性・保険料の比較が基本です。特に${ins.name_ja}では、保障が始まるまでの待機期間や、支払い条件の詳細を必ず確認してください。複数の会社で見積もりを比較することをおすすめします。`,
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'トップ', item: 'https://hoken-data.com' },
+      { '@type': 'ListItem', position: 2, name: '保険種類一覧', item: 'https://hoken-data.com/insurance' },
+      { '@type': 'ListItem', position: 3, name: ins.name_ja, item: `https://hoken-data.com/insurance/${slug}` },
+    ],
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="bg-[#0f172a] text-white py-14 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
@@ -144,23 +182,40 @@ export default async function InsurancePage({ params }: Props) {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
-        <p className="text-[#f59e0b] text-sm font-semibold mb-2">無料・強引な勧誘なし</p>
-        <h2 className="text-xl font-bold mb-4">
-          {ins.name_ja}について<br />プロに無料で相談する
-        </h2>
-        <Link href="/consult" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
-          無料で保険相談する →
-        </Link>
-        <p className="text-gray-500 text-xs mt-4">※本サイトはアフィリエイト広告を含みます（PR）</p>
+      {/* FAQ */}
+      <section className="py-10 px-4 bg-[#f8fafc]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-[#0f172a] mb-6">よくある質問</h2>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details key={i} className="group border border-gray-200 rounded-xl overflow-hidden bg-white">
+                <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-50 transition-colors list-none">
+                  <span className="font-semibold text-[#0f172a] pr-4">
+                    <span className="text-[#2563eb] mr-2">Q.</span>{item.q}
+                  </span>
+                  <span className="flex-shrink-0 text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="px-5 pb-5 pt-2 text-gray-600 text-sm leading-relaxed border-t border-gray-100">
+                  <span className="text-[#f59e0b] font-bold mr-2">A.</span>{item.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="py-8 px-4 bg-[#f8fafc] border-t">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs text-gray-500 leading-relaxed">
-            【免責事項】本ページの保険料は公的統計データを基にした推計参考値です。実際の保険料は保険会社・年齢・健康状態・契約内容により大きく異なります。
-          </p>
+      {/* CTA */}
+      <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
+        <div className="max-w-2xl mx-auto">
+          <Disclaimer />
+          <p className="text-[#f59e0b] text-sm font-semibold mb-2">無料・強引な勧誘なし</p>
+          <h2 className="text-xl font-bold mb-4">
+            {ins.name_ja}について<br />プロに無料で相談する
+          </h2>
+          <Link href="/consult" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
+            無料で保険相談する →
+          </Link>
+          <p className="text-gray-500 text-xs mt-4">※本サイトはアフィリエイト広告を含みます（PR）</p>
         </div>
       </section>
     </>

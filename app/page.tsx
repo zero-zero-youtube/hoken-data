@@ -97,6 +97,29 @@ const faqSchema = {
   })),
 }
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: '保険データドットコム',
+  url: 'https://hoken-data.com',
+  description: '公的データに基づく保険料の相場・職業別・年齢別データを無料で調べられるサービスです。',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: 'https://hoken-data.com/occupation' },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: '保険データドットコム',
+  url: 'https://hoken-data.com',
+  description: '政府統計データに基づく保険料相場データベース。職業・年齢・家族構成から適正な保険料の目安を無料で確認できます。',
+  foundingDate: '2024',
+  sameAs: ['https://twitter.com/anime_blog_info'],
+}
+
 export default async function Home() {
   const occupations = await getOccupations()
 
@@ -109,11 +132,9 @@ export default async function Home() {
 
   return (
     <>
-      {/* FAQ JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
 
       {/* ヒーローセクション */}
       <section className="bg-[#0f172a] text-white pt-16 pb-20 px-4">

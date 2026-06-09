@@ -10,6 +10,7 @@ import {
   INSURANCE_CATEGORY_LABELS,
   getOccupationInsuranceNeeds,
 } from '@/lib/data'
+import Disclaimer from '@/components/Disclaimer'
 
 type RiskItem = { label: string; detail: string; severity: 'high' | 'medium' }
 
@@ -135,16 +136,45 @@ export default async function OccupationPage({ params }: Props) {
   const risks = getOccupationRisks(occ.slug, occ.category)
   const sameCategory = allOccupations.filter(o => o.category === occ.category && o.slug !== occ.slug)
 
-  const schema = {
+  const faqItems = [
+    {
+      q: `${occ.name_ja}が最も優先すべき保険は何ですか？`,
+      a: `${needs} まずは医療保険と就業不能保険で基本の備えを確保し、家族がいる場合は生命保険も検討することをおすすめします。`,
+    },
+    {
+      q: `${occ.name_ja}の適正な月額保険料はいくらですか？`,
+      a: `月収の3〜8%程度が一般的な目安です。${occ.name_ja}の場合、平均年収（男性${occ.avg_income_man || '-'}万円・女性${occ.avg_income_woman || '-'}万円）をもとにすると、月額合計で1〜5万円程度が参考値となります。実際には保障内容・年齢・健康状態で大きく変わります。`,
+    },
+    {
+      q: `${occ.name_ja}の保険を選ぶ際の注意点は？`,
+      a: `職業特有のリスク（怪我・疾病・収入不安定性など）を踏まえた保険選びが重要です。また、勤務先の団体保険や社会保険でカバーされる範囲を先に確認し、重複しないよう補完的に民間保険を選ぶのが効率的です。`,
+    },
+  ]
+
+  const faqSchema = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: `${occ.name_ja}の保険料相場`,
-    description: needs,
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'トップ', item: 'https://hoken-data.com' },
+      { '@type': 'ListItem', position: 2, name: '職業から調べる', item: 'https://hoken-data.com/occupation' },
+      { '@type': 'ListItem', position: 3, name: occ.name_ja, item: `https://hoken-data.com/occupation/${slug}` },
+    ],
   }
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* ヘッダー */}
       <section className="bg-[#0f172a] text-white py-14 px-4">
@@ -296,19 +326,44 @@ export default async function OccupationPage({ params }: Props) {
         </section>
       )}
 
+      {/* FAQ */}
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-[#0f172a] mb-6">よくある質問</h2>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details key={i} className="group border border-gray-200 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-50 transition-colors list-none">
+                  <span className="font-semibold text-[#0f172a] pr-4">
+                    <span className="text-[#2563eb] mr-2">Q.</span>{item.q}
+                  </span>
+                  <span className="flex-shrink-0 text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="px-5 pb-5 pt-2 text-gray-600 text-sm leading-relaxed border-t border-gray-100">
+                  <span className="text-[#f59e0b] font-bold mr-2">A.</span>{item.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
-        <p className="text-[#f59e0b] text-sm font-semibold mb-2">無料・強引な勧誘なし</p>
-        <h2 className="text-xl font-bold mb-4">
-          {occ.name_ja}に最適な保険を<br />プロに無料で相談する
-        </h2>
-        <Link
-          href="/consult"
-          className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors"
-        >
-          無料で保険相談する →
-        </Link>
-        <p className="text-gray-500 text-xs mt-4">※本サイトはアフィリエイト広告を含みます（PR）</p>
+        <div className="max-w-2xl mx-auto">
+          <Disclaimer />
+          <p className="text-[#f59e0b] text-sm font-semibold mb-2">無料・強引な勧誘なし</p>
+          <h2 className="text-xl font-bold mb-4">
+            {occ.name_ja}に最適な保険を<br />プロに無料で相談する
+          </h2>
+          <Link
+            href="/consult"
+            className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors"
+          >
+            無料で保険相談する →
+          </Link>
+          <p className="text-gray-500 text-xs mt-4">※本サイトはアフィリエイト広告を含みます（PR）</p>
+        </div>
       </section>
 
       {/* 免責事項 */}
