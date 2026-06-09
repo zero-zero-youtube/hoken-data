@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import HeaderNav from "@/components/HeaderNav";
 import Footer from "@/components/Footer";
@@ -26,6 +27,9 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
   },
+  verification: {
+    google: "QUjvw9AvweWwLuEXGKn-yLuQPW20uTUI7gEOlHoh6P8",
+  },
 };
 
 export default function RootLayout({
@@ -39,6 +43,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#f8fafc] text-[#1e293b]">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HZGB3X0LDS"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HZGB3X0LDS');
+          `}
+        </Script>
         <HeaderNav />
         <main className="flex-1">{children}</main>
         <Footer />
