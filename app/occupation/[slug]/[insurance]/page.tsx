@@ -18,17 +18,11 @@ import OccupationRiskDataSection from '@/components/OccupationRiskDataSection'
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
 export async function generateStaticParams() {
-  const [occupations, insuranceTypes] = await Promise.all([
-    getAllOccupations(),
-    getAllInsuranceTypes(),
-  ])
-  const params: { slug: string; insurance: string }[] = []
-  for (const occ of occupations) {
-    for (const ins of insuranceTypes) {
-      params.push({ slug: occ.slug, insurance: ins.slug })
-    }
-  }
-  return params
+  const occupations = ['engineer','freelance-engineer','nurse','teacher','civil-servant','sales','driver','construction','food-service','beautician','accountant','doctor','lawyer','designer','manager','manufacturing','pharmacist','real-estate','finance','part-time']
+  const insurances = ['medical','life','income-protection','cancer','whole-life','pension','auto','fire','personal-accident','child']
+  return occupations.flatMap(slug =>
+    insurances.map(insurance => ({ slug, insurance }))
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

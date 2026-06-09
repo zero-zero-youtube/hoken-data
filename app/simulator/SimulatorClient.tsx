@@ -4,14 +4,17 @@ import { useState } from 'react'
 import Link from 'next/link'
 import type { Occupation } from '@/lib/data'
 
-type Family = 'single' | 'married' | 'married-1child' | 'married-2children'
+type AgeBand = '20代' | '30代' | '40代' | '50代'
 type Gender = 'male' | 'female'
+type Family = 'single' | 'married' | 'with-child'
+type IncomeBand = 'lt300' | '300-500' | '500-800' | 'gt800'
 
 type Answers = {
   occupation: Occupation | null
-  age: number
+  ageBand: AgeBand
   gender: Gender
   family: Family
+  incomeBand: IncomeBand
 }
 
 type RecommendedInsurance = {
@@ -23,22 +26,51 @@ type RecommendedInsurance = {
   occupationSlug: string
 }
 
-const STEP_LABELS = ['職業', '年齢', '性別', '家族構成', '診断結果']
+const STEP_LABELS = ['あなたについて', '家族・収入', '診断結果']
 
-const FAMILY_OPTIONS: { value: Family; label: string; icon: string; desc: string }[] = [
-  { value: 'single',           label: '独身',          icon: '🧑',       desc: '一人暮らし・実家暮らし' },
-  { value: 'married',          label: '既婚（子なし）', icon: '👫',       desc: 'パートナーあり・子供なし' },
-  { value: 'married-1child',   label: '子供1人',        icon: '👨‍👩‍👦',      desc: '配偶者＋子供1人' },
-  { value: 'married-2children',label: '子供2人以上',    icon: '👨‍👩‍👧‍👦', desc: '配偶者＋子供2人以上' },
+const AGE_BAND_OPTIONS: { value: AgeBand; icon: string; desc: string }[] = [
+  { value: '20代', icon: '🌱', desc: '20〜29歳' },
+  { value: '30代', icon: '📈', desc: '30〜39歳' },
+  { value: '40代', icon: '⚕️', desc: '40〜49歳' },
+  { value: '50代', icon: '🏦', desc: '50〜59歳' },
 ]
 
-const FREELANCE_SLUGS = ['freelance-engineer', 'designer', 'restaurant', 'hairdresser']
+const AGE_MAP: Record<AgeBand, number> = {
+  '20代': 25, '30代': 35, '40代': 45, '50代': 55,
+}
+
+const FAMILY_OPTIONS: { value: Family; label: string; icon: string; desc: string }[] = [
+  { value: 'single',     label: '独身',      icon: '🧑',  desc: '一人暮らし・実家暮らし' },
+  { value: 'married',    label: '既婚・子なし', icon: '👫',  desc: 'パートナーあり・子供なし' },
+  { value: 'with-child', label: '既婚・子あり', icon: '👨‍👩‍👦', desc: '配偶者＋子供あり' },
+]
+
+const FAMILY_LABELS: Record<Family, string> = {
+  'single': '独身', 'married': '既婚・子なし', 'with-child': '既婚・子あり',
+}
+
+const INCOME_OPTIONS: { value: IncomeBand; label: string; desc: string }[] = [
+  { value: 'lt300',    label: '〜300万',    desc: '年収300万円未満' },
+  { value: '300-500',  label: '300〜500万', desc: '年収300〜500万円' },
+  { value: '500-800',  label: '500〜800万', desc: '年収500〜800万円' },
+  { value: 'gt800',    label: '800万〜',    desc: '年収800万円以上' },
+]
+
+const INCOME_MAP: Record<IncomeBand, number> = {
+  'lt300': 250, '300-500': 400, '500-800': 650, 'gt800': 1000,
+}
+
+const INCOME_LABELS: Record<IncomeBand, string> = {
+  'lt300': '〜300万', '300-500': '300〜500万', '500-800': '500〜800万', 'gt800': '800万〜',
+}
 
 const RANK_STYLES = [
   { badge: '🥇 第1位', border: 'border-[#f59e0b]', shadow: 'shadow-lg', badgeBg: 'bg-[#f59e0b]', label: '最優先' },
   { badge: '🥈 第2位', border: 'border-[#2563eb]',  shadow: 'shadow-md', badgeBg: 'bg-[#2563eb]',  label: 'おすすめ' },
   { badge: '🥉 第3位', border: 'border-gray-300',   shadow: '',          badgeBg: 'bg-gray-400',    label: '検討を' },
 ]
+
+const FREELANCE_SLUGS = ['freelance-engineer', 'designer', 'food-service', 'beautician']
 
 function calcMonthlyPremium(annualIncome: number, rate: number): number {
   return Math.round(annualIncome * 10000 * rate / 12)
@@ -48,14 +80,12 @@ function getRecommendations(answers: Answers): RecommendedInsurance[] {
   const occ = answers.occupation
   if (!occ) return []
 
-  const income = answers.gender === 'male'
-    ? (occ.avg_income_man || 400)
-    : (occ.avg_income_woman || 350)
-
+  const income = INCOME_MAP[answers.incomeBand]
+  const age = AGE_MAP[answers.ageBand]
   const isFreelance = FREELANCE_SLUGS.includes(occ.slug)
-  const hasChild = answers.family === 'married-1child' || answers.family === 'married-2children'
+  const hasChild = answers.family === 'with-child'
   const isMarried = answers.family !== 'single'
-  const isOver40 = answers.age >= 40
+  const isOver40 = age >= 40
 
   const all: (RecommendedInsurance & { score: number })[] = [
     {
@@ -113,12 +143,12 @@ function getRecommendations(answers: Answers): RecommendedInsurance[] {
       slug: 'pension',
       name: '個人年金保険',
       icon: '🏦',
-      reason: answers.age <= 40
+      reason: age <= 40
         ? '老後資金の積み立ては早いほど有利。税制優遇も活用できます。'
         : '老後まで時間が少ないため、早めの積み立て開始が重要です。',
       monthlyEst: calcMonthlyPremium(income, 0.02),
       occupationSlug: occ.slug,
-      score: answers.age <= 45 ? 65 : 45,
+      score: age <= 45 ? 65 : 45,
     },
   ]
 
@@ -134,7 +164,7 @@ function buildShareText(answers: Answers, recs: RecommendedInsurance[]): string 
   const top = recs[0]
   if (!top) return encodeURIComponent('保険データドットコムで保険料を無料診断しました。')
   return encodeURIComponent(
-    `私の保険料診断結果：${occ}の場合、${top.name}の推定月額は約${top.monthlyEst.toLocaleString()}円でした。\nあなたも調べてみて👇\nhttps://hoken-data.com/simulator\n#保険料診断 #保険データドットコム`
+    `${occ}（${answers.ageBand}・年収${INCOME_LABELS[answers.incomeBand]}）の${top.name}推定月額は約${top.monthlyEst.toLocaleString()}円でした。\nあなたも調べてみて👇\nhttps://hoken-data.com/simulator\n#保険料診断 #保険データドットコム`
   )
 }
 
@@ -142,9 +172,10 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
   const [step, setStep] = useState(1)
   const [answers, setAnswers] = useState<Answers>({
     occupation: null,
-    age: 30,
+    ageBand: '30代',
     gender: 'male',
     family: 'single',
+    incomeBand: '300-500',
   })
   const [showResult, setShowResult] = useState(false)
   const [occSearch, setOccSearch] = useState('')
@@ -154,25 +185,21 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
     : occupations
 
   const goNext = () => {
-    if (step < 5) setStep(s => s + 1)
-    if (step === 4) setShowResult(true)
+    if (step < 3) setStep(s => s + 1)
+    if (step === 2) setShowResult(true)
   }
   const goBack = () => {
     if (step > 1) setStep(s => s - 1)
-    if (step === 5) setShowResult(false)
+    if (step === 3) setShowResult(false)
   }
   const reset = () => {
     setStep(1)
     setShowResult(false)
-    setAnswers({ occupation: null, age: 30, gender: 'male', family: 'single' })
+    setAnswers({ occupation: null, ageBand: '30代', gender: 'male', family: 'single', incomeBand: '300-500' })
     setOccSearch('')
   }
 
-  const canNext =
-    (step === 1 && answers.occupation !== null) ||
-    (step === 2 && answers.age >= 20 && answers.age <= 70) ||
-    step === 3 ||
-    step === 4
+  const canNext = (step === 1 && answers.occupation !== null) || step === 2
 
   const recommendations = showResult ? getRecommendations(answers) : []
 
@@ -221,10 +248,6 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
                   }`}>
                     {label}
                   </span>
-                  {/* コネクター */}
-                  {i < STEP_LABELS.length - 1 && (
-                    <div className="absolute" style={{ display: 'none' }} />
-                  )}
                 </div>
               )
             })}
@@ -233,171 +256,193 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
           <div className="mt-3 h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-full transition-all duration-500"
-              style={{ width: `${((step - 1) / (STEP_LABELS.length - 1)) * 100}%` }}
+              style={{ width: `${((step - 1) / 2) * 100}%` }}
             />
           </div>
         </div>
 
-        {/* STEP 1: 職業選択 */}
+        {/* STEP 1: あなたについて（職業 + 年齢帯 + 性別） */}
         {step === 1 && (
-          <div>
-            <h2 className="text-xl font-bold text-[#0f172a] mb-2">あなたの職業は？</h2>
-            <p className="text-sm text-gray-500 mb-5">最も近い職業を選んでください</p>
-            <div className="relative mb-4">
-              <label htmlFor="occ-search" className="sr-only">職業名で検索</label>
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
-              <input
-                id="occ-search"
-                type="text"
-                placeholder="職業名で検索（例：エンジニア、看護師）"
-                value={occSearch}
-                onChange={e => setOccSearch(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 bg-white"
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-80 overflow-y-auto pr-1">
-              {filteredOcc.map(occ => (
-                <button
-                  key={occ.id}
-                  onClick={() => setAnswers(a => ({ ...a, occupation: occ }))}
-                  className={`text-left p-4 rounded-xl border-2 transition-all ${
-                    answers.occupation?.id === occ.id
-                      ? 'border-[#2563eb] bg-blue-50 shadow-sm'
-                      : 'border-gray-100 bg-white hover:border-[#2563eb] hover:bg-blue-50'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <p className="font-semibold text-[#0f172a] text-sm">{occ.name_ja}</p>
-                    {answers.occupation?.id === occ.id && (
-                      <span className="text-[#2563eb] text-xs font-bold">✓ 選択中</span>
+          <div className="space-y-8">
+            {/* 職業 */}
+            <div>
+              <h2 className="text-lg font-bold text-[#0f172a] mb-1">あなたの職業は？</h2>
+              <p className="text-sm text-gray-500 mb-4">最も近い職業を選んでください</p>
+              <div className="relative mb-3">
+                <label htmlFor="occ-search" className="sr-only">職業名で検索</label>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+                <input
+                  id="occ-search"
+                  type="text"
+                  placeholder="職業名で検索（例：エンジニア、看護師）"
+                  value={occSearch}
+                  onChange={e => setOccSearch(e.target.value)}
+                  className="w-full border border-gray-200 rounded-xl pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 bg-white"
+                />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1">
+                {filteredOcc.map(occ => (
+                  <button
+                    key={occ.id}
+                    onClick={() => setAnswers(a => ({ ...a, occupation: occ }))}
+                    className={`text-left p-3 rounded-xl border-2 transition-all ${
+                      answers.occupation?.id === occ.id
+                        ? 'border-[#2563eb] bg-blue-50 shadow-sm'
+                        : 'border-gray-100 bg-white hover:border-[#2563eb] hover:bg-blue-50'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <p className="font-semibold text-[#0f172a] text-sm">{occ.name_ja}</p>
+                      {answers.occupation?.id === occ.id && (
+                        <span className="text-[#2563eb] text-xs font-bold">✓</span>
+                      )}
+                    </div>
+                    {occ.avg_income_man && (
+                      <p className="text-xs text-gray-400 mt-0.5">年収 {occ.avg_income_man}万円〜</p>
                     )}
-                  </div>
-                  {occ.avg_income_man && (
-                    <p className="text-xs text-gray-400 mt-0.5">平均年収 {occ.avg_income_man}万円〜</p>
-                  )}
-                </button>
-              ))}
-              {filteredOcc.length === 0 && (
-                <p className="col-span-2 text-center text-gray-400 text-sm py-8">該当する職業が見つかりませんでした</p>
-              )}
+                  </button>
+                ))}
+                {filteredOcc.length === 0 && (
+                  <p className="col-span-2 text-center text-gray-400 text-sm py-6">該当する職業が見つかりませんでした</p>
+                )}
+              </div>
             </div>
-          </div>
-        )}
 
-        {/* STEP 2: 年齢 */}
-        {step === 2 && (
-          <div>
-            <h2 className="text-xl font-bold text-[#0f172a] mb-2">年齢を入力してください</h2>
-            <p className="text-sm text-gray-500 mb-8">20〜70歳の範囲で入力してください</p>
-            <div className="text-center mb-6">
-              <span className="text-8xl font-bold text-[#2563eb] tabular-nums">{answers.age}</span>
-              <span className="text-3xl text-gray-400 ml-2">歳</span>
-            </div>
-            <label htmlFor="age-slider" className="sr-only">年齢を選択（20〜70歳）</label>
-            <input
-              id="age-slider"
-              type="range"
-              min={20}
-              max={70}
-              value={answers.age}
-              onChange={e => setAnswers(a => ({ ...a, age: parseInt(e.target.value) }))}
-              aria-label={`年齢: ${answers.age}歳`}
-              className="w-full accent-[#2563eb] mb-2"
-            />
-            <div className="flex justify-between text-xs text-gray-400">
-              <span>20歳</span>
-              <span>70歳</span>
-            </div>
-            <div className="flex gap-2 justify-center mt-6 flex-wrap">
-              {[25, 30, 35, 40, 45, 50].map(age => (
-                <button
-                  key={age}
-                  onClick={() => setAnswers(a => ({ ...a, age }))}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold border-2 transition-all ${
-                    answers.age === age
-                      ? 'bg-[#2563eb] text-white border-[#2563eb]'
-                      : 'bg-white border-gray-200 text-gray-600 hover:border-[#2563eb]'
-                  }`}
-                >
-                  {age}歳
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* STEP 3: 性別 */}
-        {step === 3 && (
-          <div>
-            <h2 className="text-xl font-bold text-[#0f172a] mb-2">性別を選択してください</h2>
-            <p className="text-sm text-gray-500 mb-8">保険料の計算に使用します</p>
-            <div className="grid grid-cols-2 gap-4">
-              {([
-                { value: 'male', label: '男性', icon: '👨', sub: '男性平均年収を適用' },
-                { value: 'female', label: '女性', icon: '👩', sub: '女性平均年収を適用' },
-              ] as const).map(opt => (
-                <button
-                  key={opt.value}
-                  onClick={() => setAnswers(a => ({ ...a, gender: opt.value }))}
-                  className={`p-8 rounded-2xl border-2 text-center transition-all ${
-                    answers.gender === opt.value
-                      ? 'border-[#2563eb] bg-blue-50 shadow-md'
-                      : 'border-gray-100 bg-white hover:border-[#2563eb]'
-                  }`}
-                >
-                  <span className="text-5xl block mb-3">{opt.icon}</span>
-                  <span className="text-lg font-bold text-[#0f172a] block">{opt.label}</span>
-                  <span className="text-xs text-gray-400 mt-1 block">{opt.sub}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* STEP 4: 家族構成 */}
-        {step === 4 && (
-          <div>
-            <h2 className="text-xl font-bold text-[#0f172a] mb-2">家族構成を選んでください</h2>
-            <p className="text-sm text-gray-500 mb-6">推奨保険の優先度に影響します</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {FAMILY_OPTIONS.map(opt => (
-                <button
-                  key={opt.value}
-                  onClick={() => setAnswers(a => ({ ...a, family: opt.value }))}
-                  className={`p-5 rounded-2xl border-2 text-left flex items-center gap-4 transition-all ${
-                    answers.family === opt.value
-                      ? 'border-[#2563eb] bg-blue-50 shadow-md'
-                      : 'border-gray-100 bg-white hover:border-[#2563eb]'
-                  }`}
-                >
-                  <span className="text-3xl flex-shrink-0">{opt.icon}</span>
-                  <div>
-                    <span className="font-bold text-[#0f172a] text-sm block">{opt.label}</span>
+            {/* 年齢帯 */}
+            <div>
+              <h2 className="text-lg font-bold text-[#0f172a] mb-1">年齢帯は？</h2>
+              <p className="text-sm text-gray-500 mb-4">最も近い年代を選んでください</p>
+              <div className="grid grid-cols-4 gap-2">
+                {AGE_BAND_OPTIONS.map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setAnswers(a => ({ ...a, ageBand: opt.value }))}
+                    className={`p-3 rounded-xl border-2 text-center transition-all ${
+                      answers.ageBand === opt.value
+                        ? 'border-[#2563eb] bg-blue-50 shadow-sm'
+                        : 'border-gray-100 bg-white hover:border-[#2563eb]'
+                    }`}
+                  >
+                    <span className="text-2xl block mb-1">{opt.icon}</span>
+                    <span className="font-bold text-[#0f172a] text-sm block">{opt.value}</span>
                     <span className="text-xs text-gray-400">{opt.desc}</span>
-                  </div>
-                  {answers.family === opt.value && (
-                    <span className="ml-auto text-[#2563eb] font-bold text-sm">✓</span>
-                  )}
-                </button>
-              ))}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 性別 */}
+            <div>
+              <h2 className="text-lg font-bold text-[#0f172a] mb-1">性別は？</h2>
+              <p className="text-sm text-gray-500 mb-4">保険料の計算に使用します</p>
+              <div className="grid grid-cols-2 gap-3">
+                {([
+                  { value: 'male', label: '男性', icon: '👨', sub: '男性平均を適用' },
+                  { value: 'female', label: '女性', icon: '👩', sub: '女性平均を適用' },
+                ] as const).map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setAnswers(a => ({ ...a, gender: opt.value }))}
+                    className={`p-5 rounded-2xl border-2 text-center transition-all ${
+                      answers.gender === opt.value
+                        ? 'border-[#2563eb] bg-blue-50 shadow-md'
+                        : 'border-gray-100 bg-white hover:border-[#2563eb]'
+                    }`}
+                  >
+                    <span className="text-4xl block mb-2">{opt.icon}</span>
+                    <span className="text-base font-bold text-[#0f172a] block">{opt.label}</span>
+                    <span className="text-xs text-gray-400 mt-1 block">{opt.sub}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
 
-        {/* STEP 5: 結果 */}
-        {step === 5 && showResult && (
+        {/* STEP 2: 家族・収入 */}
+        {step === 2 && (
+          <div className="space-y-8">
+            {/* 家族構成 */}
+            <div>
+              <h2 className="text-lg font-bold text-[#0f172a] mb-1">家族構成は？</h2>
+              <p className="text-sm text-gray-500 mb-4">推奨保険の優先度に影響します</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {FAMILY_OPTIONS.map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setAnswers(a => ({ ...a, family: opt.value }))}
+                    className={`p-5 rounded-2xl border-2 text-left flex items-center gap-3 transition-all ${
+                      answers.family === opt.value
+                        ? 'border-[#2563eb] bg-blue-50 shadow-md'
+                        : 'border-gray-100 bg-white hover:border-[#2563eb]'
+                    }`}
+                  >
+                    <span className="text-3xl flex-shrink-0">{opt.icon}</span>
+                    <div>
+                      <span className="font-bold text-[#0f172a] text-sm block">{opt.label}</span>
+                      <span className="text-xs text-gray-400">{opt.desc}</span>
+                    </div>
+                    {answers.family === opt.value && (
+                      <span className="ml-auto text-[#2563eb] font-bold text-sm">✓</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 年収帯 */}
+            <div>
+              <h2 className="text-lg font-bold text-[#0f172a] mb-1">年収帯は？</h2>
+              <p className="text-sm text-gray-500 mb-4">保険料の目安計算に使用します</p>
+              <div className="grid grid-cols-2 gap-3">
+                {INCOME_OPTIONS.map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setAnswers(a => ({ ...a, incomeBand: opt.value }))}
+                    className={`p-4 rounded-xl border-2 text-center transition-all ${
+                      answers.incomeBand === opt.value
+                        ? 'border-[#2563eb] bg-blue-50 shadow-sm'
+                        : 'border-gray-100 bg-white hover:border-[#2563eb]'
+                    }`}
+                  >
+                    <span className="font-bold text-[#0f172a] text-base block">{opt.label}</span>
+                    <span className="text-xs text-gray-400 mt-1 block">{opt.desc}</span>
+                    {answers.incomeBand === opt.value && (
+                      <span className="text-[#2563eb] text-xs font-bold mt-1 block">✓ 選択中</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 3: 診断結果 */}
+        {step === 3 && showResult && (
           <div>
+            {/* プロフィールサマリーバー */}
+            <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 mb-6 text-sm text-[#0f172a] font-semibold flex flex-wrap gap-2 items-center">
+              <span className="text-[#2563eb]">📋</span>
+              <span>{answers.occupation?.name_ja}</span>
+              <span className="text-gray-400">·</span>
+              <span>{answers.ageBand}</span>
+              <span className="text-gray-400">·</span>
+              <span>{answers.gender === 'male' ? '男性' : '女性'}</span>
+              <span className="text-gray-400">·</span>
+              <span>{FAMILY_LABELS[answers.family]}</span>
+              <span className="text-gray-400">·</span>
+              <span>年収{INCOME_LABELS[answers.incomeBand]}</span>
+            </div>
+
             {/* 結果ヘッダー */}
             <div className="text-center mb-8 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
               <div className="inline-block bg-[#10b981] text-white text-sm font-bold px-4 py-1.5 rounded-full mb-3">
                 ✓ 診断完了
               </div>
               <h2 className="text-lg font-bold text-[#0f172a] mb-1">
-                {answers.occupation?.name_ja}・{answers.age}歳
-                （{answers.gender === 'male' ? '男性' : '女性'}）の診断結果
+                推奨保険 TOP{recommendations.length}
               </h2>
-              <p className="text-sm text-gray-500 mb-4">推奨保険 TOP{recommendations.length}</p>
-
+              <p className="text-sm text-gray-500 mb-4">{answers.occupation?.name_ja}に最適な保険の組み合わせ</p>
               {/* シェアボタン */}
               <a
                 href={`https://twitter.com/intent/tweet?text=${buildShareText(answers, recommendations)}&url=${encodeURIComponent('https://hoken-data.com/simulator')}`}
@@ -462,7 +507,6 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
                   <Link
                     href={`/occupation/${recommendations[0].occupationSlug}/${recommendations[0].slug}`}
                     className="flex items-center justify-between bg-blue-50 rounded-xl px-4 py-3 hover:bg-blue-100 transition-colors"
-                    aria-label={`${recommendations[0].name}の詳しいデータを見る`}
                   >
                     <div>
                       <p className="text-xs text-gray-500 mb-0.5">1位の詳しいデータを見る</p>
@@ -474,7 +518,6 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
                 <Link
                   href="/insurance"
                   className="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3 hover:bg-gray-100 transition-colors"
-                  aria-label="別の保険種類を調べる"
                 >
                   <div>
                     <p className="text-xs text-gray-500 mb-0.5">別の保険種類も調べる</p>
@@ -485,7 +528,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
               </div>
             </div>
 
-            {/* もう一度診断する（目立つ位置） */}
+            {/* もう一度診断する */}
             <button
               onClick={reset}
               aria-label="もう一度保険料診断をする"
@@ -497,7 +540,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             {/* CTA */}
             <div className="bg-[#0f172a] text-white rounded-2xl p-6 text-center mb-4">
               <p className="text-[#f59e0b] text-xs font-bold mb-2">PR・無料・強引な勧誘なし</p>
-              <h3 className="text-lg font-bold mb-2">無料でFPに保険相談する</h3>
+              <h3 className="text-lg font-bold mb-2">この結果をもとに無料相談する</h3>
               <p className="text-gray-400 text-xs mb-5">
                 FP（ファイナンシャルプランナー）が、{answers.occupation?.name_ja}に最適な保険を無料で提案します
               </p>
@@ -506,7 +549,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
                 className="block bg-[#2563eb] text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-2"
                 aria-label="無料で保険相談を申し込む"
               >
-                無料で保険相談する →
+                この結果をもとに無料相談する →
               </Link>
               <p className="text-gray-600 text-xs">※本サイトはアフィリエイト広告を含みます</p>
             </div>
@@ -527,7 +570,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
         )}
 
         {/* ナビゲーションボタン */}
-        {step < 5 && (
+        {step < 3 && (
           <div className="flex gap-3 mt-8">
             {step > 1 && (
               <button
@@ -546,7 +589,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
             >
-              {step === 4 ? '✨ 診断する' : '次へ →'}
+              {step === 2 ? '✨ 診断する' : '次へ →'}
             </button>
           </div>
         )}

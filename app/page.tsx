@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { createClient } from '@supabase/supabase-js'
+import HomeOccupationTabs from '@/components/HomeOccupationTabs'
 
 export const metadata: Metadata = {
   title: '保険料相場データベース【職業・年齢別】無料｜保険データドットコム',
@@ -277,39 +278,22 @@ export default async function Home() {
 
       {/* 職業から調べる */}
       <section id="occupations" className="py-16 px-4 bg-[#f8fafc]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-[#0f172a] mb-3">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-[#0f172a] mb-3">
             20の職業から保険料を調べる
           </h2>
-          <p className="text-gray-500 text-sm mb-8">
-            IT・医療・公務員・建設業など、あなたの職業カテゴリから確認できます
+          <p className="text-center text-gray-500 text-sm mb-8">
+            カテゴリを選んで、あなたの職業の保険料相場を確認できます
           </p>
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {[
-              { label: 'IT・エンジニア',     color: 'bg-blue-100 text-blue-700 hover:bg-blue-200' },
-              { label: '医療・介護',         color: 'bg-red-100 text-red-700 hover:bg-red-200' },
-              { label: '公務員・教育',       color: 'bg-green-100 text-green-700 hover:bg-green-200' },
-              { label: 'オフィス・営業',     color: 'bg-gray-100 text-gray-700 hover:bg-gray-200' },
-              { label: '建設・製造・運輸',   color: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200' },
-              { label: '飲食・美容',         color: 'bg-pink-100 text-pink-700 hover:bg-pink-200' },
-              { label: 'フリーランス',       color: 'bg-purple-100 text-purple-700 hover:bg-purple-200' },
-              { label: 'パート・アルバイト', color: 'bg-slate-100 text-slate-700 hover:bg-slate-200' },
-            ].map(tag => (
-              <Link
-                key={tag.label}
-                href="/occupation"
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${tag.color}`}
-              >
-                {tag.label}
-              </Link>
-            ))}
+          <HomeOccupationTabs />
+          <div className="text-center mt-8">
+            <Link
+              href="/occupation"
+              className="inline-block bg-[#2563eb] text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
+            >
+              全職業一覧を見る →
+            </Link>
           </div>
-          <Link
-            href="/occupation"
-            className="inline-block bg-[#2563eb] text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
-          >
-            全職業を見る →
-          </Link>
         </div>
       </section>
 

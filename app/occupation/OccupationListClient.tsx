@@ -2,8 +2,34 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+} from 'recharts'
 import type { Occupation } from '@/lib/data'
 import { CATEGORY_LABELS } from '@/lib/data'
+
+const RISK_ICON: Record<string, string> = {
+  'engineer':           '💻',
+  'freelance-engineer': '🖥️',
+  'nurse':              '🏥',
+  'doctor':             '⚕️',
+  'pharmacist':         '💊',
+  'civil-servant':      '🏛️',
+  'teacher':            '📚',
+  'sales':              '📊',
+  'manager':            '👔',
+  'finance':            '💹',
+  'real-estate':        '🏠',
+  'construction':       '⛑️',
+  'driver':             '🚛',
+  'manufacturing':      '🔧',
+  'food-service':       '🍳',
+  'beautician':         '✂️',
+  'accountant':         '📋',
+  'lawyer':             '⚖️',
+  'designer':           '🎨',
+  'part-time':          '⏰',
+}
 
 const TOP_INSURANCE: Record<string, { slug: string; name: string }> = {
   'engineer':           { slug: 'income-protection', name: '就業不能保険' },
@@ -20,12 +46,12 @@ const TOP_INSURANCE: Record<string, { slug: string; name: string }> = {
   'construction':       { slug: 'personal-accident', name: '傷害保険' },
   'manufacturing':      { slug: 'personal-accident', name: '傷害保険' },
   'driver':             { slug: 'auto',              name: '自動車保険' },
-  'restaurant':         { slug: 'medical',           name: '医療保険' },
-  'hairdresser':        { slug: 'income-protection', name: '就業不能保険' },
+  'food-service':       { slug: 'medical',           name: '医療保険' },
+  'beautician':         { slug: 'income-protection', name: '就業不能保険' },
   'part-time':          { slug: 'medical',           name: '医療保険' },
-  'secretary':          { slug: 'medical',           name: '医療保険' },
   'accountant':         { slug: 'whole-life',        name: '終身保険' },
-  'counselor':          { slug: 'income-protection', name: '就業不能保険' },
+  'lawyer':             { slug: 'life',              name: '生命保険' },
+  'real-estate':        { slug: 'life',              name: '生命保険' },
 }
 
 const INS_BADGE_COLORS: Record<string, string> = {
@@ -87,8 +113,17 @@ export default function OccupationListClient({ occupations }: { occupations: Occ
     return acc
   }, {})
 
+  // 横棒グラフ用データ（医療保険 月額推定）
+  const chartData = [...occupations]
+    .map(occ => ({
+      name: occ.name_ja,
+      monthly: Math.round((occ.avg_income_man || 400) * 10000 * 0.005 / 12),
+    }))
+    .sort((a, b) => b.monthly - a.monthly)
+
   return (
     <>
+      {/* ヒーローセクション */}
       <section className="bg-[#0f172a] text-white py-14 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap items-center gap-2 text-sm text-gray-400 mb-4">
@@ -97,7 +132,26 @@ export default function OccupationListClient({ occupations }: { occupations: Occ
             <span>職業から調べる</span>
           </div>
           <h1 className="text-2xl md:text-4xl font-bold mb-3">職業別 保険料相場一覧</h1>
-          <p className="text-gray-300 mb-5">20職業の保険料相場を政府統計データで確認できます</p>
+
+          {/* データバッジ */}
+          <div className="flex flex-wrap gap-3 mb-5">
+            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm">
+              <span className="text-[#f59e0b] font-bold">20</span>職業
+              <span className="text-gray-500">×</span>
+              <span className="text-[#2563eb] font-bold">10</span>保険種類
+              <span className="text-gray-500">=</span>
+              <span className="text-white font-bold">200</span>パターン
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm text-gray-300">
+              📊 政府統計データ準拠
+            </span>
+          </div>
+
+          <p className="text-gray-300 mb-5 text-sm">
+            職業を選ぶと、その職業特有のリスクと適正保険料がわかります
+          </p>
+
+          {/* 検索 */}
           <div className="relative max-w-md">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg pointer-events-none">🔍</span>
             <input
@@ -111,6 +165,54 @@ export default function OccupationListClient({ occupations }: { occupations: Occ
         </div>
       </section>
 
+      {/* 医療保険 月額比較グラフ */}
+      <section className="py-12 px-4 bg-white border-b">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-[#0f172a] mb-2">どの職業が最も保険料が高い？</h2>
+          <p className="text-xs text-gray-400 mb-1">医療保険の推定月額保険料（年収ベース参考値）</p>
+          <p className="text-xs text-gray-400 mb-6">
+            出典：厚生労働省 賃金構造基本統計調査 2023 ×
+            業界平均保険料率（0.5%）より算出
+          </p>
+          <ResponsiveContainer width="100%" height={Math.max(400, chartData.length * 22)}>
+            <BarChart
+              layout="vertical"
+              data={chartData}
+              margin={{ top: 4, right: 80, left: 8, bottom: 4 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" horizontal={false} />
+              <XAxis
+                type="number"
+                tickFormatter={v => `${(v / 1000).toFixed(0)}k`}
+                tick={{ fontSize: 11, fill: '#64748b' }}
+              />
+              <YAxis
+                type="category"
+                dataKey="name"
+                width={140}
+                tick={{ fontSize: 11, fill: '#0f172a' }}
+              />
+              <Tooltip
+                formatter={(value) =>
+                  typeof value === 'number' ? [`${value.toLocaleString()}円`, '推定月額'] : value
+                }
+              />
+              <Bar
+                dataKey="monthly"
+                name="推定月額（医療保険）"
+                fill="#2563eb"
+                radius={[0, 4, 4, 0]}
+                label={{ position: 'right', formatter: (v: unknown) => typeof v === 'number' ? `${v.toLocaleString()}円` : '', fontSize: 11, fill: '#64748b' }}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="text-xs text-gray-400 mt-3 text-center">
+            ※実際の保険料は年齢・健康状態・保険会社・保障内容により大きく異なります
+          </p>
+        </div>
+      </section>
+
+      {/* フィルター + カードグリッド */}
       <section className="py-10 px-4 max-w-6xl mx-auto">
         {/* カテゴリフィルター */}
         <div className="flex flex-wrap gap-2 mb-8">
@@ -146,46 +248,50 @@ export default function OccupationListClient({ occupations }: { occupations: Occ
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                   {occs.map(occ => {
                     const topIns = TOP_INSURANCE[occ.slug]
+                    const riskIcon = RISK_ICON[occ.slug] ?? '📋'
                     return (
                       <Link
                         key={occ.id}
                         href={`/occupation/${occ.slug}`}
                         className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#2563eb] hover:shadow-md transition-all flex flex-col"
                       >
-                        {/* 最も必要な保険バッジ */}
-                        {topIns && (
-                          <span className={`self-start text-xs px-2 py-0.5 rounded-full font-semibold mb-3 ${INS_BADGE_COLORS[topIns.slug] || 'bg-gray-100 text-gray-600'}`}>
-                            ★ {topIns.name}
-                          </span>
-                        )}
+                        {/* リスクアイコン + 保険バッジ */}
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-2xl">{riskIcon}</span>
+                          {topIns && (
+                            <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${INS_BADGE_COLORS[topIns.slug] || 'bg-gray-100 text-gray-600'}`}>
+                              ★ {topIns.name}
+                            </span>
+                          )}
+                        </div>
 
                         <h3 className="font-bold text-[#0f172a] text-sm leading-snug mb-3">{occ.name_ja}</h3>
 
                         {(occ.avg_income_man || occ.avg_income_woman) && (
-                          <div className="space-y-2 mb-4">
+                          <div className="space-y-1 mb-4">
                             {occ.avg_income_man && (
-                              <div>
-                                <p className="text-xs text-gray-400">男性平均年収</p>
-                                <p className="text-2xl font-bold text-[#0f172a] leading-none">
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-xs text-gray-400">男性平均</span>
+                                <span className="text-base font-bold text-[#0f172a]">
                                   {occ.avg_income_man}
-                                  <span className="text-sm font-normal text-gray-500 ml-0.5">万円</span>
-                                </p>
+                                  <span className="text-xs font-normal text-gray-500 ml-0.5">万円</span>
+                                </span>
                               </div>
                             )}
                             {occ.avg_income_woman && (
-                              <div>
-                                <p className="text-xs text-gray-400">女性平均年収</p>
-                                <p className="text-2xl font-bold text-[#0f172a] leading-none">
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-xs text-gray-400">女性平均</span>
+                                <span className="text-base font-bold text-[#0f172a]">
                                   {occ.avg_income_woman}
-                                  <span className="text-sm font-normal text-gray-500 ml-0.5">万円</span>
-                                </p>
+                                  <span className="text-xs font-normal text-gray-500 ml-0.5">万円</span>
+                                </span>
                               </div>
                             )}
                           </div>
                         )}
 
                         <span className="mt-auto text-[#2563eb] text-xs font-semibold group-hover:underline">
-                          保険料を調べる →
+                          詳細を見る →
                         </span>
                       </Link>
                     )
