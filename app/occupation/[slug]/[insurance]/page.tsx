@@ -337,6 +337,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isNurseIncomeProtection = occ.slug === 'nurse' && ins.slug === 'income-protection'
   const isConstructionMedical = occ.slug === 'construction' && ins.slug === 'medical'
   const isTeacherMedical = occ.slug === 'teacher' && ins.slug === 'medical'
+  const isCivilServantLife = occ.slug === 'civil-servant' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -1761,6 +1762,327 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 '先進医療特約（月100〜200円）を付帯した',
                 '私立学校教員の場合は勤務先の保障を先に確認した',
                 '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="text-[#2563eb] font-bold flex-shrink-0">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 地方公務員×生命保険 専用コンテンツ */}
+      {isCivilServantLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* Section 1：リード文 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              地方公務員に生命保険が必要な理由
+            </h2>
+            <div className="text-gray-700 leading-relaxed space-y-4 text-sm">
+              <p>
+                地方公務員は共済組合による手厚い保障と、職場で案内される団体定期保険（グループ保険）を持っています。しかし「職場の団体保険に入っているから民間保険は不要」という判断が、退職後に大きな保障のギャップを生む原因になっています。
+              </p>
+              <p>
+                全国で約270万人の職員が加入する公務員向け団体定期保険は割安な保険料と充実した保障で人気です。しかし団体保険には「退職後に保障が消える」という決定的な弱点があります。定年退職・早期退職・転職の際に保障がゼロになるリスクを正しく理解した上で、民間生命保険との最適な組み合わせを検討することが重要です。
+              </p>
+              <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-xl">
+                <p className="font-bold text-indigo-800">💡 地方公務員が生命保険を考える際の最重要ポイント</p>
+                <p className="text-indigo-700 text-sm mt-1">
+                  大手保険サイトの多くは、公務員向け団体保険と民間保険の直接比較を避けています。本ページでは政府統計データと公開情報に基づき、中立的な立場で両者を比較します。
+                </p>
+                <p className="text-xs text-indigo-600 mt-2">
+                  出典：
+                  <a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/koumuin_seido/kyousai.html" target="_blank" rel="noopener noreferrer" className="underline">
+                    総務省「地方公務員共済組合年報」2022年
+                  </a>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 2：団体保険 vs 民間保険 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              【保存版】地方公務員の団体定期保険 vs 民間生命保険 徹底比較
+            </h2>
+            <p className="text-sm text-gray-700 mb-4">多くの保険サイトが触れない「団体保険と民間保険の直接比較」を客観的データに基づいて解説します。</p>
+            <div className="overflow-x-auto mb-4">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">比較項目</th>
+                    <th className="text-center p-3">職場の団体定期保険</th>
+                    <th className="text-center p-3">民間生命保険（個人契約）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { item: '保険料', group: '✅ 割安（団体割引20〜30%適用）', private: '△ 標準〜やや高め' },
+                    { item: '加入審査', group: '✅ 告知不要または簡易', private: '△ 健康告知・医師診査が必要な場合あり' },
+                    { item: '退職後の保障', group: '❌ 退職と同時に保障終了', private: '✅ 退職後も継続（終身保険の場合）' },
+                    { item: '転職・早期退職時', group: '❌ 保障が即座に消える', private: '✅ 継続可能' },
+                    { item: '保障額の変更', group: '△ 年度ごとの更新時のみ変更可能', private: '✅ ライフステージに合わせて柔軟に変更可能' },
+                    { item: '解約返戻金', group: '❌ なし（掛け捨て）', private: '終身・養老保険はあり' },
+                    { item: '定年後の継続', group: '❌ 原則不可（継続は保険料大幅増）', private: '✅ 継続可能（終身保険は保険料変わらず）' },
+                  ].map((row, i) => (
+                    <tr key={row.item} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.item}</td>
+                      <td className="p-3 text-center text-xs">{row.group}</td>
+                      <td className="p-3 text-center text-xs font-semibold text-[#2563eb]">{row.private}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-5">
+              <p className="font-bold text-yellow-800 mb-2">📊 結論：団体保険と民間保険は「目的」が異なる</p>
+              <p className="text-yellow-700 text-sm leading-relaxed">
+                <strong>団体保険：</strong>在職中の保障を割安に確保するための手段<br />
+                <strong>民間保険：</strong>退職後・転職後も続く長期的な保障を確保するための手段<br /><br />
+                最適解は「団体保険（在職中の死亡保障）＋民間終身保険（退職後の保障）」の組み合わせです。どちらか一方では保障に穴が生じます。
+              </p>
+            </div>
+          </section>
+
+          {/* Section 3：共済の遺族保障 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              地方公務員の共済制度による遺族保障の実態
+            </h2>
+            <p className="text-sm text-gray-700 mb-4">生命保険の必要性を判断するには、共済組合の遺族給付をまず把握することが重要です。</p>
+            <div className="overflow-x-auto mb-4">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">給付の種類</th>
+                    <th className="text-left p-3">内容</th>
+                    <th className="text-right p-3">支給額の目安</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { type: '遺族共済年金', desc: '組合員が死亡した場合に遺族に支給される年金', amount: '報酬比例部分＋加給年金額' },
+                    { type: '遺族基礎年金', desc: '国民年金から支給される基礎的な遺族年金', amount: '子のある配偶者：約102万円/年（子1人）' },
+                    { type: '公務死給付', desc: '公務上の死亡の場合の特別給付', amount: '基礎額×加算額（職階・勤続年数による）' },
+                    { type: '退職手当（死亡退職）', desc: '在職中に死亡した場合の退職手当', amount: '勤続年数×平均給与×支給率' },
+                  ].map((row, i) => (
+                    <tr key={row.type} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-semibold text-[#2563eb]">{row.type}</td>
+                      <td className="p-3 text-xs">{row.desc}</td>
+                      <td className="p-3 text-right text-xs font-medium">{row.amount}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">
+              出典：
+              <a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/koumuin_seido/kyousai.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                総務省「地方公務員共済組合年報」2022年
+              </a>
+              、
+              <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                日本年金機構「遺族基礎年金の受給要件・支給開始時期・計算方法」
+              </a>
+            </p>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 text-sm">
+              共済の遺族給付は会社員（厚生年金）と同水準ですが、子のいない配偶者への遺族基礎年金は支給されない点に注意が必要です。また遺族共済年金は再婚・子の成長により支給が終了するため、長期的な家族の生活費を考えると民間生命保険で補完することが重要です。
+            </div>
+          </section>
+
+          {/* Section 4：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              地方公務員が直面する健康・生活リスクの実態
+            </h2>
+            <div className="space-y-6 text-sm text-gray-700">
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">① 精神疾患休職者数：10年連続増加・過去最多</h3>
+                <p className="leading-relaxed">
+                  総務省「地方公務員の健康状況等の現況（2022年）」によると、地方公務員のメンタルヘルス休職者数は10年連続で増加しており、2022年度は過去最多を更新しました。住民対応・議会対応・長時間残業が精神的負荷の主な原因です。精神疾患による長期休職は収入減少を招き、家族の生活費への影響が懸念されます。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">② 退職後の収入大幅低下：現役時の40〜60%</h3>
+                <p className="leading-relaxed">
+                  総務省統計局「就業構造基本調査（2022年）」によると、公務員の定年退職後の収入は現役時の約40〜60%に低下します。年金収入だけでは生活費を賄えないケースも多く、退職後の生命保険・医療保険の見直しが重要です。在職中に終身保険に加入しておくことで、退職後も保険料変動なしに保障を継続できます。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">③ 早期退職・転職リスク</h3>
+                <p className="leading-relaxed">
+                  近年は「公務員＝終身雇用」という常識が変わりつつあり、自己都合退職・早期退職する公務員も増加しています。団体保険のみに依存している場合、退職と同時に死亡保障がゼロになるリスクがあります。特に住宅ローン返済中の場合、団体信用生命保険（団信）以外の死亡保障確保が重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：
+              <a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/koumuin_seido/kenko.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                総務省「地方公務員の健康状況等の現況」2022年
+              </a>
+              、
+              <a href="https://www.stat.go.jp/data/shugyou/2022/index.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                総務省統計局「就業構造基本調査」2022年
+              </a>
+            </p>
+          </section>
+
+          {/* Section 5：ライフステージ別戦略 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              地方公務員のライフステージ別・最適な生命保険の考え方
+            </h2>
+            <div className="space-y-3">
+              {[
+                {
+                  stage: '20代・独身',
+                  situation: '扶養家族なし・住宅ローンなし',
+                  rec: '団体保険のみで十分なケースが多い。医療保険・就業不能保険を優先。生命保険は結婚・住宅購入後に検討。',
+                  priority: '低',
+                  color: 'bg-green-100 text-green-700',
+                },
+                {
+                  stage: '30代・既婚・子あり',
+                  situation: '住宅ローン・教育費・配偶者の生活費',
+                  rec: '最も生命保険の必要性が高い時期。団体保険＋民間定期保険で必要保障額を確保。目安：年収×10〜15年分。',
+                  priority: '高',
+                  color: 'bg-red-100 text-red-700',
+                },
+                {
+                  stage: '40代・子の教育費ピーク',
+                  situation: '住宅ローン残債・大学費用',
+                  rec: '保障額を見直し。住宅ローン返済が進むにつれて必要保障額は減少。収入保障型保険への切り替えを検討。',
+                  priority: '中〜高',
+                  color: 'bg-orange-100 text-orange-700',
+                },
+                {
+                  stage: '50代・定年前',
+                  situation: '退職後の保障継続を検討する時期',
+                  rec: '団体保険が退職で終了することを見据えて終身保険への切り替えを検討。退職金・年金見込み額と照らし合わせて必要保障額を再計算。',
+                  priority: '中',
+                  color: 'bg-yellow-100 text-yellow-700',
+                },
+              ].map(s => (
+                <div key={s.stage} className="bg-white border border-gray-100 rounded-xl p-5 flex gap-4 items-start">
+                  <div className="flex-shrink-0 text-center">
+                    <div className="font-bold text-[#0f172a] text-sm">{s.stage}</div>
+                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full mt-1 inline-block ${s.color}`}>
+                      優先度：{s.priority}
+                    </span>
+                  </div>
+                  <div className="text-sm">
+                    <p className="text-gray-500 text-xs mb-1">{s.situation}</p>
+                    <p className="text-gray-700 leading-relaxed">{s.rec}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 6：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              地方公務員が生命保険を選ぶ際の5つのチェックポイント
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  num: '01',
+                  title: '団体保険の保障内容と退職後の扱いを確認する',
+                  detail: 'まず職場の団体定期保険の保障額・保険料・退職後の継続可否を確認してください。団体保険は在職中は割安ですが、退職後に継続する場合は保険料が大幅に上昇するケースがほとんどです。退職後の継続保険料を事前に確認しておくことが重要です。',
+                },
+                {
+                  num: '02',
+                  title: '共済の遺族給付額を計算する',
+                  detail: '共済組合の遺族給付（遺族共済年金＋遺族基礎年金）の概算額を計算してください。勤務先の共済組合に問い合わせるか、ねんきん定期便で確認できます。共済給付と生活費の差額が民間生命保険で補うべき金額です。',
+                },
+                {
+                  num: '03',
+                  title: '必要保障額を正確に計算する',
+                  detail: '必要保障額 ＝ 遺族の生活費総額 − 共済遺族給付総額 − 貯蓄額。遺族の生活費は「現在の生活費×70%×残余年数」が目安です。住宅ローン残債・教育費・葬儀費用も加算してください。',
+                },
+                {
+                  num: '04',
+                  title: '終身保険で退職後の保障を確保する',
+                  detail: '退職後も保障が続く終身保険を在職中に契約しておくことで、退職時に保険料が上昇するリスクを回避できます。50代で新たに終身保険に加入すると保険料が高くなるため、30〜40代での加入が有利です。',
+                },
+                {
+                  num: '05',
+                  title: '住宅ローンと団体信用生命保険の関係を確認する',
+                  detail: '住宅ローン加入時に団体信用生命保険（団信）に加入している場合、死亡時にローン残債は相殺されます。この分は民間生命保険の必要保障額から差し引いて考えることができます。ただし団信はローン残債のみカバーするため、遺族の生活費・教育費への備えは別途必要です。',
+                },
+              ].map(cp => (
+                <div key={cp.num} className="bg-[#f8fafc] rounded-xl p-5 border border-gray-200">
+                  <div className="flex items-start gap-3 mb-2">
+                    <span className="text-2xl font-bold text-[#2563eb] opacity-40 leading-none flex-shrink-0">{cp.num}</span>
+                    <p className="font-bold text-[#0f172a] text-sm">{cp.title}</p>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{cp.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 7：よくある失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              地方公務員の生命保険でよくある失敗事例3選
+            </h2>
+            <div className="space-y-4 text-sm">
+              {[
+                {
+                  title: '失敗①：団体保険だけで退職後に保障ゼロ',
+                  situation: '55歳男性・地方公務員・妻と子1人。',
+                  problem: '在職中は団体定期保険（死亡保障3,000万円）のみで安心していたが、57歳で早期退職。退職と同時に保障がゼロになった。退職後に民間保険に加入しようとしたが、持病の高血圧を理由に通常の審査では加入できなかった。',
+                  lesson: '健康なうちに終身保険に加入しておくこと。退職後は審査が通らないリスクがある。',
+                },
+                {
+                  title: '失敗②：必要保障額を過大に見積もって保険料を払い過ぎ',
+                  situation: '35歳男性・地方公務員・妻と子2人。',
+                  problem: '共済の遺族給付を考慮せずに生命保険に加入。月額保険料2万円を払い続けていたが、FPに相談したところ共済給付を加味すると必要保障額は実際の半分以下だったことが判明。年間12万円の保険料を10年間払い過ぎていた。',
+                  lesson: '共済の遺族給付額を先に計算し、不足分のみを民間保険で補うこと。',
+                },
+                {
+                  title: '失敗③：退職後に保険料が3倍になった',
+                  situation: '60歳男性・定年退職した元地方公務員。',
+                  problem: '在職中の団体保険は月額2,500円だったが、退職後に継続しようとしたところ月額7,500円に跳ね上がった。家計への負担が大きく、やむなく保障額を半分に減額。老後の保障が手薄になった。',
+                  lesson: '団体保険の退職後継続保険料を事前に確認し、在職中に終身保険への切り替えを検討すること。',
+                },
+              ].map(c => (
+                <div key={c.title} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 mb-2">{c.title}</p>
+                  <div className="space-y-1 text-gray-700">
+                    <p><span className="font-semibold text-gray-500">状況：</span>{c.situation}</p>
+                    <p><span className="font-semibold text-gray-500">問題：</span>{c.problem}</p>
+                    <p className="bg-white rounded-lg px-3 py-2 border border-red-100 mt-2">
+                      <span className="font-bold text-red-700">教訓：</span>{c.lesson}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 8：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              地方公務員の生命保険：加入前の最終確認リスト
+            </h2>
+            <div className="space-y-2">
+              {[
+                '職場の団体定期保険の保障額・保険料・退職後継続保険料を確認した',
+                '共済組合の遺族給付（遺族共済年金＋遺族基礎年金）の概算額を確認した',
+                '必要保障額（遺族生活費−共済給付−貯蓄）を計算した',
+                '住宅ローンの団信で補われる金額を差し引いた',
+                '退職後も保障が続く終身保険の加入を検討した',
+                '精神疾患リスクへの就業不能保険・医療保険の備えも確認した',
+                'ライフステージ（結婚・出産・住宅購入・定年）ごとの見直し計画を立てた',
+                '複数の保険会社・FPに相談して見積もりを比較した',
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
                   <span className="text-[#2563eb] font-bold flex-shrink-0">✓</span>
