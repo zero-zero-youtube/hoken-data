@@ -344,6 +344,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isSalesLife = occ.slug === 'sales' && ins.slug === 'life'
   const isPartTimeMedical = occ.slug === 'part-time' && ins.slug === 'medical'
   const isFreelanceEngineerMedical = occ.slug === 'freelance-engineer' && ins.slug === 'medical'
+  const isNurseMedical = occ.slug === 'nurse' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2097,6 +2098,192 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 看護師×医療保険 専用コンテンツ */}
+      {isNurseMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">看護師に医療保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              看護師は医療の専門家として、病気や医療制度に精通している職業です。しかしだからこそ「自分は健康管理ができている」「医療費の仕組みを知っているから大丈夫」と民間医療保険への加入を後回しにしがちです。実際には看護師は腰痛・針刺し事故・精神疾患・夜勤によるがんリスクなど、職業特有の医療リスクが非常に高い職種です。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              病院勤務の看護師は健康保険（協会けんぽ等）に加入しており、高額療養費制度・傷病手当金という手厚い公的保障があります。しかし差額ベッド代・先進医療費用・腰痛手術後の長期リハビリ費用などは公的保障ではカバーされず、民間医療保険で補うことが重要です。
+            </p>
+            <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-emerald-800 mb-1">💡 「看護師×医療保険」を検索している方への重要な案内</p>
+              <p className="text-emerald-700 text-sm leading-relaxed">
+                「看護師 医療保険」で検索すると「看護職賠償責任保険」の情報が多く表示されることがあります。看護職賠償責任保険は医療過誤・対物賠償に備えるもので、このページで解説している「自分が病気・入院した時の医療費への備え」とは全く異なる保険です。本ページでは個人の医療保険について解説します。
+              </p>
+              <p className="text-xs text-emerald-600 mt-2">看護職賠償責任保険：日本看護協会・年間1,580円で加入可能（別途検討推奨）</p>
+            </div>
+          </div>
+
+          {/* セクション2：公的保障と医療保険で補う部分 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">看護師の公的保障と民間医療保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-2">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">費用・給付の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">公的保障（健康保険・高額療養費）</th>
+                    <th className="px-4 py-3 text-left font-semibold">民間医療保険で補う部分</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">保険診療の自己負担</td><td className="px-4 py-3">✅ 3割→高額療養費で上限あり</td><td className="px-4 py-3">入院日額・手術給付金で補完</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">差額ベッド代</td><td className="px-4 py-3">❌ 全額自己負担（1日3,000〜10,000円）</td><td className="px-4 py-3">✅ 特約または入院日額で補完</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">先進医療費用</td><td className="px-4 py-3">❌ 全額自己負担（数十〜数百万円）</td><td className="px-4 py-3">✅ 先進医療特約（月100〜200円）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">腰痛手術・リハビリ費用</td><td className="px-4 py-3">△ 高額療養費適用後の自己負担残あり</td><td className="px-4 py-3">✅ 手術給付金・入院日額</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">精神科入院費用</td><td className="px-4 py-3">△ 高額療養費適用されるが長期入院で累積</td><td className="px-4 py-3">✅ 精神疾患特約付き医療保険</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">傷病手当金</td><td className="px-4 py-3">✅ あり（月収67%・最長18ヶ月）</td><td className="px-4 py-3">収入補填は就業不能保険の役割</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500">
+              出典：<a href="https://www.kyoukaikenpo.or.jp/g3/cat310/sb3020/r151/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「高額療養費制度について」</a>　<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/sensiniryo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「先進医療の概要について」</a>
+            </p>
+          </div>
+
+          {/* セクション3：特有のリスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">看護師が直面する医療リスクの実態（政府統計）</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 腰痛：有病率82%・手術が必要なケースも</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「労働安全衛生調査（2022年）」によると、看護師の腰痛有病率は約82%と業務上疾病の第1位。患者の移乗・体位変換・長時間立位による腰椎への負荷が主因です。腰椎椎間板ヘルニア・腰椎すべり症に発展すると手術（腰椎固定術等）と1〜2ヶ月の入院・リハビリが必要になります。手術費用は100〜200万円規模になることがあり、高額療養費適用後も相当な自己負担が生じます。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 精神疾患：離職理由第2位・精神科入院リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  日本看護協会「看護職員実態調査（2022年）」によると、看護師の離職理由の第2位は精神的健康問題（21.3%）。重症化した場合は精神科への入院が必要になるケースもあります。精神科の平均入院日数は約278日（厚生労働省「患者調査」2020年）と長く、入院中の医療費・差額ベッド代の累積が大きくなります。精神疾患特約が付帯された医療保険が必須です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 夜勤によるがんリスク：乳がん発症1.3倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  国立がん研究センター「多目的コホート研究（2021年）」によると、夜勤従事者の乳がん発症リスクは日勤のみの女性と比較して約1.3倍。看護師は女性が多く夜勤が多い職種であるため、がん保険・医療保険の備えが重要です。乳がんの治療費（手術・抗がん剤・放射線）は高額療養費適用後でも数十万円の自己負担が生じることがあります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 針刺し事故による感染症リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  日本環境感染学会「針刺し・切創実態調査（2021年）」によると、看護師の針刺し事故は医療従事者全体の約60%。B型肝炎・C型肝炎への感染が判明した場合、抗ウイルス薬による長期治療が必要になります。慢性肝炎から肝硬変・肝がんへ進行するリスクもあり、長期的な医療費への備えが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/toukei/list/h24-46-50.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働安全衛生調査」2022年</a>　<a href="https://www.nurse.or.jp/nursing/shuroanzen/jitai/" target="_blank" rel="noopener noreferrer" className="underline">日本看護協会「看護職員実態調査」2022年</a>　<a href="https://epi.ncc.go.jp/jphc/outcome/8550.html" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「多目的コホート研究」2021年</a>
+            </p>
+          </div>
+
+          {/* セクション4：5つのポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">看護師の医療保険選び5つのポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '精神疾患特約付き・入院給付日数の上限を確認する',
+                  detail: '看護師の離職理由第2位が精神疾患であることを踏まえ、精神疾患特約は必須です。精神科の平均入院日数は278日と長いため、入院給付日数が60日・180日に制限されている商品では不十分です。1,000日以上または無制限の商品を優先してください。',
+                },
+                {
+                  number: '02',
+                  title: '腰痛手術（脊椎手術）が給付対象か確認する',
+                  detail: '看護師は腰痛手術リスクが特に高いです。腰椎固定術・椎間板摘出術などの脊椎手術が手術給付金の対象になるかどうかを確認してください。内視鏡手術・レーザー手術も対象になる新しいタイプの手術給付が充実した商品を選びましょう。',
+                },
+                {
+                  number: '03',
+                  title: 'がん保険または医療保険のがん特約を付帯する',
+                  detail: '夜勤による乳がんリスク（1.3倍）を考慮して、がん診断一時金特約または単独のがん保険との組み合わせを検討してください。乳がんは40代以降に発症率が高まるため、30代のうちに加入しておくことで保険料を抑えられます。',
+                },
+                {
+                  number: '04',
+                  title: '先進医療特約は必ず付帯する',
+                  detail: '月100〜200円で付帯できる先進医療特約は、がん・脳疾患の最新治療に備えるために必須です。看護師は医療知識が豊富なため、最新の治療を選択する可能性が高いです。先進医療特約で治療の選択肢を広げておきましょう。',
+                },
+                {
+                  number: '05',
+                  title: '夜勤手当込みの収入に基づいて保険料・給付額を設計する',
+                  detail: '看護師は夜勤手当により基本給より実収入が高いケースが多いです。入院中の収入減少をカバーする観点からも、夜勤手当込みの実収入を基準に保障額を設計することが重要です。就業不能保険も合わせて、総合的な保障設計を検討してください。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション5：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：腰痛手術で入院給付が不十分だった',
+                  situation: '35歳女性・病棟看護師。夜勤あり。',
+                  problem: '腰椎椎間板ヘルニアの手術で45日間入院。入院日額5,000円の医療保険では給付金22.5万円。差額ベッド代（個室・1日8,000円×45日＝36万円）と合わせると実際の出費は60万円を超えた。',
+                  lesson: '看護師は腰痛手術リスクが特に高い。入院日額は最低1万円以上、差額ベッド代特約も付帯すること。',
+                },
+                {
+                  title: '失敗②：精神疾患特約なしで長期入院の給付がゼロ',
+                  situation: '28歳女性・ICU勤務看護師。',
+                  problem: '患者の急変が続きPTSDと診断されて精神科に3ヶ月入院。加入していた医療保険は精神疾患特約なしのタイプで入院給付がゼロ。傷病手当金はあったが、入院中の医療費・差額ベッド代が全額自己負担になった。',
+                  lesson: '看護師は精神疾患リスクが高い。精神疾患特約は必ず付帯すること。',
+                },
+                {
+                  title: '失敗③：看護職賠償責任保険だけで医療保険の代わりにしていた',
+                  situation: '30代女性・外来看護師。',
+                  problem: '日本看護協会の看護職賠償責任保険（年1,580円）に加入していたが、これは医療過誤への賠償であり自分の入院費用には全く対応していなかった。虫垂炎で入院した際に初めて気づき、医療費が全額自己負担になった。',
+                  lesson: '看護職賠償責任保険と個人の医療保険は全く別物。両方に加入することが必要。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '看護職賠償責任保険と個人の医療保険の違いを理解した',
+                '高額療養費制度の自己負担上限額を把握した',
+                '精神疾患特約付き・入院給付日数1,000日以上の商品を選んだ',
+                '腰痛手術（脊椎手術）が給付対象かを確認した',
+                'がん特約または単独がん保険で夜勤による乳がんリスクに備えた',
+                '先進医療特約（月100〜200円）を付帯した',
+                '就業不能保険との組み合わせで総合的な保障を設計した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
