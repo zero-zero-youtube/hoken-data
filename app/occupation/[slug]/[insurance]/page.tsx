@@ -358,6 +358,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isCivilServantIncomeProtection = occ.slug === 'civil-servant' && ins.slug === 'income-protection'
   const isTeacherIncomeProtection = occ.slug === 'teacher' && ins.slug === 'income-protection'
   const isConstructionIncomeProtection = occ.slug === 'construction' && ins.slug === 'income-protection'
+  const isSalesMedical = occ.slug === 'sales' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5308,6 +5309,260 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 営業職×医療保険 専用コンテンツ */}
+      {isSalesMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">営業職に医療保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              営業職は外回り・接待・ノルマストレスという
+              職業特有の健康リスクが重なる職種です。
+              厚生労働省「労働安全衛生調査（2022年）」によると、
+              メンタルヘルス不調で連続1ヶ月以上休業した労働者がいた
+              事業所割合は10.6%。
+              特にノルマのある営業職はこのリスクが高く、
+              精神疾患・生活習慣病・交通事故という
+              3つのリスクが同時に存在します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              会社員営業職は健康保険に加入しており
+              傷病手当金・高額療養費制度という公的保障があります。
+              しかし差額ベッド代・先進医療費用・
+              精神科の長期入院費用などは
+              公的保障ではカバーされません。
+              営業職特有のリスクを理解した上で、
+              必要最小限かつ最大効果の医療保険設計が重要です。
+            </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-orange-800">
+                💡 営業職の医療保険で特に重要なポイント
+              </p>
+              <p className="text-orange-700 text-sm mt-1">
+                営業職は「精神疾患・生活習慣病・交通事故」という
+                3つのリスクが同時に存在します。
+                特に精神疾患特約・先進医療特約の2つが
+                営業職の医療保険選びの核心です。
+              </p>
+              <p className="text-xs text-orange-600 mt-2">
+                出典：<a href="https://www.mhlw.go.jp/toukei/list/h24-46-50.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働安全衛生調査（実態調査）」2022年</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障と民間医療保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">会社員営業職の公的保障と民間医療保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">費用の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">公的保障（健康保険・高額療養費）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">民間医療保険で補う部分</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['入院・手術費用（保険診療）', '高額療養費で月57,600円上限（年収500万円の場合）', '入院日額・手術給付金で補完'],
+                    ['差額ベッド代', '❌ 全額自己負担（1日3,000〜10,000円）', '✅ 特約または入院日額で補完'],
+                    ['先進医療費用', '❌ 全額自己負担（数十〜数百万円）', '✅ 先進医療特約（月100〜200円）'],
+                    ['精神科入院費用', '高額療養費適用（平均278日入院で累積大）', '✅ 精神疾患特約付き医療保険'],
+                    ['交通事故による入院', '健康保険適用（自動車保険との調整あり）', '✅ 入院日額で補完'],
+                    ['生活習慣病の長期治療費', '高額療養費適用だが通院が長期累積', '✅ 入院給付金・手術給付金'],
+                  ].map(([type, pub, priv], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{pub}</td>
+                      <td className="px-4 py-3 text-gray-700">{priv}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「高額療養費制度について」2024年</a>
+            </p>
+          </section>
+
+          {/* セクション3：営業職特有の医療リスク */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">営業職が直面する医療リスクの実態（最新統計）</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 精神疾患：メンタルヘルス不調休業の事業所割合10.6%</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「労働安全衛生調査（実態調査）2022年」によると、
+                  メンタルヘルス不調で連続1ヶ月以上休業した労働者がいた
+                  事業所の割合は10.6%。
+                  ノルマ達成プレッシャー・顧客クレーム・
+                  長時間の移動や接待が重なる営業職は
+                  このリスクが特に高い職種です。
+                  精神科の平均入院日数は約278日
+                  （厚生労働省「患者調査」2020年）と長く、
+                  精神疾患特約付きの医療保険が必須です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 生活習慣病：メタボ該当者16.6%・接待・不規則食事が主因</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「特定健康診査・特定保健指導の実施状況（2022年度）」によると、
+                  特定健診受診者のうちメタボリックシンドローム該当者は16.6%
+                  （男性23.3%・女性3.2%）、予備群該当者は12.3%。
+                  接待・会食・不規則な食事時間が多い営業職は
+                  このリスクが全国平均より高い傾向があります。
+                  糖尿病が強く疑われる人は男性18.1%・女性9.1%
+                  （厚生労働省「国民健康・栄養調査」2022年）で、
+                  入院・手術が必要になる重症化への備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 交通事故リスク：外回り営業は業務中事故リスクが高い</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  外回り営業で車を日常的に使用する営業職は、
+                  業務中の交通事故リスクが一般のデスクワーカーより高いです。
+                  交通事故による骨折の平均入院日数は約35日
+                  （厚生労働省「患者調査」2022年）。
+                  業務中の交通事故は労災保険が適用されますが、
+                  差額ベッド代・食事代は自己負担となります。
+                  またメンタルヘルス不調との関連も指摘されており、
+                  精神疾患によるアクシデントリスクにも注意が必要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 声帯疾患・のどの酷使による職業性疾患</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  営業職は日常的に声を使う職業であり、
+                  長期間の電話営業・プレゼン・商談による
+                  声帯ポリープ・咽頭炎のリスクがあります。
+                  重症化すると手術・入院が必要になるケースもあり、
+                  これらの手術が医療保険の給付対象かどうかを
+                  確認することが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.mhlw.go.jp/toukei/list/h24-46-50.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働安全衛生調査（実態調査）」2022年</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/tokutei-kensin/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「特定健康診査・特定保健指導の実施状況」2022年度</a>
+              <a href="https://www.mhlw.go.jp/bunya/kenkou/eiyou/h24-houkoku.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「国民健康・栄養調査」2022年</a>
+              <a href="https://www.mhlw.go.jp/toukei/saikin/hw/kanja/20/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「患者調査」2020年・2022年</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">営業職の医療保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '精神疾患特約付き・入院給付日数1,000日以上を選ぶ',
+                  detail: '営業職のメンタルヘルス不調リスクを考慮すると、精神疾患特約は必須です。精神科の平均入院日数は278日と長いため、入院給付日数が1,000日以上（または無制限）の商品を選んでください。60日・180日制限の商品では長期入院に対応できません。',
+                },
+                {
+                  number: '02',
+                  title: '先進医療特約は必ず付帯する',
+                  detail: '月100〜200円で付帯できる先進医療特約は営業職にも必須です。生活習慣病の重症化によるがん・脳疾患で先進医療を選択した場合、数百万円の費用が全額自己負担になります。',
+                },
+                {
+                  number: '03',
+                  title: '会社の健康保険組合の付加給付を先に確認する',
+                  detail: '大企業・健保組合加入の営業職は付加給付（月25,000円超の自己負担を還付）がある場合があります。付加給付がある場合は民間医療保険の必要性が下がります。まず会社の健保組合の給付内容を確認してから設計してください。',
+                },
+                {
+                  number: '04',
+                  title: '生活習慣病の告知と健康なうちの加入を優先する',
+                  detail: '接待・不規則食事によるメタボ・高血圧・糖尿病がある場合、医療保険の審査で条件が付くことがあります。健康診断で異常を指摘される前の若いうちに加入することがより良い条件での契約につながります。',
+                },
+                {
+                  number: '05',
+                  title: '就業不能保険との組み合わせを検討する',
+                  detail: '医療保険（入院・手術費用）と就業不能保険（収入補填）は役割が異なります。営業職は歩合給・インセンティブがある場合、傷病手当金が実収入より少なくなることがあります。不足分を就業不能保険で補う設計も検討してください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：精神疾患特約なしでうつ病入院の給付ゼロ',
+                  situation: '32歳男性・不動産営業。ノルマ達成率50%が続いた。',
+                  problem: 'ノルマプレッシャーからうつ病を発症し精神科に4ヶ月入院。加入していた医療保険は精神疾患特約なしのため入院給付ゼロ。傷病手当金はあったが入院中の医療費・差額ベッド代が全額自己負担になり貯蓄が大幅に減少した。',
+                  lesson: '営業職はメンタルヘルス不調リスクが高い。精神疾患特約付き・入院給付日数1,000日以上の医療保険が必須。',
+                },
+                {
+                  title: '失敗②：生活習慣病で審査が通らず加入できなかった',
+                  situation: '45歳男性・保険営業。接待が多い職場。',
+                  problem: '健康診断で糖尿病（HbA1c 7.2%）・高血圧（収縮期160mmHg）を指摘された後に医療保険への加入を検討したが、通常の審査では引受謝絶。引受基準緩和型に加入したが保険料が割高になった。',
+                  lesson: '接待の多い営業職は生活習慣病リスクが高い。健康診断で異常を指摘される前に加入しておくこと。',
+                },
+                {
+                  title: '失敗③：先進医療特約なしで大腸がん治療に300万円',
+                  situation: '48歳男性・食品メーカー営業。',
+                  problem: '大腸がんと診断され重粒子線治療（先進医療）を希望。費用約294万円が全額自己負担。医療保険に加入していたが先進医療特約をつけていなかった。月150円の特約で防げた損失だった。',
+                  lesson: '先進医療特約は月100〜200円で付帯できる。加入時に必ず確認すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-orange-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">医療保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '会社の健保組合の付加給付有無を確認した',
+                '高額療養費制度の自己負担上限額を把握した',
+                '精神疾患特約付き・入院給付日数1,000日以上の商品を選んだ',
+                '先進医療特約（月100〜200円）を付帯した',
+                '生活習慣病・メタボの告知義務を確認し健康なうちに加入した',
+                '就業不能保険との組み合わせで歩合給の収入減少リスクに備えた',
+                '声帯疾患・咽頭炎の手術給付条件を確認した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
