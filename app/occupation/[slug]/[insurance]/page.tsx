@@ -336,6 +336,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFreelanceIncomeProtection = occ.slug === 'freelance-engineer' && ins.slug === 'income-protection'
   const isNurseIncomeProtection = occ.slug === 'nurse' && ins.slug === 'income-protection'
   const isConstructionMedical = occ.slug === 'construction' && ins.slug === 'medical'
+  const isTeacherMedical = occ.slug === 'teacher' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -1523,6 +1524,242 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 'じん肺・職業性疾患の告知義務と給付条件を確認した',
                 '熱中症・高所作業特有のリスクへの備えを確認した',
                 '一人親方の場合は就業不能保険との組み合わせを検討した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="text-[#2563eb] font-bold flex-shrink-0">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 教員×医療保険 専用コンテンツ */}
+      {isTeacherMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* Section 1：リード文 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              教員・教師に医療保険が必要な理由
+            </h2>
+            <div className="text-gray-700 leading-relaxed space-y-4 text-sm">
+              <p>
+                教員は公務員として手厚い共済制度を持つ一方、精神疾患による休職者数が2022年度に過去最多を更新するなど、メンタルヘルスリスクが極めて深刻な職種です。文部科学省の調査によると、公立学校教員の精神疾患休職者数は2022年度に6,539人（過去最多）に達し、教員全体の0.71%が精神疾患で休職しています。
+              </p>
+              <p>
+                教員特有の長時間労働（中学校教諭の時間外勤務月平均58時間）、保護者対応のストレス、部活動指導の負担が精神疾患・燃え尽き症候群のリスクを高めています。また声帯ポリープ・腰痛などの職業性疾患も多く、これらへの備えとして医療保険の重要性を正しく理解することが必要です。
+              </p>
+              <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-xl">
+                <p className="font-bold text-purple-800">💡 教員が医療保険を考える際の重要な前提</p>
+                <p className="text-purple-700 text-sm mt-1">
+                  公立学校の教員は文部科学省共済組合・各都道府県の共済組合に加入しており、傷病手当金・長期給付など手厚い保障があります。私立学校の教員は私学共済または健康保険（協会けんぽ）に加入します。民間医療保険は「共済でカバーできない部分」を補う役割です。
+                </p>
+                <p className="text-xs text-purple-600 mt-2">
+                  出典：
+                  <a href="https://www.mext.go.jp/a_menu/shotou/kyoin/1287948.htm" target="_blank" rel="noopener noreferrer" className="underline">
+                    文部科学省「公立学校共済組合について」
+                  </a>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 2：共済と民間保険の役割分担 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              教員の共済制度と民間医療保険の役割分担
+            </h2>
+            <p className="text-sm text-gray-700 mb-4">
+              教員が民間の医療保険を検討する前に、共済制度の保障内容を正確に把握することが重要です。共済制度は一般の会社員よりも手厚い部分がありますが、カバーしきれない部分も存在します。
+            </p>
+            <div className="overflow-x-auto mb-4">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">項目</th>
+                    <th className="text-center p-3">公立学校教員（共済組合）</th>
+                    <th className="text-center p-3">私立学校教員（私学共済）</th>
+                    <th className="text-center p-3">民間保険で補う部分</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { item: '医療費自己負担', public: '3割（高額療養費制度あり）', private: '3割（高額療養費制度あり）', supplement: '差額ベッド代・先進医療費用' },
+                    { item: '傷病手当金', public: '✅ 月収の80%・最長1年6ヶ月', private: '✅ 月収の67%・最長1年6ヶ月', supplement: '18ヶ月超の長期休業時の補填' },
+                    { item: '休職中の給与', public: '✅ 1年目100%、2年目80%', private: '学校による', supplement: '給与減額分の補填' },
+                    { item: '精神疾患での休職', public: '✅ 対象（休職給与あり）', private: '✅ 対象', supplement: '復職後の治療費・再発リスク' },
+                    { item: '先進医療', public: '❌ 対象外', private: '❌ 対象外', supplement: '✅ 民間保険の先進医療特約' },
+                  ].map((row, i) => (
+                    <tr key={row.item} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.item}</td>
+                      <td className="p-3 text-center text-xs">{row.public}</td>
+                      <td className="p-3 text-center text-xs">{row.private}</td>
+                      <td className="p-3 text-center text-xs font-semibold text-[#2563eb]">{row.supplement}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">
+              出典：
+              <a href="https://www.mext.go.jp/a_menu/shotou/kyoin/1287948.htm" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                文部科学省共済組合「給付の概要」
+              </a>
+              、
+              <a href="https://www.shigakukyosai.jp/kyuufu/tanki/index.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                私立学校教職員共済「短期給付について」
+              </a>
+            </p>
+            <div className="bg-green-50 border-l-4 border-green-500 rounded-r-xl p-4 text-sm">
+              公立教員の場合、休職1年目は給与が100%支給されるため、短期的な医療費の心配は少ないです。ただし休職が長期化した場合や、先進医療・差額ベッド代などには備えが必要です。
+            </div>
+          </section>
+
+          {/* Section 3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              教員が直面する健康リスクの実態（政府統計）
+            </h2>
+            <div className="space-y-6 text-sm text-gray-700">
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">① 精神疾患休職：2022年度過去最多・6,539人</h3>
+                <p className="leading-relaxed">
+                  文部科学省「公立学校教職員の人事行政状況調査（2022年度）」によると、精神疾患を理由に休職した公立学校教員数は6,539人（過去最多）。教員全体の0.71%が精神疾患で休職しており、この割合は全就業者平均の約3倍に相当します。うつ病・適応障害・バーンアウトが主な診断名で、平均休職期間は6ヶ月〜1年以上です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">② 長時間労働：中学校教諭は月58時間超の時間外勤務</h3>
+                <p className="leading-relaxed">
+                  文部科学省「教員勤務実態調査（2022年度）」によると、小学校教諭の時間外勤務は月平均41時間、中学校教諭は月平均58時間（いわゆる過労死ラインの月80時間に迫る水準）。部活動指導・保護者対応・事務作業の増加が背景にあります。過労による心身疾患リスクが高く、医療保険の重要性が増しています。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">③ 声帯ポリープ・腰痛：教員特有の職業性疾患</h3>
+                <p className="leading-relaxed">
+                  教員は1日中声を使う職業であり、声帯ポリープ・声帯結節などの声の病気が職業性疾患として知られています。手術が必要な場合は1〜2週間の入院が必要です。また長時間の立位授業・教室内の移動による腰痛も多く、文部科学省の調査では教員の腰痛有病率は約55%に上ります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">④ 私立学校教員は保障が手薄なケースがある</h3>
+                <p className="leading-relaxed">
+                  私立学校教員は学校によって共済制度の内容が異なり、公立教員より保障が薄いケースがあります。特に小規模な私立学校では団体保険が充実していないことも多く、民間医療保険の必要性が高くなります。勤務先の私学共済・健康保険の内容を確認した上で、民間保険で補完する部分を検討することが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：
+              <a href="https://www.mext.go.jp/a_menu/shotou/jinji/index.htm" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                文部科学省「公立学校教職員の人事行政状況調査」2022年度
+              </a>
+              、
+              <a href="https://www.mext.go.jp/b_menu/houdou/mext_01247.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                文部科学省「教員勤務実態調査」2022年度
+              </a>
+            </p>
+          </section>
+
+          {/* Section 4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              教員が医療保険を選ぶ際の5つのチェックポイント
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  num: '01',
+                  title: '共済制度の内容を先に確認する',
+                  detail: '公立教員の場合、共済組合の保障が手厚いため、民間医療保険は「差額ベッド代・先進医療・長期休職後の収入補填」に絞った最小限の保障で十分なケースがあります。まず勤務先の共済組合のパンフレットを確認し、カバーされていない部分のみ民間保険で補うことが効率的です。',
+                },
+                {
+                  num: '02',
+                  title: '精神疾患特約は必須',
+                  detail: '教員の精神疾患休職者数が過去最多（6,539人）であることを踏まえ、精神疾患特約は必ず付帯してください。特に保護者対応・部活動指導・長時間労働によるストレスが多い中学校・高校の教員は精神疾患リスクが特に高いです。',
+                },
+                {
+                  num: '03',
+                  title: '声帯疾患・腰痛の給付条件を確認',
+                  detail: '声帯ポリープ・声帯結節による手術・入院が給付対象かどうかを確認してください。また腰痛による入院・手術の給付条件も確認が必要です。これらは教員特有の高リスク疾患ですが、保険会社によって給付条件が異なります。',
+                },
+                {
+                  num: '04',
+                  title: '先進医療特約の付帯',
+                  detail: '共済組合は先進医療費用をカバーしません。陽子線治療・重粒子線治療などの先進医療は数百万円の費用がかかる場合があります。月100〜200円程度の先進医療特約で備えることができるため、ほぼ必須の特約といえます。',
+                },
+                {
+                  num: '05',
+                  title: '私立学校教員は勤務先の保障を先に確認',
+                  detail: '私立学校教員は学校によって共済・健康保険の内容が大きく異なります。傷病手当金の有無・休職中の給与補償の内容を勤務先の総務部門に確認してから民間保険を検討してください。公立教員よりも民間保険の必要性が高いケースがあります。',
+                },
+              ].map(cp => (
+                <div key={cp.num} className="bg-[#f8fafc] rounded-xl p-5 border border-gray-200">
+                  <div className="flex items-start gap-3 mb-2">
+                    <span className="text-2xl font-bold text-[#2563eb] opacity-40 leading-none flex-shrink-0">{cp.num}</span>
+                    <p className="font-bold text-[#0f172a] text-sm">{cp.title}</p>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{cp.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              教員の医療保険でよくある失敗事例3選
+            </h2>
+            <div className="space-y-4 text-sm">
+              {[
+                {
+                  title: '失敗①：共済の保障を把握せず過剰な保険に加入',
+                  situation: '20代女性・公立小学校教諭。',
+                  problem: '共済組合の保障内容を確認せずに月額保険料8,000円の医療保険に加入。後から共済で多くがカバーされることを知り、重複した保障に月5,000円以上の無駄な保険料を支払い続けていたことが判明。',
+                  lesson: '共済組合の保障内容を先に確認し、カバーされていない部分のみ民間保険で補うこと。',
+                },
+                {
+                  title: '失敗②：精神疾患特約なしで休職給付を受けられなかった',
+                  situation: '30代男性・公立中学校教諭。部活動顧問。',
+                  problem: 'クレーム保護者対応と部活動の激務が重なり適応障害を発症。共済の休職給与はあったが、医療保険の入院給付（精神科入院）は精神疾患特約なしのため給付ゼロ。治療費の自己負担が重くなった。',
+                  lesson: '教員は精神疾患リスクが全就業者平均の3倍。精神疾患特約は必須。',
+                },
+                {
+                  title: '失敗③：先進医療費用が数百万円の自己負担に',
+                  situation: '50代女性・私立高校教諭。',
+                  problem: '乳がんと診断され、重粒子線治療（先進医療）を希望したが費用は約314万円。共済・健康保険では先進医療費用はカバーされず、先進医療特約もつけていなかったため全額自己負担になった。',
+                  lesson: '先進医療特約は月100〜200円で付帯できる。必ずつけておくこと。',
+                },
+              ].map(c => (
+                <div key={c.title} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 mb-2">{c.title}</p>
+                  <div className="space-y-1 text-gray-700">
+                    <p><span className="font-semibold text-gray-500">状況：</span>{c.situation}</p>
+                    <p><span className="font-semibold text-gray-500">問題：</span>{c.problem}</p>
+                    <p className="bg-white rounded-lg px-3 py-2 border border-red-100 mt-2">
+                      <span className="font-bold text-red-700">教訓：</span>{c.lesson}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              教員の医療保険：加入前の最終確認リスト
+            </h2>
+            <div className="space-y-2">
+              {[
+                '勤務先の共済組合（公立）または私学共済・健康保険（私立）の保障内容を確認した',
+                '休職中の給与補償（公立：1年目100%、2年目80%）を把握した',
+                '共済でカバーされていない差額ベッド代・先進医療への備えを確認した',
+                '精神疾患特約を付帯した（教員の精神疾患休職は過去最多水準）',
+                '声帯疾患・腰痛の給付条件を確認した',
+                '先進医療特約（月100〜200円）を付帯した',
+                '私立学校教員の場合は勤務先の保障を先に確認した',
                 '複数の保険会社で見積もりを比較した',
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
