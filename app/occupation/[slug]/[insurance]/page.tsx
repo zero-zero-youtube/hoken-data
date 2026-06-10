@@ -362,6 +362,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverLife = occ.slug === 'driver' && ins.slug === 'life'
   const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
   const isFreelanceEngineerLife = occ.slug === 'freelance-engineer' && ins.slug === 'life'
+  const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5312,6 +5313,255 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 管理職×医療保険 専用コンテンツ */}
+      {isManagerMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">会社管理職に医療保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              課長・部長・役員などの管理職は、
+              長時間労働・マネジメントストレス・接待による
+              生活習慣病リスクが一般社員より大幅に高い職種です。
+              厚生労働省「特定健康診査・特定保健指導の実施状況（2022年度）」によると、
+              40〜74歳男性のメタボリックシンドローム該当者は23.3%と
+              全体平均16.6%を大幅に上回ります。
+              管理職は40〜50代男性が多く、
+              このリスクにそのまま当てはまるケースが多いです。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              また厚生労働省の脳・心臓疾患の労災認定基準（2021年改正）によると、
+              発症前1ヶ月に100時間超、または2〜6ヶ月平均で月80時間超の
+              時間外労働が継続する場合、
+              脳・心臓疾患との業務関連性が強いと評価されます。
+              管理職は残業代の対象外となる「管理監督者」であることが多く、
+              実質的な長時間労働が表面化しにくい問題があります。
+              適切な医療保険で、万一の際の医療費・収入減少に備えることが重要です。
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-blue-800">
+                💡 管理職の医療保険：会社の健保組合の付加給付を先に確認する
+              </p>
+              <p className="text-blue-700 text-sm mt-1">
+                大企業・健保組合加入の管理職は
+                付加給付（月25,000円超の自己負担を還付）がある場合があります。
+                この制度がある場合は民間医療保険の必要性が下がるため、
+                まず会社の健保組合の給付内容を確認してから設計してください。
+              </p>
+              <p className="text-xs text-blue-600 mt-2">
+                出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/tokutei-kensin/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「特定健康診査・特定保健指導の実施状況」2022年度</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障と民間医療保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">管理職の公的保障と民間医療保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">費用の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">公的保障（健康保険・高額療養費）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">民間医療保険で補う部分</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['保険診療の自己負担', '高額療養費で月57,600円〜上限あり', '入院日額・手術給付金で補完'],
+                    ['健保組合の付加給付', '✅ 大企業は月25,000円上限の場合も', '付加給付後の残額のみ補完'],
+                    ['差額ベッド代', '❌ 全額自己負担（1日3,000〜10,000円）', '✅ 特約または入院日額で補完'],
+                    ['先進医療費用', '❌ 全額自己負担（数十〜数百万円）', '✅ 先進医療特約（月100〜200円）'],
+                    ['役員の傷病手当金', '⚠️ 役員報酬の性質によっては対象外', '✅ 就業不能保険で補完'],
+                  ].map(([type, pub, priv], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{pub}</td>
+                      <td className="px-4 py-3 text-gray-700">{priv}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「高額療養費制度について」2024年</a>
+              <a href="https://www.kyoukaikenpo.or.jp/g3/cat310/sb3040/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a>
+            </p>
+          </section>
+
+          {/* セクション3：管理職特有の医療リスク */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">会社管理職が直面する医療リスクの実態（最新統計）</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① メタボリックシンドローム：40〜74歳男性の23.3%が該当</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「特定健康診査・特定保健指導の実施状況（2022年度）」によると、
+                  40〜74歳男性のメタボリックシンドローム該当者は23.3%、
+                  予備群も含めると33%に達します。
+                  接待・会食・不規則な食事時間・運動不足が重なる管理職は
+                  このリスクが特に高い年代層と一致します。
+                  メタボから糖尿病・高血圧・脂質異常症が重症化すると
+                  心疾患・脳血管疾患の入院・手術リスクが高まります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 過労死ライン超えリスク：月80時間超で脳・心臓疾患の業務関連性が強まる</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「脳・心臓疾患の労災認定基準（2021年改正）」によると、
+                  発症前2〜6ヶ月平均で月80時間超の時間外労働が継続する場合、
+                  脳・心臓疾患（心筋梗塞・脳梗塞等）との
+                  業務関連性が強いと評価されます。
+                  管理職は「管理監督者」として残業代が出ないケースも多く、
+                  実質的な長時間労働が把握されにくい問題があります。
+                  突然の心筋梗塞・脳梗塞による入院・手術への備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 精神疾患：マネジメントストレスによる不調率は一般社員の1.6倍</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「職場における心の健康づくり（2022年）」によると、
+                  管理職のメンタルヘルス不調率は一般社員の1.6倍。
+                  部下の問題・業績責任・ハラスメント対応など
+                  管理職特有のストレスが背景にあります。
+                  精神疾患による入院（平均278日）への備えとして
+                  精神疾患特約付きの医療保険が重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 役員就任後の傷病手当金消滅リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  取締役・執行役員に就任すると、
+                  役員報酬の性質によっては傷病手当金の支給対象外になる場合があります。
+                  入院・手術で長期療養が必要になった際、
+                  傷病手当金がなければ収入が大幅に減少します。
+                  医療保険の入院給付金に加えて就業不能保険との組み合わせが
+                  役員・執行役員には特に重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/tokutei-kensin/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「特定健康診査・特定保健指導の実施状況」2022年度</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousaihoken06/rousaichishiki06.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「脳・心臓疾患の労災認定基準」2021年改正</a>
+              <a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei12/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「職場における心の健康づくり」2022年</a>
+              <a href="https://www.mhlw.go.jp/toukei/saikin/hw/kanja/20/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「患者調査」2020年</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">管理職の医療保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '会社の健保組合の付加給付を先に確認する',
+                  detail: '大企業・健保組合加入の管理職は付加給付（月25,000円超の自己負担還付）がある場合があります。付加給付がある場合は民間医療保険は差額ベッド代・先進医療に絞った最小限の設計で十分なケースも。まず会社の健保組合の給付内容を確認してください。',
+                },
+                {
+                  number: '02',
+                  title: '脳・心臓疾患・生活習慣病に備えた入院日額を設定する',
+                  detail: '管理職は心筋梗塞・脳梗塞・糖尿病重症化による長期入院リスクが高いです。心筋梗塞の平均入院日数は約20〜30日、脳梗塞は約100日と長期化するケースがあります。入院日額は最低1万円以上を確保してください。',
+                },
+                {
+                  number: '03',
+                  title: '精神疾患特約付き・入院給付日数1,000日以上を選ぶ',
+                  detail: '管理職の精神疾患不調率は一般社員の1.6倍。精神疾患特約は必須で、入院給付日数が1,000日以上の商品を選んでください。',
+                },
+                {
+                  number: '04',
+                  title: '先進医療特約を必ず付帯する',
+                  detail: '月100〜200円で付帯できる先進医療特約は管理職にとっても必須です。がん・脳疾患で先進医療を選択した場合、数百万円の費用が全額自己負担になります。',
+                },
+                {
+                  number: '05',
+                  title: '役員・執行役員は傷病手当金の有無を確認する',
+                  detail: '役員就任後に傷病手当金の対象外になる場合があります。自分の雇用形態（使用人兼務役員か純粋な役員か）を確認し、傷病手当金がない場合は就業不能保険との組み合わせが必須です。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：メタボを放置して心筋梗塞で長期入院',
+                  situation: '52歳男性・大手メーカー部長。BMI28・高血圧・高脂血症。',
+                  problem: '健康診断でメタボ・高血圧を指摘されていたが多忙を理由に放置。54歳で心筋梗塞を発症し30日間入院・手術。高額療養費適用後の自己負担・差額ベッド代（個室1日8,000円×30日）・食事代で70万円以上の自己負担が発生。医療保険の入院日額が3,000円と低く給付金では全く足りなかった。',
+                  lesson: '管理職はメタボ・高血圧の進行リスクが高い。入院日額は最低1万円以上を確保すること。',
+                },
+                {
+                  title: '失敗②：役員就任後に傷病手当金がなくなっていた',
+                  situation: '50歳男性・中小企業の取締役。',
+                  problem: '取締役就任後に役員報酬の性質が変わり、傷病手当金の対象外になっていたことを知らなかった。脳梗塞で3ヶ月入院した際、医療保険の入院給付金しか収入がなく、月収が大幅に減少した。就業不能保険に未加入だったため深刻な収入減になった。',
+                  lesson: '役員就任時に傷病手当金の適用可否を確認し、対象外の場合は就業不能保険に加入すること。',
+                },
+                {
+                  title: '失敗③：大企業の付加給付を知らず過剰な保険に加入',
+                  situation: '40代女性・大手IT企業部長。',
+                  problem: '会社の健保組合に付加給付（月25,000円上限）があることを知らずに月額6,000円の医療保険に加入。実際に必要だったのは先進医療特約のみで、8年間で57万円の保険料を過払いしていた。',
+                  lesson: '大企業管理職は会社の健保組合の付加給付を先に確認すること。付加給付があれば民間保険は最小限でよい。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-blue-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">医療保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '会社の健保組合の付加給付有無を確認した',
+                '高額療養費制度の自己負担上限額を把握した',
+                '脳・心臓疾患・生活習慣病に備えた入院日額1万円以上を確保した',
+                '精神疾患特約付き・入院給付日数1,000日以上の商品を選んだ',
+                '先進医療特約（月100〜200円）を付帯した',
+                '役員・執行役員の場合、傷病手当金の適用可否を確認した',
+                '就業不能保険との組み合わせを設計した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
