@@ -357,6 +357,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isEngineerMedical = occ.slug === 'engineer' && ins.slug === 'medical'
   const isCivilServantIncomeProtection = occ.slug === 'civil-servant' && ins.slug === 'income-protection'
   const isTeacherIncomeProtection = occ.slug === 'teacher' && ins.slug === 'income-protection'
+  const isConstructionIncomeProtection = occ.slug === 'construction' && ins.slug === 'income-protection'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5307,6 +5308,255 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 建設業×就業不能保険 専用コンテンツ */}
+      {isConstructionIncomeProtection && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">建設業・現場作業員に就業不能保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              建設業は全産業の中で死亡・重傷災害が最も多い業種ですが、
+              死亡に至らない重篤な怪我による長期就業不能リスクも
+              極めて高い職種です。
+              高所からの転落による脊髄損傷・骨折・
+              重機事故による四肢の切断など、
+              長期にわたって現場作業ができない状態になるケースが
+              建設業では特に多く発生しています。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              業務中の事故は労災保険が適用され休業補償給付
+              （給付基礎日額の80%）が支給されますが、
+              これには上限があります。
+              また一人親方・個人事業主の場合、
+              労災特別加入をしていなければ
+              業務中の事故でも労災保険が適用されません。
+              会社員・個人事業主それぞれの状況に応じた
+              就業不能保険の設計が重要です。
+            </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-orange-800">⚠️ 建設業の就業不能保険で最も重要な前提</p>
+              <p className="text-orange-700 text-sm mt-1">
+                業務中の怪我：労災保険が優先適用<br />
+                （休業補償給付＝給付基礎日額×80%）<br /><br />
+                私傷病（業務外の病気・ケガ）：<br />
+                会社員→傷病手当金（月収67%・最長18ヶ月）<br />
+                一人親方→傷病手当金なし・収入即ゼロ<br /><br />
+                民間就業不能保険は「労災・傷病手当金でカバーされない部分」
+                および「給付終了後の長期就業不能」に備えるものです。
+              </p>
+              <p className="text-xs text-orange-600 mt-2">
+                出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働者災害補償保険法」</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障と就業不能保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">建設業の公的保障と就業不能保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">項目</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">会社員建設業者</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">一人親方（特別加入あり）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">一人親方（特別加入なし）</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['業務中の怪我', '労災休業補償（日額80%）', '労災休業補償（日額80%）', '❌ 補償なし'],
+                    ['私傷病の収入補填', '傷病手当金（月収67%・最長18ヶ月）', '❌ なし', '❌ なし'],
+                    ['18ヶ月以降の補填', '❌ なし', '❌ なし', '❌ なし'],
+                    ['就業不能保険の優先度', '中〜高（18ヶ月以降・私傷病33%分）', '高（私傷病は即収入ゼロ）', '極めて高（全リスクに無防備）'],
+                  ].map(([item, col1, col2, col3], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{item}</td>
+                      <td className="px-4 py-3 text-gray-600">{col1}</td>
+                      <td className="px-4 py-3 text-gray-600">{col2}</td>
+                      <td className="px-4 py-3 text-gray-700">{col3}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働者災害補償保険法」</a>
+              <a href="https://www.kyoukaikenpo.or.jp/g3/cat310/sb3040/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a>
+            </p>
+          </section>
+
+          {/* セクション3：就業不能リスクの実態 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">建設業・現場作業員が直面する就業不能リスクの実態</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 重傷災害：脊髄損傷・四肢切断による長期就業不能</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  高所からの転落による脊髄損傷は
+                  建設業特有の重大リスクです。
+                  脊髄損傷による四肢麻痺・対麻痺は
+                  現場作業への復帰が困難または不可能になるケースが多く、
+                  長期的な就業不能状態が続きます。
+                  労災保険の障害補償年金が支給されますが、
+                  それだけでは生活費を賄えない場合があります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 腰椎・頸椎の重症疾患：手術後の長期リハビリ</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  重量物の取り扱いや高所作業による腰椎椎間板ヘルニア・
+                  腰椎すべり症の重症例では、
+                  腰椎固定術後のリハビリに3〜6ヶ月かかります。
+                  術後の就業制限期間中は現場作業ができず、
+                  収入が大幅に減少します。
+                  この期間の収入補填として就業不能保険が重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ じん肺・石綿関連疾患：長期療養リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  じん肺・中皮腫（アスベスト関連疾患）は
+                  発症後の就業能力が著しく低下します。
+                  労災認定されれば療養補償・障害補償が支給されますが、
+                  認定プロセスに時間がかかる間の収入補填として
+                  民間就業不能保険が有効です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 一人親方の「即収入ゼロ」リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  一人親方は病気・ケガで働けなくなった瞬間、
+                  収入がゼロになります。
+                  傷病手当金がなく、
+                  労災特別加入をしていなければ
+                  業務中の事故でも補償がありません。
+                  月収40万円の一人親方が3ヶ月働けなくなった場合、
+                  収入損失は120万円。
+                  これに家族の生活費・現場の道具・車両の維持費が重なります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/anzen/jinkaku/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「じん肺健康管理実施状況報告」2022年</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">建設業の就業不能保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '一人親方は労災特別加入と就業不能保険を両方確保する',
+                  detail: '一人親方は労災特別加入（年間保険料数万円）と民間就業不能保険の両方が必要です。労災特別加入は業務中のリスクをカバーし、就業不能保険は私傷病（業務外の病気・ケガ）をカバーします。どちらか一方では完全なカバーができません。',
+                },
+                {
+                  number: '02',
+                  title: '会社員は支払対象外期間を18ヶ月に設定する',
+                  detail: '会社員建設業者は傷病手当金（最長18ヶ月）があるため、就業不能保険の支払対象外期間を18ヶ月に設定することで保険料を抑えながら「18ヶ月以降の長期就業不能」に備えられます。一人親方は傷病手当金がないため支払対象外期間は60〜90日が適切です。',
+                },
+                {
+                  number: '03',
+                  title: '「現場作業ができない状態」を就業不能と定義する保険を選ぶ',
+                  detail: '建設業の就業不能は「完全に動けない」ではなく「現場作業（高所作業・重量物取り扱い等）ができない状態」です。就業不能の定義が「全く働けない状態のみ」の保険では、現場復帰できないが軽作業はできる状態で給付されないケースがあります。就業不能の定義を確認してください。',
+                },
+                {
+                  number: '04',
+                  title: '脊髄損傷・四肢麻痺の高度障害補償を確認する',
+                  detail: '建設業は高所転落による脊髄損傷リスクが高いです。就業不能保険と合わせて、生命保険の高度障害保険金特約（両手・両足の機能廃絶等）が付帯されているかを確認してください。就業不能状態が永続する場合は高度障害保険金が重要な備えになります。',
+                },
+                {
+                  number: '05',
+                  title: '月額給付金は固定費（道具・車両維持費）も考慮する',
+                  detail: '建設業の個人事業主・一人親方は道具・工具・車両の維持費が毎月発生します。就業不能中もこれらの固定費は続くため、月額給付金は個人の生活費だけでなく事業の固定費もカバーできる水準に設定してください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：一人親方で労災特別加入なし・業務中事故で無補償',
+                  situation: '45歳男性・一人親方・左官工。',
+                  problem: '足場からの転落で腰椎骨折。労災特別加入をしていなかったため業務中の事故にもかかわらず労災保険が適用されず。就業不能保険にも未加入で、5ヶ月間の収入ゼロ＋医療費で貯蓄が底をつき廃業を余儀なくされた。',
+                  lesson: '一人親方は労災特別加入（年数万円）と就業不能保険の両方が必須。どちらか一方では不十分。',
+                },
+                {
+                  title: '失敗②：「現場作業不能」が就業不能と認定されなかった',
+                  situation: '38歳男性・建設会社勤務・とび職。',
+                  problem: '高所転落で膝の靭帯損傷。高所作業・重量物作業ができない状態が4ヶ月続いたが、加入していた就業不能保険の定義が「全く働けない状態」のみで、事務作業は可能だったため給付が認められなかった。',
+                  lesson: '建設業は「現場作業ができない状態」を就業不能と定義する保険を選ぶこと。',
+                },
+                {
+                  title: '失敗③：会社員で支払対象外期間が短すぎて保険料の無駄',
+                  situation: '35歳男性・建設会社正社員。',
+                  problem: '支払対象外期間60日の就業不能保険に加入。腰椎手術で3ヶ月休業した際、傷病手当金と就業不能保険の給付が重複し過剰な収入補填になった。支払対象外期間18ヶ月に設定すれば同じ保障でより安い保険料にできた。',
+                  lesson: '会社員建設業者は傷病手当金（最長18ヶ月）を考慮して支払対象外期間を18ヶ月に設定することで保険料を最適化できる。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-orange-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">就業不能保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '一人親方の場合は労災特別加入の有無を確認した',
+                '会社員：支払対象外期間18ヶ月設定で保険料を最適化した',
+                '一人親方：支払対象外期間60〜90日の即時給付タイプを選んだ',
+                '「現場作業ができない状態」を就業不能と定義する保険を選んだ',
+                '脊髄損傷・高度障害に備えた生命保険の高度障害特約を確認した',
+                '月額給付金に事業固定費（道具・車両維持費）も含めた',
+                'じん肺・石綿関連疾患への長期的な備えも検討した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
