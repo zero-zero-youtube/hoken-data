@@ -340,6 +340,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isCivilServantLife = occ.slug === 'civil-servant' && ins.slug === 'life'
   const isEngineerIncomeProtection = occ.slug === 'engineer' && ins.slug === 'income-protection'
   const isDriverMedical = occ.slug === 'driver' && ins.slug === 'medical'
+  const isDoctorLife = occ.slug === 'doctor' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2093,6 +2094,232 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 医師×生命保険 専用コンテンツ */}
+      {isDoctorLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">医師に生命保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              医師は日本最高水準の収入を誇る職業ですが、その高収入ゆえに生命保険の必要性も極めて高くなります。平均年収1,200万円（男性）の医師が死亡した場合、遺族が失う収入損失は数億円規模に達します。公的な遺族年金だけではこの損失を到底補えず、民間生命保険による手厚い死亡保障が不可欠です。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              また医師特有のリスクとして、長時間労働による過労死・燃え尽き症候群・感染症罹患があります。厚生労働省の調査（2022年）によると、勤務医の週60時間以上労働は46.3%、特定機能病院では週80時間超が18.1%に達します。高収入職種だからこそ、万一の際の家族への影響は甚大であり、適切な生命保険設計が求められます。
+            </p>
+            <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-emerald-800 mb-1">💡 医師が生命保険を考える際の重要な前提</p>
+              <p className="text-emerald-700 text-sm leading-relaxed">
+                医師が「保険」で検索する場合、「医師賠償責任保険（医療過誤への備え）」と「生命保険（死亡・就業不能への備え）」を混同するケースがあります。本ページは後者の「個人の生命保険」について解説します。医師賠償責任保険は勤務先病院が加入しているケースが多いですが、開業医・フリーランス医師は個人での加入を検討してください。
+              </p>
+            </div>
+          </div>
+
+          {/* セクション2：公的保障と必要保障額 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">医師の公的遺族保障と民間生命保険で補うべき金額</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-5">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">給付の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">勤務医</th>
+                    <th className="px-4 py-3 text-left font-semibold">開業医（個人事業主）</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族厚生年金</td><td className="px-4 py-3">✅ あり（報酬比例）</td><td className="px-4 py-3">❌ なし（国民年金のみ）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族基礎年金</td><td className="px-4 py-3">✅ あり（子あり：約102万円/年）</td><td className="px-4 py-3">✅ あり（同額）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">傷病手当金</td><td className="px-4 py-3">✅ あり（月収67%・最長18ヶ月）</td><td className="px-4 py-3">❌ なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">退職金</td><td className="px-4 py-3">✅ あり（勤続年数による）</td><td className="px-4 py-3">△ 小規模企業共済等で自助努力</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+              年収1,200万円の勤務医が40歳で死亡した場合、定年（65歳）までの25年間の収入損失は3億円。遺族厚生年金・遺族基礎年金の合計は年間200〜300万円程度のため、収入損失の大部分は民間生命保険で補う必要があります。
+            </p>
+            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+              <p className="font-bold text-blue-900 mb-2">医師の必要保障額の計算例</p>
+              <p className="text-blue-800 text-sm leading-relaxed">
+                年収1,200万円・40歳・妻と子2人の場合：<br /><br />
+                遺族の生活費：月40万円×12ヶ月×25年 ＝ 1億2,000万円<br />
+                教育費（子2人）：約2,000万円<br />
+                住宅ローン残債：約3,000万円（仮定）<br />
+                葬儀費用：約200万円<br />
+                合計：約1億7,200万円<br /><br />
+                遺族厚生・基礎年金（25年分）：約6,250万円<br />
+                貯蓄：約2,000万円（仮定）<br /><br />
+                <strong>民間生命保険で補うべき金額：約8,950万円</strong>
+              </p>
+              <p className="text-xs text-blue-600 mt-2">※あくまで試算例。実際は家族構成・貯蓄額・支出により大きく異なります。</p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">医師が直面する生命・健康リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 長時間労働・過労：週60時間超が46.3%</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「医師の働き方改革 実態調査（2022年）」によると、勤務医の週60時間以上労働は46.3%、特定機能病院（大学病院等）では週80時間超が18.1%に達します。過労による心疾患・脳血管疾患リスクが高く、40〜50代の勤務医での過労死事例が相次いでいます。2024年4月から勤務医の時間外労働規制が強化されましたが、依然として高負荷な労働環境が続いています。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② バーンアウト・精神疾患：約40%が経験</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  日本医師会「勤務医の健康支援に関する検討報告書（2022年）」によると、医師のバーンアウト経験率は約40%、うつ症状の有病率は一般人口の約2倍に相当します。患者の死亡・医療ミスへのプレッシャー・訴訟リスクへの恐怖が精神的負荷の主な原因です。精神疾患による長期休業は就業不能保険の問題ですが、生命保険の観点からも死亡リスクを高める要因として認識が必要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 感染症リスク：B型肝炎・C型肝炎の職業的感染</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「医療機関における院内感染対策（2022年）」によると、B型肝炎・C型肝炎の職業的感染リスクは一般人口の約4〜6倍。針刺し事故・血液曝露による感染が主経路です。慢性肝炎・肝硬変・肝がんへの進行リスクがあり、長期的な医療費と就業能力への影響を考えると医療保険・生命保険の重要性は高いです。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 医療訴訟リスク：キャリア中25%が経験</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  日本医師会「医師賠償責任保険統計（2021年）」によると、医師はキャリア中に約25%が何らかの訴訟・紛争を経験します。訴訟による精神的ダメージ・診療継続困難による収入途絶リスクがあり、医師賠償責任保険（勤務先または個人）との組み合わせが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/content/10800000/000986982.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「医師の働き方改革 実態調査」2022年</a>
+              　<a href="https://www.med.or.jp/nichiionline/article/010673.html" target="_blank" rel="noopener noreferrer" className="underline">日本医師会「勤務医の健康支援に関する検討報告書」2022年</a>
+            </p>
+          </div>
+
+          {/* セクション4：勤務医 vs 開業医の保険戦略 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">勤務医 vs 開業医：生命保険戦略の根本的な違い</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">項目</th>
+                    <th className="px-4 py-3 text-left font-semibold">勤務医</th>
+                    <th className="px-4 py-3 text-left font-semibold">開業医（個人事業主）</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">収入の安定性</td><td className="px-4 py-3">✅ 固定給・比較的安定</td><td className="px-4 py-3">△ 診療報酬・患者数に依存</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">傷病手当金</td><td className="px-4 py-3">✅ あり（月収67%・最長18ヶ月）</td><td className="px-4 py-3">❌ なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">退職金</td><td className="px-4 py-3">✅ あり</td><td className="px-4 py-3">❌ なし（自助努力が必要）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">事業承継リスク</td><td className="px-4 py-3">❌ なし</td><td className="px-4 py-3">✅ 死亡時の診療所閉院リスク</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">法人保険の活用</td><td className="px-4 py-3">△ 限定的</td><td className="px-4 py-3">✅ 医療法人化で節税効果</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">生命保険の優先度</td><td className="px-4 py-3">高（高収入×家族への影響大）</td><td className="px-4 py-3">極めて高（傷病手当金なし×事業リスク）</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              開業医は死亡時に診療所を閉院せざるを得ないケースが多く、従業員への退職金・医療機器のリース残債・患者への影響など、個人の生命保険以外の事業継続リスクへの備えも必要です。医療法人化している場合は法人保険の活用も検討してください。
+            </p>
+          </div>
+
+          {/* セクション5：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '必要保障額を正確に計算する（億単位になるケースが多い）',
+                  detail: '年収1,000万円超の医師の場合、必要保障額は5,000万円〜1億円以上になるケースが多いです。遺族の生活費・教育費・住宅ローン・葬儀費用を合計し、公的遺族年金・貯蓄を差し引いた金額が民間保険で補うべき額です。高額な保障が必要なため、逓減定期保険や収入保障保険で保険料を効率化することを検討してください。',
+                },
+                {
+                  number: '02',
+                  title: '逓減定期保険・収入保障保険で効率的に保障を確保する',
+                  detail: '億単位の死亡保障を通常の定期保険で確保すると保険料が高額になります。「収入保障保険（毎月一定額を年金形式で支給）」や「逓減定期保険（時間とともに保障額が減少・保険料が安い）」を活用することで、必要な保障を効率的に確保できます。',
+                },
+                {
+                  number: '03',
+                  title: '開業医は事業リスクと個人リスクを分けて考える',
+                  detail: '開業医の場合、診療所の事業継続リスク（従業員への影響・医療機器リース残債・患者への影響）と個人の生命保険（家族の生活費）を分けて設計することが重要です。医療法人化している場合は法人保険（経営者保険）との組み合わせを税理士・FPに相談してください。',
+                },
+                {
+                  number: '04',
+                  title: '医師賠償責任保険と生命保険の役割を明確に区別する',
+                  detail: '医師賠償責任保険は医療過誤による患者への賠償に備えるもので、生命保険（死亡・就業不能）とは全く別の保険です。勤務先病院が医師賠償責任保険に加入している場合でも、個人の死亡・就業不能リスクには別途民間生命保険が必要です。',
+                },
+                {
+                  number: '05',
+                  title: '就業不能保険との組み合わせを検討する',
+                  detail: '高収入の医師が就業不能になった場合の収入損失は一般職種より遥かに大きくなります。特に開業医は傷病手当金がないため、就業不能保険（月額給付金30万円以上）との組み合わせが重要です。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：必要保障額を過小評価して家族が困窮',
+                  situation: '42歳男性・勤務医。年収1,300万円。妻と子2人。',
+                  problem: '「貯蓄があるから大丈夫」と生命保険を最小限に設定。43歳で急性心筋梗塞で死亡。貯蓄2,000万円と遺族年金では子の教育費・住宅ローン・生活費を賄えず、妻が職場復帰を余儀なくされた。',
+                  lesson: '高収入医師ほど必要保障額は大きい。貯蓄では補えない収入損失に備えること。',
+                },
+                {
+                  title: '失敗②：開業後に就業不能になり診療所を閉院',
+                  situation: '45歳男性・開業医。クリニック経営。',
+                  problem: 'うつ病で6ヶ月休業。傷病手当金がない開業医のため収入ゼロ。スタッフの給与・医療機器リース料・テナント賃料が払えず、やむなく閉院。患者への影響も甚大だった。',
+                  lesson: '開業医は就業不能保険が特に重要。個人収入の補填に加え、クリニックの固定費もカバーできる保障額を設定すること。',
+                },
+                {
+                  title: '失敗③：医師賠償責任保険で生命保険の代わりにならないと気づかなかった',
+                  situation: '35歳女性・勤務医。',
+                  problem: '「病院が医師賠償責任保険に加入しているから保険は大丈夫」と思っていたが、これは医療過誤への賠償であり自身の死亡・就業不能には全く対応していなかった。子供が生まれたタイミングでFPに相談して初めて気づき、慌てて生命保険に加入した。',
+                  lesson: '医師賠償責任保険と個人の生命保険は全く別物。それぞれ独立して検討すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション7：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '年収を基に必要保障額（5,000万〜1億円以上）を計算した',
+                '公的遺族年金・退職金・貯蓄を差し引いた不足額を把握した',
+                '収入保障保険・逓減定期保険で効率的な保障設計を検討した',
+                '開業医の場合は事業継続リスクと個人リスクを分けて設計した',
+                '医師賠償責任保険と生命保険の役割の違いを理解した',
+                '就業不能保険（特に開業医）との組み合わせを検討した',
+                '医療法人化している場合は法人保険の活用を税理士に相談した',
+                '複数のFP・保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
