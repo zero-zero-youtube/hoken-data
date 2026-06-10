@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import AffiliateCTA from '@/components/AffiliateCTA'
 
 export const metadata: Metadata = {
   title: '職業別おすすめ保険の選び方【20職業の保険ニーズを解説】2023年版',
@@ -180,15 +181,7 @@ export default function InsuranceByOccupationGuidePage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-[#0f172a] text-white rounded-2xl p-8 text-center">
-          <p className="text-[#f59e0b] text-sm font-semibold mb-2">PR・無料・強引な勧誘なし</p>
-          <h2 className="text-xl font-bold mb-3">自分の職業に合った保険をプロに相談</h2>
-          <p className="text-gray-400 text-sm mb-6">職業・ライフスタイルに合わせた最適な保険プランを提案してもらえます</p>
-          <Link href="/simulator" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
-            無料で保険相談する →
-          </Link>
-          <p className="text-gray-600 text-xs mt-3">※本サイトはアフィリエイト広告を含みます</p>
-        </section>
+        <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         {/* FAQ */}
         <section>
@@ -210,9 +203,6 @@ export default function InsuranceByOccupationGuidePage() {
           </div>
         </section>
 
-        <p className="text-xs text-gray-500 leading-relaxed border-t pt-6">
-          【免責事項】本ページの情報は公的統計データを基にした参考情報です。保険の加入・変更は必ず各保険会社または保険代理店にご確認ください。本サイトはアフィリエイト広告を含みます。
-        </p>
       </div>
     </>
   )

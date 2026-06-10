@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import AffiliateCTA from '@/components/AffiliateCTA'
 
 export const metadata: Metadata = {
   title: '収入保障保険・就業不能保険の選び方【フリーランス必見】2023年版',
@@ -166,16 +167,28 @@ export default function IncomeProtectionGuidePage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-[#0f172a] text-white rounded-2xl p-8 text-center">
-          <p className="text-[#f59e0b] text-sm font-semibold mb-2">PR・無料・強引な勧誘なし</p>
-          <h2 className="text-xl font-bold mb-3">就業不能保険をプロに無料相談</h2>
-          <p className="text-gray-400 text-sm mb-6">フリーランスの保険に詳しいFPが、最適な保険を提案します</p>
-          <Link href="/simulator" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
-            無料で保険相談する →
-          </Link>
-          <p className="text-gray-600 text-xs mt-3">※本サイトはアフィリエイト広告を含みます</p>
+        {/* 就業不能保険 選ぶ際のチェックポイント */}
+        <section>
+          <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+            就業不能保険を選ぶ際のチェックポイント
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { title: '精神疾患が対象か確認', desc: 'うつ病・適応障害など精神疾患を免責にしている商品も多い。IT・医療職は特に要確認。' },
+              { title: '待機期間（免責期間）の長さ', desc: '一般的に60〜90日の待機期間あり。その間は給付なし。緊急の貯蓄で対応できるか確認。' },
+              { title: '給付金額の設定', desc: '月の固定費（家賃・食費・光熱費等）を最低カバーできる額を設定。一般的に月収の50〜60%が目安。' },
+              { title: '保障期間（何歳まで）', desc: '60歳・65歳まで等の選択肢がある。定年まで保障が続く商品を選ぶのが基本。' },
+            ].map((item, i) => (
+              <div key={i} className="bg-[#f8fafc] rounded-xl p-4 border border-gray-200">
+                <p className="font-semibold text-[#0f172a] text-sm mb-1">✓ {item.title}</p>
+                <p className="text-xs text-gray-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </section>
+
+        {/* CTA */}
+        <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         {/* FAQ */}
         <section>
@@ -197,9 +210,6 @@ export default function IncomeProtectionGuidePage() {
           </div>
         </section>
 
-        <p className="text-xs text-gray-500 leading-relaxed border-t pt-6">
-          【免責事項】本ページの保険料は推計参考値です。実際の保険料は保険会社・年齢・健康状態・職業・保障内容により大きく異なります。保険の加入・変更は必ず各保険会社または保険代理店にご確認ください。
-        </p>
       </div>
     </>
   )

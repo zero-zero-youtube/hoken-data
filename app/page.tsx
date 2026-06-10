@@ -100,66 +100,72 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
 
       {/* ヒーローセクション */}
-      <section className="bg-[#0f172a] text-white pt-16 pb-20 px-4">
+      <section className="bg-[#0f172a] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* バッジ */}
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm mb-6">
-            <span className="text-[#f59e0b]">●</span>
-            <span>厚生労働省 賃金構造基本統計調査 準拠</span>
+          {/* 信頼性バッジ */}
+          <div className="flex justify-center gap-3 mb-6 flex-wrap">
+            <span className="bg-white/10 text-white text-xs px-3 py-1 rounded-full border border-white/20">
+              📊 厚生労働省 賃金構造基本統計調査 準拠
+            </span>
+            <span className="bg-white/10 text-white text-xs px-3 py-1 rounded-full border border-white/20">
+              🏛️ 政府統計データのみ使用
+            </span>
+            <span className="bg-white/10 text-white text-xs px-3 py-1 rounded-full border border-white/20">
+              ✅ 完全無料・勧誘なし
+            </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+          {/* メインコピー */}
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
             あなたの職業に合った<br />
-            <span className="text-[#2563eb]">保険料相場</span>を調べる
+            <span className="text-[#2563eb]">適正保険料</span>を知る
           </h1>
 
-          <p className="text-gray-300 text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-            職業・年齢・家族構成から適正な保険料の目安を無料で確認。<br />
-            政府統計データに基づく客観的な情報を提供します。
+          {/* サブコピー */}
+          <p className="text-blue-200 mb-2 text-sm md:text-base">
+            「保険料が高いのか安いのか分からない」を解決します
+          </p>
+          <p className="text-white/60 text-xs mb-8">
+            職業・年齢・家族構成を選ぶだけで、政府統計に基づく適正保険料の目安を無料で確認
           </p>
 
-          {/* データ規模 */}
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-5 py-2 text-sm text-gray-300 mb-6">
-            <span><span className="text-white font-bold">20</span>職業</span>
-            <span className="text-gray-600">×</span>
-            <span><span className="text-white font-bold">10</span>保険種類</span>
-            <span className="text-gray-600">×</span>
-            <span><span className="text-white font-bold">484</span>ページのデータ</span>
+          {/* 数字バッジ */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-3 flex gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-[#f59e0b]">20</div>
+                <div className="text-xs text-white/60">対象職業</div>
+              </div>
+              <div className="w-px bg-white/10" />
+              <div>
+                <div className="text-2xl font-bold text-[#f59e0b]">10</div>
+                <div className="text-xs text-white/60">保険種類</div>
+              </div>
+              <div className="w-px bg-white/10" />
+              <div>
+                <div className="text-2xl font-bold text-[#f59e0b]">484</div>
+                <div className="text-xs text-white/60">データページ</div>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* CTAボタン */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
             <Link
               href="/simulator"
-              className="bg-[#2563eb] text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-700 transition-colors"
+              className="flex-1 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-center py-4 rounded-xl transition-colors"
               aria-label="無料で保険料診断ツールを使う"
             >
               無料で保険料診断する →
             </Link>
             <Link
               href="/occupation"
-              className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition-colors"
+              className="flex-1 bg-white/10 hover:bg-white/20 text-white font-bold text-center py-4 rounded-xl transition-colors border border-white/20"
               aria-label="職業別の保険料相場を調べる"
             >
               職業別に調べる →
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* 統計バー */}
-      <section className="bg-[#1e293b] text-white py-5 px-4">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          {[
-            { value: '20', label: '対象職業' },
-            { value: '10', label: '保険種類' },
-            { value: '政府統計', label: 'データソース' },
-            { value: '完全無料', label: '利用料金' },
-          ].map(item => (
-            <div key={item.label}>
-              <p className="text-[#f59e0b] text-2xl font-bold">{item.value}</p>
-              <p className="text-gray-400 text-sm mt-1">{item.label}</p>
-            </div>
-          ))}
         </div>
       </section>
 

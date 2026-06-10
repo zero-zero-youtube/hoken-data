@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import AffiliateCTA from '@/components/AffiliateCTA'
 
 export const metadata: Metadata = {
   title: '医療保険の選び方【職業別・年齢別の適正保険料】2023年版',
@@ -242,16 +243,27 @@ export default function MedicalInsuranceGuidePage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-[#0f172a] text-white rounded-2xl p-8 text-center">
-          <p className="text-[#f59e0b] text-sm font-semibold mb-2">PR・無料・強引な勧誘なし</p>
-          <h2 className="text-xl font-bold mb-3">自分に合った医療保険をプロに相談</h2>
-          <p className="text-gray-400 text-sm mb-6">複数の保険会社を比較して、最適な保険を提案してもらえます</p>
-          <Link href="/simulator" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
-            無料で保険相談する →
-          </Link>
-          <p className="text-gray-600 text-xs mt-3">※本サイトはアフィリエイト広告を含みます</p>
+        {/* よくある加入ミス */}
+        <section>
+          <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+            医療保険加入でよくある失敗
+          </h2>
+          <div className="space-y-3">
+            {[
+              { title: '団体保険の内容を確認せずに重複加入', desc: '勤務先の団体保険と民間医療保険が重複し、保険料を無駄に支払っているケースがあります。まず団体保険の内容を確認してから追加加入を検討しましょう。' },
+              { title: '特約をつけすぎて保険料が高くなる', desc: '先進医療特約・がん特約・三大疾病特約など、オプションをつけすぎると保険料が月1万円を超えることも。職業・年齢に合わせて必要最小限の特約に絞りましょう。' },
+              { title: '更新型で加入して老後に保険料が急増', desc: '更新型医療保険は若い時の保険料が安い反面、10〜15年ごとの更新時に保険料が大幅に上がります。長期で見ると終身型のほうが総支払額が少ないケースが多いです。' },
+            ].map((item, i) => (
+              <div key={i} className="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-4">
+                <p className="font-semibold text-red-800 text-sm mb-1">⚠ {item.title}</p>
+                <p className="text-sm text-gray-700 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </section>
+
+        {/* CTA */}
+        <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         {/* FAQ */}
         <section>
@@ -273,10 +285,6 @@ export default function MedicalInsuranceGuidePage() {
           </div>
         </section>
 
-        {/* 免責事項 */}
-        <p className="text-xs text-gray-500 leading-relaxed border-t pt-6">
-          【免責事項】本ページの保険料は公的統計データを基にした推計参考値です。実際の保険料は保険会社・年齢・健康状態・契約内容により大きく異なります。保険の加入・変更は必ず各保険会社または保険代理店にご確認ください。
-        </p>
       </div>
     </>
   )

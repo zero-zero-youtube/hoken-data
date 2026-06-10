@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import AffiliateCTA from '@/components/AffiliateCTA'
 
 type AgeInfo = {
   label: string
@@ -365,14 +366,7 @@ export default async function AgeInsurancePage(
         </section>
 
         {/* CTA */}
-        <section className="bg-[#0f172a] text-white rounded-2xl p-8 text-center">
-          <p className="text-[#f59e0b] text-sm font-semibold mb-2">PR・無料・強引な勧誘なし</p>
-          <h2 className="text-xl font-bold mb-3">{ag.label}に最適な{ins.name}をFPに無料相談</h2>
-          <p className="text-gray-400 text-sm mb-6">年齢・家族構成・収入に合わせた最適な保険プランを無料で提案します</p>
-          <Link href="/simulator" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
-            無料で保険相談する →
-          </Link>
-        </section>
+        <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         {/* 年齢別リンク */}
         <section>
