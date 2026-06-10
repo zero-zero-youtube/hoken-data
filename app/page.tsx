@@ -103,15 +103,15 @@ export default async function Home() {
       <section className="bg-[#0f172a] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* 信頼性バッジ */}
-          <div className="flex justify-center gap-3 mb-6 flex-wrap">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             <span className="bg-white/10 text-white text-xs px-3 py-1 rounded-full border border-white/20">
-              📊 厚生労働省 賃金構造基本統計調査 準拠
+              📊 厚生労働省準拠
             </span>
             <span className="bg-white/10 text-white text-xs px-3 py-1 rounded-full border border-white/20">
-              🏛️ 政府統計データのみ使用
+              🏛️ 政府統計のみ
             </span>
             <span className="bg-white/10 text-white text-xs px-3 py-1 rounded-full border border-white/20">
-              ✅ 完全無料・勧誘なし
+              ✅ 完全無料
             </span>
           </div>
 
@@ -143,8 +143,8 @@ export default async function Home() {
               </div>
               <div className="w-px bg-white/10" />
               <div>
-                <div className="text-2xl font-bold text-[#f59e0b]">484</div>
-                <div className="text-xs text-white/60">データページ</div>
+                <div className="text-2xl font-bold text-[#f59e0b]">1,404</div>
+                <div className="text-xs text-white/60">公開ページ数</div>
               </div>
             </div>
           </div>
@@ -153,14 +153,14 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
             <Link
               href="/simulator"
-              className="flex-1 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-center py-4 rounded-xl transition-colors"
+              className="flex-1 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-center py-3 rounded-xl transition-colors"
               aria-label="無料で保険料診断ツールを使う"
             >
               無料で保険料診断する →
             </Link>
             <Link
               href="/occupation"
-              className="flex-1 bg-white/10 hover:bg-white/20 text-white font-bold text-center py-4 rounded-xl transition-colors border border-white/20"
+              className="flex-1 bg-white/10 hover:bg-white/20 text-white font-bold text-center py-3 rounded-xl transition-colors border border-white/20"
               aria-label="職業別の保険料相場を調べる"
             >
               職業別に調べる →
