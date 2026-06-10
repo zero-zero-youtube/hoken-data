@@ -341,6 +341,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isEngineerIncomeProtection = occ.slug === 'engineer' && ins.slug === 'income-protection'
   const isDriverMedical = occ.slug === 'driver' && ins.slug === 'medical'
   const isDoctorLife = occ.slug === 'doctor' && ins.slug === 'life'
+  const isSalesLife = occ.slug === 'sales' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2094,6 +2095,243 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 営業職×生命保険 専用コンテンツ */}
+      {isSalesLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">営業職に生命保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              営業職は日本のビジネスの最前線を担う職種ですが、ノルマプレッシャー・接待・外回りなど心身への負荷が大きい職業です。厚生労働省「職場における心の健康づくり（2022年）」によると、営業職のメンタルヘルス不調率は全職種平均の1.4倍。また不規則な食事・接待による生活習慣病リスクも高く、30〜40代での重大疾患リスクが懸念されます。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              営業職は歩合給・インセンティブが含まれる場合が多く、病気・ケガで長期休業した場合の収入損失が固定給社員より大きくなりやすい特徴があります。特に子育て世代の30〜40代営業職にとって、生命保険による死亡保障と就業不能保険による収入補償の両立が家族を守る最重要手段です。
+            </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-orange-800 mb-1">💡 営業職が生命保険を考える際の重要な前提</p>
+              <p className="text-orange-700 text-sm leading-relaxed">
+                歩合給・インセンティブがある営業職は、傷病手当金の計算基準となる「標準報酬月額」が実際の収入より低くなるケースがあります。傷病手当金で補われる金額を事前に確認した上で、不足分を民間保険で補う設計が重要です。
+              </p>
+              <p className="text-xs text-orange-600 mt-2">出典：<a href="https://www.kyoukaikenpo.or.jp/g3/cat320/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：公的保障と生命保険の役割 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">営業職の公的保障と生命保険で補うべき金額</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">給付の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">会社員営業職</th>
+                    <th className="px-4 py-3 text-left font-semibold">独立営業（個人事業主）</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族厚生年金</td><td className="px-4 py-3">✅ あり（報酬比例）</td><td className="px-4 py-3">❌ なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族基礎年金</td><td className="px-4 py-3">✅ あり（子あり：約102万円/年）</td><td className="px-4 py-3">✅ あり（同額）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">傷病手当金</td><td className="px-4 py-3">✅ あり（標準報酬月額の67%・最長18ヶ月）</td><td className="px-4 py-3">❌ なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">歩合給の扱い</td><td className="px-4 py-3">⚠️ 標準報酬月額に反映されるが変動あり</td><td className="px-4 py-3">❌ 全額自己リスク</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">退職金</td><td className="px-4 py-3">✅ あり（会社による）</td><td className="px-4 py-3">❌ なし</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">
+              出典：<a href="https://www.kyoukaikenpo.or.jp/g3/cat320/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a>　<a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html" target="_blank" rel="noopener noreferrer" className="underline">日本年金機構「遺族厚生年金」</a>
+            </p>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+              <p className="font-bold text-yellow-800 mb-1">⚠️ 歩合給営業職の傷病手当金に注意</p>
+              <p className="text-yellow-700 text-sm leading-relaxed">
+                傷病手当金は「標準報酬月額の67%」が基準です。歩合給・インセンティブが多い月と少ない月で標準報酬月額が変動する場合、実際の手取り収入より傷病手当金が大幅に少なくなるケースがあります。健保組合に標準報酬月額を確認しておきましょう。
+              </p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">営業職が直面する健康・生命リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 精神疾患：全職種平均の1.4倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「職場における心の健康づくり（2022年）」によると、営業職のメンタルヘルス不調率は全職種平均の1.4倍。ノルマ未達のプレッシャー・顧客クレーム対応・上司からの叱責がストレス源として上位を占めます。うつ病・適応障害による長期休業は歩合給営業職にとって収入の大幅な減少を意味します。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 交通事故リスク：外回り営業は3.2倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  損害保険料率算出機構「自動車保険統計（2022年）」によると、車を使った外回り営業従事者の交通事故遭遇率はデスクワーカーの約3.2倍。重大事故による長期入院・後遺症リスクがあり、生命保険・医療保険の備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 生活習慣病：接待・不規則勤務による高リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「国民健康・栄養調査（2022年）」によると、接待・不規則な食事時間・飲酒機会の多い営業職は生活習慣病リスクが一般オフィスワーカーの1.3倍。40代での心疾患・脳血管疾患リスクが高く、家族のいる営業職にとって死亡保障の重要性は特に高いです。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 高い離職率：収入不安定リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「雇用動向調査（2022年）」によると、営業・販売職の離職率は全職種平均より高い水準にあります。転職・独立を繰り返す営業職は、転職の度に保険の見直しが必要になるため、終身型の保険で長期的な保障を確保することが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei12/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「職場における心の健康づくり」2022年</a>　<a href="https://www.mhlw.go.jp/toukei/list/20-21.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「雇用動向調査」2022年</a>
+            </p>
+          </div>
+
+          {/* セクション4：ライフステージ別の必要保障額 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">営業職のライフステージ別・必要な生命保険の考え方</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  stage: '20代・独身',
+                  avgIncome: '年収350〜450万円',
+                  need: '低',
+                  needColor: 'bg-green-100 text-green-800',
+                  detail: '扶養家族なし。医療保険・就業不能保険を優先。生命保険は結婚まで最小限でよい。',
+                },
+                {
+                  stage: '30代・既婚・子あり',
+                  avgIncome: '年収450〜600万円',
+                  need: '高',
+                  needColor: 'bg-red-100 text-red-800',
+                  detail: '最も必要保障額が大きい時期。住宅ローン・教育費・配偶者の生活費を考慮した保障額設定が必須。目安：年収×10〜15年分。',
+                },
+                {
+                  stage: '40代・収入ピーク',
+                  avgIncome: '年収500〜700万円',
+                  need: '中〜高',
+                  needColor: 'bg-orange-100 text-orange-800',
+                  detail: 'ノルマ・プレッシャー増加でメンタルリスクが高まる時期。住宅ローン残債減少につれて保障額を見直す。がん保険との組み合わせも重要。',
+                },
+                {
+                  stage: '50代・定年前',
+                  avgIncome: '年収500〜650万円',
+                  need: '中',
+                  needColor: 'bg-blue-100 text-blue-800',
+                  detail: '子の独立・住宅ローン完済で必要保障額は減少。退職後の保障継続を考慮して終身保険への切り替えを検討。',
+                },
+              ].map((s, i) => (
+                <div key={i} className="bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="font-bold text-gray-900 text-sm">{s.stage}</p>
+                    <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${s.needColor}`}>必要度：{s.need}</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-2">{s.avgIncome}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{s.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション5：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '標準報酬月額と実際の収入の差を確認する',
+                  detail: '歩合給・インセンティブがある場合、傷病手当金の基準となる標準報酬月額が実際の手取りより低い可能性があります。健保組合・会社の総務部門に自分の標準報酬月額を確認してから必要な保険金額を設計してください。',
+                },
+                {
+                  number: '02',
+                  title: '必要保障額は住宅ローン・教育費を含めて計算する',
+                  detail: '営業職は30〜40代に収入が高くなりやすい反面、住宅ローン・子の教育費が重なる時期でもあります。必要保障額 ＝ 遺族生活費 ＋ 教育費 ＋ 住宅ローン残債 − 公的年金 − 貯蓄 という計算式で、漏れなく必要額を算出してください。',
+                },
+                {
+                  number: '03',
+                  title: '精神疾患特約を付帯した就業不能保険との組み合わせ',
+                  detail: '営業職のメンタルヘルス不調率は平均の1.4倍。生命保険と合わせて就業不能保険（精神疾患特約付き）への加入を強く推奨します。特にノルマの厳しい保険営業・不動産営業・金融営業従事者は精神疾患リスクが特に高いです。',
+                },
+                {
+                  number: '04',
+                  title: '転職・独立時の保険継続を確認する',
+                  detail: '転職や独立（フリーランス化）の際、会社の団体保険は継続できなくなります。個人契約の保険で長期的な保障を確保しておくことで、転職・独立後も保障が途切れません。特に独立後は傷病手当金がなくなるため、就業不能保険の継続が重要です。',
+                },
+                {
+                  number: '05',
+                  title: '収入保障保険で効率的に保障を確保する',
+                  detail: '一括払いの死亡保険金より、毎月一定額が支給される「収入保障保険」が営業職の家族には使いやすいケースがあります。遺族が毎月の生活費として受け取れるため、大金の管理リスクがなく計画的な生活設計が可能です。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：歩合給で傷病手当金が思ったより少なかった',
+                  situation: '35歳男性・不動産営業。月収手取り70万円（歩合込み）。',
+                  problem: 'うつ病で6ヶ月休業。傷病手当金を受け取ったが、標準報酬月額が35万円だったため月約23万円しか受け取れなかった。実際の手取りの3分の1以下で生活が苦しくなった。',
+                  lesson: '歩合給が多い場合、標準報酬月額と実収入の差を事前に確認し、不足分を就業不能保険で補うこと。',
+                },
+                {
+                  title: '失敗②：転職時に団体保険が終了し保障がゼロに',
+                  situation: '40歳男性・メーカー営業から独立系営業へ転職。',
+                  problem: '前職の団体生命保険（死亡保障3,000万円）に頼っていたが、転職と同時に保障が終了。新職場には団体保険なし。転職後に個人で生命保険に加入しようとしたが、転職直後の収入不安定を理由に高額保険への加入審査が通りにくかった。',
+                  lesson: '転職前に個人契約の生命保険に加入しておくこと。団体保険だけに頼るのは危険。',
+                },
+                {
+                  title: '失敗③：必要保障額を過小評価して遺族が困窮',
+                  situation: '38歳男性・金融営業。年収650万円。妻と子2人。',
+                  problem: '「公的年金があるから」と生命保険を最小限に設定。39歳で交通事故死。遺族年金と貯蓄では子2人の教育費・住宅ローン・生活費を賄えず、妻がフルタイム復帰を余儀なくされた。',
+                  lesson: '遺族年金だけでは生活費の大部分をカバーできない。年収・家族構成に見合った必要保障額を正確に計算すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション7：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '標準報酬月額と実際の手取り収入の差を確認した',
+                '必要保障額（遺族生活費＋教育費＋住宅ローン−公的年金−貯蓄）を計算した',
+                '精神疾患特約付き就業不能保険との組み合わせを検討した',
+                '転職・独立時の保険継続を個人契約で確保した',
+                '収入保障保険による効率的な保障設計を検討した',
+                '30〜40代のリスクが最大の時期に保障額を最大化した',
+                'がん保険・医療保険との組み合わせも確認した',
+                '複数の保険会社・FPで見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
