@@ -15,7 +15,10 @@ import OccupationInsuranceCharts from '@/components/OccupationInsuranceCharts'
 import DataCalculationBadge from '@/components/DataCalculationBadge'
 import OccupationRiskDataSection from '@/components/OccupationRiskDataSection'
 import AffiliateCTA from '@/components/AffiliateCTA'
+import InsuranceChecklist from '@/components/InsuranceChecklist'
 import type { AffiliateKey } from '@/lib/affiliateLinks'
+import { OCCUPATION_INSIGHTS } from '@/lib/occupationInsights'
+import { INSURANCE_DETAILS } from '@/lib/insuranceDetails'
 
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
@@ -37,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const est = estimateMonthlyPremium(ins.slug, occ.avg_income_man, occ.avg_income_woman)
   const monthlyStr = est.man ? `${est.man.toLocaleString()}円` : est.label
   return {
-    title: `${occ.name_ja}の${ins.name_ja}相場【2025年版】推定月額${monthlyStr}｜保険データドットコム`,
+    title: `${occ.name_ja}の${ins.name_ja}相場【2025年版】推定月額${monthlyStr}`,
     description: `${occ.name_ja}の${ins.name_ja}の推定月額保険料は約${monthlyStr}。年収別・年齢別の保険料目安と、${occ.name_ja}特有のリスクへの備え方を政府統計データで解説。無料の保険料診断も。`,
   }
 }
@@ -206,6 +209,73 @@ function getCTACopy(occSlug: string, occName: string, occCategory: string, insSl
   }
 }
 
+function generateLeadText(
+  occ: { name_ja: string; slug: string; avg_income_man: number | null },
+  ins: { name_ja: string; slug: string },
+  est: { man: number | null; woman: number | null; label: string }
+): string[] {
+  const insight = OCCUPATION_INSIGHTS[occ.slug]
+  const detail = INSURANCE_DETAILS[ins.slug]
+  const lines: string[] = []
+
+  if (insight?.keyRisks?.[0]) {
+    lines.push(`${occ.name_ja}は「${insight.keyRisks[0]}」というリスクを抱えています。`)
+  } else {
+    lines.push(`${occ.name_ja}は職業特性から独自のリスクを抱えています。`)
+  }
+
+  if (detail?.mechanism) {
+    const short = detail.mechanism.length > 80 ? detail.mechanism.slice(0, 80) + '…' : detail.mechanism
+    lines.push(`${ins.name_ja}とは、${short}`)
+  } else {
+    lines.push(`${ins.name_ja}は万一の際の経済的リスクに備えるための保険です。`)
+  }
+
+  if (est.man) {
+    lines.push(`${occ.name_ja}の平均年収（男性${occ.avg_income_man}万円）をもとに算出すると、推定月額保険料の目安は${est.man.toLocaleString()}円前後です。`)
+  } else {
+    lines.push(`${occ.name_ja}の${ins.name_ja}保険料は収入に関わらず一定の水準となっています。`)
+  }
+
+  if (insight?.recommendedCoverage) {
+    lines.push(`保険の専門家は「${insight.recommendedCoverage}」を推奨しています。`)
+  } else {
+    lines.push(`職業リスクと現在の社会保険の保障内容を確認した上で、不足分を補う形で加入を検討してください。`)
+  }
+
+  lines.push(`ただし実際の保険料は年齢・健康状態・保険会社・保障内容により大きく異なります。複数の保険会社で見積もりを取ることを強くおすすめします。`)
+
+  return lines
+}
+
+const japanAverages: Record<string, number> = {
+  medical: 3500,
+  life: 6000,
+  'income-protection': 4000,
+  cancer: 3000,
+  'whole-life': 8000,
+  pension: 15000,
+  auto: 5000,
+  fire: 2000,
+  'personal-accident': 1500,
+  child: 7000,
+}
+
+const JUDGMENT_STYLES = {
+  green:  { badge: 'bg-green-100 text-green-700',   bar: 'bg-green-500' },
+  blue:   { badge: 'bg-blue-100 text-blue-700',     bar: 'bg-blue-500' },
+  yellow: { badge: 'bg-yellow-100 text-yellow-800', bar: 'bg-yellow-500' },
+  orange: { badge: 'bg-orange-100 text-orange-700', bar: 'bg-orange-500' },
+}
+
+function getPriceJudgment(estimated: number, average: number) {
+  const ratio = estimated / average
+  if (ratio < 0.7) return { label: '平均より低め', color: 'green' as const, desc: '収入に対して標準的な水準です', ratio }
+  if (ratio < 1.0) return { label: '平均的',       color: 'blue' as const,  desc: '日本人平均と同水準の目安です', ratio }
+  if (ratio < 1.3) return { label: 'やや高め',      color: 'yellow' as const, desc: '収入が高い分、必要保障額も大きくなります', ratio }
+  return { label: '高め', color: 'orange' as const, desc: '高収入職種のため保障ニーズが高い傾向があります', ratio }
+}
+
 function getAffiliateCTA(insurance: string): { primary: AffiliateKey; secondary: AffiliateKey | null } {
   if (insurance === 'cancer') {
     return { primary: 'babyplanetCancer', secondary: 'miraitecho' }
@@ -258,6 +328,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const schema = faqSchema(faqs)
   const cta = getCTACopy(occ.slug, occ.name_ja, occ.category, ins.slug, ins.name_ja)
   const affiliateCta = getAffiliateCTA(ins.slug)
+  const leadLines = generateLeadText(occ, ins, est)
+  const avgMonthly = japanAverages[ins.slug] ?? null
+  const priceJudgment = (est.man && avgMonthly) ? getPriceJudgment(est.man, avgMonthly) : null
 
   const isFixedRange = ins.slug === 'auto' || ins.slug === 'fire'
 
@@ -398,15 +471,41 @@ export default async function OccupationInsurancePage({ params }: Props) {
         </div>
       </section>
 
-      {/* なぜ重要か */}
+      {/* なぜ重要か（拡張リード文） */}
       <section className="py-10 px-4 bg-[#f8fafc]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-[#0f172a] mb-4">
             {occ.name_ja}に{ins.name_ja}が重要な理由
           </h2>
-          <div className="bg-white border-l-4 border-[#2563eb] rounded-r-xl p-5 text-gray-700 leading-relaxed">
-            {reason}
+          <div className="bg-white border-l-4 border-[#2563eb] rounded-r-xl p-5 text-gray-700 leading-relaxed space-y-2">
+            {leadLines.map((line, i) => (
+              <p key={i} className="text-sm">{line}</p>
+            ))}
           </div>
+
+          {/* この保険料は高い？安い？ */}
+          {priceJudgment && avgMonthly && (
+            <div className="bg-gray-50 rounded-xl p-5 mt-6 border border-gray-200">
+              <div className="text-sm font-bold text-[#0f172a] mb-3">この保険料は高い？安い？</div>
+              <div className="text-sm text-gray-500 mb-2">日本人平均（{avgMonthly.toLocaleString()}円）との比較</div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="flex-1 bg-gray-200 rounded-full h-3 relative">
+                  <div
+                    className={`h-3 rounded-full ${JUDGMENT_STYLES[priceJudgment.color].bar}`}
+                    style={{ width: `${Math.min(priceJudgment.ratio * 50, 100)}%` }}
+                  />
+                  <div className="absolute top-0 left-1/2 w-0.5 h-3 bg-gray-500" />
+                </div>
+                <span className={`text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap ${JUDGMENT_STYLES[priceJudgment.color].badge}`}>
+                  {priceJudgment.label}
+                </span>
+              </div>
+              <p className="text-xs text-gray-600">{priceJudgment.desc}</p>
+              <div className="text-xs text-gray-400 mt-2">
+                出典：生命保険文化センター「生命保険に関する全国実態調査」2022年
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -461,13 +560,11 @@ export default async function OccupationInsurancePage({ params }: Props) {
           <p className="text-xs text-gray-500 mb-6">
             職業特性を踏まえた重要なチェックポイントです
           </p>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {cautionPoints.map((point, i) => (
-              <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 flex gap-4">
-                <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#f59e0b] text-white flex items-center justify-center text-sm font-bold">
-                  {i + 1}
-                </div>
-                <p className="text-gray-700 text-sm leading-relaxed pt-0.5">{point}</p>
+              <div key={i} className="bg-white border-l-4 border-blue-500 rounded-r-xl p-4 shadow-sm">
+                <div className="text-blue-600 font-bold text-sm mb-1">チェック {i + 1}</div>
+                <div className="text-gray-800 text-sm leading-relaxed">{point}</div>
               </div>
             ))}
           </div>
@@ -516,9 +613,10 @@ export default async function OccupationInsurancePage({ params }: Props) {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* チェックリスト + CTA */}
       <section className="py-8 px-4 bg-white">
         <div className="max-w-2xl mx-auto">
+          <InsuranceChecklist />
           <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
         </div>
       </section>
