@@ -360,6 +360,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isConstructionIncomeProtection = occ.slug === 'construction' && ins.slug === 'income-protection'
   const isSalesMedical = occ.slug === 'sales' && ins.slug === 'medical'
   const isDriverLife = occ.slug === 'driver' && ins.slug === 'life'
+  const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5310,6 +5311,259 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 医師×がん保険 専用コンテンツ */}
+      {isDoctorCancer && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">医師にがん保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              医師は患者のがん治療に携わる職業ですが、
+              自身のがんリスクへの備えが疎かになりがちな職種です。
+              国立がん研究センター「最新がん統計（2023年）」によると、
+              生涯でがんに罹患する確率は男性65.5%・女性51.2%と、
+              男性では2人に1人以上、女性では2人に1人以上が
+              がんに罹患します。
+              医師も例外ではありません。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              特に注目すべきは医師特有のがんリスクです。
+              針刺し事故によるC型肝炎感染から肝がんへの進行リスク、
+              過重労働・バーンアウトによる免疫機能低下、
+              そして「医師は自分で健康管理できる」という
+              過信から定期的ながん検診を受けない傾向が重なり、
+              早期発見が遅れるケースがあります。
+              高収入の医師ほど、がんによる就業不能・収入損失の
+              影響が大きくなります。
+            </p>
+            <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-emerald-800">
+                💡 医師のがん保険で特に重要なポイント
+              </p>
+              <p className="text-emerald-700 text-sm mt-1">
+                医師ががんに罹患した場合、一般の会社員と異なる
+                2つの特有リスクがあります：<br />
+                ①開業医は診療所の休業リスク（固定費の継続）<br />
+                ②手術・処置ができなくなることによる職業的損失<br />
+                がん診断一時金と就業不能保険の組み合わせが特に重要です。
+              </p>
+              <p className="text-xs text-emerald-600 mt-2">
+                出典：<a href="https://ganjoho.jp/reg_stat/statistics/stat/summary.html" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「最新がん統計」2023年</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障の限界 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">医師のがんリスクと公的保障でカバーされない費用</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">費用の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">公的保障（健康保険・高額療養費）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">民間がん保険で補う部分</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['手術・入院費用（保険診療）', '高額療養費で月57,600円〜上限あり', 'がん診断一時金・手術給付金で補完'],
+                    ['抗がん剤・免疫療法', '保険診療は高額療養費適用', '抗がん剤治療給付金で月々の負担補完'],
+                    ['先進医療費用', '❌ 全額自己負担（最大数百万円）', '✅ 先進医療特約（最大2,000万円）'],
+                    ['自由診療・最新治療薬', '❌ 全額自己負担（数百万〜数千万円）', '✅ がん診断一時金で充当'],
+                    ['開業医の診療所固定費', '❌ 対象外', '✅ がん診断一時金＋就業不能保険'],
+                    ['就業制限中の収入損失', '勤務医：傷病手当金（最長18ヶ月）／開業医：❌ なし', '✅ 就業不能保険との組み合わせ'],
+                  ].map(([type, pub, priv], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{pub}</td>
+                      <td className="px-4 py-3 text-gray-700">{priv}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「高額療養費制度について」2024年</a>
+              <a href="https://www.mhlw.go.jp/topics/bukyoku/isei/sensiniryo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「先進医療の概要について」</a>
+            </p>
+          </section>
+
+          {/* セクション3：医師特有のがんリスク */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">医師が直面するがんリスクの実態（最新統計）</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 生涯がん罹患リスク：男性65.5%・女性51.2%</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  国立がん研究センター「最新がん統計（2023年データ）」によると、
+                  日本人が生涯でがんに罹患する累積確率は
+                  男性65.5%・女性51.2%。
+                  がんによる死亡は2024年に38万4,111人で
+                  全死亡数の23.9%を占め、1981年から死因第1位が続いています
+                  （厚生労働省「人口動態統計」2024年）。
+                  医師も例外なくこのリスクにさらされています。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② バーンアウト・過労による免疫低下リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省の2022年文献調査によると、
+                  過半数の医師がバーンアウト（燃え尽き症候群）を
+                  経験していると評価されています。
+                  日本の医師の約40%が年間960時間以上の残業を報告しており、
+                  10%は1,860時間を超えています
+                  （順天堂大学「長時間労働医師の働き方改革に関する全国横断調査」2024年）。
+                  慢性的な過労・睡眠不足は免疫機能を低下させ、
+                  がんリスクを間接的に高める可能性があります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 針刺し事故→C型肝炎→肝がんリスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  C型肝炎ウイルス（HCV）への職業的感染から
+                  慢性肝炎・肝硬変・肝がんへ進行するリスクがあります。
+                  日本で発生する原発性肝がんの約80%はHCVによるものとされており
+                  （厚生労働省がん対策情報）、
+                  医師はHCVへの職業的暴露リスクが一般人の約4〜6倍です
+                  （厚生労働省「院内感染対策」2022年）。
+                  C型肝炎からの肝がん発症率は年間約3〜7%と高く、
+                  がん保険での備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 「医師だから大丈夫」という過信による早期発見の遅れ</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  医師は自身の健康管理に過信が生じやすく、
+                  定期的ながん検診を受けない傾向があることが指摘されています。
+                  患者に検診を勧める立場にありながら、
+                  自分自身は忙しさから検診を後回しにするケースが少なくありません。
+                  がん保険への加入が、自身の健康管理を意識する
+                  きっかけになることもあります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://ganjoho.jp/reg_stat/statistics/stat/summary.html" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「最新がん統計」2023年データ</a>
+              <a href="https://www.mhlw.go.jp/toukei/saikin/hw/jinkou/kakutei24/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「人口動態統計」2024年（確定数）</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/naika/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「医療機関における院内感染対策」2022年</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">医師のがん保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: 'がん診断一時金は500万円以上を確保する',
+                  detail: '高収入の医師ががんに罹患した場合、治療費だけでなく就業制限中の収入損失・開業医は診療所固定費も発生します。一般的な100〜300万円の診断一時金では不十分で、500万円以上を確保することが推奨されます。特に開業医は月次固定費（家賃・スタッフ給与等）もカバーできる水準の一時金が必要です。',
+                },
+                {
+                  number: '02',
+                  title: '先進医療特約は最大限の保障額で付帯する',
+                  detail: '医師は医療知識が豊富なため、最新の治療法（免疫チェックポイント阻害薬・陽子線・重粒子線治療など）を選択する可能性が高いです。先進医療特約は月100〜200円で最大2,000万円の保障が得られます。自由診療の最新治療薬は数百万〜数千万円になるケースがあり、がん診断一時金との組み合わせで備えてください。',
+                },
+                {
+                  number: '03',
+                  title: '抗がん剤治療給付金（通院対応）を確認する',
+                  detail: '近年のがん治療は外来化学療法（通院での抗がん剤投与）が主流です。入院給付金のみのがん保険では外来治療をカバーできません。月1〜4回の外来化学療法に対応した通院給付金付きのがん保険を選んでください。',
+                },
+                {
+                  number: '04',
+                  title: '開業医は就業不能保険との組み合わせが必須',
+                  detail: '開業医ががん治療中に就業制限になった場合、個人収入のゼロ＋診療所固定費の二重リスクが発生します。がん保険の診断一時金に加えて就業不能保険（月額給付金は固定費込みで設定）との組み合わせが必須です。',
+                },
+                {
+                  number: '05',
+                  title: '定期的なPET-CT・腫瘍マーカー検査を習慣化する',
+                  detail: '医師だからこそ、自身のがん検診を後回しにしがちです。がん保険への加入と合わせて、年1回のPET-CT検診・腫瘍マーカー検査を習慣化することをお勧めします。早期発見による治療費の大幅な削減と生存率の向上が期待できます。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：診断一時金が少なく開業医の固定費を賄えなかった',
+                  situation: '48歳男性・内科開業医。診療所固定費：月80万円。',
+                  problem: '大腸がんと診断され治療に6ヶ月要した。がん保険の診断一時金は100万円だったが、6ヶ月間の診療所固定費（家賃・スタッフ給与・リース費用合計480万円）と個人生活費を合わせると600万円以上の資金が必要だった。一時金100万円では全く足りず、金融機関からの借入が必要になった。',
+                  lesson: '開業医のがん診断一時金は診療所固定費も含めた額（500万円以上）を設定すること。',
+                },
+                {
+                  title: '失敗②：先進医療特約なしで免疫療法に数百万円の自己負担',
+                  situation: '52歳男性・勤務医。肺がん診断。',
+                  problem: '肺がんと診断され、最新の免疫チェックポイント阻害薬による治療を選択。保険適用外の自由診療分として数百万円の自己負担が発生。がん保険に加入していたが先進医療・自由診療特約をつけておらず、診断一時金200万円だけでは不足した。',
+                  lesson: '医師は最新治療を選択する可能性が高い。先進医療特約＋自由診療特約で備えること。',
+                },
+                {
+                  title: '失敗③：C型肝炎感染を軽視して肝がんに進行',
+                  situation: '45歳女性・外科医。若手時代に針刺し事故経験あり。',
+                  problem: '研修医時代の針刺し事故でC型肝炎に感染したが、多忙を理由に治療を後回しにしていた。45歳時に肝硬変から肝がんへの進行が判明。手術・抗がん剤・先進医療で総額300万円以上の自己負担が発生。がん保険に未加入だった。',
+                  lesson: '針刺し事故経験のある医師はC型肝炎の治療を優先し、がん保険で肝がんリスクに備えること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-emerald-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">がん保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '生涯がん罹患リスク（男性65.5%・女性51.2%）を認識した',
+                '針刺し事故歴とC型肝炎の検査・治療状況を確認した',
+                'がん診断一時金500万円以上を確保した（開業医は固定費も考慮）',
+                '先進医療特約を最大保障額で付帯した',
+                '通院化学療法に対応した通院給付金を確認した',
+                '開業医は就業不能保険との組み合わせを設計した',
+                '年1回のPET-CT・腫瘍マーカー検査を習慣化した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
