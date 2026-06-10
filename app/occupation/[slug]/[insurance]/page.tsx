@@ -334,6 +334,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
   const isFixedRange = ins.slug === 'auto' || ins.slug === 'fire'
   const isFreelanceIncomeProtection = occ.slug === 'freelance-engineer' && ins.slug === 'income-protection'
+  const isNurseIncomeProtection = occ.slug === 'nurse' && ins.slug === 'income-protection'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -930,6 +931,324 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 '就業不能の定義（全部就業不能・一部就業不能）を確認した',
                 '複数の保険会社で見積もりを比較した',
                 'フリーランス協会の所得補償保険も選択肢として検討した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="text-[#2563eb] font-bold flex-shrink-0">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 看護師×収入保障 専用コンテンツ */}
+      {isNurseIncomeProtection && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* Section 1：リード文 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師に就業不能保険が必要な理由
+            </h2>
+            <div className="text-gray-700 leading-relaxed space-y-4 text-sm">
+              <p>
+                看護師は医療の最前線で働く専門職ですが、その職業特性ゆえに就業不能リスクが極めて高い職種です。腰痛・針刺し事故・精神的バーンアウト・感染症罹患など、看護師特有のリスクで長期休業を余儀なくされるケースは珍しくありません。
+              </p>
+              <p>
+                日本看護協会の調査（2022年）によると、看護師の離職理由の第2位は「精神的健康問題（21.3%）」。また腰痛有病率は約82%と、業務上疾病の第1位となっています。これらのリスクに対して、就業不能保険でしっかり備えることが重要です。
+              </p>
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl">
+                <p className="font-bold text-blue-800">💡 看護師が保険を考える際の重要な前提</p>
+                <p className="text-blue-700 text-sm mt-1">
+                  病院・クリニック勤務の看護師は会社員と同じ健康保険に加入しており、傷病手当金（月収の約67%・最長18ヶ月）が支給されます。ただし看護師特有のリスク（腰痛・精神疾患・感染症）で長期休業になった場合、18ヶ月を超える補償が民間保険で必要になります。
+                </p>
+                <p className="text-xs text-blue-600 mt-2">
+                  出典：
+                  <a href="https://www.kyoukaikenpo.or.jp/g3/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="underline">
+                    全国健康保険協会「傷病手当金について」
+                  </a>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 2：公的保障と民間保険の役割分担 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師の公的保障と民間保険の役割分担
+            </h2>
+            <div className="overflow-x-auto mb-4">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">項目</th>
+                    <th className="text-center p-3">看護師（病院勤務）</th>
+                    <th className="text-center p-3">看護師（訪問看護・個人事業主）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { item: '加入する健康保険', hospital: '健康保険（協会けんぽ・組合健保）', freelance: '国民健康保険' },
+                    { item: '傷病手当金', hospital: '✅ あり（月収の約67%・最長18ヶ月）', freelance: '❌ なし' },
+                    { item: '労災保険', hospital: '✅ 自動加入（針刺し事故・腰痛も対象）', freelance: '△ 特別加入制度あり（任意）' },
+                    { item: '看護師賠償責任保険', hospital: '病院側が加入している場合あり（要確認）', freelance: '個人での加入を強く推奨' },
+                    { item: '18ヶ月以降の収入補償', hospital: '❌ 公的保障なし→民間保険が必要', freelance: '❌ 公的保障なし→民間保険が必要' },
+                  ].map((row, i) => (
+                    <tr key={row.item} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.item}</td>
+                      <td className="p-3 text-center text-xs">{row.hospital}</td>
+                      <td className="p-3 text-center text-xs font-semibold text-indigo-700">{row.freelance}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">
+              出典：
+              <a href="https://www.kyoukaikenpo.or.jp/g3/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                全国健康保険協会「傷病手当金について」
+              </a>
+              、
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                厚生労働省「労働者災害補償保険法」
+              </a>
+            </p>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 text-sm">
+              病院勤務の看護師は傷病手当金があるため、フリーランスエンジニアほど緊急性は高くありません。しかし腰痛や精神疾患による長期休業（18ヶ月超）のリスクを考えると、就業不能保険で長期の備えを持つことが重要です。
+            </div>
+          </section>
+
+          {/* Section 3：リスク実態データ */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師が直面する就業不能リスクの実態（政府統計）
+            </h2>
+            <div className="space-y-6 text-sm text-gray-700">
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">① 腰痛：業務上疾病の第1位・有病率82%</h3>
+                <p className="leading-relaxed">
+                  厚生労働省の労働安全衛生調査（2022年）によると、看護師の腰痛有病率は約82%。患者の移乗・体位変換・長時間立位による腰椎への負荷が主な原因です。重症化すると手術が必要になり、復職まで数ヶ月〜1年以上かかるケースもあります。腰痛が労働災害と認定されれば労災保険が適用されますが、認定要件は厳格で、日常的な腰痛は自己負担となるケースが多いです。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">② 精神疾患・バーンアウト：離職理由第2位</h3>
+                <p className="leading-relaxed">
+                  日本看護協会の「看護職員実態調査（2022年）」によると、看護師の離職理由の第2位は精神的健康問題（21.3%）です。夜勤による睡眠障害・患者死亡によるグリーフ・医療過誤への恐怖など、精神的ストレスが蓄積しやすい職場環境が背景にあります。精神疾患による休業期間は平均6ヶ月〜1年。就業不能保険の精神疾患特約の有無が重要な選択基準となります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">③ 針刺し事故：年間約6万件・感染リスク</h3>
+                <p className="leading-relaxed">
+                  日本環境感染学会の調査（2021年）によると、医療従事者の針刺し・切創事故は年間約6万件で、そのうち看護師が約60%を占めています。B型肝炎・C型肝炎・HIVなどへの感染リスクがあり、感染が判明した場合は長期の治療・休業が必要になります。これらは労災認定される可能性がありますが、認定されない場合の備えとして民間保険が重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">④ 夜勤によるがん・生活習慣病リスク</h3>
+                <p className="leading-relaxed">
+                  国立がん研究センターの多目的コホート研究（2021年）によると、夜勤従事者の乳がん発症リスクは日勤のみの女性と比較して約1.3倍。看護師は女性が多く夜勤が多い職種であるため、がん保険との組み合わせも重要な検討事項です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：
+              <a href="https://www.mhlw.go.jp/toukei/list/h24-46-50.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                厚生労働省「労働安全衛生調査」2022年
+              </a>
+              、日本看護協会「看護職員実態調査」2022年、日本環境感染学会「針刺し・切創実態調査」2021年、
+              <a href="https://epi.ncc.go.jp/jphc/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                国立がん研究センター「多目的コホート研究」2021年
+              </a>
+            </p>
+          </section>
+
+          {/* Section 4：賠償責任保険との違い */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師が保険を調べる際に注意：「就業不能保険」と「賠償責任保険」は全く別物
+            </h2>
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-4">
+              <p className="font-bold text-amber-800 mb-2">⚠ 看護師が「医療保険」「収入保障保険」で検索すると...</p>
+              <p className="text-amber-700 text-sm">
+                検索結果に「看護職賠償責任保険」が多く表示されることがあります。これは医療過誤・対物賠償に備えるための損害保険であり、このページで解説している「自分が病気・ケガで働けなくなった時の収入補償」とは全く異なる保険です。混同しないようにご注意ください。
+              </p>
+            </div>
+            <div className="overflow-x-auto mb-4">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">保険の種類</th>
+                    <th className="text-left p-3">何に備えるか</th>
+                    <th className="text-left p-3">必要性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { type: '就業不能保険（本ページ）', purpose: '自分が病気・ケガで働けなくなった時の収入損失', need: '長期休業リスクへの備え' },
+                    { type: '医療保険', purpose: '入院・手術費用の補填', need: '高額医療費への備え' },
+                    { type: '看護職賠償責任保険', purpose: '医療過誤・患者への損害賠償', need: '業務上のミスへの法的保護' },
+                  ].map((row, i) => (
+                    <tr key={row.type} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium text-[#2563eb]">{row.type}</td>
+                      <td className="p-3 text-xs">{row.purpose}</td>
+                      <td className="p-3 text-xs text-gray-600">{row.need}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              看護職賠償責任保険は日本看護協会が年間1,580円（月132円〜）で提供しており、看護師であれば加入を強く推奨します。ただしこれは就業不能保険の代替にはなりません。両方の保険を目的別に加入することが重要です。
+            </p>
+          </section>
+
+          {/* Section 5：必要保障額の計算方法 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師の就業不能保険：適正な保障額の計算方法
+            </h2>
+            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200 mb-5">
+              <p className="font-bold text-blue-900 mb-2">看護師の必要保障額の考え方</p>
+              <p className="text-blue-800 text-sm leading-relaxed">
+                傷病手当金（月収の約67%・最長18ヶ月）がある病院勤務の場合、就業不能保険で補うべきは「18ヶ月以降の収入」です。月収の33%（傷病手当金でカバーされない分）＋生活費不足分が目安。
+              </p>
+            </div>
+            <h3 className="font-bold text-[#0f172a] mb-3">看護師の年収別・推奨月額給付金目安</h3>
+            <div className="overflow-x-auto mb-3">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">年収</th>
+                    <th className="text-right p-3">月収</th>
+                    <th className="text-right p-3">傷病手当金（月収67%）</th>
+                    <th className="text-right p-3">推奨月額給付金</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { income: '350万円', monthly: '約29万円', benefit: '約19万円', recommend: '10〜15万円' },
+                    { income: '450万円', monthly: '約38万円', benefit: '約25万円', recommend: '15〜20万円' },
+                    { income: '550万円', monthly: '約46万円', benefit: '約31万円', recommend: '15〜20万円' },
+                    { income: '700万円', monthly: '約58万円', benefit: '約39万円', recommend: '20〜25万円' },
+                  ].map((row, i) => (
+                    <tr key={row.income} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.income}</td>
+                      <td className="p-3 text-right">{row.monthly}</td>
+                      <td className="p-3 text-right text-gray-500">{row.benefit}</td>
+                      <td className="p-3 text-right font-bold text-[#2563eb]">{row.recommend}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500">
+              ※参考値。実際の保険料は年齢・健康状態・保険会社により異なります。出典：
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                厚生労働省「賃金構造基本統計調査」2023年
+              </a>
+            </p>
+          </section>
+
+          {/* Section 6：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師が就業不能保険を選ぶ際の5つのチェックポイント
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  num: '01',
+                  title: '精神疾患・バーンアウトが給付対象か',
+                  detail: '看護師の離職理由第2位が精神的健康問題（21.3%）であることを踏まえ、うつ病・適応障害・バーンアウトが給付対象かどうかを必ず確認してください。精神疾患を免責としている保険や、給付回数に上限がある保険は看護師にとってリスクが高いです。',
+                },
+                {
+                  num: '02',
+                  title: '腰痛・筋骨格系疾患が給付対象か',
+                  detail: '有病率82%の腰痛が就業不能保険の給付対象になるかどうかを確認してください。「業務上の腰痛」は労災認定される可能性がありますが、認定されない慢性腰痛の場合は民間保険が頼りになります。椎間板ヘルニア・腰椎すべり症なども対象かどうか約款を確認しましょう。',
+                },
+                {
+                  num: '03',
+                  title: '夜勤手当込みの収入で保障額を設定できるか',
+                  detail: '看護師は夜勤手当・残業手当によって基本給よりも実収入が高いケースがあります。就業不能保険の保障額は「直近12ヶ月の平均月収」を基準とする保険が多いため、夜勤手当込みの実収入を基準に設定できるかどうかを確認してください。',
+                },
+                {
+                  num: '04',
+                  title: '針刺し事故による感染症が給付対象か',
+                  detail: 'B型肝炎・C型肝炎などへの感染が判明した場合、治療期間中の収入補償が就業不能保険で受けられるかどうかを確認してください。労災認定されれば労災保険が優先されますが、認定されない場合の備えとして重要です。',
+                },
+                {
+                  num: '05',
+                  title: '傷病手当金との調整条項があるか',
+                  detail: '一部の就業不能保険では、傷病手当金と併給する場合に保険金が減額される「調整条項」があります。病院勤務の看護師は傷病手当金があるため、調整条項の有無と内容を契約前に必ず確認してください。',
+                },
+              ].map(cp => (
+                <div key={cp.num} className="bg-[#f8fafc] rounded-xl p-5 border border-gray-200">
+                  <div className="flex items-start gap-3 mb-2">
+                    <span className="text-2xl font-bold text-[#2563eb] opacity-40 leading-none flex-shrink-0">{cp.num}</span>
+                    <p className="font-bold text-[#0f172a] text-sm">{cp.title}</p>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{cp.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 7：よくある失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師の就業不能保険でよくある失敗事例3選
+            </h2>
+            <div className="space-y-4 text-sm">
+              {[
+                {
+                  title: '失敗①：腰痛が免責になっていた',
+                  situation: '30代女性看護師。病棟勤務10年。',
+                  problem: '患者の移乗作業で腰椎椎間板ヘルニアを発症。3ヶ月休業したが、加入していた就業不能保険の約款に「業務上の腰痛は給付対象外」の条項があり、給付金がゼロだった。',
+                  lesson: '腰痛・筋骨格系疾患の給付条件を契約前に必ず約款で確認すること。',
+                },
+                {
+                  title: '失敗②：精神疾患特約をつけていなかった',
+                  situation: '20代女性看護師。ICU勤務。',
+                  problem: '患者の急変が続き、PTSDと診断されて6ヶ月休業。しかし加入していた就業不能保険は精神疾患特約なしのプランで、給付を受けられなかった。',
+                  lesson: '看護師はICU・救急・精神科勤務ほど精神疾患リスクが高い。精神疾患特約は必須。',
+                },
+                {
+                  title: '失敗③：傷病手当金との調整で給付額が半減',
+                  situation: '40代女性看護師。月収45万円（夜勤手当込み）。',
+                  problem: '腰椎手術で4ヶ月休業。傷病手当金（月約30万円）があったが、就業不能保険の調整条項により保険金が月10万円から月3万円に減額された。',
+                  lesson: '傷病手当金との調整条項を事前に確認し、調整後でも生活費を賄える保障額を設定すること。',
+                },
+              ].map(c => (
+                <div key={c.title} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 mb-2">{c.title}</p>
+                  <div className="space-y-1 text-gray-700">
+                    <p><span className="font-semibold text-gray-500">状況：</span>{c.situation}</p>
+                    <p><span className="font-semibold text-gray-500">問題：</span>{c.problem}</p>
+                    <p className="bg-white rounded-lg px-3 py-2 border border-red-100 mt-2">
+                      <span className="font-bold text-red-700">教訓：</span>{c.lesson}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 8：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              看護師の就業不能保険：加入前の最終確認リスト
+            </h2>
+            <div className="space-y-2">
+              {[
+                '傷病手当金（最長18ヶ月）の支給額と支給条件を確認した',
+                '18ヶ月以降の収入補償として就業不能保険の必要性を把握した',
+                '精神疾患・バーンアウトが給付対象かどうかを確認した',
+                '腰痛・筋骨格系疾患の給付条件を約款で確認した',
+                '夜勤手当込みの実収入を基準に保障額を設定した',
+                '傷病手当金との調整条項の有無を確認した',
+                '看護職賠償責任保険（日本看護協会・年1,580円）との違いを理解した',
+                '複数の保険会社で見積もりを比較した',
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
                   <span className="text-[#2563eb] font-bold flex-shrink-0">✓</span>
