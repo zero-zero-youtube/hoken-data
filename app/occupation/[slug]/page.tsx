@@ -445,7 +445,7 @@ export default async function OccupationPage({ params }: Props) {
             {occ.name_ja}に最適な保険を<br />プロに無料で相談する
           </h2>
           <Link
-            href="/consult"
+            href="/simulator"
             className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors"
           >
             無料で保険相談する →

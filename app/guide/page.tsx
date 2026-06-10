@@ -168,7 +168,7 @@ export default function GuidePage() {
       <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
         <p className="text-[#f59e0b] text-sm font-semibold mb-2">PR・無料・強引な勧誘なし</p>
         <h2 className="text-xl font-bold mb-4">わからないことはプロに無料相談</h2>
-        <Link href="/consult" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
+        <Link href="/simulator" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
           無料で保険相談する →
         </Link>
         <p className="text-gray-600 text-xs mt-4">※本サイトはアフィリエイト広告を含みます</p>

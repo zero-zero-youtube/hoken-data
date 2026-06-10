@@ -545,7 +545,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
                 FP（ファイナンシャルプランナー）が、{answers.occupation?.name_ja}に最適な保険を無料で提案します
               </p>
               <Link
-                href="/consult"
+                href="/simulator"
                 className="block bg-[#2563eb] text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-2"
                 aria-label="無料で保険相談を申し込む"
               >

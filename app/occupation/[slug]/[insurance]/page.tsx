@@ -508,7 +508,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
           <h2 className="text-xl font-bold mb-3 whitespace-pre-line">{cta.headline}</h2>
           <p className="text-gray-400 text-sm mb-6 leading-relaxed">{cta.sub}</p>
           <Link
-            href="/consult"
+            href="/simulator"
             className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-3"
           >
             無料で保険相談する →

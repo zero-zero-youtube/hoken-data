@@ -320,7 +320,7 @@ export default async function InsurancePage({ params }: Props) {
           <h2 className="text-xl font-bold mb-4">
             {ins.name_ja}について<br />プロに無料で相談する
           </h2>
-          <Link href="/consult" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
+          <Link href="/simulator" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
             無料で保険相談する →
           </Link>
         </div>
