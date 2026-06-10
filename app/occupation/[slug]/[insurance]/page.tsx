@@ -354,6 +354,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFinanceLife = occ.slug === 'finance' && ins.slug === 'life'
   const isDoctorIncomeProtection = occ.slug === 'doctor' && ins.slug === 'income-protection'
   const isNurseCancer = occ.slug === 'nurse' && ins.slug === 'cancer'
+  const isEngineerMedical = occ.slug === 'engineer' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5304,6 +5305,255 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* エンジニア×医療保険 専用コンテンツ */}
+      {isEngineerMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">システムエンジニアに医療保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              システムエンジニアは会社員として健康保険に加入しており、
+              傷病手当金・高額療養費制度という公的保障があります。
+              しかしIT業種特有の長時間労働・精神疾患リスク・
+              眼精疲労・腱鞘炎など、
+              職業特性から生じる医療ニーズへの備えとして
+              民間医療保険の重要性は高いです。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              厚生労働省「過労死等防止対策白書（2022年）」によると、
+              IT業種の精神障害労災申請件数は製造業の約2.3倍。
+              精神科入院（平均入院日数278日）や
+              腱鞘炎・頸椎症の手術など、
+              エンジニア特有の医療リスクに対応した
+              保険設計が必要です。
+              また差額ベッド代・先進医療費用など、
+              公的保障ではカバーされない部分への備えも重要です。
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-blue-800">
+                💡 会社員エンジニアの医療保険：最小限で最大効果を得る設計
+              </p>
+              <p className="text-blue-700 text-sm mt-1">
+                会社員エンジニアは傷病手当金・高額療養費制度があるため、
+                民間医療保険は「公的保障でカバーされない部分」に
+                絞った設計が効率的です。
+                差額ベッド代・先進医療・精神疾患の長期入院が
+                主なカバー対象です。
+              </p>
+              <p className="text-xs text-blue-600 mt-2">
+                出典：<a href="https://www.kyoukaikenpo.or.jp/g3/cat310/sb3020/r151/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「高額療養費制度について」</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障の範囲と民間保険で補う部分 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">会社員エンジニアの公的保障と医療保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">費用の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">公的保障（健康保険・高額療養費）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">民間医療保険で補う部分</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['入院・手術費用（保険診療）', '高額療養費で月57,600円上限', '入院日額・手術給付金で補完'],
+                    ['差額ベッド代（個室等）', '❌ 全額自己負担（1日3,000〜10,000円）', '✅ 特約または入院日額で補完'],
+                    ['先進医療費用', '❌ 全額自己負担（数十〜数百万円）', '✅ 先進医療特約（月100〜200円）'],
+                    ['精神科入院費用', '高額療養費適用（平均278日で累積大）', '✅ 精神疾患特約付き医療保険'],
+                    ['腱鞘炎・頸椎手術', '高額療養費適用後も自己負担残あり', '✅ 手術給付金'],
+                    ['収入の減少', '傷病手当金（最長18ヶ月）', '就業不能保険の役割'],
+                  ].map(([type, pub, priv], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{pub}</td>
+                      <td className="px-4 py-3 text-gray-700">{priv}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「高額療養費制度について」</a>
+              <a href="https://www.mhlw.go.jp/topics/bukyoku/isei/sensiniryo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「先進医療の概要について」</a>
+            </p>
+          </section>
+
+          {/* セクション3：エンジニア特有の医療リスク */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">システムエンジニアが直面する医療リスクの実態</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 精神疾患：製造業の2.3倍・平均入院日数278日</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「過労死等防止対策白書（2022年）」によると、
+                  IT業種の精神障害労災申請件数は製造業の約2.3倍。
+                  重症化したうつ病・双極性障害では
+                  精神科入院が必要になるケースもあります。
+                  精神科の平均入院日数は約278日
+                  （厚生労働省「患者調査」2020年）と長く、
+                  精神疾患特約付きの医療保険が必須です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 腱鞘炎・頸椎症：手術が必要なケースも</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  長時間のキーボード・マウス操作による
+                  腱鞘炎・頸椎症・胸郭出口症候群は
+                  エンジニア特有の職業性疾患です。
+                  重症化すると腱鞘切開術・頸椎手術が必要になり、
+                  入院・リハビリで数週間〜数ヶ月の休業が必要です。
+                  これらの手術・入院が医療保険の給付対象かどうかを
+                  確認することが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 眼精疲労・緑内障リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  長時間のディスプレイ作業による慢性的な眼精疲労は
+                  緑内障のリスク因子となりえます。
+                  緑内障は日本の失明原因第1位であり、
+                  早期発見・治療が重要です。
+                  レーザー治療・手術が必要なケースでは
+                  医療保険の給付対象になります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 長時間座位による血栓リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  1日8時間以上の座位時間は
+                  深部静脈血栓症（エコノミークラス症候群）のリスクを高めます。
+                  国立がん研究センター「多目的コホート研究（2022年）」によると、
+                  1日8時間以上の座位は糖尿病リスク2.0倍・
+                  心疾患リスク1.4倍。
+                  これらの疾患による入院への備えが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/karoshiboushi/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>
+              <a href="https://www.mhlw.go.jp/toukei/saikin/hw/kanja/20/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「患者調査」2020年</a>
+              <a href="https://epi.ncc.go.jp/jphc/" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「多目的コホート研究」2022年</a>
+            </p>
+          </section>
+
+          {/* セクション4：選び方5つのポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">エンジニアの医療保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '精神疾患特約付き・入院給付日数1,000日以上を選ぶ',
+                  detail: 'IT業種の精神疾患リスクは製造業の2.3倍。精神科の平均入院日数は278日と長いため、精神疾患特約付きかつ入院給付日数が1,000日以上（または無制限）の商品を選んでください。給付日数が60日・180日に制限されている商品では長期の精神科入院に対応できません。',
+                },
+                {
+                  number: '02',
+                  title: '先進医療特約は必ず付帯する',
+                  detail: '月100〜200円で付帯できる先進医療特約はエンジニアにとっても必須です。がん・脳疾患の最新治療を選択できる保障を確保しておくことが重要です。',
+                },
+                {
+                  number: '03',
+                  title: '腱鞘炎・眼科手術の給付条件を確認する',
+                  detail: '腱鞘切開術・緑内障手術・白内障手術などの眼科・整形外科手術が給付対象かどうかを確認してください。内視鏡手術・レーザー手術も対象になる新しいタイプの手術給付が充実した商品を選びましょう。',
+                },
+                {
+                  number: '04',
+                  title: '会社の団体保険・健康保険組合の付加給付を確認する',
+                  detail: '大手IT企業・SIerでは健康保険組合が付加給付（月25,000円超の自己負担を還付）を提供しているケースがあります。付加給付がある場合は民間医療保険の必要性が下がります。まず会社の健康保険組合の給付内容を確認してください。',
+                },
+                {
+                  number: '05',
+                  title: '就業不能保険との組み合わせで総合的に設計する',
+                  detail: '医療保険（入院・手術費用）と就業不能保険（収入補填）は役割が異なります。エンジニアは両方のリスクが高いため、2つを組み合わせた総合的な保障設計が重要です。合計保険料が月収の3〜5%以内に収まるよう設計してください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：精神疾患特約なしで長期入院の給付ゼロ',
+                  situation: '30代男性・SIer勤務エンジニア。',
+                  problem: 'うつ病で精神科に5ヶ月入院。加入していた医療保険は精神疾患特約なしのため入院給付がゼロ。傷病手当金はあったが入院中の医療費・差額ベッド代が全額自己負担。貯蓄が大幅に減少した。',
+                  lesson: 'IT業種は精神疾患リスクが高い。精神疾患特約付き・入院給付日数1,000日以上の医療保険が必須。',
+                },
+                {
+                  title: '失敗②：腱鞘炎手術が給付対象外だった',
+                  situation: '28歳男性・ゲーム会社エンジニア。',
+                  problem: '手首の腱鞘炎が重症化して腱鞘切開術が必要に。加入していた医療保険の手術給付金は「開腹・開胸・開頭手術のみ対象」の古いタイプで、腱鞘切開術は対象外だった。手術費用・入院費が全額自己負担になった。',
+                  lesson: '内視鏡・レーザー・整形外科手術も対象になる新しいタイプの手術給付を選ぶこと。',
+                },
+                {
+                  title: '失敗③：会社の付加給付を知らず過剰な保険に加入',
+                  situation: '35歳女性・大手IT企業エンジニア。',
+                  problem: '会社の健康保険組合に付加給付（月25,000円上限）があることを知らずに月額4,500円の医療保険に加入。実際に必要だったのは先進医療特約のみで、5年間で27万円の保険料を過払いしていた。',
+                  lesson: '会社の健康保険組合の付加給付を先に確認すること。IT大手に多い付加給付があれば民間保険は最小限でよい。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-blue-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">医療保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '会社の健康保険組合の付加給付有無を確認した',
+                '高額療養費制度の自己負担上限額を把握した',
+                '精神疾患特約付き・入院給付日数1,000日以上の商品を選んだ',
+                '腱鞘炎・眼科手術（内視鏡・レーザー含む）が給付対象かを確認した',
+                '先進医療特約（月100〜200円）を付帯した',
+                '就業不能保険との組み合わせで合計保険料を月収の3〜5%以内に設計した',
+                'フリーランス転向を想定した保障継続を考慮した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
