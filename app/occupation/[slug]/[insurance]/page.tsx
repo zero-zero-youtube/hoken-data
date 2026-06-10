@@ -348,6 +348,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isConstructionLife = occ.slug === 'construction' && ins.slug === 'life'
   const isTeacherLife = occ.slug === 'teacher' && ins.slug === 'life'
   const isCivilServantMedical = occ.slug === 'civil-servant' && ins.slug === 'medical'
+  const isManagerLife = occ.slug === 'manager' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2101,6 +2102,204 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 管理職×生命保険 専用コンテンツ */}
+      {isManagerLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">会社管理職に生命保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              課長・部長・役員などの管理職は、一般社員より高い収入を得ている分、万一の死亡・高度障害時に家族が失う収入損失も大きくなります。また管理職特有の長時間労働・マネジメントストレスによる過労死・精神疾患リスクも高く、適切な生命保険設計が家族を守る上で極めて重要です。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              厚生労働省「過労死等防止対策白書（2022年）」によると、管理職の月80時間超残業率は一般社員の約2.5倍。心疾患・脳血管疾患による突然死のリスクが高く、30〜50代の管理職にとって高額な死亡保障の確保が急務です。
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-blue-800 mb-1">💡 管理職の生命保険設計で特に注意すべきポイント</p>
+              <p className="text-blue-700 text-sm leading-relaxed">
+                管理職は残業代がつかない「管理監督者」の場合があります。その場合、傷病手当金の計算基準となる標準報酬月額が実際の労働量に見合わない低い水準になることも。また役員・執行役員は健康保険の被保険者でなくなるケースがあり、傷病手当金が支給されない場合があります。自分の雇用形態と保障内容を確認することが重要です。
+              </p>
+              <p className="text-xs text-blue-600 mt-2">出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/roudouzikan/kanri.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「管理監督者の範囲について」</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：公的保障と必要保障額の考え方 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">管理職の公的保障と必要保障額の考え方</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-5">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">項目</th>
+                    <th className="px-4 py-3 text-left font-semibold">一般管理職（課長・部長）</th>
+                    <th className="px-4 py-3 text-left font-semibold">役員・執行役員</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">健康保険の種類</td><td className="px-4 py-3">健康保険（協会けんぽ・組合健保）</td><td className="px-4 py-3">健康保険（役員報酬が高い場合は任意継続等）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">傷病手当金</td><td className="px-4 py-3">✅ あり（標準報酬月額の67%・最長18ヶ月）</td><td className="px-4 py-3">⚠️ 役員報酬の性質によっては対象外の場合あり</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族厚生年金</td><td className="px-4 py-3">✅ あり（報酬比例）</td><td className="px-4 py-3">✅ あり（報酬比例）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">退職金</td><td className="px-4 py-3">✅ あり（会社規定による）</td><td className="px-4 py-3">✅ あり（役員退職慰労金）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">会社の団体保険</td><td className="px-4 py-3">✅ 加入している場合が多い</td><td className="px-4 py-3">△ 役員向け特別保険の場合あり</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+              <p className="font-bold text-blue-800 mb-2">📊 年収800万円・管理職の必要保障額試算例</p>
+              <p className="text-blue-700 text-sm leading-relaxed">
+                年収800万円・42歳・妻（専業主婦）・子2人の場合：<br /><br />
+                遺族の生活費：月30万円×12ヶ月×23年（65歳まで）＝8,280万円<br />
+                子の教育費（2人）：約2,000万円<br />
+                住宅ローン残債：約3,500万円<br />
+                葬儀費用：約200万円<br />
+                合計：約1億3,980万円<br /><br />
+                遺族厚生・基礎年金（23年分）：約5,750万円<br />
+                退職手当（死亡退職）：約1,500万円<br />
+                貯蓄：約1,000万円<br /><br />
+                <strong>民間生命保険で補うべき金額：約5,730万円</strong>
+              </p>
+              <p className="text-xs text-blue-600 mt-2">※試算例。実際は家族構成・勤続年数・生活水準により大きく異なります。</p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">会社管理職が直面する死亡・生命リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 過労死リスク：月80時間超残業が一般社員の2.5倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「過労死等防止対策白書（2022年）」によると、管理職の月80時間超残業率は一般社員の約2.5倍。心筋梗塞・脳梗塞による突然死は40〜50代の管理職に多く発生しています。過労死認定された場合は労災保険が適用されますが、認定されない場合は民間生命保険が家族を守る唯一の手段です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② マネジメントストレスによる精神疾患</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「職場における心の健康づくり（2022年）」によると、管理職のメンタルヘルス不調率は一般社員の1.6倍。部下の問題・業績責任・上司からの圧力が重なる管理職特有のストレス構造が背景にあります。精神疾患による長期休業は昇進・収入にも影響するため、生命保険と合わせて就業不能保険も必要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 役員賠償責任リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  日本弁護士連合会「弁護士白書（2022年）」によると、管理職以上が民事訴訟の被告となる確率は一般社員の約4倍。労務問題・経営判断ミスによる損害賠償訴訟のリスクがあります。役員の場合はD&O保険（役員賠償責任保険）の検討も重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 生活習慣病：メタボ該当率が全男性平均の1.5倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「特定健康診査・特定保健指導実施状況（2022年）」によると、管理職以上の男性の特定健診メタボ該当率は44.2%（全男性平均28.7%の約1.5倍）。不規則な食事・接待・運動不足・ストレスが重なり、糖尿病・高血圧・心疾患リスクが高いです。生活習慣病による突然死リスクへの備えとして生命保険の重要性は特に高いです。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/content/11200000/001148172.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>　<a href="https://www.mhlw.go.jp/toukei/list/tokutei_kenkou.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「特定健康診査・特定保健指導実施状況」2022年</a>
+            </p>
+          </div>
+
+          {/* セクション4：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '必要保障額を億単位で正確に計算する',
+                  detail: '年収700〜1,000万円超の管理職の場合、必要保障額は5,000万〜1億円以上になるケースがあります。遺族の生活費・教育費・住宅ローン・葬儀費用の合計から公的年金・退職金・貯蓄を差し引いた金額を正確に計算してください。過小評価して家族が困窮するケースが多いです。',
+                },
+                {
+                  number: '02',
+                  title: '会社の団体保険と個人保険の組み合わせを最適化する',
+                  detail: '多くの企業では役職に応じた団体生命保険に加入しています。団体保険の退職後の扱い（継続保険料・保障の有無）を確認し、在職中は団体保険を活用しつつ、退職後も続く個人の終身保険を並行して準備することが最適です。',
+                },
+                {
+                  number: '03',
+                  title: '役員・執行役員は傷病手当金の有無を確認する',
+                  detail: '役員報酬の性質によっては健康保険の傷病手当金が支給されない場合があります。自分の雇用形態（使用人兼務役員か純粋な役員か）を確認し、傷病手当金がない場合は就業不能保険を手厚くしてください。',
+                },
+                {
+                  number: '04',
+                  title: '収入保障保険で効率的に高額保障を確保する',
+                  detail: '5,000万〜1億円の死亡保障を一時金型保険で確保すると保険料が高額になります。毎月一定額を年金形式で支給する「収入保障保険」を活用することで、同じ保険料でより手厚い保障が得られます。特に子の独立・住宅ローン完済で必要保障額が減少する40〜50代の管理職に適しています。',
+                },
+                {
+                  number: '05',
+                  title: '就業不能保険・医療保険との組み合わせを設計する',
+                  detail: '管理職の過労死・精神疾患リスクに備えるため、生命保険（死亡・高度障害）と就業不能保険（長期休業時の収入補填）・医療保険（入院・手術費用）の3種類を組み合わせた総合的な保障設計が重要です。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション5：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：必要保障額を過小評価して家族が困窮',
+                  situation: '45歳男性・大手メーカー部長。年収900万円。妻と子2人。',
+                  problem: '「退職金があるから大丈夫」と生命保険を2,000万円しか確保していなかった。46歳で急性心筋梗塞で死亡。退職手当1,500万円＋生命保険2,000万円では住宅ローン3,000万円・子2人の教育費・妻の生活費を賄えず、妻がフルタイム復帰・子の大学進学を諦めることになった。',
+                  lesson: '高収入管理職ほど必要保障額は大きい。退職金・年金では補えない収入損失に備えること。',
+                },
+                {
+                  title: '失敗②：役員就任後に傷病手当金がなくなっていた',
+                  situation: '50歳男性・中小企業の取締役。',
+                  problem: '取締役就任後に役員報酬の性質が変わり、実質的に傷病手当金の対象外になっていたことを把握していなかった。脳梗塞で6ヶ月入院した際、傷病手当金がゼロ。就業不能保険にも未加入だったため収入が途絶えた。',
+                  lesson: '役員就任時に傷病手当金の適用可否を確認すること。適用外の場合は就業不能保険が必須。',
+                },
+                {
+                  title: '失敗③：団体保険のみで退職後に保障がゼロ',
+                  situation: '57歳男性・上場企業の執行役員。',
+                  problem: '会社の役員団体保険（死亡保障5,000万円）に依存していたが、60歳での退任と同時に保障がゼロに。退任後に個人で生命保険に加入しようとしたが、高血圧・糖尿病の既往歴で通常審査では引受謝絶。健康なうちに個人の終身保険に加入しておかなかったことを後悔した。',
+                  lesson: '団体保険だけに依存せず、在職中に個人の終身保険に加入しておくこと。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '必要保障額（遺族生活費＋教育費＋住宅ローン−公的年金−退職金−貯蓄）を計算した',
+                '会社の団体保険の内容と退職後の扱いを確認した',
+                '役員・執行役員の場合、傷病手当金の適用可否を確認した',
+                '収入保障保険で効率的に高額保障を確保した',
+                '就業不能保険（精神疾患特約付き）との組み合わせを検討した',
+                '退職後も保障が続く終身保険への移行を在職中に準備した',
+                'メタボ・生活習慣病の告知義務を確認し健康なうちに加入した',
+                '複数のFP・保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
