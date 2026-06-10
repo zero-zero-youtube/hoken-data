@@ -347,6 +347,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isNurseMedical = occ.slug === 'nurse' && ins.slug === 'medical'
   const isConstructionLife = occ.slug === 'construction' && ins.slug === 'life'
   const isTeacherLife = occ.slug === 'teacher' && ins.slug === 'life'
+  const isCivilServantMedical = occ.slug === 'civil-servant' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2100,6 +2101,195 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 地方公務員×医療保険 専用コンテンツ */}
+      {isCivilServantMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">地方公務員に医療保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              地方公務員は共済組合による手厚い医療保障があり、一般の会社員より医療費の自己負担が少ない傾向があります。しかし「共済があるから医療保険は不要」という判断が、先進医療・差額ベッド代・精神疾患の長期治療費などで思わぬ高額自己負担につながることがあります。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              特に注目すべきは精神疾患リスクです。総務省の調査によると、地方公務員のメンタルヘルス休職者数は10年連続で増加・過去最多を更新しており、精神科治療・入院費用への備えが公務員にとっても重要な課題となっています。
+            </p>
+            <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-indigo-800 mb-1">💡 地方公務員の医療保険：共済でカバーされないものを理解する</p>
+              <p className="text-indigo-700 text-sm leading-relaxed">
+                共済組合の医療給付は健康保険（協会けんぽ）と同水準ですが、以下は共済でカバーされません：<br />
+                ・差額ベッド代（個室等の追加料金）<br />
+                ・先進医療費用（陽子線治療等）<br />
+                ・高額療養費の自己負担分（月57,600円等）<br />
+                ・入院中の生活費・交通費<br />
+                これらへの備えとして民間医療保険を活用します。
+              </p>
+              <p className="text-xs text-indigo-600 mt-2">出典：<a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/koumuin_seido/kyousai.html" target="_blank" rel="noopener noreferrer" className="underline">総務省「地方公務員共済組合年報」2022年</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：共済医療給付と民間医療保険の役割分担 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">共済医療給付と民間医療保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">費用の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">共済組合（公立公務員）</th>
+                    <th className="px-4 py-3 text-left font-semibold">民間医療保険で補う部分</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">保険診療の自己負担</td><td className="px-4 py-3">3割→高額療養費制度で上限あり</td><td className="px-4 py-3">入院日額・手術給付金で補完</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">付加給付（一部負担還元金）</td><td className="px-4 py-3">✅ 多くの共済組合で自己負担を25,000円に軽減</td><td className="px-4 py-3">付加給付後の残額を補完</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">差額ベッド代</td><td className="px-4 py-3">❌ 全額自己負担</td><td className="px-4 py-3">✅ 特約で補償</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">先進医療費用</td><td className="px-4 py-3">❌ 全額自己負担</td><td className="px-4 py-3">✅ 先進医療特約（月100〜200円）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">精神科入院費用</td><td className="px-4 py-3">高額療養費適用されるが長期入院で累積</td><td className="px-4 py-3">✅ 精神疾患特約付き医療保険</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">入院中の休業補償</td><td className="px-4 py-3">✅ 傷病手当金（月収80%・最長1年6ヶ月）</td><td className="px-4 py-3">収入補填は就業不能保険の役割</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-green-50 rounded-xl p-5 border border-green-200">
+              <p className="font-bold text-green-800 mb-2">✅ 公務員共済の「付加給付」という手厚い制度</p>
+              <p className="text-green-700 text-sm leading-relaxed">
+                多くの共済組合では「付加給付（一部負担還元金）」という独自制度があり、月の医療費自己負担が25,000円を超えた場合に超過分が還付されます。一般の健康保険の高額療養費上限（月57,600円等）よりさらに手厚い保障です。この制度を把握した上で、民間医療保険の必要額を設計してください。
+              </p>
+              <p className="text-xs text-green-600 mt-2">出典：<a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/koumuin_seido/kyousai.html" target="_blank" rel="noopener noreferrer" className="underline">総務省「地方公務員共済組合の概要」</a>　※付加給付の内容は共済組合により異なります</p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">地方公務員が直面する医療リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 精神疾患休職：10年連続増加・過去最多</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  総務省「地方公務員の健康状況等の現況（2022年）」によると、地方公務員のメンタルヘルス休職者数は10年連続で増加、2022年度は過去最多を更新しました。住民対応・議会対応・長時間残業・ハラスメント問題などが精神的負荷の主な原因です。精神科通院・入院費用は共済の高額療養費・付加給付でカバーされますが、精神疾患特約付きの医療保険で長期的な備えをすることが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 生活習慣病リスク：デスクワーク中心の健康リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  長時間のデスクワーク・不規則な残業・ストレスによる過食・運動不足が重なり、地方公務員は生活習慣病リスクが一般と同水準以上です。特に40〜50代での糖尿病・高血圧・脳血管疾患のリスクが高まります。これらの疾患は長期的な通院・入院が必要になるケースがあり、医療費への備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 先進医療費用の自己負担</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  がん・脳疾患などの重大疾患に罹患した場合、陽子線治療・重粒子線治療などの先進医療を選択するケースがあります。これらは共済・健康保険の対象外で全額自己負担となり、費用は100〜400万円に及ぶことがあります。月100〜200円の先進医療特約で備えることが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.soumu.go.jp/main_content/000851160.pdf" target="_blank" rel="noopener noreferrer" className="underline">総務省「地方公務員の健康状況等の現況」2022年</a>　<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/sensiniryo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「先進医療の概要について」</a>
+            </p>
+          </div>
+
+          {/* セクション4：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '勤務先の共済組合の付加給付を先に確認する',
+                  detail: '多くの共済組合は月25,000円を超えた医療費自己負担を還付する「付加給付」制度があります。この制度があれば民間医療保険の必要性は大幅に下がります。まず勤務先の共済組合のパンフレット・ウェブサイトで付加給付の有無と上限額を確認してください。',
+                },
+                {
+                  number: '02',
+                  title: '先進医療特約は必ず付帯する',
+                  detail: '共済・健康保険は先進医療費用をカバーしません。月100〜200円で付帯できる先進医療特約は公務員にとっても必須の特約です。がん治療で先進医療を選択した場合、数百万円の費用が全額自己負担になります。',
+                },
+                {
+                  number: '03',
+                  title: '精神疾患特約付きの医療保険を選ぶ',
+                  detail: '地方公務員の精神疾患休職者数が10年連続増加している現状を踏まえ、精神疾患特約は必須です。精神科通院・入院の費用は共済でカバーされますが、長期入院の場合に民間保険の給付があると生活の安心感が増します。',
+                },
+                {
+                  number: '04',
+                  title: '差額ベッド代特約の必要性を検討する',
+                  detail: '個室・2人部屋などの差額ベッド代は共済対象外です。1日3,000〜10,000円の差額ベッド代が2〜3週間続くと数万〜数十万円の自己負担になります。入院時に個室を希望する場合は差額ベッド代特約の付帯を検討してください。',
+                },
+                {
+                  number: '05',
+                  title: '付加給付を考慮して最小限の保障で設計する',
+                  detail: '共済の付加給付（月25,000円上限）がある場合、民間医療保険は差額ベッド代・先進医療・精神疾患に絞った最小限の保障で十分なケースが多いです。月額1,500〜3,000円程度の保険料に抑えることが公務員にとっての効率的な設計です。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション5：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：付加給付を知らず過剰な保険に加入',
+                  situation: '30代女性・県庁職員。',
+                  problem: '共済の付加給付制度を知らずに月額5,000円の医療保険に加入。後から付加給付で月25,000円超の自己負担が還付される制度を知り、実際に必要な保障は先進医療特約のみだったことが判明。10年間で60万円の保険料を過払いしていた。',
+                  lesson: '共済の付加給付制度を先に確認すること。多くの公務員が過剰な医療保険に加入している。',
+                },
+                {
+                  title: '失敗②：先進医療特約なしでがん治療に300万円',
+                  situation: '48歳男性・市役所職員。',
+                  problem: '前立腺がんと診断され、重粒子線治療（先進医療）を希望。費用約314万円が全額自己負担。共済・健康保険では先進医療費用はカバーされず、先進医療特約もつけていなかった。月200円の特約で防げた損失だった。',
+                  lesson: '先進医療特約は月100〜200円で付帯できる。公務員でも必ず付帯すること。',
+                },
+                {
+                  title: '失敗③：精神疾患で長期通院・治療費が累積',
+                  situation: '35歳女性・区役所職員。',
+                  problem: '住民対応のストレスからうつ病を発症。精神科通院を2年間継続。共済の高額療養費で自己負担は抑えられたが、精神疾患特約なしの医療保険だったため入院時の給付がゼロ。通院費・薬代が家計を圧迫した。',
+                  lesson: '地方公務員は精神疾患リスクが高い。精神疾患特約は必ず付帯すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '勤務先の共済組合の付加給付（月25,000円上限等）の有無を確認した',
+                '共済でカバーされない差額ベッド代・先進医療費用を把握した',
+                '先進医療特約（月100〜200円）を付帯した',
+                '精神疾患特約付きの医療保険を選んだ',
+                '差額ベッド代特約の必要性を検討した',
+                '付加給付を考慮して月額保険料1,500〜3,000円以内に設計した',
+                '就業不能保険との組み合わせも検討した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
