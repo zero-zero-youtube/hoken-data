@@ -338,6 +338,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isConstructionMedical = occ.slug === 'construction' && ins.slug === 'medical'
   const isTeacherMedical = occ.slug === 'teacher' && ins.slug === 'medical'
   const isCivilServantLife = occ.slug === 'civil-servant' && ins.slug === 'life'
+  const isEngineerIncomeProtection = occ.slug === 'engineer' && ins.slug === 'income-protection'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2091,6 +2092,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 会社員エンジニア×収入保障 専用コンテンツ */}
+      {isEngineerIncomeProtection && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">会社員エンジニアに収入保障保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              会社員エンジニアには傷病手当金（月収の約67%・最長18ヶ月）があります。「傷病手当金があるから就業不能保険は不要」と考える人が多いですが、これは大きな誤解です。傷病手当金は最長18ヶ月しか支給されず、それ以降の保障は一切ありません。うつ病・適応障害による長期休業が18ヶ月を超えた場合、収入はゼロになります。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              厚生労働省の過労死等防止対策白書（2022年）によると、IT業種の精神障害労災申請件数は製造業の約2.3倍。会社員エンジニアの平均年収（男性558万円・女性585万円）を考えると、18ヶ月以降の収入喪失は家族の生活に深刻な影響を与えます。傷病手当金終了後のリスクに備えることが、会社員エンジニアにとっての就業不能保険の本質的な役割です。
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-blue-800 mb-1">💡 フリーランスエンジニアとの最大の違い</p>
+              <p className="text-blue-700 text-sm leading-relaxed">
+                フリーランス：病気になった瞬間から収入ゼロ→即座に保険が必要<br />
+                会社員：傷病手当金で最長18ヶ月はカバーされる→18ヶ月以降の備えが必要<br /><br />
+                会社員は「傷病手当金終了後」を想定した長期型の保障設計が重要です。
+              </p>
+              <p className="text-xs text-blue-600 mt-2">出典：<a href="https://www.kyoukaikenpo.or.jp/g3/cat320/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：傷病手当金の仕組みと18ヶ月の壁 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">傷病手当金の仕組みと「18ヶ月の壁」</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+              就業不能保険の必要性を正確に判断するために、傷病手当金の仕組みを詳しく理解しておきましょう。
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">項目</th>
+                    <th className="px-4 py-3 text-left font-semibold">内容</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">支給額</td><td className="px-4 py-3">標準報酬月額の約67%（3分の2）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">支給期間</td><td className="px-4 py-3">最長1年6ヶ月（支給開始日から通算）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">待機期間</td><td className="px-4 py-3">連続3日の休業後、4日目から支給開始</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">対象疾患</td><td className="px-4 py-3">業務外の病気・ケガ（業務上は労災保険）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">精神疾患</td><td className="px-4 py-3">✅ 対象（うつ病・適応障害も支給対象）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">18ヶ月以降</td><td className="px-4 py-3">❌ 支給終了・公的補填なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">退職後</td><td className="px-4 py-3">条件付きで継続受給可能（要確認）</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">出典：<a href="https://www.kyoukaikenpo.or.jp/g3/cat320/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a></p>
+            <div className="bg-red-50 border border-red-200 rounded-xl p-5">
+              <p className="font-bold text-red-800 mb-2">🔴 「18ヶ月の壁」：会社員エンジニアが最も意識すべきリスク</p>
+              <p className="text-red-700 text-sm leading-relaxed">
+                年収558万円（月収約46万円）のエンジニアがうつ病で18ヶ月休業した場合：<br /><br />
+                傷病手当金：約31万円/月×18ヶ月 ＝ 約558万円を受給<br />
+                19ヶ月目以降：収入ゼロ<br /><br />
+                うつ病の平均治療期間は1〜3年。18ヶ月を超える可能性が高く、就業不能保険で19ヶ月目以降をカバーすることが重要です。
+              </p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">会社員エンジニアが直面する就業不能リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 精神疾患リスク：製造業の2.3倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「過労死等防止対策白書（2022年）」によると、情報通信業の精神障害労災申請件数は製造業の約2.3倍。長時間労働・納期プレッシャー・技術変化への対応ストレスが主因です。うつ病による休業期間の平均は6ヶ月〜1年以上で、18ヶ月を超えるケースも珍しくありません。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 長時間労働：月80時間超が約19%</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「就労条件総合調査（2023年）」によると、IT業種で月80時間超の残業をしている割合は約19.2%（全業種平均8.3%の約2.3倍）。過労による心疾患・脳血管疾患のリスクも高く、これらの疾患による長期休業への備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 燃え尽き症候群（バーンアウト）による長期離脱</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  エンジニアに多い「バーンアウト（燃え尽き症候群）」は、うつ病と並ぶ長期就業不能の原因です。スタートアップ・SIer・ゲーム会社など激務な職場では30代でのバーンアウト事例が増加しています。バーンアウトからの回復には平均1〜2年かかるとされており、18ヶ月を超える就業不能期間となるケースが多いです。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 腱鞘炎・頸椎症：コーディング不能リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  長時間のキーボード・マウス操作による腱鞘炎・頸椎症はエンジニア特有の職業性疾患です。重症化するとコーディングができなくなり、エンジニアとしての業務継続が困難になります。手術・リハビリで数ヶ月〜1年の休業が必要になるケースもあります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/content/11200000/001148172.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/23/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「就労条件総合調査」2023年</a>
+            </p>
+          </div>
+
+          {/* セクション4：必要保障額の計算方法 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">会社員エンジニアの就業不能保険：適正な保障額の計算方法</h2>
+            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200 mb-4">
+              <p className="font-bold text-blue-900 mb-2">会社員エンジニアの必要保障額の考え方</p>
+              <p className="text-blue-800 text-sm leading-relaxed">
+                傷病手当金（月収の67%）で18ヶ月はカバーされます。就業不能保険で補うべきは主に以下の2点です：<br />
+                ①傷病手当金でカバーされない33%分の収入補填（18ヶ月以内）<br />
+                ②傷病手当金終了後（19ヶ月目以降）の全収入の補填
+              </p>
+            </div>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-2">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">年収</th>
+                    <th className="px-4 py-3 text-left font-semibold">月収</th>
+                    <th className="px-4 py-3 text-left font-semibold">傷病手当金（月収67%）</th>
+                    <th className="px-4 py-3 text-left font-semibold">推奨月額給付金</th>
+                    <th className="px-4 py-3 text-left font-semibold">月額保険料目安</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3">400万円</td><td className="px-4 py-3">約33万円</td><td className="px-4 py-3">約22万円</td><td className="px-4 py-3 font-medium">10〜15万円</td><td className="px-4 py-3">約2,000〜4,000円</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3">558万円（平均）</td><td className="px-4 py-3">約46万円</td><td className="px-4 py-3">約31万円</td><td className="px-4 py-3 font-medium">15〜20万円</td><td className="px-4 py-3">約3,000〜6,000円</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3">700万円</td><td className="px-4 py-3">約58万円</td><td className="px-4 py-3">約39万円</td><td className="px-4 py-3 font-medium">20〜25万円</td><td className="px-4 py-3">約4,000〜8,000円</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3">1,000万円</td><td className="px-4 py-3">約83万円</td><td className="px-4 py-3">約56万円</td><td className="px-4 py-3 font-medium">25〜30万円</td><td className="px-4 py-3">約6,000〜10,000円</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500">
+              ※参考値。実際の保険料は年齢・健康状態・保険会社により異なります。出典：<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「賃金構造基本統計調査」2023年</a>
+            </p>
+          </div>
+
+          {/* セクション5：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '支払対象外期間を180日以上に設定して保険料を抑える',
+                  detail: '会社員は傷病手当金があるため、支払対象外期間（待機期間）を180日以上に設定することで保険料を大幅に抑えられます。傷病手当金の18ヶ月をカバーしてから支給開始する「19ヶ月目から」タイプが会社員に最適です。',
+                },
+                {
+                  number: '02',
+                  title: '精神疾患特約は必須',
+                  detail: 'IT業種の精神障害労災申請は製造業の2.3倍。精神疾患特約は会社員エンジニアにとって最重要の特約です。特約なしの保険や、精神疾患の給付に上限（通算18回等）がある保険は避けることをお勧めします。',
+                },
+                {
+                  number: '03',
+                  title: '会社の団体保険・福利厚生を先に確認する',
+                  detail: '大手IT企業・SIerでは会社が就業不能保険や団体長期障害所得補償保険（GLTD）を福利厚生として提供しているケースがあります。まず会社の福利厚生を確認し、カバーされていない部分のみ個人保険で補うことが効率的です。',
+                },
+                {
+                  number: '04',
+                  title: 'フリーランス転向の可能性を考慮する',
+                  detail: 'エンジニアはキャリアの中でフリーランスに転向する可能性があります。フリーランスになると傷病手当金がなくなるため、就業不能保険の重要性が急激に上がります。転向前に個人で就業不能保険に加入しておくことで、フリーランス後も継続して保障を受けられます。',
+                },
+                {
+                  number: '05',
+                  title: '腱鞘炎・頸椎症が給付対象か確認する',
+                  detail: 'コーディング作業に起因する腱鞘炎・頸椎症・眼精疲労が就業不能保険の給付対象かどうかを確認してください。「全く働けない状態」のみ対象の保険では、腱鞘炎でコーディングできない状態でも給付されない場合があります。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：傷病手当金があるからと就業不能保険を後回しにした',
+                  situation: '35歳男性・大手SIer勤務エンジニア。年収600万円。',
+                  problem: '「傷病手当金があるから大丈夫」と就業不能保険への加入を先延ばし。40歳でうつ病を発症し、傷病手当金（月約27万円）で18ヶ月はしのいだが、19ヶ月目以降は収入ゼロ。住宅ローンの返済が滞り始めた。40歳での新規加入は保険料が高く、回復後の家計負担が大きくなった。',
+                  lesson: '傷病手当金は18ヶ月で終わる。若いうちに保険料の安い時期に加入しておくこと。',
+                },
+                {
+                  title: '失敗②：精神疾患特約なしで最大のリスクに無防備',
+                  situation: '28歳男性・スタートアップ勤務エンジニア。',
+                  problem: '保険料を抑えるために精神疾患特約なしの就業不能保険に加入。過重労働による適応障害で6ヶ月休業したが、精神疾患特約なしのため給付金ゼロ。傷病手当金のみで生活し、貯蓄が大幅に減った。',
+                  lesson: 'IT業種は精神疾患リスクが最も高い。精神疾患特約は必須。',
+                },
+                {
+                  title: '失敗③：会社のGLTDを確認せず重複加入',
+                  situation: '32歳女性・大手IT企業勤務エンジニア。',
+                  problem: '個人で就業不能保険（月額保険料5,000円）に加入後、会社の福利厚生に団体長期障害所得補償保険（GLTD）が含まれていることを発見。実質的に重複した保障に毎月5,000円を払っていた。',
+                  lesson: '加入前に会社の福利厚生・団体保険の内容を必ず確認すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション7：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '傷病手当金（月収67%・最長18ヶ月）の仕組みと支給額を把握した',
+                '18ヶ月以降の収入ゼロリスクを認識した',
+                '会社の福利厚生・団体保険（GLTD等）の内容を確認した',
+                '精神疾患特約を付帯した（IT業種は精神疾患リスクが製造業の2.3倍）',
+                '支払対象外期間を180日以上に設定して保険料を効率化した',
+                '腱鞘炎・頸椎症の給付条件を確認した',
+                'フリーランス転向時の保障継続を考慮した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
