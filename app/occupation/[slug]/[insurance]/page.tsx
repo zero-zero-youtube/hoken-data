@@ -351,6 +351,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManagerLife = occ.slug === 'manager' && ins.slug === 'life'
   const isManufacturingMedical = occ.slug === 'manufacturing' && ins.slug === 'medical'
   const isBeauticianMedical = occ.slug === 'beautician' && ins.slug === 'medical'
+  const isFinanceLife = occ.slug === 'finance' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2102,6 +2103,224 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 金融×生命保険 専用コンテンツ */}
+      {isFinanceLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">金融・保険業に生命保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              銀行・証券・保険・ファンドなどの金融業は、高収入である反面、長時間労働・コンプライアンスプレッシャー・ノルマストレスによる精神疾患リスクが高い職種です。厚生労働省「毎月勤労統計調査（2023年）」によると、金融業の月平均残業は証券会社32.8時間・銀行28.4時間と全業種平均の約1.5倍。30〜40代の高収入期に死亡・高度障害になった場合、家族が失う収入損失は億単位になります。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              また金融業は転職・独立が多い職種でもあります。転職のたびに団体保険が途切れるリスクがあり、個人契約の生命保険で長期的な保障を確保しておくことが重要です。特にFP・証券外務員などの資格職は資格喪失・廃業リスクへの備えも必要です。
+            </p>
+            <div className="bg-slate-50 border-l-4 border-slate-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-slate-800">💡 金融業の生命保険設計で特に注意すべきポイント</p>
+              <p className="text-slate-700 text-sm mt-1">
+                金融業は保険知識が豊富な職種ですが、「自分は保険のことを知っているから大丈夫」という過信から保険設計が甘くなるケースがあります。また職場で加入を勧められる団体保険・会社の福利厚生保険の内容を正確に把握した上で、不足分を民間生命保険で補う設計が重要です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障と必要保障額 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">金融業の公的保障と必要保障額の考え方</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>給付の種類</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>会社員（銀行・証券・保険）</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>独立FP・個人事業主</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['遺族厚生年金','✅ あり（報酬比例）','❌ なし'],
+                    ['遺族基礎年金','✅ あり（子あり：約102万円/年）','✅ あり（同額）'],
+                    ['傷病手当金','✅ あり（標準報酬月額の67%）','❌ なし'],
+                    ['退職金','✅ あり（会社規定）','❌ なし'],
+                    ['会社の団体保険','✅ 多くの金融機関で完備','❌ なし'],
+                  ].map(([type,employee,freelance],i)=>(
+                    <tr key={i} className={i%2===0?'bg-white':'bg-gray-50'}>
+                      <td className="border border-gray-200 px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{employee}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{freelance}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-blue-50 rounded-xl p-4 mt-4 border border-blue-200">
+              <p className="font-bold text-blue-800 mb-2">📊 年収700万円・銀行員の必要保障額試算例</p>
+              <p className="text-blue-700 text-sm">
+                年収700万円・38歳・妻（パート）・子2人の場合：<br/><br/>
+                遺族の生活費：月28万円×12ヶ月×27年＝9,072万円<br/>
+                子の教育費（2人）：約2,000万円<br/>
+                住宅ローン残債：約3,000万円<br/>
+                葬儀費用：約200万円<br/>
+                合計：約1億4,272万円<br/><br/>
+                遺族厚生・基礎年金（27年分）：約5,400万円<br/>
+                退職手当（死亡退職）：約1,200万円<br/>
+                貯蓄：約800万円<br/><br/>
+                <strong>民間生命保険で補うべき金額：約6,872万円</strong>
+              </p>
+              <p className="text-xs text-blue-600 mt-2">※試算例。実際は家族構成・勤続年数・生活水準により異なります。</p>
+            </div>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">金融・保険業が直面する生命・健康リスクの実態</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'① 長時間労働・過労死リスク',
+                  body:'厚生労働省「毎月勤労統計調査（2023年）」によると、証券会社の月平均残業は32.8時間・銀行は28.4時間と全業種平均の約1.5倍。特に決算期・IPO・M&A案件の繁忙期には月100時間超の残業になるケースもあり、過労による心疾患・脳血管疾患リスクが高いです。',
+                  color:'border-red-400 bg-red-50'
+                },
+                {
+                  title:'② コンプライアンスストレスによる精神疾患',
+                  body:'厚生労働省「職場における心の健康づくり（2022年）」によると、金融業のメンタルヘルス不調率は全業種の上位。顧客資産の管理責任・法令違反へのプレッシャー・ノルマ達成の重圧が精神的負荷の主な原因です。うつ病・適応障害による長期休業は高収入職種にとって特に大きな収入損失につながります。',
+                  color:'border-orange-400 bg-orange-50'
+                },
+                {
+                  title:'③ 転職・独立による保障の断絶リスク',
+                  body:'金融業は転職・独立が多い職種です。銀行→証券→独立FPというキャリアパスも一般的ですが、転職のたびに団体保険が途切れます。独立FPになると傷病手当金もなくなるため、早期に個人契約の生命保険・就業不能保険に加入しておくことが重要です。',
+                  color:'border-yellow-400 bg-yellow-50'
+                },
+                {
+                  title:'④ 生活習慣病：接待・不規則勤務による高リスク',
+                  body:'厚生労働省「特定健康診査・特定保健指導実施状況（2022年）」によると、金融業従事者の特定健診メタボ該当率は全業種の上位。接待・会食・不規則な勤務時間による糖尿病・高血圧・心疾患リスクが高く、40〜50代での突然死リスクへの備えが重要です。',
+                  color:'border-purple-400 bg-purple-50'
+                },
+              ].map((item,i)=>(
+                <div key={i} className={`border-l-4 p-4 rounded-r-xl ${item.color}`}>
+                  <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：厚生労働省「毎月勤労統計調査」2023年 / 厚生労働省「職場における心の健康づくり」2022年 / 厚生労働省「特定健康診査・特定保健指導実施状況」2022年
+            </p>
+          </section>
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">金融業が生命保険を選ぶ5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number:'01',
+                  title:'会社の団体保険の内容と退職後の扱いを確認する',
+                  detail:'多くの金融機関は充実した団体生命保険を提供しています。団体保険の死亡保障額・退職後継続保険料を確認し、在職中は団体保険を活用しつつ、退職後も続く個人の終身保険を並行して準備することが最適です。転職・独立時に保障が途切れないよう個人契約を早めに確保してください。'
+                },
+                {
+                  number:'02',
+                  title:'必要保障額を億単位で正確に計算する',
+                  detail:'年収700万円超の金融業従事者の場合、必要保障額は5,000万〜1億円以上になるケースがあります。遺族の生活費・教育費・住宅ローン・葬儀費用の合計から公的年金・退職金・貯蓄を差し引いた金額を正確に計算してください。'
+                },
+                {
+                  number:'03',
+                  title:'独立FP転向を想定した保障設計をする',
+                  detail:'銀行・証券から独立FPへの転向は金融業では珍しくありません。独立後は傷病手当金がなくなり、退職金もありません。会社員のうちに個人の生命保険・就業不能保険に加入しておくことで、独立後も保障が途切れません。'
+                },
+                {
+                  number:'04',
+                  title:'精神疾患特約付き就業不能保険との組み合わせ',
+                  detail:'金融業のメンタルヘルス不調率は全業種の上位。生命保険と合わせて精神疾患特約付きの就業不能保険への加入を強く推奨します。特にノルマのある営業職・トレーダー・コンプライアンス担当は精神疾患リスクが高いです。'
+                },
+                {
+                  number:'05',
+                  title:'メタボ・生活習慣病の告知と健康なうちの加入',
+                  detail:'接待・会食が多い金融業は生活習慣病の有病率が高いです。高血圧・糖尿病・脂質異常症の診断がある場合は医療保険・生命保険の審査で条件が付くことがあります。健康診断で問題が出る前の若いうちに加入することがより良い条件での契約につながります。'
+                },
+              ].map((cp,i)=>(
+                <div key={i} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">{cp.number}</div>
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-2">{cp.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{cp.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">金融・保険業でよくある生命保険の失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'失敗①：金融知識があるからと保険設計を後回しにした',
+                  situation:'40歳男性・大手証券会社勤務。年収850万円。妻と子2人。',
+                  problem:'「保険のことは詳しいから自分でできる」と加入を先延ばし。41歳で脳梗塞を発症し重度障害が残った。会社の団体保険2,000万円のみでは住宅ローン・家族の生活費・子の教育費を賄えず、妻がフルタイム復帰を余儀なくされた。',
+                  lesson:'いくら保険知識があっても自分自身の設計は後回しになりがち。30代のうちに必要保障額を正確に計算して加入すること。'
+                },
+                {
+                  title:'失敗②：転職時に団体保険が途切れ無保障期間が発生',
+                  situation:'35歳男性・銀行から外資系証券へ転職。',
+                  problem:'転職手続きに追われて保険の見直しを忘れていた。前職の団体保険終了から新職場の団体保険加入まで3ヶ月の空白期間が発生。この間に交通事故で入院し、生命保険・医療保険ともに無保障状態だったことが判明した。',
+                  lesson:'転職前に個人契約の保険に加入しておくこと。団体保険だけに頼ると転職時に保障の空白が生じる。'
+                },
+                {
+                  title:'失敗③：独立FP転向後に傷病手当金がなくなっていた',
+                  situation:'42歳男性・銀行員から独立FPへ転向。',
+                  problem:'独立後1年でうつ病を発症。銀行員時代は傷病手当金があったが、個人事業主になってからは傷病手当金がゼロ。就業不能保険にも未加入だったため、6ヶ月の休業で貯蓄が大幅に減少した。',
+                  lesson:'独立前に就業不能保険に加入しておくこと。独立後は傷病手当金がなくなることを事前に把握して備えること。'
+                },
+              ].map((c,i)=>(
+                <div key={i} className="border border-red-200 rounded-xl overflow-hidden">
+                  <div className="bg-red-600 px-5 py-3">
+                    <h3 className="font-bold text-white">{c.title}</h3>
+                  </div>
+                  <div className="p-5 space-y-2 bg-white">
+                    <p className="text-sm text-gray-600"><span className="font-semibold">状況：</span>{c.situation}</p>
+                    <p className="text-sm text-gray-700"><span className="font-semibold">問題：</span>{c.problem}</p>
+                    <p className="text-sm text-blue-700 font-semibold bg-blue-50 p-2 rounded"><span>教訓：</span>{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">金融業の生命保険加入前・最終チェックリスト</h2>
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <ul className="space-y-3">
+                {[
+                  '会社の団体保険の内容と退職後継続保険料を確認した',
+                  '必要保障額（5,000万〜1億円規模）を正確に計算した',
+                  '転職・独立時の保障継続を個人契約で確保した',
+                  '精神疾患特約付き就業不能保険との組み合わせを検討した',
+                  '独立FP転向を想定した生命保険・就業不能保険の設計をした',
+                  'メタボ・生活習慣病の告知義務を確認し健康なうちに加入した',
+                  '収入保障保険で効率的に高額保障を確保した',
+                  '複数のFP・保険会社で見積もりを比較した',
+                ].map((item,i)=>(
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 
