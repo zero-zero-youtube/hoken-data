@@ -346,6 +346,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFreelanceEngineerMedical = occ.slug === 'freelance-engineer' && ins.slug === 'medical'
   const isNurseMedical = occ.slug === 'nurse' && ins.slug === 'medical'
   const isConstructionLife = occ.slug === 'construction' && ins.slug === 'life'
+  const isTeacherLife = occ.slug === 'teacher' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2099,6 +2100,229 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 教員×生命保険 専用コンテンツ */}
+      {isTeacherLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">教員・教師に生命保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              教員は公務員として共済組合による手厚い遺族保障がありますが、それだけで家族の生活を完全にカバーできるわけではありません。特に30〜40代の子育て世代の教員にとって、住宅ローン・子の教育費・配偶者の生活費を長期的に保障するためには民間生命保険が必要です。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              また精神疾患による休職・早期退職のリスクも考慮が必要です。文部科学省の調査（2022年度）によると、精神疾患で休職した教員は6,539人（過去最多）。長期休職・早期退職の場合、収入が大幅に低下し家族の生活に影響が出ます。生命保険による死亡保障と合わせて、就業不能保険による収入補償も重要です。
+            </p>
+            <div className="bg-purple-50 border-l-4 border-purple-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-purple-800 mb-1">💡 教員の生命保険設計で最も重要なポイント</p>
+              <p className="text-purple-700 text-sm leading-relaxed">
+                公立教員の共済組合は遺族給付が充実しています。まず共済の遺族給付額を確認し、不足分のみを民間生命保険で補う設計が最も効率的です。過剰な保険に加入して保険料を払い過ぎることを避けることも重要です。
+              </p>
+              <p className="text-xs text-purple-600 mt-2">出典：<a href="https://www.mext.go.jp/a_menu/kyouiku/kyousyokuin/index.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省共済組合「給付の概要」</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：共済遺族給付と民間生命保険の役割分担 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">教員の共済遺族給付と民間生命保険で補うべき金額</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">給付の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">公立学校教員（共済組合）</th>
+                    <th className="px-4 py-3 text-left font-semibold">私立学校教員</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族共済年金</td><td className="px-4 py-3">✅ あり（報酬比例＋加給年金）</td><td className="px-4 py-3">✅ あり（私学共済）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族基礎年金</td><td className="px-4 py-3">✅ あり（子あり：約102万円/年）</td><td className="px-4 py-3">✅ あり（同額）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">公務死給付</td><td className="px-4 py-3">✅ 公務上死亡の場合の特別給付</td><td className="px-4 py-3">△ 学校による</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">退職手当（死亡退職）</td><td className="px-4 py-3">✅ 勤続年数×給与×支給率</td><td className="px-4 py-3">△ 学校による</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">子のない配偶者への遺族基礎年金</td><td className="px-4 py-3">❌ 支給なし</td><td className="px-4 py-3">❌ 支給なし</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+              <p className="font-bold text-yellow-800 mb-2">⚠️ 子のない配偶者への遺族給付に注意</p>
+              <p className="text-yellow-700 text-sm leading-relaxed">
+                遺族基礎年金は「子のある配偶者」または「子」にのみ支給されます。子のいない夫婦の場合、遺族基礎年金は支給されません。共済の遺族共済年金は支給されますが、基礎年金がない分、民間生命保険の必要性が高まります。特にDINKS（共働きで子なし）の教員夫婦はこの点に注意して保険設計をしてください。
+              </p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">教員が直面する生命・健康リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 精神疾患休職：過去最多6,539人・早期退職リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  文部科学省「公立学校教職員の人事行政状況調査（2022年度）」によると、精神疾患で休職した公立学校教員は6,539人（過去最多）。長期休職後に早期退職するケースも多く、その場合は退職手当が減額されます。早期退職により収入が大幅に低下した状態での住宅ローン返済・家族の生活費の確保が課題となります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 長時間労働による過労死リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  文部科学省「教員勤務実態調査（2022年度）」によると、中学校教諭の時間外勤務は月平均58時間。過労死ラインとされる月80時間に迫る水準の教員も存在します。過労による心疾患・脳血管疾患で死亡するケースもあり、30〜40代の教員の突然死リスクへの備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 退職後の収入大幅低下</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  教員の定年退職後の年金収入は現役時の約50〜60%程度です。在職中に生命保険・終身保険に加入しておくことで、退職後も保険料変動なしに保障を継続できます。50代での新規加入は保険料が高くなるため、30〜40代での加入が有利です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mext.go.jp/a_menu/shotou/jinji/index.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「公立学校教職員の人事行政状況調査」2022年度</a>　<a href="https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo3/002/siryo/1397004.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「教員勤務実態調査」2022年度</a>
+            </p>
+          </div>
+
+          {/* セクション4：ライフステージ別の生命保険戦略 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">教員のライフステージ別・最適な生命保険の考え方</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  stage: '20代・独身',
+                  need: '低',
+                  needColor: 'bg-green-100 text-green-800',
+                  detail: '扶養家族なし。医療保険・就業不能保険を優先。生命保険は最小限でよい。',
+                },
+                {
+                  stage: '30代・既婚・子あり・住宅購入',
+                  need: '高',
+                  needColor: 'bg-red-100 text-red-800',
+                  detail: '必要保障額が最大の時期。共済遺族給付を確認した上で不足分を民間定期保険で補う。住宅ローン団信との重複に注意。',
+                },
+                {
+                  stage: '40代・子の教育費ピーク',
+                  need: '中〜高',
+                  needColor: 'bg-orange-100 text-orange-800',
+                  detail: '住宅ローン残債減少につれて必要保障額も減少。保障額の見直しと収入保障型保険への切り替えを検討。',
+                },
+                {
+                  stage: '50代・定年前',
+                  need: '中',
+                  needColor: 'bg-blue-100 text-blue-800',
+                  detail: '退職後の保障継続を考慮して終身保険への切り替えを検討。共済の退職後保障も確認する。',
+                },
+              ].map((s, i) => (
+                <div key={i} className="bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="font-bold text-gray-900 text-sm">{s.stage}</p>
+                    <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${s.needColor}`}>必要度：{s.need}</span>
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed">{s.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション5：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '共済の遺族給付額を先に確認・計算する',
+                  detail: '勤務先の共済組合に問い合わせて、遺族共済年金の概算額を確認してください。ねんきん定期便でも概算が確認できます。共済給付と家族の生活費の差額が民間生命保険で補うべき金額です。多くの教員が共済給付を確認せずに過剰な保険に加入しているケースがあります。',
+                },
+                {
+                  number: '02',
+                  title: '子のない夫婦は遺族基礎年金がないことを考慮する',
+                  detail: '子のいないDINKS教員夫婦の場合、配偶者が死亡しても遺族基礎年金は支給されません。遺族共済年金のみとなるため、子のある家庭より民間生命保険の必要額が相対的に大きくなります。',
+                },
+                {
+                  number: '03',
+                  title: '住宅ローンの団信と生命保険の重複を避ける',
+                  detail: '住宅ローン加入時の団体信用生命保険（団信）で死亡時にローン残債が相殺されます。この分は民間生命保険の必要保障額から差し引いて計算することができます。団信を考慮せずに過剰な死亡保障に加入しているケースが教員に多く見られます。',
+                },
+                {
+                  number: '04',
+                  title: '私立学校教員は勤務先の保障を先に確認する',
+                  detail: '私立学校教員は学校によって共済・退職手当の内容が大きく異なります。勤務先の総務部門に遺族給付の内容を確認してから民間保険を検討してください。公立教員より保障が薄いケースでは民間保険の必要性が高くなります。',
+                },
+                {
+                  number: '05',
+                  title: '精神疾患による早期退職リスクへの備えも検討する',
+                  detail: '教員の精神疾患休職者数は過去最多水準。生命保険の死亡保障に加えて、精神疾患特約付きの就業不能保険で休職・早期退職時の収入減少にも備えることが重要です。生命保険と就業不能保険を組み合わせた総合的な保障設計を検討してください。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：共済給付を確認せず過剰な保険に加入',
+                  situation: '30代男性・公立中学校教諭。',
+                  problem: '共済の遺族給付を確認せずに月額保険料1万円の生命保険に加入。後からFPに相談したところ、共済給付で家族の生活費の大半はカバーできることが判明。10年間で120万円の保険料を払い過ぎていた。',
+                  lesson: '共済の遺族給付額を先に確認し、不足分のみ民間保険で補うこと。',
+                },
+                {
+                  title: '失敗②：子のない夫婦で遺族基礎年金がなく生活が困窮',
+                  situation: '40代男性・公立高校教諭。妻と2人暮らし（子なし）。',
+                  problem: '突然の脳梗塞で死亡。子がいないため遺族基礎年金は支給されず、遺族共済年金のみ（年約90万円）。民間生命保険も最小限だったため、専業主婦だった妻の生活費が大幅に不足。妻が急遽フルタイム就職を余儀なくされた。',
+                  lesson: '子のないDINKS夫婦は遺族基礎年金がない分、民間生命保険の保障を手厚くすること。',
+                },
+                {
+                  title: '失敗③：精神疾患で早期退職・退職手当が激減',
+                  situation: '45歳女性・公立小学校教諭。',
+                  problem: 'うつ病で3年間休職後、早期退職。勤続23年での退職となり、定年まで勤めた場合の退職手当（約2,000万円）の約60%しか受け取れなかった。住宅ローンが残っており、生命保険も見直しが必要な状況に。',
+                  lesson: '精神疾患リスクに備えて就業不能保険に加入しておくこと。早期退職による退職手当の減額リスクも考慮した保障設計が重要。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション7：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '共済の遺族共済年金・遺族基礎年金の概算額を確認した',
+                '子のない夫婦の場合、遺族基礎年金が支給されないことを把握した',
+                '必要保障額（遺族生活費＋教育費−共済給付−退職手当−貯蓄）を計算した',
+                '住宅ローンの団信で補われる金額を差し引いた',
+                '私立学校教員の場合は勤務先の保障内容を確認した',
+                '精神疾患リスクへの就業不能保険との組み合わせを検討した',
+                '退職後も保障が続く終身保険への移行を検討した',
+                '複数の保険会社・FPで見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
