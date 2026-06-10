@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllOccupations, getOccupationBySlug } from '@/lib/data'
+import { getOccupationBySlug } from '@/lib/data'
 import AffiliateCTA from '@/components/AffiliateCTA'
 
 type PrefInfo = {
@@ -13,16 +13,53 @@ type PrefInfo = {
 }
 
 const PREFECTURES: Record<string, PrefInfo> = {
-  tokyo:    { name: '東京', nameFull: '東京都', region: '関東', incomeMultiplier: 1.15, characteristic: '全国最高水準の平均賃金を誇る首都圏。医療費・生活費ともに高く、充実した保険設計が求められます。' },
-  osaka:    { name: '大阪', nameFull: '大阪府', region: '近畿', incomeMultiplier: 1.02, characteristic: '関西最大の経済都市。都市型リスクに対応した医療保険と収入保障の備えが重要です。' },
-  aichi:    { name: '愛知', nameFull: '愛知県', region: '中部', incomeMultiplier: 1.05, characteristic: '製造業・自動車産業が集積する工業県。労災・怪我リスクへの上乗せ保険が特に重要です。' },
-  kanagawa: { name: '神奈川', nameFull: '神奈川県', region: '関東', incomeMultiplier: 1.08, characteristic: '東京近郊の高所得エリア。長時間通勤によるリスクと都市型医療費をカバーしましょう。' },
-  saitama:  { name: '埼玉', nameFull: '埼玉県', region: '関東', incomeMultiplier: 1.03, characteristic: '首都圏のファミリー層が多いベッドタウン。子育て世代向けの学資・生命保険設計が効果的です。' },
-  chiba:    { name: '千葉', nameFull: '千葉県', region: '関東', incomeMultiplier: 1.02, characteristic: '成田空港・湾岸エリアを抱える多様な産業の地域。物流・サービス業従事者が多い特性があります。' },
-  fukuoka:  { name: '福岡', nameFull: '福岡県', region: '九州', incomeMultiplier: 0.93, characteristic: '九州最大の都市圏。全国平均より賃金は低めですが生活コストも抑えられ、コスパの良い保険選びが可能です。' },
-  hokkaido: { name: '北海道', nameFull: '北海道', region: '北海道', incomeMultiplier: 0.88, characteristic: '広大な土地と特有の産業構造。冬季の事故リスクと医療機関へのアクセス距離を考慮した保険設計が重要です。' },
-  kyoto:    { name: '京都', nameFull: '京都府', region: '近畿', incomeMultiplier: 0.96, characteristic: '観光・文化産業が中心の都市。伝統産業から最新IT企業まで多様な職業リスクに対応が必要です。' },
-  hyogo:    { name: '兵庫', nameFull: '兵庫県', region: '近畿', incomeMultiplier: 0.98, characteristic: '神戸を中心に多様な産業が集積。阪神間の高所得エリアと地方部で賃金格差があります。' },
+  hokkaido:  { name: '北海道', nameFull: '北海道',   region: '北海道', incomeMultiplier: 0.88, characteristic: '広大な土地と特有の産業構造。冬季の事故リスクと医療機関へのアクセス距離を考慮した保険設計が重要です。' },
+  aomori:    { name: '青森',   nameFull: '青森県',   region: '東北',   incomeMultiplier: 0.83, characteristic: '農業・漁業が盛んな東北地方。全国平均より賃金水準が低いため、コスパの良い保険設計が求められます。' },
+  iwate:     { name: '岩手',   nameFull: '岩手県',   region: '東北',   incomeMultiplier: 0.83, characteristic: '農業・畜産業が中心の地域。地方特有の医療アクセス問題に備えた医療保険の準備が重要です。' },
+  miyagi:    { name: '宮城',   nameFull: '宮城県',   region: '東北',   incomeMultiplier: 0.89, characteristic: '仙台を中心とした東北最大の都市圏。東北の経済中心地として職業リスクも多様です。' },
+  akita:     { name: '秋田',   nameFull: '秋田県',   region: '東北',   incomeMultiplier: 0.82, characteristic: '少子高齢化が進む地域。老後の医療費リスクに備えた医療保険・個人年金の重要性が高い地域です。' },
+  yamagata:  { name: '山形',   nameFull: '山形県',   region: '東北',   incomeMultiplier: 0.84, characteristic: '農業・製造業が盛んな地域。冬季の事故リスクや農業従事者特有のリスクに備えた設計が重要です。' },
+  fukushima: { name: '福島',   nameFull: '福島県',   region: '東北',   incomeMultiplier: 0.85, characteristic: '農業・製造業から観光業まで多様な産業構造。地域の産業特性に合わせた保険設計が求められます。' },
+  ibaraki:   { name: '茨城',   nameFull: '茨城県',   region: '関東',   incomeMultiplier: 0.97, characteristic: '農業・製造業が盛んな北関東。首都圏へのアクセスも良く、多様な職業リスクへの対応が必要です。' },
+  tochigi:   { name: '栃木',   nameFull: '栃木県',   region: '関東',   incomeMultiplier: 0.96, characteristic: '製造業・農業が中心の北関東。工場勤務者が多く、労災上乗せ保険の重要性が高い地域です。' },
+  gunma:     { name: '群馬',   nameFull: '群馬県',   region: '関東',   incomeMultiplier: 0.95, characteristic: '製造業が盛んな内陸県。自動車保有率が高く、自動車保険の充実が特に重要です。' },
+  saitama:   { name: '埼玉',   nameFull: '埼玉県',   region: '関東',   incomeMultiplier: 1.03, characteristic: '首都圏のファミリー層が多いベッドタウン。子育て世代向けの学資・生命保険設計が効果的です。' },
+  chiba:     { name: '千葉',   nameFull: '千葉県',   region: '関東',   incomeMultiplier: 1.02, characteristic: '成田空港・湾岸エリアを抱える多様な産業の地域。物流・サービス業従事者が多い特性があります。' },
+  tokyo:     { name: '東京',   nameFull: '東京都',   region: '関東',   incomeMultiplier: 1.15, characteristic: '全国最高水準の平均賃金を誇る首都圏。医療費・生活費ともに高く、充実した保険設計が求められます。' },
+  kanagawa:  { name: '神奈川', nameFull: '神奈川県', region: '関東',   incomeMultiplier: 1.08, characteristic: '東京近郊の高所得エリア。長時間通勤によるリスクと都市型医療費をカバーしましょう。' },
+  niigata:   { name: '新潟',   nameFull: '新潟県',   region: '北陸',   incomeMultiplier: 0.90, characteristic: '農業・製造業が中心の日本海側の拠点。冬季の積雪リスクや農業従事者向け保険設計が重要です。' },
+  toyama:    { name: '富山',   nameFull: '富山県',   region: '北陸',   incomeMultiplier: 0.93, characteristic: '製薬・アルミ産業が盛んな工業県。生活水準が高く、保険料への支出余力がある地域です。' },
+  ishikawa:  { name: '石川',   nameFull: '石川県',   region: '北陸',   incomeMultiplier: 0.92, characteristic: '金沢を中心とした北陸の中核都市。IT産業の集積も進み、多様な職業リスクへの対応が必要です。' },
+  fukui:     { name: '福井',   nameFull: '福井県',   region: '北陸',   incomeMultiplier: 0.91, characteristic: '眼鏡・繊維産業で知られる工業県。共働き率が高く、夫婦ともに保険の備えが重要な地域です。' },
+  yamanashi: { name: '山梨',   nameFull: '山梨県',   region: '甲信越', incomeMultiplier: 0.90, characteristic: '農業・観光業が中心の内陸県。都市部へのアクセスを考慮した保険設計が求められます。' },
+  nagano:    { name: '長野',   nameFull: '長野県',   region: '甲信越', incomeMultiplier: 0.91, characteristic: '農業・精密機械産業が盛んな内陸県。山岳地域の医療アクセスを考慮した保険設計が重要です。' },
+  shizuoka:  { name: '静岡',   nameFull: '静岡県',   region: '東海',   incomeMultiplier: 1.00, characteristic: '製造業が盛んな全国平均水準の工業県。浜松・静岡の両都市圏を抱える多様な産業構造を持ちます。' },
+  aichi:     { name: '愛知',   nameFull: '愛知県',   region: '東海',   incomeMultiplier: 1.05, characteristic: '製造業・自動車産業が集積する工業県。労災・怪我リスクへの上乗せ保険が特に重要です。' },
+  mie:       { name: '三重',   nameFull: '三重県',   region: '東海',   incomeMultiplier: 0.95, characteristic: '製造業・観光業が共存する地域。伊勢志摩地区の観光業従事者から工場勤務者まで多様なリスクがあります。' },
+  shiga:     { name: '滋賀',   nameFull: '滋賀県',   region: '近畿',   incomeMultiplier: 0.97, characteristic: '製造業が盛んな内陸県。琵琶湖周辺の産業集積と大阪・京都へのアクセスの良さが特徴です。' },
+  kyoto:     { name: '京都',   nameFull: '京都府',   region: '近畿',   incomeMultiplier: 0.96, characteristic: '観光・文化産業が中心の都市。伝統産業から最新IT企業まで多様な職業リスクに対応が必要です。' },
+  osaka:     { name: '大阪',   nameFull: '大阪府',   region: '近畿',   incomeMultiplier: 1.02, characteristic: '関西最大の経済都市。都市型リスクに対応した医療保険と収入保障の備えが重要です。' },
+  hyogo:     { name: '兵庫',   nameFull: '兵庫県',   region: '近畿',   incomeMultiplier: 0.98, characteristic: '神戸を中心に多様な産業が集積。阪神間の高所得エリアと地方部で賃金格差があります。' },
+  nara:      { name: '奈良',   nameFull: '奈良県',   region: '近畿',   incomeMultiplier: 0.92, characteristic: '観光業・伝統産業が中心の古都。大阪・京都への通勤者も多く、ライフスタイルに合わせた設計が重要です。' },
+  wakayama:  { name: '和歌山', nameFull: '和歌山県', region: '近畿',   incomeMultiplier: 0.88, characteristic: '農業・漁業・林業が盛んな地域。自然災害リスクと医療アクセスを考慮した保険設計が求められます。' },
+  tottori:   { name: '鳥取',   nameFull: '鳥取県',   region: '中国',   incomeMultiplier: 0.84, characteristic: '農業・観光業が中心の地域。全国最小の人口県だが地域特有のリスクへの備えは重要です。' },
+  shimane:   { name: '島根',   nameFull: '島根県',   region: '中国',   incomeMultiplier: 0.84, characteristic: '農業・漁業・観光業が盛んな地域。少子高齢化が進み、老後の医療費への備えが特に重要です。' },
+  okayama:   { name: '岡山',   nameFull: '岡山県',   region: '中国',   incomeMultiplier: 0.91, characteristic: '製造業・農業が盛んな中国地方の中核都市。多様な産業を抱え、職業別リスクへの対応が必要です。' },
+  hiroshima: { name: '広島',   nameFull: '広島県',   region: '中国',   incomeMultiplier: 0.95, characteristic: '製造業・造船業が盛んな中国地方最大の都市圏。重工業従事者の労災リスクへの備えが重要です。' },
+  yamaguchi: { name: '山口',   nameFull: '山口県',   region: '中国',   incomeMultiplier: 0.89, characteristic: '化学・製造業が集積する工業県。重工業従事者が多く、怪我・労災への上乗せ保険が重要です。' },
+  tokushima: { name: '徳島',   nameFull: '徳島県',   region: '四国',   incomeMultiplier: 0.86, characteristic: '農業・製造業が中心の地域。IT企業の移転も進み、多様な職業構造への対応が必要です。' },
+  kagawa:    { name: '香川',   nameFull: '香川県',   region: '四国',   incomeMultiplier: 0.89, characteristic: '製造業・サービス業が中心の四国最小県。コンパクトな県土ながら多様な産業が集積しています。' },
+  ehime:     { name: '愛媛',   nameFull: '愛媛県',   region: '四国',   incomeMultiplier: 0.87, characteristic: '製造業・農業・漁業が盛んな地域。造船・化学工業従事者への手厚い保険設計が求められます。' },
+  kochi:     { name: '高知',   nameFull: '高知県',   region: '四国',   incomeMultiplier: 0.83, characteristic: '農業・漁業が盛んな地域。四国で最も賃金水準が低く、コスパ重視の保険設計が重要です。' },
+  fukuoka:   { name: '福岡',   nameFull: '福岡県',   region: '九州',   incomeMultiplier: 0.93, characteristic: '九州最大の都市圏。全国平均より賃金は低めですが生活コストも抑えられ、コスパの良い保険選びが可能です。' },
+  saga:      { name: '佐賀',   nameFull: '佐賀県',   region: '九州',   incomeMultiplier: 0.83, characteristic: '農業・製造業が中心の地域。全国的に賃金水準が低く、必要最低限の保障を効率的に確保することが重要です。' },
+  nagasaki:  { name: '長崎',   nameFull: '長崎県',   region: '九州',   incomeMultiplier: 0.83, characteristic: '造船・観光業が中心の地域。島嶼部も抱え、医療アクセスを考慮した保険設計が重要です。' },
+  kumamoto:  { name: '熊本',   nameFull: '熊本県',   region: '九州',   incomeMultiplier: 0.85, characteristic: '農業・製造業が盛んな九州の中核都市。半導体産業の集積も進み、IT職種の増加が続いています。' },
+  oita:      { name: '大分',   nameFull: '大分県',   region: '九州',   incomeMultiplier: 0.85, characteristic: '温泉観光・石油化学産業が中心の地域。工業地帯の労働リスクと観光業の特性に合わせた設計が必要です。' },
+  miyazaki:  { name: '宮崎',   nameFull: '宮崎県',   region: '九州',   incomeMultiplier: 0.82, characteristic: '農業・観光業が中心の地域。賃金水準は低めだが、自然豊かな環境の中での安心な保険設計が求められます。' },
+  kagoshima: { name: '鹿児島', nameFull: '鹿児島県', region: '九州',   incomeMultiplier: 0.82, characteristic: '農業・漁業・観光業が盛んな南九州の中心地。離島も抱え、医療アクセスを考慮した保険が重要です。' },
+  okinawa:   { name: '沖縄',   nameFull: '沖縄県',   region: '沖縄',   incomeMultiplier: 0.80, characteristic: '観光業・サービス業が中心の離島県。全国最低水準の賃金だが、独自の文化と生活スタイルに合わせた設計が大切です。' },
+  gifu:      { name: '岐阜',   nameFull: '岐阜県',   region: '東海',   incomeMultiplier: 0.94, characteristic: '製造業・農林業が盛んな内陸県。自動車関連産業従事者が多く、愛知経済圏の影響を受ける地域です。' },
 }
 
 type InsuranceRow = {
@@ -45,10 +82,27 @@ const INSURANCE_ROWS: InsuranceRow[] = [
   { slug: 'auto',              name: '自動車保険',     rate: null, fixed: [3000, 8000] },
 ]
 
-export async function generateStaticParams() {
-  const occupations = await getAllOccupations()
-  const prefs = Object.keys(PREFECTURES)
-  return prefs.flatMap(pref => occupations.map(occ => ({ pref, occupation: occ.slug })))
+const ALL_PREFS = [
+  'hokkaido','aomori','iwate','miyagi','akita','yamagata','fukushima',
+  'ibaraki','tochigi','gunma','saitama','chiba','tokyo','kanagawa',
+  'niigata','toyama','ishikawa','fukui','yamanashi','nagano','shizuoka',
+  'aichi','mie','shiga','kyoto','osaka','hyogo','nara','wakayama',
+  'tottori','shimane','okayama','hiroshima','yamaguchi',
+  'tokushima','kagawa','ehime','kochi',
+  'fukuoka','saga','nagasaki','kumamoto','oita','miyazaki','kagoshima','okinawa',
+]
+
+const ALL_OCCUPATIONS = [
+  'engineer','freelance-engineer','nurse','teacher','civil-servant',
+  'sales','driver','construction','food-service','beautician',
+  'accountant','doctor','lawyer','designer','manager',
+  'manufacturing','pharmacist','real-estate','finance','part-time',
+]
+
+export function generateStaticParams() {
+  return ALL_PREFS.flatMap(pref =>
+    ALL_OCCUPATIONS.map(occupation => ({ pref, occupation }))
+  )
 }
 
 export async function generateMetadata(
