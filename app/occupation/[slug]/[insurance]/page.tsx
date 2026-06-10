@@ -343,6 +343,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDoctorLife = occ.slug === 'doctor' && ins.slug === 'life'
   const isSalesLife = occ.slug === 'sales' && ins.slug === 'life'
   const isPartTimeMedical = occ.slug === 'part-time' && ins.slug === 'medical'
+  const isFreelanceEngineerMedical = occ.slug === 'freelance-engineer' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2096,6 +2097,207 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* フリーランスエンジニア×医療保険 専用コンテンツ */}
+      {isFreelanceEngineerMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">フリーランスエンジニアに医療保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              フリーランスエンジニアにとって医療保険は「収入保障保険と並ぶ二大必須保険」の一つです。収入保障保険が「働けない期間の収入補填」を担うのに対し、医療保険は「入院・手術の医療費そのもの」をカバーします。この2つは役割が全く異なり、どちらか一方だけではフリーランスのリスクを十分にカバーできません。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              国民健康保険に加入しているフリーランスエンジニアは、高額療養費制度により月の医療費自己負担に上限はあります。しかし差額ベッド代・食事代・先進医療費用・入院中の生活費などは全額自己負担です。平均年収550万円のフリーランスエンジニアが2週間入院した場合の実質的な経済損失は医療費以外の部分も含めると50〜100万円規模になりえます。
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-blue-800 mb-1">💡 収入保障保険との役割の違いを理解する</p>
+              <p className="text-blue-700 text-sm leading-relaxed">
+                医療保険：入院・手術の医療費をカバー（入院日額・手術給付金）<br />
+                収入保障保険：働けない期間の収入をカバー（月額給付金）<br /><br />
+                2つは補完関係にあり、フリーランスエンジニアには両方が必要です。
+              </p>
+            </div>
+          </div>
+
+          {/* セクション2：高額療養費制度のカバー範囲 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">高額療養費制度で実はここまでカバーされる・されない</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+              民間医療保険の必要性を正確に判断するには、まず公的制度でどこまでカバーされるかを把握することが重要です。
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">費用の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">高額療養費制度</th>
+                    <th className="px-4 py-3 text-left font-semibold">民間医療保険</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">保険診療の自己負担（3割）</td><td className="px-4 py-3">✅ 月の上限額超過分は還付</td><td className="px-4 py-3">入院日額・手術給付金で補完</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">差額ベッド代（個室等）</td><td className="px-4 py-3">❌ 全額自己負担</td><td className="px-4 py-3">✅ 特約で補償可能</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">食事代（1食550円）</td><td className="px-4 py-3">❌ 全額自己負担</td><td className="px-4 py-3">△ 入院日額で補完</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">先進医療費用</td><td className="px-4 py-3">❌ 全額自己負担（数十〜数百万円）</td><td className="px-4 py-3">✅ 先進医療特約で補償</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">入院中の交通費・雑費</td><td className="px-4 py-3">❌ 全額自己負担</td><td className="px-4 py-3">△ 入院一時金で補完</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">収入の減少</td><td className="px-4 py-3">❌ 対象外</td><td className="px-4 py-3">収入保障保険の役割</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
+              <p className="font-bold text-amber-800 mb-2">📊 フリーランスエンジニアの2週間入院シミュレーション</p>
+              <p className="text-amber-700 text-sm leading-relaxed">
+                保険診療の自己負担：約57,600円（高額療養費制度適用後・年収550万円の場合）<br />
+                差額ベッド代（個室14日）：約56,000〜140,000円<br />
+                食事代（14日×3食×550円）：約23,100円<br />
+                入院中の収入損失（2週間）：約211,538円（年収550万円÷12ヶ月÷2）<br />
+                <strong>合計損失：約35〜43万円（医療費のみ）</strong><br /><br />
+                ※収入損失を含めると50〜100万円規模になる可能性があります。
+              </p>
+              <p className="text-xs text-amber-600 mt-2">
+                出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「高額療養費制度」2024年</a>
+              </p>
+            </div>
+          </div>
+
+          {/* セクション3：特有の医療リスク */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">フリーランスエンジニアが特に注意すべき医療リスク</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 精神疾患・うつ病：入院リスクが高い</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  IT業種の精神障害労災申請は製造業の2.3倍。重症化したうつ病・双極性障害では精神科への入院が必要になるケースがあります。精神科の平均入院日数は約278日と全疾患の中で最長であり（厚生労働省「患者調査」2020年）、入院日額型の医療保険では長期給付が期待できます。ただし精神科入院に対応していない保険もあるため、精神疾患特約の確認が必須です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 眼精疲労・緑内障リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  長時間のディスプレイ作業による眼精疲労はフリーランスエンジニアに多い職業性疾患です。慢性的な眼精疲労は緑内障のリスク因子にもなりえます。緑内障の治療（レーザー手術・点眼薬の長期使用）は医療費が継続的にかかります。眼科手術が給付対象かどうかも確認してください。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 腱鞘炎・頸椎症の手術リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  手首の腱鞘炎が重症化すると腱鞘切開術が必要になるケースがあります。頸椎症性神経根症・頸椎椎間板ヘルニアでは頸椎の手術（ACDF等）が必要になることもあり、入院期間は2週間〜1ヶ月程度です。これらの手術・入院が医療保険の給付対象になることを確認してください。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 若いうちの加入が圧倒的に有利</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  医療保険の保険料は年齢が上がるほど高くなります。20代での加入と40代での加入では、同じ保障内容で月額保険料が2〜3倍異なることがあります。フリーランスになったタイミング（多くは20〜30代）で医療保険に加入しておくことが長期的な保険料節約につながります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/toukei/saikin/hw/kanja/20/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「患者調査」2020年</a>　<a href="https://www.mhlw.go.jp/content/11200000/001148172.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>
+            </p>
+          </div>
+
+          {/* セクション4：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">フリーランスエンジニアの医療保険選び5つのポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '精神疾患特約は必須・入院給付に上限のない商品を選ぶ',
+                  detail: 'IT業種は精神疾患リスクが製造業の2.3倍。精神科の平均入院日数は約278日と非常に長いため、精神疾患特約付きかつ入院給付日数に上限のない（または1,000日超の）商品を選んでください。給付日数が60日・180日に制限されている商品では長期の精神科入院に対応できません。',
+                },
+                {
+                  number: '02',
+                  title: '先進医療特約は月100〜200円で必ず付帯する',
+                  detail: '陽子線治療・重粒子線治療などの先進医療は数十〜数百万円の費用がかかります。月100〜200円の先進医療特約で最大2,000万円程度の保障が得られるため、必ず付帯してください。フリーランスは健康が資本であり、最新の治療を受ける選択肢を持つことが重要です。',
+                },
+                {
+                  number: '03',
+                  title: '入院一時金型と日額型の使い分けを理解する',
+                  detail: '近年の入院は短期化しており（一般病床平均16日）、短期入院には入院一時金型（1入院10〜30万円）が有利です。しかしフリーランスエンジニアが最も心配すべき精神科入院は長期化しやすいため、日額型（1日1万円×長期）との組み合わせが理想的です。',
+                },
+                {
+                  number: '04',
+                  title: '腱鞘炎・眼科手術の給付条件を確認する',
+                  detail: '腱鞘切開術・緑内障手術・白内障手術などの眼科・整形外科の手術が給付対象かどうかを確認してください。「開腹手術・開胸手術のみ対象」という古いタイプの手術給付では、内視鏡手術・レーザー手術が対象外になる場合があります。',
+                },
+                {
+                  number: '05',
+                  title: '収入保障保険と合わせて月額保険料を設計する',
+                  detail: 'フリーランスエンジニアは医療保険と収入保障保険の両方が必要です。2つ合わせた月額保険料が月収の3〜5%以内に収まるよう設計してください。月収50万円なら2つ合わせて月1.5〜2.5万円以内が目安です。優先順位は収入保障保険＞医療保険です。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション5：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：精神疾患特約なしで長期入院に対応できなかった',
+                  situation: '32歳男性フリーランスエンジニア。',
+                  problem: 'うつ病で精神科に4ヶ月入院。加入していた医療保険は精神疾患特約なしのため入院給付ゼロ。収入保障保険の給付はあったが、入院中の医療費・差額ベッド代が全額自己負担で貯蓄が大幅に減少した。',
+                  lesson: 'フリーランスエンジニアには精神疾患特約付きの医療保険が必須。',
+                },
+                {
+                  title: '失敗②：先進医療特約なしでがん治療に数百万円',
+                  situation: '38歳男性フリーランスエンジニア。',
+                  problem: '大腸がんと診断され、陽子線治療（先進医療）を希望。費用約294万円が全額自己負担。医療保険に加入していたが先進医療特約をつけていなかった。月200円の特約で防げた損失だった。',
+                  lesson: '先進医療特約は月100〜200円で付帯できる。加入時に必ず確認すること。',
+                },
+                {
+                  title: '失敗③：収入保障保険のみで医療費が想定外の出費に',
+                  situation: '29歳女性フリーランスエンジニア。',
+                  problem: '収入保障保険のみに加入していた。腱鞘炎の手術で10日間入院。手術費・入院費・差額ベッド代で35万円の出費。収入保障保険の給付（月15万円の1/3）では医療費をカバーできず貯蓄を崩すことになった。',
+                  lesson: '収入保障保険と医療保険は別の役割。フリーランスには両方が必要。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '高額療養費制度の自己負担上限額（年収550万円：月57,600円）を把握した',
+                '差額ベッド代・食事代・先進医療費用は自己負担であることを理解した',
+                '精神疾患特約付き・入院給付日数に上限のない商品を選んだ',
+                '先進医療特約（月100〜200円）を付帯した',
+                '腱鞘炎手術・眼科手術の給付条件を確認した',
+                '収入保障保険との組み合わせで月額保険料を月収の3〜5%以内に設計した',
+                '若いうちに加入して長期的な保険料を節約した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
