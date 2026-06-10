@@ -345,6 +345,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeMedical = occ.slug === 'part-time' && ins.slug === 'medical'
   const isFreelanceEngineerMedical = occ.slug === 'freelance-engineer' && ins.slug === 'medical'
   const isNurseMedical = occ.slug === 'nurse' && ins.slug === 'medical'
+  const isConstructionLife = occ.slug === 'construction' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2098,6 +2099,200 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* 建設業×生命保険 専用コンテンツ */}
+      {isConstructionLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">建設業・現場作業員に生命保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              建設業は全産業の中で死亡労働災害が最も多い業種の一つです。厚生労働省「労働災害発生状況（2023年）」によると、建設業の死亡災害は全産業の約30%を占めます。現場作業員が万一の事故で死亡・高度障害になった場合、残された家族への影響は甚大です。労災保険による遺族補償があるものの、それだけでは家族の長期的な生活費・教育費をカバーするには不十分なケースがほとんどです。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              また建設業は一人親方・個人事業主が多い業種でもあります。個人事業主の場合、遺族厚生年金がなく遺族基礎年金のみとなるため、民間生命保険の必要性が会社員よりさらに高くなります。
+            </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-orange-800 mb-1">⚠️ 建設業の生命保険で最も重要な前提</p>
+              <p className="text-orange-700 text-sm leading-relaxed">
+                業務中の死亡事故は労災保険が適用されます。しかし労災保険の遺族補償は「遺族補償年金」として毎年支給されますが、金額は給付基礎日額の約153〜245日分。年収400万円の作業員の場合、年間約167〜268万円。家族の生活費・教育費には到底足りません。民間生命保険で不足分を補うことが必須です。
+              </p>
+              <p className="text-xs text-orange-600 mt-2">出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働者災害補償保険法」</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：労災保険の遺族補償と民間生命保険の役割分担 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">労災保険の遺族補償 vs 民間生命保険：補うべき金額を理解する</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">給付の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">会社員建設業者</th>
+                    <th className="px-4 py-3 text-left font-semibold">一人親方（個人事業主）</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">労災遺族補償年金</td><td className="px-4 py-3">✅ 給付基礎日額×153〜245日/年</td><td className="px-4 py-3">△ 特別加入者のみ（任意加入）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族厚生年金</td><td className="px-4 py-3">✅ あり（報酬比例）</td><td className="px-4 py-3">❌ なし（国民年金のみ）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">遺族基礎年金</td><td className="px-4 py-3">✅ あり（子あり：約102万円/年）</td><td className="px-4 py-3">✅ あり（同額）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">葬祭料</td><td className="px-4 py-3">✅ 労災から支給（給付基礎日額×60日）</td><td className="px-4 py-3">△ 特別加入者のみ</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">民間生命保険の必要性</td><td className="px-4 py-3">高（労災+年金では生活費不足）</td><td className="px-4 py-3">極めて高（遺族厚生年金なし）</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+              <p className="font-bold text-blue-800 mb-2">📊 年収400万円・会社員建設業者の遺族への給付シミュレーション</p>
+              <p className="text-blue-700 text-sm leading-relaxed">
+                労災遺族補償年金：約167〜268万円/年<br />
+                遺族厚生年金＋遺族基礎年金：約120〜180万円/年<br />
+                合計：約287〜448万円/年<br /><br />
+                遺族の生活費（月25万円×12ヶ月）：300万円/年<br />
+                子の教育費（大学まで）：約1,000〜1,500万円<br /><br />
+                <strong>不足額：生活費だけで年間約100万円以上の不足が生じる可能性</strong>
+              </p>
+              <p className="text-xs text-blue-600 mt-2">※試算例。実際は家族構成・勤続年数・生活水準により異なります。</p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">建設業・現場作業員の死亡・高度障害リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 死亡災害：全産業の約30%・墜落・転落が最多</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「労働災害発生状況（2023年）」によると、建設業の死亡災害は全産業の約30%を占め、主な死因は墜落・転落（約40%）、建設機械等（約15%）、飛来・落下（約10%）です。足場作業・高所作業・重機作業など、死亡リスクが常に隣り合わせの職場環境です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 高度障害リスク：死亡より多い重篤災害</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  建設業では死亡には至らないものの、高所からの転落による脊髄損傷・重篤な脳障害で重度障害が残るケースも多いです。生命保険の「高度障害保険金」は、両眼失明・言語機能の廃絶・両上肢の機能廃絶など重度の障害状態になった場合に死亡保険金と同額が支払われます。生命保険の死亡保障は高度障害への備えにもなります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ じん肺・アスベスト関連疾患による死亡リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  建設業特有のじん肺・中皮腫（アスベスト関連疾患）は、長い潜伏期間（20〜40年）の後に発症し、診断から数年以内に死亡するケースが多いです。既に退職・廃業した後に発症することも多く、在職中に生命保険に加入しておくことが家族への備えとして重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 一人親方の廃業リスク：家族への連鎖的影響</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  一人親方が死亡・高度障害になった場合、事業は即座に廃業となります。会社員と異なり退職金がなく、遺族厚生年金もないため、家族が受け取れる公的給付は遺族基礎年金のみ。子のいない配偶者には遺族基礎年金も支給されないため、民間生命保険が家族を守る唯一の手段となります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>　<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei34/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「じん肺健康管理実施状況報告」2022年</a>
+            </p>
+          </div>
+
+          {/* セクション4：5つのポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">建設業の生命保険選び5つのポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '労災保険・遺族年金の給付額を先に確認する',
+                  detail: '民間生命保険で補うべき金額を正確に計算するには、まず労災保険の遺族補償年金・遺族厚生年金・遺族基礎年金の概算額を把握することが重要です。会社の総務部門または最寄りの労働基準監督署に問い合わせることで概算額が確認できます。',
+                },
+                {
+                  number: '02',
+                  title: '高度障害保険金が付帯されているか確認する',
+                  detail: '建設業は重篤な障害が残る重大事故リスクが高いです。生命保険の「高度障害保険金特約」が付帯されているかを確認してください。死亡保険金と同額の高度障害保険金が支払われる保険を選ぶことで、死亡・高度障害の両方に備えられます。',
+                },
+                {
+                  number: '03',
+                  title: '一人親方は死亡保障を手厚くする',
+                  detail: '一人親方は遺族厚生年金がなく、退職金もありません。会社員建設業者より民間生命保険の死亡保障を手厚く設定する必要があります。必要保障額の目安：遺族の生活費（月収×12ヶ月×残余年数）＋教育費−遺族基礎年金総額−貯蓄。',
+                },
+                {
+                  number: '04',
+                  title: '健康なうちに加入する（告知義務の注意）',
+                  detail: '建設業は身体的に過酷な職業であり、腰痛・じん肺・難聴などの既往歴がある場合、生命保険の審査で条件が付くことがあります。若いうちに・健康なうちに加入しておくことがより良い条件での契約につながります。',
+                },
+                {
+                  number: '05',
+                  title: '医療保険との組み合わせを検討する',
+                  detail: '生命保険（死亡・高度障害）と医療保険（入院・手術）は別々の役割を持ちます。建設業の医療リスク（骨折・腰痛手術・熱中症入院）には医療保険で備え、死亡・高度障害には生命保険で備えるという役割分担で設計してください。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション5：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：労災保険があるから生命保険は不要と思っていた',
+                  situation: '40代男性・建設会社勤務。妻と子2人。',
+                  problem: '「労災保険があるから大丈夫」と生命保険に未加入。足場からの転落事故で死亡。労災遺族補償年金（年約200万円）と遺族年金（年約150万円）では月収35万円の収入を補えず、妻が急遽フルタイム復帰。子の大学進学を諦めることになった。',
+                  lesson: '労災保険の遺族補償は生活費の一部しかカバーしない。民間生命保険で不足分を補うことが必須。',
+                },
+                {
+                  title: '失敗②：一人親方で遺族厚生年金がなく家族が困窮',
+                  situation: '45歳男性・一人親方・電気工事業。妻と子1人。',
+                  problem: '心筋梗塞で急死。遺族厚生年金がなく、遺族基礎年金（年約102万円）のみ。民間生命保険にも未加入。妻への収入補填ゼロで、子が高校卒業後すぐに就職せざるを得なくなった。',
+                  lesson: '一人親方は遺族厚生年金がない分、民間生命保険の必要性が会社員より高い。',
+                },
+                {
+                  title: '失敗③：高度障害になり保険金が支払われなかった',
+                  situation: '38歳男性・建設会社勤務。',
+                  problem: '転落事故で脊髄損傷・下半身麻痺。医療保険には加入していたが、高度障害保険金特約のない生命保険だったため、障害認定後に死亡保険金相当の保険金を受け取れなかった。働けなくなったにもかかわらず生命保険からの給付がゼロ。',
+                  lesson: '建設業は高度障害リスクが高い。生命保険に高度障害保険金特約が付いているか必ず確認すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '労災保険の遺族補償年金・遺族厚生年金の概算額を確認した',
+                '必要保障額（遺族生活費＋教育費−公的給付−貯蓄）を計算した',
+                '高度障害保険金特約が付帯されているか確認した',
+                '一人親方の場合は遺族厚生年金がないことを考慮して保障額を増やした',
+                '健康なうちに加入して良い条件での契約を確保した',
+                '医療保険との役割分担で設計した（入院→医療保険・死亡→生命保険）',
+                'じん肺・アスベスト関連疾患の告知義務の有無を確認した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
