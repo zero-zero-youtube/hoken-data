@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js'
 import HomeOccupationTabs from '@/components/HomeOccupationTabs'
 
 export const metadata: Metadata = {
-  title: '保険料相場データベース【職業・年齢別】無料｜保険データドットコム',
+  title: { absolute: '保険料相場データベース【職業・年齢別】無料｜保険データドットコム' },
   description: '職業・年齢・家族構成から適正な保険料の目安を調べられる無料データベース。政府統計に基づく客観的な保険料相場情報を提供。',
 }
 

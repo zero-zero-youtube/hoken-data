@@ -59,7 +59,7 @@ export async function generateMetadata(
   const occ = await getOccupationBySlug(occSlug)
   if (!pref || !occ) return {}
   return {
-    title: `${pref.nameFull}の${occ.name_ja}向け保険料相場【2025年版】｜保険データドットコム`,
+    title: `${pref.nameFull}の${occ.name_ja}向け保険料相場【2025年版】`,
     description: `${pref.nameFull}で働く${occ.name_ja}の保険料相場を政府統計データで解説。医療保険・就業不能保険・生命保険など10種類の推定月額と、${pref.nameFull}の地域特性を踏まえた選び方を紹介。`,
   }
 }
