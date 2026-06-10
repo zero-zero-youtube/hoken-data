@@ -333,6 +333,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const priceJudgment = (est.man && avgMonthly) ? getPriceJudgment(est.man, avgMonthly) : null
 
   const isFixedRange = ins.slug === 'auto' || ins.slug === 'fire'
+  const isFreelanceIncomeProtection = occ.slug === 'freelance-engineer' && ins.slug === 'income-protection'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -612,6 +613,334 @@ export default async function OccupationInsurancePage({ params }: Props) {
           <p className="text-xs text-gray-400 mt-2">※年齢係数は一般的な傾向をもとにした参考値です。</p>
         </div>
       </section>
+
+      {/* フリーランスエンジニア×収入保障 専用コンテンツ */}
+      {isFreelanceIncomeProtection && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* Section 1：リード文 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              フリーランスエンジニアに収入保障保険が必要な理由
+            </h2>
+            <div className="text-gray-700 leading-relaxed space-y-4 text-sm">
+              <p>
+                フリーランスエンジニアは、病気やケガで働けなくなった瞬間、収入がゼロになります。会社員であれば傷病手当金（月収の約67%・最長18ヶ月）が支給されますが、国民健康保険には傷病手当金制度がありません。これがフリーランスエンジニアにとって就業不能保険・収入保障保険が「必須の備え」である根本的な理由です。
+              </p>
+              <p>
+                厚生労働省の過労死等防止対策白書（2022年）によると、IT業種の精神障害労災申請件数は製造業の約2.3倍。うつ病・適応障害による長期休業リスクは、フリーランスエンジニアにとって決して他人事ではありません。月収50万円のエンジニアが3ヶ月働けなくなった場合の収入損失は150万円。この現実に備える手段が就業不能保険です。
+              </p>
+              <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl">
+                <p className="font-bold text-red-800">⚠ 傷病手当金がないフリーランスの現実</p>
+                <p className="text-red-700 text-sm mt-1">
+                  会社員：病気で休業 → 傷病手当金（月収の67%）が最長18ヶ月支給<br />
+                  フリーランス：病気で休業 → 収入ゼロ（公的補填なし）
+                </p>
+                <p className="text-xs text-red-600 mt-2">
+                  出典：
+                  <a href="https://www.kyoukaikenpo.or.jp/g3/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="underline">
+                    全国健康保険協会「傷病手当金について」
+                  </a>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 2：公的制度比較表 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              会社員 vs フリーランスエンジニア：就業不能時の公的保障比較
+            </h2>
+            <p className="text-sm text-gray-700 mb-4">
+              就業不能保険の必要性を正確に判断するには、まず公的制度でどこまでカバーされるかを知る必要があります。
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">項目</th>
+                    <th className="text-center p-3">会社員・公務員</th>
+                    <th className="text-center p-3">フリーランスエンジニア</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { item: '加入する健康保険', company: '健康保険（協会けんぽ・組合健保）', freelance: '国民健康保険' },
+                    { item: '傷病手当金', company: '✅ あり（月収の約67%・最長18ヶ月）', freelance: '❌ なし' },
+                    { item: '障害基礎年金', company: '✅ あり（2級：約81万円/年）', freelance: '✅ あり（同額）' },
+                    { item: '障害厚生年金', company: '✅ あり（報酬比例・上乗せ）', freelance: '❌ なし（国民年金のみ）' },
+                    { item: '有給休暇', company: '✅ あり（年10〜20日）', freelance: '❌ なし' },
+                    { item: '労災保険', company: '✅ 自動加入', freelance: '△ 特別加入制度あり（任意）' },
+                  ].map((row, i) => (
+                    <tr key={row.item} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.item}</td>
+                      <td className="p-3 text-center text-xs">{row.company}</td>
+                      <td className="p-3 text-center text-xs font-semibold text-indigo-700">{row.freelance}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：
+              <a href="https://www.nenkin.go.jp/service/jukyu/shougainenkin/jukyu-yoken/20150514.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                日本年金機構「障害基礎年金の受給要件・支給開始時期・計算方法」
+              </a>
+              、
+              <a href="https://www.kyoukaikenpo.or.jp/g3/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                全国健康保険協会「傷病手当金について」
+              </a>
+            </p>
+            <div className="mt-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 text-sm">
+              <strong>この表が示す通り、</strong>フリーランスエンジニアは就業不能時の公的保障が会社員と比べて著しく手薄です。特に傷病手当金がない点が最大のリスクであり、民間の就業不能保険でこのギャップを埋めることが急務です。
+            </div>
+          </section>
+
+          {/* Section 3：リスク実態データ */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              フリーランスエンジニアが直面する就業不能リスクの実態
+            </h2>
+            <div className="space-y-6 text-sm text-gray-700">
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">① 精神疾患リスク：全業種の2.3倍</h3>
+                <p className="leading-relaxed mb-2">
+                  厚生労働省の「過労死等防止対策白書（2022年）」によると、情報通信業（IT業種）における精神障害の労災申請件数は製造業の約2.3倍に達しています。フリーランスエンジニアは孤独な作業環境・納期プレッシャー・収入の不安定さが重なり、精神疾患リスクが特に高い職種です。
+                </p>
+                <p className="leading-relaxed">
+                  うつ病による休業期間の平均は約6ヶ月〜1年。月収50万円のエンジニアが6ヶ月休業した場合の収入損失は300万円。就業不能保険（月15万円給付）でも90万円しかカバーできず、差額210万円は貯蓄で賄う必要があります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">② 案件途切れと傷病の複合リスク</h3>
+                <p className="leading-relaxed">
+                  内閣官房「フリーランス実態調査（2021年）」によると、フリーランスの54.1%が収入喪失を経験しており、そのうち健康問題が原因のケースは28.3%に上ります。病気と案件途切れが重なった場合、収入はゼロになります。これがフリーランスエンジニアにとっての最悪シナリオです。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">③ 腱鞘炎・頸椎症などの職業性疾患</h3>
+                <p className="leading-relaxed">
+                  長時間のキーボード・マウス操作による腱鞘炎・頸椎症・眼精疲労は、フリーランスエンジニアに多い職業性疾患です。手首の腱鞘炎で3ヶ月コーディング不能になるケースも珍しくなく、これらの疾患が就業不能保険の給付対象になるかどうかも重要な確認ポイントです。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：
+              <a href="https://www.mhlw.go.jp/stf/wp/hakusyo/karoushi/22/index.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                厚生労働省「過労死等防止対策白書」2022年
+              </a>
+              、内閣官房「フリーランス実態調査」2021年
+            </p>
+          </section>
+
+          {/* Section 4：必要保障額の計算方法 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              フリーランスエンジニアの適正な保障額の計算方法
+            </h2>
+            <p className="text-sm text-gray-700 mb-4">就業不能保険の適正な保障額は、以下の計算式で算出できます。</p>
+            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200 mb-6">
+              <p className="font-bold text-blue-900 mb-2">必要保障額の計算式</p>
+              <p className="text-blue-800 font-mono text-sm">月額給付金の目安 ＝ 月間固定支出（家賃・食費・通信費等）</p>
+              <p className="text-blue-700 text-xs mt-2">※収入の全額ではなく「生活を維持するための最低限の固定費」が目安</p>
+            </div>
+            <h3 className="font-bold text-[#0f172a] mb-3">年収別の推奨月額給付金目安</h3>
+            <div className="overflow-x-auto mb-3">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">年収</th>
+                    <th className="text-right p-3">月収</th>
+                    <th className="text-right p-3">推奨月額給付金</th>
+                    <th className="text-right p-3">年間保険料目安</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { income: '300万円', monthly: '25万円', benefit: '10〜15万円', premium: '約2〜4万円' },
+                    { income: '500万円', monthly: '約42万円', benefit: '15〜20万円', premium: '約3〜6万円' },
+                    { income: '700万円', monthly: '約58万円', benefit: '20〜25万円', premium: '約4〜8万円' },
+                    { income: '1,000万円', monthly: '約83万円', benefit: '25〜30万円', premium: '約6〜10万円' },
+                  ].map((row, i) => (
+                    <tr key={row.income} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.income}</td>
+                      <td className="p-3 text-right">{row.monthly}</td>
+                      <td className="p-3 text-right font-bold text-[#2563eb]">{row.benefit}</td>
+                      <td className="p-3 text-right text-gray-600">{row.premium}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500">
+              ※参考値。実際の保険料は年齢・健康状態・保険会社により異なります。
+              出典：
+              <a href="https://www.jili.or.jp/research/report/chousa2022.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                生命保険文化センター「生活保障に関する調査」2022年
+              </a>
+              をもとに算出
+            </p>
+          </section>
+
+          {/* Section 5：選び方の5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              フリーランスエンジニアが就業不能保険を選ぶ際の5つのチェックポイント
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  num: '01',
+                  title: '精神疾患が給付対象か',
+                  detail: 'フリーランスエンジニアの最大リスクである精神疾患（うつ病・適応障害）が給付対象かどうかを必ず確認してください。一部の保険では精神疾患を免責としていたり、給付回数に上限（例：通算18回まで）を設けています。精神疾患特約の有無と条件を契約前に確認することが必須です。',
+                },
+                {
+                  num: '02',
+                  title: '支払対象外期間の長さ',
+                  detail: '支払対象外期間とは、就業不能状態になってから給付が始まるまでの待機期間です。60日・90日・180日などがあります。傷病手当金がないフリーランスは貯蓄が少ない場合60日以下の短期タイプが適切です。貯蓄が300万円以上なら180日タイプで保険料を抑える選択もあります。',
+                },
+                {
+                  num: '03',
+                  title: '就業不能の定義（全部か一部か）',
+                  detail: '「全く働けない状態のみ給付」という全部就業不能型と、「収入が一定割合以下に減少した場合も給付」という一部就業不能型があります。在宅ワーカーのフリーランスエンジニアは「完全に動けないわけではないがコーディングできない状態」になりやすいため、定義の確認が重要です。',
+                },
+                {
+                  num: '04',
+                  title: '保険期間と保険料払込期間',
+                  detail: '就業不能保険の保険期間は「60歳まで」「65歳まで」などがあります。フリーランスは定年がないため65歳満了を選ぶことを検討してください。また保険料は年齢が上がるほど高くなるため、若いうちに加入するほど総支払い保険料が少なくなります。',
+                },
+                {
+                  num: '05',
+                  title: '腱鞘炎・頸椎症などの職業性疾患の扱い',
+                  detail: 'キーボード作業による腱鞘炎・頸椎症・眼精疲労などのフリーランスエンジニア特有の疾患が給付対象かどうかを確認してください。「業務上の疾病」扱いになる場合、労災保険の特別加入を検討することも有効な選択肢です。',
+                },
+              ].map(cp => (
+                <div key={cp.num} className="bg-[#f8fafc] rounded-xl p-5 border border-gray-200">
+                  <div className="flex items-start gap-3 mb-2">
+                    <span className="text-2xl font-bold text-[#2563eb] opacity-40 leading-none flex-shrink-0">{cp.num}</span>
+                    <p className="font-bold text-[#0f172a] text-sm">{cp.title}</p>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{cp.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 6：よくある失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              フリーランスエンジニアの就業不能保険でよくある失敗事例3選
+            </h2>
+            <div className="space-y-4 text-sm">
+              {[
+                {
+                  title: '失敗①：精神疾患が免責の保険を選んでしまった',
+                  situation: '30代男性フリーランスエンジニア。月収60万円。',
+                  problem: '保険料の安さだけで就業不能保険を選んだ結果、契約した保険は精神疾患を免責としていた。過労によるうつ病で6ヶ月休業したが、給付金がゼロ。貯蓄も底をつき家賃滞納に陥った。',
+                  lesson: '保険料の安さだけでなく、精神疾患の給付条件を最初に確認すること。',
+                },
+                {
+                  title: '失敗②：支払対象外期間180日で貯蓄が底をつく',
+                  situation: '20代後半のフリーランスエンジニア。貯蓄100万円。',
+                  problem: '保険料を抑えるため支払対象外期間180日のプランを選択。突発的な骨折で4ヶ月休業したが、180日（約6ヶ月）に達しないため給付金ゼロ。貯蓄が尽きた。',
+                  lesson: '貯蓄額に応じて支払対象外期間を選ぶこと。貯蓄300万円未満なら60〜90日タイプ推奨。',
+                },
+                {
+                  title: '失敗③：保障額が生活費を下回っていた',
+                  situation: '月収70万円のフリーランスエンジニア。',
+                  problem: '月額給付金10万円の保険に加入していたが、家賃8万円・食費3万円・通信費2万円だけで月13万円の固定費があり、給付金では生活費を賄えなかった。',
+                  lesson: '月額給付金は「月間固定支出（最低生活費）」を基準に設定すること。',
+                },
+              ].map(c => (
+                <div key={c.title} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 mb-2">{c.title}</p>
+                  <div className="space-y-1 text-gray-700">
+                    <p><span className="font-semibold text-gray-500">状況：</span>{c.situation}</p>
+                    <p><span className="font-semibold text-gray-500">問題：</span>{c.problem}</p>
+                    <p className="bg-white rounded-lg px-3 py-2 border border-red-100 mt-2">
+                      <span className="font-bold text-red-700">教訓：</span>{c.lesson}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 7：フリーランス協会の選択肢 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              民間保険以外の選択肢：フリーランス協会の所得補償保険
+            </h2>
+            <div className="text-sm text-gray-700 leading-relaxed space-y-4">
+              <p>
+                民間の就業不能保険以外に、一般社団法人プロフェッショナル＆パラレルキャリア・フリーランス協会（フリーランス協会）が提供する福利厚生パッケージも選択肢の一つです。
+              </p>
+              <p>
+                年会費1万円で加入できるフリーランス協会のベネフィットパッケージには、所得補償保険（最長1年間・入院・自宅療養を問わず補償）が含まれています。民間の就業不能保険と比較して手続きがシンプルで、独立直後の若いフリーランスエンジニアにも加入しやすい点が特徴です。
+              </p>
+              <p>
+                ただし補償期間や給付額に上限があるため、高収入のエンジニアには民間保険との併用を検討することも重要です。
+              </p>
+              <div className="bg-[#f8fafc] rounded-xl p-4 border border-gray-200">
+                <p className="font-bold text-[#0f172a] mb-2">フリーランス協会 vs 民間就業不能保険の比較</p>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs border-collapse">
+                    <thead>
+                      <tr className="bg-gray-100">
+                        <th className="text-left p-2">項目</th>
+                        <th className="text-center p-2">フリーランス協会</th>
+                        <th className="text-center p-2">民間就業不能保険</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { item: '費用', assoc: '年会費1万円に含む', private: '月2,000〜10,000円' },
+                        { item: '補償期間', assoc: '最長1年', private: '最長65歳まで' },
+                        { item: '自宅療養', assoc: '✅ 対象', private: '商品による' },
+                        { item: '精神疾患', assoc: '商品による', private: '特約で選べる' },
+                        { item: '手続き', assoc: 'シンプル', private: '審査あり（健康告知）' },
+                      ].map((r, i) => (
+                        <tr key={r.item} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                          <td className="p-2 font-medium">{r.item}</td>
+                          <td className="p-2 text-center">{r.assoc}</td>
+                          <td className="p-2 text-center">{r.private}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500">
+                出典：一般社団法人プロフェッショナル＆パラレルキャリア・フリーランス協会「フリーランス協会ベネフィットパッケージ」
+              </p>
+            </div>
+          </section>
+
+          {/* Section 8：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              フリーランスエンジニアの就業不能保険：加入前の最終確認リスト
+            </h2>
+            <div className="space-y-2">
+              {[
+                '傷病手当金がないことを認識し、就業不能時の収入ゼロリスクを把握した',
+                '月間固定支出（最低生活費）を計算し、必要な月額給付金を算出した',
+                '精神疾患（うつ病・適応障害）が給付対象かどうかを確認した',
+                '支払対象外期間を自分の貯蓄額に合わせて選んだ（貯蓄300万円未満は60〜90日推奨）',
+                '就業不能の定義（全部就業不能・一部就業不能）を確認した',
+                '複数の保険会社で見積もりを比較した',
+                'フリーランス協会の所得補償保険も選択肢として検討した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="text-[#2563eb] font-bold flex-shrink-0">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+        </div>
+      )}
 
       {/* チェックリスト + CTA */}
       <section className="py-8 px-4 bg-white">
