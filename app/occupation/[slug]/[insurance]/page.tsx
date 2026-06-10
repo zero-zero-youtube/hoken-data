@@ -361,6 +361,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isSalesMedical = occ.slug === 'sales' && ins.slug === 'medical'
   const isDriverLife = occ.slug === 'driver' && ins.slug === 'life'
   const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
+  const isFreelanceEngineerLife = occ.slug === 'freelance-engineer' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5311,6 +5312,318 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* フリーランスエンジニア×生命保険 専用コンテンツ */}
+      {isFreelanceEngineerLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">フリーランスエンジニアに生命保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              フリーランスエンジニアは会社員と異なり、
+              遺族厚生年金がありません。
+              万一死亡した場合に遺族が受け取れる公的給付は
+              遺族基礎年金（子あり：年約109万円）のみで、
+              会社員と比べて数千万円規模の格差が生じます。
+              エヌエヌ生命の試算によると、
+              年収700万円のフリーランスと同収入の会社員では
+              遺族が受け取れる年金の総額に
+              約5,000万円の差があります。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              この「遺族厚生年金の空白」を埋めるのが
+              民間生命保険の最も重要な役割です。
+              特に30〜40代でパートナーや子どもがいる
+              フリーランスエンジニアにとって、
+              生命保険は家族を守る最重要手段です。
+              傷病手当金もなく収入保障保険も必要な
+              フリーランスにとって、
+              就業不能リスクと死亡リスクの両方に備えることが
+              急務となっています。
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-blue-800">
+                💡 フリーランスエンジニアの生命保険：会社員との最大の違い
+              </p>
+              <p className="text-blue-700 text-sm mt-1">
+                会社員が死亡した場合：遺族基礎年金＋遺族厚生年金<br />
+                フリーランスが死亡した場合：遺族基礎年金のみ<br /><br />
+                2026年度の遺族基礎年金額（子1人の場合）：年109万1,100円<br />
+                この金額だけでは家族の生活費を到底賄えません。
+                民間生命保険で遺族厚生年金の空白を埋めることが必須です。
+              </p>
+              <p className="text-xs text-blue-600 mt-2">
+                出典：<a href="https://www.jili.or.jp/lifeplan/socialsecurity/1.html" target="_blank" rel="noopener noreferrer" className="underline">生命保険文化センター「公的な遺族年金の仕組みについて」2026年度版</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：フリーランス vs 会社員の遺族給付比較 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">フリーランスエンジニア vs 会社員：死亡時の遺族への公的給付比較</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">給付の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">フリーランス（国民年金）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">会社員エンジニア（厚生年金）</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['遺族基礎年金（子1人）', '✅ 年109万1,100円（2026年度）', '✅ 年109万1,100円（同額）'],
+                    ['遺族基礎年金（子2人）', '✅ 年133万4,900円（2026年度）', '✅ 年133万4,900円（同額）'],
+                    ['遺族厚生年金', '❌ なし', '✅ あり（報酬比例・年収700万円：年約200〜250万円）'],
+                    ['退職金', '❌ なし', '✅ あり（会社規定による）'],
+                    ['子なし配偶者への遺族年金', '❌ 遺族基礎年金なし・寡婦年金のみ', '✅ 遺族厚生年金あり'],
+                  ].map(([type, free, emp], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{free}</td>
+                      <td className="px-4 py-3 text-gray-700">{emp}</td>
+                    </tr>
+                  ))}
+                  <tr className="bg-red-50">
+                    <td className="px-4 py-3 font-medium text-gray-800">遺族年金の総額差（年収700万・子1人・妻90歳まで）</td>
+                    <td colSpan={2} className="px-4 py-3 text-center font-bold text-red-700">約5,000万円の差（エヌエヌ生命試算）</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.jili.or.jp/lifeplan/socialsecurity/1.html" target="_blank" rel="noopener noreferrer" className="underline">生命保険文化センター「公的な遺族年金の仕組みについて」2026年度</a>
+              <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-02.html" target="_blank" rel="noopener noreferrer" className="underline">日本年金機構「遺族厚生年金（受給要件・対象者・年金額）」</a>
+            </p>
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-4">
+              <p className="font-bold text-red-800 mb-2">🔴 フリーランスエンジニアの生命保険の緊急度</p>
+              <p className="text-red-700 text-sm">
+                年収550万円のフリーランスエンジニア（38歳・妻・子1人）が死亡した場合：<br /><br />
+                公的給付（遺族基礎年金）：年109万円×子が18歳になるまで約13年＝約1,417万円<br />
+                遺族の生活費（月20万円×12ヶ月×27年）：6,480万円<br />
+                子の教育費：約1,000万円<br /><br />
+                <strong>不足額：約6,000万円以上</strong><br />
+                この不足額を民間生命保険で補うことが家族を守る唯一の手段です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション3：死亡リスクの実態 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">フリーランスエンジニアが直面する死亡・高度障害リスク</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① IT業種の過労死リスク：精神障害労災申請は製造業の2.3倍</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「過労死等防止対策白書（2022年）」によると、
+                  IT業種の精神障害労災申請件数は製造業の約2.3倍。
+                  過労による心疾患・脳血管疾患のリスクも高く、
+                  突然死・高度障害のリスクが一般職種より高い水準にあります。
+                  フリーランスの場合は長時間労働を制限する
+                  規制がなく、自己管理が唯一の歯止めとなります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② フリーランスの収入喪失リスク：54.1%が経験</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  内閣官房「フリーランス実態調査（2021年）」によると、
+                  フリーランスの54.1%が収入喪失を経験しており、
+                  そのうち健康問題が原因のケースは28.3%。
+                  死亡リスクだけでなく重篤な疾患による
+                  廃業リスクも現実的な脅威として存在します。
+                  家族がいる場合、廃業による収入ゼロは
+                  死亡に準じる深刻な打撃となります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 法人化時の保障断絶リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  フリーランスエンジニアが法人化（一人法人）すると、
+                  社長として厚生年金に加入でき
+                  遺族厚生年金が発生します。
+                  しかし個人事業主のままでいる間は
+                  遺族厚生年金がゼロのままです。
+                  法人化を検討している場合でも、
+                  それまでの期間は民間生命保険で
+                  遺族厚生年金の空白を補い続けることが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 子のない配偶者への保障がゼロになるリスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  子のないフリーランス夫婦の場合、
+                  遺族基礎年金が支給されません。
+                  遺族厚生年金もないため、
+                  パートナーが受け取れる公的給付は
+                  寡婦年金（最高年約61万2,000円・60〜65歳のみ）のみです。
+                  DINKSのフリーランスカップルにとって、
+                  生命保険は特に重要な備えとなります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/karoshiboushi/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>
+              <a href="https://www.cas.go.jp/jp/seisaku/atarashii_sihonsyugi/freelance/pdf/chousakekka.pdf" target="_blank" rel="noopener noreferrer" className="underline">内閣官房「フリーランス実態調査」2021年</a>
+              <a href="https://www.jili.or.jp/lifeplan/socialsecurity/1.html" target="_blank" rel="noopener noreferrer" className="underline">生命保険文化センター「公的な遺族年金の仕組みについて」2026年度</a>
+            </p>
+          </section>
+
+          {/* セクション4：ライフステージ別の考え方 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">フリーランスエンジニアのライフステージ別・生命保険の考え方</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  stage: '20代・独身・フリーランス転向直後',
+                  need: '低〜中',
+                  needColor: 'bg-green-100 text-green-700',
+                  detail: '扶養家族なし。就業不能保険・医療保険を優先。生命保険は最小限でよい。ただし法人化前の遺族厚生年金ゼロを認識しておく。',
+                },
+                {
+                  stage: '30代・パートナーあり・子なし',
+                  need: '中',
+                  needColor: 'bg-yellow-100 text-yellow-700',
+                  detail: '子のないDINKSでも遺族基礎年金がなくなる点に注意。遺族厚生年金の空白を補う収入保障保険への加入を検討。',
+                },
+                {
+                  stage: '30〜40代・既婚・子あり',
+                  need: '高',
+                  needColor: 'bg-red-100 text-red-700',
+                  detail: '必要保障額が最大の時期。遺族基礎年金のみでは家族の生活費・教育費が全く足りない。収入保障保険＋定期保険で6,000万円以上の保障確保が推奨。',
+                },
+                {
+                  stage: '40代後半〜・法人化検討中',
+                  need: '中',
+                  needColor: 'bg-yellow-100 text-yellow-700',
+                  detail: '法人化後は遺族厚生年金が発生するため生命保険の必要性が下がる。法人化前後で保険の見直しが必要。法人化後は法人保険の活用も検討。',
+                },
+              ].map((s, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0">
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${s.needColor}`}>必要度：{s.need}</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{s.stage}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{s.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">フリーランスエンジニアの生命保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '遺族厚生年金の空白額を正確に計算する',
+                  detail: '会社員と比べた場合の遺族厚生年金の空白額を把握することが第一歩です。年収・年齢・家族構成を入力してねんきんネットで試算するか、年金事務所に問い合わせることで概算が確認できます。この空白額が民間生命保険で補うべき金額の基準になります。',
+                },
+                {
+                  number: '02',
+                  title: '収入保障保険で効率的に高額保障を確保する',
+                  detail: 'フリーランスエンジニアの必要保障額は5,000万〜8,000万円規模になるケースが多いです。一括払いの定期保険より、毎月一定額を年金形式で支給する収入保障保険の方が同じ保険料でより大きな保障が得られます。月20〜30万円×65歳までという設計が一般的です。',
+                },
+                {
+                  number: '03',
+                  title: '就業不能保険との優先順位を理解する',
+                  detail: 'フリーランスエンジニアは①就業不能保険（働けない時の収入補填）②生命保険（死亡時の遺族保障）③医療保険（入院・手術費用）の順で優先度が高いです。すべてに加入する場合は合計保険料が月収の5%以内に収まるよう設計してください。',
+                },
+                {
+                  number: '04',
+                  title: '法人化を検討している場合は加入タイミングを考慮する',
+                  detail: 'フリーランスから一人法人に切り替えると遺族厚生年金が発生するため、生命保険の必要保障額が大幅に下がります。法人化が具体的な計画にある場合は、それを前提とした保険設計をFPに相談することをお勧めします。',
+                },
+                {
+                  number: '05',
+                  title: 'DINKSカップルは遺族基礎年金ゼロを前提に設計する',
+                  detail: '子のないフリーランスカップルの場合、遺族基礎年金が支給されません。パートナーへの遺族厚生年金もゼロのため、遺族が受け取れる公的給付は寡婦年金のみです。この現実を前提に、より手厚い生命保険の設計が必要です。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：遺族厚生年金がないことを知らなかった',
+                  situation: '35歳男性・フリーランスエンジニア歴5年。妻と子1人。',
+                  problem: '会社員時代の生命保険（死亡保障2,000万円）のまま独立。38歳で急性心筋梗塞で死亡。遺族厚生年金がなく、遺族基礎年金（年109万円）と死亡保険金2,000万円のみ。子が18歳になるまでの生活費・教育費に全く足りず、妻が実家に戻る事態になった。',
+                  lesson: 'フリーランス転向時に生命保険を必ず見直すこと。遺族厚生年金がなくなる分、民間保険の保障額を大幅に増やす必要がある。',
+                },
+                {
+                  title: '失敗②：DINKSで遺族基礎年金ゼロ・パートナーが無収入に',
+                  situation: '40歳男性・フリーランスエンジニア。妻（専業主婦）・子なし。',
+                  problem: 'がんで死亡。子がいないため遺族基礎年金は支給されず、遺族厚生年金もゼロ。民間生命保険も最小限だったため、妻が受け取れた公的給付は寡婦年金（60歳以降に年約61万円）のみ。それまでの20年間を民間保険金だけで生活することになった。',
+                  lesson: '子のないフリーランスカップルは遺族基礎年金も遺族厚生年金もゼロ。生命保険で手厚く備えること。',
+                },
+                {
+                  title: '失敗③：就業不能保険を優先して生命保険を後回しにした',
+                  situation: '32歳男性・フリーランスエンジニア。妻と子1人。',
+                  problem: '就業不能保険・医療保険には加入していたが「まだ若いから」と生命保険を後回しにしていた。33歳で交通事故で死亡。就業不能保険・医療保険は生命保険の代わりにならず、遺族が受け取れたのは遺族基礎年金のみ。',
+                  lesson: '家族がいるフリーランスは就業不能保険だけでなく生命保険も同時に加入すること。どちらが先に必要になるかは誰にもわからない。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-blue-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション7：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">生命保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '遺族厚生年金がないことを認識し、必要保障額を計算した',
+                '2026年度の遺族基礎年金額（子1人：年109万1,100円）を把握した',
+                '子のないDINKSカップルは遺族基礎年金ゼロを前提に設計した',
+                '収入保障保険で5,000万〜8,000万円規模の保障を確保した',
+                '就業不能保険→生命保険→医療保険の優先順位を理解した',
+                '法人化計画がある場合は保険設計への影響を確認した',
+                '合計保険料を月収の5%以内に抑えた',
+                '複数のFP・保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
