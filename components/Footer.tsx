@@ -118,7 +118,7 @@ export default function Footer() {
             <p className="text-white text-sm font-semibold mb-3 mt-6">サービス</p>
             <ul className="space-y-2">
               <li><Link href="/simulator" className="text-xs hover:text-white transition-colors">保険料診断</Link></li>
-              <li><Link href="/consult" className="text-xs hover:text-white transition-colors">無料保険相談</Link></li>
+              <li><Link href="/simulator" className="text-xs hover:text-white transition-colors">無料診断</Link></li>
               <li><Link href="/about" className="text-xs hover:text-white transition-colors">サイトについて</Link></li>
               <li><Link href="/privacy" className="text-xs hover:text-white transition-colors">プライバシーポリシー</Link></li>
             </ul>

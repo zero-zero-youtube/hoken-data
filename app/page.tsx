@@ -136,11 +136,11 @@ export default async function Home() {
               無料で保険料診断する →
             </Link>
             <Link
-              href="/simulator"
+              href="/occupation"
               className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition-colors"
-              aria-label="ファイナンシャルプランナーに無料で保険料診断する"
+              aria-label="職業別の保険料相場を調べる"
             >
-              無料で保険料診断する →
+              職業別に調べる →
             </Link>
           </div>
         </div>
