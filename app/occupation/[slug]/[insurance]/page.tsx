@@ -355,6 +355,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDoctorIncomeProtection = occ.slug === 'doctor' && ins.slug === 'income-protection'
   const isNurseCancer = occ.slug === 'nurse' && ins.slug === 'cancer'
   const isEngineerMedical = occ.slug === 'engineer' && ins.slug === 'medical'
+  const isCivilServantIncomeProtection = occ.slug === 'civil-servant' && ins.slug === 'income-protection'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5305,6 +5306,259 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 地方公務員×就業不能保険 専用コンテンツ */}
+      {isCivilServantIncomeProtection && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">地方公務員に就業不能保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              「公務員は手厚い共済があるから就業不能保険は不要」
+              という認識は半分正解・半分誤りです。
+              公立学校教員や地方公務員の共済組合は
+              休職中の給与補償が充実していますが、
+              それには期限があります。
+              公立公務員の場合、休職1年目は給与100%、
+              2年目は給与80%が支給されますが、
+              3年目以降は無給となります。
+              精神疾患による休職が3年を超えるケースでは
+              民間の就業不能保険が必要になります。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              総務省の調査によると地方公務員の
+              メンタルヘルス休職者数は10年連続増加・過去最多。
+              精神疾患による休職が長期化するリスクは
+              公務員にとっても現実的な問題です。
+              共済の手厚い保障を正確に把握した上で、
+              3年目以降の「保障の空白」に備えることが重要です。
+            </p>
+            <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-indigo-800">
+                💡 地方公務員の就業不能保険：共済でカバーされない部分を理解する
+              </p>
+              <p className="text-indigo-700 text-sm mt-1">
+                公立公務員の休職給与：<br />
+                1年目：給与100%<br />
+                2年目：給与80%<br />
+                3年目以降：無給（民間就業不能保険が必要）<br /><br />
+                多くの精神疾患は2〜3年で回復しますが、
+                重症例では3年を超えることもあります。
+                「3年目以降の保障」として民間保険を活用してください。
+              </p>
+              <p className="text-xs text-indigo-600 mt-2">
+                出典：<a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/koumuin/kyuusoku.html" target="_blank" rel="noopener noreferrer" className="underline">総務省「地方公務員の休職制度」</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：共済保障と民間保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">共済の休職給与補償と民間就業不能保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">休職期間</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">公立公務員（共済）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">私立・民間類似職</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">民間就業不能保険の役割</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['休職1年目', '✅ 給与100%支給', '傷病手当金（月収67%）', '補完不要（十分な保障あり）'],
+                    ['休職2年目', '✅ 給与80%支給', '傷病手当金終了→無給', '20%分の収入補填'],
+                    ['休職3年目以降', '❌ 無給', '❌ 無給', '✅ 全額補填が必要'],
+                    ['休職上限→免職', '休職3年で分限免職の可能性', '解雇の可能性', '失業後の生活費補填'],
+                  ].map(([period, civil, private_, role], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{period}</td>
+                      <td className="px-4 py-3 text-gray-600">{civil}</td>
+                      <td className="px-4 py-3 text-gray-600">{private_}</td>
+                      <td className="px-4 py-3 text-gray-700">{role}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mt-4">
+              <p className="font-bold text-yellow-800 mb-2">⚠️ 公務員の「分限免職」リスクに注意</p>
+              <p className="text-yellow-700 text-sm">
+                公務員は法律で身分が保障されていますが、
+                休職期間が上限（通常3年）を超えると
+                「分限免職（能力・適格性を欠くとして免職）」
+                になる可能性があります。
+                免職後は公務員の身分を失い、
+                公的年金・社会保険も変わります。
+                この最悪のシナリオに備えた長期的な
+                就業不能保険が重要です。
+              </p>
+              <p className="text-xs text-yellow-600 mt-2">
+                出典：<a href="https://elaws.e-gov.go.jp/document?lawid=325AC0000000261" target="_blank" rel="noopener noreferrer" className="underline">地方公務員法第28条（分限）</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション3：就業不能リスクの実態 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">地方公務員が直面する就業不能リスクの実態</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 精神疾患休職：10年連続増加・平均休職期間1年以上</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  総務省「地方公務員の健康状況等の現況（2022年）」によると、
+                  地方公務員のメンタルヘルス休職者数は10年連続増加。
+                  住民対応・議会対応・ハラスメント問題が主な原因で、
+                  精神疾患による平均休職期間は1年以上のケースが多いです。
+                  休職2年目から給与が80%に減額され、
+                  3年目以降は無給になるため、
+                  長期化した場合の収入補填が必要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 長時間労働：国家公務員の月平均残業20.4時間</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  人事院「国家公務員給与等実態調査（2022年）」によると、
+                  国家公務員の時間外勤務月平均は20.4時間。
+                  地方公務員でも議会対応・災害対応・年度末などに
+                  長時間残業が発生しやすく、
+                  過労による心疾患・脳血管疾患リスクがあります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 休職3年後の「収入の崖」</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  公務員の休職給与は1年目100%→2年目80%→3年目以降0%。
+                  月収40万円の公務員が3年間休職した場合の収入シミュレーション：<br />
+                  1年目：月40万円（計480万円）<br />
+                  2年目：月32万円（計384万円）<br />
+                  3年目：月0円（収入の崖）<br />
+                  3年目以降に就業不能保険がなければ
+                  家族の生活が危機に瀕します。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/koumuin/kenkoukanri.html" target="_blank" rel="noopener noreferrer" className="underline">総務省「地方公務員の健康状況等の現況」2022年</a>
+              <a href="https://www.jinji.go.jp/toukei/kyuuyo/jtoukeisho.html" target="_blank" rel="noopener noreferrer" className="underline">人事院「国家公務員給与等実態調査」2022年</a>
+              <a href="https://elaws.e-gov.go.jp/document?lawid=325AC0000000261" target="_blank" rel="noopener noreferrer" className="underline">地方公務員法第28条</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">地方公務員の就業不能保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '支払対象外期間は2年（730日）に設定する',
+                  detail: '公立公務員は休職1〜2年目は給与補償があるため、就業不能保険の支払対象外期間を2年（730日）に設定することで保険料を大幅に抑えながら「3年目以降の保障の空白」に備えられます。これが公務員にとって最も効率的な設計です。',
+                },
+                {
+                  number: '02',
+                  title: '精神疾患特約は必須・給付日数の上限を確認する',
+                  detail: '地方公務員の精神疾患休職者数が10年連続増加している現状を踏まえ、精神疾患特約は必須です。精神疾患の回復には長期間かかるケースがあるため、給付日数に上限がない（または1,000日超の）商品を選んでください。',
+                },
+                {
+                  number: '03',
+                  title: '月額給付金は給与の20〜100%をカバーできる水準に設定する',
+                  detail: '休職2年目は給与80%のため不足分は20%。休職3年目以降は給与0%のため全額が必要です。段階的に保障が必要になる公務員の場合、「支払対象外期間2年・月額給付金は月収の50〜70%」という設計が現実的です。',
+                },
+                {
+                  number: '04',
+                  title: '分限免職後の生活費も考慮した長期保障を選ぶ',
+                  detail: '休職3年で分限免職になった場合、公務員の身分を失い収入がゼロになります。再就職までの期間（6ヶ月〜2年程度）の生活費をカバーできる長期の就業不能保険を選んでください。保険期間は最低でも65歳満了を選ぶことをお勧めします。',
+                },
+                {
+                  number: '05',
+                  title: '私立学校教員・独立行政法人職員は共済内容を先に確認',
+                  detail: '私立学校教員・独立行政法人職員は公立公務員と異なる共済・健康保険に加入しています。休職時の給与補償の内容が異なるため、勤務先の人事・総務部門に確認した上で就業不能保険の設計をしてください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：共済があるから不要と思い3年目で収入ゼロ',
+                  situation: '40代女性・市役所職員。',
+                  problem: 'うつ病で休職。1年目・2年目は共済の給与補償で生活できたが、3年目に突入した時点で無給に。就業不能保険に未加入だったため、住宅ローンの支払いが困難になり自宅を手放すことを検討せざるを得なかった。',
+                  lesson: '公務員の給与補償は3年目で終了。「3年目以降の保障の空白」に備えて就業不能保険に加入すること。',
+                },
+                {
+                  title: '失敗②：支払対象外期間が短すぎて保険料の無駄が発生',
+                  situation: '30代男性・県庁職員。',
+                  problem: '支払対象外期間60日の就業不能保険に加入。1年目は共済で給与100%保障があるため、就業不能保険の給付を受けても共済と合わせて収入が過剰になった。支払対象外期間2年に設定すれば同じ保障でより安い保険料にできたことが判明。',
+                  lesson: '公務員は支払対象外期間を2年に設定することで保険料を効率化できる。',
+                },
+                {
+                  title: '失敗③：精神疾患特約なしで最も必要な場面で給付ゼロ',
+                  situation: '30代女性・小学校教諭。',
+                  problem: 'モンスターペアレントへの対応ストレスから適応障害を発症し休職。就業不能保険に加入していたが精神疾患特約なしのタイプで給付がゼロ。共済の給与補償はあったが、入院費用・治療費の自己負担が重くなった。',
+                  lesson: '地方公務員は精神疾患リスクが高い。精神疾患特約は必ず付帯すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-indigo-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">就業不能保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '共済の休職給与補償（1年目100%・2年目80%・3年目以降0%）を把握した',
+                '支払対象外期間を2年（730日）に設定して保険料を効率化した',
+                '3年目以降の「保障の空白」に備える月額給付金を設定した',
+                '精神疾患特約付き・給付日数1,000日以上の商品を選んだ',
+                '分限免職後の長期収入補填を考慮した保険期間を選んだ',
+                '私立学校・独立行政法人の場合は勤務先の共済内容を確認した',
+                '医療保険との組み合わせも検討した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
