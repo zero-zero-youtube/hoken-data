@@ -356,6 +356,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isNurseCancer = occ.slug === 'nurse' && ins.slug === 'cancer'
   const isEngineerMedical = occ.slug === 'engineer' && ins.slug === 'medical'
   const isCivilServantIncomeProtection = occ.slug === 'civil-servant' && ins.slug === 'income-protection'
+  const isTeacherIncomeProtection = occ.slug === 'teacher' && ins.slug === 'income-protection'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5306,6 +5307,253 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 教員×就業不能保険 専用コンテンツ */}
+      {isTeacherIncomeProtection && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">教員・教師に就業不能保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              教員は2022年度に精神疾患による休職者数が
+              過去最多の6,539人を記録した職種です。
+              公立学校教員は共済組合による手厚い休職給与補償
+              （1年目100%・2年目80%）がありますが、
+              3年目以降は無給となります。
+              精神疾患の治療が長期化した場合、
+              「3年目の収入の崖」に備えた就業不能保険が必要です。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              また私立学校教員は学校によって保障内容が異なり、
+              公立教員より休職給与補償が薄いケースがあります。
+              さらに早期退職・転職を選択した場合も
+              収入が大幅に低下するため、
+              就業不能保険による長期的な収入補償が
+              教員にとって重要な備えとなります。
+            </p>
+            <div className="bg-purple-50 border-l-4 border-purple-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-purple-800">
+                💡 教員の就業不能保険：公立と私立で設計が異なる
+              </p>
+              <p className="text-purple-700 text-sm mt-1">
+                公立学校教員：<br />
+                休職1年目100%→2年目80%→3年目以降0%<br />
+                → 支払対象外期間2年設定が最適<br /><br />
+                私立学校教員：<br />
+                学校によって異なる（傷病手当金のみの場合も）<br />
+                → 勤務先の保障を確認してから設計する
+              </p>
+              <p className="text-xs text-purple-600 mt-2">
+                出典：<a href="https://www.mext.go.jp/a_menu/shotou/jinji/index.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「公立学校教職員の休職制度」</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：共済補償と就業不能保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">教員の共済休職補償と就業不能保険で補うべき部分</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">休職期間</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">公立学校教員（共済）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">私立学校教員</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">就業不能保険の役割</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['休職1年目', '✅ 給与100%', '傷病手当金（月収67%）', '公立は補完不要・私立は33%分補填'],
+                    ['休職2年目', '✅ 給与80%', '傷病手当金終了→無給', '公立は20%補填・私立は全額補填'],
+                    ['休職3年目以降', '❌ 無給', '❌ 無給', '✅ 全額補填が必要'],
+                    ['早期退職後', '退職手当減額・年金のみ', '退職手当・年金のみ', '✅ 再就職までの収入補填'],
+                  ].map(([period, pub, priv, role], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{period}</td>
+                      <td className="px-4 py-3 text-gray-600">{pub}</td>
+                      <td className="px-4 py-3 text-gray-600">{priv}</td>
+                      <td className="px-4 py-3 text-gray-700">{role}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.mext.go.jp/a_menu/shotou/jinji/index.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「公立学校共済組合給付の概要」</a>
+              <a href="https://www.kyoukaikenpo.or.jp/g3/cat310/sb3040/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a>
+            </p>
+          </section>
+
+          {/* セクション3：就業不能リスクの実態 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">教員が直面する就業不能リスクの実態</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 精神疾患休職：過去最多6,539人・全就業者平均の3倍</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  文部科学省「公立学校教職員の人事行政状況調査（2022年度）」によると、
+                  精神疾患で休職した公立学校教員は6,539人（過去最多）。
+                  教員全体の0.71%が精神疾患で休職しており、
+                  この割合は全就業者平均の約3倍に相当します。
+                  主な原因は保護者対応・長時間労働・部活動指導・
+                  同僚・管理職との人間関係です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 平均休職期間：1年以上が多数</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  教員の精神疾患による休職は長期化しやすく、
+                  1年以上の休職事例が多数報告されています。
+                  文部科学省の調査では、
+                  精神疾患休職者の約40%が2年以上休職しており、
+                  公立教員の「3年目の無給」に直面するケースが
+                  決して稀ではありません。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 早期退職による退職手当の激減</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  精神疾患で長期休職後に早期退職した場合、
+                  定年まで勤めた場合と比べて退職手当が
+                  大幅に減額されます。
+                  勤続20年での早期退職と勤続35年での定年退職では、
+                  退職手当に1,000万円以上の差が生じるケースがあります。
+                  早期退職後の収入低下期間を支える
+                  就業不能保険の重要性は高いです。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 声帯疾患・腰痛による就業制限</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  教員は声を酷使する職業であり、
+                  声帯ポリープ・声帯結節による手術後の
+                  発声制限期間（1〜3ヶ月）に授業ができない状態になります。
+                  また腰痛による就業制限も教員に多い就業不能要因です。
+                  これらの疾患が就業不能保険の給付対象かどうかも
+                  確認が必要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.mext.go.jp/a_menu/shotou/jinji/1411820.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「公立学校教職員の人事行政状況調査」2022年度</a>
+              <a href="https://www.mext.go.jp/b_menu/houdou/2023/1411715_00001.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「教員勤務実態調査」2022年度</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">教員の就業不能保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '公立教員は支払対象外期間を2年に設定する',
+                  detail: '公立学校教員は休職1〜2年目に給与補償があるため、就業不能保険の支払対象外期間を2年（730日）に設定することで保険料を大幅に抑えながら「3年目以降の保障の空白」に備えられます。私立学校教員は傷病手当金の期間（最長18ヶ月）に合わせて支払対象外期間を設定してください。',
+                },
+                {
+                  number: '02',
+                  title: '精神疾患特約は必須・給付日数の上限なしを選ぶ',
+                  detail: '教員の精神疾患休職者数は全就業者平均の3倍。精神疾患特約は必須であり、給付日数に上限がない（または1,000日超の）商品を選んでください。重症例では3年以上の治療が必要なケースがあるため、長期給付に対応した商品が重要です。',
+                },
+                {
+                  number: '03',
+                  title: '声帯疾患・腰痛が就業不能の給付対象か確認する',
+                  detail: '声帯ポリープ手術後の発声制限・腰痛による授業不能状態が就業不能保険の給付対象になるかどうかを確認してください。「全く働けない状態」のみ対象の保険では、声が出ない・立てないが出勤はできる状態が給付対象外になる可能性があります。',
+                },
+                {
+                  number: '04',
+                  title: '早期退職後の収入補填期間を考慮する',
+                  detail: '精神疾患で早期退職した場合、退職後の再就職・収入回復までの期間の生活費補填が必要です。就業不能保険の保険期間を65歳満了に設定することで、早期退職後も保障が継続します。',
+                },
+                {
+                  number: '05',
+                  title: '私立学校教員は勤務先の保障を先に確認する',
+                  detail: '私立学校教員は学校によって休職時の給与補償が大きく異なります。傷病手当金のみの場合は最長18ヶ月後に無給となるため、支払対象外期間の設定が公立教員とは異なります。勤務先の総務・人事部門に確認してから設計してください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：3年目に無給になり住宅ローンが払えなくなった',
+                  situation: '40代男性・公立中学校教諭。住宅ローン残債2,500万円。',
+                  problem: 'バーンアウトで休職。1年目・2年目は共済の給与補償で生活できたが、3年目に突入した時点で完全に無給に。就業不能保険に未加入だったため住宅ローンの支払いが困難になり、自宅売却を余儀なくされた。',
+                  lesson: '公立教員でも3年目以降は無給。「3年目の収入の崖」に備えた就業不能保険は必須。',
+                },
+                {
+                  title: '失敗②：精神疾患特約なしで最も必要な給付がゼロ',
+                  situation: '20代女性・公立小学校教諭。採用2年目。',
+                  problem: '保護者からのクレームが続きうつ病を発症して休職。就業不能保険に加入していたが精神疾患特約なしのタイプで給付ゼロ。共済の給与補償はあったが、精神科の治療費・薬代が家計を圧迫した。',
+                  lesson: '教員は精神疾患リスクが全就業者の3倍。精神疾患特約は必ず付帯すること。',
+                },
+                {
+                  title: '失敗③：私立学校で傷病手当金が18ヶ月で終了し無保障に',
+                  situation: '35歳女性・私立高校教諭。',
+                  problem: '適応障害で休職。私立学校のため傷病手当金（最長18ヶ月）のみの保障だったが、就業不能保険の支払対象外期間を2年に設定していたため、傷病手当金終了後〜就業不能保険の給付開始まで6ヶ月間の空白期間が発生し無収入になった。',
+                  lesson: '私立学校教員は傷病手当金の期間（18ヶ月）に合わせた支払対象外期間の設定が必要。公立教員と混同しないこと。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-purple-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">就業不能保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '公立か私立かで休職時の保障内容が異なることを把握した',
+                '公立：支払対象外期間2年設定で保険料を効率化した',
+                '私立：傷病手当金期間（18ヶ月）に合わせた支払対象外期間を設定した',
+                '精神疾患特約付き・給付日数1,000日以上の商品を選んだ',
+                '声帯疾患・腰痛の就業不能給付条件を確認した',
+                '早期退職後の収入補填を考慮した65歳満了の保険期間を選んだ',
+                '医療保険との組み合わせも検討した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
