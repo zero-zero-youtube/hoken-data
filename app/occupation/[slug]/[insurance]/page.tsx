@@ -335,6 +335,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFixedRange = ins.slug === 'auto' || ins.slug === 'fire'
   const isFreelanceIncomeProtection = occ.slug === 'freelance-engineer' && ins.slug === 'income-protection'
   const isNurseIncomeProtection = occ.slug === 'nurse' && ins.slug === 'income-protection'
+  const isConstructionMedical = occ.slug === 'construction' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -1248,6 +1249,280 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 '夜勤手当込みの実収入を基準に保障額を設定した',
                 '傷病手当金との調整条項の有無を確認した',
                 '看護職賠償責任保険（日本看護協会・年1,580円）との違いを理解した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="text-[#2563eb] font-bold flex-shrink-0">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 建設業×医療保険 専用コンテンツ */}
+      {isConstructionMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* Section 1：リード文 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              建設業・現場作業員に医療保険が必要な理由
+            </h2>
+            <div className="text-gray-700 leading-relaxed space-y-4 text-sm">
+              <p>
+                建設業は全産業の中で最も死亡労働災害が多い業種の一つです。厚生労働省の「労働災害発生状況（2023年）」によると、建設業の死亡災害は全産業の約30%を占め、休業4日以上の労働災害発生率は全産業平均の約3.5倍に達します。現場での骨折・転落・熱中症・じん肺など、建設業特有のリスクに備えるための医療保険選びには特別な注意が必要です。
+              </p>
+              <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl">
+                <p className="font-bold text-orange-800">⚠ 建設業の医療保険で最も重要な前提</p>
+                <p className="text-orange-700 text-sm mt-1">
+                  建設業では労働災害（労災）が発生した場合、労災保険が優先適用されます。しかし労災認定されない場合（私傷病・通勤外事故等）や、労災では補填されない差額ベッド代・食事代・生活費などは民間の医療保険が必要です。労災保険と民間医療保険の役割分担を正しく理解することが重要です。
+                </p>
+                <p className="text-xs text-orange-600 mt-2">
+                  出典：
+                  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/rousaihoken06.html" target="_blank" rel="noopener noreferrer" className="underline">
+                    厚生労働省「労働災害発生状況」2023年
+                  </a>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 2：労災保険と民間医療保険の役割分担 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              労災保険と民間医療保険の役割分担
+            </h2>
+            <p className="text-sm text-gray-700 mb-4">
+              建設業の方が医療保険を選ぶ前に、労災保険でカバーされる範囲を正確に把握することが重要です。
+            </p>
+            <div className="overflow-x-auto mb-4">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">費用の種類</th>
+                    <th className="text-center p-3">労災保険</th>
+                    <th className="text-center p-3">民間医療保険</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { item: '業務中の怪我・治療費', rousai: '✅ 全額補償（自己負担ゼロ）', private: '△ 労災認定後の差額のみ' },
+                    { item: '通勤中の怪我', rousai: '✅ 通勤災害として補償', private: '△ 補完的' },
+                    { item: '私傷病（業務外の病気）', rousai: '❌ 対象外', private: '✅ 主な給付対象' },
+                    { item: '差額ベッド代', rousai: '❌ 対象外', private: '✅ 特約で補償可能' },
+                    { item: '休業中の収入補填', rousai: '✅ 休業補償給付（給付基礎日額の80%）', private: '✅ 就業不能保険で補完' },
+                    { item: 'じん肺・職業性疾患', rousai: '✅ 職業病として補償（認定要件あり）', private: '△ 認定されない場合は民間保険' },
+                  ].map((row, i) => (
+                    <tr key={row.item} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.item}</td>
+                      <td className="p-3 text-center text-xs">{row.rousai}</td>
+                      <td className="p-3 text-center text-xs font-semibold text-[#2563eb]">{row.private}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">
+              出典：
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                厚生労働省「労働者災害補償保険法」
+              </a>
+            </p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 rounded-r-xl p-4 text-sm">
+              建設業の方にとって民間医療保険が特に重要なのは、「私傷病（業務外の病気）」への備えです。がん・心疾患・脳血管疾患などの重大疾病は労災対象外であり、これらへの備えが民間医療保険の主な役割となります。
+            </div>
+          </section>
+
+          {/* Section 3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              建設業・現場作業員が直面する健康リスクの実態（政府統計）
+            </h2>
+            <div className="space-y-6 text-sm text-gray-700">
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">① 死亡・重傷災害：全産業の約30%</h3>
+                <p className="leading-relaxed">
+                  厚生労働省「労働災害発生状況（2023年）」によると、建設業の死亡災害件数は全産業の約30%を占め、製造業（約20%）を大幅に上回ります。主な死亡原因は「墜落・転落（約40%）」「建設機械等（約15%）」。重傷を負った場合、長期入院・手術・リハビリが必要となり、医療費と収入損失が家計に直撃します。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">② 腰痛・骨折：労災第1位の疾病</h3>
+                <p className="leading-relaxed">
+                  厚生労働省「業務上疾病発生状況（2022年）」によると、建設業の業務上疾病の第1位は「腰痛」で、重量物の取り扱いや不自然な姿勢による腰椎への慢性的な負荷が原因です。また転落・落下物による骨折も多く、骨折の平均入院日数は約35日（厚生労働省「患者調査」2022年）と長期になりがちです。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">③ 熱中症：建設業が全産業の約25%</h3>
+                <p className="leading-relaxed">
+                  厚生労働省「職場における熱中症による死傷災害の発生状況（2023年）」によると、熱中症による死傷者のうち建設業が全産業の約25%を占め、屋外での長時間作業が主な原因です。重篤な熱中症は入院・集中治療が必要で、後遺症が残るケースもあります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#0f172a] text-base mb-2">④ じん肺・石綿関連疾患：長期潜伏リスク</h3>
+                <p className="leading-relaxed">
+                  建設業のじん肺（けい肺・石綿肺）は、粉塵を長期間吸入することで発症する職業性疾患です。厚生労働省「じん肺健康管理実施状況報告（2022年）」によると、建設業のじん肺有所見者率は他業種の約5倍。アスベスト（石綿）関連疾患（中皮腫・肺がん）は20〜40年の潜伏期間があり、退職後に発症するケースも多いです。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/rousaihoken06.html" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:underline">
+                厚生労働省「労働災害発生状況」2023年
+              </a>
+              、厚生労働省「業務上疾病発生状況」2022年、厚生労働省「職場における熱中症による死傷災害の発生状況」2023年、厚生労働省「じん肺健康管理実施状況報告」2022年
+            </p>
+          </section>
+
+          {/* Section 4：一人親方 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              一人親方・個人事業主の建設業者は医療保険が特に重要
+            </h2>
+            <div className="bg-red-50 border border-red-200 rounded-xl p-5 mb-5">
+              <p className="font-bold text-red-800 mb-2">🔴 一人親方が知っておくべき重要な事実</p>
+              <ul className="text-red-700 text-sm space-y-1.5">
+                <li>❌ 傷病手当金なし（国民健康保険のため）</li>
+                <li>❌ 有給休暇なし</li>
+                <li>△ 労災保険：特別加入制度あり（任意・年間保険料約1〜3万円）</li>
+                <li>❌ 労災特別加入なしの場合、業務中の怪我も自己負担</li>
+              </ul>
+              <p className="text-xs text-red-600 mt-2">
+                出典：
+                <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/dl/hokenryou02.pdf" target="_blank" rel="noopener noreferrer" className="underline">
+                  厚生労働省「一人親方等の特別加入」
+                </a>
+              </p>
+            </div>
+            <p className="text-sm text-gray-700 leading-relaxed mb-5">
+              一人親方は労災保険の「特別加入制度」に任意で加入できますが、未加入の場合は業務中の怪我も自己負担になります。また傷病手当金がないため、病気・怪我で働けない期間の収入は完全にゼロになります。医療保険に加えて就業不能保険への加入も強く検討することをお勧めします。
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="text-left p-3">項目</th>
+                    <th className="text-center p-3">会社員建設業者</th>
+                    <th className="text-center p-3">一人親方（個人事業主）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { item: '健康保険', company: '健康保険（協会けんぽ）', hitori: '国民健康保険' },
+                    { item: '傷病手当金', company: '✅ あり（月収67%・最長18ヶ月）', hitori: '❌ なし' },
+                    { item: '労災保険', company: '✅ 自動加入', hitori: '△ 特別加入（任意・年1〜3万円）' },
+                    { item: '業務中の怪我', company: '✅ 労災保険適用', hitori: '特別加入なし→❌ 全額自己負担' },
+                  ].map((row, i) => (
+                    <tr key={row.item} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                      <td className="p-3 font-medium">{row.item}</td>
+                      <td className="p-3 text-center text-xs">{row.company}</td>
+                      <td className="p-3 text-center text-xs font-semibold text-red-700">{row.hitori}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Section 5：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              建設業の医療保険選び5つのチェックポイント
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  num: '01',
+                  title: '労災保険との重複・調整を確認する',
+                  detail: '業務中の怪我は労災保険が優先されます。民間医療保険と労災保険が重複した場合の調整条項を確認してください。一般的に民間医療保険は労災保険と重複しても給付されますが、保険会社によって異なります。',
+                },
+                {
+                  num: '02',
+                  title: '骨折・外傷の入院日額が十分か',
+                  detail: '建設業は骨折・外傷による長期入院リスクが高いです。骨折の平均入院日数は約35日のため、入院日額5,000円の場合17.5万円の給付になります。差額ベッド代・食事代・収入損失を考慮すると、入院日額1万円以上が推奨されます。',
+                },
+                {
+                  num: '03',
+                  title: 'じん肺・職業性疾患が給付対象か',
+                  detail: 'じん肺・石綿肺などの職業性疾患が民間医療保険の給付対象になるかどうかを確認してください。労災認定された場合は労災保険が適用されますが、認定要件を満たさない場合や認定までの期間中は民間保険が頼りになります。',
+                },
+                {
+                  num: '04',
+                  title: '熱中症が給付対象か',
+                  detail: '熱中症による入院が医療保険の給付対象になるかどうかを確認してください。業務中の熱中症は労災認定される可能性がありますが、プライベート中の熱中症は民間医療保険の対象となります。先進医療特約の内容も確認しましょう。',
+                },
+                {
+                  num: '05',
+                  title: '一人親方は就業不能保険との組み合わせを検討',
+                  detail: '一人親方は傷病手当金がないため、医療保険だけでなく就業不能保険との組み合わせが重要です。労災保険の特別加入（年1〜3万円）も合わせて検討することで、業務中・業務外両方のリスクを効率的にカバーできます。',
+                },
+              ].map(cp => (
+                <div key={cp.num} className="bg-[#f8fafc] rounded-xl p-5 border border-gray-200">
+                  <div className="flex items-start gap-3 mb-2">
+                    <span className="text-2xl font-bold text-[#2563eb] opacity-40 leading-none flex-shrink-0">{cp.num}</span>
+                    <p className="font-bold text-[#0f172a] text-sm">{cp.title}</p>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{cp.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 6：よくある失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              建設業の医療保険でよくある失敗事例3選
+            </h2>
+            <div className="space-y-4 text-sm">
+              {[
+                {
+                  title: '失敗①：労災認定されず医療費が全額自己負担',
+                  situation: '40代男性・一人親方・建設業。労災保険特別加入なし。',
+                  problem: '足場作業中に転落して腰椎骨折。入院費・手術費で約150万円。労災保険特別加入をしていなかったため全額自己負担。貯蓄が底をつき、治療を中断する事態に。',
+                  lesson: '一人親方は労災保険の特別加入（年1〜3万円）と民間医療保険の両方に加入すること。',
+                },
+                {
+                  title: '失敗②：じん肺が既往症として告知義務違反になった',
+                  situation: '50代男性・建設業20年以上のベテラン職人。',
+                  problem: '医療保険に加入する際、健康診断でじん肺の疑いを指摘されていたにもかかわらず告知しなかった。後にじん肺と確定診断されたが、告知義務違反として保険を解除された。',
+                  lesson: 'じん肺の疑いがある場合は必ず告知すること。既往症があっても引受可能な保険を専門家に相談する。',
+                },
+                {
+                  title: '失敗③：入院日額が低すぎて生活費を賄えなかった',
+                  situation: '30代男性・建設会社勤務。月収35万円。',
+                  problem: '転落事故による骨折で40日間入院。入院日額3,000円の医療保険では給付金12万円。差額ベッド代・食事代・収入減少分を合わせると実際の損失は50万円を超え、大幅な不足が生じた。',
+                  lesson: '建設業は入院が長期化するリスクが高い。入院日額は最低でも1万円以上を目安に設定すること。',
+                },
+              ].map(c => (
+                <div key={c.title} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 mb-2">{c.title}</p>
+                  <div className="space-y-1 text-gray-700">
+                    <p><span className="font-semibold text-gray-500">状況：</span>{c.situation}</p>
+                    <p><span className="font-semibold text-gray-500">問題：</span>{c.problem}</p>
+                    <p className="bg-white rounded-lg px-3 py-2 border border-red-100 mt-2">
+                      <span className="font-bold text-red-700">教訓：</span>{c.lesson}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 7：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">
+              建設業の医療保険：加入前の最終確認リスト
+            </h2>
+            <div className="space-y-2">
+              {[
+                '労災保険（会社加入または一人親方特別加入）の適用範囲を確認した',
+                '傷病手当金の有無（会社員か一人親方か）を確認した',
+                '骨折・外傷に備えて入院日額1万円以上を確保した',
+                'じん肺・職業性疾患の告知義務と給付条件を確認した',
+                '熱中症・高所作業特有のリスクへの備えを確認した',
+                '一人親方の場合は就業不能保険との組み合わせを検討した',
                 '複数の保険会社で見積もりを比較した',
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
