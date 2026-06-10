@@ -350,6 +350,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isCivilServantMedical = occ.slug === 'civil-servant' && ins.slug === 'medical'
   const isManagerLife = occ.slug === 'manager' && ins.slug === 'life'
   const isManufacturingMedical = occ.slug === 'manufacturing' && ins.slug === 'medical'
+  const isBeauticianMedical = occ.slug === 'beautician' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2101,6 +2102,214 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 美容師×医療保険 専用コンテンツ */}
+      {isBeauticianMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">美容師・理容師に医療保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              美容師・理容師は薬剤（カラー剤・パーマ液）・長時間立位・繊細な手作業など、職業特有の健康リスクが集中している職種です。厚生労働省の調査によると、美容師の職業性皮膚炎有病率は約40〜50%と極めて高く、腰痛・頸肩腕症候群・気道疾患など複数の職業性疾患を同時に抱えるケースも珍しくありません。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              また美容師は個人事業主・フリーランスとして働く割合が高く、社会保険（健康保険・傷病手当金）に加入できない場合、病気・ケガで働けなくなった際のリスクが正社員より大幅に高くなります。自分の雇用形態と保障内容を確認した上で、適切な医療保険・就業不能保険を組み合わせることが重要です。
+            </p>
+            <div className="bg-pink-50 border-l-4 border-pink-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-pink-800">💡 美容師・理容師が医療保険を考える際の重要な前提</p>
+              <p className="text-pink-700 text-sm mt-1">
+                美容師・理容師の雇用形態は多様です：<br/>
+                ①正社員・パート：社会保険加入→傷病手当金あり<br/>
+                ②業務委託・フリーランス：国民健康保険→傷病手当金なし<br/>
+                ③個人サロン経営（個人事業主）：国民健康保険→傷病手当金なし<br/>
+                まず自分の雇用形態を確認し、傷病手当金の有無を把握してください。
+              </p>
+              <p className="text-xs text-pink-600 mt-2">出典：厚生労働省「社会保険適用拡大特設サイト」</p>
+            </div>
+          </section>
+
+          {/* セクション2：雇用形態別の公的保障 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">雇用形態別の公的保障と医療保険の必要性</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>項目</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>正社員・社保加入パート</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>業務委託・個人事業主</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['健康保険','健康保険（協会けんぽ）','国民健康保険'],
+                    ['傷病手当金','✅ あり（月収67%・最長18ヶ月）','❌ なし'],
+                    ['労災保険','✅ 自動加入','△ 特別加入制度（任意）'],
+                    ['休業中の収入','傷病手当金で一部補填','❌ 収入ゼロ'],
+                    ['民間医療保険の優先度','中（差額ベッド代・先進医療への備え）','高（傷病手当金なし・収入補填必要）'],
+                  ].map(([item,regular,freelance],i)=>(
+                    <tr key={i} className={i%2===0?'bg-white':'bg-gray-50'}>
+                      <td className="border border-gray-200 px-4 py-3 font-medium text-gray-800">{item}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{regular}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{freelance}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-gray-600 mt-2">出典：全国健康保険協会「傷病手当金について」 / 厚生労働省「社会保険適用拡大」</p>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">美容師・理容師が直面する健康リスクの実態</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'① 職業性皮膚炎：有病率40〜50%',
+                  body:'厚生労働省「職業性皮膚疾患の実態調査（2021年）」によると、美容師の職業性皮膚炎有病率は約40〜50%。カラー剤（パラフェニレンジアミン）・パーマ液（チオグリコール酸）・漂白剤（過酸化水素）などへの慢性的な接触によるアレルギー性接触皮膚炎が主な原因です。重症化すると手術・入院が必要になるケースもあり、皮膚科の長期通院・治療費がかかります。',
+                  color:'border-pink-400 bg-pink-50'
+                },
+                {
+                  title:'② 腰痛・頸肩腕症候群：長時間立位・前傾姿勢',
+                  body:'長時間の立位作業・前傾姿勢でのカット・施術が腰椎・頸椎に慢性的な負荷をかけます。美容師の腰痛・頸肩腕症候群は職業性疾患として知られており、手術が必要になるケースもあります。重症化すると施術業務の継続が困難になり、廃業・転職を余儀なくされることもあります。',
+                  color:'border-orange-400 bg-orange-50'
+                },
+                {
+                  title:'③ 気道疾患・喘息リスク',
+                  body:'日本産業衛生学会「職業性疾病研究報告（2021年）」によると、カラー剤・パーマ液・スプレー剤の吸入による気管支喘息・職業性鼻炎のリスクがあります。密閉空間での長時間薬剤使用が主な原因で、発症後は定期的な通院・投薬が必要になります。',
+                  color:'border-yellow-400 bg-yellow-50'
+                },
+                {
+                  title:'④ 個人サロン経営の廃業リスク',
+                  body:'経済産業省「特定サービス産業動態統計調査（2022年）」によると、個人美容室の経営継続率（5年）は約55%。病気・ケガで長期休業した場合、顧客離れ・固定費（家賃・材料費）の継続により廃業に追い込まれるケースが多いです。医療保険に加えて就業不能保険への加入が重要です。',
+                  color:'border-purple-400 bg-purple-50'
+                },
+              ].map((item,i)=>(
+                <div key={i} className={`border-l-4 p-4 rounded-r-xl ${item.color}`}>
+                  <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：厚生労働省「職業性皮膚疾患の実態調査」2021年 / 日本産業衛生学会「職業性疾病研究報告」2021年 / 経済産業省「特定サービス産業動態統計調査」2022年
+            </p>
+          </section>
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">美容師・理容師が医療保険を選ぶ5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number:'01',
+                  title:'皮膚炎・アレルギー疾患の告知義務を確認する',
+                  detail:'既に職業性皮膚炎・アレルギー性鼻炎・気管支喘息の診断を受けている場合は、医療保険加入時の告知が必要です。これらの疾患があると引受条件が付く場合がありますが、告知義務違反は保険金不払いの原因になるため正確に申告してください。既往症がある場合は引受基準緩和型の保険も検討してください。'
+                },
+                {
+                  number:'02',
+                  title:'個人事業主・業務委託は就業不能保険との組み合わせが必須',
+                  detail:'傷病手当金がない個人事業主・業務委託の美容師は、医療保険に加えて就業不能保険への加入が重要です。皮膚炎・腰痛で施術できない状態が続いた場合、収入がゼロになります。月額給付金は月収の50〜70%を目安に設定してください。'
+                },
+                {
+                  number:'03',
+                  title:'腰椎・頸椎手術の給付条件を確認する',
+                  detail:'美容師は腰痛・頸椎疾患による手術リスクが高いです。椎間板手術・頸椎固定術などの整形外科手術が医療保険の給付対象かどうかを確認してください。また手術が困難な時期（皮膚炎の悪化時等）に入院が必要になるケースもあり、入院日額の設定も重要です。'
+                },
+                {
+                  number:'04',
+                  title:'先進医療特約を必ず付帯する',
+                  detail:'月100〜200円で付帯できる先進医療特約は美容師にとっても重要な特約です。長年の薬剤使用による皮膚がん・夜勤なし職種でもがんリスクは誰にでもあります。先進医療特約で数百万円のリスクに備えてください。'
+                },
+                {
+                  number:'05',
+                  title:'保険料を収入に見合った水準に抑える',
+                  detail:'美容師の平均年収は約250〜350万円と低めの傾向があります。月額保険料が高すぎると継続できなくなるリスクがあります。月収の1〜2%（月収25万円なら2,500〜5,000円）を医療保険と就業不能保険の合計の目安にしてください。'
+                },
+              ].map((cp,i)=>(
+                <div key={i} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">{cp.number}</div>
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-2">{cp.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{cp.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">美容師・理容師でよくある医療保険の失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'失敗①：皮膚炎を告知せず保険金が支払われなかった',
+                  situation:'30代女性・美容師歴10年。フリーランス。',
+                  problem:'医療保険加入時に既に診断されていた職業性皮膚炎を告知しなかった。数年後に皮膚炎が重症化して入院したが、告知義務違反として保険契約を解除された。入院費用が全額自己負担になり、支払った保険料も戻らなかった。',
+                  lesson:'職業性皮膚炎は加入時に必ず告知すること。引受基準緩和型の保険も選択肢として検討する。'
+                },
+                {
+                  title:'失敗②：腰椎手術で長期休業・個人サロンが廃業',
+                  situation:'40代女性・個人サロン経営。傷病手当金なし。',
+                  problem:'腰椎椎間板ヘルニアの手術で3ヶ月休業。医療保険の入院給付はあったが就業不能保険に未加入。3ヶ月の収入ゼロ＋家賃・材料費の固定費が重なり、閉店を余儀なくされた。医療保険だけでは不十分だった。',
+                  lesson:'個人事業主の美容師は就業不能保険が必須。医療保険だけでは収入途絶リスクに対応できない。'
+                },
+                {
+                  title:'失敗③：高額な保険料で継続できず解約',
+                  situation:'20代女性・美容師1年目。月収20万円。',
+                  problem:'知人の勧めで月額5,500円の医療保険＋就業不能保険に加入。2年後に収入が減り保険料の支払いが苦しくなって解約。解約返戻金もなく、支払った保険料が無駄になった。',
+                  lesson:'収入に見合った保険料設定が重要。月収の1〜2%を目安に。美容師1年目は特に収入が不安定なため無理のない設計をすること。'
+                },
+              ].map((c,i)=>(
+                <div key={i} className="border border-red-200 rounded-xl overflow-hidden">
+                  <div className="bg-red-600 px-5 py-3">
+                    <h3 className="font-bold text-white">{c.title}</h3>
+                  </div>
+                  <div className="p-5 space-y-2 bg-white">
+                    <p className="text-sm text-gray-600"><span className="font-semibold">状況：</span>{c.situation}</p>
+                    <p className="text-sm text-gray-700"><span className="font-semibold">問題：</span>{c.problem}</p>
+                    <p className="text-sm text-blue-700 font-semibold bg-blue-50 p-2 rounded"><span>教訓：</span>{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">美容師・理容師の医療保険加入前・最終チェックリスト</h2>
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <ul className="space-y-3">
+                {[
+                  '雇用形態（正社員・業務委託・個人事業主）と傷病手当金の有無を確認した',
+                  '職業性皮膚炎・アレルギー疾患・気道疾患の告知義務を確認した',
+                  '個人事業主・業務委託の場合は就業不能保険との組み合わせを検討した',
+                  '腰椎・頸椎手術の給付条件を確認した',
+                  '先進医療特約（月100〜200円）を付帯した',
+                  '月収の1〜2%以内の保険料で継続可能な設計にした',
+                  '引受基準緩和型保険の必要性を確認した（既往症がある場合）',
+                  '複数の保険会社で見積もりを比較した',
+                ].map((item,i)=>(
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 
