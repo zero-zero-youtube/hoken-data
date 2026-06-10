@@ -14,6 +14,8 @@ import Disclaimer from '@/components/Disclaimer'
 import OccupationInsuranceCharts from '@/components/OccupationInsuranceCharts'
 import DataCalculationBadge from '@/components/DataCalculationBadge'
 import OccupationRiskDataSection from '@/components/OccupationRiskDataSection'
+import AffiliateCTA from '@/components/AffiliateCTA'
+import type { AffiliateKey } from '@/lib/affiliateLinks'
 
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
@@ -204,6 +206,19 @@ function getCTACopy(occSlug: string, occName: string, occCategory: string, insSl
   }
 }
 
+function getAffiliateCTA(insurance: string): { primary: AffiliateKey; secondary: AffiliateKey | null } {
+  if (insurance === 'cancer') {
+    return { primary: 'babyplanetCancer', secondary: 'miraitecho' }
+  }
+  if (insurance === 'child') {
+    return { primary: 'babyplanetMama', secondary: 'miraitecho' }
+  }
+  if (['life', 'medical', 'income-protection', 'whole-life', 'pension'].includes(insurance)) {
+    return { primary: 'miraitecho', secondary: 'minnano' }
+  }
+  return { primary: 'miraitecho', secondary: null }
+}
+
 const faqTemplate = (occName: string, insName: string, monthly: string) => [
   {
     q: `${occName}は${insName}に必ず入るべきですか？`,
@@ -242,6 +257,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const faqs = faqTemplate(occ.name_ja, ins.name_ja, est.label)
   const schema = faqSchema(faqs)
   const cta = getCTACopy(occ.slug, occ.name_ja, occ.category, ins.slug, ins.name_ja)
+  const affiliateCta = getAffiliateCTA(ins.slug)
 
   const isFixedRange = ins.slug === 'auto' || ins.slug === 'fire'
 
@@ -501,18 +517,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
+      <section className="py-8 px-4 bg-white">
         <div className="max-w-2xl mx-auto">
-          <Disclaimer />
-          <p className="text-[#f59e0b] text-sm font-semibold mb-2">{cta.badge}</p>
-          <h2 className="text-xl font-bold mb-3 whitespace-pre-line">{cta.headline}</h2>
-          <p className="text-gray-400 text-sm mb-6 leading-relaxed">{cta.sub}</p>
-          <Link
-            href="/simulator"
-            className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-3"
-          >
-            無料で保険相談する →
-          </Link>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
         </div>
       </section>
 

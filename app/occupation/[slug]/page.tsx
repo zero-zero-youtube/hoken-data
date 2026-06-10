@@ -12,6 +12,7 @@ import {
 } from '@/lib/data'
 import Disclaimer from '@/components/Disclaimer'
 import { getOccupationInsight } from '@/lib/occupationInsights'
+import AffiliateCTA from '@/components/AffiliateCTA'
 
 type RiskItem = { label: string; detail: string; severity: 'high' | 'medium' }
 
@@ -437,19 +438,9 @@ export default async function OccupationPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="py-12 px-4 bg-[#0f172a] text-white text-center">
+      <section className="py-8 px-4 bg-white">
         <div className="max-w-2xl mx-auto">
-          <Disclaimer />
-          <p className="text-[#f59e0b] text-sm font-semibold mb-2">無料・強引な勧誘なし</p>
-          <h2 className="text-xl font-bold mb-4">
-            {occ.name_ja}に最適な保険を<br />プロに無料で相談する
-          </h2>
-          <Link
-            href="/simulator"
-            className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors"
-          >
-            無料で保険相談する →
-          </Link>
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
         </div>
       </section>
     </>

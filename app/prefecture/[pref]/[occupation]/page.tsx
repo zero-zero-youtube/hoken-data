@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllOccupations, getOccupationBySlug } from '@/lib/data'
+import AffiliateCTA from '@/components/AffiliateCTA'
 
 type PrefInfo = {
   name: string
@@ -77,6 +78,9 @@ export default async function PrefectureOccupationPage(
   const adjMan    = Math.round(baseMan   * pref.incomeMultiplier)
   const adjWoman  = Math.round(baseWoman * pref.incomeMultiplier)
   const repPremium = Math.round(adjMan * 10000 * 0.005 / 12)
+
+  const hokenlaundryPrefs = ['hokkaido','miyagi','fukushima','ibaraki','tochigi','gunma','saitama','chiba','tokyo','kanagawa','gifu','aichi','mie','shiga','kyoto','osaka','hyogo','nara','wakayama']
+  const isHokenlaundryArea = hokenlaundryPrefs.includes(prefSlug)
 
   const faqItems = [
     {
@@ -221,13 +225,11 @@ export default async function PrefectureOccupationPage(
         </section>
 
         {/* CTA */}
-        <section className="bg-[#0f172a] text-white rounded-2xl p-8 text-center">
-          <p className="text-[#f59e0b] text-sm font-semibold mb-2">PR・無料・強引な勧誘なし</p>
-          <h2 className="text-xl font-bold mb-3">{pref.nameFull}で{occ.name_ja}向けの保険を無料で相談</h2>
-          <p className="text-gray-400 text-sm mb-6">地域・職業に合わせた最適な保険プランをFPが無料で提案します</p>
-          <Link href="/simulator" className="inline-block bg-[#2563eb] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
-            無料で保険相談する →
-          </Link>
+        <section>
+          <AffiliateCTA
+            primary={isHokenlaundryArea ? 'hokenlaundry' : 'miraitecho'}
+            secondary={isHokenlaundryArea ? 'miraitecho' : 'minnano'}
+          />
         </section>
 
         {/* 他の都道府県リンク */}

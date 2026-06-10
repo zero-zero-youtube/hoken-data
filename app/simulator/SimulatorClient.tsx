@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import type { Occupation } from '@/lib/data'
+import AffiliateCTA from '@/components/AffiliateCTA'
 
 type AgeBand = '20代' | '30代' | '40代' | '50代'
 type Gender = 'male' | 'female'
@@ -538,21 +539,7 @@ export default function SimulatorClient({ occupations }: { occupations: Occupati
             </button>
 
             {/* CTA */}
-            <div className="bg-[#0f172a] text-white rounded-2xl p-6 text-center mb-4">
-              <p className="text-[#f59e0b] text-xs font-bold mb-2">PR・無料・強引な勧誘なし</p>
-              <h3 className="text-lg font-bold mb-2">この結果をもとに無料相談する</h3>
-              <p className="text-gray-400 text-xs mb-5">
-                FP（ファイナンシャルプランナー）が、{answers.occupation?.name_ja}に最適な保険を無料で提案します
-              </p>
-              <Link
-                href="/simulator"
-                className="block bg-[#2563eb] text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors mb-2"
-                aria-label="無料で保険相談を申し込む"
-              >
-                この結果をもとに無料相談する →
-              </Link>
-              <p className="text-gray-600 text-xs">※本サイトはアフィリエイト広告を含みます</p>
-            </div>
+            <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
             {/* 回答修正 */}
             <button
