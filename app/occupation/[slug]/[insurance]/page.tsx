@@ -339,6 +339,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isTeacherMedical = occ.slug === 'teacher' && ins.slug === 'medical'
   const isCivilServantLife = occ.slug === 'civil-servant' && ins.slug === 'life'
   const isEngineerIncomeProtection = occ.slug === 'engineer' && ins.slug === 'income-protection'
+  const isDriverMedical = occ.slug === 'driver' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2092,6 +2093,231 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* ドライバー×医療保険 専用コンテンツ */}
+      {isDriverMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">トラックドライバー・運転手に医療保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              トラックドライバー・運転手は日本の物流を支える重要な職種ですが、健康リスクの観点では全職種の中でも特にリスクが高い職業です。厚生労働省の「過労死等防止対策白書（2022年）」によると、過労死認定件数は運輸業が全業種で長年1位を維持しており、長時間労働・不規則な生活リズム・長時間座位による健康への影響が深刻です。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              また交通事故による死傷リスク・腰椎椎間板ヘルニアなどの職業性疾患・睡眠時無呼吸症候群による突然死リスクなど、ドライバー特有の健康リスクへの備えとして医療保険の重要性は極めて高いです。特に長距離トラックドライバーや一人親方の運送業者は、病気・ケガで働けなくなった際の収入保障も合わせて検討することが重要です。
+            </p>
+            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-yellow-800 mb-1">⚠️ ドライバーが医療保険を考える際の重要な前提</p>
+              <p className="text-yellow-700 text-sm leading-relaxed">
+                業務中の交通事故・職業性疾患は労災保険が優先適用されます。民間医療保険は「業務外の病気・ケガ」や「労災でカバーされない費用（差額ベッド代等）」を補う役割です。また個人事業主・一人親方のドライバーは傷病手当金がないため、医療保険の重要性がさらに高まります。
+              </p>
+              <p className="text-xs text-yellow-600 mt-2">出典：<a href="https://www.mhlw.go.jp/content/11200000/001148172.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：労災保険と民間医療保険の役割分担 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">労災保険と民間医療保険の役割分担</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-2">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">費用・リスクの種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">労災保険</th>
+                    <th className="px-4 py-3 text-left font-semibold">民間医療保険</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">業務中の交通事故・治療費</td><td className="px-4 py-3">✅ 全額補償</td><td className="px-4 py-3">△ 労災認定後の差額のみ</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">業務中の腰痛・職業性疾患</td><td className="px-4 py-3">✅ 認定されれば補償</td><td className="px-4 py-3">△ 認定されない場合に必要</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">プライベート中の病気・ケガ</td><td className="px-4 py-3">❌ 対象外</td><td className="px-4 py-3">✅ 主な給付対象</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">睡眠時無呼吸症候群</td><td className="px-4 py-3">△ 業務起因性の立証が困難</td><td className="px-4 py-3">✅ 入院・手術の給付対象</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">差額ベッド代・食事代</td><td className="px-4 py-3">❌ 対象外</td><td className="px-4 py-3">✅ 特約で補償可能</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">生活習慣病（糖尿病・高血圧等）</td><td className="px-4 py-3">❌ 対象外</td><td className="px-4 py-3">✅ 主な給付対象</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">休業中の収入補填</td><td className="px-4 py-3">✅ 休業補償給付（給付基礎日額の80%）</td><td className="px-4 py-3">✅ 就業不能保険で補完</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500">出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働者災害補償保険法」</a></p>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">トラックドライバー・運転手が直面する健康リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 過労死認定件数：全業種1位（運輸業）</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「過労死等防止対策白書（2022年）」によると、脳・心臓疾患による過労死認定件数は運輸業・郵便業が全業種で長年1位を維持しています。長距離トラックドライバーの拘束時間は1日最大16時間・1ヶ月最大293時間（改正前）と長く、心筋梗塞・脳卒中のリスクが極めて高い職種です。2024年4月からの「2024年問題」による時間外労働規制強化で改善が期待されますが、依然として高リスクな状況が続いています。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 交通事故リスク：一般ドライバーの約3〜5倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  運輸業の死亡災害件数は全産業の約10%を占めます（厚生労働省「労働災害発生状況」2023年）。長時間運転による疲労蓄積・眠気が事故の主因で、重大事故による骨折・脊髄損傷・重篤な外傷のリスクがあります。業務中の事故は労災保険が適用されますが、長期入院・リハビリ期間中の差額ベッド代・食事代は自己負担です。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 腰椎椎間板ヘルニア：長時間座位による職業性疾患</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「職業性疾病研究（2021年）」によると、長時間運転従事者の腰椎疾患有病率は非運転者の約2.1倍。振動・不自然な姿勢・長時間座位が腰椎に慢性的なダメージを与え、椎間板ヘルニア・腰椎すべり症などの手術が必要な疾患に発展するケースも多いです。手術・入院・リハビリで数ヶ月の休業が必要になることがあります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 睡眠時無呼吸症候群：突然死・事故リスク</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  肥満率・不規則な食事習慣により、ドライバーは睡眠時無呼吸症候群（SAS）の高リスク職種です。SASは運転中の居眠り事故の原因になるだけでなく、未治療のまま放置すると心筋梗塞・脳梗塞のリスクが一般人の3〜4倍になると言われています。CPAP治療（持続陽圧呼吸療法）が必要な場合、定期的な医療費がかかります。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">⑤ 生活習慣病：肥満率・高血圧率が全業種平均を上回る</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「定期健康診断実施結果（2022年）」によると、運輸業従事者の肥満率・高血圧率は全業種平均を上回ります。不規則な食事時間・運動不足・ストレスが主な原因です。糖尿病・高血圧は長期的な医療費負担につながり、悪化すると入院・手術が必要になるケースもあります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/content/11200000/001148172.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>
+              　<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>
+            </p>
+          </div>
+
+          {/* セクション4：一人親方・個人事業主ドライバーは特に注意 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">一人親方・個人事業主ドライバーは医療保険が特に重要</h2>
+            <div className="bg-red-50 border border-red-200 rounded-xl p-5 mb-5">
+              <p className="font-bold text-red-800 mb-2">🔴 個人事業主ドライバーが知っておくべき事実</p>
+              <ul className="text-red-700 text-sm space-y-2">
+                <li>❌ 傷病手当金なし（国民健康保険のため）</li>
+                <li>❌ 有給休暇なし</li>
+                <li>△ 労災保険：特別加入制度あり（任意・年間保険料数万円）</li>
+                <li>❌ 労災特別加入なしの場合、業務中の事故も自己負担</li>
+                <li>❌ 病気・ケガで車を運転できない期間は収入ゼロ</li>
+              </ul>
+              <p className="text-xs text-red-600 mt-2">出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「一人親方等の特別加入」</a></p>
+            </div>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">項目</th>
+                    <th className="px-4 py-3 text-left font-semibold">会社員ドライバー</th>
+                    <th className="px-4 py-3 text-left font-semibold">個人事業主ドライバー</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">健康保険</td><td className="px-4 py-3">健康保険（協会けんぽ）</td><td className="px-4 py-3">国民健康保険</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">傷病手当金</td><td className="px-4 py-3">✅ あり（月収67%・最長18ヶ月）</td><td className="px-4 py-3">❌ なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">労災保険</td><td className="px-4 py-3">✅ 自動加入</td><td className="px-4 py-3">△ 特別加入（任意）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">休業中の収入</td><td className="px-4 py-3">傷病手当金で一部補填</td><td className="px-4 py-3">収入ゼロ（補填なし）</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* セクション5：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '生活習慣病・肥満関連疾患の告知と引受条件を確認する',
+                  detail: 'ドライバーは生活習慣病の有病率が高く、高血圧・糖尿病・肥満がある場合、医療保険の審査で「条件付き引受」や「引受謝絶」になる可能性があります。持病がある場合は「引受基準緩和型医療保険」を検討してください。健康な若いうちに加入しておくことが重要です。',
+                },
+                {
+                  number: '02',
+                  title: '腰椎疾患・交通事故による長期入院に備えた日額設定',
+                  detail: '腰椎手術・交通事故による骨折の平均入院日数は30〜60日と長めです。入院日額は最低1万円以上を目安に設定してください。また手術給付金（骨折・椎間板手術）の給付条件も確認しましょう。',
+                },
+                {
+                  number: '03',
+                  title: '睡眠時無呼吸症候群の治療費をカバーできるか',
+                  detail: 'CPAP治療は月3,000〜5,000円の医療費がかかります。睡眠時無呼吸症候群の診断・治療が医療保険の給付対象かどうかを確認してください。入院を伴う精密検査（ポリソムノグラフィー）も給付対象となる保険が多いです。',
+                },
+                {
+                  number: '04',
+                  title: '個人事業主は就業不能保険との組み合わせを検討',
+                  detail: '個人事業主ドライバーは傷病手当金がないため、医療保険に加えて就業不能保険への加入が重要です。腰椎手術や事故による長期休業時の収入ゼロリスクに備えるため、月収の50〜70%をカバーできる就業不能保険を選んでください。',
+                },
+                {
+                  number: '05',
+                  title: '2024年問題後の労働環境変化を考慮する',
+                  detail: '2024年4月からの時間外労働規制強化（2024年問題）により、ドライバーの収入構造が変わる可能性があります。収入が減少した場合に保険料の支払いが継続できるか、保険料の水準を考慮して加入することが重要です。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：肥満・高血圧で医療保険に加入できなかった',
+                  situation: '45歳男性・長距離トラックドライバー。',
+                  problem: '若いうちに医療保険への加入を先延ばしにしていたところ、45歳時点でBMI30以上の肥満・高血圧（収縮期160mmHg）が判明。通常の医療保険は引受謝絶。引受基準緩和型に加入したが、保険料が割高になった。',
+                  lesson: '生活習慣病リスクが高いドライバーは若いうちに加入しておくこと。40代以降は審査が通らなくなるリスクがある。',
+                },
+                {
+                  title: '失敗②：腰椎手術で入院が長期化・入院日額が不足',
+                  situation: '38歳男性・運送会社勤務ドライバー。',
+                  problem: '腰椎椎間板ヘルニアの手術で50日間入院。入院日額3,000円の医療保険では給付金15万円。差額ベッド代・食事代・収入減少分を合わせると実際の損失は80万円を超え、大幅な不足が生じた。',
+                  lesson: 'ドライバーは腰椎疾患リスクが高い。入院日額は最低1万円以上を設定すること。',
+                },
+                {
+                  title: '失敗③：個人事業主で労災特別加入なし・業務中事故が全額自己負担',
+                  situation: '40代男性・個人事業主・運送業。',
+                  problem: '配送中の交通事故で骨折。労災保険の特別加入をしていなかったため、治療費が全額自己負担。医療保険も未加入だったため、100万円以上の医療費と3ヶ月の収入ゼロが重なり、廃業を余儀なくされた。',
+                  lesson: '個人事業主ドライバーは労災特別加入（年数万円）と民間医療保険の両方が必須。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション7：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '労災保険（会社加入または特別加入）の適用範囲を確認した',
+                '傷病手当金の有無（会社員か個人事業主か）を確認した',
+                '生活習慣病・肥満・高血圧の有無を確認し、健康なうちに加入を検討した',
+                '腰椎疾患・交通事故に備えて入院日額1万円以上を確保した',
+                '睡眠時無呼吸症候群の治療費が給付対象かを確認した',
+                '個人事業主の場合は就業不能保険との組み合わせを検討した',
+                '2024年問題後の収入変化を考慮した保険料水準を設定した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
