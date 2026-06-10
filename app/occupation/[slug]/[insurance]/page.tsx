@@ -352,6 +352,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManufacturingMedical = occ.slug === 'manufacturing' && ins.slug === 'medical'
   const isBeauticianMedical = occ.slug === 'beautician' && ins.slug === 'medical'
   const isFinanceLife = occ.slug === 'finance' && ins.slug === 'life'
+  const isDoctorIncomeProtection = occ.slug === 'doctor' && ins.slug === 'income-protection'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2103,6 +2104,225 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 医師×収入保障保険 専用コンテンツ */}
+      {isDoctorIncomeProtection && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師に就業不能保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              医師は日本最高水準の収入を誇りますが、就業不能になった場合の収入損失も最大規模になります。年収1,200万円の勤務医が精神疾患・過労で1年間就業不能になった場合の収入損失は1,200万円。傷病手当金（月収67%・最長18ヶ月）で補填されるのは約804万円のみで、残り約400万円は自己負担です。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              特に開業医・フリーランス医師は傷病手当金がなく収入損失がより深刻です。厚生労働省の調査（2022年）によると勤務医の週60時間以上労働は46.3%に達し、バーンアウト・精神疾患による長期休業リスクは全職種の中でも特に高い水準にあります。医師こそ就業不能保険が必要な職種の一つです。
+            </p>
+            <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-emerald-800">💡 医師の就業不能保険で特に重要なポイント</p>
+              <p className="text-emerald-700 text-sm mt-1">
+                医師の就業不能保険には一般的な就業不能保険とは異なる重要な考慮点があります：<br/>
+                ・「自分の専門科で働けない状態」を就業不能と定義する保険を選ぶ<br/>
+                ・開業医は診療所の固定費（家賃・スタッフ給与）もカバーする保障が必要<br/>
+                ・医師賠償責任保険との役割の違いを理解する
+              </p>
+              <p className="text-xs text-emerald-600 mt-2">出典：厚生労働省「医師の働き方改革 実態調査」2022年</p>
+            </div>
+          </section>
+
+          {/* セクション2：勤務医vs開業医 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">勤務医 vs 開業医：就業不能時のリスクの根本的な違い</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>項目</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>勤務医</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>開業医（個人事業主）</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['傷病手当金','✅ あり（月収67%・最長18ヶ月）','❌ なし'],
+                    ['就業不能時の収入','傷病手当金で18ヶ月はカバー','即座に収入ゼロ'],
+                    ['診療所の固定費','❌ 関係なし','⚠️ 休業中も家賃・スタッフ給与が発生'],
+                    ['患者への影響','病院が対応','⚠️ 診療所閉院→患者への影響甚大'],
+                    ['就業不能保険の優先度','高（18ヶ月以降・収入損失33%分）','極めて高（即座の収入ゼロ＋固定費）'],
+                  ].map(([item,employee,owner],i)=>(
+                    <tr key={i} className={i%2===0?'bg-white':'bg-gray-50'}>
+                      <td className="border border-gray-200 px-4 py-3 font-medium text-gray-800">{item}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{employee}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{owner}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-4">
+              <p className="font-bold text-red-800 mb-2">🔴 開業医が最も注意すべき「ダブルリスク」</p>
+              <p className="text-red-700 text-sm">
+                開業医が就業不能になった場合：<br/>
+                ①個人の収入がゼロになる<br/>
+                ②診療所の固定費（家賃・スタッフ給与・医療機器リース）が継続する<br/><br/>
+                月収150万円の開業医が3ヶ月休業した場合：<br/>
+                収入損失：450万円<br/>
+                診療所固定費（月100万円×3ヶ月）：300万円<br/>
+                合計損失：750万円<br/><br/>
+                就業不能保険の月額給付金は個人収入分だけでなく、診療所固定費もカバーできる水準に設定する必要があります。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師が直面する就業不能リスクの実態</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'① 過労・長時間労働：週60時間超が46.3%',
+                  body:'厚生労働省「医師の働き方改革 実態調査（2022年）」によると、勤務医の週60時間以上労働は46.3%、特定機能病院では週80時間超が18.1%。過労による心疾患・脳血管疾患での入院・長期リハビリが必要になるリスクが高いです。2024年4月からの時間外労働規制強化後も依然として高負荷な環境が続いています。',
+                  color:'border-red-400 bg-red-50'
+                },
+                {
+                  title:'② バーンアウト・精神疾患：約40%が経験',
+                  body:'日本医師会「勤務医の健康支援に関する検討報告書（2022年）」によると、医師のバーンアウト経験率は約40%、うつ症状の有病率は一般人口の約2倍。患者の死亡・医療過誤への恐怖・訴訟リスクへのプレッシャーが精神的負荷の主な原因です。うつ病・適応障害による休業期間は平均6ヶ月〜1年以上で、18ヶ月を超えるケースも珍しくありません。',
+                  color:'border-orange-400 bg-orange-50'
+                },
+                {
+                  title:'③ 感染症・針刺し事故による長期療養',
+                  body:'B型肝炎・C型肝炎への職業的感染リスクは一般人口の約4〜6倍（厚生労働省「院内感染対策」2022年）。感染が判明した場合、抗ウイルス薬による長期治療が必要で、診療制限・就業制限が課されるケースもあります。この期間の収入補填として就業不能保険が重要です。',
+                  color:'border-yellow-400 bg-yellow-50'
+                },
+                {
+                  title:'④ 医療訴訟による診療継続困難',
+                  body:'日本医師会「医師賠償責任保険統計（2021年）」によると、医師はキャリア中に約25%が医療訴訟・紛争を経験。訴訟期間中の精神的ダメージから診療継続が困難になるケースもあります。この期間の収入補填として就業不能保険が有効です。',
+                  color:'border-purple-400 bg-purple-50'
+                },
+              ].map((item,i)=>(
+                <div key={i} className={`border-l-4 p-4 rounded-r-xl ${item.color}`}>
+                  <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：厚生労働省「医師の働き方改革 実態調査」2022年 / 日本医師会「勤務医の健康支援に関する検討報告書」2022年 / 厚生労働省「医療機関における院内感染対策」2022年 / 日本医師会「医師賠償責任保険統計」2021年
+            </p>
+          </section>
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師の就業不能保険選び5つのポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number:'01',
+                  title:'「自分の専門科で働けない状態」を就業不能と定義する保険を選ぶ',
+                  detail:'一般的な就業不能保険は「全く働けない状態」を給付条件とするものが多いですが、医師の場合「外科医として手術ができないが内科的な業務はできる状態」など部分的な就業不能が起こりやすいです。「自分の職業（専門科）に従事できない状態」を就業不能と定義する保険を選ぶことが重要です。'
+                },
+                {
+                  number:'02',
+                  title:'開業医は診療所の固定費もカバーできる保障額に設定する',
+                  detail:'開業医の場合、個人収入の補填だけでなく診療所の固定費（家賃・スタッフ給与・医療機器リース）もカバーできる月額給付金を設定してください。個人収入分＋固定費分を合算した金額が必要な月額給付金の目安です。医療法人化している場合は法人保険との組み合わせも検討してください。'
+                },
+                {
+                  number:'03',
+                  title:'精神疾患特約は必須・給付日数の上限を確認する',
+                  detail:'医師のバーンアウト経験率は約40%。精神疾患特約は必須であり、給付日数に上限がない（または1,000日超の）商品を選んでください。うつ病の平均治療期間は1〜3年であり、60日・180日の給付上限では不十分です。'
+                },
+                {
+                  number:'04',
+                  title:'勤務医は支払対象外期間を180日以上に設定して保険料を効率化',
+                  detail:'勤務医は傷病手当金（最長18ヶ月）があるため、支払対象外期間を180日以上に設定することで保険料を大幅に抑えながら「18ヶ月以降の長期就業不能」に備えられます。開業医は傷病手当金がないため60日以下の短期タイプが適切です。'
+                },
+                {
+                  number:'05',
+                  title:'医師賠償責任保険との役割の違いを理解する',
+                  detail:'医師賠償責任保険は医療過誤による患者への賠償に備えるもので、就業不能保険（自分の収入補填）とは全く別の保険です。勤務先病院が医師賠償責任保険に加入していても、個人の就業不能リスクには別途対応が必要です。両方の保険を目的別に整備することが重要です。'
+                },
+              ].map((cp,i)=>(
+                <div key={i} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">{cp.number}</div>
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-2">{cp.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{cp.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師でよくある就業不能保険の失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'失敗①：「全く働けない状態」の定義で給付されなかった',
+                  situation:'45歳男性・外科医。',
+                  problem:'うつ病で手術ができない状態になったが、外来診療は継続できていた。加入していた就業不能保険は「全く働けない状態」のみ給付対象で、「外科手術ができないが業務は一部継続」という状態では給付されなかった。収入が30%減少した状態が1年以上続いた。',
+                  lesson:'医師は「自分の専門科に従事できない状態」を就業不能と定義する保険を選ぶこと。'
+                },
+                {
+                  title:'失敗②：開業医で休業中も固定費が発生し廃業',
+                  situation:'50歳男性・内科クリニック経営。',
+                  problem:'心筋梗塞で4ヶ月休業。就業不能保険の給付金（月30万円）は個人生活費には足りたが、診療所の固定費（家賃15万円・スタッフ給与40万円・リース10万円＝月65万円）を賄えず、やむなく閉院。患者への影響も甚大だった。',
+                  lesson:'開業医は個人収入補填＋診療所固定費をカバーできる月額給付金を設定すること。'
+                },
+                {
+                  title:'失敗③：精神疾患特約なしでバーンアウトの給付がゼロ',
+                  situation:'38歳男性・大学病院勤務医。',
+                  problem:'過労とバーンアウトでうつ病と診断され8ヶ月休業。加入していた就業不能保険は精神疾患特約なしのため給付ゼロ。傷病手当金のみで生活し、貯蓄が大幅に減少した。',
+                  lesson:'医師はバーンアウト経験率が約40%。精神疾患特約は必須。'
+                },
+              ].map((c,i)=>(
+                <div key={i} className="border border-red-200 rounded-xl overflow-hidden">
+                  <div className="bg-red-600 px-5 py-3">
+                    <h3 className="font-bold text-white">{c.title}</h3>
+                  </div>
+                  <div className="p-5 space-y-2 bg-white">
+                    <p className="text-sm text-gray-600"><span className="font-semibold">状況：</span>{c.situation}</p>
+                    <p className="text-sm text-gray-700"><span className="font-semibold">問題：</span>{c.problem}</p>
+                    <p className="text-sm text-blue-700 font-semibold bg-blue-50 p-2 rounded"><span>教訓：</span>{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師の就業不能保険加入前・最終チェックリスト</h2>
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <ul className="space-y-3">
+                {[
+                  '勤務医か開業医かで保険設計が異なることを理解した',
+                  '開業医の場合、診療所の固定費もカバーできる月額給付金を設定した',
+                  '「専門科に従事できない状態」を就業不能と定義する保険を選んだ',
+                  '精神疾患特約付き・給付日数1,000日以上の商品を選んだ',
+                  '勤務医は支払対象外期間180日以上で保険料を効率化した',
+                  '開業医は支払対象外期間60日以下で即時給付に備えた',
+                  '医師賠償責任保険と就業不能保険の役割の違いを理解した',
+                  '医療法人化している場合は法人保険との組み合わせを税理士に相談した',
+                ].map((item,i)=>(
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 
