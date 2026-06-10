@@ -359,6 +359,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isTeacherIncomeProtection = occ.slug === 'teacher' && ins.slug === 'income-protection'
   const isConstructionIncomeProtection = occ.slug === 'construction' && ins.slug === 'income-protection'
   const isSalesMedical = occ.slug === 'sales' && ins.slug === 'medical'
+  const isDriverLife = occ.slug === 'driver' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5309,6 +5310,267 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* ドライバー×生命保険 専用コンテンツ */}
+      {isDriverLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">トラックドライバー・運転手に生命保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              トラックドライバーは日本で最も過労死リスクが高い職種の一つです。
+              厚生労働省の労災補償データによると、
+              脳・心臓疾患の労災支給決定件数に占める
+              道路貨物運送業の割合は32.5%と全業種で最も高く、
+              雇用者100万人当たりの過労死認定件数は28.3件と
+              全業種平均6.0件の約4.7倍に達します。
+              30〜50代のドライバーが突然死した場合、
+              残された家族への影響は甚大です。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              長距離トラックドライバーの拘束時間は
+              1日最大16時間・1ヶ月最大293時間（改正前）と長く、
+              心筋梗塞・脳梗塞による突然死リスクが
+              全業種の中で突出して高い職種です。
+              2024年4月からの「2024年問題」による
+              時間外労働規制強化で改善が期待されますが、
+              依然として高リスク環境が続いています。
+              高収入ではないケースが多い一方、
+              家族を養っているドライバーにとって
+              生命保険は家族を守る最重要手段です。
+            </p>
+            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-yellow-800">⚠️ ドライバーの生命保険で特に重要な前提</p>
+              <p className="text-yellow-700 text-sm mt-1">
+                業務中の死亡事故・過労死は労災保険が適用され
+                遺族補償年金が支給されます。
+                しかし労災遺族補償年金だけでは
+                家族の長期的な生活費・教育費を賄うには不十分です。
+                民間生命保険で不足分を補うことが必須です。
+              </p>
+              <p className="text-xs text-yellow-600 mt-2">
+                出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/rousaihoken06/dl/0602.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等の労災補償状況」2022年度</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：労災遺族補償と民間生命保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">労災遺族補償と民間生命保険で補うべき金額</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">給付の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">会社員ドライバー</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">個人事業主（特別加入あり）</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['労災遺族補償年金', '✅ 給付基礎日額×153〜245日/年', '✅ 特別加入者も同様に支給'],
+                    ['遺族厚生年金', '✅ あり（報酬比例）', '❌ なし（国民年金のみ）'],
+                    ['遺族基礎年金', '✅ あり（子あり：約102万円/年）', '✅ あり（同額）'],
+                    ['退職金', '△ 会社規定による', '❌ なし'],
+                    ['民間生命保険の必要性', '高（労災+年金では生活費不足）', '極めて高（遺族厚生年金なし）'],
+                  ].map(([type, emp, self], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{emp}</td>
+                      <td className="px-4 py-3 text-gray-700">{self}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-blue-50 rounded-xl p-4 mt-4 border border-blue-200">
+              <p className="font-bold text-blue-800 mb-2">📊 年収400万円・会社員ドライバーの遺族給付シミュレーション</p>
+              <p className="text-blue-700 text-sm">
+                年収400万円・40歳・妻（パート）・子2人の場合：<br /><br />
+                労災遺族補償年金：約167万円/年<br />
+                遺族厚生年金＋遺族基礎年金：約130万円/年<br />
+                合計公的給付：約297万円/年<br /><br />
+                遺族の生活費（月20万円×12ヶ月）：240万円/年<br />
+                教育費（子2人）：約1,000〜1,500万円<br /><br />
+                <strong>公的給付でも生活費は一応カバーできるが教育費・住宅費・緊急時の資金が不足。民間生命保険で3,000〜5,000万円の保障を確保することが推奨されます。</strong>
+              </p>
+              <p className="text-xs text-blue-600 mt-2">※試算例。実際は家族構成・勤続年数・生活水準により異なります。</p>
+            </div>
+          </section>
+
+          {/* セクション3：ドライバー特有の死亡リスク */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">トラックドライバーが直面する死亡・高度障害リスクの実態</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 過労死認定件数：全業種の32.5%・雇用者100万人当たり28.3件</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省の労災補償データによると、
+                  脳・心臓疾患の労災支給決定件数に占める
+                  道路貨物運送業の割合は32.5%と全業種で最も高いです。
+                  雇用者100万人当たりの過労死認定件数は28.3件と
+                  全業種平均6.0件の約4.7倍。
+                  脳・心臓疾患の発症時期は1〜3月の厳寒期と
+                  7〜9月の猛暑期に集中しており、
+                  走行中の突然発症が最も多い特徴があります。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 交通事故死亡リスク：運輸業の死亡災害は全産業の約10%</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「労働災害発生状況（2023年）」によると、
+                  運輸業・郵便業の死亡災害件数は全産業の約10%を占めます。
+                  長時間運転による疲労蓄積・睡眠不足が
+                  重大事故の主な原因であり、
+                  突然死・重大事故による家族への影響が
+                  他の職種より大幅に高いリスクとして存在します。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 健康診断未受診：労災認定ドライバーの30.8%が未受診</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  労働安全衛生総合研究所の調査によると、
+                  脳・心臓疾患の労災認定があったトラックドライバーの
+                  健康診断受診率は69.2%と、
+                  輸送・機械運転従事者全体の95.2%より大幅に低い水準でした。
+                  健康診断を受けていないために
+                  高血圧・糖尿病などの生活習慣病が見逃され、
+                  突然の脳・心臓疾患発症につながるケースが多いです。
+                  若いうちに生命保険に加入しておくことが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 個人事業主ドライバーの遺族保障の薄さ</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  個人事業主・一人親方のドライバーは
+                  遺族厚生年金がありません。
+                  死亡時に遺族が受け取れる公的給付は
+                  遺族基礎年金（子あり：年約102万円）のみで、
+                  子のない配偶者には遺族基礎年金も支給されません。
+                  民間生命保険が家族を守る唯一の手段となります。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/rousaihoken06/dl/0602.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等の労災補償状況」2022年度</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousaihoken06/rousaichishiki06.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省労働基準局「脳・心臓疾患の労災認定参考資料」2022年</a>
+              <a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">ドライバーの生命保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '必要保障額は労災遺族補償を差し引いて計算する',
+                  detail: '業務中の死亡は労災遺族補償年金が支給されます。民間生命保険の必要保障額は「遺族の生活費総額＋教育費＋住宅費」から「労災補償＋遺族年金＋貯蓄」を差し引いた金額です。年収400万円のドライバーで3,000〜5,000万円が目安です。',
+                },
+                {
+                  number: '02',
+                  title: '健康状態が良いうちに加入する（過労・肥満で審査困難になる前に）',
+                  detail: 'トラックドライバーは長時間労働・不規則食事による高血圧・糖尿病・肥満のリスクが高いです。健康診断で異常を指摘される前に加入しておくことが重要です。労災認定ドライバーの30.8%が健康診断未受診だったというデータは、健康管理の重要性を示しています。',
+                },
+                {
+                  number: '03',
+                  title: '個人事業主は遺族厚生年金がないことを考慮して保障額を増やす',
+                  detail: '個人事業主ドライバーは遺族厚生年金がなく、会社員より民間生命保険の必要保障額が大きくなります。子のない配偶者への遺族基礎年金も支給されないため、特に子のない夫婦の場合は手厚い保障が必要です。',
+                },
+                {
+                  number: '04',
+                  title: '収入保障保険で効率的に保障を確保する',
+                  detail: '一時金型の死亡保険金より、毎月一定額が支給される「収入保障保険」がドライバーの家族には使いやすいケースがあります。毎月の生活費として受け取れるため、大金の管理リスクがなく計画的な生活設計が可能です。保険料も割安になる傾向があります。',
+                },
+                {
+                  number: '05',
+                  title: '医療保険・就業不能保険との組み合わせを設計する',
+                  detail: '生命保険（死亡・高度障害）と医療保険（入院・手術）、就業不能保険（長期休業時の収入補填）の3種類を組み合わせた総合的な保障設計が重要です。特に個人事業主ドライバーは傷病手当金がないため就業不能保険が特に必要です。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：労災があるから生命保険は不要と思っていた',
+                  situation: '42歳男性・長距離トラックドライバー。妻と子2人。',
+                  problem: '「業務中に死んだら労災が出るから大丈夫」と生命保険に未加入。走行中に心筋梗塞で死亡。労災遺族補償年金（年約167万円）と遺族年金（年約130万円）は支給されたが、教育費・住宅ローンを賄えず、妻がフルタイム復帰を余儀なくされた。',
+                  lesson: '労災遺族補償は生活費の一部しかカバーしない。教育費・住宅費への備えに民間生命保険が必須。',
+                },
+                {
+                  title: '失敗②：高血圧・肥満で審査に通らなかった',
+                  situation: '48歳男性・運送会社勤務。BMI32・高血圧（収縮期170mmHg）。',
+                  problem: '子供が生まれたタイミングで生命保険への加入を検討したが、長年の不規則食事と運動不足で高血圧・肥満が進行しており通常審査では引受謝絶。割高な引受基準緩和型に加入するしかなかった。',
+                  lesson: '若いうちに・健康なうちに加入すること。ドライバーは生活習慣病リスクが高く、年齢が上がるほど加入が困難になる。',
+                },
+                {
+                  title: '失敗③：個人事業主で遺族厚生年金がなく家族が困窮',
+                  situation: '45歳男性・個人事業主・運送業。妻と子1人。',
+                  problem: '心疾患で急死。遺族厚生年金がなく遺族基礎年金（年約102万円）のみ。民間生命保険も最小限だったため、妻への収入補填が不十分で子の高校卒業後すぐの就職を余儀なくされた。',
+                  lesson: '個人事業主ドライバーは遺族厚生年金がない分、民間生命保険の保障額を会社員より手厚くすること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-yellow-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">生命保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '過労死認定件数が全業種の32.5%というリスクを認識した',
+                '労災遺族補償・遺族年金の概算額を確認した',
+                '必要保障額（3,000〜5,000万円）を計算した',
+                '健康診断結果を確認し健康なうちに加入した',
+                '個人事業主の場合は遺族厚生年金がないことを考慮した保障額を設定した',
+                '収入保障保険による効率的な保障設計を検討した',
+                '医療保険・就業不能保険との組み合わせを設計した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
