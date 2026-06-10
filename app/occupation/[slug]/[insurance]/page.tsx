@@ -353,6 +353,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isBeauticianMedical = occ.slug === 'beautician' && ins.slug === 'medical'
   const isFinanceLife = occ.slug === 'finance' && ins.slug === 'life'
   const isDoctorIncomeProtection = occ.slug === 'doctor' && ins.slug === 'income-protection'
+  const isNurseCancer = occ.slug === 'nurse' && ins.slug === 'cancer'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5303,6 +5304,259 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 看護師×がん保険 専用コンテンツ */}
+      {isNurseCancer && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">看護師にがん保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              看護師はがん患者のケアを日常的に行う職業ですが、
+              自身もがんリスクが高い職種です。
+              国立がん研究センター「多目的コホート研究（2021年）」によると、
+              夜勤従事者の乳がん発症リスクは日勤のみの女性と比較して約1.3倍。
+              看護師は女性が多く夜勤が多い職種であるため、
+              乳がんリスクへの備えが特に重要です。
+              また針刺し事故による肝炎ウイルス感染から
+              肝がんへ進行するリスクも看護師特有の脅威です。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              日本人の2人に1人ががんに罹患する時代において、
+              看護師は職業的なリスクも加わり、
+              がん保険の必要性が一般職種より高いといえます。
+              治療の長期化・先進医療の活用・
+              就業制限期間の収入補填など、
+              看護師のライフスタイルに合ったがん保険選びが重要です。
+            </p>
+            <div className="bg-rose-50 border-l-4 border-rose-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-rose-800">
+                💡 看護師のがん保険で特に重要なポイント
+              </p>
+              <p className="text-rose-700 text-sm mt-1">
+                看護師はがんの医療知識が豊富なため、
+                「がんになったら最新の治療を受けたい」という
+                意識が高い傾向があります。
+                先進医療特約・治療給付金（抗がん剤・放射線）など、
+                治療の選択肢を広げる保障が充実した
+                がん保険を選ぶことが重要です。
+              </p>
+              <p className="text-xs text-rose-600 mt-2">
+                出典：<a href="https://epi.ncc.go.jp/jphc/" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「多目的コホート研究」2021年</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障の限界 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">看護師のがんリスクと公的保障でカバーされない費用</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">費用の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">公的保障（健康保険・高額療養費）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">民間がん保険で補う部分</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['手術費用', '高額療養費制度で自己負担に上限', 'がん診断一時金・手術給付金で補完'],
+                    ['抗がん剤治療費', '高額療養費制度適用（月57,600円等）', '抗がん剤治療給付金で月々の負担を補完'],
+                    ['放射線治療費', '高額療養費制度適用', '放射線治療給付金で補完'],
+                    ['先進医療費用', '❌ 全額自己負担（数十〜数百万円）', '✅ 先進医療特約（最大2,000万円）'],
+                    ['差額ベッド代', '❌ 全額自己負担', '✅ 入院日額・一時金で補完'],
+                    ['通院治療費（外来化学療法）', '高額療養費適用だが月複数回で累積', '✅ 通院給付金で補完'],
+                    ['就業制限中の収入損失', '傷病手当金（最長18ヶ月）', 'がん診断一時金・就業不能保険で補完'],
+                  ].map(([type, pub, priv], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{pub}</td>
+                      <td className="px-4 py-3 text-gray-700">{priv}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「高額療養費制度について」</a>
+              <a href="https://www.mhlw.go.jp/topics/bukyoku/isei/sensiniryo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「先進医療の概要について」</a>
+            </p>
+          </section>
+
+          {/* セクション3：看護師特有のがんリスク */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">看護師が特に注意すべきがんリスクの実態</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 夜勤による乳がんリスク：1.3倍</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  国立がん研究センター「多目的コホート研究（2021年）」によると、
+                  夜勤従事者の乳がん発症リスクは日勤のみの女性と比較して約1.3倍。
+                  メラトニン分泌の抑制・概日リズムの乱れが
+                  乳がんリスクを高めると考えられています。
+                  看護師は女性の割合が高く夜勤頻度も多いため、
+                  乳がんへの備えが特に重要です。
+                  乳がんの5年生存率は約92%（早期発見の場合）と高く、
+                  治療費への備えが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 針刺し事故→肝炎→肝がんリスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  C型肝炎ウイルスへの職業的感染から
+                  慢性肝炎・肝硬変・肝がんへ進行するリスクがあります。
+                  C型肝炎からの肝がん発症率は年間約3〜7%。
+                  早期発見・治療が重要ですが、
+                  治療費（インターフェロン治療・肝がん手術等）は
+                  高額になるケースがあります。
+                  がん保険でこのリスクをカバーすることが重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ ストレス・過労による免疫低下</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  長時間労働・夜勤・精神的ストレスによる免疫機能の低下が
+                  がんリスクを間接的に高める可能性があります。
+                  看護師の平均睡眠時間は全職業平均より短く、
+                  慢性的な睡眠不足が免疫機能に影響します。
+                  日頃からの定期的ながん検診と
+                  がん保険による備えの両立が重要です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">④ 治療中の就業制限リスク</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  看護師ががんと診断された場合、
+                  治療期間中に「感染管理上の理由」から
+                  患者への直接ケアを制限されるケースがあります。
+                  特に化学療法中は免疫抑制状態となり、
+                  通常業務への復帰が遅れることがあります。
+                  傷病手当金（最長18ヶ月）に加えて
+                  がん診断一時金で収入の減少を補填することが重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://epi.ncc.go.jp/jphc/" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「多目的コホート研究」2021年</a>
+              <a href="https://ganjoho.jp/reg_stat/statistics/stat/summary.html" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「がん統計」2023年</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/naika/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「医療機関における院内感染対策」2022年</a>
+            </p>
+          </section>
+
+          {/* セクション4：選び方5つのポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">看護師のがん保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '診断一時金は100万円以上を確保する',
+                  detail: 'がんと診断された時点で受け取れる診断一時金は、治療開始前の準備資金・収入減少の補填として重要です。看護師のがん治療中の就業制限を考慮すると、月収の3〜6ヶ月分（150〜300万円程度）が理想的ですが、まず100万円以上を確保してください。',
+                },
+                {
+                  number: '02',
+                  title: '先進医療特約は必ず付帯する',
+                  detail: '医療知識のある看護師は先進医療の選択肢を積極的に検討するケースが多いです。陽子線治療・重粒子線治療・免疫療法などの先進医療は数十〜数百万円の費用がかかります。月100〜200円の先進医療特約で最大2,000万円の保障が得られるため必須です。',
+                },
+                {
+                  number: '03',
+                  title: '通院給付金の有無を確認する',
+                  detail: '近年のがん治療は入院よりも外来（通院）での抗がん剤・放射線治療が主流になっています。入院給付金のみのがん保険では、外来治療の費用をカバーできません。通院給付金（1日5,000〜10,000円）が付帯されているかを確認してください。',
+                },
+                {
+                  number: '04',
+                  title: '乳がん・子宮がんの診断一時金が上乗せされる商品を検討する',
+                  detail: '女性看護師は乳がん・子宮頸がん・卵巣がんリスクが高いです。女性特有のがんに対して診断一時金が上乗せされる「女性疾病特約」付きのがん保険を検討してください。夜勤による乳がんリスクが1.3倍の看護師には特に有効です。',
+                },
+                {
+                  number: '05',
+                  title: '就業不能保険との組み合わせを設計する',
+                  detail: 'がん治療中の就業制限・長期休業に備えるため、がん保険の診断一時金に加えて就業不能保険（精神疾患特約付き）との組み合わせが重要です。傷病手当金（最長18ヶ月）終了後の長期収入補填も設計に含めてください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-rose-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：入院給付金のみで外来治療をカバーできなかった',
+                  situation: '42歳女性・病棟看護師。夜勤あり。',
+                  problem: '乳がんと診断され、手術後に外来で抗がん剤治療を6ヶ月継続。加入していたがん保険は入院給付金のみで通院給付金なし。毎月の外来治療費（高額療養費適用後）と交通費・食事代が累積し、年間で50万円以上の自己負担が発生した。',
+                  lesson: '近年のがん治療は外来中心。通院給付金付きのがん保険を選ぶこと。',
+                },
+                {
+                  title: '失敗②：先進医療特約なしで治療の選択肢が狭まった',
+                  situation: '38歳女性・外来看護師。',
+                  problem: '子宮がんと診断され、重粒子線治療を希望したが費用約314万円が全額自己負担。先進医療特約をつけていなかったため、費用の問題で通常の放射線治療を選択せざるを得なかった。医療知識があるだけに最新治療を受けられなかったことへの後悔が大きかった。',
+                  lesson: '月100〜200円の先進医療特約で治療の選択肢を広げておくこと。',
+                },
+                {
+                  title: '失敗③：診断一時金が少なく治療準備が不十分',
+                  situation: '45歳女性・ICU看護師。月収35万円。',
+                  problem: '大腸がんと診断。診断一時金50万円では手術前の準備・入院準備・3ヶ月の就業制限中の収入補填に全く足りなかった。傷病手当金はあったが、月収の33%分の不足と医療費で貯蓄が大幅に減少した。',
+                  lesson: '診断一時金は月収の3〜6ヶ月分（最低100万円以上）を確保すること。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-rose-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">がん保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '夜勤による乳がんリスク（1.3倍）を認識し、女性疾病特約を検討した',
+                '針刺し事故→肝炎→肝がんリスクへの備えを確認した',
+                '診断一時金100万円以上を確保した',
+                '通院給付金付きのがん保険を選んだ',
+                '先進医療特約（月100〜200円）を付帯した',
+                '女性特有がん（乳がん・子宮がん）の上乗せ特約を検討した',
+                '就業不能保険との組み合わせで長期収入補填を設計した',
+                '複数の保険会社で見積もりを比較した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
