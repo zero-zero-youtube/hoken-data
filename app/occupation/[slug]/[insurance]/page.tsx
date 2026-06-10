@@ -342,6 +342,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverMedical = occ.slug === 'driver' && ins.slug === 'medical'
   const isDoctorLife = occ.slug === 'doctor' && ins.slug === 'life'
   const isSalesLife = occ.slug === 'sales' && ins.slug === 'life'
+  const isPartTimeMedical = occ.slug === 'part-time' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2095,6 +2096,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </section>
+
+        </div>
+      )}
+
+      {/* パート・アルバイト×医療保険 専用コンテンツ */}
+      {isPartTimeMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">パート・アルバイトに医療保険が必要な理由</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              パート・アルバイトは正社員と比べて公的保障が手薄になりやすく、病気・ケガで働けなくなった際のリスクが特に高い雇用形態です。厚生労働省「パートタイム・有期雇用労働者総合実態調査（2021年）」によると、パート・アルバイトの社会保険非加入率は約40%（週20時間未満）。社会保険に加入していない場合、傷病手当金がなく医療費の自己負担も増える可能性があります。
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              平均年収180万円前後のパート・アルバイト層にとって、医療費の急な自己負担は家計に直撃します。月額1,000〜3,000円程度の医療保険で最低限の備えをしておくことが、生活防衛の観点から重要です。
+            </p>
+            <div className="bg-teal-50 border-l-4 border-teal-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-teal-800 mb-1">💡 パート・アルバイトが医療保険を考える際の最重要ポイント</p>
+              <p className="text-teal-700 text-sm leading-relaxed">
+                まず自分が社会保険（健康保険）に加入しているかどうかを確認してください。週20時間以上・月収88,000円以上（年収106万円以上）で社会保険適用事業所に勤務している場合、社会保険に加入でき傷病手当金の対象になります。加入していない場合は国民健康保険となり、傷病手当金がないため民間医療保険の重要性が高まります。
+              </p>
+              <p className="text-xs text-teal-600 mt-2">出典：<a href="https://www.mhlw.go.jp/tekiyo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「社会保険適用拡大特設サイト」</a></p>
+            </div>
+          </div>
+
+          {/* セクション2：社会保険加入状況と医療保険の必要性 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">社会保険の加入状況別・医療保険の必要性</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">項目</th>
+                    <th className="px-4 py-3 text-left font-semibold">社会保険加入パート（週20h以上等）</th>
+                    <th className="px-4 py-3 text-left font-semibold">社会保険非加入パート（国民健康保険）</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">健康保険の種類</td><td className="px-4 py-3">健康保険（協会けんぽ）</td><td className="px-4 py-3">国民健康保険</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">傷病手当金</td><td className="px-4 py-3">✅ あり（月収の約67%・最長18ヶ月）</td><td className="px-4 py-3">❌ なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">医療費自己負担</td><td className="px-4 py-3">3割（高額療養費制度あり）</td><td className="px-4 py-3">3割（高額療養費制度あり）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">出産手当金</td><td className="px-4 py-3">✅ あり</td><td className="px-4 py-3">❌ なし</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">民間医療保険の必要性</td><td className="px-4 py-3">中（差額ベッド代・先進医療への備え）</td><td className="px-4 py-3">高（傷病手当金なし・収入補填が必要）</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">
+              出典：<a href="https://www.mhlw.go.jp/tekiyo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「社会保険適用拡大特設サイト」</a>　<a href="https://www.kyoukaikenpo.or.jp/g3/cat320/sb3040/r139/" target="_blank" rel="noopener noreferrer" className="underline">全国健康保険協会「傷病手当金について」</a>
+            </p>
+            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+              <p className="font-bold text-blue-800 mb-2">📋 社会保険加入の確認方法</p>
+              <p className="text-blue-700 text-sm leading-relaxed">
+                以下の条件を全て満たす場合、社会保険への加入が義務付けられています：<br />
+                ① 週の所定労働時間が20時間以上<br />
+                ② 月収88,000円以上（年収106万円以上）<br />
+                ③ 勤務期間が2ヶ月超の見込み<br />
+                ④ 学生でない<br />
+                ⑤ 従業員51人以上の企業に勤務（2024年10月〜）<br /><br />
+                給与明細で「健康保険料」が引かれていれば社会保険加入済みです。
+              </p>
+              <p className="text-xs text-blue-600 mt-2">出典：<a href="https://www.mhlw.go.jp/tekiyo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「社会保険適用拡大」2024年10月改正</a></p>
+            </div>
+          </div>
+
+          {/* セクション3：リスクデータ */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">パート・アルバイトが直面する健康・生活リスクの実態</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">① 社会保険非加入率：約40%（週20時間未満）</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「パートタイム・有期雇用労働者総合実態調査（2021年）」によると、週20時間未満のパート・アルバイトの社会保険非加入率は約40%。傷病手当金がない国民健康保険加入者は病気・ケガで働けなくなると即座に収入がゼロになります。低収入のパート層にとって、収入ゼロは生活の危機に直結します。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">② 労働災害発生率：正社員の約1.3倍</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「労働災害発生状況（2023年）」によると、パート・アルバイトの労働災害発生率は正社員の約1.3倍。安全教育の不足・不慣れな作業環境が主な原因です。飲食・小売・介護などパートが多い業種での転倒・切創・腰痛が多発しています。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">③ 低収入による医療費負担の相対的な重さ</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  厚生労働省「賃金構造基本統計調査（2023年）」によると、パート・アルバイトの平均年収は約180万円（月収約15万円）。高額療養費制度の自己負担上限は月約18,000〜57,600円ですが、月収15万円の家庭にとってこれは家計の10〜38%に相当します。入院による収入減少と医療費の二重の打撃が家計に深刻な影響を与えます。
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">④ 国民健康保険料の負担</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  国民健康保険の保険料は前年収入を基に算定されます。収入が変動しやすいパート・アルバイトは前年より収入が減った場合でも前年収入に基づく高い保険料を払い続けるリスクがあります。減額申請の手続きを知っておくことも重要です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：<a href="https://www.mhlw.go.jp/toukei/list/h23-pt.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「パートタイム・有期雇用労働者総合実態調査」2021年</a>　<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>　<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「賃金構造基本統計調査」2023年</a>
+            </p>
+          </div>
+
+          {/* セクション4：最適な医療保険の選び方 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">パート・アルバイトに最適な医療保険の選び方</h2>
+            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+              低収入のパート・アルバイトにとって、保険料の負担を最小限に抑えながら最低限の保障を確保することが重要です。
+            </p>
+            <div className="bg-green-50 rounded-xl p-5 border border-green-200 mb-5">
+              <p className="font-bold text-green-800 mb-2">💰 パート・アルバイトにおすすめの保険選びの原則</p>
+              <ul className="text-green-700 text-sm space-y-2">
+                <li>✅ 月額保険料1,000〜2,000円以内を目標に設定する</li>
+                <li>✅ 入院一時金型（短期入院でもまとまった給付）を優先する</li>
+                <li>✅ 先進医療特約（月100〜200円）は必ず付帯する</li>
+                <li>✅ 社会保険非加入の場合は就業不能保険との組み合わせも検討</li>
+                <li>❌ 過剰な特約・高額な保険料は避ける</li>
+              </ul>
+            </div>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-2">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#0f172a] text-white">
+                    <th className="px-4 py-3 text-left font-semibold">保険の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold">月額保険料目安</th>
+                    <th className="px-4 py-3 text-left font-semibold">パート・アルバイトへの適合度</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">入院一時金型医療保険</td><td className="px-4 py-3">1,000〜2,500円</td><td className="px-4 py-3">✅ 高（短期入院でも給付・シンプル）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">日額型医療保険（5,000円/日）</td><td className="px-4 py-3">1,500〜3,000円</td><td className="px-4 py-3">△ 中（長期入院に強いが保険料が高め）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">県民共済・都民共済</td><td className="px-4 py-3">1,000〜2,000円</td><td className="px-4 py-3">✅ 高（低価格・シンプル・審査が通りやすい）</td></tr>
+                  <tr className="hover:bg-gray-50"><td className="px-4 py-3 font-medium">就業不能保険</td><td className="px-4 py-3">2,000〜5,000円</td><td className="px-4 py-3">社会保険非加入者には高優先度</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500">※保険料は年齢・性別・保障内容により異なります</p>
+          </div>
+
+          {/* セクション5：5つのチェックポイント */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前に確認すべき5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number: '01',
+                  title: '社会保険に加入しているかどうかを先に確認する',
+                  detail: '給与明細で「健康保険料」が引かれているか確認してください。社会保険加入済みなら傷病手当金があるため、民間医療保険は差額ベッド代・先進医療特約に絞った最小限の保障で十分なケースが多いです。未加入なら民間医療保険＋就業不能保険の組み合わせが重要です。',
+                },
+                {
+                  number: '02',
+                  title: '月額保険料1,000〜2,000円以内に抑える',
+                  detail: '年収180万円のパート・アルバイトにとって、月額3,000円超の保険料は家計負担が重くなります。県民共済・都民共済（月額1,000〜2,000円）やネット系の入院一時金型医療保険で保険料を抑えながら必要な保障を確保してください。',
+                },
+                {
+                  number: '03',
+                  title: '先進医療特約は必ず付帯する',
+                  detail: '月100〜200円で付帯できる先進医療特約は、低収入のパート・アルバイトにとっても数百万円の先進医療費用へのリスクヘッジとして重要です。保険料が安い特約なので、必ず付帯することをお勧めします。',
+                },
+                {
+                  number: '04',
+                  title: '国民健康保険の高額療養費制度を理解する',
+                  detail: '国民健康保険でも高額療養費制度は適用されます。年収180万円のパート・アルバイトの場合、月の医療費自己負担上限は約18,000円（住民税非課税世帯）〜57,600円程度。これを超える分は還付されます。まず公的制度の内容を把握した上で、カバーできない部分のみ民間保険で補ってください。',
+                },
+                {
+                  number: '05',
+                  title: '社会保険加入を検討する（106万円・130万円の壁）',
+                  detail: '年収を106万円以上にすることで社会保険に加入でき、傷病手当金・出産手当金などの手厚い保障が得られます。いわゆる「106万円・130万円の壁」を意識して勤務時間・収入を調整している方も多いですが、社会保険に加入することで民間保険への依存度を大幅に下げられる場合があります。',
+                },
+              ].map((item) => (
+                <div key={item.number} className="flex gap-4 bg-[#f8fafc] rounded-xl p-5 border border-gray-100">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xs font-bold">{item.number}</div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション6：よくある失敗事例3選 */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">よくある失敗事例3選</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  title: '失敗①：社会保険未加入で入院費が家計を直撃',
+                  situation: '30代女性・スーパーパート。週18時間勤務。月収10万円。',
+                  problem: '虫垂炎で10日間入院。社会保険未加入のため傷病手当金なし。入院中の収入ゼロ＋医療費自己負担3万円が重なり、家賃支払いが困難になった。民間医療保険にも未加入だった。',
+                  lesson: '社会保険未加入のパートは民間医療保険が生活防衛の最後の砦。月1,000〜2,000円で最低限の備えをすること。',
+                },
+                {
+                  title: '失敗②：高額な医療保険に加入して保険料が払えなくなった',
+                  situation: '20代女性・カフェアルバイト。月収12万円。',
+                  problem: '知人の勧めで月額4,500円の医療保険に加入。半年後に収入が減り、保険料の支払いが苦しくなって解約。解約返戻金もなく、支払った保険料が無駄になった。',
+                  lesson: '収入に見合った保険料設定が重要。月収の1〜2%（月収12万円なら1,200〜2,400円）を目安に。',
+                },
+                {
+                  title: '失敗③：高額療養費制度を知らず医療費を全額自己負担',
+                  situation: '40代女性・工場パート。国民健康保険加入。',
+                  problem: '手術で医療費が50万円かかると言われ、高額療養費制度を知らずに全額支払い。後から制度を知り申請したが、時効（2年）を過ぎていた部分は還付されなかった。',
+                  lesson: '高額療養費制度は必ず申請すること。入院前に病院の窓口で「限度額適用認定証」を申請すれば、窓口での支払いを上限額以内に抑えられる。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="font-bold text-red-800 text-sm mb-2">{c.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">【状況】{c.situation}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-3">{c.problem}</p>
+                  <div className="bg-white border border-red-200 rounded-lg px-4 py-2">
+                    <p className="text-xs font-bold text-red-700">📌 教訓：{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* セクション7：最終チェックリスト */}
+          <div>
+            <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">加入前の最終チェックリスト</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                '社会保険（健康保険）への加入状況を給与明細で確認した',
+                '高額療養費制度の自己負担上限額（住民税非課税：約18,000円）を把握した',
+                '限度額適用認定証の申請方法を確認した',
+                '月額保険料1,000〜2,000円以内の医療保険を選んだ',
+                '先進医療特約（月100〜200円）を付帯した',
+                '社会保険未加入の場合は就業不能保険との組み合わせを検討した',
+                '社会保険加入の可否（106万円・130万円の壁）を確認した',
+                '国民健康保険料の減額申請制度を確認した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       )}
