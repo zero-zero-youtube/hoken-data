@@ -349,6 +349,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isTeacherLife = occ.slug === 'teacher' && ins.slug === 'life'
   const isCivilServantMedical = occ.slug === 'civil-servant' && ins.slug === 'medical'
   const isManagerLife = occ.slug === 'manager' && ins.slug === 'life'
+  const isManufacturingMedical = occ.slug === 'manufacturing' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -2100,6 +2101,211 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+            </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 製造業×医療保険 専用コンテンツ */}
+      {isManufacturingMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">製造業・工場勤務に医療保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              製造業・工場勤務は機械・設備・化学物質・騒音など多様な健康リスクが存在する職場環境です。厚生労働省「労働災害発生状況（2023年）」によると、製造業の休業4日以上の労働災害発生件数は全産業の約20%を占め、機械へのはさまれ・切れ・腰痛が主な原因です。また職業性難聴・化学物質による職業性疾患など、長期勤務により慢性化する健康リスクも特有の問題です。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              製造業の多くの会社員は健康保険（協会けんぽ・組合健保）に加入しており、傷病手当金・高額療養費制度の保障があります。しかし業務中の怪我は労災保険が適用される一方、私傷病・職業性疾患の自己負担分・差額ベッド代・先進医療費用には民間医療保険で備えることが重要です。
+            </p>
+            <div className="bg-gray-50 border-l-4 border-gray-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-gray-800">💡 製造業の医療保険で最も重要な前提</p>
+              <p className="text-gray-700 text-sm mt-1">
+                業務中の怪我・職業性疾患は労災保険が優先適用されます。民間医療保険は「業務外の私傷病」や「労災でカバーされない費用（差額ベッド代等）」を補う役割です。夜勤・交代勤務による生活習慣病リスクへの備えも重要です。
+              </p>
+              <p className="text-xs text-gray-600 mt-2">出典：厚生労働省「労働者災害補償保険法」</p>
+            </div>
+          </section>
+
+          {/* セクション2：労災保険と民間医療保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">労災保険と民間医療保険の役割分担</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>費用・リスクの種類</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>労災保険</span>
+                    </th>
+                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
+                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>民間医療保険</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['業務中の怪我・治療費','✅ 全額補償','△ 労災後の差額のみ'],
+                    ['職業性難聴・振動障害','✅ 認定されれば補償','△ 認定されない場合に必要'],
+                    ['化学物質による疾患','✅ 職業病として認定されれば補償','△ 認定要件を満たさない場合'],
+                    ['プライベート中の病気・ケガ','❌ 対象外','✅ 主な給付対象'],
+                    ['夜勤による生活習慣病','❌ 原則対象外','✅ 主な給付対象'],
+                    ['差額ベッド代・食事代','❌ 対象外','✅ 特約で補償可能'],
+                  ].map(([type,rosai,private_ins],i)=>(
+                    <tr key={i} className={i%2===0?'bg-white':'bg-gray-50'}>
+                      <td className="border border-gray-200 px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{rosai}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{private_ins}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-gray-600 mt-2">出典：厚生労働省「労働者災害補償保険法」</p>
+          </section>
+
+          {/* セクション3：製造業特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">製造業・工場勤務が直面する健康リスクの実態</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'① 労働災害：全産業の約20%・機械はさまれが最多',
+                  body:'厚生労働省「労働災害発生状況（2023年）」によると、製造業の休業4日以上の労働災害発生件数は全産業の約20%。主な原因は「はさまれ・巻き込まれ（約25%）」「転倒（約20%）」「切れ・こすれ（約15%）」です。重大な怪我による長期入院・手術のリスクが常に存在します。',
+                  color:'border-red-400 bg-red-50'
+                },
+                {
+                  title:'② 職業性難聴：製造業が全業種で最高水準',
+                  body:'厚生労働省「作業環境測定結果報告（2022年）」によると、製造業の職業性難聴有所見率は全業種で最高水準。長期間の騒音環境での作業により感音性難聴が進行するケースが多いです。補聴器の購入・定期的な耳鼻科通院など長期的な医療費がかかります。',
+                  color:'border-orange-400 bg-orange-50'
+                },
+                {
+                  title:'③ 腰痛：製造業の業務上疾病第1位',
+                  body:'厚生労働省「業務上疾病発生状況（2022年）」によると、製造業の業務上疾病の第1位は腰痛。重量物の取り扱い・立位作業・不自然な姿勢による腰椎への慢性的な負荷が原因です。手術・入院・長期リハビリが必要になるケースもあります。',
+                  color:'border-yellow-400 bg-yellow-50'
+                },
+                {
+                  title:'④ 夜勤・交代勤務による生活習慣病・がんリスク',
+                  body:'国立がん研究センター「多目的コホート研究（2021年）」によると、夜勤従事者の生活習慣病・睡眠障害リスクは日勤のみと比較して約1.4倍。製造業は交代勤務が多く、糖尿病・高血圧・がんリスクへの長期的な備えが重要です。',
+                  color:'border-purple-400 bg-purple-50'
+                },
+              ].map((item,i)=>(
+                <div key={i} className={`border-l-4 p-4 rounded-r-xl ${item.color}`}>
+                  <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              出典：厚生労働省「労働災害発生状況」2023年 / 厚生労働省「作業環境測定結果報告」2022年 / 厚生労働省「業務上疾病発生状況」2022年 / 国立がん研究センター「多目的コホート研究」2021年
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">製造業が医療保険を選ぶ5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  number:'01',
+                  title:'腰痛・骨折などの整形外科手術が給付対象か確認する',
+                  detail:'製造業は腰痛・骨折・切創による入院・手術リスクが高いです。椎間板手術・骨折手術などの整形外科手術が医療保険の手術給付金の対象かどうかを確認してください。内視鏡手術・レーザー手術も対象になる新しいタイプの手術給付が充実した商品を選びましょう。'
+                },
+                {
+                  number:'02',
+                  title:'職業性難聴・化学物質疾患の告知義務を確認する',
+                  detail:'既に職業性難聴の診断を受けている場合や、化学物質への暴露歴がある場合は、医療保険加入時の告知義務として申告が必要です。告知義務違反は保険金不払いの原因になるため、正確に申告してください。既往症がある場合は引受基準緩和型の保険も選択肢です。'
+                },
+                {
+                  number:'03',
+                  title:'夜勤・交代勤務に備えたがん特約を検討する',
+                  detail:'夜勤従事者のがんリスクは日勤の約1.4倍。医療保険のがん特約または単独のがん保険との組み合わせを検討してください。特に長期間夜勤に従事している40代以上の方はがんリスクへの備えが重要です。'
+                },
+                {
+                  number:'04',
+                  title:'入院日額は最低1万円以上を確保する',
+                  detail:'製造業は骨折・腰椎手術による長期入院リスクが高いです。入院日額5,000円では長期入院時に不十分な場合があります。骨折の平均入院日数は約35日のため、入院日額1万円で約35万円の給付が得られます。差額ベッド代・食事代を含めると入院日額1万円以上が推奨されます。'
+                },
+                {
+                  number:'05',
+                  title:'先進医療特約を必ず付帯する',
+                  detail:'がん・脳疾患の治療で先進医療を選択した場合、数十〜数百万円の費用が全額自己負担になります。月100〜200円の先進医療特約で最大2,000万円程度の保障が得られるため、必ず付帯してください。'
+                },
+              ].map((cp,i)=>(
+                <div key={i} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">{cp.number}</div>
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-2">{cp.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{cp.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">製造業・工場勤務でよくある医療保険の失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title:'失敗①：職業性難聴を告知せず保険金が支払われなかった',
+                  situation:'50代男性・自動車部品工場勤務20年。',
+                  problem:'医療保険加入時に既に診断されていた職業性難聴を告知しなかった。数年後に難聴が悪化して補聴器手術を受けたが、告知義務違反として保険契約を解除された。手術費用が全額自己負担になり、支払った保険料も戻らなかった。',
+                  lesson:'職業性疾患（難聴・化学物質疾患等）は加入時に必ず告知すること。告知義務違反は保険金不払いの原因になる。'
+                },
+                {
+                  title:'失敗②：腰椎手術で入院が長期化・入院日額不足',
+                  situation:'40代男性・食品工場勤務。重量物搬送作業。',
+                  problem:'腰椎椎間板ヘルニアの手術で45日間入院。入院日額5,000円の医療保険では給付金22.5万円。差額ベッド代（個室・1日6,000円×45日＝27万円）と合わせると実際の出費は50万円を超え、大幅な不足が生じた。',
+                  lesson:'製造業は腰痛手術リスクが高い。入院日額は最低1万円以上を設定すること。'
+                },
+                {
+                  title:'失敗③：夜勤20年でがん発症・先進医療特約なし',
+                  situation:'52歳男性・電機工場勤務。夜勤20年以上。',
+                  problem:'胃がんと診断され、重粒子線治療（先進医療）を希望。費用約294万円が全額自己負担。医療保険に加入していたが先進医療特約をつけていなかった。月150円の特約で防げた損失だった。',
+                  lesson:'夜勤従事者はがんリスクが高い。先進医療特約は月100〜200円で付帯できるため必ず加入すること。'
+                },
+              ].map((c,i)=>(
+                <div key={i} className="border border-red-200 rounded-xl overflow-hidden">
+                  <div className="bg-red-600 px-5 py-3">
+                    <h3 className="font-bold text-white">{c.title}</h3>
+                  </div>
+                  <div className="p-5 space-y-2 bg-white">
+                    <p className="text-sm text-gray-600"><span className="font-semibold">状況：</span>{c.situation}</p>
+                    <p className="text-sm text-gray-700"><span className="font-semibold">問題：</span>{c.problem}</p>
+                    <p className="text-sm text-blue-700 font-semibold bg-blue-50 p-2 rounded"><span>教訓：</span>{c.lesson}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">製造業の医療保険加入前・最終チェックリスト</h2>
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <ul className="space-y-3">
+                {[
+                  '労災保険の適用範囲（業務中の怪我）と民間保険の役割を理解した',
+                  '職業性難聴・化学物質疾患等の既往症を正確に告知した',
+                  '腰椎手術・骨折に備えて入院日額1万円以上を確保した',
+                  '整形外科手術（内視鏡・レーザー含む）が給付対象か確認した',
+                  '夜勤リスクに備えてがん特約または単独がん保険を検討した',
+                  '先進医療特約（月100〜200円）を付帯した',
+                  '差額ベッド代特約の必要性を検討した',
+                  '複数の保険会社で見積もりを比較した',
+                ].map((item,i)=>(
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 
