@@ -12,7 +12,7 @@ export default function AffiliateCTA({ primary, secondary }: Props) {
 
   return (
     <div className="bg-blue-950 rounded-xl p-6 my-8">
-      <div className="text-xs text-blue-200 mb-1">PR・完全無料・強引な勧誘なし</div>
+      <div className="text-xs text-blue-200 mb-1">完全無料・強引な勧誘なし</div>
       <h3 className="text-lg font-bold mb-1 text-white">{p.description}</h3>
       <p className="text-blue-200 text-sm mb-4">{p.subtext}</p>
 
