@@ -2349,6 +2349,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 ))}
               </ul>
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -2571,6 +2573,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 ))}
               </ul>
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -2783,6 +2787,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 ))}
               </ul>
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -2992,6 +2998,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 ))}
               </ul>
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -3193,6 +3201,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -3386,6 +3396,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -3613,6 +3625,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -3811,6 +3825,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -4001,6 +4017,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -4206,6 +4224,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -4444,6 +4464,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -4685,6 +4707,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -4915,6 +4939,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -5144,6 +5170,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -5382,6 +5410,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   <span className="text-gray-700">{item}</span>
                 </div>
               ))}
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
             </div>
           </div>
 
@@ -5628,6 +5658,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="text-cyan-600 underline hover:text-cyan-800 ml-1">高額療養費制度（厚生労働省）</a>
               <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-cyan-600 underline hover:text-cyan-800 ml-2">令和6年賃金構造基本統計調査（厚生労働省）</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -5875,6 +5907,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.nurse.or.jp/home/assets/20260331_nl01.pdf" target="_blank" rel="noopener noreferrer" className="text-rose-600 underline hover:text-rose-800 ml-1">日本看護協会「2024年病院看護実態調査」</a>
               <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-rose-600 underline hover:text-rose-800 ml-2">厚生労働省「令和6年賃金構造基本統計調査」</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -6127,6 +6161,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-sky-600 underline hover:text-sky-800 ml-1">厚生労働省「令和6年賃金構造基本統計調査」</a>
               <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html" target="_blank" rel="noopener noreferrer" className="text-sky-600 underline hover:text-sky-800 ml-2">日本年金機構「遺族基礎年金の受給要件」</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -6379,6 +6415,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.nta.go.jp/publication/statistics/kokuzeicho/minkan/top.htm" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline hover:text-orange-800 ml-1">国税庁「令和6年分民間給与実態統計調査」</a>
               <a href="https://www.chusho.meti.go.jp/pamflet/hakusyo/" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline hover:text-orange-800 ml-2">中小企業庁「中小企業白書」</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -6631,6 +6669,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.nichibenren.or.jp/document/statistics.html" target="_blank" rel="noopener noreferrer" className="text-violet-600 underline hover:text-violet-800 ml-1">日本弁護士連合会「弁護士白書」</a>
               <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html" target="_blank" rel="noopener noreferrer" className="text-violet-600 underline hover:text-violet-800 ml-2">日本年金機構「遺族基礎年金の受給要件」</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -6876,6 +6916,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/toukei/list/chinginkouzou.html" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800 ml-1">厚生労働省「令和6年賃金構造基本統計調査」</a>
               <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800 ml-2">高額療養費制度（厚生労働省）</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -7118,6 +7160,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/stf/newpage_40975.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800 ml-1">厚生労働省「令和5年度過労死等の労災補償状況」</a>
               <a href="https://www.nta.go.jp/publication/statistics/kokuzeicho/minkan/top.htm" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800 ml-2">国税庁「令和6年分民間給与実態統計調査」</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -7360,6 +7404,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline hover:text-teal-800 ml-1">厚生労働省「令和6年賃金構造基本統計調査」</a>
               <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline hover:text-teal-800 ml-2">高額療養費制度（厚生労働省）</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -7619,6 +7665,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html" target="_blank" rel="noopener noreferrer" className="text-pink-600 underline hover:text-pink-800 ml-1">日本年金機構「遺族基礎年金の受給要件・支給開始時期・計算方法」</a>
               <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-pink-600 underline hover:text-pink-800 ml-2">令和6年賃金構造基本統計調査</a>
             </p>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -7881,6 +7929,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -8142,6 +8192,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -8395,6 +8447,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -8711,6 +8765,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -8968,6 +9024,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -9233,6 +9291,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -9491,6 +9551,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -9744,6 +9806,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -9995,6 +10059,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -10252,6 +10318,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -10505,6 +10573,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
@@ -10762,6 +10832,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           </section>
 
         </div>
