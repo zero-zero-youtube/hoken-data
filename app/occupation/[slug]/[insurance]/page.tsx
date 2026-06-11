@@ -367,6 +367,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManufacturingLife = occ.slug === 'manufacturing' && ins.slug === 'life'
   const isBeauticianLife = occ.slug === 'beautician' && ins.slug === 'life'
   const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
+  const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5317,6 +5318,244 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 不動産業×医療保険 専用コンテンツ */}
+      {isRealEstateMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">不動産業と医療保険：精神疾患・交通事故・収入変動という3つの死角</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              不動産業は成果報酬型の年収構造・顧客対応による高ストレス・外回りによる交通事故リスクという3つの特性が重なる職種です。厚生労働省の「令和5年度過労死等の労災補償状況」によれば、精神障害の労災支給決定件数は883件（4年連続増加）で、「営業・販売事務従事者」は全職種の中で精神障害労災請求の常連上位です。また不動産営業の外回り業務では、物件案内・現地視察・顧客送迎で1日数十kmの運転が常態化しており、交通事故による入院リスクを日常的に抱えています。さらに成果報酬型の収入構造では、不調期の年収低下と高い保険料の二重負担が起きやすく、「保険料が払えなくて解約した」という落とし穴も多い。精神疾患を「不担保（対象外）」とする医療保険も存在するため、加入前の約款確認が特に重要な職種です。本ページでは不動産業従事者に特有のリスクデータをもとに、医療保険の正しい設計方法を解説します。
+            </p>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 不動産業の3大医療リスク：①顧客クレーム・ノルマ・長時間労働による精神疾患（精神障害労災支給決定4年連続増加）、②外回りの車両移動による交通事故入院、③成果報酬型収入の不調期に保険が払えなくなる「解約リスク」。これら3点を踏まえた医療保険設計が重要です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的医療保険 vs 民間医療保険 比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">公的健康保険でカバーされる費用・されない費用</h2>
+            <p className="text-gray-600 text-sm mb-4">年収420万円の不動産業従事者を前提にした比較です。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-blue-700 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">項目</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">公的健康保険でカバーされる</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">公的健康保険でカバーされない</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">入院医療費</td>
+                    <td className="px-4 py-3 text-green-700">✅ 高額療養費で月約8万円上限（年収420万円の場合、区分「ウ」）</td>
+                    <td className="px-4 py-3 text-red-600">❌ 差額ベッド代（1日平均6,000〜7,000円）</td>
+                  </tr>
+                  <tr className="bg-blue-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">食事代</td>
+                    <td className="px-4 py-3 text-gray-500">— 一部補助あり</td>
+                    <td className="px-4 py-3 text-red-600">❌ 1食550円は自己負担（30日入院で約4.9万円）</td>
+                  </tr>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">精神疾患による入院</td>
+                    <td className="px-4 py-3 text-green-700">✅ 高額療養費の対象（精神科病棟入院も対象）</td>
+                    <td className="px-4 py-3 text-red-600">❌ 精神科の平均入院日数278日→傷病手当金1年6か月超は無保障</td>
+                  </tr>
+                  <tr className="bg-blue-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">休業中の収入補償</td>
+                    <td className="px-4 py-3 text-green-700">✅ 傷病手当金（標準報酬月額の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-red-600">❌ 成果報酬・インセンティブ分は標準報酬月額に反映されにくく実収入とのギャップ大</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">交通事故による入院</td>
+                    <td className="px-4 py-3 text-green-700">✅ 健康保険使用可能（第三者行為届提出が必要）</td>
+                    <td className="px-4 py-3 text-red-600">❌ 示談長期化中の費用立て替え・自己過失分の自己負担</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 成果報酬型の不動産営業では、好調期の高収入が標準報酬月額に反映されない場合があります。実際の月収と傷病手当金の乖離に注意し、収入変動を踏まえた医療保険の設計が重要です。
+            </p>
+          </section>
+
+          {/* セクション3：不動産業特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">不動産業従事者特有のリスクデータ（政府統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-blue-700 mb-3">リスク①：精神障害労災が4年連続増加——営業職のメンタルヘルス危機</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  厚生労働省「令和5年度過労死等の労災補償状況」によると、精神障害の労災支給決定件数は883件で4年連続増加。精神障害の発病に関与した出来事のトップは「パワーハラスメントを受けた」（157件）で、「顧客・取引先等からのクレーム」も上位に位置します。不動産営業はノルマプレッシャー・顧客クレーム・上司からの叱責が重なりやすく、30〜40代の働き盛りで精神疾患を発症するリスクが高い業種のひとつです。精神科の平均入院日数は278日（全疾患中最長）で、傷病手当金の1年6か月（約550日換算）の壁を超えることもあります。入院一時金・長期入院給付金のある医療保険が特に有効です。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_40975.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 text-sm underline hover:text-blue-800"
+                >
+                  出典：厚生労働省「令和5年度過労死等の労災補償状況」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-blue-700 mb-3">リスク②：外回り業務による交通事故入院リスク</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  不動産営業の日常業務には、物件案内・現地視察・顧客の送迎・契約書の持参など、1日に数十kmを自動車・バイクで移動するケースが多いです。交通事故で入院した場合、相手方の対人賠償保険で医療費はカバーされうるものの、①過失割合の確定まで支払いが遅れる、②自分側の過失が大きい場合は自己負担分が生じる、③示談交渉が長期化すると入院費の立て替えが必要になるリスクがあります。自身の医療保険があれば、示談の進捗に関わらず入院給付金を受け取ることができ、キャッシュフローの安定につながります。
+                </p>
+                <a
+                  href="https://www.npa.go.jp/publications/statistics/koutsuu/toukeihyo.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 text-sm underline hover:text-blue-800"
+                >
+                  出典：警察庁「令和6年交通事故統計」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-blue-700 mb-3">リスク③：成果報酬型収入の「不調期解約」という医療保険の死角</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  不動産業の平均年収は約420万円（国税庁）ですが、成果報酬型の企業では好調期に年収1,000万円超・不調期に200万円台となるケースがあります。収入不調期に保険料が重荷となり「解約」を選択すると、その後に病気になっても保障がなくなります。特に精神疾患や脳・心臓疾患は30〜50代の働き盛りに多く、「解約した直後に発症」という最悪のパターンが起きやすい職種です。保険設計の段階から「収入が下がっても払い続けられる保険料水準（月額3,000〜6,000円程度）」に抑えることが、不動産業従事者特有の重要な判断基準となります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_59039.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 text-sm underline hover:text-blue-800"
+                >
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">不動産業従事者の医療保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '精神疾患の入院・通院を給付対象とする医療保険を選ぶ',
+                  body: '精神疾患を「不担保（対象外）」とする医療保険も存在します。不動産営業は精神疾患リスクが高いため、必ず「精神疾患による入院・通院も給付対象」であることを約款で確認してください。精神科の平均入院日数は278日（全疾患中最長）のため、長期入院に対応した給付設計を選ぶことが重要です。'
+                },
+                {
+                  num: '2',
+                  title: '月額保険料は「不調期の収入」でも払える水準に設定する',
+                  body: '成果報酬型の不動産営業は収入変動が大きいです。好調期の収入を基準に高額な保険に入ると、不調期に払えなくなり解約を招きます。月額3,000〜6,000円のシンプルな医療保険を基盤とし、安定した収入が見込める時期に特約を追加する設計が有効です。'
+                },
+                {
+                  num: '3',
+                  title: '傷病手当金と実収入のギャップを把握した上で入院日額を設定する',
+                  body: '成果報酬・インセンティブが大きい不動産営業では、傷病手当金の基準となる「標準報酬月額」が実収入より低いケースがあります。入院中の実収入減少に対応するため、入院日額5,000〜1万円の設定が有効です。'
+                },
+                {
+                  num: '4',
+                  title: '交通事故に備えた入院一時金・手術給付金を確認する',
+                  body: '外回りが多い不動産営業は交通事故による入院リスクがあります。医療保険の入院給付金は原因を問わず（交通事故・業務中・私的時間を含め）支給されるため、示談交渉中の費用立て替えリスクをカバーできます。'
+                },
+                {
+                  num: '5',
+                  title: '通院給付金のある設計で精神科・整形外科の長期通院に備える',
+                  body: '精神疾患の治療は外来通院が中心で、月1〜4回の診察が数年続くケースがあります。通院給付金付きの医療保険か通院特約を付加することで、長期にわたる外来医療費の自己負担を補完できます。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（不動産業特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「インセンティブで収入が高い時期に入った高額保険を、不調期に解約した」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（34歳・不動産売買営業・好調期年収900万円）。31歳の好調期に月額保険料1.8万円の医療保険・生命保険セットに加入。3年後に市況悪化で年収が320万円まで落ち込み、保険料が重荷になって全解約。その半年後に過重労働による適応障害と診断され3か月休業。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>解約後の発症のため医療保険の入院給付金ゼロ。傷病手当金は受給できたが、精神科の通院費・薬代・カウンセリング費が3か月で15万円超となり家計を直撃。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：不動産営業の保険設計は「不調期でも継続できる保険料水準」を最優先に設定します。好調期は追加の貯蓄・投資で備え、保険は安価でシンプルに保ち続けることが鉄則です。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「外回り中の交通事故で入院したが、示談が長引き費用の立て替えが続いた」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（41歳・不動産仲介営業）。顧客送迎中に追突され頸椎捻挫で3週間入院。相手方の保険会社との示談交渉が4か月かかり、入院費20万円以上を立て替え続けることになった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>個人の医療保険に未加入のため、示談解決まで入院費・通院費を全額自己負担。傷病手当金で月収の2/3は受給できたが、残り1/3の収入減少と立て替え費用で2か月間の家計が圧迫された。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：交通事故の場合でも自身の医療保険があれば示談の進捗に関わらず入院給付金を即受取できます。外回りが多い不動産営業こそ、シンプルな医療保険を持つことが有効なリスク管理となります。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「精神科は入院給付金の対象外だと入院後に知った」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん（38歳・不動産デベロッパー営業）。プロジェクト遅延・上司からの叱責が重なりうつ病を発症し42日間入院。退院後に加入していた医療保険に請求したところ、精神疾患が不担保条件であることが判明。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>入院給付金ゼロ。傷病手当金は受給できたが、差額ベッド代・食事代・薬代で42日間の総自己負担は約30万円超。精神疾患が対象外とは知らずに加入していた典型的なケース。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：医療保険の加入時に「精神疾患（うつ病・適応障害含む）が入院・通院給付の対象か」を必ず確認します。不動産営業は精神疾患リスクが高いため、これは必須の確認事項です。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">不動産業従事者が医療保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '加入中の医療保険が精神疾患（うつ病・適応障害含む）の入院・通院を給付対象としているか確認した',
+                  '傷病手当金の月額（標準報酬月額の2/3）と実収入のギャップを把握した',
+                  '月額保険料が不調期の収入（年収200〜300万円台）でも継続できる水準か確認した',
+                  '外回り業務中の交通事故リスクを踏まえ、医療保険の入院給付金の対象範囲（交通事故含む）を確認した',
+                  '高額療養費の自己負担限度額（年収420万円の場合：月約8万円）と対象外費用（差額ベッド代等）を理解した',
+                  '精神科の平均入院日数（278日）を超える長期療養時の保障（傷病手当金の1年6か月後）を確認した',
+                  '通院給付金（特約）の有無を確認し、精神科・整形外科の長期外来治療に備えた',
+                  '成果報酬型の収入変動を踏まえ「好調期に保険を増やすより、安価な保険を継続させる」を優先した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.mhlw.go.jp/stf/newpage_40975.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800 ml-1">厚生労働省「令和5年度過労死等の労災補償状況」</a>
+              <a href="https://www.nta.go.jp/publication/statistics/kokuzeicho/minkan/top.htm" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800 ml-2">国税庁「令和6年分民間給与実態統計調査」</a>
+            </p>
+          </section>
 
         </div>
       )}
