@@ -365,6 +365,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
   const isPartTimeLife = occ.slug === 'part-time' && ins.slug === 'life'
   const isManufacturingLife = occ.slug === 'manufacturing' && ins.slug === 'life'
+  const isBeauticianLife = occ.slug === 'beautician' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5315,6 +5316,261 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 美容師×生命保険 専用コンテンツ */}
+      {isBeauticianLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + 2色インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">美容師と生命保険：キャリア変化で変わる公的保障を正しく把握する</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              美容師は「人を美しくする」という価値ある仕事でありながら、生命保険の観点から見ると極めてリスクが高い職業の一つです。その最大の理由は、キャリアの変化によって公的保障が大きく変動することにあります。サロン勤務（雇用）→フリーランス→独立開業という典型的なキャリアパスの中で、社会保険の加入状況が変わるたびに遺族年金・傷病手当金などの公的保障が変化します。特に開業後は国民年金のみの第1号被保険者となるため、死亡時に残された家族が受け取れる遺族年金は「遺族基礎年金」だけとなり、子のいない配偶者への支給はゼロになります。また廃業率が高い業界特性上、生命保険の保険料を抑えながらも確実な保障を確保する設計が重要です。美容師の平均年収は371万7,000円（令和6年賃金構造基本統計調査）と全産業平均を約90万円下回る水準で推移しており、「保険料は安く、保障は十分に」という設計が現実的に求められています。
+            </p>
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="text-red-800 font-semibold text-sm leading-relaxed">
+                🚨 開業美容師（個人事業主）は遺族厚生年金の受給資格がありません。死亡時に残された配偶者が受け取れるのは遺族基礎年金（子がいる場合のみ・年約102万円）のみです。子なし配偶者への公的給付はゼロとなるため、民間生命保険の役割が極めて重要です。
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 美容業界（生活関連サービス業）の3年以内離職率は57〜62%（厚生労働省）。転職・独立のたびに社会保険の加入状況が変わり、生命保険の設計見直しが必要になります。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：キャリアステージ別比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と民間生命保険の必要性</h2>
+            <p className="text-gray-600 text-sm mb-4">美容師のキャリアステージによって公的保障の手厚さは大きく変わります。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-pink-700 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">キャリアステージ</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">年金区分</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">死亡時の遺族年金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">傷病手当金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">民間生命保険の必要性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">サロン正社員</td>
+                    <td className="px-4 py-3 text-gray-700">第2号被保険者（厚生年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">あり（最長1年6か月）</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中：公的保障が比較的手厚い</td>
+                  </tr>
+                  <tr className="bg-pink-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">フリーランス美容師</td>
+                    <td className="px-4 py-3 text-gray-700">第1号被保険者（国民年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族基礎年金のみ（子がいる場合）</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">なし</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：公的保障が薄い</td>
+                  </tr>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">開業オーナー（個人事業主）</td>
+                    <td className="px-4 py-3 text-gray-700">第1号被保険者（国民年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族基礎年金のみ（子がいる場合）</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">なし</td>
+                    <td className="px-4 py-3 text-red-700 font-bold">極めて高：廃業リスクも加わる</td>
+                  </tr>
+                  <tr className="bg-pink-50">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">法人化オーナー</td>
+                    <td className="px-4 py-3 text-gray-700">第2号被保険者（厚生年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">あり</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中〜高：保障が回復するが収入変動あり</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 独立・開業のタイミングで国民年金（第1号被保険者）に切り替わることで、遺族厚生年金の受給資格を失います。法人化（従業員5人以上の個人事業所または株式会社）すれば厚生年金に再加入できますが、小規模サロンでは難しいケースも多い。
+            </p>
+          </section>
+
+          {/* セクション3：美容師特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">美容師特有のリスクデータ（政府統計）</h2>
+
+            <div className="space-y-8">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-pink-700 mb-3">リスク①：業界最悪水準の離職率が生む「保障の断絶」</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  生活関連サービス業（美容師含む）の3年以内離職率は57〜62%で、全産業平均（41〜45%）を大きく上回ります（厚生労働省）。美容師のキャリアでは「技術習得中の低賃金期（アシスタント）→スタイリスト昇格→別サロンへの転職→フリーランス→独立開業」という移行が一般的で、そのたびに社会保険の加入状況が変わります。サロン勤務中に入っていた団体保険は退職と同時に失効し、個人名義の生命保険に切り替えていなければ「保障のない期間」が生まれます。特に独立後すぐの時期は収入が不安定で保険料の支払いも後回しにされやすい状況です。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/content/11130500/001362852.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-600 text-sm underline hover:text-pink-800"
+                >
+                  出典：厚生労働省「理容業・美容業に関する関連データ」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-pink-700 mb-3">リスク②：開業後の廃業リスクと「遺族への借金」</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  美容室の廃業率は開業3年以内で約90%、20年以上続くサロンはわずか0.3%。開業時には内装費・機材・保証金で300〜500万円以上の初期投資が必要なことが多く、借入金を抱えた状態で開業するケースが多いです。オーナー美容師が死亡した場合、廃業によって収入はゼロになる一方、借入金の返済義務は遺族に残る可能性があります。遺族基礎年金（子1人で年約102万円）だけでは生活費と借入金返済を同時に賄えず、民間生命保険による「債務返済保障」の役割が重要になります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei03/06.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-600 text-sm underline hover:text-pink-800"
+                >
+                  出典：厚生労働省「衛生行政報告例」（令和6年3月末）→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-pink-700 mb-3">リスク③：全国274,070施設の飽和市場で年収が伸び悩む</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  令和6年3月末時点の美容所数は274,070施設（前年比1.5%増）で、コンビニエンスストア（約56,000店）の約5倍。飽和状態の市場競争から美容師の平均年収は371万7,000円（令和6年賃金構造基本統計調査）と全産業平均460万円を約90万円下回ります。生涯にわたり年収水準が低いため、「保険料は安く、保障は十分に」という設計が必須で、掛け捨て定期保険や収入保障保険の活用が特に適しています。
+                </p>
+                <div className="flex flex-col gap-2 mt-2">
+                  <a
+                    href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-600 text-sm underline hover:text-pink-800"
+                  >
+                    出典①：厚生労働省「令和6年賃金構造基本統計調査」→
+                  </a>
+                  <a
+                    href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei03/06.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-600 text-sm underline hover:text-pink-800"
+                  >
+                    出典②：厚生労働省「衛生行政報告例」美容所数データ→
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">美容師の生命保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '現在の雇用形態（正社員 or フリーランス or 開業）を確認し、公的保障の厚さを把握する',
+                  body: 'キャリアステージによって遺族厚生年金の有無が変わります。独立・開業のタイミングでは必ず生命保険の見直しを行い、遺族厚生年金がなくなる分を民間保険で補うことが重要です。'
+                },
+                {
+                  num: '2',
+                  title: '開業時の借入金額を「死亡保障額の下限」として設定する',
+                  body: '内装費・設備費・保証金の借入金がある場合、その金額を最低限の死亡保障額として設定します。例：300万円の借入金がある場合、死亡保険金300万円以上は必須です。'
+                },
+                {
+                  num: '3',
+                  title: '収入が低い時期ほど「掛け捨て・シンプル設計」を選ぶ',
+                  body: 'アシスタント時代の月収15〜20万円、開業初年度の不安定収入など、収入が低い時期は保険料の負担が重くなりやすいです。月額2,000〜5,000円程度の定期保険や収入保障保険から始め、収入が安定したら保障を追加するのが現実的です。'
+                },
+                {
+                  num: '4',
+                  title: '転職・独立のたびに「団体保険の失効確認」と個人保険への切り替えを行う',
+                  body: 'サロン在籍中に加入していた団体定期保険は退職で失効します。転職・独立の手続きと並行して個人名義の生命保険への加入を確認することで「保障のない期間」を防ぎます。'
+                },
+                {
+                  num: '5',
+                  title: '子なし世帯の美容師こそ生命保険が重要',
+                  body: '遺族基礎年金は「子のいる配偶者または子」にしか支給されません。子なし世帯では美容師（個人事業主）が死亡した場合、残された配偶者への公的給付はゼロです。生命保険が唯一の遺族保障となるため、独身・子なし世帯も加入を検討する価値があります。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-pink-600 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（美容師特有の視点）</h2>
+            <div className="space-y-6">
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「独立開業のタイミングで生命保険を後回しにした」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（31歳・美容師8年目）。念願の独立開業を果たし、内装費300万円の借入金を抱えてスタート。「軌道に乗ったら保険に入ろう」と考えていたが、開業2年目に交通事故で死亡。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>サロン勤務時代の団体保険は独立と同時に失効しており、個人保険にも未加入。妻（29歳・子なし）への遺族基礎年金の支給はゼロ（子がいないため）。借入金300万円の返済義務が妻に残り、廃業処理の費用も加わって経済的に追い詰められた。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：開業と同時に公的保障が薄くなります。独立のタイミングは「生命保険加入の最優先タイミング」と認識し、借入金額以上の死亡保障を確保してから開業することが重要です。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「子どもが生まれたから加入したが、開業後に解約してしまった」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（38歳・一人サロンオーナー）。第1子誕生を機に生命保険に加入したが、サロン経営が苦しくなり保険料節約のため解約。その1年後、くも膜下出血で死亡。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>解約時点で子は5歳。遺族基礎年金は子が18歳になるまでの年約102万円のみ（月約8.5万円）。妻はフルタイム勤務に切り替えたが、子の教育費と生活費を賄うには月10万円以上不足する試算に。借入金の残債も加わりさらに困窮した。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：経営が苦しい時ほど民間生命保険は重要です。保険料を削る前に、公的保障（遺族基礎年金月8.5万円）だけで家族が生活できるかをシミュレーションしてから判断することが大切です。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「法人化したら保障が変わると知らなかった」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん（44歳・美容室法人オーナー）。個人事業主時代に加入した高額の生命保険を、法人化後も10年間そのまま継続。実は法人化で厚生年金に加入したことで遺族厚生年金の受給資格が復活しており、民間保険の必要保障額が大幅に下がっていた。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>過剰保険のまま毎月2万円以上の保険料を払い続け、年間25万円超の費用が無駄になっていた。必要保障額の再計算で1,500万円分の保険を削減でき、月1.2万円の節約になった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：キャリアの変化（雇用↔独立↔法人化）に合わせて生命保険の必要保障額は大きく変動します。美容師は特にキャリアの節目が多いため、転職・独立・法人化のたびに保険内容を見直すことが重要です。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">美容師が生命保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '現在の雇用形態（正社員・フリーランス・個人事業主・法人）と年金区分（第1号・第2号）を確認した',
+                  '開業している場合、遺族厚生年金の受給資格がないことを把握した',
+                  '子なし世帯の場合、遺族基礎年金が支給されないことを確認した',
+                  '開業時の借入金額を最低限の死亡保障額として設定した',
+                  '団体保険が退職・独立で失効することを把握し、個人保険に切り替えた（または切り替え予定）',
+                  '転職・独立のタイミングで生命保険の見直しを行う習慣を持つことにした',
+                  '月額2,000〜5,000円程度の掛け捨て定期保険・収入保障保険の保険料を試算した',
+                  '法人化している場合、厚生年金再加入による必要保障額の変化を確認した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html" target="_blank" rel="noopener noreferrer" className="text-pink-600 underline hover:text-pink-800 ml-1">日本年金機構「遺族基礎年金の受給要件・支給開始時期・計算方法」</a>
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-pink-600 underline hover:text-pink-800 ml-2">令和6年賃金構造基本統計調査</a>
+            </p>
+          </section>
 
         </div>
       )}
