@@ -372,6 +372,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isLawyerLife = occ.slug === 'lawyer' && ins.slug === 'life'
   const isFoodServiceMedical = occ.slug === 'food-service' && ins.slug === 'medical'
   const isEngineerLife = occ.slug === 'engineer' && ins.slug === 'life'
+  const isNurseLife = occ.slug === 'nurse' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5322,6 +5323,249 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 看護師×生命保険 専用コンテンツ */}
+      {isNurseLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + 2色インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">看護師と生命保険：死亡保障より就業不能保障を優先すべき逆説的設計ロジック</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              看護師は平均年収約520万円と医療系職種の中でも高水準ですが、生命保険の設計においては「パワーカップル世帯の死亡保障を大胆に減らして就業不能保障に全振りすべき」という、他職種とは正反対の設計ロジックが求められます。その理由は、日本看護協会「2024年病院看護実態調査」が示す通り、新卒看護師の離職理由の54.6%が「精神的疾患」であり、500床以上の大病院では71.2%に達するという異常な現実にあります。看護師にとって最大の経済的リスクは「死亡」ではなく「精神疾患・腰痛・夜勤による疾病で生きたまま長期休職すること」です。配偶者も働いている共働き世帯であれば、一方が死亡しても世帯収入の半分と遺族厚生年金が残りますが、一方が精神疾患で長期休職すれば世帯収入が半減しながら治療費が加算されるという、より深刻な経済打撃が発生します。さらに多くの看護師は日本看護協会の保険（賠償責任・針刺し感染補償）に加入しているため、民間保険との重複を避けた効率的な設計が重要です。本ページでは看護師特有のリスク構造と、それに最適化された生命保険設計を解説します。
+            </p>
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="text-red-800 font-semibold text-sm leading-relaxed">
+                🚨 看護師の新卒離職理由の54.6%が「精神的疾患」（500床以上の病院では71.2%）。共働き看護師世帯の真の脅威は「死亡」ではなく「生きながら長期休職して収入が途絶え、治療費がかかり続けること」です。高額な死亡保険より、精神疾患対応の就業不能保険を優先することが看護師世帯の合理的な選択です。
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 日本看護協会の共済・賠償責任保険（針刺し感染補償・傷害補償）に加入している看護師は、民間保険との保障重複に注意。協会保険の内容を正確に把握した上で、不足している「就業不能保障」を民間で補完する設計が最も効率的です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：世帯モデル別比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">看護師の世帯モデル別 公的保障と最優先すべき民間保険</h2>
+            <p className="text-gray-600 text-sm mb-4">世帯構成によって最優先すべき保険の種類が異なります。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-rose-600 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">世帯モデル</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">死亡時の公的保障</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">長期休職時の公的保障</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">最優先すべき民間保険</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">共働き看護師×会社員（子あり）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金＋配偶者収入</td>
+                    <td className="px-4 py-3 text-gray-700">傷病手当金（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-rose-700 font-semibold">就業不能保険（精神疾患対応）＋女性疾病特約付き医療保険</td>
+                  </tr>
+                  <tr className="bg-rose-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">共働き看護師×会社員（子なし）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋配偶者収入（遺族基礎年金なし）</td>
+                    <td className="px-4 py-3 text-gray-700">傷病手当金（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-rose-700 font-semibold">就業不能保険を最優先。死亡保障は葬儀費用程度の少額終身保険でよい</td>
+                  </tr>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">一人親（シングル）看護師</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-gray-700">傷病手当金（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">子が独立するまでの定期保険（死亡保障）＋就業不能保険の両立が必要</td>
+                  </tr>
+                  <tr className="bg-rose-50">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">夫が専業主夫・看護師が世帯主</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-gray-700">傷病手当金（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">死亡保障も重要（配偶者の収入がないため）。就業不能保険との組み合わせ</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 2028年4月の遺族厚生年金改正により、60歳未満で配偶者を亡くした場合は原則5年間の有期給付に変わります。共働き世帯でも2028年以降は遺族厚生年金の有期化を踏まえた見直しが必要です。
+            </p>
+          </section>
+
+          {/* セクション3：看護師特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">看護師特有のリスクデータ（政府・業界統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-rose-600 mb-3">リスク①：「精神疾患が離職理由の過半数」という異常事態——看護師特有の就業不能リスク</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  日本看護協会「2024年病院看護実態調査」によると、新卒看護師の離職理由のトップが「健康上の理由（精神的疾患）」であり、全体の54.6%を占めます。特に500床以上の大規模病院では71.2%に達しており、新人教育の現場が極度の心理的負荷を生んでいることが明らかです。厚生労働省「令和6年版過労死等防止対策白書」でも「医療、福祉」業種は精神障害の労災支給決定件数が893件（15.6%）と製造業に次ぐ高水準にあります。共働き看護師世帯において配偶者が精神疾患で6か月〜1年以上休職した場合、傷病手当金（月収の2/3）は受給できますが残り1/3の収入減少＋治療費がペアローンやマンション維持費に直撃します。死亡保障よりも「生存しながら収入が途絶えるリスク」への備えが看護師世帯の最重要課題です。
+                </p>
+                <a
+                  href="https://www.nurse.or.jp/home/assets/20260331_nl01.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-rose-600 text-sm underline hover:text-rose-800"
+                >
+                  出典：日本看護協会「2024年病院看護実態調査」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-rose-600 mb-3">リスク②：夜勤・交代制勤務による疾病リスクの蓄積</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  2交替・3交替制勤務による不規則な生活リズムは、サーカディアンリズム（概日リズム）を破壊し、自律神経・ホルモンバランスを乱します。これが不眠症・うつ病のリスクを高めるだけでなく、学術的には乳がんや心血管疾患との関連も指摘されています。厚生労働省の統計では「医療、福祉」業種の精神障害労災は893件（15.6%）と高水準で推移しており、夜勤の多い看護師がこの数字を押し上げていることは疑いありません。長期にわたる夜勤業務は、じわじわと健康を削る「遅効性リスク」として認識する必要があります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_44199.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-rose-600 text-sm underline hover:text-rose-800"
+                >
+                  出典：厚生労働省「令和6年版過労死等防止対策白書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-rose-600 mb-3">リスク③：日本看護協会の保険と民間保険の「重複加入」という見えない無駄</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  多くの看護師は職場を通じて日本看護協会の保険（賠償責任保険・針刺し感染症補償・傷害補償等）に加入しています。この保険の存在を正確に把握せずに民間の医療保険・傷害保険に加入すると、傷害補償や入院補償が二重になり、毎月数千円〜1万円以上の保険料を無駄に払い続けるケースが発生します。協会保険でカバーされていない「精神疾患による長期就業不能」「生命保険（死亡保障）」「女性特有疾病（帝王切開・切迫早産）」に的を絞って民間保険を設計することで、保険料を最適化しながら必要な保障を確保できます。
+                </p>
+                <a
+                  href="https://li.nurse.or.jp/about/premium/compensation.php"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-rose-600 text-sm underline hover:text-rose-800"
+                >
+                  出典：日本看護協会「看護職賠償責任保険制度」→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">看護師の生命保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '共働き世帯は死亡保障を大胆に減らし、就業不能保障に集中させる',
+                  body: '配偶者も働いている世帯では、一方が死亡しても世帯収入の半分＋遺族厚生年金が残ります。死亡保障は葬儀代＋αの少額終身保険（保険料月数百円）で十分なケースが多いです。浮いた保険料を全て精神疾患対応の就業不能保険に充当することが、看護師世帯の最合理的な選択です。'
+                },
+                {
+                  num: '2',
+                  title: '日本看護協会の保険内容を正確に把握してから民間保険を設計する',
+                  body: '加入している協会保険（賠償責任・針刺し感染補償・傷害補償）の給付内容を確認し、カバーされていない領域（就業不能・死亡・女性疾病）のみを民間で補完します。重複を避けることで月の保険料を数千円〜1万円削減できるケースがあります。'
+                },
+                {
+                  num: '3',
+                  title: '女性特有疾病（帝王切開・切迫早産・乳がん）をカバーする女性向け医療保険を選ぶ',
+                  body: '夜勤との関連が学術的に指摘されている乳がんリスクや、妊娠中の異常（帝王切開・切迫早産）は通常の医療保険では給付対象外になるケースがあります。女性特化型の医療保険または女性疾病特約付きの保険が看護師には特に有効です。'
+                },
+                {
+                  num: '4',
+                  title: '精神疾患をカバーする就業不能保険は「在宅療養でも給付される」ことを確認する',
+                  body: '精神疾患の治療は外来通院・在宅療養が主流で、入院を伴わないことが多いです。「入院・手術が必要」な医療保険では精神疾患の給付が下りないケースがあります。就業不能保険は「在宅療養でも一定期間後に給付される」タイプを選ぶことが必須です。'
+                },
+                {
+                  num: '5',
+                  title: '産休・育休中の保険料支払いと傷病手当金の関係を事前に確認する',
+                  body: '育休中は傷病手当金の受給資格は維持されますが、育休中に別の病気（うつ病等）を発症した場合の保障がどうなるかを事前に確認しておきます。切迫早産での長期入院で差額ベッド代が発生するケースに備えた入院一時金の設定も有効です。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（看護師特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「パワーカップル世帯が死亡保障に注力し、妻の休職で住宅ローンが危機に」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（看護師・年収520万円）と夫（会社員・年収600万円）のパワーカップル。子あり。互いに3,000万円の死亡保険を掛け合った。妻が夜勤の過重労働で適応障害を発症し8か月休職。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>妻の月収入が約43万円から傷病手当金（月約29万円）に減少。月14万円の収入減少と精神科通院費・薬代がペアローン返済（月30万円）を直撃。加入していた保険は「死亡保障のみ」で就業不能時には1円も給付されなかった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：共働き看護師世帯の真のリスクは「死亡」ではなく「生きながら長期休職」。死亡保険を葬儀費用分に減額し、浮いた保険料を就業不能保険に全振りすることが最合理的な設計です。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「協会保険と民間保険が重複して、毎月1.5万円を10年間無駄に払い続けた」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（34歳・病院勤務看護師）。就職と同時に職場で協会保険に加入。その後、保険代理店の勧めで民間の傷害保険・入院保険にも加入。10年後に保険の棚卸しをした際、協会保険との内容が大幅に重複していることが判明。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>10年間で約180万円（月1.5万円×120か月）を無駄に支払い続けていた。重複部分を整理することで月保険料を1万円削減でき、その分を就業不能保険の保険料に充当できた。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：看護師は必ず「日本看護協会の保険内容」を把握してから民間保険を設計します。就職後すぐに保険代理店に相談すると、協会保険の存在を考慮されずに重複した保険に加入させられるケースが多いです。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「切迫早産で1か月入院したが、妊娠関連の入院が保険対象外だった」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん（29歳・ICU看護師）。夜勤の多い業務が続く中で妊娠し、切迫早産で1か月の安静入院が必要に。退院後に医療保険に請求したところ、「妊娠・出産に関連する入院は対象外」と告知されていたことが判明。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>差額ベッド代（1日7,000円×30日＝21万円）・食事代（約4.9万円）・諸費用で総額約30万円が全額自己負担に。出産前後の出費が重なる時期の想定外の負担となった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：看護師は夜勤による乳がんリスクや切迫早産リスクが高いです。女性特化型の医療保険または帝王切開・切迫早産を給付対象とする女性疾病特約付きの保険が必須。入職時に保険を選ぶ際は「妊娠・出産の異常が給付対象か」を必ず確認します。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">看護師が生命保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '共働き世帯の場合、死亡保障より就業不能保障を優先することを検討した',
+                  '日本看護協会の保険（賠償責任・針刺し感染補償・傷害補償）の給付内容を確認した',
+                  '協会保険との重複がないか確認した上で民間保険を設計した',
+                  '精神疾患（うつ病・適応障害）が在宅療養で給付されない医療保険に加入していないか確認した',
+                  '就業不能保険が「入院不要・在宅療養でも給付される」タイプかを確認した',
+                  '女性疾病（帝王切開・切迫早産・乳がん）をカバーする保険内容を確認した',
+                  '2028年の遺族厚生年金有期化を踏まえ、配偶者が60歳未満の場合の保障を確認した',
+                  '夜勤・交代制勤務による健康リスク（乳がん・心血管疾患）を踏まえたがん特約・先進医療特約の検討をした',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.nurse.or.jp/home/assets/20260331_nl01.pdf" target="_blank" rel="noopener noreferrer" className="text-rose-600 underline hover:text-rose-800 ml-1">日本看護協会「2024年病院看護実態調査」</a>
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-rose-600 underline hover:text-rose-800 ml-2">厚生労働省「令和6年賃金構造基本統計調査」</a>
+            </p>
+          </section>
 
         </div>
       )}
