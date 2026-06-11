@@ -363,6 +363,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
   const isFreelanceEngineerLife = occ.slug === 'freelance-engineer' && ins.slug === 'life'
   const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
+  const isPartTimeLife = occ.slug === 'part-time' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5313,6 +5314,263 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* パートタイム×生命保険 専用コンテンツ */}
+      {isPartTimeLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">パートタイム労働者に生命保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              パートタイム労働者は2,126万人と雇用者全体の36.5%を占め
+              （総務省「労働力調査」2025年平均）、
+              特に女性の非正規比率は47.8%に達します
+              （令和4年就業構造基本調査）。
+              非正規雇用の約9割は年間所得200万円未満であり、
+              低収入の中でいかに家族を守る保障を設計するかが
+              パートタイム労働者の生命保険選びの核心です。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              特に2025年に成立した遺族厚生年金の改正
+              （2028年4月施行）により、
+              60歳未満で配偶者を亡くした場合は
+              原則5年間の有期給付に変わります。
+              これまで「終身でもらえる」と思っていた遺族年金が
+              5年で終了するケースが生まれます。
+              扶養範囲内で働くパートタイム労働者は
+              この改正の影響を最も大きく受ける層の一つです。
+            </p>
+            <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-amber-800">
+                ⚠️ パートで扶養範囲内（年収130万円未満）で働く場合の重大な盲点
+              </p>
+              <p className="text-amber-700 text-sm mt-1">
+                扶養範囲内パートは国民年金のみ加入のため、
+                配偶者が死亡しても遺族厚生年金は受け取れません。
+                受け取れるのは遺族基礎年金（子がいる場合のみ・年約109万円）のみです。
+                子のない夫婦では公的給付がゼロになる可能性があります。
+                公的保障の空白地帯を理解した上で
+                生命保険を設計する必要があります。
+              </p>
+              <p className="text-xs text-amber-600 mt-2">
+                出典：<a href="https://www.nenkin.go.jp/tokusetsu/tekiyokakudai_kojin.html" target="_blank" rel="noopener noreferrer" className="underline">日本年金機構「社会保険の適用拡大」</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障と民間保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">パートの加入状況別・公的保障と民間生命保険の役割分担</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">加入状況</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">遺族厚生年金</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">遺族基礎年金</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">備考</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['扶養範囲内パート（130万円未満）', '❌ なし', '✅ あり（子がいる場合のみ）', '国民年金のみ加入'],
+                    ['社会保険加入パート（週20h・月8.8万円以上）', '✅ あり（加入期間に比例）', '✅ あり', '厚生年金に加入'],
+                    ['配偶者（正社員）の被扶養者', '✅ あり（配偶者の年金から）', '✅ あり', '第3号被保険者'],
+                  ].map(([status, kousei, kiso, note], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{status}</td>
+                      <td className="px-4 py-3 text-gray-700">{kousei}</td>
+                      <td className="px-4 py-3 text-gray-700">{kiso}</td>
+                      <td className="px-4 py-3 text-gray-600 text-xs">{note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+              <p className="font-bold text-red-800 mb-2">🔴 2028年4月施行：遺族厚生年金の有期化で状況が大きく変わる</p>
+              <p className="text-red-700 text-sm">
+                現行制度：30歳以上の妻は遺族厚生年金を終身受給<br />
+                2028年4月以降：60歳未満で配偶者を亡くした場合は原則5年間の有期給付に変更<br /><br />
+                子が18歳になった後に受給開始した場合は5年で打ち切り。
+                5年後も月収約10万円以下の低所得者は継続給付があるが、
+                それでも生活の安定は難しい。
+                生命保険の重要性がさらに高まります。
+              </p>
+              <p className="text-xs text-red-600 mt-2">
+                出典：<a href="https://www.moneypro.jp/columns/others/5939/" target="_blank" rel="noopener noreferrer" className="underline">遺族厚生年金2025年改正の詳細</a>
+              </p>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              出典：<a href="https://www.stat.go.jp/data/roudou/sokuhou/nen/ft/pdf/youyaku.pdf" target="_blank" rel="noopener noreferrer" className="underline">総務省「労働力調査」2025年平均</a>
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和4年賃金構造基本統計調査」</a>
+            </p>
+          </section>
+
+          {/* セクション3：パートタイム特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">パートタイム労働者が直面する生命保険リスクの実態</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 低収入世帯の遺族保障の薄さ</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  厚生労働省「令和4年賃金構造基本統計調査」によると、
+                  非正規雇用の平均年収は306万円（正規531万円との差225万円）。
+                  パート・アルバイトの約9割は年間所得200万円未満です。
+                  遺族基礎年金（子1人で年約109万円）のみでは
+                  生活費月20〜25万円（総務省「家計調査」）を賄えません。
+                  年間約130〜190万円もの生活費不足が生じ、
+                  民間生命保険なしでは家族の生活が成り立ちません。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 2028年遺族厚生年金改正の低収入世帯への打撃</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  2028年4月以降、60歳未満で配偶者を亡くした場合は
+                  遺族厚生年金が原則5年間の有期給付に変わります。
+                  女性の非正規比率が47.8%という現状を踏まえると、
+                  「遺族厚生年金が終わった後に十分な収入を得られない女性が多数発生する」
+                  という問題が現実的になります。
+                  月収10万円以下なら5年後も継続給付がありますが、
+                  それでも生活は厳しく、
+                  5年間で終了するケースへの備えが急務です。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 扶養範囲内パートの「保険空白地帯」</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  年収130万円未満で働くパートは国民年金のみ加入のため、
+                  自分が死亡した場合に配偶者が受け取れる遺族厚生年金はゼロです
+                  （第3号被保険者として夫の厚生年金からは受け取れます）。
+                  さらに子のない夫婦の場合、自分が死亡しても
+                  遺族基礎年金すら支給されません。
+                  社会保険加入パートですら、
+                  加入期間が短ければ遺族厚生年金は月数千円の可能性があります。
+                  この「保険空白地帯」を民間生命保険で埋めることが必須です。
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-6">
+              出典：<a href="https://www.stat.go.jp/data/roudou/sokuhou/nen/ft/pdf/youyaku.pdf" target="_blank" rel="noopener noreferrer" className="underline">総務省「労働力調査」2025年平均</a>
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和4年賃金構造基本統計調査」</a>
+              <a href="https://www.nenkin.go.jp/tokusetsu/tekiyokakudai_kojin.html" target="_blank" rel="noopener noreferrer" className="underline">日本年金機構「社会保険の適用拡大」</a>
+              <a href="https://www.moneypro.jp/columns/others/5939/" target="_blank" rel="noopener noreferrer" className="underline">遺族厚生年金2025年改正の詳細</a>
+            </p>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">パートタイム労働者の生命保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '扶養範囲内か社会保険加入かで公的保障が大きく変わる',
+                  detail: '現在の社会保険加入状況（国民年金のみ or 厚生年金加入）を確認してください。扶養範囲内パートは遺族厚生年金がゼロのため、民間生命保険の必要額が社会保険加入パートより大きくなります。2026年10月に月額8.8万円要件が撤廃予定・2027年10月から企業規模要件が36人以上に拡大と、適用拡大が続いています。',
+                },
+                {
+                  number: '02',
+                  title: '2028年改正後は収入保障保険との組み合わせを検討する',
+                  detail: '2028年4月以降、子のない世帯では遺族厚生年金が5年で終了します。5年後の生活費不足に備えるため、配偶者の生命保険に収入保障保険（月額給付型）を追加することを検討してください。特に配偶者が60歳未満で死亡するリスクへの備えが重要です。',
+                },
+                {
+                  number: '03',
+                  title: '配偶者（正社員）の生命保険額が適切か確認する',
+                  detail: 'パート収入では残された場合の生活費が不足します。配偶者（正社員）の生命保険は「遺族年金＋保険金で残りの人生を賄えるか」という観点で見直してください。子の教育費・住宅費・老後の生活費まで試算した上で必要保障額を設定してください。',
+                },
+                {
+                  number: '04',
+                  title: '保険料の手頃さが最優先：月3,000〜5,000円のシンプルな定期保険から',
+                  detail: '非正規雇用の平均年収306万円では高額な保険料を払い続けることが困難です。まず月額3,000〜5,000円程度のシンプルな掛け捨て定期保険（収入保障保険）から始め、余裕ができたら追加を検討してください。無理な保険料設定は解約につながります。',
+                },
+                {
+                  number: '05',
+                  title: '子の独立後の保障見直しを忘れずに',
+                  detail: '子が18歳を過ぎると遺族基礎年金も失効します。2028年改正後は遺族厚生年金も5年で終了するため、子の独立後も配偶者が60歳未満である間は一定の生命保険が必要です。ライフステージの変化に合わせた保険の見直しを計画してください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：扶養範囲内なので遺族年金は夫の分がもらえると思っていた',
+                  situation: 'Aさん（42歳・パート・年収100万円）。夫（45歳・会社員）が病死。子なし。',
+                  problem: 'Aさん自身が扶養の第3号被保険者のため夫の遺族厚生年金は受給できたが、子がいないため遺族基礎年金はゼロ。2028年改正後は遺族厚生年金も5年で終了（子なし世帯）。5年後の生活費を確保する手段がなく、生活の見通しが立たなくなった。',
+                  lesson: '2028年以降は「終身でもらえる」という前提が崩れる。5年後の生活費を確保する生命保険が必要。',
+                },
+                {
+                  title: '失敗②：夫婦2人ともパートで生命保険を節約した',
+                  situation: 'Bさん（38歳・パート年収80万円）と夫（40歳・パート年収120万円）。子2人。夫が事故死。',
+                  problem: '夫の社会保険加入期間が短く遺族厚生年金は月1.5万円程度。子が2人いるため遺族基礎年金は月10万円程度受給できたが、子が18歳になると終了。月の生活費が著しく不足し、Bさんが生活保護を申請せざるを得ない状況になった。',
+                  lesson: '低収入世帯ほど民間生命保険（収入保障保険）の必要額が大きくなるという逆説を理解すること。',
+                },
+                {
+                  title: '失敗③：子が独立したら生命保険を解約してしまった',
+                  situation: 'Cさん（52歳・パート）。夫（55歳・正社員）。子の独立を機に生命保険を全解約。',
+                  problem: '2028年改正後は60歳未満での死別→遺族厚生年金は5年間のみ。夫が60歳未満で死亡すると5年で年金が終了し、Cさんが65歳で老齢年金を受け取るまでの10年近くが無保障になる可能性がある。',
+                  lesson: '子の独立後も配偶者が60歳になるまでの間は一定の生命保険が必要。2028年改正を見据えた見直しを行うこと。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-amber-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">生命保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '現在の社会保険加入状況（国民年金のみ or 厚生年金加入）を確認した',
+                '配偶者が死亡した場合に受け取れる遺族年金額をシミュレーションした',
+                '2028年遺族厚生年金改正の影響を自分の家庭に当てはめて確認した',
+                '子の年齢と遺族基礎年金の受給期間（子が18歳まで）の関係を把握した',
+                '配偶者（正社員）の生命保険は残された家族の生活費をカバーできる額か確認した',
+                '自分自身が死亡した場合の必要保障額を試算した（低収入でも葬儀費用等は必要）',
+                '月額3,000〜5,000円程度の収入保障保険（掛け捨て）の見積もりを取った',
+                '子の独立後も60歳未満は保障が必要なことを確認した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
