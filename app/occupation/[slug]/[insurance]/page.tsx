@@ -364,6 +364,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFreelanceEngineerLife = occ.slug === 'freelance-engineer' && ins.slug === 'life'
   const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
   const isPartTimeLife = occ.slug === 'part-time' && ins.slug === 'life'
+  const isManufacturingLife = occ.slug === 'manufacturing' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5314,6 +5315,264 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 製造業×生命保険 専用コンテンツ */}
+      {isManufacturingLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">製造業従事者に生命保険が必要な理由</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              製造業は日本の基幹産業でありながら、
+              労働災害による死亡者数が全産業で第2位（2024年：142人）という
+              厳然たる事実があります。
+              年収水準は全産業平均を上回る約513万円ですが、
+              その裏側には機械による「はさまれ・巻き込まれ」、
+              夏季の熱中症、重量物による転倒といった
+              職場固有の死亡リスクが常に存在します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              製造業従事者に生命保険が特に重要な理由は、
+              公的な労災保険だけでは家族の生活費を
+              長期にわたって賄えない点にあります。
+              労災の遺族補償年金は年間約174万円
+              （月収34万円の場合の試算）にとどまり、
+              月額20〜25万円の生活費には遠く及びません。
+              加えて2028年4月より遺族厚生年金が
+              60歳未満の配偶者への給付が原則5年間の有期給付に変わるため、
+              公的保障だけでは賄えない「時限式の保障消滅」が現実となります。
+              製造業ならではのリスクデータと、
+              残された家族を守るための正しい生命保険設計方法を解説します。
+            </p>
+            <div className="bg-amber-50 border-l-4 border-amber-400 p-4 my-4 rounded-r-xl">
+              <p className="font-bold text-amber-800">
+                ⚠️ 製造業の労災死亡は全産業2位（2024年：142人）
+              </p>
+              <p className="text-amber-700 text-sm mt-1">
+                労災遺族補償年金の年間受給額は月収34万円の場合で約174万円ですが、
+                生活費の不足分を補う民間生命保険との組み合わせが不可欠です。
+                2028年4月以降は遺族厚生年金も60歳未満は原則5年間の有期給付に変わるため、
+                公的保障の「時限性」を前提とした生命保険設計が急務です。
+              </p>
+              <p className="text-xs text-amber-600 mt-2">
+                出典：<a href="https://www.mhlw.go.jp/stf/newpage_58198.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和6年労働災害発生状況」2025年5月30日公表</a>
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的保障 vs 民間生命保険の役割分担 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">公的保障（労災＋遺族年金）vs 民間生命保険の役割分担</h2>
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#1b2631]">
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">保障の種類</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">支給元</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">受給額（月収34万円・妻と子1人）</span></th>
+                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">期間</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {[
+                    ['労災遺族補償年金', '労災保険', '年約174万円（月約14.5万円）＋遺族特別年金加算', '妻が受給権喪失まで（再婚等）'],
+                    ['遺族厚生年金', '厚生年金', '月約8〜10万円（加入期間・報酬による）', '2028年改正後：60歳未満は原則5年'],
+                    ['遺族基礎年金', '国民年金', '年約102万円（子1人・2026年度）', '子が18歳になるまで'],
+                    ['民間生命保険', '保険会社', '設計次第（例：死亡保険金2,000〜4,000万円）', '契約期間中'],
+                  ].map(([type, source, amount, period], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
+                      <td className="px-4 py-3 text-gray-600">{source}</td>
+                      <td className="px-4 py-3 text-gray-700">{amount}</td>
+                      <td className="px-4 py-3 text-gray-600 text-xs">{period}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              ※ 労災遺族補償年金と遺族厚生年金・遺族基礎年金は重複受給の際に調整があります。
+              また2028年4月より遺族厚生年金は60歳未満の配偶者への給付が原則5年間の有期給付に変わるため、
+              民間生命保険の重要性がさらに高まります。
+            </p>
+            <p className="text-xs text-gray-500 mt-1">
+              出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/rousaihoken6/03.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「遺族（補償）等給付」</a>
+            </p>
+          </section>
+
+          {/* セクション3：製造業特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">製造業従事者が直面するリスクの実態（最新統計）</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 業種別死亡ランキングの現実（2024年確定値）</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  2024年の全産業死亡者数746人のうち、
+                  建設業232人・製造業142人・陸上貨物運送108人がワースト3を独占。
+                  この3業種で全体の65%を占めます
+                  （過去10年間同様の傾向）。
+                  製造業の死傷者は26,676人（全産業の約19.7%）に上り、
+                  「はさまれ・巻き込まれ」（4,692人）が最多事故タイプです。
+                  機械が回転・プレスし続ける環境での一瞬の不注意が、
+                  取り返しのつかない事故につながります。
+                </p>
+                <p className="text-xs text-gray-500 mt-2">
+                  出典：<a href="https://www.mhlw.go.jp/stf/newpage_58198.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和6年労働災害発生状況」2025年5月30日公表</a>
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 過去最多を記録した熱中症死亡（2024年）</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  2024年の職場熱中症死傷者は1,257人で過去最多
+                  （前年比13.6%増）。
+                  死亡者31人のうち、製造業（5人）と建設業（10人）が約半数を占めます。
+                  溶炉・プレス機・鋳造炉など高温環境の製造現場は
+                  「服装制約（安全保護具）」「作業強度の高さ」
+                  「屋内でも熱がこもる環境」が重なり、
+                  熱中症リスクが他業種より構造的に高いです。
+                  2015年の472人から2024年の1,257人まで約2.7倍に増加しており、
+                  気候変動の影響で今後も増加が見込まれます。
+                </p>
+                <p className="text-xs text-gray-500 mt-2">
+                  出典：<a href="https://www.mhlw.go.jp/stf/newpage_58198.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和6年職場における熱中症による死傷災害発生状況」</a>
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 労災遺族補償だけでは足りない「生活費の不足試算」</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  月収34万円（製造業平均）の従事者が死亡した場合、
+                  労災遺族補償年金（年約174万円）＋遺族厚生年金（月約9万円）＋
+                  遺族基礎年金（月約8.5万円・子1人）を合算すると月約32万円程度。
+                  一見足りるように見えますが、
+                  「2028年4月以降は遺族厚生年金が5年で終了（60歳未満の場合）」
+                  「子が18歳を超えると遺族基礎年金も終了」
+                  「労災補償も再婚や子の成長で受給権が変動する」
+                  という3重の時限性があります。
+                  遺族の生活費を月22万円（2人家族・総務省家計調査）と仮定すると、
+                  公的給付が段階的に減少するにつれ
+                  最終的には月10〜15万円の不足が10〜20年単位で続く可能性があります。
+                </p>
+                <p className="text-xs text-gray-500 mt-2">
+                  出典：<a href="https://www.stat.go.jp/data/kakei/index.html" target="_blank" rel="noopener noreferrer" className="underline">総務省「家計調査」</a>
+                  <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和5年賃金構造基本統計調査」</a>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">製造業従事者の生命保険選び5つのポイント</h2>
+            <div className="space-y-5">
+              {[
+                {
+                  number: '01',
+                  title: '死亡保障額は「公的給付の時限性」を前提に計算する',
+                  detail: '遺族基礎年金は子が18歳まで、遺族厚生年金は2028年改正後に5年で終了するケースがある。「今は足りる」ではなく「20年後も足りるか」という視点で必要保障額を試算することが不可欠です。公的給付が段階的に消滅する前提で、民間生命保険の必要保障額を逆算してください。',
+                },
+                {
+                  number: '02',
+                  title: '収入保障保険（逓減型）は製造業の年齢リスクと相性が良い',
+                  detail: '子が幼い30〜40代前半は高額の保障が必要だが、子の独立後は必要保障額が下がる。収入保障保険は時間の経過とともに保険金総額が減少する仕組みのため、必要保障の変化と一致し、かつ掛け捨て定期保険より保険料が割安になりやすいです。',
+                },
+                {
+                  number: '03',
+                  title: '労災保険だけで「足りる」と思っていないか確認する',
+                  detail: '労災の遺族補償年金は月収ベースで計算されるため、年収が高い製造業従事者は給付額も高くなりますが、「2028年改正後の遺族厚生年金の時限性」「子の成長後の給付消滅」をカバーしきれません。労災保険と民間生命保険の役割分担を明確にしてください。',
+                },
+                {
+                  number: '04',
+                  title: '就業不能（高度障害・後遺障害）への備えも同時に検討する',
+                  detail: '製造業の重大事故では死亡よりも「片腕切断」「高度障害」などの生存後遺障害が残るケースも多いです。生命保険の「高度障害保険金」（生前給付）や就業不能保険との組み合わせを検討してください。',
+                },
+                {
+                  number: '05',
+                  title: '団体定期保険に頼りきらず個人保険を基盤に持つ',
+                  detail: '会社の団体定期保険は在籍中のみ有効で退職時に失効します。製造業は転職率が高く、転職のたびに保障が消えるリスクがあります。転職・退職に左右されない個人名義の生命保険を基盤として持ち、団体保険はあくまで上乗せとして活用してください。',
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
+                  <div className="flex-shrink-0 w-10 h-10 bg-slate-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.number}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：よくある失敗事例 */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  title: '失敗①：労災が出るから生命保険は不要と思っていた',
+                  situation: 'Aさん（38歳・機械加工工場勤務・年収480万円）。妻（35歳）と子2人（10歳・7歳）。',
+                  problem: '「労災保険が充実しているから生命保険はいらない」と考え未加入のまま、プレス機事故で死亡。労災遺族補償年金は年間約157万円（月収40万円ベース）だったが、妻と子2人の生活費は月25万円超。子が18歳になると遺族基礎年金が失効し、2028年以降は遺族厚生年金も5年で終了。子の大学費用（約500万円×2人）も含めると生涯で5,000万円以上の不足が生じる試算に。',
+                  lesson: '労災は「業務中の事故」に特化した補償で、残された家族の長期生活費には設計されていない。民間生命保険との役割分担を明確にすることが重要。',
+                },
+                {
+                  title: '失敗②：転職のたびに団体保険を放置して保障がゼロに',
+                  situation: 'Bさん（45歳・自動車部品メーカー→食品工場→物流倉庫と3社渡り歩いた製造業従事者）。',
+                  problem: '各社の団体定期保険に加入・脱退を繰り返し、現在は個人の生命保険が何も残っていない状態で心疾患により死亡。団体定期保険は「在籍中のみ有効」で退職と同時に失効するため、最終的に死亡時の保障がゼロ。遺族厚生年金のみでの生活を余儀なくされた。',
+                  lesson: '団体定期保険に頼りきらず、転職・退職に左右されない個人名義の生命保険を基盤として持つことが重要。特に製造業は転職率が高い業種。',
+                },
+                {
+                  title: '失敗③：子が独立したから死亡保険を全解約した',
+                  situation: 'Cさん（55歳・化学工場勤務）。長男が就職したのを機に生命保険を全解約。妻（53歳）。',
+                  problem: '長男就職の2年後、工場での有機溶剤中毒により死亡。子の独立後でも配偶者が60歳未満のため、2028年改正後の遺族厚生年金は5年しか受給できない。妻（53歳）が老齢年金を受給できる65歳まで約12年間、遺族厚生年金終了後の10年近くが無保障状態に。老後資金として積み立てていた貯蓄も取り崩さざるを得なくなった。',
+                  lesson: '子の独立後も「配偶者が60歳になるまで」は一定の死亡保障が必要。2028年改正で遺族厚生年金の有期化が決まった現在、50代での保険見直しは「解約」ではなく「適正な縮小」が正解。',
+                },
+              ].map((c, i) => (
+                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-slate-700 px-5 py-3">
+                    <p className="font-bold text-white text-sm">{c.title}</p>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+                      <p className="text-sm text-amber-700">{c.lesson}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">生命保険加入前の最終チェックリスト</h2>
+            <div className="space-y-3">
+              {[
+                '職場の労災保険の内容（遺族補償年金の計算方法）を確認した',
+                '労災遺族補償年金と民間生命保険の保障額の合計を試算した',
+                '2028年の遺族厚生年金有期化が自分の家庭に与える影響を確認した',
+                '団体定期保険の内容と「退職時に失効する」リスクを把握した',
+                '収入保障保険（逓減型）と定期保険の保険料・保障額を比較した',
+                '機械事故・熱中症など業務中の重大事故リスクを踏まえた保障額を設定した',
+                '子の独立後も配偶者が60歳になるまでの保障が確保されているか確認した',
+                '就業不能（高度障害）状態になった場合の保障も検討した',
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
+                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       )}
