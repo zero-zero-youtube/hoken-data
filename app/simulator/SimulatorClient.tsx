@@ -71,7 +71,7 @@ const RANK_STYLES = [
   { badge: '🥉 第3位', border: 'border-gray-300',   shadow: '',          badgeBg: 'bg-gray-400',    label: '検討を' },
 ]
 
-const FREELANCE_SLUGS = ['freelance-engineer', 'designer', 'food-service', 'beautician']
+const FREELANCE_SLUGS = ['freelance-engineer', 'designer', 'restaurant', 'hairdresser']
 
 function calcMonthlyPremium(annualIncome: number, rate: number): number {
   return Math.round(annualIncome * 10000 * rate / 12)

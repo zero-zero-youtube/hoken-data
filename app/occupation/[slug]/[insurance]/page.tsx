@@ -23,7 +23,7 @@ import { INSURANCE_DETAILS } from '@/lib/insuranceDetails'
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
 export async function generateStaticParams() {
-  const occupations = ['engineer','freelance-engineer','nurse','teacher','civil-servant','sales','driver','construction','food-service','beautician','accountant','doctor','lawyer','designer','manager','manufacturing','pharmacist','real-estate','finance','part-time']
+  const occupations = ['engineer','freelance-engineer','nurse','teacher','civil-servant','sales','driver','construction','restaurant','hairdresser','accountant','doctor','lawyer','designer','manager','manufacturing','pharmacist','real-estate','finance','part-time']
   const insurances = ['medical','life','income-protection','cancer','whole-life','pension','auto','fire','personal-accident','child']
   return occupations.flatMap(slug =>
     insurances.map(insurance => ({ slug, insurance }))
@@ -350,7 +350,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isCivilServantMedical = occ.slug === 'civil-servant' && ins.slug === 'medical'
   const isManagerLife = occ.slug === 'manager' && ins.slug === 'life'
   const isManufacturingMedical = occ.slug === 'manufacturing' && ins.slug === 'medical'
-  const isBeauticianMedical = occ.slug === 'beautician' && ins.slug === 'medical'
+  const isBeauticianMedical = occ.slug === 'hairdresser' && ins.slug === 'medical'
   const isFinanceLife = occ.slug === 'finance' && ins.slug === 'life'
   const isDoctorIncomeProtection = occ.slug === 'doctor' && ins.slug === 'income-protection'
   const isNurseCancer = occ.slug === 'nurse' && ins.slug === 'cancer'
@@ -365,12 +365,12 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
   const isPartTimeLife = occ.slug === 'part-time' && ins.slug === 'life'
   const isManufacturingLife = occ.slug === 'manufacturing' && ins.slug === 'life'
-  const isBeauticianLife = occ.slug === 'beautician' && ins.slug === 'life'
+  const isBeauticianLife = occ.slug === 'hairdresser' && ins.slug === 'life'
   const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isAccountantMedical = occ.slug === 'accountant' && ins.slug === 'medical'
   const isLawyerLife = occ.slug === 'lawyer' && ins.slug === 'life'
-  const isFoodServiceMedical = occ.slug === 'food-service' && ins.slug === 'medical'
+  const isFoodServiceMedical = occ.slug === 'restaurant' && ins.slug === 'medical'
   const isEngineerLife = occ.slug === 'engineer' && ins.slug === 'life'
   const isNurseLife = occ.slug === 'nurse' && ins.slug === 'life'
   const isDoctorMedical = occ.slug === 'doctor' && ins.slug === 'medical'

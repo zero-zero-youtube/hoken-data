@@ -94,7 +94,7 @@ const ALL_PREFS = [
 
 const ALL_OCCUPATIONS = [
   'engineer','freelance-engineer','nurse','teacher','civil-servant',
-  'sales','driver','construction','food-service','beautician',
+  'sales','driver','construction','restaurant','hairdresser',
   'accountant','doctor','lawyer','designer','manager',
   'manufacturing','pharmacist','real-estate','finance','part-time',
 ]

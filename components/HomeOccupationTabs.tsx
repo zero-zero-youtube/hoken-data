@@ -47,8 +47,8 @@ const CATEGORIES = [
   {
     label: '飲食・美容',
     occupations: [
-      { name: '飲食店経営・調理師', href: '/occupation/food-service' },
-      { name: '美容師・理容師', href: '/occupation/beautician' },
+      { name: '飲食店経営・調理師', href: '/occupation/restaurant' },
+      { name: '美容師・理容師', href: '/occupation/hairdresser' },
     ],
   },
   {
