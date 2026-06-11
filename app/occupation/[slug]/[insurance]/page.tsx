@@ -373,6 +373,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFoodServiceMedical = occ.slug === 'food-service' && ins.slug === 'medical'
   const isEngineerLife = occ.slug === 'engineer' && ins.slug === 'life'
   const isNurseLife = occ.slug === 'nurse' && ins.slug === 'life'
+  const isDoctorMedical = occ.slug === 'doctor' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5323,6 +5324,247 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 医師×医療保険 専用コンテンツ */}
+      {isDoctorMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + 2色インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">医師と医療保険：高収入ゆえの高額療養費「区分ア」と開業医の傷病手当金ゼロ問題</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              医師は勤務医の平均年収が約1,338万円と全職種で最高水準ですが、高収入であるがゆえに医療保険の設計において「高額療養費制度が機能しにくい」という深刻な落とし穴が存在します。年収1,160万円超の医師は高額療養費の「区分ア」に分類され、総医療費100万円時の自己負担は約25.4万円と一般的な会社員（区分ウ：約8.7万円）の約3倍に達します。さらに開業医が加入する医師国保には法定の傷病手当金がなく、入院時に日額1万円（最大180日）という独自給付のみです。厚生労働省の調査では医師の働き方改革施行後も60.3%が「労働時間は短縮されていない」と回答し、過重労働が常態化しています。また、開業医の14%が直近5年間健康診断を受けていないという「自己診断バイアス」も見逃せないリスクです。「高収入だから医療費は払える」という思い込みこそが、医師にとって最も危険な判断ミスとなります。本ページでは医師特有の構造的リスクと医療保険の正しい設計方法を解説します。
+            </p>
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="text-red-800 font-semibold text-sm leading-relaxed">
+                🚨 開業医（医師国保加入）は法定の傷病手当金がありません。入院時のみ日額1万円・最大180日という独自給付のみです。クリニックの家賃・スタッフ給与・医療機器リース代などの固定費は休業中も流出し続けるため、就業不能保険（所得補償）が不可欠です。
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 年収1,338万円の勤務医は高額療養費「区分ア」に該当。総医療費100万円時の自己負担は約25.4万円（一般会社員の約3倍）。さらに差額ベッド代・先進医療費は全額自己負担のため、長期入院時の経済的ダメージが一般労働者より格段に大きくなります。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：勤務形態別比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">勤務形態別の公的保障と民間医療保険の必要性</h2>
+            <p className="text-gray-600 text-sm mb-4">医師の勤務形態によって傷病手当金・高額療養費の適用状況が大きく異なります。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-cyan-700 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">勤務形態</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">健康保険の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">傷病手当金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">高額療養費の区分</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">民間医療保険の必要性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">勤務医（病院・クリニック雇用）</td>
+                    <td className="px-4 py-3 text-gray-700">協会けんぽ or 医師会健保</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">✅ あり（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-red-700 font-semibold">区分ア（年収1,160万円超）：月約25.4万円</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：区分アの高額自己負担＋差額ベッド代対策</td>
+                  </tr>
+                  <tr className="bg-cyan-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">開業医（個人事業主・医師国保）</td>
+                    <td className="px-4 py-3 text-gray-700">医師国民健康保険組合</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし（入院のみ日額1万円・180日上限）</td>
+                    <td className="px-4 py-3 text-red-700 font-semibold">区分ア相当：月約25.4万円</td>
+                    <td className="px-4 py-3 text-red-700 font-bold">極めて高：傷病手当金ゼロ＋固定費流出リスク</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">医療法人理事長（役員）</td>
+                    <td className="px-4 py-3 text-gray-700">協会けんぽ or 医師会健保（法人加入）</td>
+                    <td className="px-4 py-3 text-orange-600 font-semibold">⚠️ 役員報酬設定により受給不可のケースあり</td>
+                    <td className="px-4 py-3 text-red-700 font-semibold">区分ア（年収1,160万円超）：月約25.4万円</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：役員は傷病手当金原則対象外のケースあり</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 医師国保（各都道府県の医師国民健康保険組合）は協会けんぽとは別の制度で、法定の傷病手当金がありません。独立・開業のタイミングで医師国保に切り替わる際は、就業不能保険（所得補償保険）への加入を最優先事項として手続きしてください。
+            </p>
+          </section>
+
+          {/* セクション3：医師特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">医師特有のリスクデータ（政府統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-cyan-700 mb-3">リスク①：「高額療養費区分ア」という高収入者への逆進的な制度負担</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  高額療養費制度は「高収入者ほど自己負担上限が高い」という逆進的な設計になっています。年収1,160万円超の医師が適用される「区分ア」の自己負担上限は「252,600円＋（総医療費－842,000円）×1%」。総医療費が月額100万円かかった場合の月自己負担は約25.4万円で、一般的な会社員（区分ウ：約8.7万円）の約3倍です。さらに差額ベッド代（1日平均6,000〜7,000円）と先進医療費（数十万〜数百万円）は高額療養費の対象外のため、長期入院・重大疾病の治療では月60万円以上の自己負担が数か月続くケースが現実に起きています。「高収入だから医療費は払える」という思い込みが、最も危険な判断ミスとなります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-600 text-sm underline hover:text-cyan-800"
+                >
+                  出典：厚生労働省「高額療養費制度を利用される皆さまへ」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-cyan-700 mb-3">リスク②：働き方改革後も60.3%が「労働時間は変わらない・増加した」と回答</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  厚生労働省「令和6年版過労死等防止対策白書」によると、医師の働き方改革（令和6年4月施行）後の実態調査で「労働時間は短縮されていない・増加した」と回答した医師が60.3%にのぼります。宿日直許可による「見かけの労働時間削減」が横行しており、タイムカード上の時間外労働は月80時間未満に見えても実態の拘束時間・睡眠の質の低下は改善されていません。この「隠れ残業」は、精神疾患を発症した際に労災認定の「業務起因性」の立証を困難にするという二次的リスクも生みます。医療・福祉業の精神障害労災請求は983件・支給決定270件と全産業最多水準であり、公的補償に頼らず民間の就業不能保険で自衛することが不可欠です。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_44199.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-600 text-sm underline hover:text-cyan-800"
+                >
+                  出典：厚生労働省「令和6年版過労死等防止対策白書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-cyan-700 mb-3">リスク③：「医師は健康診断を受けない」という自己診断バイアスの死角</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  厚生労働省の医師実態調査によると、開業医の14%が「直近5年で一度も健康診断を受けていない」と回答しています。日常的に患者の病気を診ているがゆえに「自分の体の変調は自分で気づける」という強烈な自己診断への過信が存在し、サイレントキラー（初期の高血圧・高血糖・初期がん）の発見が遅れます。過重労働との相乗効果により、脳・心臓疾患による突然死リスクが実態として高い水準にあります。「医師だから健康管理ができている」という思い込みこそが、最大の死角です。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/bunya/iryouhoken/iryouhoken14/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-600 text-sm underline hover:text-cyan-800"
+                >
+                  出典：厚生労働省「医師・歯科医師・薬剤師統計」関連ページ→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">医師の医療保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '「区分ア」を前提に入院日額を1万5,000円〜2万円以上に設定する',
+                  body: '一般的な入院日額5,000〜1万円では区分アの自己負担（月25.4万円）＋差額ベッド代をカバーできません。入院日額1万5,000〜2万円以上、または実費補償型（実際にかかった費用を補填するタイプ）の医療保険を検討してください。'
+                },
+                {
+                  num: '2',
+                  title: '開業医は就業不能保険（所得補償）を医療保険の主軸にする',
+                  body: '傷病手当金がない開業医にとって、クリニックの固定費（家賃・スタッフ給与・医療機器リース）を賄う就業不能保険（月額30〜50万円給付）が最優先です。開業費用の借入金がある場合は、その返済額以上の給付設定が必要最低ラインです。'
+                },
+                {
+                  num: '3',
+                  title: '先進医療特約を必ず付加する',
+                  body: '医師は医療の最前線にいるため先進医療の選択肢を知り尽くしています。しかし自身が患者になった場合、保険適用外の先進医療（重粒子線・陽子線治療等：数百万円）は全額自己負担です。先進医療特約（保険料は月数百円）は対費用効果が最も高い特約のひとつです。'
+                },
+                {
+                  num: '4',
+                  title: '精神疾患特約付きの就業不能保険で「隠れ残業」リスクに備える',
+                  body: '働き方改革後も労働実態が変わらない医療現場では、うつ病・適応障害のリスクが常在します。精神疾患は在宅療養が主流で入院給付型では給付されないため、精神疾患対応の就業不能保険との組み合わせが必須です。'
+                },
+                {
+                  num: '5',
+                  title: '健康なうちに加入し、開業前の健康診断を受ける習慣を作る',
+                  body: '自己診断バイアスを持ちやすい医師こそ、第三者機関による定期健診（人間ドック等）を受ける習慣が重要です。健康診断の異常値発覚後は医療保険の加入が困難になるため、開業前・加入前に健診を受けて保険設計を完了させてください。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-cyan-600 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（医師特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「開業後に医師国保へ切り替え、脳卒中で入院したが傷病手当金がゼロ」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（42歳・内科開業医）。開業2年目に脳卒中で入院、退院後も長期リハビリが必要に。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>勤務医時代の協会けんぽとは異なり、医師国保の給付は入院中の最大180日分（日額1万円＝最大180万円）のみで自宅療養期間は無収入。クリニックの家賃・スタッフ給与・医療機器リース代が流出し続け、退院後に資金繰りが悪化。就業不能保険に未加入だったため、事務所縮小を余儀なくされた。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：開業＝医師国保への切り替え＝傷病手当金の消滅。独立前に必ず就業不能保険（月額30〜50万円給付）に加入してから開業することが鉄則です。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「年収1,800万円の勤務医ががん治療で月60万円超の自己負担が半年続いた」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（52歳・勤務医・年収1,800万円）。がんを発症し最新の分子標的薬治療と個室療養を選択。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>高額療養費「区分ア」で月自己負担約25.4万円に加え、保険適用外の治療費と差額ベッド代（個室1日2万円）が重なり月60万円超の手出しが半年継続。「高収入だから払える」と思っていたが、実費補償型の医療保険に未加入で貯蓄を大幅に取り崩した。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：高収入医師こそ区分アの高い自己負担上限と差額ベッド代の組み合わせに備えた実費補償型医療保険・先進医療特約が必要です。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「働き方改革後の隠れ残業でうつ病発症。帳簿上の労働時間が少なく労災不認定」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん（34歳・若手勤務医）。働き方改革施行後、宿日直が「許可」に切り替えられ帳簿上の時間外労働は月70時間に。実態は睡眠が十分に取れない状態が続き重度のうつ病を発症。労災申請を行った。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>タイムカード上の時間外労働は認定基準（月100時間超）に達していないため「業務の過重性」が認められず労災不支給。傷病手当金（月収の2/3）は受給できたが、うつ病の治療が長期化し1年6か月の期限後も回復しきれずに無保障状態に。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：医師の「隠れ残業」は労災認定のハードルを上げます。公的補償に頼らず、精神疾患対応の就業不能保険で傷病手当金の期限切れ後もカバーする設計が不可欠です。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">医師が医療保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '自分の年収が高額療養費の区分ア（年収1,160万円超）に該当するか確認した',
+                  '開業医の場合、医師国保に傷病手当金がないことを把握した',
+                  '就業不能保険（月額30〜50万円給付）を医療保険の主軸として設計した（または検討した）',
+                  '入院日額を区分アの自己負担（月25.4万円）＋差額ベッド代をカバーできる水準に設定した',
+                  '先進医療特約を付加した（または検討した）',
+                  '精神疾患が在宅療養では入院給付型医療保険の対象外になることを把握した',
+                  '直近5年以内に人間ドック等の健康診断を受けた（または受診予定を入れた）',
+                  '開業費用の借入金がある場合、その返済額以上の就業不能保険給付額を設定した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="text-cyan-600 underline hover:text-cyan-800 ml-1">高額療養費制度（厚生労働省）</a>
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-cyan-600 underline hover:text-cyan-800 ml-2">令和6年賃金構造基本統計調査（厚生労働省）</a>
+            </p>
+          </section>
 
         </div>
       )}
