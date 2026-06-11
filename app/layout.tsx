@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import HeaderNav from "@/components/HeaderNav";
 import Footer from "@/components/Footer";
+import StickyAffiliateBanner from "@/components/StickyAffiliateBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({
         <HeaderNav />
         <main className="flex-1">{children}</main>
         <Footer />
+        <StickyAffiliateBanner />
       </body>
     </html>
   );
