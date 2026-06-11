@@ -375,6 +375,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isNurseLife = occ.slug === 'nurse' && ins.slug === 'life'
   const isDoctorMedical = occ.slug === 'doctor' && ins.slug === 'medical'
 
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isManagerMedical || isPartTimeLife || isManufacturingLife || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical
+
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
   // 年収別推定月額
@@ -10840,12 +10842,14 @@ export default async function OccupationInsurancePage({ params }: Props) {
       )}
 
       {/* チェックリスト + CTA */}
+      {!hasSpecializedContent && (
       <section className="py-8 px-4 bg-white">
         <div className="max-w-2xl mx-auto">
           <InsuranceChecklist />
           <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
         </div>
       </section>
+      )}
 
       {/* FAQ */}
       <section className="py-12 px-4 bg-white">
