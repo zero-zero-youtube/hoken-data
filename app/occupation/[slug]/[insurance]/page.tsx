@@ -369,6 +369,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isAccountantMedical = occ.slug === 'accountant' && ins.slug === 'medical'
+  const isLawyerLife = occ.slug === 'lawyer' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5319,6 +5320,254 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 弁護士×生命保険 専用コンテンツ */}
+      {isLawyerLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + 2色インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">弁護士と生命保険：所得二極化と独立後の保障断絶という2つの構造的問題</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              弁護士は平均年収約765万円と高水準ですが、この数字の裏には「所得200万円未満が10%・3,000万円以上が7%」という業界内の残酷な二極化が隠れています。生命保険の設計においても、この二極化を前提にした「収入層別アプローチ」が必要です。特に見落とされやすいのが、独立開業した弁護士の「遺族厚生年金ゼロ」問題です。勤務弁護士として厚生年金に加入していた状態から独立した瞬間、国民年金（第1号被保険者）に切り替わり、死亡時に残された家族が受け取れる公的年金は遺族基礎年金のみとなります（子なし配偶者への支給はゼロ）。さらに開業費用の借入金が遺族に相続されるリスクも存在します。平均年収765万円という数字を鵜呑みにして画一的な保険設計をすると、若手ノキ弁層では保険料が払えなくなり、高収入シニア層では相続税対策が不十分になる、という両端での失敗が起きます。本ページでは弁護士業界の収入二極化と公的保障の断絶という2つの構造的問題から、生命保険の正しい設計方法を解説します。
+            </p>
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="text-red-800 font-semibold text-sm leading-relaxed">
+                🚨 独立弁護士（個人事業主）は遺族厚生年金の受給資格がありません。死亡時に残された配偶者への公的給付は遺族基礎年金（子がいる場合のみ・年約102万円）のみ。子なし配偶者への公的給付はゼロです。独立のタイミングで失われる保障を民間生命保険で即座に補填する必要があります。
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 弁護士の所得二極化：平均年収765万円の裏に所得200万円未満が10%存在します。経験5年未満の中央値は約300万円。「弁護士＝高収入」という前提で高額な生命保険に加入すると、収入が低い若手層では保険料が払えなくなるリスクがあります。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：キャリア形態別比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">弁護士のキャリア形態別 公的保障と生命保険の必要性</h2>
+            <p className="text-gray-600 text-sm mb-4">キャリア形態によって社会保険・遺族年金の有無が大きく変わります。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-violet-700 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">キャリア形態</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">年金区分</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">死亡時の遺族年金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">傷病手当金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">生命保険の必要性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">勤務弁護士（イソ弁）</td>
+                    <td className="px-4 py-3 text-gray-700">第2号被保険者（厚生年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">✅ あり（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中：公的保障あり。借入なければ最低限でよい</td>
+                  </tr>
+                  <tr className="bg-violet-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">独立弁護士（ボス弁）</td>
+                    <td className="px-4 py-3 text-gray-700">第1号被保険者（国民年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族基礎年金のみ（子がいる場合）</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし</td>
+                    <td className="px-4 py-3 text-red-700 font-bold">極めて高：開業費用借入金＋遺族厚生年金ゼロ</td>
+                  </tr>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">軒先借り弁護士（ノキ弁）</td>
+                    <td className="px-4 py-3 text-gray-700">第1号被保険者（国民年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族基礎年金のみ（子がいる場合）</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし（業務委託のため）</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：低収入＋社会保障の薄さが重なる脆弱層</td>
+                  </tr>
+                  <tr className="bg-violet-50">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">法人パートナー（弁護士法人）</td>
+                    <td className="px-4 py-3 text-gray-700">第2号被保険者（厚生年金・法人加入）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-orange-600 font-semibold">⚠️ 役員扱いは受給不可のケースあり</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中〜高：高収入＋相続税・事業承継対策が必要</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 独立（個人事業主化）と同時に遺族厚生年金の受給資格が消滅します。独立前に必ず「失われる遺族厚生年金の生涯総額」を試算し、同額以上の民間生命保険（収入保障保険等）への加入を検討してください。
+            </p>
+          </section>
+
+          {/* セクション3：弁護士特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">弁護士特有のリスクデータ（政府・業界統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-violet-700 mb-3">リスク①：「所得二極化×必要保障額の逆転現象」——弁護士業界固有の構造的問題</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  日本弁護士連合会「弁護士白書」によると、弁護士の所得分布は「200万円未満が約10%」「3,000万円以上が約7%」と極端な二極化を示しています。問題は、所得が低い層ほど「民間生命保険で補填すべき必要保障額が大きい」という逆転現象が起きることです。高収入弁護士は死亡しても遺族の生活水準が維持されやすいですが、所得300万円の若手ノキ弁が死亡した場合、遺族には遺族基礎年金（子1人で年102万円）しかなく、生活費の月20〜25万円には遠く及びません。「弁護士は全員高収入」という固定観念で保険設計を画一化することは、若手層の遺族保障を著しく脆弱なままにします。
+                </p>
+                <a
+                  href="https://www.nichibenren.or.jp/document/statistics.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-violet-600 text-sm underline hover:text-violet-800"
+                >
+                  出典：日本弁護士連合会「弁護士白書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-violet-700 mb-3">リスク②：独立と同時に失われる「数千万円規模の遺族厚生年金」</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  勤務弁護士から独立弁護士（個人事業主）に転換した瞬間、厚生年金から国民年金（第1号被保険者）に切り替わり、遺族厚生年金の受給資格を完全に失います。試算として、平均標準報酬月額35万円・25年加入の場合、遺族厚生年金の報酬比例部分は年間約57.5万円。これが生涯にわたり支給されると仮定すれば、30年間で約1,725万円の価値を持つ「目に見えない保障」が独立の瞬間にゼロになります。この喪失を民間の収入保障保険（月5〜10万円給付・65歳まで）で補填するには月額2,000〜5,000円程度で可能であり、対費用効果は高いです。
+                </p>
+                <a
+                  href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-violet-600 text-sm underline hover:text-violet-800"
+                >
+                  出典：日本年金機構「遺族基礎年金の受給要件・支給開始時期・計算方法」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-violet-700 mb-3">リスク③：開業費用の借入金と「遺族への債務相続」リスク</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  独立弁護士が事務所開設時に負う費用（保証金・内装・設備・初期運転資金）は一般的に300〜1,000万円規模になることがあります。弁護士本人が死亡した場合、これらの借入金は法定相続人に相続されます。遺族が相続放棄をすれば自宅など他の資産も手放すことになり、相続放棄をしなければ借入金返済が遺族に重くのしかかります。民間生命保険の死亡保険金で借入金を完済できれば、遺族は「負の遺産」なく生活を再建できます。開業時の借入金残高を「死亡保障額の最低ライン」として設定することが、独立弁護士の生命保険設計の出発点となります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_44199.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-violet-600 text-sm underline hover:text-violet-800"
+                >
+                  出典：厚生労働省「令和6年版過労死等防止対策白書」→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">弁護士の生命保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '「自分の収入層」を正確に把握した上で必要保障額を設定する',
+                  body: '平均765万円という数字に惑わされず、自分の実際の年収を基準に遺族の生活費を試算します。所得300万円の若手ノキ弁と所得3,000万円のシニアパートナーでは、必要保障額も保険料負担能力も全く異なります。'
+                },
+                {
+                  num: '2',
+                  title: '独立・開業のタイミングを「生命保険加入の最優先トリガー」として認識する',
+                  body: '独立と同時に遺族厚生年金が消滅し、開業費用の借入金リスクが発生します。この2つが重なる独立時こそ、収入保障保険や定期保険の新規加入・増額のベストタイミングです。'
+                },
+                {
+                  num: '3',
+                  title: '開業費用の借入金残高を死亡保障額の「下限値」として設定する',
+                  body: '独立時の借入金（例：500万円）は、最低でもその金額以上の死亡保険金が支払われる生命保険に加入することで、遺族への債務相続リスクをゼロにできます。'
+                },
+                {
+                  num: '4',
+                  title: '低収入の若手層は「死亡保障より就業不能保障」を優先する',
+                  body: '所得200〜300万円台の若手弁護士は、高額な死亡保険より自身が働けなくなった場合の収入補填（就業不能保険）を優先すべきケースが多いです。死亡しなくとも、うつ病・適応障害で長期休業するリスクの方が統計的に高い状況です。'
+                },
+                {
+                  num: '5',
+                  title: '高収入層は相続税対策と保険の組み合わせを検討する',
+                  body: '所得3,000万円以上の高収入弁護士は、死亡保険金の非課税枠（500万円×法定相続人数）を活用した相続税の納税資金確保や、法人名義の生命保険による節税効果を視野に入れた設計が有効です。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-violet-600 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（弁護士特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「独立時に遺族年金が変わると知らず、民間保険を増やさなかった」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（35歳・独立弁護士）。事務所開設のため1,500万円を借入。「遺族年金があるから大丈夫」と思い、勤務弁護士時代の少額な生命保険のまま独立した。1年後に交通事故で死亡。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>国民年金に切り替わっていたため遺族厚生年金は支給されず、子なし妻への遺族基礎年金もゼロ。1,500万円の借入金返済義務が妻に相続され、妻は相続放棄を選択。自宅も手放す結果に。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：独立＝遺族厚生年金の消滅。独立前の生命保険見直しは「借入金額＋遺族の生活費試算」を基準に行い、収入保障保険や逓減定期保険への加入を確認します。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「低収入の若手ノキ弁が保険料を払えず無保険状態に」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（28歳・ノキ弁・所得約250万円）。独立時に「弁護士らしい」高額な生命保険（月額保険料2.5万円）に加入したが、収入不安定で半年後に保険料が払えなくなり解約。その後、激務と依頼者クレームで適応障害を発症し3か月休業。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>生命保険を解約していたため死亡保障ゼロ。業務委託扱いで傷病手当金もなし。国民年金のため障害厚生年金の受給資格もなく、貯蓄が底をつき実家に戻ることに。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：低収入の若手弁護士ほど保険は「払い続けられる金額」で設計します。月額5,000円以下の就業不能保険1本に絞ることも有効な戦略です。高額な保険を解約するより、安価な保険を継続させることが長期的な自己防衛になります。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「高収入弁護士の死亡保険金に多額の相続税が発生した」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん（55歳・法律事務所代表弁護士・年収3,000万円超）。遺族への備えとして個人名義の死亡保険金1億円を設定していた。急逝後、保険金を受け取った遺族に多額の相続税（非課税枠500万円×3人＝1,500万円を超えた8,500万円分）が課税。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>相続税の納税資金が手元になく、事務所の事業承継と遺産分割協議が長期化。進行中の案件の引き継ぎ費用や事務所清算費用も重なり、遺族の実質手取りが大幅に減少した。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：高収入弁護士の生命保険設計は「遺族の生活保障」だけでなく「相続税の納税資金確保」と「事業承継対策」を含む総合的な設計が必要です。法人保険や生命保険信託の活用も視野に入れてください。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">弁護士が生命保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '現在の雇用形態（勤務弁護士・独立弁護士・ノキ弁）と年金区分（第2号・第1号）を確認した',
+                  '独立している場合、遺族厚生年金の受給資格がないことを把握した',
+                  '開業時の借入金残高を「死亡保障額の最低ライン」として設定した',
+                  '自分の実際の所得（平均値ではなく実収入）を基準に遺族の生活費を試算した',
+                  '低収入の場合、高額な死亡保険より就業不能保険を優先することを検討した',
+                  '独立・開業のタイミングで生命保険の全面見直しを行った（または予定している）',
+                  '収入保障保険（逓減型）で「失われた遺族厚生年金分」を補填する設計をした',
+                  '高収入の場合、相続税対策・事業承継対策を含む総合的な保険設計を検討した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.nichibenren.or.jp/document/statistics.html" target="_blank" rel="noopener noreferrer" className="text-violet-600 underline hover:text-violet-800 ml-1">日本弁護士連合会「弁護士白書」</a>
+              <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html" target="_blank" rel="noopener noreferrer" className="text-violet-600 underline hover:text-violet-800 ml-2">日本年金機構「遺族基礎年金の受給要件」</a>
+            </p>
+          </section>
 
         </div>
       )}
