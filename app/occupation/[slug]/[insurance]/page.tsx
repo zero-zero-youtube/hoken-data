@@ -2156,6 +2156,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：勤務医vs開業医 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">勤務医 vs 開業医：就業不能時のリスクの根本的な違い</h2>
@@ -2242,6 +2244,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：厚生労働省「医師の働き方改革 実態調査」2022年 / 日本医師会「勤務医の健康支援に関する検討報告書」2022年 / 厚生労働省「医療機関における院内感染対策」2022年 / 日本医師会「医師賠償責任保険統計」2021年
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：チェックポイント */}
           <section>
@@ -2371,6 +2375,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と必要保障額 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">金融業の公的保障と必要保障額の考え方</h2>
@@ -2460,6 +2466,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：厚生労働省「毎月勤労統計調査」2023年 / 厚生労働省「職場における心の健康づくり」2022年 / 厚生労働省「特定健康診査・特定保健指導実施状況」2022年
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：チェックポイント */}
           <section>
@@ -2594,6 +2602,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：雇用形態別の公的保障 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">雇用形態別の公的保障と医療保険の必要性</h2>
@@ -2668,6 +2678,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：厚生労働省「職業性皮膚疾患の実態調査」2021年 / 日本産業衛生学会「職業性疾病研究報告」2021年 / 経済産業省「特定サービス産業動態統計調査」2022年
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：チェックポイント */}
           <section>
@@ -2798,6 +2810,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：労災保険と民間医療保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">労災保険と民間医療保険の役割分担</h2>
@@ -2873,6 +2887,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：厚生労働省「労働災害発生状況」2023年 / 厚生労働省「作業環境測定結果報告」2022年 / 厚生労働省「業務上疾病発生状況」2022年 / 国立がん研究センター「多目的コホート研究」2021年
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -3003,6 +3019,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と必要保障額の考え方 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">管理職の公的保障と必要保障額の考え方</h2>
@@ -3075,6 +3093,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.mhlw.go.jp/content/11200000/001148172.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>　<a href="https://www.mhlw.go.jp/toukei/list/tokutei_kenkou.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「特定健康診査・特定保健指導実施状況」2022年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <div>
@@ -3206,6 +3226,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：共済医療給付と民間医療保険の役割分担 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">共済医療給付と民間医療保険で補うべき部分</h2>
@@ -3264,6 +3286,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.soumu.go.jp/main_content/000851160.pdf" target="_blank" rel="noopener noreferrer" className="underline">総務省「地方公務員の健康状況等の現況」2022年</a>　<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/sensiniryo/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「先進医療の概要について」</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <div>
@@ -3390,6 +3414,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：共済遺族給付と民間生命保険の役割分担 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">教員の共済遺族給付と民間生命保険で補うべき金額</h2>
@@ -3446,6 +3472,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.mext.go.jp/a_menu/shotou/jinji/index.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「公立学校教職員の人事行政状況調査」2022年度</a>　<a href="https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo3/002/siryo/1397004.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「教員勤務実態調査」2022年度</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：ライフステージ別の生命保険戦略 */}
           <div>
@@ -3613,6 +3641,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：労災保険の遺族補償と民間生命保険の役割分担 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">労災保険の遺族補償 vs 民間生命保険：補うべき金額を理解する</h2>
@@ -3681,6 +3711,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>　<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei34/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「じん肺健康管理実施状況報告」2022年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのポイント */}
           <div>
@@ -3807,6 +3839,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と医療保険で補う部分 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">看護師の公的保障と民間医療保険で補うべき部分</h2>
@@ -3867,6 +3901,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.mhlw.go.jp/toukei/list/h24-46-50.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働安全衛生調査」2022年</a>　<a href="https://www.nurse.or.jp/nursing/shuroanzen/jitai/" target="_blank" rel="noopener noreferrer" className="underline">日本看護協会「看護職員実態調査」2022年</a>　<a href="https://epi.ncc.go.jp/jphc/outcome/8550.html" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「多目的コホート研究」2021年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのポイント */}
           <div>
@@ -3994,6 +4030,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：高額療養費制度のカバー範囲 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">高額療養費制度で実はここまでカバーされる・されない</h2>
@@ -4068,6 +4106,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.mhlw.go.jp/toukei/saikin/hw/kanja/20/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「患者調査」2020年</a>　<a href="https://www.mhlw.go.jp/content/11200000/001148172.pdf" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「過労死等防止対策白書」2022年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <div>
@@ -4194,6 +4234,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：社会保険加入状況と医療保険の必要性 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">社会保険の加入状況別・医療保険の必要性</h2>
@@ -4266,6 +4308,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.mhlw.go.jp/toukei/list/h23-pt.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「パートタイム・有期雇用労働者総合実態調査」2021年</a>　<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>　<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「賃金構造基本統計調査」2023年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：最適な医療保険の選び方 */}
           <div>
@@ -4428,6 +4472,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と生命保険の役割 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">営業職の公的保障と生命保険で補うべき金額</h2>
@@ -4493,6 +4539,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               出典：<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei12/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「職場における心の健康づくり」2022年</a>　<a href="https://www.mhlw.go.jp/toukei/list/20-21.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「雇用動向調査」2022年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：ライフステージ別の必要保障額 */}
           <div>
@@ -4664,6 +4712,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と必要保障額 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">医師の公的遺族保障と民間生命保険で補うべき金額</h2>
@@ -4738,6 +4788,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               　<a href="https://www.med.or.jp/nichiionline/article/010673.html" target="_blank" rel="noopener noreferrer" className="underline">日本医師会「勤務医の健康支援に関する検討報告書」2022年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：勤務医 vs 開業医の保険戦略 */}
           <div>
@@ -4891,6 +4943,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：労災保険と民間医療保険の役割分担 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">労災保険と民間医療保険の役割分担</h2>
@@ -4957,6 +5011,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               　<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：一人親方・個人事業主ドライバーは特に注意 */}
           <div>
@@ -5118,6 +5174,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：傷病手当金の仕組みと18ヶ月の壁 */}
           <div>
             <h2 className="text-xl font-bold text-[#0f172a] mb-5 pb-2 border-b-2 border-[#2563eb]">傷病手当金の仕組みと「18ヶ月の壁」</h2>
@@ -5189,6 +5247,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/23/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「就労条件総合調査」2023年</a>
             </p>
           </div>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：必要保障額の計算方法 */}
           <div>
@@ -5350,6 +5410,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：勤務形態別比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">勤務形態別の公的保障と民間医療保険の必要性</h2>
@@ -5447,6 +5509,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -5591,6 +5655,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：世帯モデル別比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">看護師の世帯モデル別 公的保障と最優先すべき民間保険</h2>
@@ -5690,6 +5756,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -5834,6 +5902,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：雇用形態別の公的保障比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と生命保険の必要性</h2>
@@ -5938,6 +6008,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -6082,6 +6154,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：雇用形態別比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と民間医療保険の必要性</h2>
@@ -6186,6 +6260,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -6330,6 +6406,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：キャリア形態別比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">弁護士のキャリア形態別 公的保障と生命保険の必要性</h2>
@@ -6434,6 +6512,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -6578,6 +6658,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：雇用形態別の公的保障比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と民間医療保険の必要性</h2>
@@ -6675,6 +6757,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -6814,6 +6898,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的医療保険 vs 民間医療保険 比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">公的健康保険でカバーされる費用・されない費用</h2>
@@ -6913,6 +6999,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -7052,6 +7140,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的医療保険 vs 民間医療保険 比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">公的健康保険でカバーされる費用・されない費用</h2>
@@ -7151,6 +7241,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -7295,6 +7387,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：キャリアステージ別比較表 */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と民間生命保険の必要性</h2>
@@ -7408,6 +7502,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -7573,6 +7669,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障 vs 民間生命保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">公的保障（労災＋遺族年金）vs 民間生命保険の役割分担</h2>
@@ -7672,6 +7770,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -7830,6 +7930,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と民間保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">パートの加入状況別・公的保障と民間生命保険の役割分担</h2>
@@ -7929,6 +8031,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.moneypro.jp/columns/others/5939/" target="_blank" rel="noopener noreferrer" className="underline">遺族厚生年金2025年改正の詳細</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -8085,6 +8189,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と民間医療保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">管理職の公的保障と民間医療保険で補うべき部分</h2>
@@ -8178,6 +8284,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/toukei/saikin/hw/kanja/20/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「患者調査」2020年</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -8338,6 +8446,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：フリーランス vs 会社員の遺族給付比較 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">フリーランスエンジニア vs 会社員：死亡時の遺族への公的給付比較</h2>
@@ -8447,6 +8557,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.jili.or.jp/lifeplan/socialsecurity/1.html" target="_blank" rel="noopener noreferrer" className="underline">生命保険文化センター「公的な遺族年金の仕組みについて」2026年度</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：ライフステージ別の考え方 */}
           <section>
@@ -8647,6 +8759,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障の限界 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">医師のがんリスクと公的保障でカバーされない費用</h2>
@@ -8743,6 +8857,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/naika/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「医療機関における院内感染対策」2022年</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -8901,6 +9017,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：労災遺族補償と民間生命保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">労災遺族補償と民間生命保険で補うべき金額</h2>
@@ -9004,6 +9122,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei11/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「労働災害発生状況」2023年</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -9160,6 +9280,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と民間医療保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">会社員営業職の公的保障と民間医療保険で補うべき部分</h2>
@@ -9258,6 +9380,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/toukei/saikin/hw/kanja/20/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「患者調査」2020年・2022年</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -9415,6 +9539,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障と就業不能保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">建設業の公的保障と就業不能保険で補うべき部分</h2>
@@ -9507,6 +9633,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/anzen/jinkaku/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「じん肺健康管理実施状況報告」2022年</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -9663,6 +9791,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：共済補償と就業不能保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">教員の共済休職補償と就業不能保険で補うべき部分</h2>
@@ -9754,6 +9884,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mext.go.jp/b_menu/houdou/2023/1411715_00001.htm" target="_blank" rel="noopener noreferrer" className="underline">文部科学省「教員勤務実態調査」2022年度</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -9914,6 +10046,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：共済保障と民間保険の役割分担 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">共済の休職給与補償と民間就業不能保険で補うべき部分</h2>
@@ -10007,6 +10141,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://elaws.e-gov.go.jp/document?lawid=325AC0000000261" target="_blank" rel="noopener noreferrer" className="underline">地方公務員法第28条</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：5つのチェックポイント */}
           <section>
@@ -10163,6 +10299,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障の範囲と民間保険で補う部分 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">会社員エンジニアの公的保障と医療保険で補うべき部分</h2>
@@ -10256,6 +10394,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://epi.ncc.go.jp/jphc/" target="_blank" rel="noopener noreferrer" className="underline">国立がん研究センター「多目的コホート研究」2022年</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：選び方5つのポイント */}
           <section>
@@ -10413,6 +10553,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
             </div>
           </section>
 
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
           {/* セクション2：公的保障の限界 */}
           <section>
             <h2 className="text-2xl font-bold text-[#0f172a] mb-4">看護師のがんリスクと公的保障でカバーされない費用</h2>
@@ -10509,6 +10651,8 @@ export default async function OccupationInsurancePage({ params }: Props) {
               <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/naika/" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「医療機関における院内感染対策」2022年</a>
             </p>
           </section>
+
+          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
           {/* セクション4：選び方5つのポイント */}
           <section>
