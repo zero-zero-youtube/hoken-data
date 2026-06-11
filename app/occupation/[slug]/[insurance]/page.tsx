@@ -366,6 +366,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeLife = occ.slug === 'part-time' && ins.slug === 'life'
   const isManufacturingLife = occ.slug === 'manufacturing' && ins.slug === 'life'
   const isBeauticianLife = occ.slug === 'beautician' && ins.slug === 'life'
+  const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5316,6 +5317,244 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 薬剤師×医療保険 専用コンテンツ */}
+      {isPharmacistMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">薬剤師と医療保険：高収入・高リスク職種が陥りやすい3つの死角</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              薬剤師は年収599万円（令和6年賃金構造基本統計調査）という医療系職種の中でも高水準な収入を誇りますが、職業特有の健康リスクという観点では見落としがちな死角があります。調剤現場では年間10万件規模のヒヤリ・ハットが発生し、精神的プレッシャーが慢性的にかかります。また病院薬剤師・院内薬剤師として抗がん剤の調製・取り扱いに従事する薬剤師は、IARCがグループ1（ヒトに対する発がん性あり）と分類する化学物質への職業性曝露リスクを日常的に抱えています。さらに高収入ゆえに見落とされやすいのが「高額療養費制度の対象外コスト」です。差額ベッド代・食事代・交通費は高額療養費の対象外であり、30日入院すると対象外費用だけで20万円を超えることがあります。本ページでは、薬剤師ならではのリスクデータと医療保険の正しい設計方法を解説します。
+            </p>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 薬剤師の職業性リスク3点：①調剤ヒヤリ・ハットによる精神的負荷（年間約10万件規模）、②抗がん剤の職業性曝露（IARC発がん性グループ1物質への長期接触）、③高収入ゆえに高額療養費の自己負担上限額が高くなる点（月約8万円）を踏まえた医療保険設計が必要です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：公的医療保険 vs 民間医療保険 比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">公的健康保険でカバーされる費用・されない費用</h2>
+            <p className="text-gray-600 text-sm mb-4">年収600万円台の薬剤師を前提にした比較です。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-teal-700 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">項目</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">公的健康保険でカバーされる</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">公的健康保険でカバーされない</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">入院医療費</td>
+                    <td className="px-4 py-3 text-green-700">✅ 高額療養費で月約8万円上限（年収600万円の場合）</td>
+                    <td className="px-4 py-3 text-red-600">❌ 差額ベッド代（1日平均6,000〜7,000円）</td>
+                  </tr>
+                  <tr className="bg-teal-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">食事代</td>
+                    <td className="px-4 py-3 text-gray-500">— 一部補助あり（ただし自己負担分残る）</td>
+                    <td className="px-4 py-3 text-red-600">❌ 1食550円は自己負担（30日入院で約4.9万円）</td>
+                  </tr>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">休業中の収入補償</td>
+                    <td className="px-4 py-3 text-green-700">✅ 傷病手当金（標準報酬月額の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-red-600">❌ 残り1/3の収入減少・1年6か月超は無給付</td>
+                  </tr>
+                  <tr className="bg-teal-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">精神疾患による入院</td>
+                    <td className="px-4 py-3 text-green-700">✅ 高額療養費の対象</td>
+                    <td className="px-4 py-3 text-red-600">❌ 傷病手当金が1年6か月を超えると無保障</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">先進医療・保険外治療</td>
+                    <td className="px-4 py-3 text-gray-500">— 一部保険適用の治療のみ</td>
+                    <td className="px-4 py-3 text-red-600">❌ 費用が数十〜数百万円になるケースあり（全額自己負担）</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 薬剤師は健康保険組合（協会けんぽまたは企業健保）に加入しており、傷病手当金の受給資格があります。ただし収入が高いほど傷病手当金の1/3カットの実損が大きくなるため、民間医療保険で入院日額給付を補完する意義があります。
+            </p>
+          </section>
+
+          {/* セクション3：薬剤師特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">薬剤師特有のリスクデータ（政府・専門機関統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-teal-700 mb-3">リスク①：年間10万件規模のヒヤリ・ハットが生む慢性的プレッシャー</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  公益財団法人日本医療機能評価機構の「薬局ヒヤリ・ハット事例収集・分析事業 第31回報告書」によると、2024年1〜6月の報告件数は49,794件（半年間）。これは薬局のみの数字であり、病院薬剤師を含めれば年間10万件を超える規模の「一歩手前の事故」が薬剤師の日常を取り巻いています。処方箋の読み間違い・薬の取り違え・用量ミスはいずれも患者の命に直結するプレッシャーであり、慢性的なストレスが精神疾患リスクを高めます。医療職の精神疾患による休業は珍しくなく、薬剤師においても例外ではありません。
+                </p>
+                <a
+                  href="https://www.yakkyoku-hiyari.jcqhc.or.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-600 text-sm underline hover:text-teal-800"
+                >
+                  出典：日本医療機能評価機構「薬局ヒヤリ・ハット事例収集・分析事業 第31回報告書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-teal-700 mb-3">リスク②：抗がん剤の職業性曝露による発がんリスク（病院薬剤師特有）</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  病院・クリニック・がん専門病院で抗がん剤の調製業務に従事する薬剤師は、IARCがグループ1（ヒトに対する発がん性あり）に分類するシクロホスファミド・エトポシド等に日常的に曝露するリスクがあります。日本臨床腫瘍薬学会らの「がん薬物療法における職業性曝露対策ガイドライン2019年版」では、曝露による急性症状（皮膚炎・脱毛等）だけでなく、生殖機能への影響やがん発症リスクも報告されています。防護対策は推奨されていますが日本では施設ごとの対応にばらつきがあり、がん罹患時の入通院・先進医療費に備えた医療保険設計が重要です。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/seikatsu-eisei/seikatsu-eisei03/06.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-600 text-sm underline hover:text-teal-800"
+                >
+                  出典：厚生労働省「職場における化学物質等の管理のあり方に関する検討会」関連→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-teal-700 mb-3">リスク③：高収入薬剤師が陥りやすい「高額療養費の過信」</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  年収599万円（月収約42万円）の薬剤師が入院した場合、高額療養費制度の適用区分は「ウ」（標準報酬月額28万〜53万円）となり、自己負担限度額は月8万100円＋医療費総額の1%となります。一見手厚く見えますが、高額療養費の対象外となる費用を合算すると実負担は大きく膨らみます。差額ベッド代（30日で18〜21万円）＋食事代（約4.9万円）＋交通費・日用品（1〜2万円）で、30日入院の場合は合計35〜40万円超の自己負担になりえます。高収入だからこそ「自分は医療費が出せる」と思いがちですが、長期入院や再入院が続いた場合は家計を大きく圧迫します。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-600 text-sm underline hover:text-teal-800"
+                >
+                  出典：厚生労働省「高額療養費制度を利用される皆さまへ」→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">薬剤師の医療保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '傷病手当金の「1/3カット」と「1年6か月の壁」を把握した上で設計する',
+                  body: '年収599万円の薬剤師の標準報酬月額は約42万円。傷病手当金は2/3支給のため月約28万円。残り14万円のカットは高収入ゆえに実損が大きく、1年6か月を超えた長期療養には傷病手当金が出なくなります。長期入院・精神疾患による長期休業に備えた就業不能保険や入院一時金の検討も有効です。'
+                },
+                {
+                  num: '2',
+                  title: '入院日額は差額ベッド代を念頭に設定する（目安：日額5,000〜1万円）',
+                  body: '差額ベッド代の全国平均は1日6,000〜7,000円。入院日額給付5,000〜1万円の医療保険があれば、差額ベッド代と食事代の大半をカバーできます。30日以上の入院では対象外費用が20万円超になりうることを念頭に設計してください。'
+                },
+                {
+                  num: '3',
+                  title: '抗がん剤業務に従事している場合は「がん特約」の追加を検討する',
+                  body: '抗がん剤に継続的に接触する業務に従事している場合は、がん診断一時金や通院給付金のある医療保険・がん保険への加入を検討する価値があります。先進医療特約も保険料はわずかながら数百万円規模の先進医療費に備えられます。'
+                },
+                {
+                  num: '4',
+                  title: '精神疾患による休業への備えは医療保険＋就業不能保険の組み合わせ',
+                  body: 'ヒヤリ・ハット対応・服薬指導・医師への疑義照会など、薬剤師の精神的プレッシャーは常に高い水準にあります。精神疾患による入院は高額療養費の対象ですが、傷病手当金1年6か月後の長期休業は無保障になります。就業不能保険との組み合わせで長期療養をカバーする設計が有効です。'
+                },
+                {
+                  num: '5',
+                  title: '勤務先の団体保険を確認し、個人名義の医療保険を基盤として持つ',
+                  body: '大手薬局チェーンや病院には団体保険が用意されていることがありますが、転職時に失効します。薬剤師は平均勤続年数8.6年と転職が多い職種のため、雇用に左右されない個人名義の医療保険を基盤として確保することが重要です。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（薬剤師特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「高収入だから医療費は自己負担で払える」と思い込んでいた</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（35歳・調剤薬局勤務・年収580万円）。「自分は稼いでいるから医療保険は不要」と考え、未加入のまま。乳がんが発見され手術・入院・化学療法を経て8か月の休業。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>化学療法（一部先進医療適用）で180万円の自己負担が発生。差額ベッド代・食事代も合わせると総自己負担額は約220万円超。傷病手当金で月約28万円は受給できたが、高額の医療費と生活費の二重負担で貯蓄を大幅に取り崩した。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：高収入だからこそ「入院中の生活費」「先進医療費」「差額ベッド代」の合算が大きくなります。傷病手当金だけでは不足する分を医療保険でカバーする設計が必要です。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「転職のたびに保険見直しを後回しにしていた」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（42歳・病院薬剤師→調剤薬局→別の調剤薬局チェーンと転職）。各職場の団体保険に頼っていたが、転職ごとに内容を確認せず。実は最後の職場の団体保険は医療保険がなく死亡保険のみと後から判明。虫垂炎で緊急入院した際に初めて気づいた。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>入院10日間で差額ベッド代7万円・食事代1.6万円・諸費用込みで約25万円が全額自己負担に。高額療養費で医療費本体は抑えられたが、対象外費用の自己負担が大きかった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：薬剤師は平均勤続年数8.6年と転職が多い職種です。転職のたびに「団体保険の内容確認」を行い、医療保険は個人名義で別途確保することが鉄則です。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「抗がん剤業務に長年従事していたが、がん保険に入っていなかった」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん（50歳・病院薬剤師・抗がん剤調製業務20年）。「自分はプロだから防護対策はしている」と過信し、がん保険・医療保険は最低限のプランのみ。悪性リンパ腫と診断され、抗がん剤治療6か月＋造血幹細胞移植で総医療費は数百万円超に。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>先進医療（造血幹細胞移植の一部）が特約未加入のため200万円超が全額自己負担。がん診断一時金もゼロ。6か月間の治療期間の自己負担が家計を直撃し、貯蓄の大半を使い果たした。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：抗がん剤の職業性曝露リスクを抱える病院薬剤師こそ、がん特約（診断一時金・先進医療特約・通院給付金）の充実した医療保険への加入が強く推奨されます。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">薬剤師が医療保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '現在の勤務先（病院・薬局・ドラッグストア）での団体保険の内容（医療保険の有無）を確認した',
+                  '傷病手当金の月額（標準報酬月額の2/3）と1年6か月の受給期限を把握した',
+                  '高額療養費の自己負担限度額（年収600万円台：月約8万円）と適用外費用（差額ベッド代等）を理解した',
+                  '30日入院した場合の総自己負担額（高額療養費適用後＋差額ベッド代＋食事代）を試算した',
+                  '抗がん剤業務に従事している場合、がん特約・先進医療特約の付加を検討した',
+                  '精神疾患による長期休業に備えた就業不能保険の必要性を検討した',
+                  '転職時に団体保険が失効することを把握し、個人名義の医療保険を確保した（または確保予定）',
+                  '入院日額給付（目安：日額5,000〜1万円）が差額ベッド代を賄えるか確認した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline hover:text-teal-800 ml-1">厚生労働省「令和6年賃金構造基本統計調査」</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline hover:text-teal-800 ml-2">高額療養費制度（厚生労働省）</a>
+            </p>
+          </section>
 
         </div>
       )}
