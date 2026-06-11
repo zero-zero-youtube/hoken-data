@@ -370,6 +370,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isAccountantMedical = occ.slug === 'accountant' && ins.slug === 'medical'
   const isLawyerLife = occ.slug === 'lawyer' && ins.slug === 'life'
+  const isFoodServiceMedical = occ.slug === 'food-service' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5320,6 +5321,254 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 飲食業×医療保険 専用コンテンツ */}
+      {isFoodServiceMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + 2色インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">飲食業と医療保険：治療費の補填ではなく「事業休止時の固定費支払い装置」として設計する</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              飲食業の平均年収は約275万円と全産業平均の約6割に過ぎず、医療保険の保険料をできるだけ抑えたいというニーズが強い職種です。しかし飲食業には「保険に入れなくなる理由」と「保険が最も必要な理由」が同時に存在するという特殊な構造があります。個人飲食店は社会保険の強制適用対象外のため、オーナーも従業員も国民健康保険・国民年金にとどまるケースが多く、傷病手当金がありません。転倒・切り傷・熱傷・腰痛など物理的な労災リスクが日常的に存在する環境で、繁忙期（年末年始・GW・お盆）に怪我や過労で倒れた場合、治療費の発生と同時に書き入れ時の売上消失という二重の打撃を受けます。廃業率が全業種最高水準（約5.6%）という業界で、医療保険は「治療費の補填」ではなく「事業休止時の固定費支払い装置」として設計する視点が不可欠です。
+            </p>
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="text-red-800 font-semibold text-sm leading-relaxed">
+                🚨 個人飲食店オーナーは傷病手当金の受給資格がありません。繁忙期（年末年始・GW・お盆）に入院した場合、年間利益の大半を稼ぐ時期の収入がゼロになる一方、店舗の家賃・リース代・人件費は流出し続けます。一般的な入院日額型医療保険だけでは不十分で、就業不能保険（所得補償）との組み合わせが不可欠です。
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 飲食業の廃業率は約5.6%と全業種最高水準（中小企業白書）。オーナーの健康問題が即「廃業」に直結する業界構造を理解した上で、医療保険を「個人の治療費」ではなく「事業継続コスト」として設計することが重要です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：雇用形態別比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と民間医療保険の必要性</h2>
+            <p className="text-gray-600 text-sm mb-4">飲食業は雇用形態・店舗形態によって社会保険の適用状況が大きく異なります。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-orange-600 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">雇用形態</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">健康保険</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">傷病手当金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">高額療養費の区分</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">民間医療保険の必要性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">個人飲食店オーナー（個人事業主）</td>
+                    <td className="px-4 py-3 text-gray-700">国民健康保険</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし</td>
+                    <td className="px-4 py-3 text-gray-700">区分ウ〜オ（年収275万円：月約5.7万円）</td>
+                    <td className="px-4 py-3 text-red-700 font-bold">極めて高：傷病手当金ゼロ＋繁忙期休業の売上消失</td>
+                  </tr>
+                  <tr className="bg-orange-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">法人化した飲食店オーナー（役員）</td>
+                    <td className="px-4 py-3 text-gray-700">協会けんぽ or 健保（法人加入）</td>
+                    <td className="px-4 py-3 text-orange-600 font-semibold">⚠️ 役員報酬設定により受給不可のケースあり</td>
+                    <td className="px-4 py-3 text-gray-700">年収に応じた区分</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：役員の傷病手当金は原則対象外</td>
+                  </tr>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">社会保険適用の従業員（法人店舗）</td>
+                    <td className="px-4 py-3 text-gray-700">協会けんぽ</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">✅ あり（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-gray-700">年収に応じた区分</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中：差額ベッド代・精神疾患長期化への備え</td>
+                  </tr>
+                  <tr className="bg-orange-50">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">社会保険非適用の従業員（個人店舗）</td>
+                    <td className="px-4 py-3 text-gray-700">国民健康保険</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし</td>
+                    <td className="px-4 py-3 text-gray-700">年収に応じた区分</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：傷病手当金なし＋低収入で貯蓄も薄い</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 個人飲食店（非適用業種）は従業員が5人以上いても健康保険・厚生年金の強制適用対象外です。法人化することで強制適用事業所となり、傷病手当金の受給資格が発生します。法人化を検討している場合は、社会保険の適用開始タイミングと民間保険の見直しを同時に行ってください。
+            </p>
+          </section>
+
+          {/* セクション3：飲食業特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">飲食業従事者特有のリスクデータ（政府統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-orange-600 mb-3">リスク①：廃業率5.6%が示す「オーナーの健康＝事業の命綱」という構造</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  中小企業庁「中小企業白書」によると、宿泊業・飲食サービス業の廃業率は約5.6%と全業種中最高水準であり、開業率約17%と組み合わせると、毎年膨大な数の飲食店が生まれては消えていく極めて流動的な業界像が浮かびます。飲食業の廃業原因の多くは「売上不振」ですが、オーナーの健康問題（入院・長期療養）による廃業も少なくありません。ワンオペや家族経営が多い個人店では、オーナーが1か月入院するだけで売上がゼロになります。治療費より、書き入れ時の売上消失（月100万円以上）の方が遥かに深刻なダメージとなるのが飲食業特有の構造です。
+                </p>
+                <a
+                  href="https://www.chusho.meti.go.jp/pamflet/hakusyo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-600 text-sm underline hover:text-orange-800"
+                >
+                  出典：中小企業庁「中小企業白書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-orange-600 mb-3">リスク②：繁忙期に集中する「年間利益の致命的喪失」リスク</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  飲食業の売上は年末年始（12月〜1月）・GW・お盆の3シーズンに極端に集中する傾向があります。厚生労働省「令和6年版過労死等防止対策白書」によると、宿泊業・飲食サービス業は脳・心臓疾患事案の多さで卸売・小売業に次ぐ高水準にあります。繁忙期の長時間労働と睡眠不足が重なる中で、12月の忘年会シーズンに倒れた場合、年間売上の30%以上を占める時期を丸ごと失います。傷病手当金がない個人店オーナーには、この「繁忙期の丸ごと喪失」をカバーする民間医療保険・就業不能保険が唯一の防衛手段となります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_44199.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-600 text-sm underline hover:text-orange-800"
+                >
+                  出典：厚生労働省「令和6年版過労死等防止対策白書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-orange-600 mb-3">リスク③：物理的な職場環境が生む日常的な労災リスク</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  厚生労働省「令和6年労働災害発生状況」によると、宿泊業・飲食サービス業では転倒（水濡れした床）・切り傷（包丁・スライサー）・熱傷（高温油・熱湯）・腰痛（重量物の運搬・長時間の立ち仕事）による労災が多発しています。月収約23万円（年収275万円÷12か月）という低収入水準では、入院中の生活費と治療費の二重負担が即座に家計危機につながります。社会保険未加入の個人店従業員は、この物理的リスクに最も無防備な層です。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_38403.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-600 text-sm underline hover:text-orange-800"
+                >
+                  出典：厚生労働省「令和6年労働災害発生状況」→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">飲食業従事者の医療保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '個人店オーナーは「入院日額型」より「就業不能保険（所得補償）」を主軸にする',
+                  body: '傷病手当金がない個人店オーナーの医療保険設計において、一般的な入院日額型（日額5,000〜1万円）だけでは繁忙期の売上消失と固定費の流出をカバーできません。月額10〜20万円の給付が継続する就業不能保険を主軸に、入院日額型は補完として位置付けましょう。'
+                },
+                {
+                  num: '2',
+                  title: '繁忙期（12月・GW・お盆）前に保険内容と支払い状況を確認する習慣をつける',
+                  body: '飲食業オーナーが最もリスクにさらされる繁忙期前に、現在の保険の給付内容・保険料の支払い状況を確認します。繁忙期直前に保険料未払いで失効していた、という事態を防ぐための定期確認が重要です。'
+                },
+                {
+                  num: '3',
+                  title: '月額保険料は「閑散期の収入」でも払える水準に設定する',
+                  body: '飲食業は繁忙期と閑散期の収入差が大きいです。好調期を基準に高額な保険に加入すると、閑散期に保険料が払えなくなり解約を招きます。月額2,000〜5,000円のシンプルな医療保険を継続させることが最優先です。'
+                },
+                {
+                  num: '4',
+                  title: '差額ベッド代・食事代は高額療養費の対象外であることを把握する',
+                  body: '年収275万円の飲食業従事者の高額療養費は月約5.7万円が上限（区分エ）。一見手頃ですが、差額ベッド代（1日6,000〜7,000円）と食事代（1食550円）は対象外のため、30日入院で追加20万円以上の自己負担になりえます。入院日額5,000〜1万円の給付で補完します。'
+                },
+                {
+                  num: '5',
+                  title: '法人化を検討している場合は、社会保険加入タイミングと保険の見直しを同時に行う',
+                  body: '法人化により協会けんぽに加入すれば傷病手当金の受給資格が発生し、民間の就業不能保険の必要性が大幅に低下します。法人化前後での社会保険の変化を理解した上で、民間保険のポートフォリオを最適化してください。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（飲食業特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「12月の忘年会シーズンに転倒・骨折して廃業に追い込まれた」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（42歳・個人居酒屋オーナー・年商約800万円）。12月中旬の繁忙期に厨房で転倒し大腿骨を骨折、1か月入院。ワンオペのため店は即閉店。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>国民健康保険のため傷病手当金ゼロ。12月〜1月の売上（年間の約30%）が消滅。店舗家賃10万円・リース代3万円・アルバイトへの休業補償が流出し続け、退院後に資金が底をつき廃業。民間医療保険の入院給付金（日額5,000円×30日＝15万円）では到底カバーできなかった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：飲食業オーナーの医療保険は「治療費補填」ではなく「繁忙期の固定費支払いと売上消失補填」が目的です。就業不能保険（月額15〜20万円給付）が生命線であり、入院日額型は補完に過ぎません。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「社会保険非加入の個人店で働いていた従業員が椎間板ヘルニアで緊急手術」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（31歳・個人ラーメン店勤務・月収約20万円）。長時間の立ち仕事と重い寸胴鍋の運搬で椎間板ヘルニアが悪化、緊急手術で3週間入院・2か月通院。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>勤務先が社会保険非適用の個人店のため傷病手当金なし。高額療養費で月約5.7万円に抑えられたが、差額ベッド代・食事代・交通費で追加15万円。2か月の休業中は収入ゼロで生活費の貯蓄が底をつき、家族に借金することになった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：社会保険非適用の個人店で働く従業員は、雇用主の保険加入状況を確認し、傷病手当金がない場合は自分で民間の医療保険・就業不能保険に加入して自己防衛する必要があります。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「夫婦で飲食店経営中に夫が心筋梗塞で急死。子なし妻への公的給付ゼロ」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん夫婦（夫45歳・妻42歳・子なし）でカフェを経営。夫が仕込み中に心筋梗塞で急死。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>個人事業主のため国民年金（第1号被保険者）のみ加入。子のない妻への遺族基礎年金は支給されず、公的な死亡保障はゼロ。店舗改装時のリース残債200万円が残り、民間生命保険も未加入だったため妻は全て自己負担。カフェも廃業せざるを得なかった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：個人飲食店の夫婦経営は、公的年金の遺族保障が極めて薄いです。開業資金・設備投資の借入金額以上の生命保険（死亡保障）を確保することが、飲食業オーナーの保険設計の最低ラインです。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">飲食業従事者が医療保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '現在の社会保険加入状況（国民健康保険 or 協会けんぽ）と傷病手当金の有無を確認した',
+                  '個人店オーナーの場合、就業不能保険（所得補償）を医療保険の主軸として検討した',
+                  '繁忙期（12月・GW・お盆）に入院した場合の「売上消失額＋固定費」を試算した',
+                  '高額療養費の自己負担上限額（年収275万円の場合：月約5.7万円）と対象外費用を把握した',
+                  '月額保険料が閑散期の収入でも継続できる水準か確認した',
+                  '開業資金・設備投資の借入金がある場合、その金額以上の死亡保障を確保した',
+                  '法人化を検討中の場合、社会保険加入タイミングと民間保険の見直しを同時に計画した',
+                  '差額ベッド代・食事代（高額療養費対象外）をカバーする入院日額給付を設定した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.nta.go.jp/publication/statistics/kokuzeicho/minkan/top.htm" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline hover:text-orange-800 ml-1">国税庁「令和6年分民間給与実態統計調査」</a>
+              <a href="https://www.chusho.meti.go.jp/pamflet/hakusyo/" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline hover:text-orange-800 ml-2">中小企業庁「中小企業白書」</a>
+            </p>
+          </section>
 
         </div>
       )}
