@@ -371,6 +371,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isAccountantMedical = occ.slug === 'accountant' && ins.slug === 'medical'
   const isLawyerLife = occ.slug === 'lawyer' && ins.slug === 'life'
   const isFoodServiceMedical = occ.slug === 'food-service' && ins.slug === 'medical'
+  const isEngineerLife = occ.slug === 'engineer' && ins.slug === 'life'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5321,6 +5322,254 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* エンジニア×生命保険 専用コンテンツ */}
+      {isEngineerLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + 2色インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">ITエンジニアと生命保険：転職・独立のたびに保障が断絶する業界特有のリスク</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              ITエンジニアは平均年収574〜753万円と高水準の所得を誇りますが、生命保険の観点では「転職・独立のたびに保障が断絶する」という業界特有のリスクが存在します。厚生労働省「令和6年版過労死等防止対策白書」では、Webエンジニアのうつ・不安障害の疑いが48.6%と全職種中突出して高いことが明らかになっており、精神疾患による長期就業不能リスクは極めて深刻です。さらに、会社員エンジニアがフリーランスに転向した場合、厚生年金から国民年金に切り替わることで、遺族厚生年金（生涯で約1,725万円相当）が転向の瞬間にゼロになります。「手取り収入が増えた」と喜ぶ独立初年度に、実は数千万円規模の目に見えない保障を失っていることに気づかないエンジニアが後を絶ちません。本ページではITエンジニア特有の3つのリスク（精神疾患・保障断絶・過重労働）を軸に生命保険の正しい設計方法を解説します。
+            </p>
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="text-red-800 font-semibold text-sm leading-relaxed">
+                🚨 フリーランス転向の瞬間に遺族厚生年金が消滅します。平均標準報酬月額35万円・25年加入の場合、失われる遺族厚生年金の生涯総額は約1,725万円相当。転向時に民間の収入保障保険で「見えない保障の消失分」を即座に補填することが必須です。
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ Webエンジニアのうつ・不安障害の疑い：48.6%（厚生労働省・令和6年版過労死等防止対策白書）。精神疾患は「入院を伴わない在宅療養」が主流のため、一般的な入院給付型の生命保険・医療保険では保障が機能しないケースが多いです。精神疾患特約付きの就業不能保険との組み合わせが必須です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：雇用形態別の公的保障比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と生命保険の必要性</h2>
+            <p className="text-gray-600 text-sm mb-4">ITエンジニアは転職・独立によって社会保険の適用状況が頻繁に変わります。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-sky-700 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">雇用形態</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">年金区分</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">死亡時の遺族年金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">傷病手当金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">生命保険の必要性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">正社員エンジニア</td>
+                    <td className="px-4 py-3 text-gray-700">第2号被保険者（厚生年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">✅ あり（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中：住宅ローン・子の教育費に応じて設計</td>
+                  </tr>
+                  <tr className="bg-sky-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">転職中（無職期間）</td>
+                    <td className="px-4 py-3 text-gray-700">第1号被保険者（国民年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族基礎年金のみ</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし（任意継続しない限り）</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：無職期間の保障断絶リスク</td>
+                  </tr>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">フリーランスエンジニア（個人事業主）</td>
+                    <td className="px-4 py-3 text-gray-700">第1号被保険者（国民年金）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族基礎年金のみ（子がいる場合）</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし</td>
+                    <td className="px-4 py-3 text-red-700 font-bold">極めて高：遺族厚生年金ゼロ＋傷病手当金なし</td>
+                  </tr>
+                  <tr className="bg-sky-50">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">法人化エンジニア（一人法人）</td>
+                    <td className="px-4 py-3 text-gray-700">第2号被保険者（厚生年金・法人加入）</td>
+                    <td className="px-4 py-3 text-gray-700">遺族厚生年金＋遺族基礎年金</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">✅ あり（役員報酬設定次第）</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中：法人化で保障が回復。報酬設定に注意</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 転職活動中の「無職期間」に健康保険の任意継続手続きをしないと、傷病手当金の受給資格を失います。転職・独立のたびに社会保険の変化を確認し、民間の生命保険・就業不能保険で空白を埋めることがITエンジニアの生命保険管理の基本です。
+            </p>
+          </section>
+
+          {/* セクション3：ITエンジニア特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">ITエンジニア特有のリスクデータ（政府統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-sky-700 mb-3">リスク①：フリーランス転向で失われる「1,725万円の見えない保障」</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  会社員エンジニアがフリーランスへ転向する際、多くの人は「手取り収入の増加」だけを計算します。しかし、厚生年金から国民年金に切り替わることで遺族厚生年金が完全に消滅することを、正確に金額換算しているエンジニアはほとんどいません。平均標準報酬月額35万円・25年加入の場合、遺族厚生年金の報酬比例部分は年間約57.5万円。妻が30年間受給すると仮定すれば、その総額は約1,725万円に達します。この「目に見えない1,725万円の喪失」を民間の収入保障保険（月5〜10万円給付・65歳まで）で補填するコストは月額2,000〜5,000円程度。フリーランス転向の「損益分岐点」を正確に計算すると、遺族保障の補填コストを加味した上で手取りが最低でも年間20〜30万円以上増えなければ「実質マイナス」になりうるのです。
+                </p>
+                <a
+                  href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-600 text-sm underline hover:text-sky-800"
+                >
+                  出典：日本年金機構「遺族基礎年金の受給要件・支給開始時期・計算方法」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-sky-700 mb-3">リスク②：Webエンジニアの48.6%がうつ・不安障害の疑い——精神疾患リスクの異常な高さ</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  厚生労働省「令和6年版過労死等防止対策白書」のアンケート調査において、K6指標（うつ・不安障害のスクリーニング）で「重度を含むうつ・不安障害の疑い」があるWebエンジニアの割合は48.6%と、全職種中でも突出して高い水準を示しました。複雑なバグ対応・仕様変更の連続・クライアントとの折衝・システム障害時の深夜対応など、ITエンジニアの業務は高度な認知負荷が慢性的にかかる環境です。精神疾患は治療が長期化しやすく（精神科の平均入院日数は278日）、数年にわたって収入が途絶えるリスクがあります。一般的な入院給付型の生命保険では精神疾患の在宅療養には給付が下りないため、精神疾患特約付きの就業不能保険が必須となります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_44199.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-600 text-sm underline hover:text-sky-800"
+                >
+                  出典：厚生労働省「令和6年版過労死等防止対策白書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-sky-700 mb-3">リスク③：転職・独立のたびに生じる「団体保険の空白期間」</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  ITエンジニアはプロジェクト単位の移動やキャリアアップ転職が多く、離職期間（無職期間）が生じることが珍しくありません。企業の団体生命保険は在籍中のみ有効であり、退職と同時に失効します。転職活動中の2〜3か月の「空白期間」に、前職の過重労働の蓄積から脳・心臓疾患や精神疾患を発症するケースは統計的に多いです。個人名義で継続できる生命保険（定期保険・収入保障保険）を雇用形態に関わらず保有しておくことが、キャリア変化の多いITエンジニアにとって最も重要な生命保険管理の原則となります。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-600 text-sm underline hover:text-sky-800"
+                >
+                  出典：厚生労働省「令和6年賃金構造基本統計調査」→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">ITエンジニアの生命保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: 'フリーランス転向時は「失われた遺族厚生年金分」を収入保障保険で即座に補填する',
+                  body: '転向と同時に収入保障保険（月5〜10万円・65歳まで）に加入することで、遺族厚生年金の消失をほぼカバーできます。保険料は月2,000〜5,000円程度であり、手取り増加分で十分賄える範囲です。転向前後でシミュレーションして「実質的な収支」を確認しましょう。'
+                },
+                {
+                  num: '2',
+                  title: '転職・独立のたびに「団体保険の失効確認」と個人保険への切り替えを行う',
+                  body: '退職と同時に団体生命保険が失効します。転職手続きと並行して、個人名義の生命保険に加入または既存保険の継続を確認してください。「就職したら保険に入ろう」と先延ばしにしている間の空白期間が最も危険です。'
+                },
+                {
+                  num: '3',
+                  title: '住宅ローン＋教育費を軸に「必要保障額」を設計する',
+                  body: '年収600〜800万円台のエンジニアは住宅ローンを抱えているケースが多いです。住宅ローン残債（団体信用生命保険でカバーされる部分を除く）＋子の大学卒業までの教育費＋配偶者の生活費を合算して必要保障額を算出します。一般的に3,000〜6,000万円規模になることが多いです。'
+                },
+                {
+                  num: '4',
+                  title: '精神疾患特約付きの就業不能保険を生命保険と組み合わせる',
+                  body: 'Webエンジニアの48.6%がうつ・不安障害の疑いという現実を踏まえ、死亡保障（生命保険）と就業不能保障（就業不能保険）の両方を確保します。精神疾患の在宅療養は入院給付型では給付されないため、「入院不要で給付される」就業不能保険の特約が必須です。'
+                },
+                {
+                  num: '5',
+                  title: '法人化を検討しているなら、厚生年金再加入による保障回復を確認してから保険設計する',
+                  body: 'フリーランスから一人法人（マイクロ法人）に移行すると、厚生年金に再加入でき遺族厚生年金の受給資格が復活します。法人化後は民間の収入保障保険の必要額が大幅に下がるため、法人化と同時に保険内容を見直すことで保険料の節約につながります。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（ITエンジニア特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「フリーランス転向時に遺族年金が変わると知らず、家族が無保障に」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Aさん（34歳・Webエンジニア・妻と幼児1人）。年収800万円を超える報酬に魅力を感じてフリーランスへ転向。転向1年後に急性心不全で急死。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>転向時に「手取りが増えた分、保険を増やそう」と思いながら手続きを先延ばしにしていた。国民年金に切り替わっていたため遺族厚生年金はゼロ。遺族基礎年金（子1人で年102万円）のみ。住宅ローン残債2,500万円が遺族に残り、妻は自宅を売却せざるを得なかった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：フリーランス転向は「遺族厚生年金の消滅」と「傷病手当金の喪失」が同時に発生する保障断絶イベントです。転向と同時に収入保障保険への加入を完了させてから独立することが鉄則です。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「転職の空白期間2か月にパニック障害を発症。無保険状態が判明」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Bさん（27歳・SIerからベンチャーへ転職）。有給消化を含む2か月の無職期間中、前職の過労の蓄積からパニック障害を発症し1か月以上療養。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>前職の健康保険を任意継続しておらず、企業の団体保険も失効。傷病手当金の受給資格もなく、個人名義の就業不能保険も未加入。治療費と生活費で約50万円を使い果たした。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：転職活動中の「無職期間」こそ最も保障が薄い時期です。退職前に健康保険の任意継続手続きをするか、個人名義の就業不能保険を事前に準備しておくことで無保険状態を防げます。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「慢性的な長時間労働でうつ病を発症。入院しないため医療保険の給付ゼロ」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>Cさん（41歳・大手SIer・SE）。長期プロジェクトの炎上対応で月100時間超の残業が続き、重度のうつ病を発症して6か月休職。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>医療保険には加入していたが「入院・手術」を条件とする従来型。精神疾患での自宅療養は入院を伴わないため給付金がゼロ。傷病手当金（月収の2/3）は受給できたが住宅ローンの支払いが圧迫し、6か月で貯蓄の大半が消えた。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：ITエンジニアの最大リスクは「外科的な入院」ではなく「精神疾患による長期在宅療養」です。死亡保障（生命保険）だけでなく、精神疾患をカバーする就業不能保険が必須の三本柱の一つです。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">ITエンジニアが生命保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '現在の雇用形態（正社員・フリーランス・法人）と年金区分（第2号・第1号）を確認した',
+                  'フリーランスの場合、遺族厚生年金の受給資格がないことを把握した',
+                  'フリーランス転向時に「失われた遺族厚生年金の生涯総額（約1,725万円）」を試算した',
+                  '収入保障保険（月5〜10万円・65歳まで）でフリーランス転向後の遺族保障を補填した（または検討した）',
+                  '転職・独立時に団体保険の失効を確認し、個人名義の生命保険への切り替えを行った',
+                  '精神疾患（うつ病・適応障害）が在宅療養で入院給付金の対象外になることを把握した',
+                  '就業不能保険（精神疾患特約付き）の必要性を検討した',
+                  '住宅ローン残債＋子の教育費＋配偶者生活費を合算して必要保障額を試算した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="text-sky-600 underline hover:text-sky-800 ml-1">厚生労働省「令和6年賃金構造基本統計調査」</a>
+              <a href="https://www.nenkin.go.jp/service/jukyu/izokunenkin/jukyu-yoken/20150401-04.html" target="_blank" rel="noopener noreferrer" className="text-sky-600 underline hover:text-sky-800 ml-2">日本年金機構「遺族基礎年金の受給要件」</a>
+            </p>
+          </section>
 
         </div>
       )}
