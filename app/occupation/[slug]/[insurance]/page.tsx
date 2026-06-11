@@ -368,6 +368,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isBeauticianLife = occ.slug === 'beautician' && ins.slug === 'life'
   const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
+  const isAccountantMedical = occ.slug === 'accountant' && ins.slug === 'medical'
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -5318,6 +5319,247 @@ export default async function OccupationInsurancePage({ params }: Props) {
               ))}
             </div>
           </div>
+
+        </div>
+      )}
+
+      {/* 税理士・会計士×医療保険 専用コンテンツ */}
+      {isAccountantMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + 2色インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">税理士・会計士と医療保険：高年収ゆえの落とし穴と繁忙期の構造的リスク</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              税理士・公認会計士は平均年収856万円と高水準の所得を誇りますが、医療保険の観点では「高年収ゆえの落とし穴」が複数存在します。最大のリスクは、確定申告・年末調整・3月決算が集中する1〜3月の繁忙期に、過労による脳・心臓疾患リスクが急上昇するという「季節性リスク」です。さらにこの繁忙期こそが税理士事務所にとって年間売上の最大ピークであるため、倒れた場合の損失は医療費だけでなく「年間利益の大半の消失」を意味します。加えて、高額療養費制度では年収856万円の場合「区分イ」となり、一般的な会社員の約2倍（月約17万円）の自己負担が発生します。開業税理士（個人事業主）は傷病手当金の受給資格もないため、入院日額型の医療保険だけでなく就業不能保険との組み合わせが不可欠です。本ページでは税理士・会計士ならではの構造的リスクを解説します。
+            </p>
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="text-red-800 font-semibold text-sm leading-relaxed">
+                🚨 開業税理士（個人事業主）は傷病手当金の受給資格がありません。繁忙期（1〜3月）に倒れた場合、年間売上の最大ピーク期の収入がゼロになる一方、固定費（事務所家賃・従業員給与）の流出は続きます。入院日額型の医療保険だけでなく、就業不能保険（所得補償）との組み合わせが不可欠です。
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+                ⚠️ 年収856万円の税理士は高額療養費の「区分イ」に該当し、総医療費100万円時の自己負担は約17万円（一般会社員の約2倍）。高収入ゆえに高額療養費の負担も重くなる逆説を理解した上で医療保険を設計することが重要です。
+              </p>
+            </div>
+          </section>
+
+          {/* セクション2：雇用形態別の公的保障比較表 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">雇用形態別の公的保障と民間医療保険の必要性</h2>
+            <p className="text-gray-600 text-sm mb-4">税理士・会計士のキャリアステージによって公的保障の手厚さは大きく変わります。</p>
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-indigo-700 text-white">
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">雇用形態</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">健康保険の種類</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">傷病手当金</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">高額療養費の区分</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">民間医療保険の必要性</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">所属税理士（会計事務所勤務）</td>
+                    <td className="px-4 py-3 text-gray-700">協会けんぽ or 健保組合</td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">✅ あり（月収の2/3・最長1年6か月）</td>
+                    <td className="px-4 py-3 text-gray-700">収入に応じた区分</td>
+                    <td className="px-4 py-3 text-yellow-700 font-semibold">中：差額ベッド代・精神疾患長期化への備え</td>
+                  </tr>
+                  <tr className="bg-indigo-50 border-b">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">開業税理士（個人事務所）</td>
+                    <td className="px-4 py-3 text-gray-700">国民健康保険 or 税理士国保</td>
+                    <td className="px-4 py-3 text-red-600 font-semibold">❌ なし</td>
+                    <td className="px-4 py-3 text-red-700 font-semibold">区分イ（月約17万円）</td>
+                    <td className="px-4 py-3 text-red-700 font-bold">極めて高：傷病手当金ゼロ＋高額自己負担</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">税理士法人社員（役員扱い）</td>
+                    <td className="px-4 py-3 text-gray-700">協会けんぽ or 健保組合（法人化により加入可）</td>
+                    <td className="px-4 py-3 text-orange-600 font-semibold">⚠️ 役員報酬設定により受給不可のケースあり</td>
+                    <td className="px-4 py-3 text-gray-700">年収に応じた区分</td>
+                    <td className="px-4 py-3 text-orange-700 font-semibold">高：役員の傷病手当金は原則対象外</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+              ※ 税理士国保（関東信越税理士国民健康保険組合等）では入院給付金制度が設けられていますが、傷病手当金（収入の2/3補填）には相当せず、所得補償としては不十分です。独立・開業のタイミングで必ず就業不能保険の見直しを行ってください。
+            </p>
+          </section>
+
+          {/* セクション3：税理士・会計士特有のリスクデータ */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">税理士・会計士特有のリスクデータ（政府・業界統計）</h2>
+            <div className="space-y-8">
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-indigo-700 mb-3">リスク①：「繁忙期×高額療養費のタイムラグ」という構造的欠陥</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  税理士・会計士が過労で倒れる最大のリスク期は1〜3月（確定申告）と12月（年末調整・年度末決算）に極端に集中しています。厚生労働省「令和6年版過労死等防止対策白書」が示す通り、脳・心臓疾患の発症前1か月に時間外労働「100時間以上」が認められるケースが最多です。ここで問題なのは「発病のタイミングと高額療養費の算定基準のズレ」です。高額療養費の自己負担限度額は前年度の所得を基に算定されるため、「収入が完全に途絶えた月に、高所得者として最高ランクの医療費（区分イ：約17万円〜）を請求される」という最悪のキャッシュフローの谷底が形成されます。入院日額型の医療保険と就業不能保険の両軸で備えることが不可欠です。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/newpage_44199.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 text-sm underline hover:text-indigo-800"
+                >
+                  出典：厚生労働省「令和6年版過労死等防止対策白書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-indigo-700 mb-3">リスク②：業界の高齢化が生む「60代以上が半数」のリスク構造</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  日本税理士会連合会「第7回税理士実態調査」によれば、税理士の53.6%が60代以上であり、20〜30代はわずか6.6%しかいません。税理士業界は「健康リスクが最も高い年代」が業界の主力を担う極端な高齢化業界です。60代以降は脳・心臓疾患・がん・糖尿病合併症など複数の疾患リスクが重なり、高額な入院・手術が増える時期と、高度な集中力を要する専門業務のピークが重なります。年間の登録抹消（廃業等）も約2,000人規模に上り、健康問題が直接「廃業」に直結する業界の脆弱性を示しています。
+                </p>
+                <a
+                  href="https://www.nichizeiren.or.jp/category/datalibrary/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 text-sm underline hover:text-indigo-800"
+                >
+                  出典：日本税理士会連合会「第7回税理士実態調査報告書」→
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-indigo-700 mb-3">リスク③：開業税理士の「傷病手当金ゼロ×固定費垂れ流し」の連鎖破綻</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  所属税理士（雇用）から個人開業に転換した瞬間、協会けんぽの傷病手当金（月収の2/3・最長1年6か月）の受給資格を失います。税理士国保の入院給付金（1日5,000円程度）では、事務所の家賃・人件費・設備費等の固定費の1割にも満たないのが現実です。繁忙期に1か月入院した場合：入院給付金約15万円（日額5,000円×30日）に対し、事務所の固定費（家賃10万円＋スタッフ人件費等）と医療費の自己負担（区分イで約17万円）が同時に発生する構造は、資金繰りを致命的に悪化させます。
+                </p>
+                <a
+                  href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 text-sm underline hover:text-indigo-800"
+                >
+                  出典：厚生労働省「高額療養費制度を利用される皆さまへ」→
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">税理士・会計士の医療保険選び5つのチェックポイント</h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '1',
+                  title: '開業税理士は「入院日額型」より「就業不能保険（所得補償）」を主軸にする',
+                  body: '傷病手当金がない開業税理士にとって、医療保険の主目的は「治療費の補填」ではなく「事業の固定費と生活費の維持」です。月額10〜20万円の給付が3〜6か月続く就業不能保険（所得補償保険）を主軸に設計し、入院日額型は補完として位置付けましょう。'
+                },
+                {
+                  num: '2',
+                  title: '高額療養費の「区分イ」を前提に入院日額を設定する（目安：日額1万円以上）',
+                  body: '年収856万円の税理士は総医療費100万円で自己負担約17万円（区分イ）。一般的な会社員向けの日額5,000円設計では不足します。差額ベッド代（日額6,000〜7,000円）と合わせて、入院日額1万円以上の設計が合理的です。'
+                },
+                {
+                  num: '3',
+                  title: '精神疾患による長期在宅療養をカバーする特約を確認する',
+                  body: 'デスクワークと顧客対応プレッシャーから、税理士・会計士のうつ病・適応障害リスクは高いです。精神疾患は入院を伴わない在宅療養が多いため、一般的な入院給付型では給付が下りません。精神疾患特約付きの就業不能保険との組み合わせが有効です。'
+                },
+                {
+                  num: '4',
+                  title: '開業・独立のタイミングを「保険見直しの必須トリガー」と認識する',
+                  body: '所属税理士→開業税理士への転換時は、公的保障が激変するターニングポイントです。独立と同時に「傷病手当金の喪失分」を民間の就業不能保険で補填する手続きを進めてください。'
+                },
+                {
+                  num: '5',
+                  title: '繁忙期（1〜3月）前の健康診断と保険確認を習慣化する',
+                  body: '脳・心臓疾患は過労が続いた直後に発症しやすいです。確定申告シーズン突入前（11〜12月）に健康診断を受け、血圧・脂質・血糖値の異常値があれば医療保険の内容を再確認する習慣が、税理士・会計士特有の「季節性リスク管理」として有効です。'
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">{item.num}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">よくある失敗事例3選（税理士・会計士特有の視点）</h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+                <h3 className="font-bold text-red-800 mb-3">事例①「繁忙期2月にクモ膜下出血で倒れ、年間売上の最大ピーク期を丸ごと喪失」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>独立3年目の個人開業税理士Aさん（45歳・年収900万円）。2月の確定申告最盛期に事務所でクモ膜下出血を発症し1か月入院。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>国民健康保険のため傷病手当金ゼロ。高額療養費は「区分イ」で自己負担約17万円。2〜3月は年間売上の3割以上が集中する最大ピーク期で、この2か月分の売上がほぼ全滅。事務所の家賃・スタッフ給与は流出し続け、退院後に資金繰りがショートして事務所を縮小せざるを得なかった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-red-700">
+                  教訓：開業税理士の医療保険設計は「治療費」ではなく「繁忙期の事業継続費用」を念頭に置きます。就業不能保険（月額15〜20万円給付）と入院一時金特約の組み合わせが有効です。
+                </p>
+              </div>
+
+              <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+                <h3 className="font-bold text-orange-800 mb-3">事例②「精神疾患で半年休職したが、入院がないため給付金ゼロ」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>会計事務所勤務の所属税理士Bさん（33歳女性）。顧客からのクレームと激務の連続で重度のうつ病を発症し6か月休職。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>協会けんぽの傷病手当金（月収の2/3）は受給できたが、1年6か月の期限を超えて復帰できず退職。民間の医療保険は「入院・手術」が条件の従来型で在宅療養には給付なし。退職後に社会保険を失い、以後の治療費が全額自己負担に。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-orange-700">
+                  教訓：税理士・会計士の精神疾患は「入院を伴わない在宅療養」が主流です。入院型医療保険だけでは不十分で、傷病手当金1年6か月後の長期療養をカバーする就業不能保険が必須です。
+                </p>
+              </div>
+
+              <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                <h3 className="font-bold text-yellow-800 mb-3">事例③「60代の所長が心筋梗塞で急入院。事務所の売上が8割消滅」</h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">状況：</span>個人事務所を30年経営するベテラン税理士Cさん（64歳）。顧客との関係構築もノウハウも所長個人に依存した経営で、3月に心筋梗塞による緊急手術・2か月入院。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  <span className="font-semibold">問題：</span>個人の医療保険の入院給付金（日額1万円×60日＝60万円）が下りたが、事務所売上の約8割が消滅し固定費との差額が数百万円に。後継者も育っておらず、退院後に事務所を縮小廃業することになった。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium text-yellow-700">
+                  教訓：60代以上が過半数を占める業界で、所長の健康リスク＝廃業リスクは直結します。事業継続を目的とした経営者向けの就業不能保険と、後継者育成・法人化によるリスク分散が重要です。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">税理士・会計士が医療保険を選ぶ前の最終チェックリスト</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <ul className="space-y-3">
+                {[
+                  '現在の雇用形態（所属税理士 or 開業税理士 or 税理士法人社員）と傷病手当金の有無を確認した',
+                  '自分の年収が高額療養費のどの区分（ア〜オ）に該当するか確認した',
+                  '開業税理士の場合、就業不能保険（所得補償）を医療保険の主軸として設計した（または検討した）',
+                  '繁忙期（1〜3月・12月）に倒れた場合の「事業継続コスト（家賃・人件費）」を試算した',
+                  '精神疾患（うつ病・適応障害）が在宅療養で入院給付金の対象外になることを把握した',
+                  '加入中の医療保険に精神疾患対応の就業不能特約があるか確認した',
+                  '独立・開業のタイミングで生命保険・医療保険の全面見直しを行う予定を立てた',
+                  '繁忙期前（11〜12月）に健康診断を受け、脳・心臓疾患リスクの指標を確認する習慣をつけた',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 rounded bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+              参考：
+              <a href="https://www.mhlw.go.jp/toukei/list/chinginkouzou.html" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800 ml-1">厚生労働省「令和6年賃金構造基本統計調査」</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800 ml-2">高額療養費制度（厚生労働省）</a>
+            </p>
+          </section>
 
         </div>
       )}
