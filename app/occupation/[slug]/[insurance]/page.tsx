@@ -367,6 +367,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isConstructionCancer = occ.slug === 'construction' && ins.slug === 'cancer'
   const isSalesMedical = occ.slug === 'sales' && ins.slug === 'medical'
   const isSalesCancer = occ.slug === 'sales' && ins.slug === 'cancer'
+  const isSalesDisability = occ.slug === 'sales' && ins.slug === 'disability'
   const isDriverLife = occ.slug === 'driver' && ins.slug === 'life'
   const isDriverIncomeProtection = occ.slug === 'driver' && ins.slug === 'income-protection'
   const isDriverCancer = occ.slug === 'driver' && ins.slug === 'cancer'
@@ -407,7 +408,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -12423,6 +12424,341 @@ export default async function OccupationInsurancePage({ params }: Props) {
           </section>
 
           <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+
+        </div>
+      )}
+
+{isSalesDisability && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">
+              営業職の就業不能保険——「傷病手当金終了後の収入の崖」と「歩合給二重除外」を徹底解説
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              営業職の就業不能保険設計には、大手比較サイトが一切触れていない「傷病手当金終了後の収入の崖」と「歩合給の二重除外問題」があります。
+              健康保険法第99条により傷病手当金は最長1年6ヶ月で終了します。しかし営業職の場合、健康保険法第3条第6項による歩合給除外で傷病手当金が基本給ベースに圧縮されているため、18ヶ月を待たずに家計が崩壊するケースが頻発します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              家計崩壊タイムラインは T_bankrupt = 18 + (S - 18(E - B)) / E（S=貯蓄・E=生活費・B=傷病手当金）で表されます。歩合給が除外されてBが極小になると、T_bankrupt &lt; 18 となり、制度が想定する「18ヶ月の崖」に到達する前に家計が崩壊します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに1年以上の長期就業不能に陥ると、心血を注いで築いた顧客基盤が他者に移行し、復職後の歩合給回復に治療期間以上の時間が必要になります。就業不能保険は傷病手当金の「空白」と「終了後」の両方をカバーする設計が必要です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-3">🚨 営業職は傷病手当金が終了する前に家計が崩壊するケースがあります</p>
+              <div className="bg-white rounded p-3 border border-red-200 mb-3 font-mono text-sm text-gray-800">
+                T_bankrupt = 18 + (S - 18(E - B)) / E
+              </div>
+              <ul className="text-sm text-red-800 space-y-1">
+                <li>・歩合給除外でBが極小 → T_bankrupt &lt; 18 が頻発</li>
+                <li>・月収45万円の営業職（基本給25万＋歩合20万）の場合：傷病手当金は月16.7万円のみ（内勤職の約56%）</li>
+                <li>・18ヶ月より前に貯蓄が底をつく可能性があります</li>
+              </ul>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 1年以上の就業不能でパイプライン（顧客基盤）が消滅します</p>
+              <ul className="text-sm text-amber-800 space-y-1">
+                <li>・復職後に歩合給を回復させるには治療期間以上の時間が必要</li>
+                <li>・「病気が治っても収入が戻らない」という営業職固有のリスクがあります</li>
+                <li>・就業不能保険は復職後の収入回復期間もカバーする設計が重要です</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA① */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              営業職のケース別・就業不能損失シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：内勤職（基本給のみ・月収45万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">比較基準として提示</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-gray-900">約30万円</div>
+                    <div className="text-xs text-gray-500">標準報酬月額45万円 × 2/3</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">月次収入ギャップ</div>
+                    <div className="font-bold text-gray-900">月▲15万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">18ヶ月後（傷病手当金終了）</div>
+                    <div className="font-bold text-gray-900">月▲45万円に拡大</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">パイプライン損失</div>
+                    <div className="font-bold text-gray-900">なし（業務は組織が継続）</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-blue-700 text-xl">月額15万円</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：営業職（基本給月25万円＋歩合月20万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">うつ病で長期就業不能のケース</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-red-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-red-700">約16.7万円</div>
+                    <div className="text-xs text-gray-500">基本給25万円のみが算定ベース（健保法第3条第6項）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">月次収入ギャップ</div>
+                    <div className="font-bold text-red-700">月▲28.3万円</div>
+                    <div className="text-xs text-gray-500">内勤職より月13.3万円多い損失</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">家計崩壊タイムライン</div>
+                    <div className="font-bold text-red-700">T_bankrupt &lt; 18ヶ月の可能性</div>
+                    <div className="text-xs text-gray-500">18ヶ月の崖に到達前に貯蓄が底をつく</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">パイプライン損失（1年以上の場合）</div>
+                    <div className="font-bold text-red-700">顧客基盤が他者に移行・復帰後も歩合回復困難</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額30万円（歩合除外分＋傷病手当金終了後を補填）</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              傷病手当金の算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条・第3条第6項</a>。精神障害労災の統計：<a href="https://www.mhlw.go.jp/stf/newpage_40975.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和6年度過労死等の労災補償状況</a>。家計崩壊タイムライン：T_bankrupt = 18 + (S - 18(E-B)) / E。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              営業職特有のリスクデータ（政府統計3件）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「傷病手当金終了後の収入の崖」——18ヶ月で3倍のスピードで損失が拡大する数学的証明</h3>
+                </div>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-4">
+                  <p className="text-sm text-gray-700 mb-2">就業不能期間をT（月）、貯蓄残高をS、生活費をE、傷病手当金をBとする。</p>
+                  <div className="space-y-1 text-sm font-mono text-gray-800">
+                    <p>T≤18ヶ月：月次資金減少 = E - B</p>
+                    <p>T&gt;18ヶ月：傷病手当金終了 → 月次資金減少 = E（3倍のスピードに加速）</p>
+                    <p className="mt-2 font-bold">T_bankrupt = 18 + (S - 18(E-B)) / E</p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  営業職は歩合給除外（健康保険法第3条第6項）でBが極小→S - 18(E-B) がマイナスになる可能性が高く T_bankrupt &lt; 18 が頻発する。「18ヶ月の傷病手当金をフルに使える」という前提が営業職には成り立たない。就業不能保険は就業不能の初期段階から歩合給相当額を補填する設計が不可欠。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_40975.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「精神疾患による長期就業不能」——営業職の過重なノルマが引き起こす545件の精神障害労災</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">545件</div>
+                    <div className="text-xs text-gray-600">精神障害労災請求件数<br/>（卸売・小売業）</div>
+                  </div>
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">120件</div>
+                    <div className="text-xs text-gray-600">支給決定件数</div>
+                  </div>
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">1年以上</div>
+                    <div className="text-xs text-gray-600">精神疾患の就業不能期間<br/>（顧客基盤移行リスク）</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  ノルマ達成へのプレッシャー・顧客折衝による対人ストレス・長時間労働が複合的に作用し、うつ病・適応障害による長期就業不能リスクが構造的に高い。精神疾患は寛解と再発を繰り返しやすく、1年以上の就業不能では顧客基盤が他者に移行し、復職後の歩合給回復に治療期間以上の時間を要する「パイプライン損失」が発生する。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_40975.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「歩合給の二重除外」——就業不能保険が傷病手当金の空白を補填する唯一の手段</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                  <div className="bg-yellow-50 rounded p-4 border border-yellow-200">
+                    <div className="text-xs text-gray-500 mb-1">内勤職（月収45万円）の傷病手当金</div>
+                    <div className="font-bold text-gray-900 text-xl">月30万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-4 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">営業職（基本給25万＋歩合20万）の傷病手当金</div>
+                    <div className="font-bold text-red-700 text-xl">月16.7万円</div>
+                    <div className="text-xs text-red-600">月▲13.3万円の空白</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  健康保険法第3条第6項により年3回以下支給の歩合給は「賞与」扱いで標準報酬月額から除外される。この「傷病手当金の空白（月13.3万円）」は公的制度では一切補填されない。さらに18ヶ月後には傷病手当金が終了し、月次損失が45万円全額に拡大する。就業不能保険の給付金がこの「二重の空白」を補填する唯一の合法的手段となる。
+                </p>
+                <a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：e-Gov法令検索「健康保険法第3条第6項」
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* CTA② */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              営業職の就業不能保険選び 5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '01',
+                  title: '傷病手当金との差額＋終了後の収入喪失を合算して給付月額を設定する',
+                  body: '傷病手当金（基本給ベース）と実質月収の差額を計算し、さらに傷病手当金終了後（18ヶ月後）の全額喪失を想定した給付月額を設定する。',
+                },
+                {
+                  num: '02',
+                  title: '支払対象外期間（免責期間）を最短に設定する',
+                  body: '営業職はT_bankrupt < 18 のケースがあるため、就業不能初日から給付される（免責期間0〜7日）保険が理想的。',
+                },
+                {
+                  num: '03',
+                  title: '給付期間を長期（60〜65歳）に設定してパイプライン損失をカバーする',
+                  body: '精神疾患による長期就業不能を想定し、復職後の収入回復期間も含めた長期の給付期間を確保する。',
+                },
+                {
+                  num: '04',
+                  title: '精神疾患をカバーする保険か確認する',
+                  body: 'うつ病・適応障害が支払対象かどうかを事前に確認する。特に「精神疾患による就業不能の通算給付期間に制限がないか」を確認する。',
+                },
+                {
+                  num: '05',
+                  title: '就業不能の定義を確認する',
+                  body: '「現在の職業（営業職）に就けない状態」か「いかなる職業にも就けない状態」かで給付のしやすさが大きく異なる。「現在の職業に就けない状態」をカバーする定義の保険を選ぶ。',
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-gray-700">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded mb-3">事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">トップセールスがうつ病で休職。傷病手当金が月16.7万円しか出ず住宅ローンが払えなくなった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Aさん（38歳・不動産営業・年収700万円・基本給月25万円＋歩合月35万円）。激務とノルマプレッシャーからうつ病を発症し6ヶ月の休職が必要になった。</p>
+                  <p><span className="font-bold">問題：</span>健康保険法第3条第6項により歩合月35万円は標準報酬月額から除外。傷病手当金は基本給25万円の2/3＝月16.7万円のみ。実質月収60万円との差額は月43.3万円。住宅ローン月18万円が払えなくなった。就業不能保険に未加入だったことが致命傷。</p>
+                </div>
+                <div className="bg-red-50 rounded p-3 border border-red-200">
+                  <p className="text-sm font-bold text-red-800">教訓（健康保険法第3条第6項）：歩合給は傷病手当金の計算に含まれない。就業不能保険で歩合分を補填する設計が必須。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-orange-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded mb-3">事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">傷病手当金が18ヶ月で終了。復職したが顧客ゼロで歩合給が稼げず自己破産</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Bさん（42歳・保険営業・年収800万円・うつ病で22ヶ月就業不能）。18ヶ月の傷病手当金で何とか生活したが、終了後4ヶ月間は無収入。復職後も顧客基盤が同僚に移行していたため歩合給がゼロ。</p>
+                  <p><span className="font-bold">問題：</span>就業不能保険に加入していれば傷病手当金終了後も給付を受け続けられた。健康保険法第99条の「1年6ヶ月」という壁を甘く見ていた。</p>
+                </div>
+                <div className="bg-orange-50 rounded p-3 border border-orange-200">
+                  <p className="text-sm font-bold text-orange-800">教訓（健康保険法第99条）：就業不能保険は傷病手当金終了後こそ本領を発揮する。給付期間を60〜65歳まで設定することが重要。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-yellow-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mb-3">事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">就業規則の休職期間満了で退職。子の教育費が払えなくなった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Cさん（45歳・医薬品営業・年収600万円・適応障害で18ヶ月就業不能）。就業規則の休職期間満了により労働契約法の保護枠を超え自然退職扱いとなった。傷病手当金も終了し完全に無収入。子2人の教育費の支払いが不可能になった。</p>
+                  <p><span className="font-bold">問題：</span>就業不能保険に未加入で退職後の収入補填手段が一切なかったこと。</p>
+                </div>
+                <div className="bg-yellow-50 rounded p-3 border border-yellow-200">
+                  <p className="text-sm font-bold text-yellow-800">教訓（労働契約法第16条）：就業不能保険は退職後も継続給付される点が重要。会社の休職制度の期限を超えた後の生活防衛に不可欠な保険。</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              就業不能保険加入前の最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <ul className="space-y-3">
+                {[
+                  'T_bankrupt = 18 + (S - 18(E-B)) / E で自分の家計崩壊タイムラインを試算した',
+                  '傷病手当金（基本給ベース）と実質月収の差額を確認した',
+                  '就業不能保険の給付月額を「歩合給除外分＋生活費全額」でカバーできる水準に設定した',
+                  '支払対象外期間（免責期間）を最短に設定した',
+                  '給付期間を60〜65歳まで設定した',
+                  '精神疾患（うつ病・適応障害）が支払対象か確認した',
+                  '就業不能の定義が「現在の職業に就けない状態」をカバーするか確認した',
+                  '就業規則の休職期間満了後も給付が継続することを確認した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA③ */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
