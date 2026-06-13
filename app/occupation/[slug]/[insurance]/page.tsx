@@ -382,6 +382,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isHairdresserIncomeProtection = occ.slug === 'hairdresser' && ins.slug === 'income-protection'
   const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
   const isPharmacistLife = occ.slug === 'pharmacist' && ins.slug === 'life'
+  const isPharmacistCancer = occ.slug === 'pharmacist' && ins.slug === 'cancer'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isRealEstateLife = occ.slug === 'real-estate' && ins.slug === 'life'
   const isRealEstateCancer = occ.slug === 'real-estate' && ins.slug === 'cancer'
@@ -402,7 +403,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -15421,6 +15422,313 @@ export default async function OccupationInsurancePage({ params }: Props) {
             <div className="mt-8">
               <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
             </div>
+          </section>
+
+        </div>
+      )}
+
+      {/* 薬剤師×がん保険 専用コンテンツ */}
+      {isPharmacistCancer && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">薬剤師のがん保険完全ガイド：抗がん剤曝露の累積リスクとパート薬剤師の傷病手当金ゼロ問題</h1>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              薬剤師のがん保険設計には、大手比較サイトが一切触れていない「抗がん剤曝露の累積リスク」という固有の逆説があります。患者のがんを治す抗がん剤を日々調製する薬剤師自身が、その職業的曝露によってがんリスクを累積させているという事実が存在します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              1回の調剤作業における基本曝露量をd、年間調剤回数をn、勤続年数をYとした場合、累積曝露量はD = d × n × Y として積み重なります。PPEやCSTD（閉鎖式接続器具）を適切に使用しても、曝露低減係数ρはゼロではなく、D_PPE = (d × ρ) × n × Y として確実に蓄積し続けます。設備が不十分な中小調剤薬局では適正環境の10倍の速さで累積します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに、週30時間勤務のパート薬剤師（時給2,500円）が国保に加入している場合、国民健康保険法第58条第2項により傷病手当金はゼロ。月収約30万円が休業と同時に完全に消えます。加えて、抗がん剤治療中の「ケモブレイン」（認知機能低下）の状態で早期復職した場合、調剤過誤のリスクが上昇し、薬剤師法第4条（欠格事由）に基づく免許取消という最悪の事態も想定されます。がん診断一時金は、「治療に専念して完全に回復してから復職する」という選択肢を与える経済的基盤です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 抗がん剤を扱う薬剤師自身ががんになるリスクが職業的に累積しています</p>
+              <p className="text-red-700 text-sm leading-relaxed">
+                累積曝露量 D = d × n × Y（d=1回曝露量・n=年間調剤回数・Y=勤続年数）<br />
+                PPE着用でもρ{'>'} 0のため、勤続年数Yが増えるほど累積は続く。<br />
+                設備不十分な環境ではD_baseに近くなり、適正環境の最大10倍の速さで蓄積します。<br />
+                「患者のがんを治す薬で自分ががんになる」という逆説に備えてください。
+              </p>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5 mb-6">
+              <p className="font-bold text-amber-800 mb-2">⚠️ パート薬剤師は国保加入で傷病手当金がゼロです</p>
+              <p className="text-amber-700 text-sm leading-relaxed">
+                国民健康保険法第58条第2項により傷病手当金は市町村の任意給付。<br />
+                週30時間・時給2,500円のパート薬剤師（月収約30万円）は休業と同時に収入が完全にゼロ。<br />
+                同じ薬局で同じ業務をしていても、正職員との保障格差は天と地の差です。
+              </p>
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション2：ケース別シミュレーション（カード型） */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              薬剤師のケース別・がん休業損失シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：病院薬剤師・正職員（40代・年収550万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">病院健保組合加入・抗がん剤混合調剤業務あり / 乳がんで6ヶ月休業</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-gray-900">約25.3万円</div>
+                    <div className="text-xs text-gray-500">健康保険法第99条・標準報酬月額38万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">実質月収との差額</div>
+                    <div className="font-bold text-gray-900">月▲4.7万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">約28.2万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">高額療養費（区分ウ・6ヶ月）</div>
+                    <div className="font-bold text-gray-900">約50万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">職業的抗がん剤曝露リスク</div>
+                    <div className="font-bold text-red-700">長年の累積曝露による職業性がんの疑い</div>
+                    <div className="text-xs text-gray-500">精神的苦痛・労災認定の壁</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">差額ベッド代・医療用ウィッグ等</div>
+                    <div className="font-bold text-gray-900">10〜30万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">合計損失・必要ながん診断一時金</div>
+                  <div className="font-bold text-red-700 text-xl">約78〜108万円 → 診断一時金100万円以上</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：ドラッグストア・パート薬剤師（40代・時給2,500円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">週30時間勤務・国民健康保険加入 / 乳がんで3ヶ月休業</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">3ヶ月の収入損失</div>
+                    <div className="font-bold text-gray-900">約90万円（全額喪失）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">高額療養費（区分ウ・3ヶ月）</div>
+                    <div className="font-bold text-gray-900">約25万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">パート契約打ち切りリスク</div>
+                    <div className="font-bold text-red-700">長期休業でシフト削減・契約終了の可能性</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">合計損失・必要ながん診断一時金</div>
+                  <div className="font-bold text-red-700 text-xl">約115万円 → 診断一時金150万円以上＋就業不能保険月額20万円</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              ケースAの傷病手当金算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>。ケースBの傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。抗がん剤曝露防止対策の根拠：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000055195.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省通知（平成26年基安化発第529002号）</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ3件 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              薬剤師特有のがんリスクデータ（政府統計・法令根拠付き）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク①：「抗がん剤曝露の累積モデル」——患者のがんを治す薬で自分ががんになる職業的逆説
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  1回の調剤作業における基本曝露量をd、年間調剤回数をn、勤続年数をYとする。PPEなし時の累積曝露量：D_base = d × n × Y。PPE・CSTD適切使用時：D_PPE = (d × ρ) × n × Y（ρ=曝露低減係数）。NIOSHのガイドラインに基づく適切な防護ではρ ≒ 0.1まで低減可能。しかしρはゼロではないため、n×Yが積み重なれば発がんリスクとなる閾値に向かって累積し続ける。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  設備投資が遅れた中小調剤薬局・多忙な現場でPPEの着脱が省略された場合はDがD_baseに近づき、適正環境の最大10倍の速さで累積する。「薬剤師は職場の設備投資の有無という、自己努力だけではコントロールできない環境要因によってがんリスクの蓄積速度を決定づけられる」という事実が、がん保険を「PPEと同等の不可欠なリスクマネジメント」と位置づける根拠となる。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000055195.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「発がん性等を有する化学物質を含有する抗がん剤等に対するばく露防止対策について」</a>
+                </p>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク②：「雇用形態による保障の天と地の差」——同じ薬局・同じ業務で保障が月0〜25万円の格差
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  同じ調剤薬局で同じ業務をしていても、病院・調剤薬局の正職員（健保加入）とドラッグストアのパート薬剤師（国保加入）ではがん罹患時の保障に天と地の差が生じる。正職員：傷病手当金 約25.3万円/月（健康保険法第99条・標準報酬月額38万円の2/3）。パート（国保）：傷病手当金 ゼロ（国民健康保険法第58条第2項）。月次保障格差：約25.3万円。6ヶ月で約151.8万円の差が生じる。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  「同じ国家資格を持ち、同じリスク環境で働いていながら、雇用形態の違いだけでこれだけの保障格差が生まれる」——この不条理な制度設計が、パート薬剤師に民間がん保険への加入を必須とする理由である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク③：「ケモブレインと調剤過誤・免許リスク」——治療しながら働くことが免許を失うリスクを生む
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  抗がん剤治療中に発生する「ケモブレイン」は、集中力低下・短期記憶障害・認知機能の低下を引き起こすことが医学的に知られている。この状態でミリグラム単位の計量や複雑な処方鑑査を行うことは、投薬ミスの発生確率を飛躍的に上昇させる。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  重大な調剤過誤が患者に健康被害を与えた場合、薬剤師法第24条（調剤の場所の制限）・第25条（情報提供等の義務）違反に加え、薬剤師法第4条（欠格事由）に基づく免許取消という最も重い行政処分が下されるリスクがある。歩合給喪失への恐怖から治療中に無理して働き続けることは、結果として免許という最大の資産を失う「命取りの選択」になりかねない。がん診断一時金が「治療に専念して完全回復してから復職する」安全で賢明な選択肢の経済的基盤を提供する。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=335AC0000000146" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">薬剤師法第4条・第24条・第25条（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              薬剤師のがん保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">① 自分の雇用形態（正職員か非正規か）と社会保険加入状況を確認する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  正職員（健保加入）か非正規（国保加入）かでがん罹患時の保障が月0〜25万円以上異なる。国保加入の場合は傷病手当金ゼロを前提に診断一時金150万円以上＋就業不能保険をセットで確保する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">② 抗がん剤混合調剤業務の有無と職場のPPE・CSTD整備状況を確認する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  病院・がん専門病院・抗がん剤調製室勤務の場合、累積曝露リスクが高い。D = d × n × Y のnとYが大きいほど早期の保険加入が重要。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">③ 「治療に専念できる経済的余裕」として診断一時金を設定する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  ケモブレインの状態での早期復職は調剤過誤・免許リスクを高める。診断一時金の経済的余裕が「完全に回復してから復職する」安全な選択肢を確保する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">④ 薬剤師認定制度（CPC）の研修単位取得スケジュールを把握する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  長期療養で単位が不足した場合のキャリアリスクを認識し、治療期間中に計画的に単位取得を再開できる体力・経済的余裕を確保する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">⑤ 通院保障・抗がん剤治療特約を重視する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  近年のがん治療は外来での抗がん剤投与が主流。特に抗がん剤業務従事の薬剤師自身が抗がん剤治療を受ける場合の心理的・身体的負担を考慮し、通院給付金・抗がん剤治療特約のある保険を選ぶ。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例①「10年間抗がん剤混合調剤をしてきた病院薬剤師が乳がんに罹患。職業性がんの可能性を指摘されたが労災認定の壁は高かった」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Aさん（42歳・病院薬剤師・正職員・年収550万円）。抗がん剤の混合調剤を10年以上担当してきたが、乳がんと診断された。主治医から職業的曝露との関連を指摘されたが、労災認定には曝露量の客観的証明が困難で、申請を断念した。労災認定されなかったため通常の健康保険で治療を受け傷病手当金を受給。6ヶ月の治療で差額ベッド代・医療用ウィッグ・先進医療検討費用等も重なり実質的な自己負担は100万円を超えた。「職業由来の可能性があるがんなのに、一般患者と同じ扱いで自己負担が発生した」という精神的苦痛も大きかった。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（厚生労働省通知・平成26年基安化発第529002号）：抗がん剤調製業務に従事する薬剤師はがん保険（診断一時金100万円以上）への早期加入が不可欠。労災認定の有無に関係なく診断確定時点で支払われる診断一時金が最も確実な備えとなる。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例②「パート薬剤師が乳がんで3ヶ月休業。傷病手当金がゼロで月30万円の収入が完全に消えた」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Bさん（44歳・ドラッグストアのパート薬剤師・週30時間・時給2,500円・国保加入）。乳がんの手術と放射線治療のために3ヶ月の休業を申請した。国民健康保険法第58条第2項の任意給付規定により、居住市区町村の国保から傷病手当金は1円も支給されなかった。月収約30万円が完全にゼロになり、3ヶ月で約90万円の収入損失＋高額療養費約25万円。「同じ薬局の正社員の同僚は傷病手当金をもらっていると聞いて愕然とした」。さらに休業が長引いたことでパートのシフトが削減され、復帰後の時間数が減少した。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（国民健康保険法第58条第2項）：国保加入のパート薬剤師は傷病手当金ゼロを前提に診断一時金150万円以上＋就業不能保険に加入することが必須。「専門職だから大丈夫」という過信が最大の落とし穴。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例③「抗がん剤治療中に早期復職。ケモブレインで調剤ミスを犯し、行政処分のリスクに直面した」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Cさん（38歳・調剤薬局勤務薬剤師・正職員）。大腸がんの手術後、経済的な理由から抗がん剤治療中に早期復職を選択した。抗がん剤の副作用によるケモブレイン（集中力低下・記憶障害）の状態で調剤業務に就いた結果、処方箋の数量を誤って調剤するミスを犯した。幸い患者への健康被害は発生しなかったが、薬剤師法第24条・第25条の観点から上司・薬局長への報告・行政への届出が必要となった。薬剤師法第4条（欠格事由）に基づく行政処分の可能性が生じ、精神的に極めて追い詰められた。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（薬剤師法第4条・第24条・第25条）：がん診断一時金の経済的余裕があれば、治療に専念して完全に認知機能が回復してから安全に復職できた。免許という最大の資産を守るためにも、診断一時金は欠かせない投資である。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              薬剤師のがん保険加入前チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  '正職員（健保）かパート（国保）か確認し、傷病手当金の有無を把握した',
+                  '国保加入の場合、傷病手当金ゼロを前提に診断一時金150万円以上を設定した',
+                  '抗がん剤混合調剤業務の有無と職場のPPE・CSTD整備状況を確認した',
+                  '累積曝露リスクを認識し早期にがん保険に加入した',
+                  '「ケモブレインによる調剤過誤リスク」を認識し、治療に専念できる経済的余裕を確保した',
+                  '就業不能保険を診断一時金とセットで確保した（特に国保加入者）',
+                  '薬剤師認定制度（CPC）の研修単位取得スケジュールを把握した',
+                  '通院保障・抗がん剤治療特約を含むがん保険を選んだ',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-gray-400 rounded mt-0.5"></span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
 
         </div>
