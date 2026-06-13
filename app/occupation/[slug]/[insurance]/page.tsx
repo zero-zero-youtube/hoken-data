@@ -359,6 +359,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManufacturingCancer = occ.slug === 'manufacturing' && ins.slug === 'cancer'
   const isDoctorIncomeProtection = occ.slug === 'doctor' && ins.slug === 'income-protection'
   const isNurseCancer = occ.slug === 'nurse' && ins.slug === 'cancer'
+  const isNurseDisability = occ.slug === 'nurse' && ins.slug === 'disability'
   const isTeacherCancer = occ.slug === 'teacher' && ins.slug === 'cancer'
   const isEngineerMedical = occ.slug === 'engineer' && ins.slug === 'medical'
   const isCivilServantIncomeProtection = occ.slug === 'civil-servant' && ins.slug === 'income-protection'
@@ -412,7 +413,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -14162,6 +14163,357 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
           {/* CTA③ */}
           <AffiliateCTA primary="babyplanetMama" secondary="miraitecho" />
+
+        </div>
+      )}
+
+{isNurseDisability && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">
+              看護師の就業不能保険——「傷病手当金終了後に損失3倍加速」と「バーンアウトによる長期就業不能」を徹底解説
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              看護師の就業不能保険設計には、大手比較サイトが一切触れていない「傷病手当金終了後に損失が3倍のスピードで加速する二段構えの絶望」があります。夜勤手当I_nightを含む実収入I_n = I_base + I_nightに対し、傷病手当金はSB ≒ I_base × 2/3（夜勤手当消滅後の基本給ベース）で固定されます。T≤18ヶ月の月次ギャップはG1 = I_night + I_base/3。しかしT&gt;18ヶ月で傷病手当金が終了すると、月次ギャップはG2 = I_n（全収入）へと突如3倍のスピードで拡大します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              累積損失L(T&gt;18) = 6(I_base+I_night) + (T-18)(I_base+I_night)——18ヶ月を超えた瞬間から損失が急加速する「二段構えの絶望」が数学的に証明されます。厚生労働省の統計では「医療・福祉」業の精神障害労災請求件数は983件と全産業ワースト1位。バーンアウトによる精神疾患は寛解・再発を繰り返し、就業不能期間が18ヶ月を超えるケースが多く、この「絶望の二段目」に直撃されます。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              フリーランス訪問看護師は国保加入のため傷病手当金もゼロで、より深刻です。就業不能保険は傷病手当金の空白と終了後を両方カバーする長期設計が不可欠です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-3">🚨 傷病手当金が終了する18ヶ月後に損失が3倍のスピードで加速します</p>
+              <div className="bg-white rounded p-3 border border-red-200 mb-3 font-mono text-sm text-gray-800 space-y-1">
+                <p>T≤18ヶ月：月次ギャップ G1 = I_night + I_base/3</p>
+                <p>T&gt;18ヶ月：月次ギャップ G2 = I_n（全収入）へ急加速</p>
+              </div>
+              <ul className="text-sm text-red-800 space-y-1">
+                <li>・医療・福祉業の精神障害労災983件（全産業ワースト1位）</li>
+                <li>・バーンアウトによる就業不能は18ヶ月を超えやすく「二段構えの絶望」に直撃されます</li>
+              </ul>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ フリーランス訪問看護師は傷病手当金がゼロのため損失がより深刻です</p>
+              <ul className="text-sm text-amber-800 space-y-1">
+                <li>・国民健康保険法第58条第2項により傷病手当金は実質ゼロ</li>
+                <li>・就業不能初日から全収入が喪失します</li>
+                <li>・正職員との18ヶ月累積損失格差は108万円以上</li>
+                <li>・就業不能保険で全収入をカバーする設計が生存戦略の絶対条件です</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA① */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師のケース別・就業不能損失シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：総合病院勤務看護師（35歳・年収520万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">基本給月27万円＋夜勤手当月8万円・健保加入 / バーンアウトで24ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（T≤18ヶ月）</div>
+                    <div className="font-bold text-gray-900">月約18万円</div>
+                    <div className="text-xs text-gray-500">基本給27万円 × 2/3（夜勤手当消滅）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">月次ギャップG1（T≤18）</div>
+                    <div className="font-bold text-red-700">月▲17万円</div>
+                    <div className="text-xs text-gray-500">月収35万円 - 傷病手当金18万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金終了後（T&gt;18）</div>
+                    <div className="font-bold text-red-700">月▲35万円（3倍に急加速）</div>
+                    <div className="text-xs text-gray-500">G2 = I_n = 全収入が喪失</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">24ヶ月の累積損失</div>
+                    <div className="font-bold text-gray-900">約516万円</div>
+                    <div className="text-xs text-gray-500">18ヶ月分306万 + 6ヶ月分210万</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額17万円（傷病手当金期間）＋月額35万円（終了後）の段階設計</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：フリーランス訪問看護師（30代・年収420万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">業務委託・国保加入・月収35万円 / 腰椎疾患で12ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">月次ギャップ（全期間）</div>
+                    <div className="font-bold text-gray-900">月▲35万円（就業不能初日から）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">12ヶ月の累積損失</div>
+                    <div className="font-bold text-gray-900">420万円（全額喪失）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">正職員との損失格差（18ヶ月）</div>
+                    <div className="font-bold text-gray-900">108万円（正職員傷病手当金18万×6ヶ月）</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額35万円・免責期間最短（全額を民間保険でカバー）</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              夜勤手当の統計：<a href="https://www.nurse.or.jp/home/assets/20260331_nl01.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">日本看護協会・2025年病院看護実態調査</a>。精神障害労災の統計：<a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和6年度過労死等の労災補償状況</a>。累積損失の数式：L(T&gt;18) = 6(I_base+I_night) + (T-18)(I_base+I_night)。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師特有のリスクデータ（政府統計3件）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「傷病手当金終了後の3倍加速」——18ヶ月を超えた瞬間に損失が急拡大する数学的証明</h3>
+                </div>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-4">
+                  <div className="font-mono text-sm text-gray-800 space-y-1 mb-3">
+                    <p>I_n = I_base + I_night（夜勤あり時の実収入）</p>
+                    <p>T≤18：G1 = I_night + I_base/3</p>
+                    <p>T&gt;18：G2 = I_n（全収入喪失）</p>
+                    <p className="font-bold mt-2">L(T&gt;18) = 6(I_base+I_night) + (T-18)(I_base+I_night)</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
+                    <div className="bg-yellow-50 rounded p-3 border border-yellow-200 text-center">
+                      <div className="text-xs text-gray-500">18ヶ月分（G1×18）</div>
+                      <div className="font-bold text-yellow-700">306万円</div>
+                    </div>
+                    <div className="bg-red-50 rounded p-3 border border-red-200 text-center">
+                      <div className="text-xs text-gray-500">19〜24ヶ月（G2×6）</div>
+                      <div className="font-bold text-red-700">210万円</div>
+                    </div>
+                  </div>
+                  <div className="bg-red-100 rounded p-2 mt-2 text-center">
+                    <div className="text-xs text-gray-500">24ヶ月合計</div>
+                    <div className="font-bold text-red-700 text-lg">516万円の累積損失</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  T=18を境に損失の傾きがG1（17万）からG2（35万）へと2倍以上に急加速する。就業不能保険は傷病手当金終了後も給付が継続する設計を選ぶことが必須。
+                </p>
+                <a href="https://www.nurse.or.jp/home/assets/20260331_nl01.pdf" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：日本看護協会・2025年病院看護実態調査
+                </a>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「バーンアウトによる精神疾患就業不能」——医療・福祉業が全産業ワースト1位</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                  <div className="bg-red-50 rounded p-3 border border-red-200 text-center">
+                    <div className="text-2xl font-bold text-red-700">983件</div>
+                    <div className="text-xs text-gray-600">精神障害労災請求件数<br/>（医療・福祉業）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200 text-center">
+                    <div className="text-2xl font-bold text-red-700">全産業<br/>ワースト1位</div>
+                    <div className="text-xs text-gray-600">業種別精神障害労災</div>
+                  </div>
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">18ヶ月超</div>
+                    <div className="text-xs text-gray-600">精神疾患の就業不能期間<br/>（寛解・再発を繰り返す）</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  人命を預かるプレッシャー・慢性的な人手不足・長時間夜勤が複合し、看護師のバーンアウト（燃え尽き症候群）による精神疾患が深刻化している。精神疾患による就業不能は身体疾患と異なり寛解・再発を繰り返しやすく、就業不能期間が18ヶ月を超えるケースが多い。18ヶ月を超えた瞬間に傷病手当金が終了し、損失が3倍のスピードで加速する「絶望の二段目」に直撃される。就業不能保険は精神疾患をカバーし、給付期間を60歳以上まで設定することが必須。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「フリーランス看護師の完全無保障」——雇用形態で就業不能時の保障が天と地の差</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                  <div className="bg-green-50 rounded p-4 border border-green-200">
+                    <div className="text-xs text-gray-500 mb-1">正職員（健保加入）18ヶ月の傷病手当金</div>
+                    <div className="font-bold text-green-700 text-xl">324万円</div>
+                    <div className="text-xs text-gray-500">月18万円 × 18ヶ月</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-4 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">フリーランス（国保加入）の傷病手当金</div>
+                    <div className="font-bold text-red-700 text-xl">ゼロ</div>
+                    <div className="text-xs text-red-600">国民健康保険法第58条第2項</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  業務委託・フリーランスの訪問看護師は国保加入が一般的で、傷病手当金は実質ゼロ。正職員（健保）との18ヶ月累積損失格差は324万円。同じ看護師免許・同じ業務でも雇用形態だけで就業不能時の保障に天と地の差が生じる。フリーランス看護師には就業不能保険の月額最大化＋免責期間最短の設計が必須。
+                </p>
+                <a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：e-Gov法令検索「国民健康保険法第58条第2項」
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* CTA② */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師の就業不能保険選び 5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '01',
+                  title: '給付期間を60歳以上まで設定し「傷病手当金終了後」をカバーする',
+                  body: '精神疾患による長期就業不能（18ヶ月超）を想定し、傷病手当金終了後も給付が継続する長期設計を選ぶ。',
+                },
+                {
+                  num: '02',
+                  title: '精神疾患（バーンアウト・うつ病）が給付対象か確認する',
+                  body: '医療・福祉業は精神障害労災ワースト1位。精神疾患による就業不能が給付対象かどうか、通算給付期間に制限がないかを確認する。',
+                },
+                {
+                  num: '03',
+                  title: '夜勤手当消滅分を給付月額に上乗せする',
+                  body: '傷病手当金は夜勤手当が除外された基本給ベース。夜勤手当消滅による傷病手当金の目減り分を就業不能保険でカバーする給付月額を設定する。',
+                },
+                {
+                  num: '04',
+                  title: 'フリーランス・国保加入の場合は免責期間を最短に設定する',
+                  body: '傷病手当金がゼロのため就業不能初日から給付が必要。免責期間を7日以内に設定し、全収入をカバーする給付月額にする。',
+                },
+                {
+                  num: '05',
+                  title: '腰痛・針刺し事故が給付対象か確認する',
+                  body: '看護師の職業性疾患である腰椎疾患・感染症が就業不能保険の支払い対象に含まれるか確認する。',
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-gray-700">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded mb-3">事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">バーンアウトで24ヶ月就業不能。18ヶ月で傷病手当金が終了し損失が3倍に加速した</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Aさん（36歳・ICU看護師・夜勤専従・月収35万円）。過酷な夜勤と患者死亡への立ち会いが重なりバーンアウト、うつ病で24ヶ月の就業不能が必要になった。</p>
+                  <p><span className="font-bold">問題：</span>18ヶ月は傷病手当金（月18万円）で何とか生活したが、19ヶ月目から傷病手当金が終了し月次損失が35万円に急拡大。貯蓄が6ヶ月で底をついた。就業不能保険に未加入だったことが致命傷。</p>
+                </div>
+                <div className="bg-red-50 rounded p-3 border border-red-200">
+                  <p className="text-sm font-bold text-red-800">教訓（健康保険法第99条）：精神疾患による就業不能は18ヶ月を超えやすい。就業不能保険で傷病手当金終了後もカバーする長期設計が必須。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-orange-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded mb-3">事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">フリーランス訪問看護師が腰痛で12ヶ月就業不能。収入ゼロで貯蓄が全て消えた</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Bさん（34歳・フリーランス訪問看護師・国保加入・月収35万円）。重度の腰椎椎間板ヘルニアで12ヶ月の就業不能が必要になった。</p>
+                  <p><span className="font-bold">問題：</span>国民健康保険法第58条第2項により傷病手当金はゼロ。12ヶ月で420万円の収入が全額喪失。「独立したら保障がなくなる」と認識していたが、就業不能保険への加入を先延ばしにしていた。</p>
+                </div>
+                <div className="bg-orange-50 rounded p-3 border border-orange-200">
+                  <p className="text-sm font-bold text-orange-800">教訓（国民健康保険法第58条第2項）：フリーランス看護師は就業不能保険への加入が独立と同時に必須。月額35万円以上の給付設計が必要。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-yellow-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mb-3">事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">就業不能保険に加入していたが精神疾患が免責事項だった。給付が否認された</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Cさん（40歳・病棟看護師・正職員）。適応障害による6ヶ月の休職で就業不能保険を請求した。保険加入時に精神疾患の給付制限について説明を受けていなかった。</p>
+                  <p><span className="font-bold">問題：</span>加入していた就業不能保険は「精神疾患による就業不能は通算2年まで」という給付制限があり、それを超えた期間は給付されなかった。</p>
+                </div>
+                <div className="bg-yellow-50 rounded p-3 border border-yellow-200">
+                  <p className="text-sm font-bold text-yellow-800">教訓：就業不能保険の約款で精神疾患の給付制限を必ず確認すること。「精神疾患に制限なし」の保険を選ぶことが医療・福祉業従事者には特に重要。</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              就業不能保険加入前の最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <ul className="space-y-3">
+                {[
+                  'L(T>18) = 6(I_base+I_night) + (T-18)(I_base+I_night) で長期就業不能時の累積損失を試算した',
+                  '精神疾患（バーンアウト・うつ病）が給付対象か確認した',
+                  '精神疾患の給付期間に制限がないか（通算年数制限の有無）確認した',
+                  '夜勤手当消滅分を給付月額に上乗せした',
+                  '給付期間を60歳以上まで設定した',
+                  'フリーランス・国保加入の場合、免責期間を最短（7日以内）に設定した',
+                  'フリーランス・国保加入の場合、全収入（月35万円以上）をカバーする給付月額に設定した',
+                  '腰椎疾患・感染症（職業性疾患）が給付対象か確認した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA③ */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
