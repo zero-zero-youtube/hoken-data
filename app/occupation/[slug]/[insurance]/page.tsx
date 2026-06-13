@@ -17556,451 +17556,344 @@ export default async function OccupationInsurancePage({ params }: Props) {
       )}
 
       {/* 美容師×収入保障保険 専用コンテンツ */}
+      {/* 美容師×収入保障保険 専用コンテンツ */}
       {isHairdresserIncomeProtection && (
         <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
 
-          {/* セクション1：リード文 */}
+          {/* セクション1：リード文 + インフォボックス */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">美容師の収入保障保険——「職業病7割×傷病手当金ゼロ」の致命的ミスマッチ</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              美容師の収入保障保険において、業界の実態を知らない人が
-              見落としている最大の構造問題があります。
-              それは「美容師の7割以上が罹患リスクを抱える職業病（手荒れ・接触性皮膚炎）」と、
-              「休んだ瞬間にセーフティネットが完全消滅する業務委託という働き方」の
-              致命的なミスマッチです。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              厚生労働省の調査によると、美容師を対象としたパッチテストで72.7%に
-              接触性皮膚炎が認められ、そのうち67.8%が業務起因性と断定されています。
-              重症化すると水や汗にすらアレルギー反応を示す自家感作性皮膚炎に発展し、
-              ハサミを持つことやシャンプー台に立つこと自体が不可能になります。
-              これは事実上の廃業宣告です。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              一方、近年急増している歩合率40〜60%の業務委託サロン勤務では、
-              労働基準法上の「労働者」とみなされないため、
-              社会保険・雇用保険から完全に除外されます。
-              同じ月収30万円でも、正社員なら手荒れで休職した際に
-              最長18ヶ月・月約20万円の傷病手当金が支給されますが、
-              業務委託・フリーランス美容師は休業初日から収入がゼロに垂直落下します。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              さらに独立開業後は平均768万円の融資返済と
-              毎月の固定費が待ち構えており、
-              病気やケガで休業した瞬間に
-              事業と生活が同時崩壊するリスクがあります。
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+              美容師の収入保障保険——「手指機能障害という職業特異的就業不能リスク」を補う設計
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              美容師の収入保障保険設計には、大手比較サイトが一切触れていない「手指機能障害という職業特異的就業不能リスク」があります。
+              一般的なデスクワーカーであれば、軽度の腱鞘炎や指の切り傷は就業不能の理由にはなりません。しかし美容師にとって、ハサミの精緻なコントロールを要する手指の神経損傷・重度の腱鞘炎は「美容師という職業の継続そのものを不可能にする」致命的なリスクです。
+              美容師の総就業不能確率は P_total = P_disease + P_hand - (P_disease × P_hand) で表されます。一般的な疾病就業不能確率 P_disease に加えて、美容師固有の手指障害確率 P_hand が上乗せされます。追加で確保すべき期待給付額は V_add ≒ E × P_hand——この「職業固有の上乗せリスク」を民間収入保障保険でカバーすることが美容師の必須戦略です。
+              さらに、近年急増するシェアサロン・業務委託美容師は国保加入のため、<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金が実質ゼロ。正社員との保障格差は6ヶ月で108万円以上に達します。オーナー美容師の場合は長期休業により<a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法第10条</a>の行政処分リスクも生じます。
             </p>
 
-            {/* 赤い警告ボックス */}
-            <div className="bg-red-50 border-l-4 border-red-400 p-5 my-6 rounded-r-xl">
-              <p className="font-bold text-red-800 mb-2">🚨 業務委託・フリーランス美容師は休業初日から収入がゼロになります</p>
-              <ul className="text-red-700 text-sm space-y-1 list-disc list-inside">
-                <li>月収30万円の正社員美容師が手荒れで休職すると傷病手当金（月約20万円・最長18ヶ月）が支給される</li>
-                <li>同じ月収の業務委託美容師は国民健康保険加入のため傷病手当金がゼロ</li>
-                <li>美容師の72.7%が罹患リスクを抱える職業病で就業不能になった瞬間、公的補償が完全消滅</li>
-                <li>「高還元率の業務委託」と「セーフティネット消滅」はセットで発生する</li>
-              </ul>
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 美容師の腱鞘炎・手指神経損傷は「美容師としての就業不能」を引き起こします</p>
+              <p className="text-sm text-red-700 mb-1">デスクワーカーなら就業継続できる程度の手指障害でもハサミが握れなくなる致命的なリスクです。</p>
+              <p className="text-sm text-red-700 mb-1">追加で必要な期待給付額 V_add ≒ E × P_hand</p>
+              <p className="text-sm text-red-700">この「手指障害リスクP_hand」の分だけ、一般的な保険設計より上乗せが必要です。</p>
             </div>
 
-            {/* アンバーボックス */}
-            <div className="bg-amber-50 border-l-4 border-amber-400 p-5 my-6 rounded-r-xl">
-              <p className="font-bold text-amber-800 mb-2">⚠️ 開業直後の休業は借入金返済と生活費の二重苦を招きます</p>
-              <ul className="text-amber-700 text-sm space-y-1 list-disc list-inside">
-                <li>独立開業時の平均融資額は約768万円</li>
-                <li>開業後に病気やケガで休業した場合、月々の融資返済（約14万円）＋店舗固定費が休業中も止まらない</li>
-                <li>「身体が資本」の美容師にとって就業不能保険は生存のための必須インフラ</li>
-              </ul>
-            </div>
-
-            {/* CTA①：S1後 */}
-            <div className="my-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">美容師の職業病リスクに対応した収入保障設計を無料相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">業務委託・開業どちらの働き方にも対応したFPが担当</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
-              </div>
-              <p className="text-center text-xs text-gray-400 mt-3">※ 相談・資料請求は無料です</p>
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 業務委託・シェアサロンの美容師は傷病手当金がゼロです</p>
+              <p className="text-sm text-amber-700 mb-1"><a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金は任意給付→実質ゼロ。</p>
+              <p className="text-sm text-amber-700 mb-1">同じ美容室で同じ仕事をしていても、正社員と業務委託で6ヶ月の保障格差が108万円以上になります。</p>
+              <p className="text-sm text-amber-700">「シェアサロン・面貸しで働くなら収入保障保険は必須」です。</p>
             </div>
           </section>
 
-          {/* セクション2：比較表 */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">美容師の働き方別・収入保障関連制度比較</h2>
-            <p className="text-gray-600 text-sm mb-4">
-              同じ美容師でも、雇用形態によって就業不能時の公的補償は天と地ほど異なります。
-            </p>
-            <div className="overflow-x-auto rounded-xl shadow">
-              <table className="min-w-full text-sm border-collapse">
-                <thead>
-                  <tr>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>働き方</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>健康保険</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>傷病手当金</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>雇用保険</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>就業不能時の公的補償</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>民間保険の必要度</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="bg-white">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">正社員（サロン勤務）</td>
-                    <td className="border border-gray-200 px-3 py-2">協会けんぽ（社会保険）</td>
-                    <td className="border border-gray-200 px-3 py-2 text-green-700">✅ 月給の2/3・最長18ヶ月</td>
-                    <td className="border border-gray-200 px-3 py-2 text-green-700">✅ あり</td>
-                    <td className="border border-gray-200 px-3 py-2">中程度</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-orange-600">中：公的補償で一定カバー</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">業務委託・フリーランス</td>
-                    <td className="border border-gray-200 px-3 py-2">国民健康保険</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600">❌ ゼロ（国保は原則なし）</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600">❌ なし</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-medium">完全にゼロ</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-red-600">🔴 最高：休業初日から収入ゼロ</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">独立開業（オーナー）</td>
-                    <td className="border border-gray-200 px-3 py-2">国民健康保険</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600">❌ ゼロ</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600">❌ なし</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-medium">完全にゼロ＋借入金返済が重なる</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-red-600">🔴 最高：事業・生活の二重崩壊リスク</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-600">
-              <p className="font-bold text-gray-700 mb-1">📌 業務委託美容師の社会保険について</p>
-              <p>
-                業務委託契約で働く美容師は、たとえ実態が雇用に近い働き方であっても、
-                契約形態上「労働者」とみなされないケースがほとんどです。
-                社会保険（健康保険・厚生年金）や雇用保険の対象外となり、
-                傷病手当金・失業給付が一切支給されません。
-                月収が正社員と同水準であっても、休業時の保障は天と地ほどの差があります。
-              </p>
-            </div>
-          </section>
-
-          {/* セクション3：リスクデータ */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">美容師特有のリスクデータ——政府統計3件</h2>
-
-            {/* リスク① */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク①：「手荒れ＝廃業直結リスク」——美容師の72.7%が罹患する職業病と業務委託の傷病手当金ゼロの致命的ミスマッチ</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  厚生労働省の職業性皮膚疾患調査によると、
-                  美容師を対象としたパッチテストで<strong>72.7%に接触性皮膚炎が認められ、
-                  67.8%が業務起因性</strong>と断定された。
-                  パーマ液・カラー剤だけでなく、ハサミ等に含まれる硫酸ニッケルへの
-                  陽性率も30.1%と極めて高い。
-                </p>
-                <p>
-                  重症化すると自家感作性皮膚炎に発展し、水や汗にすら
-                  アレルギー反応を示すようになる。
-                  ハサミを持つことやシャンプー台に立つことが
-                  物理的に不可能になるため、<strong>事実上の廃業宣告</strong>となる。
-                </p>
-                <p>
-                  この「美容師の7割以上が罹患リスクを抱える不可避の職業病」と、
-                  「業務委託・フリーランスは休業初日から傷病手当金がゼロになる雇用形態」のミスマッチこそが、
-                  美容師にとって収入保障保険が「あると安心なもの」ではなく
-                  <strong>「生き残るための必須インフラ」</strong>である最大の根拠である。
-                  月収30万円の業務委託美容師が手荒れで休業した場合、
-                  正社員（傷病手当金月約20万円×最長18ヶ月＝最大360万円の補償）との差は
-                  民間保険なしでは埋めようがない。
-                </p>
-                <a
-                  href="https://www.mhlw.go.jp/content/11201000/000835813.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：厚生労働省「職業性皮膚疾患に関する研究（美容師のパッチテスト調査）」→
-                </a>
-              </div>
-            </div>
-
-            {/* リスク② */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク②：「開業直後の休業」——平均768万円の融資返済と固定費が休業中も止まらない二重苦</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  厚生労働省「生活衛生関係営業経営実態調査（美容業）」によると、
-                  美容室の開業初期費用は約1,000〜2,000万円超。
-                  平均自己資金は約268万円にとどまるため、
-                  日本政策金融公庫等から<strong>平均768万円の融資</strong>を受けるのが一般的。
-                  業界の約85.1%が個人事業所であり、
-                  社会保険に加入している美容室は全体の2〜3割程度に過ぎない。
-                </p>
-                <p>
-                  つまり開業美容師のほとんどが国民健康保険加入で
-                  傷病手当金がゼロの状態で、
-                  平均768万円の借入金返済義務を抱えている。
-                  開業後に利き腕の骨折・手荒れの重症化・腰椎椎間板ヘルニア等で
-                  3ヶ月休業した場合、
-                  <strong>月々の融資返済＋店舗家賃＋その他固定費が容赦なく発生し続ける</strong>。
-                </p>
-                <p>
-                  独立開業時の「夢の実現」と「就業不能リスク」の
-                  リアルな距離感を把握しておくことが不可欠だ。
-                </p>
-                <a
-                  href="https://www.mhlw.go.jp/content/10900000/000501316.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：厚生労働省「生活衛生関係営業経営実態調査（美容業）」→
-                </a>
-              </div>
-            </div>
-
-            {/* リスク③ */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク③：「化学物質過敏症の発症と労災認定の高い壁」——20年以上の職業曝露が招く廃業と申請断念</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  美容師は毎日の業務でパーマ液・カラー剤・除光液等の
-                  化学物質を密閉された空間で吸引し続ける。
-                  長年の職業曝露により化学物質過敏症を発症すると、
-                  微量の化学物質の匂いを嗅ぐだけで
-                  頭痛・目眩・吐き気が生じ、サロン業務が継続不可能となる。
-                </p>
-                <p>
-                  しかし労災認定においては、
-                  特定の業務・物質との明確な因果関係を医学的に証明する
-                  ハードルが極めて高く、
-                  認定審査には数年に及ぶ調査期間と
-                  その間の費用を耐える資力が必要となる。
-                  多くの美容師が資金的余裕を持てず
-                  <strong>申請を断念して廃業を選択</strong>しているのが現実だ。
-                </p>
-                <p>
-                  美容師特有の疾病は「労災が認められにくいグレーゾーン」が多く、
-                  公的制度の限界を民間保険で補完する視点が不可欠である。
-                  厚生労働省の賃金調査でも示される通り、
-                  美容師の平均年収は約371万7,000円と全144職種中125位という
-                  低所得構造であり、貯蓄での長期リスクカバーは現実的ではない。
-                </p>
-                <a
-                  href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：厚生労働省「令和6年賃金構造基本統計調査」→
-                </a>
-              </div>
-            </div>
-
-            {/* CTA②：S3後 */}
-            <div className="my-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">美容師の職業リスクに対応した就業不能保険を無料比較</p>
-              <p className="text-center text-sm text-gray-500 mb-4">業務委託・開業・正社員、どの形態でも対応します</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
-              </div>
-            </div>
-          </section>
-
-          {/* セクション4：チェックポイント */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">美容師の収入保障保険選び5つのチェックポイント</h2>
-            <div className="space-y-5">
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">1</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">現在の雇用形態が「正社員」か「業務委託」かを確認し、業務委託なら就業不能保険への加入を最優先とする</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    業務委託・フリーランス美容師は傷病手当金・雇用保険がゼロ。
-                    手荒れや腰痛で就業不能になった初日から収入が完全に途絶えることを前提に、
-                    民間の就業不能保険（月額10〜15万円給付）を最優先で確保する。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">2</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">手荒れの初期症状が出た段階で、健康なうちに就業不能保険への加入を完了させる</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    接触性皮膚炎が悪化して通院・投薬治療が始まると、
-                    民間保険の告知義務に抵触し加入が困難になるケースがある。
-                    「手荒れがひどくなる前」に加入を完了させることが美容師特有の鉄則。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">3</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">独立開業する場合、借入金返済額を就業不能保険の給付額設定の最低ラインにする</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    月々の融資返済額（例：14万円）を給付金でカバーできる水準に設定することで、
-                    休業中に借入金で首が回らなくなる最悪の事態を回避できる。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">4</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">腰痛・腱鞘炎など美容師特有の筋骨格系疾患もカバーする保険を選ぶ</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    長時間の立ち仕事・前傾姿勢・シャンプー時の腰への負担から生じる
-                    椎間板ヘルニア・腱鞘炎は美容師の代表的な職業病。
-                    これらによる就業不能もカバーする保険商品を選択する。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">5</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">所得補償保険の「職業別の加入可否」を必ず確認する</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    美容師は保険会社によって職業リスクが高いとみなされ、
-                    加入を制限・拒否されるケースがある。
-                    複数社を比較し、美容師が加入できる商品を選ぶ。
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          {/* セクション5：失敗事例 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              美容師のケース別・就業不能損失シミュレーション
+            </h2>
             <div className="space-y-6">
 
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例① 業務委託転向後に手荒れが重症化——傷病手当金ゼロで翌月から収入が完全消滅</h3>
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：美容室正社員（30代・年収350万円）
                 </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Aさん（31歳・女性・業務委託スタイリスト）。
-                  歩合率60%の高還元を謳う業務委託サロンに転向し、月収は正社員時代より高くなった。
-                  カラー剤による接触性皮膚炎をステロイド薬でごまかしながら業務を続けていたが、
-                  繁忙期にアレルギー反応が全身に広がる自家感作性皮膚炎を発症しドクターストップ。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>業務委託契約の個人事業主のため傷病手当金がゼロ。
-                  雇用保険にも未加入のため失業給付も下りない。
-                  翌月から収入が完全に途絶え、治療費の負担のみが残った。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>業務委託美容師は公的保障が皆無であることを前提に、
-                  就業不能保険で自衛することが必須。
-                  手荒れの初期症状が出た段階で加入を完了させることが鉄則。</p>
+                <p className="text-sm text-gray-600 mb-4">健保加入・基本給月29万円 / 腰椎椎間板ヘルニアで6ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-gray-900">約20万円</div>
+                    <div className="text-xs text-gray-500">標準報酬月額30万円 × 2/3（健康保険法第99条）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">実質月収との差額</div>
+                    <div className="font-bold text-red-700">月▲9万円</div>
+                    <div className="text-xs text-gray-500">月収29万円 - 傷病手当金20万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">54万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">手指障害の場合の追加リスク</div>
+                    <div className="font-bold text-red-700">復帰後も美容師業務不可の可能性</div>
+                    <div className="text-xs text-gray-500">V_add ≒ E × P_hand の上乗せが必要</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額9万円（差額補填）＋手指障害特約の検討</div>
                 </div>
               </div>
 
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例② 開業半年後の骨折で店舗手放し——融資返済と固定費が貯蓄を食い尽くした</h3>
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：業務委託・フリーランス美容師（30代・年収300万円）
                 </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Bさん（35歳・男性・オーナー美容師）。
-                  自己資金300万円＋公庫融資1,000万円でプライベートサロンを開業。
-                  順調な滑り出しから半年後、通勤中の交通事故で利き腕を骨折し3ヶ月間完全休業。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>国民健康保険加入のため傷病手当金はゼロ。
-                  店舗家賃＋月14万円の融資返済が休業中も容赦なく発生し、
-                  半年分の運転資金が瞬く間に枯渇。最終的に店舗を手放すことになった。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>独立開業時は就業不能保険の給付額を月々の融資返済額以上に設定することが最低ライン。
-                  「身体が最大の資本」という認識を持つこと。</p>
+                <p className="text-sm text-gray-600 mb-4">国保加入・月収平均25万円 / 重度の腱鞘炎で3ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">3ヶ月の収入損失</div>
+                    <div className="font-bold text-gray-900">75万円（全額喪失）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">正社員との6ヶ月保障格差</div>
+                    <div className="font-bold text-gray-900">108万円（正社員傷病手当金20万×6）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">腱鞘炎による職業特異的リスク</div>
+                    <div className="font-bold text-red-700">ハサミが握れず美容師業務が不可能</div>
+                  </div>
                 </div>
-              </div>
-
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例③ 20年の職業曝露による化学物質過敏症——労災申請断念で貯蓄ゼロ・廃業</h3>
-                </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Cさん（48歳・女性・オーナー美容師）。
-                  20年以上にわたりパーマ液・カラー剤を扱ってきたが、
-                  ある時期から化学物質の匂いで激しい頭痛・目眩・吐き気が生じサロン業務が継続不可能となった。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>職業病として労災申請を試みたが、
-                  因果関係の医学的証明のハードルが高く、
-                  数年に及ぶ調査を耐える資金的余裕がなく申請を断念して廃業を選択。
-                  保険は最低限の医療保険のみで収入保障は未加入だった。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>美容師特有の疾病は労災認定のグレーゾーンが多い。
-                  公的制度に頼らず、民間の就業不能保険で収入喪失リスクを自衛することが不可欠。</p>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額25万円（全額を民間保険でカバー）</div>
                 </div>
               </div>
 
             </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              傷病手当金の算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>。業務委託美容師の傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。美容師法の行政処分根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法第10条</a>。手指障害の追加リスク：V_add ≒ E × P_hand（P_hand=手指障害就業不能確率）。
+            </p>
           </section>
 
-          {/* セクション6：チェックリスト + 最終CTA */}
+          {/* セクション3：リスクデータ3件 */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">美容師の収入保障保険加入前チェックリスト（8項目）</h2>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-3">
-              {[
-                '現在の雇用形態（正社員・業務委託・開業）を確認し、業務委託・開業なら就業不能保険を最優先で手配した',
-                '手荒れ・接触性皮膚炎の初期症状が出る前に民間保険への加入を完了させた',
-                '業務委託・フリーランスの場合、傷病手当金ゼロ・雇用保険なしを前提に月10〜15万円の給付額を設定した',
-                '開業している場合、融資返済額以上の就業不能保険給付額を確保した',
-                '腰痛・腱鞘炎による就業不能もカバーされる保険商品を選んだ',
-                '化学物質過敏症のリスクを認識し、サロンの換気環境を改善する取り組みを始めた',
-                '社会保険に加入できる雇用形態（正社員）に転換するメリットを検討した',
-                '独立開業のタイミングで事業保障（借入金カバー）と個人保障を切り分けて設計した',
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 border-2 border-gray-300 rounded mt-0.5" />
-                  <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              美容師特有のリスクデータ（政府統計・法令根拠）
+            </h2>
+            <div className="space-y-6">
 
-            {/* CTA③：S6後 */}
-            <div className="mt-10 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">チェックリストを確認したら、専門FPへ無料相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">美容師の職業病リスク・業務委託の死角を熟知したプロが対応</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「手指機能障害という職業特異的就業不能リスク」——デスクワーカーには存在しない美容師固有の致命的リスクを数式で証明</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  一般疾病による就業不能確率を P_disease、美容師固有の手指障害確率を P_hand とする。美容師の総就業不能確率：P_total = P_disease + P_hand - (P_disease × P_hand)。P_disease ≪ 1 であるため近似すると：P_total ≒ P_disease + P_hand
+                </p>
+                <div className="bg-blue-50 rounded p-3 mb-3 font-mono text-sm text-blue-900">
+                  一般的な保険設計：P_disease のみを想定<br />
+                  美容師の必要設計：P_disease + P_hand 分をカバー<br />
+                  追加で確保すべき期待給付額：V_add ≒ E × P_hand
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  美容師の場合、軽度の腱鞘炎・手指神経損傷・切り傷による腱損傷でも「ハサミが精緻に操作できなくなる = 美容師としての就業不能」が発生します。デスクワーカーなら就業継続できる程度の障害でも美容師には致命的であり、P_hand 分だけ給付月額を上乗せする必要があります。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法（e-Gov法令検索）</a>
+                </p>
               </div>
-              <p className="text-center text-xs text-gray-400 mt-3">※ 相談・資料請求は無料です</p>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「化学物質による職業性疾患リスク」——カラー剤・パーマ液の継続曝露が重度の接触性皮膚炎を引き起こす</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  美容師は日常的にカラー剤・パーマ液・ブリーチ剤などの化学物質を取り扱います。揮発性化学物質の継続的な吸入や接触による重度の接触性皮膚炎（手荒れ・アレルギー）は、一度発症すると化学物質への接触そのものが就業不能の原因となります。
+                </p>
+                <div className="bg-red-50 rounded p-3 mb-3 border border-red-200">
+                  <ul className="text-sm text-red-800 space-y-1">
+                    <li>• 業務起因性の職業病であっても小規模店舗では労災立証が困難</li>
+                    <li>• 重症化すると美容師業務そのものが継続不可能になる</li>
+                    <li>• 長期療養・転職を余儀なくされるケースも多い</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  この「職業病リスク」も収入保障保険でカバーすべき就業不能リスクの一つです。給付期間を長期（60〜65歳まで）に設定して慢性化リスクに備えることが重要です。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「雇用形態の多様化による保障格差」と「オーナー美容師の行政処分リスク」</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  近年、シェアサロン・面貸し・業務委託という非正規形態で働く美容師が急増しています。これらの雇用形態では国保加入が一般的で、<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金は実質ゼロ。同じ美容師免許・同じ業務でも雇用形態だけで就業不能時の保障に月20万円以上の格差が生じます。
+                </p>
+                <div className="bg-orange-50 rounded p-3 mb-3 border border-orange-200">
+                  <p className="text-sm text-orange-800 mb-1">さらに、自身が店舗を運営するオーナー美容師が長期休業に入ると：</p>
+                  <ul className="text-sm text-orange-700 space-y-1">
+                    <li>• 管理美容師（衛生管理責任者）の不在が常態化する可能性</li>
+                    <li>• <a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法第10条</a>：業務停止・免許取消の行政処分リスク</li>
+                    <li>• 本人の健康回復を待たずに事業基盤が法的に喪失するリスク</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  収入保障保険の給付金は、代替管理美容師の雇用費用としても機能します。オーナー美容師は給付月額を固定費（家賃・スタッフ給与・代替人材費）をカバーできる水準に設定することが必要です。
+                </p>
+              </div>
+
             </div>
           </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント5つ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              美容師の収入保障保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">1</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">手指障害リスクP_handを意識して給付月額を一般計算より上乗せする</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      一般的な就業不能保険の給付月額設計に加えて、手指障害による「美容師としての就業不能」リスクを上乗せして設定します。特定部位不担保の免責条項に注意し、手指・上肢の障害をカバーできる保険を選びます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">2</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">業務委託・シェアサロンの場合は給付月額を実収入の全額に設定する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      国保加入で傷病手当金ゼロのため、実収入の全額を収入保障保険でカバーする設計が必要です。支払対象外期間（免責期間）を最短（7日）に設定します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">3</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">化学物質アレルギー（接触性皮膚炎）による長期療養リスクを認識する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      カラー剤等のアレルギーは一度発症すると慢性化しやすく、長期間の就業不能につながる可能性があります。給付期間を長期（60〜65歳まで）に設定して長期療養リスクに備えます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">4</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">オーナー美容師は管理美容師の代替手配費用を給付金に含める</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      <a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法第10条</a>のリスクに備え、収入保障保険の給付金で代替管理美容師の雇用費用をまかなえる給付月額を設定します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">5</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">立ち仕事による腰痛・下肢静脈瘤に備え早期加入する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      美容師の職業性疾患として腰痛・下肢静脈瘤があります。健康なうちに収入保障保険に加入することが重要です。持病や既往症があると引受制限・条件付き加入になるため早期加入が鉄則です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              美容師の収入保障保険よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  業務委託美容師が腱鞘炎で3ヶ月休業。傷病手当金ゼロで貯蓄が底をついた
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Aさん（32歳・シェアサロン・業務委託・月収25万円・国保加入）。右手の重度の腱鞘炎でハサミが握れなくなり3ヶ月の休業が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金はゼロ。3ヶ月間の収入75万円が全額喪失。同じ美容室の正社員スタッフが傷病手当金を受け取っていると知り、雇用形態の違いによる保障格差に愕然としました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（国民健康保険法第58条第2項）：</span>業務委託・シェアサロン美容師は傷病手当金ゼロを前提に収入保障保険（月額25万円以上）への加入が必須です。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  カラー剤アレルギーで慢性的な接触性皮膚炎。業務継続不可能になった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Bさん（35歳・美容室正社員・年収350万円）。10年以上のカラー剤・パーマ液への日常的な接触により、重度の接触性皮膚炎（手荒れ・アレルギー）を発症しました。</p>
+                  <p><span className="font-semibold">問題：</span>職業病としての労災立証が困難で、医師から「化学物質への接触を避けることが必要」と診断され、美容師業務そのものが不可能になりました。傷病手当金は最長1年6ヶ月で終了しましたが、その後の収入保障がなく家計が破綻しました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓：</span>化学物質アレルギーは長期化・慢性化するリスクがあります。給付期間を長期（60歳以上まで）に設定した収入保障保険が必要でした。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  オーナー美容師が骨折で長期入院。管理美容師不在で保健所から指導を受けた
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Cさん（40歳・美容室オーナー・1人経営）。交通事故により骨折し2ヶ月の入院が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span>Cさんが唯一の管理美容師だったため、入院期間中は衛生管理責任者が不在の状態が続きました。保健所の立入検査で指摘を受け、<a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法第10条</a>に基づく業務停止処分のリスクに直面しました。収入保障保険の給付金で代替の管理美容師を雇えていればこの事態を回避できました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（美容師法第10条）：</span>オーナー美容師は自身の就業不能が事業の法的存続リスクに直結します。収入保障保険の給付金を代替人材の雇用費用として機能させる設計が重要です。
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              美容師の収入保障保険 最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  '手指障害リスクP_handを意識して給付月額を一般計算より上乗せした',
+                  '特定部位不担保の免責条項を確認し手指・上肢の障害をカバーできる保険を選んだ',
+                  '業務委託・シェアサロンの場合、傷病手当金ゼロを前提に設計した（国民健康保険法第58条第2項）',
+                  'カラー剤・パーマ液アレルギーによる長期療養リスクを認識し給付期間を長期設定した',
+                  'オーナー美容師の場合、管理美容師代替費用を給付月額に含めた',
+                  '立ち仕事による腰痛・下肢静脈瘤リスクを認識し早期加入した',
+                  '支払対象外期間（免責期間）を雇用形態に合わせて設定した',
+                  '給付期間を就業継続予定年齢（60〜65歳）まで確保した',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="w-5 h-5 border-2 border-gray-400 rounded shrink-0 mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
