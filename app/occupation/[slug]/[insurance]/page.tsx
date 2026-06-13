@@ -3226,451 +3226,354 @@ export default async function OccupationInsurancePage({ params }: Props) {
       )}
 
       {/* 金融業×収入保障保険 専用コンテンツ */}
+{/* 金融業×収入保障保険 専用コンテンツ */}
       {isFinanceIncomeProtection && (
         <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
 
-          {/* セクション1：リード文 */}
+          {/* セクション1：リード文 + インフォボックス */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">金融業の収入保障保険——「賞与除外×保険難民リスク」高収入エリートが陥る2大落とし穴</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              金融業従事者の収入保障保険において、
-              大手比較サイトやFPのコラムが完全に見落としている急所があります。
-              それは「賞与除外による傷病手当金の実質的目減り問題」です。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              銀行員・証券マンは一見すると高収入ですが、
-              年収の30〜40%を賞与やインセンティブが占める給与構造のため、
-              うつ病等で休職した瞬間に発生する現実は過酷です。
-              年収1,000万円（基本給月50万円＋賞与年400万円）の
-              証券マンが適応障害で休職した場合、
-              傷病手当金の計算は賞与を除いた
-              標準報酬月額（月50万円）の2/3、
-              すなわち月約33万円が上限となります。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              実質的な月割り収入（約83万円）との差は毎月約50万円——
-              休職初月から約60%の収入減という壊滅的な落下が発生します。
-              「給与の3分の2がもらえる」という制度の説明は
-              賞与の割合が低い一般職のためのものであり、
-              金融業の高収入エリートほど
-              この隠れた所得ギャップの罠にはまります。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              さらに高ストレス環境による精神疾患の通院歴が
-              民間保険の告知義務に影響し、
-              「保険に入りたくても入れない層」が
-              金融業界に急増しているという構造問題も存在します。
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+              金融業の収入保障保険——「標準報酬月額の上限規制によるカバー率の崩壊」を補う設計
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              金融業の収入保障保険設計には、大手比較サイトが一切触れていない「標準報酬月額の上限規制によるカバー率の崩壊」という構造的欠陥があります。
+              日本の健康保険制度において、標準報酬月額には第50級・139万円という上限が設定されています。いかに高収入であっても、傷病手当金の理論的最大値は 139万円 × 2/3 = 92.7万円 で頭打ちとなります。
+              傷病手当金のカバー率 R = 92.7万円 / I_real（実質月収）は、I_real が増加するほどゼロに漸近します（lim(I_real→∞) R = 0）。年収2,000万円（月収換算166.6万円）の場合、R ≒ 55.6%——制度上「3分の2保障」のはずが実態では55.6%しかカバーされません。
+              さらに、<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第3条第6項</a>により年3回以下支給の歩合給・インセンティブは標準報酬月額から除外されます。年収2,000万円（基本給月40万円＋歩合年1,520万円）の場合、傷病手当金は基本給40万円ベースの月約27.3万円のみ。実質月収166万円との差額は月▲138.7万円——6ヶ月で832万円の収入が消えます。
+              加えて、精神疾患による長期休職中は金融商品取引法第166条のインサイダー規制により個人投資での自己補填もできません。収入保障保険が唯一の解決策です。
             </p>
 
-            {/* 赤い警告ボックス */}
-            <div className="bg-red-50 border-l-4 border-red-400 p-5 my-6 rounded-r-xl">
-              <p className="font-bold text-red-800 mb-2">🚨 年収1,000万円の銀行員が休職すると月50万円の収入ギャップが発生します</p>
-              <ul className="text-red-700 text-sm space-y-1 list-disc list-inside">
-                <li>傷病手当金は「標準報酬月額（基本給ベース）」の2/3が上限——賞与400万円は計算に含まれない</li>
-                <li>実質月収83万円 → 傷病手当金33万円 = 毎月50万円のマイナス</li>
-                <li>「給与の3分の2がもらえる」は賞与依存度の低い一般職のための説明</li>
-                <li>高収入エリートほど休職時の家計崩壊リスクが高くなる</li>
-              </ul>
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 年収が上がるほど傷病手当金のカバー率がゼロに近づきます</p>
+              <p className="text-sm text-red-700 mb-1">カバー率 R = 92.7万円（傷病手当金上限）/ I_real（実質月収）</p>
+              <p className="text-sm text-red-700 mb-1">lim(I_real→∞) R = 0</p>
+              <p className="text-sm text-red-700 mb-1">年収2,000万円（月収166.6万円）の場合：R ≒ 55.6%</p>
+              <p className="text-sm text-red-700">制度上「3分の2保障」のはずが実態では55.6%しかカバーされません。高所得者ほど収入保障保険の必要性が高まります。</p>
             </div>
 
-            {/* アンバーボックス */}
-            <div className="bg-amber-50 border-l-4 border-amber-400 p-5 my-6 rounded-r-xl">
-              <p className="font-bold text-amber-800 mb-2">⚠️ うつ病・適応障害の通院歴があると民間の就業不能保険に加入できなくなります</p>
-              <ul className="text-amber-700 text-sm space-y-1 list-disc list-inside">
-                <li>金融業従事者の82.2%が強いストレスを抱える環境</li>
-                <li>心療内科への通院歴・服薬歴が過去5年以内にある場合、通常の就業不能保険・医療保険の審査に落ちる可能性が高い</li>
-                <li>「まだ大丈夫」と思っているうちに加入を完了させることが鉄則</li>
-              </ul>
-            </div>
-
-            {/* CTA①：S1後 */}
-            <div className="my-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">金融業の「賞与除外ギャップ」を補填する就業不能保険を無料相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">通院歴ができる前に——高収入層の保険難民リスクに対応したFPが担当</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
-              </div>
-              <p className="text-center text-xs text-gray-400 mt-3">※ 相談・資料請求は無料です</p>
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 歩合給・インセンティブは傷病手当金の計算に含まれません</p>
+              <p className="text-sm text-amber-700 mb-1"><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第3条第6項</a>により年3回以下支給の歩合は「賞与」扱いで除外。</p>
+              <p className="text-sm text-amber-700 mb-1">年収2,000万円でも傷病手当金は基本給40万円ベースの月27.3万円のみ。</p>
+              <p className="text-sm text-amber-700 mb-1">月収166万円との差額は月▲138.7万円——6ヶ月で832万円が消えます。</p>
+              <p className="text-sm text-amber-700">休業中はインサイダー規制で個人投資も制限される場合があります。</p>
             </div>
           </section>
 
-          {/* セクション2：比較表 */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">金融業の年収構成別・休職時保障比較</h2>
-            <p className="text-gray-600 text-sm mb-4">
-              年収が高いほど、傷病手当金との実質的なギャップが拡大します。
-            </p>
-            <div className="overflow-x-auto rounded-xl shadow">
-              <table className="min-w-full text-sm border-collapse">
-                <thead>
-                  <tr>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>年収構成</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>実質月収</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>傷病手当金（月額上限）</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>月額ギャップ</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>年間ギャップ</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>民間保険の必要給付額</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="bg-white">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">年収600万（基本給月40万・賞与160万）</td>
-                    <td className="border border-gray-200 px-3 py-2">約50万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-orange-600">約26.7万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-medium">約23万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600">約276万円</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-orange-600">月20万円以上</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">年収1,000万（基本給月50万・賞与400万）</td>
-                    <td className="border border-gray-200 px-3 py-2">約83万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-orange-600">約33万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-bold">約50万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-bold">約600万円</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-red-600">月45万円以上</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">年収2,000万（基本給月80万・賞与1,040万）</td>
-                    <td className="border border-gray-200 px-3 py-2">約167万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-orange-600">約53万円（上限）</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-bold">約114万円</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-bold">約1,368万円</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-red-600">月100万円以上</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-600">
-              <p className="font-bold text-gray-700 mb-1">📌 傷病手当金の計算と賞与除外について</p>
-              <p>
-                傷病手当金の計算式：標準報酬月額（月々の基本給等）÷30日×2/3×支給日数。
-                賞与・インセンティブ・歩合給は標準報酬月額に含まれないため、
-                年収に占める賞与の割合が高いほど、休職時の実質的な収入減少幅が大きくなります。
-                民間の就業不能保険はこの「隠れた所得ギャップ」を埋めるために設計します。
-              </p>
-            </div>
-          </section>
-
-          {/* セクション3：リスクデータ */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">金融業特有のリスクデータ——政府統計3件</h2>
-
-            {/* リスク① */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク①：「賞与除外による傷病手当金の実質的目減り」——高収入エリートほど休職時の家計崩壊リスクが高い</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  厚生労働省「毎月勤労統計調査」によると、
-                  金融業・保険業の賞与水準は産業別で突出して高く、
-                  年末賞与平均<strong>64万1,032円</strong>・夏季賞与<strong>72万1,295円</strong>。
-                  55〜59歳では賞与のピークが126万7,700円に達する。
-                  この高賞与・高インセンティブ構造が、
-                  休職時に致命的な落とし穴となる。
-                </p>
-                <p>
-                  日本の傷病手当金は「標準報酬月額（月々の基本給等）」の
-                  3分の2が支給上限であり、<strong>賞与は計算から完全に除外される</strong>。
-                  年収1,000万円（基本給月50万円＋賞与年400万円）の場合、
-                  健康時の実質的な月割り収入は約83万円だが、
-                  休職時に支給される傷病手当金は
-                  標準報酬月額50万円×2/3＝約33万円が上限。
-                  生活水準を維持するのに必要な83万円との差は毎月約50万円——
-                  <strong>休職初月から60%の収入減</strong>という壊滅的な落下が起きる。
-                </p>
-                <p>
-                  「給与の3分の2がもらえる」というキャッチコピーは
-                  賞与比率が低い一般職のためのものであり、
-                  賞与依存度が高い金融エリートほど
-                  この制度の設計思想と実態収入のミスマッチが大きくなる。
-                </p>
-                <a
-                  href="https://www.mhlw.go.jp/toukei/list/30-1.html"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：厚生労働省「毎月勤労統計調査」→
-                </a>
-              </div>
-            </div>
-
-            {/* リスク② */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク②：「82.2%が強いストレスを抱える」——精神疾患→通院歴→保険難民という連鎖リスク</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  厚生労働省「令和6年版過労死等防止対策白書」によると、
-                  強い不安・悩み・ストレスがあると答えた金融業労働者は<strong>82.2%</strong>。
-                  リテール営業の販売ノルマ・法人営業の融資回収プレッシャー・
-                  顧客からのクレーム対応が複雑に重なり、
-                  精神疾患を発症する確率は他産業を凌駕する。
-                </p>
-                <p>
-                  さらに深刻なのが、精神疾患による通院歴が
-                  民間保険の告知義務に与える影響だ。
-                  心療内科への通院歴・服薬歴が過去5年以内にある場合、
-                  通常の就業不能保険・医療保険の審査に落ちる可能性が極めて高くなり、
-                  <strong>割高な引受基準緩和型保険しか選択肢が残らなくなる</strong>。
-                  「保険に入りたくても入れない高収入層」が
-                  金融業界で急増しているという構造問題が存在する。
-                </p>
-                <p>
-                  メンタル不調の兆候を感じる前に
-                  民間保険への加入を完了させることが
-                  金融業従事者にとって最優先の行動である。
-                </p>
-                <a
-                  href="https://www.mhlw.go.jp/stf/newpage_35671.html"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：厚生労働省「令和6年版過労死等防止対策白書」→
-                </a>
-              </div>
-            </div>
-
-            {/* リスク③ */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク③：「コンプライアンス違反による懲戒解雇と団体保険喪失・保険難民化」——金融業界特有の時限爆弾</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  過度なノルマによるプレッシャーから
-                  不正な顧客情報の持ち出し・書類改ざん・ミスの隠蔽に
-                  手を染めるケースが金融業界では後を絶たない。
-                  これらが発覚した場合、即座に懲戒解雇となり
-                  退職金も没収される。
-                </p>
-                <p>
-                  同時に、在職中は割安な掛金で加入できていた
-                  会社の団体生命保険・医療保険から強制脱退となる。
-                  精神疾患を抱えたままの退職者が
-                  個人で保険に加入し直そうとしても、
-                  通院歴・服薬歴を理由に謝絶される。
-                  コンプライアンス違反の直接の原因が
-                  <strong>精神疾患（うつ病・適応障害）であっても
-                  この事実は覆らない</strong>。
-                </p>
-                <p>
-                  在職中の健康なうちに個人契約の保険でベースを固めておくことが、
-                  このリスクに対する唯一の防衛手段である。
-                </p>
-                <a
-                  href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：厚生労働省「令和6年賃金構造基本統計調査」→
-                </a>
-              </div>
-            </div>
-
-            {/* CTA②：S3後 */}
-            <div className="my-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">金融業の「賞与ギャップ・保険難民・団体保険喪失」対策を無料相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">高収入層の保険設計に精通したFPが対応します</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
-              </div>
-            </div>
-          </section>
-
-          {/* セクション4：チェックポイント */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">金融業従事者の収入保障保険選び5つのチェックポイント</h2>
-            <div className="space-y-5">
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">1</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">傷病手当金の「賞与除外問題」を理解し、実質月収と傷病手当金の差額を就業不能保険で補填する</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    自分の年収のうち賞与・インセンティブが占める割合を確認し、
-                    休職時の傷病手当金（基本給ベースの2/3）との差額を計算する。
-                    その差額が民間の就業不能保険で必要な月額給付金の最低ラインとなる。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">2</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">心療内科・精神科への通院前に民間の就業不能保険・医療保険への加入を完了させる</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    金融業従事者の82.2%が強いストレスを抱える環境で、
-                    精神疾患の通院歴ができると保険加入が困難になる。
-                    「まだ大丈夫」と思っているうちに加入を完了させることが鉄則。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">3</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">早期退職・希望退職の対象になる前に個人契約の保険でベースを確保する</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    メガバンク・証券会社のリストラで早期退職を余儀なくされた後、
-                    精神疾患の通院歴があると個人で保険に加入できなくなる。
-                    在職中の健康な状態で終身型の個人保険を確保しておく。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">4</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">賞与・インセンティブが高い年と低い年の変動を想定した保険料・給付額の設定をする</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    業績連動の給与体系では年収の変動が大きい。
-                    「最低年収」をベースに生活費をカバーできる就業不能保険の給付額を設定し、
-                    保険料が継続して払える水準に抑える。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">5</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">懲戒処分・早期退職後も継続できる個人契約の保険をベースに持つ</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    会社の団体保険は雇用継続が前提。
-                    どんな形で退職しても継続できる個人名義の保険をベースとして確保することが、
-                    金融業界特有のキャリアリスクへの最低限の備えとなる。
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          {/* セクション5：失敗事例 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              金融業のケース別・就業不能損失シミュレーション
+            </h2>
             <div className="space-y-6">
 
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例① 年収800万行員が適応障害で休職——賞与除外で実質60%の収入減・ペアローン破綻</h3>
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：証券会社トップセールス（40代・年収2,000万円）
                 </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Aさん（38歳・男性・メガバンク中堅行員・年収800万円）。
-                  基本給月額40万円＋賞与年額320万円の給与構造。
-                  過度なプロジェクトの重圧から適応障害を発症し休職。
-                  「給与の3分の2は保障される」と信じ込んでいた。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>傷病手当金は基本給ベースの標準報酬月額40万円の2/3＝約26.7万円。
-                  実質的な月割り収入66万円との差は毎月約39万円。
-                  月15万円のペアローンと私立小学校の教育費が払えなくなり、自宅の売却を余儀なくされた。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>金融業の「給与の3分の2」は賞与を除いた基本給ベースの計算。
-                  賞与依存度が高いほど休職時の家計崩壊リスクが高く、差額を補填する就業不能保険が不可欠。</p>
+                <p className="text-sm text-gray-600 mb-4">基本給月40万円＋歩合年1,520万円（年3回以下支給）/ うつ病で6ヶ月休業</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-red-700">約27.3万円</div>
+                    <div className="text-xs text-gray-500">基本給40万円ベース（歩合除外・健保法第3条第6項）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">実質月収との差額</div>
+                    <div className="font-bold text-red-700">月▲138.7万円</div>
+                    <div className="text-xs text-gray-500">月収166万円 - 傷病手当金27.3万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">832.2万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金カバー率R</div>
+                    <div className="font-bold text-gray-900">R ≒ 16.4%</div>
+                    <div className="text-xs text-gray-500">27.3万 / 166万（歩合除外後）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">外務員資格リスク</div>
+                    <div className="font-bold text-gray-900">長期休職→研修未受講→資格失効の可能性</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">インサイダー規制</div>
+                    <div className="font-bold text-gray-900">休業中の個人投資による補填も制限</div>
+                    <div className="text-xs text-gray-500">金融商品取引法第166条</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額138.7万円（上限規制と歩合除外による致命的ギャップの補填）</div>
                 </div>
               </div>
 
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例② 年収2,000万トレーダーが突発性難聴——インセンティブ蒸発で都心タワマンが払えなくなった</h3>
+              {/* ケースB */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <div className="inline-block bg-green-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：銀行員（30代・年収700万円）
                 </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Bさん（40歳・男性・外資系証券トレーダー）。
-                  基本給を低く抑え、業績連動インセンティブで年収2,000万円。
-                  連日の深夜勤務と極度の睡眠不足から突発性難聴と自律神経失調症を併発。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>トレードフロアに立てなくなりインセンティブ収入が完全蒸発。
-                  支払われるのは低い基本給ベースの傷病手当金のみ。
-                  都心タワーマンションの家賃と高級車のリース代が払えず数ヶ月で生活が破綻した。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>歩合・インセンティブ比率が高いほどダウンサイドリスクへの自衛が必要。
-                  就業不能保険の給付額は「最低月収（基本給のみ）」で生活が回るかで設定する。</p>
+                <p className="text-sm text-gray-600 mb-4">基本給月35万円＋賞与年2回計280万円 / うつ病で6ヶ月休業</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-gray-900">約24万円</div>
+                    <div className="text-xs text-gray-500">基本給35万円ベース（賞与除外・健保法第3条第6項）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">実質月収との差額</div>
+                    <div className="font-bold text-red-700">月▲34万円</div>
+                    <div className="text-xs text-gray-500">月収換算58万円 - 傷病手当金24万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">204万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金カバー率R</div>
+                    <div className="font-bold text-gray-900">R ≒ 41.4%</div>
+                    <div className="text-xs text-gray-500">24万 / 58万（賞与除外後）</div>
+                  </div>
                 </div>
-              </div>
-
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例③ 早期退職後に保険難民化——うつ病通院歴で全社から加入謝絶</h3>
-                </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Cさん（52歳・男性・地方銀行支店長代理）。
-                  数年前から軽度のうつ病で心療内科に通院しながら業務をこなしていた。
-                  広域合併による組織再編で早期退職勧奨を受け割増退職金と引き換えに退職を選択。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>退職と同時に銀行の手厚い団体生命保険・団体三大疾病特約から脱退。
-                  個人で医療保険・死亡保険への加入を試みたが、
-                  うつ病の通院歴と服薬状況を告知した結果、複数社から加入を断られた。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>在職中の健康なうちに退職後も継続できる個人契約の保険でベースを固めておくことが必須。
-                  「まだ必要ない」と後回しにした結果が最悪のタイミングで顕在化する。</p>
+                <div className="mt-4 bg-orange-100 rounded p-3 border border-orange-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-orange-700 text-xl">月額34万円（賞与依存構造による差額補填）</div>
                 </div>
               </div>
 
             </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              傷病手当金の算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>。歩合給・賞与の除外根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第3条第6項</a>。標準報酬月額の上限（第50級139万円）根拠：健康保険法別表第三。カバー率の数式：R = SB_max / I_real = 92.7万円 / I_real、lim(I_real→∞) R = 0。
+            </p>
           </section>
 
-          {/* セクション6：チェックリスト + 最終CTA */}
+          {/* セクション3：リスクデータ3件 */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">金融業従事者の収入保障保険加入前チェックリスト（8項目）</h2>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-3">
-              {[
-                '自分の年収のうち賞与・インセンティブが占める割合を把握し、傷病手当金との月額ギャップを計算した',
-                '心療内科・精神科への通院歴がない今のうちに就業不能保険への加入を完了させた',
-                '民間の就業不能保険の給付額を「実質月収－傷病手当金」の差額以上に設定した',
-                '会社の団体保険とは別に退職後も継続できる個人契約の保険を確保した',
-                '早期退職・希望退職の対象になった場合でも保障が継続する設計になっているか確認した',
-                'コンプライアンス違反等による懲戒解雇リスクを想定した個人保険の確保を検討した',
-                '賞与・インセンティブが高い年と低い年の変動幅を考慮した継続可能な保険料水準に設定した',
-                '現在の高ストレス状態が続く場合の精神疾患発症リスクを認識し、早めに保険加入を完了させた',
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 border-2 border-gray-300 rounded mt-0.5" />
-                  <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              金融業特有のリスクデータ（政府統計・法令根拠）
+            </h2>
+            <div className="space-y-6">
 
-            {/* CTA③：S6後 */}
-            <div className="mt-10 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">チェックリストを確認したら、専門FPへ無料相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">金融業の「賞与ギャップ・保険難民・コンプライアンスリスク」を熟知したプロが対応</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「標準報酬月額の上限規制によるカバー率のゼロ漸近」——高収入者ほど保障が薄くなる数学的証明</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  健康保険の標準報酬月額の上限は第50級・139万円（<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法</a>別表第三）。傷病手当金の法定上限：SB_max = 139万円 × 2/3 = 92.7万円。実質月収 I_real に対するカバー率：R = SB_max / I_real = 92.7万円 / I_real。I_real が増加するほどRはゼロに漸近する：lim(I_real→∞) R = 0
+                </p>
+                <div className="bg-blue-50 rounded p-3 mb-3 font-mono text-sm text-blue-900">
+                  I_real = 100万円：R = 92.7% ≒ 制度通り<br />
+                  I_real = 139万円（上限等級）：R = 66.7%（ちょうど2/3）<br />
+                  I_real = 166.6万円（年収2,000万円換算）：R ≒ 55.6%<br />
+                  I_real = 250万円（年収3,000万円換算）：R ≒ 37.1%
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  「年収が上がるほど傷病手当金のカバー率がゼロに漸近する」という数学的に証明された構造的欠陥が、高所得金融業従事者に最も深刻に作用します。
+                </p>
               </div>
-              <p className="text-center text-xs text-gray-400 mt-3">※ 相談・資料請求は無料です</p>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「歩合給×上限規制の二重ペナルティ」——トップセールスほど休業時の保障が壊滅する</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  <a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第3条第6項</a>により、年3回以下支給の歩合給・インセンティブは「賞与」として標準報酬月額の算定から除外されます。
+                </p>
+                <div className="bg-red-50 rounded p-3 mb-3 border border-red-200">
+                  <p className="text-sm text-red-800 mb-1">年収2,000万円（基本給月40万円＋歩合年1,520万円）の場合：</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>• 標準報酬月額は基本給40万円ベース（第26等級）で算定</li>
+                    <li>• 傷病手当金 = 41万円 × 2/3 ≒ 月27.3万円</li>
+                    <li>• 実質月収166万円との差額：月▲138.7万円（カバー率わずか16.4%）</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  「成績が上がって年収が増えるほど、休業時の保障が薄くなる」という金融業のトップセールスが直面する逆説的な構造が存在します。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「精神疾患による外務員資格失効とインサイダー規制の二重封鎖」——休業中の自己救済手段が封じられる</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「令和6年度過労死等の労災補償状況」</a>によれば、金融業・保険業の精神障害労災は高止まりしており、過酷なノルマ・成果主義が高ストレス環境を形成しています。
+                </p>
+                <div className="bg-orange-50 rounded p-3 mb-3 border border-orange-200">
+                  <ul className="text-sm text-orange-800 space-y-1">
+                    <li>• 精神疾患による長期休職中に外務員資格の更新研修を受講できず資格が一時停止・失効するリスク</li>
+                    <li>• 復帰後に元の高収益ポジションに戻れずキャリアが破壊される</li>
+                    <li>• 金融商品取引法第166条のインサイダー規制により休業中の個人投資による自己補填も事実上不可能</li>
+                    <li>• 「給与がゼロになっても、自分でお金を稼ぐ手段も法的に封じられる」完全な経済的封鎖状態</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  収入保障保険が唯一の合法的な解決策です。給付金で経済的余裕を確保し、体調回復後に速やかに外務員資格の更新手続きを行える環境を整えることが重要です。
+                </p>
+              </div>
+
             </div>
           </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント5つ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              金融業の収入保障保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">1</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">R = 92.7万円 / I_real で自分のカバー率を計算し不足額を把握する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      実質月収 I_real（年収÷12）を確認し、カバー率Rを算出します。(I_real - 92.7万円) が毎月の不足額の最低ライン。さらに歩合除外の場合は傷病手当金が27万円前後まで下がる可能性があります。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">2</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">歩合給・インセンティブの支給回数を確認し標準報酬月額を把握する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      年3回以下支給の歩合は標準報酬月額から除外されます（<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健保法第3条第6項</a>）。現在の標準報酬月額（給与明細の社会保険料から逆算可能）を確認し、傷病手当金の実額を計算します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">3</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">外務員資格の更新時期と収入保障保険の給付期間を連動させる</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      精神疾患での長期休業中に外務員資格が失効すると復帰後のキャリアに甚大な影響が出ます。治療に専念できる経済的余裕（収入保障保険の給付）が資格維持にも直結します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">4</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">高額な住宅ローン・固定費を給付月額設定の基準にする</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      高所得金融業従事者は都市部の高額ローンを抱えていることが多く、傷病手当金（最大92.7万円）では住宅ローン＋生活費を賄えないケースが多いです。月次固定支出の全額をカバーできる給付月額を設定します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">5</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">インサイダー規制による「自己補填不可」を前提に設計する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      金融業従事者は休業中の個人投資による収入補填が制限される可能性があります。収入保障保険の給付金だけで休業期間全体の生活を維持できる設計にします。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              金融業の収入保障保険よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  年収2,000万の証券マンがうつ病で休職。傷病手当金が月27万円しか出なかった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Aさん（42歳・証券会社・年収2,000万円・基本給月40万円＋歩合年1,520万円）。激務とノルマプレッシャーからうつ病を発症し6ヶ月の休業が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第3条第6項</a>により歩合年1,520万円は標準報酬月額から除外。傷病手当金は基本給40万円ベースの月27.3万円のみ。月収166万円との差額は月▲138.7万円、6ヶ月で832万円が消えました。都内の高額タワーマンションの住宅ローン（月35万円）を含む固定費が払えなくなり、任意売却を余儀なくされました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（健康保険法第3条第6項）：</span>歩合給は傷病手当金の計算に一切含まれません。「高収入だから大丈夫」が最大の誤解。実質月収ベースで収入保障保険を設計すること。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  精神疾患で長期休職中に外務員資格の更新研修を受けられず失効。復帰後に営業フロントに戻れなかった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Bさん（35歳・証券会社営業・年収700万円）。うつ病による長期療養で8ヶ月の休職となりました。</p>
+                  <p><span className="font-semibold">問題：</span>会社に出社できないため、金融商品取引法第29条の4等に基づく外務員資格の更新に必要な研修を受講できませんでした。外務員登録が一時停止となり、復帰後は営業フロントに戻れずバックオフィス業務への異動を余儀なくされ、年収が700万円から450万円に永続的に低下するキャリア破壊が発生しました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（金融商品取引法第29条の4）：</span>収入保障保険の給付金で経済的余裕を確保し、体調が回復次第早期に研修を受講できる環境を整えることが重要です。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  休業中に収入減を補おうと株取引を始めたら社内規程違反で懲戒処分になった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Cさん（38歳・銀行員・年収700万円）。適応障害で3ヶ月の休職となり、給与収入が傷病手当金の月24万円に激減。自宅でデイトレードを始めて生活費を補填しようとしました。</p>
+                  <p><span className="font-semibold">問題：</span>銀行の社内服務規程と金融商品取引法第166条のインサイダー取引規制により、休職中であっても取引先に関する内部情報にアクセスし得る立場とみなされ、当該取引について調査・懲戒処分の対象となりました。法的な「逃げ道」が完全に封じられていることを知らなかった。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（金融商品取引法第166条）：</span>金融業従事者は休業中の自己補填手段が法的に制限されます。収入保障保険が唯一の合法的な収入補填手段。加入前に制度の仕組みを理解しておくこと。
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              金融業の収入保障保険 最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  'R = 92.7万円 / I_real で自分の傷病手当金カバー率を計算した',
+                  '歩合給・インセンティブの支給回数を確認し標準報酬月額への算入可否を把握した',
+                  '傷病手当金の実額（最大92.7万円・歩合除外後の基本給ベース）を計算した',
+                  '住宅ローン等の月次固定支出をカバーできる給付月額を設定した',
+                  '外務員資格の更新時期を把握し長期療養との重複リスクを確認した',
+                  'インサイダー規制により休業中の個人投資が制限される可能性を認識した',
+                  '収入保障保険の給付金だけで休業期間全体の生活を維持できる設計にした',
+                  '給付期間を定年（または退職予定年齢）まで確保した',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="w-5 h-5 border-2 border-gray-400 rounded shrink-0 mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
