@@ -374,6 +374,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverCancer = occ.slug === 'driver' && ins.slug === 'cancer'
   const isDriverDisability = occ.slug === 'driver' && ins.slug === 'disability'
   const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
+  const isDoctorDisability = occ.slug === 'doctor' && ins.slug === 'disability'
   const isFreelanceEngineerLife = occ.slug === 'freelance-engineer' && ins.slug === 'life'
   const isFreelanceEngineerPension = occ.slug === 'freelance-engineer' && ins.slug === 'pension'
   const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
@@ -410,7 +411,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -13440,6 +13441,360 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   '給付期間を60〜65歳（職種転換困難を考慮した長期設定）にした',
                   '支払対象外期間（免責期間）を雇用形態に合わせて設定した',
                   '腰椎疾患・脳心臓疾患が支払対象か確認した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA③ */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+        </div>
+      )}
+
+{isDoctorDisability && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">
+              医師の就業不能保険——「就業不能の定義問題」と「開業医の事業継続不可能時間」を徹底解説
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              医師の就業不能保険設計には、大手比較サイトが一切触れていない「就業不能の定義問題」と「開業医の事業継続不可能時間の短さ」という固有リスクがあります。開業医が就業不能に陥ると、売上がゼロになる一方で固定費Fは毎月継続します。事業が存続できる時間 T_bankruptcy = S / F（S=流動資産）は驚くほど短く、流動資産2,000万円・固定費500万円の開業医ではわずか4ヶ月です。民間保険の必要給付月額は I_req ≥ F——固定費を上回る給付が絶対条件です。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに深刻なのが「就業不能の定義問題」です。外科医が手指の震えで高度な手術ができなくなっても、保険約款上「軽易な事務作業や問診は可能」と判断されれば給付対象外になります。「自らの専門業務ができないこと」に特化した医師向け定義の保険でなければ、高額な保険料を払っていても給付されない事態が発生します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              厚生労働省の統計では「医療・福祉」業の精神障害労災請求件数は983件と全産業ワースト1位。医師のバーンアウト（燃え尽き症候群）による就業不能も深刻な問題です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-3">🚨 開業医は就業不能から4ヶ月で事業が消滅するケースがあります</p>
+              <div className="bg-white rounded p-3 border border-red-200 mb-3 font-mono text-sm text-gray-800 space-y-1">
+                <p>T_bankruptcy = S / F（S=流動資産・F=月次固定費）</p>
+                <p>I_req ≥ F（必要給付月額の絶対条件）</p>
+              </div>
+              <ul className="text-sm text-red-800 space-y-1">
+                <li>・S=2,000万円・F=500万円の場合：T_bankruptcy = 4ヶ月</li>
+                <li>・傷病手当金もゼロ（国民健康保険法第58条第2項）</li>
+                <li>・就業不能保険が事業継続の唯一の救命綱です</li>
+              </ul>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 保険約款の「就業不能の定義」を必ず確認してください</p>
+              <ul className="text-sm text-amber-800 space-y-1">
+                <li>・外科医が手術できなくなっても「問診・事務は可能」と判断されると給付対象外になります</li>
+                <li>・「完全就業不能（いかなる職業にも従事できない）」という厳格な定義では医師の実態に合いません</li>
+                <li>・「自らの専門業務ができない状態」をカバーする定義の保険を選ぶことが必須です</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA① */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師のケース別・就業不能損失シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：開業医（50代・年収2,000万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">医院固定費月500万円・流動資産2,000万円・国保加入 / うつ病で6ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">事業継続可能時間</div>
+                    <div className="font-bold text-red-700">T_bankruptcy = 4ヶ月</div>
+                    <div className="text-xs text-gray-500">S/F = 2,000万円 / 500万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の固定費持ち出し</div>
+                    <div className="font-bold text-gray-900">3,000万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の純利益喪失</div>
+                    <div className="font-bold text-gray-900">約1,000万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">就業不能定義リスク</div>
+                    <div className="font-bold text-gray-900">「問診・事務は可能」と判断される恐れ</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">合計キャッシュアウト（6ヶ月）</div>
+                    <div className="font-bold text-gray-900">約4,000万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額500万円以上（I_req ≥ F・固定費全額補填が絶対条件）</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <div className="inline-block bg-green-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：勤務医（40代・年収1,500万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">健保加入・標準報酬月額75万円 / バーンアウトで6ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-gray-900">約50万円</div>
+                    <div className="text-xs text-gray-500">健康保険法第99条</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">実質月収との差額</div>
+                    <div className="font-bold text-red-700">月▲75万円</div>
+                    <div className="text-xs text-gray-500">月収125万円 - 傷病手当金50万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">450万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">固定費持ち出し</div>
+                    <div className="font-bold text-gray-900">なし（勤務医のため）</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-orange-100 rounded p-3 border border-orange-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-orange-700 text-xl">月額75万円（実質月収との差額を補填）</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              開業医の傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。勤務医の傷病手当金根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>。事業継続時間：T_bankruptcy = S/F。医療福祉業の精神障害労災：<a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和6年度過労死等の労災補償状況</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師特有のリスクデータ（政府統計3件）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「T_bankruptcy = S/F」——開業医は流動資産が4ヶ月で底をつく数学的証明</h3>
+                </div>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-4">
+                  <p className="text-sm text-gray-700 mb-2">開業医の休業時：月次売上 = 0・固定費F = 継続</p>
+                  <div className="font-mono text-sm text-gray-800 mb-3">
+                    T_bankruptcy = S / F　　I_req ≥ F
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    {[
+                      { s: '1,000万円', f: '300万円', t: '≒3.3ヶ月' },
+                      { s: '2,000万円', f: '500万円', t: '= 4ヶ月' },
+                      { s: '3,000万円', f: '700万円', t: '≒4.3ヶ月' },
+                    ].map((r) => (
+                      <div key={r.s} className="bg-red-50 rounded p-2 border border-red-200 text-center text-xs">
+                        <div>S={r.s} / F={r.f}</div>
+                        <div className="font-bold text-red-700 mt-1">T={r.t}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  いずれも「5ヶ月以内に事業が消滅する」という厳しい現実。就業不能保険の給付月額をI_req ≥ F（固定費全額）に設定することでT_bankruptcyを実質的に無限大まで延ばすことができる。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「就業不能の定義問題」——高額保険料を払っても給付されないリスク</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                  <div className="bg-red-50 rounded p-4 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">一般的な就業不能の定義</div>
+                    <div className="font-bold text-red-700 text-sm">「いかなる職業にも従事できない状態」</div>
+                    <div className="text-xs text-red-600 mt-1">医師の実態に合わない</div>
+                  </div>
+                  <div className="bg-green-50 rounded p-4 border border-green-200">
+                    <div className="text-xs text-gray-500 mb-1">医師に必要な就業不能の定義</div>
+                    <div className="font-bold text-green-700 text-sm">「現在の専門業務ができない状態」</div>
+                    <div className="text-xs text-green-600 mt-1">職業専門定義型</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  外科医が手指の微細な震えで精密な手術ができなくなっても、「問診や事務作業には従事可能」と判断されれば支払い対象外となる。医師のような高度専門職には「現在の専門業務ができない状態」を就業不能の定義とする保険（職業専門定義型）を選ぶことが必須。契約前に約款で就業不能の定義を必ず確認することが極めて重要。
+                </p>
+                <a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：e-Gov法令検索「健康保険法」
+                </a>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「医師のバーンアウトによる精神疾患就業不能」——全産業ワースト1位の深刻な現実</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                  <div className="bg-red-50 rounded p-3 border border-red-200 text-center">
+                    <div className="text-2xl font-bold text-red-700">983件</div>
+                    <div className="text-xs text-gray-600">精神障害労災請求件数<br/>（医療・福祉業）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200 text-center">
+                    <div className="text-2xl font-bold text-red-700">全産業<br/>ワースト1位</div>
+                    <div className="text-xs text-gray-600">業種別精神障害労災請求</div>
+                  </div>
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">1年以上</div>
+                    <div className="text-xs text-gray-600">精神疾患の就業不能期間<br/>（開業医は廃院リスク）</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  医師は人命を預かるプレッシャー・長時間労働・医療過誤訴訟リスクが複合し、バーンアウト（燃え尽き症候群）による長期就業不能のリスクが極めて高い。精神疾患による就業不能は身体疾患と異なり寛解・再発を繰り返しやすく、就業不能期間が1年以上に及ぶケースが多い。開業医の場合、1年以上の就業不能は事業の廃院・閉院に直結する。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* CTA② */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師の就業不能保険選び 5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '01',
+                  title: '「職業専門定義型」の就業不能保険を選ぶ',
+                  body: '「現在の専門業務ができない状態」を就業不能と定義する保険を選ぶ。「完全就業不能（いかなる職業にも就けない）」という定義では医師の実態に合わない可能性が高い。',
+                },
+                {
+                  num: '02',
+                  title: '開業医は給付月額を固定費F以上に設定する（I_req ≥ F）',
+                  body: '固定費（家賃・人件費・医療機器リース料等）の月額を把握し、それを上回る給付月額を設定する。これが事業継続の絶対条件。',
+                },
+                {
+                  num: '03',
+                  title: '精神疾患（バーンアウト・うつ病）が給付対象か確認する',
+                  body: '「医療・福祉」業は精神障害労災ワースト1位。精神疾患による就業不能が給付対象かどうか、また通算給付期間に制限がないかを確認する。',
+                },
+                {
+                  num: '04',
+                  title: '給付期間を60〜65歳（廃院・引退年齢）まで設定する',
+                  body: '精神疾患による長期就業不能・廃院リスクを考慮し、長期の給付期間を確保する。',
+                },
+                {
+                  num: '05',
+                  title: '勤務医は傷病手当金との差額を就業不能保険でカバーする',
+                  body: '勤務医は傷病手当金（月約50万円）との差額（月▲75万円）を就業不能保険でカバーする設計を行う。傷病手当金終了後（18ヶ月後）の完全補填設計も重要。',
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-gray-700">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded mb-3">事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">外科医が手指震えで手術不可能に。保険約款の定義で給付が否認された</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Aさん（50歳・外科医・開業医）。脳梗塞の後遺症で手指に微細な震えが残り、精密手術が不可能になった。高額の就業不能保険（月給付50万円）に加入していた。</p>
+                  <p><span className="font-bold">問題：</span>保険会社の審査で「問診・処方箋作成・軽微な処置は可能」と判断され、約款の「就業不能の定義（いかなる職業にも従事できない状態）」を満たさないとして給付が否認された。「医師としての就業不能」と「保険約款上の就業不能」の定義が乖離していた。</p>
+                </div>
+                <div className="bg-red-50 rounded p-3 border border-red-200">
+                  <p className="text-sm font-bold text-red-800">教訓（保険法第17条）：医師は必ず「職業専門定義型」の就業不能保険を選ぶこと。約款の定義を事前に必ず確認する。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-orange-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded mb-3">事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">開業医がうつ病で半年休診。固定費3,000万円が流出し廃院に追い込まれた</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Bさん（48歳・内科開業医・月次固定費500万円・流動資産2,000万円）。過重労働とクレーム対応のストレスからうつ病を発症し6ヶ月の休診が必要になった。</p>
+                  <p><span className="font-bold">問題：</span>国民健康保険法第58条第2項により傷病手当金はゼロ。T_bankruptcy = 2,000万/500万 = 4ヶ月で流動資産が枯渇。残り2ヶ月は個人資産を取り崩したが持ちこたえられず廃院を選択した。就業不能保険（月給付500万円）があれば廃院を防げた。</p>
+                </div>
+                <div className="bg-orange-50 rounded p-3 border border-orange-200">
+                  <p className="text-sm font-bold text-orange-800">教訓（国民健康保険法第58条第2項）：開業医の就業不能保険の給付月額はI_req ≥ F（固定費以上）が絶対条件。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-yellow-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mb-3">事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">医療過誤訴訟中にうつ病で就業不能。賠償保険は使えたが収入補填はゼロだった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Cさん（45歳・産科医・勤務医）。分娩時のトラブルで医療過誤訴訟を起こされた。訴訟対応のストレスで重度のうつ病を発症し1年の就業不能が必要になった。</p>
+                  <p><span className="font-bold">問題：</span>医師賠償責任保険で訴訟費用・和解金はカバーされた。しかし医師自身の休業による逸失収益（月▲75万円×12ヶ月=900万円）は賠償責任保険では一切補填されなかった。就業不能保険に未加入だったため900万円の損失が個人を直撃した。</p>
+                </div>
+                <div className="bg-yellow-50 rounded p-3 border border-yellow-200">
+                  <p className="text-sm font-bold text-yellow-800">教訓（民法第709条）：医師賠償責任保険と就業不能保険は全く異なるリスクをカバーする。両保険の同時加入が医師の必須条件。</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              就業不能保険加入前の最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <ul className="space-y-3">
+                {[
+                  '就業不能保険の約款で「就業不能の定義」を確認した（職業専門定義型を選んだ）',
+                  '開業医の場合：月次固定費Fを把握しI_req ≥ Fとなる給付月額を設定した',
+                  '開業医の場合：T_bankruptcy = S/F で事業継続可能時間を試算した',
+                  '精神疾患（バーンアウト・うつ病）が給付対象か確認した',
+                  '給付期間を60〜65歳（廃院・引退年齢）まで設定した',
+                  '勤務医の場合：傷病手当金との差額（月▲75万円）をカバーする給付月額を設定した',
+                  '医師賠償責任保険とは別に就業不能保険を確保した',
+                  '傷病手当金終了後（18ヶ月後）も給付が継続することを確認した',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
