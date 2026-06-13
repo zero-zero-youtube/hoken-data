@@ -1017,452 +1017,349 @@ export default async function OccupationInsurancePage({ params }: Props) {
       )}
 
       {/* 看護師×収入保障 専用コンテンツ */}
+      {/* 看護師×収入保障保険 専用コンテンツ */}
       {isNurseIncomeProtection && (
         <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
 
-          {/* セクション1：リード文 */}
+          {/* セクション1：リード文 + インフォボックス */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">看護師の収入保障保険——「復職後の手取り逆転」という最大の盲点</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              看護師の収入保障保険において、大手比較サイトが見落としている最大の盲点があります。
-              それは「休職中より復職後の方が手取りが少なくなる」という逆転現象です。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              看護師の給与は基本給が低く、夜勤手当（二交代で月5〜6万円）と
-              時間外手当によって生計が成り立つ構造になっています。
-              日本看護協会の2024年調査によると、夜勤手当の平均は
-              準夜勤4,567円・深夜勤5,715円・二交代11,815円。
-              月4〜5回の夜勤をこなすだけで月額約5〜6万円の手当が加算されます。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              ところがメンタル不調や身体疾患から復職する際、健康配慮のため
-              「夜勤免除・残業なし」の措置を受けると、これらの手当が完全に消滅します。
-              傷病手当金は「休職直前の標準報酬月額（夜勤手当込み）」の3分の2が支給されるため、
-              休職中は一定の水準を維持できます。
-              しかし復職後は基本給のみの給与となり、
-              傷病手当金の受給額を下回るという逆転現象が頻発しています。
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              さらに訪問看護・フリーランス看護師の増加により、
-              国民健康保険加入で傷病手当金ゼロという
-              「社会保険の完全な死角」に置かれる看護師も急増しています。
-              看護師の収入保障保険は「休業中の補填」だけでなく
-              「復職後の夜勤手当消滅期間の補填」として設計しなければ
-              本当のリスクをカバーできません。
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+              看護師の収入保障保険——「夜勤手当消滅による実質保障率の崩壊」を補う設計
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              看護師の収入保障保険設計には、大手比較サイトが一切触れていない「夜勤手当消滅による実質保障率の崩壊」があります。
+              看護師の給与は基本給が低く、労働基準法第37条第4項に基づく深夜割増賃金・夜勤手当が実質的な生活給を担っています。就業不能になって夜勤から外れると、夜勤手当Nは消滅し、傷病手当金は基本給Bのみの2/3で算定されます。
+              実質保障率 R = (2/3) / (1 + N/B) という数式で表すと、N/B（夜勤依存度）が高いほどRが急落します。基本給27万円・夜勤手当8万円（N/B≒0.30）の看護師の場合、R ≒ 51.3%——制度上「3分の2を保障する」はずが、実態では収入の半分しかカバーされません。
+              さらに、育休復帰後に夜勤免除・短時間勤務を選ぶと、<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条の2</a>の随時改定により標準報酬月額が引き下げられます。この直後に就業不能になると、引き下げ後の低い水準で傷病手当金が算定される「育休復帰直後が最も保障が薄い」という逆説的な罠があります。
+              訪問看護師・フリーランス看護師は国保加入のため<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金がゼロ。同じ看護業務でも雇用形態で保障に天と地の差が生じています。
             </p>
 
-            {/* 赤い警告ボックス */}
-            <div className="bg-red-50 border-l-4 border-red-400 p-5 my-6 rounded-r-xl">
-              <p className="font-bold text-red-800 mb-2">🚨 看護師は「復職後の方が手取りが減る」逆転現象が起きます</p>
-              <ul className="text-red-700 text-sm space-y-1 list-disc list-inside">
-                <li>メンタル不調・身体疾患からの復職時に「夜勤免除・残業なし」の措置を受けると月5〜6万円の手当が完全消滅</li>
-                <li>休職中は傷病手当金（夜勤手当込みの標準報酬月額ベース）で生活を維持できていた</li>
-                <li>復職した月から手取りが傷病手当金を下回るという事態が頻発</li>
-                <li>「復職したのに生活が苦しくなった」という二重の打撃が看護師特有のリスク</li>
-              </ul>
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 夜勤手当が多いほど就業不能時の実質保障率が下がります</p>
+              <p className="text-sm text-red-700 mb-1">実質保障率 R = (2/3) / (1 + N/B)</p>
+              <p className="text-sm text-red-700 mb-1">N/B = 0.30（夜勤手当が基本給の30%）の場合：R ≒ 51.3%</p>
+              <p className="text-sm text-red-700 mb-1">制度上「3分の2保障」のはずが実態では収入の半分しかカバーされません。</p>
+              <p className="text-sm text-red-700">夜勤依存度N/Bが高い看護師ほど、収入保障保険が必要です。</p>
             </div>
 
-            {/* アンバーボックス */}
-            <div className="bg-amber-50 border-l-4 border-amber-400 p-5 my-6 rounded-r-xl">
-              <p className="font-bold text-amber-800 mb-2">⚠️ 訪問看護・フリーランス看護師は傷病手当金がゼロです</p>
-              <ul className="text-amber-700 text-sm space-y-1 list-disc list-inside">
-                <li>業務委託・フリーランスとして訪問看護ステーションで働く看護師は国民健康保険加入</li>
-                <li>国民健康保険には傷病手当金という制度が存在しない</li>
-                <li>骨折・交通事故・メンタル不調で数ヶ月休業した場合、収入が完全にゼロになる</li>
-                <li>フリーランス化の増加に伴い、この「社会保険の死角」に入る看護師が急増している</li>
-              </ul>
-            </div>
-
-            {/* CTA①：S1後 */}
-            <div className="my-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">看護師の夜勤手当消滅リスクに対応した設計をFPに相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">復職後の収入減まで見据えた無料相談が可能です</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
-              </div>
-              <p className="text-center text-xs text-gray-400 mt-3">※ 相談・資料請求は無料です</p>
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 育休復帰直後が最も保障が薄いタイミングです</p>
+              <p className="text-sm text-amber-700 mb-1">育休後に夜勤免除・短時間勤務を選ぶと</p>
+              <p className="text-sm text-amber-700 mb-1"><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条の2</a>により標準報酬月額が引き下げられます。</p>
+              <p className="text-sm text-amber-700 mb-1">この直後に体調を崩して休業すると、低い水準で傷病手当金が算定されます。</p>
+              <p className="text-sm text-amber-700">「育休から復帰したら収入保障保険を見直す」ことが鉄則です。</p>
             </div>
           </section>
 
-          {/* セクション2：比較表 */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">看護師の勤務形態別・収入保障関連制度比較</h2>
-            <p className="text-gray-600 text-sm mb-4">
-              看護師の勤務形態によって、就業不能時の公的補償の有無と
-              民間保険の必要水準が大きく異なります。
-            </p>
-            <div className="overflow-x-auto rounded-xl shadow">
-              <table className="min-w-full text-sm border-collapse">
-                <thead>
-                  <tr>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>勤務形態</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>健康保険</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>傷病手当金</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>夜勤手当</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>就業不能時の最大リスク</span>
-                    </th>
-                    <th style={{background:'#1b2631',padding:'10px'}}>
-                      <span style={{color:'#ffffff',WebkitTextFillColor:'#ffffff',fontWeight:'bold',display:'block'}}>民間保険の優先度</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="bg-white">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">病院・クリニック正規雇用</td>
-                    <td className="border border-gray-200 px-3 py-2">協会けんぽ・健保組合</td>
-                    <td className="border border-gray-200 px-3 py-2 text-green-700">✅ 月給の2/3・最長18ヶ月</td>
-                    <td className="border border-gray-200 px-3 py-2">月5〜6万円（二交代4〜5回）</td>
-                    <td className="border border-gray-200 px-3 py-2">復職後の夜勤免除で手取りが傷病手当金以下に</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-orange-600">高：夜勤手当消滅期間の補填が必要</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">派遣・パート看護師</td>
-                    <td className="border border-gray-200 px-3 py-2">協会けんぽ（条件次第）または国保</td>
-                    <td className="border border-gray-200 px-3 py-2 text-orange-600">条件次第で❌</td>
-                    <td className="border border-gray-200 px-3 py-2">手当が少ない・不安定</td>
-                    <td className="border border-gray-200 px-3 py-2">社会保険未加入なら補償ゼロ</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-red-600">🔴 最高</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="border border-gray-200 px-3 py-2 font-medium">訪問看護・フリーランス（業務委託）</td>
-                    <td className="border border-gray-200 px-3 py-2">国民健康保険</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600">❌ なし</td>
-                    <td className="border border-gray-200 px-3 py-2">なし</td>
-                    <td className="border border-gray-200 px-3 py-2 text-red-600 font-medium">休業初日から収入ゼロ</td>
-                    <td className="border border-gray-200 px-3 py-2 font-bold text-red-600">🔴 最高：公的補償が完全にゼロ</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-600">
-              <p className="font-bold text-gray-700 mb-1">📌 傷病手当金と復職後手取りの逆転について</p>
-              <p>
-                看護師の傷病手当金は「休職直前の標準報酬月額（夜勤手当・残業代を含む）」の
-                3分の2が支給されます。しかし復職後に夜勤免除・残業なしになると、
-                支給される給与は基本給のみとなり、傷病手当金の受給額を下回る
-                「復職後手取り逆転現象」が発生します。
-              </p>
-            </div>
-          </section>
-
-          {/* セクション3：リスクデータ */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">看護師特有のリスクデータ——統計で見る3つの脅威</h2>
-
-            {/* リスク① */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク①：「復職後の夜勤手当消滅」——休職中より復職後の方が手取りが少なくなる逆転現象</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  日本看護協会の2024年調査によると、看護師の夜勤手当は
-                  二交代制で1回あたり<strong>11,815円</strong>。
-                  月4〜5回の夜勤をこなすと月額約<strong>5〜6万円</strong>の手当が発生し、
-                  これが看護師の実質的な生活水準を支えている。
-                  過去12年間での増加幅はわずか1,000円前後であり、
-                  基本給が低く夜勤手当依存の給与構造が定着している。
-                </p>
-                <p>
-                  ところがメンタル不調（うつ病・燃え尽き症候群）や
-                  腰痛・針刺し事故による身体疾患から復職する際、
-                  病院側が健康配慮として「夜勤免除・残業なし」の措置を適用すると、
-                  この月5〜6万円の手当が完全に消滅する。
-                </p>
-                <p>
-                  傷病手当金は「休職直前の標準報酬月額（夜勤手当込み）」の
-                  3分の2が支給されるため、休職中は一定の水準を維持できる。
-                  しかし復職後は「基本給のみ」の給与となり、
-                  <strong>傷病手当金の受給額を下回るという逆転現象が頻発する</strong>。
-                  就業不能保険は「休業中の補填」だけでなく、
-                  「復職後の夜勤免除期間（最低6ヶ月〜1年）における手当消滅分の補填」として
-                  設計しなければ本当のリスクをカバーできない。
-                </p>
-                <a
-                  href="https://www.nurse.or.jp/nursing/assets/kangochingin_report_2024.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：日本看護協会「2024年 病院看護・助産実態調査」→
-                </a>
-              </div>
-            </div>
-
-            {/* リスク② */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク②：「79.5%の病院でメンタル不調による長期休職者が発生」——構造的・職業的リスクとしての精神疾患</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  日本看護協会の調査によると、対象病院の<strong>79.5%</strong>で
-                  1ヶ月以上の病気休暇取得者が発生しており、
-                  1病院あたり平均<strong>5.4人</strong>がメンタル不調で長期休職している。
-                  一般病棟における<strong>72時間超の夜勤者率は33.9%</strong>にのぼり、
-                  慢性的な過重労働が常態化している。
-                </p>
-                <p>
-                  これは個人の適性の問題ではなく、
-                  職業構造に根差した統計的・必然的なリスクである。
-                  燃え尽き症候群（バーンアウト）やうつ病による休職は
-                  数ヶ月〜1年以上に及ぶことが多く、
-                  夜勤手当依存の家計構造を持つ看護師にとって
-                  経済的な打撃は甚大となる。
-                </p>
-                <p>
-                  精神疾患を給付対象外とする就業不能保険や、
-                  給付回数に上限がある保険は看護師には不向きである。
-                  再発リスクも高い精神疾患への備えとして、
-                  複数回の就業不能状態をカバーできる保険設計が必要だ。
-                </p>
-                <a
-                  href="https://www.nurse.or.jp/home/about/newsrelease/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：日本看護協会「ニュースリリース」→
-                </a>
-              </div>
-            </div>
-
-            {/* リスク③ */}
-            <div className="rounded-2xl overflow-hidden shadow mb-8">
-              <div className="bg-[#1b2631] px-6 py-4">
-                <h3 className="text-white font-bold text-lg">リスク③：「フリーランス看護師の社会保険の死角」——訪問看護・業務委託化が招く傷病手当金ゼロリスク</h3>
-              </div>
-              <div className="bg-white px-6 py-5 space-y-3 text-gray-700 leading-relaxed text-sm">
-                <p>
-                  近年、地域医療へのシフトと働き方の多様化に伴い、
-                  訪問看護ステーションで業務委託・フリーランスとして
-                  働く看護師が増加している。
-                  これらの看護師は雇用保険・厚生年金・健康保険（協会けんぽ）の
-                  対象外となり、国民健康保険に加入することになる。
-                </p>
-                <p>
-                  国民健康保険には傷病手当金という制度が存在しないため、
-                  骨折・交通事故・メンタル不調で数ヶ月就業不能になっても、
-                  <strong>休業初日から収入が完全にゼロ</strong>となる。
-                  社会保険の強力なセーフティネットの外側に
-                  自ら踏み出すリスクを正しく理解しないまま
-                  フリーランス化する看護師の無防備さが露呈している。
-                </p>
-                <p>
-                  フリーランス看護師は民間の収入保障保険・就業不能保険で
-                  公的補償の剥落分を全額自己手配しなければならない。
-                  「自由な働き方」と引き換えに、
-                  病気・けがのリスクを丸ごと自己負担することになる現実を直視する必要がある。
-                </p>
-                <a
-                  href="https://www.jil.go.jp/kokunai/blt/backnumber/2025/08_09/rouso_01.html"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="inline-block text-blue-600 underline text-xs mt-2"
-                >
-                  出典：労働政策研究・研修機構「フリーランスの社会保険」→
-                </a>
-              </div>
-            </div>
-
-            {/* CTA②：S3後 */}
-            <div className="my-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">看護師の働き方に合った収入保障設計を無料相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">正規・派遣・フリーランス、どの形態でも対応します</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
-              </div>
-            </div>
-          </section>
-
-          {/* セクション4：チェックポイント */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">看護師の収入保障保険選び5つのチェックポイント</h2>
-            <div className="space-y-5">
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">1</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">「休業中の補填」だけでなく「復職後の夜勤免除期間の補填」までカバーできる保険を選ぶ</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    精神疾患・身体疾患からの復職時に夜勤免除・時短勤務を余儀なくされる期間（最低6ヶ月〜1年）の
-                    収入減を長期的に補填できる設計にする。
-                    「休業状態」のみを条件とする保険では復職後の最大のリスクをカバーできない。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">2</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">精神疾患（うつ病・適応障害）もカバーする就業不能保険を選ぶ</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    対象病院の79.5%でメンタル不調による長期休職者が発生している事実を踏まえ、
-                    精神疾患による就業不能も給付対象となる保険を選ぶ。
-                    精神疾患を給付対象外とする保険や、給付回数に上限がある保険は看護師には不向き。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">3</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">フリーランス・訪問看護師は傷病手当金ゼロを前提に設計する</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    国民健康保険加入の場合、傷病手当金が存在しないため
-                    民間の収入保障保険・就業不能保険で休業中の収入を全額自己手配する必要がある。
-                    月額給付金は最低限の生活費（家賃・食費・奨学金返済等）を賄える水準（月10〜15万円）に設定する。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">4</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">腰痛・針刺し事故・感染症リスクに対応した医療保険とセットで加入する</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    患者の移乗・体位変換による腰痛（椎間板ヘルニア）や、
-                    B型・C型肝炎等の針刺し事故リスクは
-                    収入保障保険と合わせて医療保険でカバーする。
-                    看護師特有の身体的リスクを網羅した設計が必要。
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">5</div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">夜勤手当依存の家計構造を認識し、手当消滅後の生活費を計算する</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    現在の手取り収入から夜勤手当・時間外手当を除いた「基本給のみの手取り」を計算し、
-                    その金額で生活費・ローン・奨学金返済が賄えるかを確認する。
-                    不足分が就業不能保険の必要給付額となる。
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          {/* セクション5：失敗事例 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師のケース別・就業不能損失シミュレーション
+            </h2>
             <div className="space-y-6">
 
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例① うつ病から復職後、夜勤手当消滅で手取りが傷病手当金以下に——奨学金返済が滞り退職</h3>
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：総合病院勤務看護師（35歳・年収520万円）
                 </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Aさん（28歳・女性・病棟看護師）。
-                  重度のうつ病により半年間休職し、傷病手当金（夜勤手当込みの標準報酬月額ベース）を受給しながら療養。
-                  「日勤のみ」の条件で復職を果たした。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>復職した月以降、夜勤手当と時間外手当がゼロになったことで
-                  手取り額が休職中の傷病手当金を下回った。
-                  奨学金の返済と家賃の支払いが滞り、経済的困窮から自己都合退職に追い込まれた。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>看護師の就業不能保険は「休職中」の補填だけでなく、
-                  「復職後の夜勤免除・時短勤務期間」の大幅な減収を長期間カバーできるタイプ（精神疾患も対象）を選ぶこと。</p>
+                <p className="text-sm text-gray-600 mb-4">基本給月27万円＋夜勤手当月8万円・健保加入 / 腰椎椎間板ヘルニアで6ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">夜勤依存度 N/B</div>
+                    <div className="font-bold text-gray-900">N/B ≒ 0.30</div>
+                    <div className="text-xs text-gray-500">8万円 ÷ 27万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">実質保障率R</div>
+                    <div className="font-bold text-red-700">R ≒ 51.3%</div>
+                    <div className="text-xs text-gray-500">(2/3) / (1 + 0.30)　制度上の「3分の2」が崩壊</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-gray-900">約18万円</div>
+                    <div className="text-xs text-gray-500">基本給27万円 × 2/3（夜勤手当消滅後）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">実質月収との差額</div>
+                    <div className="font-bold text-red-700">月▲17万円</div>
+                    <div className="text-xs text-gray-500">月収35万円 - 傷病手当金18万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">102万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">夜勤手当消滅による差額ΔSB</div>
+                    <div className="font-bold text-gray-900">月5.3万円（N × 2/3 = 8万 × 2/3）</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額17万円（実質月収との差額を補填）</div>
                 </div>
               </div>
 
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例② 夜勤専従の腰痛手術——傷病手当金では固定費が賄えず貯蓄を急速に切り崩し</h3>
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：訪問看護ステーション勤務（30代・年収420万円）
                 </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Bさん（35歳・夜勤専従看護師）。
-                  長年の過酷な勤務により腰椎椎間板ヘルニアが悪化し、手術のため3ヶ月の休職。
-                  夜勤専従の特別手当を含む高い給与を前提に車のローンや生活水準を設計していた。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>休業中の傷病手当金は額面の2/3のみで、
-                  夜勤専従手当（月2.5万円）が消滅した状態での計算となり、
-                  毎月の固定費を賄えなかった。貯蓄を急速に切り崩す生活が3ヶ月続いた。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>夜勤手当に依存した家計構造を持つ看護師は、
-                  「基本給のみの手取り」で生活費を賄えるかを事前に計算し、
-                  不足分を民間の収入保障保険でカバーしておく必要がある。</p>
+                <p className="text-sm text-gray-600 mb-4">業務委託・国保加入 / 重篤疾患で6ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">月収</div>
+                    <div className="font-bold text-gray-900">約35万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失</div>
+                    <div className="font-bold text-gray-900">210万円（全額喪失）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">正職員との保障格差（6ヶ月）</div>
+                    <div className="font-bold text-gray-900">108万円（正職員の傷病手当金18万×6）</div>
+                  </div>
                 </div>
-              </div>
-
-              <div className="rounded-2xl overflow-hidden shadow">
-                <div className="bg-slate-700 px-6 py-3">
-                  <h3 className="text-white font-bold">事例③ 訪問看護フリーランスに転向後、交通事故で2ヶ月就業不能——収入が完全にゼロに</h3>
-                </div>
-                <div className="bg-white px-6 py-5 text-sm text-gray-700 space-y-2 leading-relaxed">
-                  <p><span className="font-bold">状況：</span>Cさん（32歳・女性・訪問看護フリーランス）。
-                  「自由な働き方」を求めて業務委託の訪問看護師に転向。
-                  休日に交通事故に遭い右腕を骨折、2ヶ月間就業不能に。</p>
-                  <p><span className="font-bold text-red-600">問題：</span>国民健康保険加入のため傷病手当金という制度が存在せず、
-                  労災特別加入もしていなかったため休業期間中の収入が完全にゼロとなった。
-                  フリーランス転向時に社会保険の喪失リスクを正確に把握していなかった。</p>
-                  <p><span className="font-bold text-blue-600">教訓：</span>フリーランス看護師は社会保険の強力なセーフティネットを
-                  自ら手放している状態であることを認識し、
-                  民間の収入保障保険・就業不能保険で公的補償の剥落分を全額自己手配しなければならない。</p>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額35万円（全額を民間保険でカバー）</div>
                 </div>
               </div>
 
             </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              夜勤手当消滅の数式根拠：実質保障率 R = (2/3) / (1 + N/B)（N=夜勤手当・B=基本給）。傷病手当金の算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>。訪問看護師の傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。育休後の標準報酬月額改定：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条の2</a>。
+            </p>
           </section>
 
-          {/* セクション6：チェックリスト + 最終CTA */}
+          {/* セクション3：リスクデータ3件 */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">看護師の収入保障保険加入前チェックリスト（8項目）</h2>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-3">
-              {[
-                '現在の勤務形態（病院正規雇用・派遣・フリーランス）と健康保険の種類を確認した',
-                'フリーランス・訪問看護の場合、傷病手当金ゼロを前提に民間保険を手配済み',
-                '精神疾患（うつ病・適応障害）もカバーする就業不能保険を選んだ',
-                '「復職後の夜勤免除期間（6ヶ月〜1年）」の収入減までカバーできる保険設計にした',
-                '基本給のみの手取り額を計算し、生活費との差額を保険給付額として設定した',
-                '腰痛・針刺し事故リスクに備えた医療保険を収入保障保険とセットで確保した',
-                '夜勤手当・時間外手当を除いた「最低限の手取り」で生活できる家計設計を確認した',
-                '奨学金返済がある場合、就業不能時の返済原資を保険給付金でカバーできる水準に設定した',
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 border-2 border-gray-300 rounded mt-0.5" />
-                  <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師特有のリスクデータ（政府統計・法令根拠）
+            </h2>
+            <div className="space-y-6">
 
-            {/* CTA③：S6後 */}
-            <div className="mt-10 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl">
-              <p className="text-center font-bold text-gray-800 mb-1">チェックリストを確認したら、専門FPへ無料相談</p>
-              <p className="text-center text-sm text-gray-500 mb-4">看護師の夜勤手当構造・フリーランスリスクを熟知したプロが対応</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://miraitecho.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  📋 ミライ帖でFP無料相談する
-                </a>
-                <a href="https://www.minnano-hoken.com/" rel="noopener noreferrer" target="_blank"
-                  className="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-6 rounded-full text-center shadow hover:opacity-90 transition">
-                  🌿 みんなの生命保険アドバイザーに相談
-                </a>
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「実質保障率の崩壊」——夜勤依存度が高いほど就業不能時の保障が「3分の2」から遠ざかる数学的証明</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  看護師の基本給B・夜勤手当N・実収入 I_n = B + N。就業不能時の傷病手当金：SB = B × 2/3（夜勤手当は休業中消滅）。実質保障率：R = SB / I_n = (B × 2/3) / (B + N) = (2/3) / (1 + N/B)
+                </p>
+                <div className="bg-blue-50 rounded p-3 mb-3 font-mono text-sm text-blue-900">
+                  N/B = 0（夜勤なし）：R = 2/3 ≒ 66.7%（制度通り）<br />
+                  N/B = 0.20：R = (2/3) / 1.20 ≒ 55.6%<br />
+                  N/B = 0.30（典型的看護師）：R ≒ 51.3%<br />
+                  N/B = 0.50：R = (2/3) / 1.50 ≒ 44.4%
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  夜勤依存度N/Bが上昇するほどRが急落し、「3分の2保障」という制度の建前が実態では5割以下になります。「月の夜勤回数が多いほど、就業不能時の保障が薄くなる」という数学的に証明された構造的欠陥が日本の健康保険制度に内在しています。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://www.nurse.or.jp/home/assets/20260331_nl01.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">日本看護協会「2025年病院看護実態調査」</a>
+                </p>
               </div>
-              <p className="text-center text-xs text-gray-400 mt-3">※ 相談・資料請求は無料です</p>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「育休復帰直後の保障の谷」——最も疲弊しているタイミングで最も保障が薄くなる逆説</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  産前産後休業・育児休業から復帰した看護師が夜勤免除・短時間勤務を選択すると、<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条の2（育休等終了時改定）</a>により標準報酬月額が引き下げられます。この改定が行われた直後に就業不能に陥ると、引き下げ後の低い標準報酬月額で傷病手当金が算定されます。
+                </p>
+                <div className="bg-red-50 rounded p-3 mb-3 border border-red-200">
+                  <p className="text-sm text-red-800 mb-1">育休前：標準報酬月額35万円 → 傷病手当金約23.3万円</p>
+                  <p className="text-sm text-red-800 mb-1">育休復帰後（夜勤免除・時短）：標準報酬月額20万円 → 傷病手当金約13.3万円</p>
+                  <p className="text-sm text-red-800 font-semibold">差額：月10万円の保障が消滅</p>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  「育休から復帰した直後が最も体力・精神力が落ちていて就業不能リスクが高いのに、最も保障が薄いタイミングでもある」という残酷な逆説が存在します。育休復帰のタイミングで必ず収入保障保険を見直すことが不可欠です。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「雇用形態による保障の天と地の差」——同じ看護業務で月0〜35万円の格差</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  同じ看護師免許を持ち、同じ業務をしていても、病院正職員（健保加入）と訪問看護・フリーランス（国保加入）では就業不能時の保障に天と地の差が生じます。
+                </p>
+                <div className="bg-orange-50 rounded p-3 mb-3 border border-orange-200">
+                  <p className="text-sm text-orange-800 mb-1">正職員（健保）：傷病手当金 月約18万円（基本給ベース）</p>
+                  <p className="text-sm text-orange-800 mb-1">フリーランス（国保）：傷病手当金 ゼロ（<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>）</p>
+                  <p className="text-sm text-orange-800 font-semibold">6ヶ月で108万円の格差が発生</p>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  近年、在宅医療の拡大に伴い訪問看護ステーションの業務委託・フリーランス看護師が急増していますが、保障の薄さへの認識が追いついていないのが実態です。業務委託・フリーランス看護師は収入保障保険への加入が生存戦略の絶対条件となります。
+                </p>
+              </div>
+
             </div>
           </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント5つ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師の収入保障保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">1</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">N/B（夜勤依存度）を計算し自分の実質保障率Rを把握する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      給与明細で基本給Bと夜勤手当Nを確認し、N/B を計算します。R = (2/3) / (1 + N/B) で実質保障率を算出します。（実質月収 I_n）-（傷病手当金 SB）が収入保障保険でカバーすべき月額の目安です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">2</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">育休復帰のタイミングで必ず保険を見直す</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      育休後に夜勤免除・時短勤務を選んだ場合、<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条の2</a>により標準報酬月額が低下しています。現在の傷病手当金を再計算し、不足分を収入保障保険で補填します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">3</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">業務委託・フリーランスの場合は給付月額を最大化する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      国保加入で傷病手当金ゼロのため、実収入の全額を収入保障保険でカバーする設計が必要です。支払対象外期間（免責期間）を最短（7日）に設定します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">4</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">腰痛・針刺し事故の労災認定が困難なことを認識する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      慢性的な腰痛や職業性疾患は、労災の業務起因性の立証が難しいケースがあります。労災認定を期待せず、民間収入保障保険で自衛する設計が現実的です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">5</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">特定行為研修修了者は資格維持と長期療養の両立リスクを把握する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      保健師助産師看護師法第37条の2に基づく特定行為研修修了者の資格要件維持には研修が必要です。「治療に専念できる経済的余裕」が資格維持にも直結します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師の収入保障保険よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  育休復帰直後に精神疾患で休職。標準報酬月額が下がっていて傷病手当金が月10万円減った
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Aさん（33歳・総合病院看護師・年収520万円）。第2子育休から夜勤免除・時短勤務で復帰した3ヶ月後に職場環境の変化と育児疲労からうつ病を発症し6ヶ月の休職が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条の2</a>の育休等終了時改定により標準報酬月額が35万円から20万円に引き下げられていました。傷病手当金は引き下げ後の水準（月約13.3万円）で算定され、育休前の試算（月約23.3万円）より月10万円少なくなりました。住宅ローンと保育料の支払いで家計が破綻寸前に陥りました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（健康保険法第43条の2・第99条）：</span>育休復帰後は標準報酬月額が低下しています。復帰のタイミングで傷病手当金を再計算し、収入保障保険の見直しを必ず行うこと。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  訪問看護師がコロナ後遺症で3ヶ月休業。傷病手当金ゼロで貯蓄が底をついた
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Bさん（35歳・訪問看護ステーション・業務委託・国保加入・月収35万円）。新型コロナウイルス感染後の後遺症（倦怠感・息切れ）で3ヶ月の療養が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金はゼロ。3ヶ月間の収入損失105万円が全額自己負担となり、貯蓄が底をつきました。同じ病棟で働いていた正職員の同僚は傷病手当金を受け取っていると知り、雇用形態の違いによる保障格差に愕然としました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（国民健康保険法第58条第2項）：</span>業務委託・フリーランス看護師は傷病手当金ゼロを前提に収入保障保険（月額給付型）への加入が必須です。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  夜勤専従看護師が腰椎ヘルニアで6ヶ月休業。傷病手当金が月収の半分以下だった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Cさん（38歳・夜勤専従看護師・基本給22万円・夜勤手当13万円・月収35万円）。腰椎椎間板ヘルニアの悪化で6ヶ月の就業不能が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span>N/B = 13万/22万 ≒ 0.59。実質保障率 R = (2/3) / (1 + 0.59) ≒ 41.9%。月収35万円に対して傷病手当金は基本給ベースの月約14.7万円のみ。差額は月▲20.3万円——月収の58%が補填されない状態。6ヶ月で121.8万円の収入損失が発生し、家計が破綻しました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>）：</span>夜勤依存度N/Bが高いほど実質保障率Rが低下します。夜勤専従・夜勤回数が多い看護師ほど収入保障保険の優先度が高くなります。
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              看護師の収入保障保険 最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  '給与明細でN/B（夜勤依存度）を計算した',
+                  'R = (2/3) / (1 + N/B) で自分の実質保障率を算出した',
+                  '実質月収 - 傷病手当金 = 毎月の不足額を把握し収入保障保険の月額給付を設定した',
+                  '育休復帰後に標準報酬月額が低下していないか確認した（健康保険法第43条の2）',
+                  '業務委託・フリーランスの場合、傷病手当金ゼロを前提に設計した（国民健康保険法第58条第2項）',
+                  '腰痛・針刺し事故の労災認定が困難なことを認識し民間保険で自衛する設計にした',
+                  '支払対象外期間（免責期間）を雇用形態に合わせて設定した',
+                  '特定行為研修修了者は資格維持と長期療養の両立リスクを把握した',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="w-5 h-5 border-2 border-gray-400 rounded shrink-0 mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
