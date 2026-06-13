@@ -15772,9 +15772,6 @@ export default async function OccupationInsurancePage({ params }: Props) {
               </p>
             </div>
 
-            <p className="text-sm text-gray-600 mb-4 text-center">
-              事業債務・子の有無・配偶者の年齢——自分の条件での必要保険金額は、計算が複雑です。FPへの無料相談なら、この3つを伝えるだけで答えが出ます。
-            </p>
             <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
 
@@ -15915,9 +15912,6 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             </div>
 
-            <p className="text-sm text-gray-600 mb-4 text-center">
-              リスクの大きさはわかった。でも自分の場合いくら必要かは別の話です。それを一緒に整理してくれるのが無料FP相談の本来の使い方です。
-            </p>
             <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
 
@@ -16037,9 +16031,6 @@ export default async function OccupationInsurancePage({ params }: Props) {
               </ul>
             </div>
 
-            <p className="text-sm text-gray-600 mb-4 text-center">
-              チェックリストで気になる項目があったなら、それをそのままFPに見せてください。何をどう備えればいいか、無料で整理してもらえます。
-            </p>
             <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
 
