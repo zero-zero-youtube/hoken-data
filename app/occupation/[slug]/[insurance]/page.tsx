@@ -368,6 +368,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isSalesMedical = occ.slug === 'sales' && ins.slug === 'medical'
   const isSalesCancer = occ.slug === 'sales' && ins.slug === 'cancer'
   const isSalesDisability = occ.slug === 'sales' && ins.slug === 'disability'
+  const isSalesChild = occ.slug === 'sales' && ins.slug === 'child'
   const isDriverLife = occ.slug === 'driver' && ins.slug === 'life'
   const isDriverIncomeProtection = occ.slug === 'driver' && ins.slug === 'income-protection'
   const isDriverCancer = occ.slug === 'driver' && ins.slug === 'cancer'
@@ -408,7 +409,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -12747,6 +12748,342 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   '精神疾患（うつ病・適応障害）が支払対象か確認した',
                   '就業不能の定義が「現在の職業に就けない状態」をカバーするか確認した',
                   '就業規則の休職期間満了後も給付が継続することを確認した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA③ */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+        </div>
+      )}
+
+{isSalesChild && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">
+              営業職の学資保険——「払込困難リスク」と「払込免除特約」を徹底解説
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              営業職の学資保険設計には、大手比較サイトが一切触れていない「所得変動による払込困難リスク」と「払込免除特約の絶対的重要性」があります。学資保険は毎月・毎年定額の保険料払い込みを前提としますが、営業職の収入は歩合給の変動により極端にブレます。払込困難確率は P_default = Φ((C+P-μ) / (CV×μ)) で表され、変動係数CVが高い営業職ほどP_defaultが上昇します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              払込リスク調整後の実質利回り R_adj = R - P_default×(R-R_lapse) は、CVが大きくなるほどカタログスペック上の利回りRから大きく低下し、マイナスに転落するリスクすら生じます。変動所得環境下では、平準払いの学資保険の金融的価値が構造的に目減りします。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに、営業職は過労死リスクが高く（卸売業・小売業の脳・心臓疾患労災135件）、親が万が一の状態に陥った際の「払込免除特約」の有無が子の教育完遂の生命線となります。歩合給激減時に払済保険へ変更すると払込免除機能が消滅する点も見落とせません。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-3">🚨 営業職の所得変動は学資保険を機能不全にさせます</p>
+              <div className="bg-white rounded p-3 border border-red-200 mb-3 font-mono text-sm text-gray-800 space-y-1">
+                <p>払込困難確率 P_default = Φ((C+P-μ) / (CV×μ))</p>
+                <p>払込リスク調整後利回り R_adj = R - P_default×(R-R_lapse)</p>
+              </div>
+              <ul className="text-sm text-red-800 space-y-1">
+                <li>・CVが大きいほどP_defaultが上昇</li>
+                <li>・CVが高い営業職では R_adj がマイナスに転落するリスクがあります</li>
+                <li>・歩合給がゼロになった月の保険料払込困難に備えた設計が必要です</li>
+              </ul>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 払済保険に変更すると払込免除特約が消滅します</p>
+              <ul className="text-sm text-amber-800 space-y-1">
+                <li>・歩合給激減時に「払済保険への変更」を選ぶとその後の払込免除機能が失われます</li>
+                <li>・数年後に親が高度障害に陥っても教育資金が保全されなくなります</li>
+                <li>・払済変更の前に、収入保障保険等で流動性を確保することが先決です</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA① */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              営業職の学資保険リスクシミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：月収固定の公務員等（CV低・払込リスク小）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">比較基準として提示</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">月収の変動係数CV</div>
+                    <div className="font-bold text-gray-900">CV ≒ 0.1（安定）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">払込困難確率P_default</div>
+                    <div className="font-bold text-gray-900">ほぼ0%</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">払込リスク調整後利回りR_adj</div>
+                    <div className="font-bold text-gray-900">≒ R（カタログ通り）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">学資保険の機能</div>
+                    <div className="font-bold text-gray-900">満期まで継続可能</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な追加対策</div>
+                  <div className="font-bold text-blue-700 text-xl">学資保険のみで完結</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：歩合給依存の営業職（CV高・払込リスク大）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">月収の変動が激しいケース</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-red-100">
+                    <div className="text-xs text-gray-500 mb-1">月収の変動係数CV</div>
+                    <div className="font-bold text-red-700">CV ≒ 0.5（変動大）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">払込困難確率P_default</div>
+                    <div className="font-bold text-red-700">15%以上（歩合ゼロ月が連続時）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">払込リスク調整後利回りR_adj</div>
+                    <div className="font-bold text-red-700">マイナスに転落するリスク</div>
+                    <div className="text-xs text-gray-500">R_adj = R - P_default×(R-R_lapse)</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-red-100">
+                    <div className="text-xs text-gray-500 mb-1">払込免除特約の重要性</div>
+                    <div className="font-bold text-gray-900">過労死リスクが高く特約が生命線</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な追加対策</div>
+                  <div className="font-bold text-red-700 text-xl">払込免除特約付加＋収入保障保険で月5万円以上の流動性確保</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              教育費データ出典：<a href="https://www.mext.go.jp/a_menu/koutou/shinkou/07021403/1412031_00004.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">文部科学省・私立大学等の令和7年度入学者に係る学生納付金等調査</a>。払込困難確率の数式：P_default = Φ((C+P-μ) / (CV×μ))。払込リスク調整後利回り：R_adj = R - P_default×(R-R_lapse)。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              営業職特有のリスクデータ（政府統計3件）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「払込リスク調整後利回りの崩壊」——変動所得環境では学資保険の金融価値が構造的に目減りする数学的証明</h3>
+                </div>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-4">
+                  <p className="text-sm text-gray-700 mb-2">月次収入をX〜N(μ, σ²)、生活費C、保険料Pとする。</p>
+                  <div className="space-y-1 text-sm font-mono text-gray-800">
+                    <p>CV = σ/μ（変動係数）</p>
+                    <p>P_default = Φ((C+P-μ) / (CV×μ))</p>
+                    <p className="mt-2 font-bold">R_adj = R - P_default×(R-R_lapse)</p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  CVが大きいほどP_defaultが上昇し、R_adjがRから乖離してマイナスに転落する。平準払いの学資保険はCVの高い職種において本質的に相性が悪い。収入が大きく上振れした年に一時払いする金融商品の設計が数理的な最適解となる。
+                </p>
+                <a href="https://www.mext.go.jp/a_menu/koutou/shinkou/07021403/1412031_00004.htm" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：文部科学省・私立大学等の令和7年度入学者に係る学生納付金等調査
+                </a>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「払込免除特約の生命線」——過労死リスクが高い営業職こそ特約が最重要</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">135件</div>
+                    <div className="text-xs text-gray-600">脳・心臓疾患労災請求<br/>（卸売・小売業）</div>
+                  </div>
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">全業種<br/>第2位</div>
+                    <div className="text-xs text-gray-600">業種別過労死労災請求件数</div>
+                  </div>
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">0円</div>
+                    <div className="text-xs text-gray-600">払込免除特約付きなら<br/>親の万が一後の保険料</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  親が死亡・高度障害に陥った際、払込免除特約があれば以後の保険料が全額免除され満期金は予定通り受け取れる。これは投資信託等の純粋な積立商品では絶対に提供できない機能。過労死リスクの高い営業職にとって払込免除特約は「最後の砦」であり、特約付きの学資保険の優位性が数理的に証明される。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_40975.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「教育費インフレと学資保険の利回りの乖離」——300万円では私大学費に全く届かない現実</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                  <div className="bg-yellow-50 rounded p-4 border border-yellow-200 text-center">
+                    <div className="text-xs text-gray-500 mb-1">私大文系・初年度納付金</div>
+                    <div className="font-bold text-gray-900 text-xl">約119万円</div>
+                  </div>
+                  <div className="bg-yellow-50 rounded p-4 border border-yellow-200 text-center">
+                    <div className="text-xs text-gray-500 mb-1">私大理系・初年度納付金</div>
+                    <div className="font-bold text-gray-900 text-xl">約153万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-4 border border-red-200 text-center">
+                    <div className="text-xs text-gray-500 mb-1">一般的な学資保険の満期金</div>
+                    <div className="font-bold text-red-700 text-xl">約300万円</div>
+                    <div className="text-xs text-red-600">私大4年間の約半分</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  4年間の総学費は文系で約450〜500万円、理系で約550〜600万円に達する。一般的な学資保険の満期受取額（300万円程度）では私大学費の半分程度しかカバーできない。学資保険は「一部の教育資金」として位置づけ、NISA・積立投資・収入保障保険との組み合わせで不足分をカバーする設計が必要。
+                </p>
+                <a href="https://www.mext.go.jp/a_menu/koutou/shinkou/07021403/1412031_00004.htm" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：文部科学省・私立大学等の令和7年度入学者に係る学生納付金等調査
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* CTA② */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              営業職の学資保険選び 5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '01',
+                  title: '払込免除特約を必ず付加する',
+                  body: '過労死リスクが高い営業職にとって最優先事項。親が万が一の状態に陥っても子の教育資金が保全される唯一の手段。',
+                },
+                {
+                  num: '02',
+                  title: '歩合ゼロ月でも払える保険料水準に設定する',
+                  body: 'CVを意識し、最悪の月（歩合ゼロ）でも支払い可能な保険料に抑える。教育資金の不足分はNISA・積立投資で補完する二刀流設計が最適。',
+                },
+                {
+                  num: '03',
+                  title: '払済保険への変更は最後の手段と認識する',
+                  body: '歩合激減時に安易に払済変更すると払込免除機能が消滅する。まず収入保障保険で流動性を確保してから判断する。',
+                },
+                {
+                  num: '04',
+                  title: '満期時期を子の大学入学（18歳）に合わせる',
+                  body: '私立大学の初年度納付金は約119〜153万円と高額。18歳時に満期を迎えるよう設定し、初年度の資金ショートを防ぐ。',
+                },
+                {
+                  num: '05',
+                  title: '学資保険は「一部」と割り切り不足分を別途準備する',
+                  body: '満期受取額300万円では私大4年間の学費600万円に届かない。NISA・積立投資と組み合わせ、総額を確保する設計を立てる。',
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-gray-700">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded mb-3">事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">歩合ゼロ月が3ヶ月続き学資保険が失効した。解約返戻金が払込総額を下回った</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Aさん（38歳・不動産営業・年収600万円・学資保険月2万円）。市場悪化で歩合がゼロの月が3ヶ月連続し、生活費が圧迫された。</p>
+                  <p><span className="font-bold">問題：</span>保険法第28条の猶予期間を過ぎて学資保険が失効。解約返戻金が払込総額を下回り、数十万円の損失が発生した。収入保障保険で生活費の流動性を確保していれば学資保険を維持できた。</p>
+                </div>
+                <div className="bg-red-50 rounded p-3 border border-red-200">
+                  <p className="text-sm font-bold text-red-800">教訓（保険法第28条）：歩合ゼロ月でも払える保険料設定と、生活費の流動性確保が学資保険継続の前提条件。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-orange-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded mb-3">事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">資金繰り悪化で払済保険に変更。その後親が高度障害に陥り教育資金が保全されなかった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Bさん（40歳・保険営業・業績不振で収入激減）。「保険料負担を逃れたい」と払済保険に変更した。</p>
+                  <p><span className="font-bold">問題：</span>払済変更により払込免除特約が消滅。2年後に心臓疾患で高度障害状態に陥ったが、教育資金は払済金額のみで固定された。払済変更前に就業不能保険で収入補填の設計をしていれば学資保険を維持できた。</p>
+                </div>
+                <div className="bg-orange-50 rounded p-3 border border-orange-200">
+                  <p className="text-sm font-bold text-orange-800">教訓：払済変更＝払込免除機能の消滅。過労死リスクの高い営業職にとって致命的。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-yellow-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mb-3">事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">15年前の学資保険の満期金300万円を受け取ったが私大理系の学費に全く足りなかった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Cさん（親・52歳）。15年前に学資保険（満期300万円）に加入。子が私立大学理系に合格し初年度納付金153万円の請求が届いた。</p>
+                  <p><span className="font-bold">問題：</span>4年間の総学費は約600万円の見込みで、学資保険の300万円では半分しかカバーできない。低金利時代の予定利率で固定された保険では教育費インフレに対応できなかった。追加の積立（NISA等）を並行して準備していなかった。</p>
+                </div>
+                <div className="bg-yellow-50 rounded p-3 border border-yellow-200">
+                  <p className="text-sm font-bold text-yellow-800">教訓：学資保険は「一部の教育資金」。不足分をNISA等で別途準備する二段構えが必須。</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              学資保険加入前の最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <ul className="space-y-3">
+                {[
+                  '払込免除特約を付加した（親の万が一に対する最後の砦）',
+                  '歩合ゼロ月でも支払い可能な保険料水準に設定した',
+                  'CVを意識して払込困難確率P_defaultを概算した',
+                  '払済保険への変更が払込免除機能を消滅させると認識した',
+                  '満期時期を子の大学入学（18歳）に合わせた',
+                  '学資保険の満期受取額と実際の大学学費の差額を把握した',
+                  '不足分をNISA・積立投資で補完する計画を立てた',
+                  '収入保障保険で歩合激減時の流動性を確保した',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
