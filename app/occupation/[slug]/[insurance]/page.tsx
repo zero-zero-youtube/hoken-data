@@ -2441,226 +2441,347 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
 
       {/* 医師×収入保障保険 専用コンテンツ */}
+      {/* 医師×収入保障保険 専用コンテンツ */}
       {isDoctorIncomeProtection && (
         <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
 
-          {/* セクション1：リード文 */}
+          {/* セクション1：リード文 + インフォボックス */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師に就業不能保険が必要な理由</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              医師は日本最高水準の収入を誇りますが、就業不能になった場合の収入損失も最大規模になります。年収1,200万円の勤務医が精神疾患・過労で1年間就業不能になった場合の収入損失は1,200万円。傷病手当金（月収67%・最長18ヶ月）で補填されるのは約804万円のみで、残り約400万円は自己負担です。
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+              医師の収入保障保険——「開業医・勤務医の非対称リスク」を補う設計
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              医師の収入保障保険設計には、大手比較サイトが一切触れていない「開業医と勤務医の非対称リスク」があります。
+              開業医が心疾患等で休業すると、<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金はゼロ。さらに医院の固定費（家賃・人件費・医療機器リース料）は売上ゼロでも毎月引き落とされ続けます。固定費燃焼乗数 M = F/P（F=月次固定費・P=月次純利益）で表すと、月次純利益166万円・固定費200万円の開業医の場合 M≒1.2。3ヶ月休業で T_lost = M × t = 3.6ヶ月分の純利益が消滅し、さらに固定費600万円の持ち出しが発生します。
+              勤務医も安心できません。2024年4月施行の医師の働き方改革による残業代削減は、<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条</a>の随時改定を通じて標準報酬月額を引き下げ、健康保険法第99条の傷病手当金も連動して減額されます。過労で倒れた際の補償が、改革前より目減りするという構造的矛盾が生じています。
+              この「開業医=傷病手当金ゼロ＋固定費燃焼」「勤務医=2024年問題による保障デフレ」という二つの固有リスクを直視した収入保障設計が医師には不可欠です。
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              特に開業医・フリーランス医師は傷病手当金がなく収入損失がより深刻です。厚生労働省の調査（2022年）によると勤務医の週60時間以上労働は46.3%に達し、バーンアウト・精神疾患による長期休業リスクは全職種の中でも特に高い水準にあります。医師こそ就業不能保険が必要な職種の一つです。
-            </p>
-            <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 my-4 rounded-r-xl">
-              <p className="font-bold text-emerald-800">💡 医師の就業不能保険で特に重要なポイント</p>
-              <p className="text-emerald-700 text-sm mt-1">
-                医師の就業不能保険には一般的な就業不能保険とは異なる重要な考慮点があります：<br/>
-                ・「自分の専門科で働けない状態」を就業不能と定義する保険を選ぶ<br/>
-                ・開業医は診療所の固定費（家賃・スタッフ給与）もカバーする保障が必要<br/>
-                ・医師賠償責任保険との役割の違いを理解する
-              </p>
-              <p className="text-xs text-emerald-600 mt-2">出典：厚生労働省「医師の働き方改革 実態調査」2022年</p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 開業医の3ヶ月休業で1,000万円超のキャッシュアウトが発生します</p>
+              <ul className="text-sm text-red-700 space-y-1 mb-2">
+                <li>・傷病手当金：ゼロ（<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>）</li>
+                <li>・純利益喪失：498万円（166万円×3ヶ月）</li>
+                <li>・固定費持ち出し：600万円（200万円×3ヶ月）</li>
+                <li>・合計：1,098万円のキャッシュアウト</li>
+              </ul>
+              <p className="text-sm text-red-700">T_lost = M × t = 1.2 × 3 = 3.6ヶ月分の純利益が消滅します。</p>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 勤務医の残業代削減は傷病手当金も同時に削ります</p>
+              <p className="text-sm text-amber-700 mb-1">2024年の医師の働き方改革で残業代が削減されると</p>
+              <p className="text-sm text-amber-700 mb-1"><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条</a>の随時改定で標準報酬月額が低下。</p>
+              <p className="text-sm text-amber-700 mb-1">健康保険法第99条の傷病手当金も連動して減額される。</p>
+              <p className="text-sm text-amber-700">「過労で倒れたのに休業補償まで減る」という構造的矛盾があります。</p>
             </div>
           </section>
 
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
-          {/* セクション2：勤務医vs開業医 */}
+          {/* セクション2：ケース別シミュレーション */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">勤務医 vs 開業医：就業不能時のリスクの根本的な違い</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr>
-                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
-                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>項目</span>
-                    </th>
-                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
-                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>勤務医</span>
-                    </th>
-                    <th style={{background:'#0f172a',padding:'12px 16px',textAlign:'left'}}>
-                      <span style={{color:'#ffffff',fontWeight:'bold',display:'block'}}>開業医（個人事業主）</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ['傷病手当金','✅ あり（月収67%・最長18ヶ月）','❌ なし'],
-                    ['就業不能時の収入','傷病手当金で18ヶ月はカバー','即座に収入ゼロ'],
-                    ['診療所の固定費','❌ 関係なし','⚠️ 休業中も家賃・スタッフ給与が発生'],
-                    ['患者への影響','病院が対応','⚠️ 診療所閉院→患者への影響甚大'],
-                    ['就業不能保険の優先度','高（18ヶ月以降・収入損失33%分）','極めて高（即座の収入ゼロ＋固定費）'],
-                  ].map(([item,employee,owner],i)=>(
-                    <tr key={i} className={i%2===0?'bg-white':'bg-gray-50'}>
-                      <td className="border border-gray-200 px-4 py-3 font-medium text-gray-800">{item}</td>
-                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{employee}</td>
-                      <td className="border border-gray-200 px-4 py-3 text-gray-700">{owner}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-4">
-              <p className="font-bold text-red-800 mb-2">🔴 開業医が最も注意すべき「ダブルリスク」</p>
-              <p className="text-red-700 text-sm">
-                開業医が就業不能になった場合：<br/>
-                ①個人の収入がゼロになる<br/>
-                ②診療所の固定費（家賃・スタッフ給与・医療機器リース）が継続する<br/><br/>
-                月収150万円の開業医が3ヶ月休業した場合：<br/>
-                収入損失：450万円<br/>
-                診療所固定費（月100万円×3ヶ月）：300万円<br/>
-                合計損失：750万円<br/><br/>
-                就業不能保険の月額給付金は個人収入分だけでなく、診療所固定費もカバーできる水準に設定する必要があります。
-              </p>
-            </div>
-          </section>
-
-          {/* セクション3：リスクデータ */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師が直面する就業不能リスクの実態</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師のケース別・就業不能損失シミュレーション
+            </h2>
             <div className="space-y-6">
-              {[
-                {
-                  title:'① 過労・長時間労働：週60時間超が46.3%',
-                  body:'厚生労働省「医師の働き方改革 実態調査（2022年）」によると、勤務医の週60時間以上労働は46.3%、特定機能病院では週80時間超が18.1%。過労による心疾患・脳血管疾患での入院・長期リハビリが必要になるリスクが高いです。2024年4月からの時間外労働規制強化後も依然として高負荷な環境が続いています。',
-                  color:'border-red-400 bg-red-50'
-                },
-                {
-                  title:'② バーンアウト・精神疾患：約40%が経験',
-                  body:'日本医師会「勤務医の健康支援に関する検討報告書（2022年）」によると、医師のバーンアウト経験率は約40%、うつ症状の有病率は一般人口の約2倍。患者の死亡・医療過誤への恐怖・訴訟リスクへのプレッシャーが精神的負荷の主な原因です。うつ病・適応障害による休業期間は平均6ヶ月〜1年以上で、18ヶ月を超えるケースも珍しくありません。',
-                  color:'border-orange-400 bg-orange-50'
-                },
-                {
-                  title:'③ 感染症・針刺し事故による長期療養',
-                  body:'B型肝炎・C型肝炎への職業的感染リスクは一般人口の約4〜6倍（厚生労働省「院内感染対策」2022年）。感染が判明した場合、抗ウイルス薬による長期治療が必要で、診療制限・就業制限が課されるケースもあります。この期間の収入補填として就業不能保険が重要です。',
-                  color:'border-yellow-400 bg-yellow-50'
-                },
-                {
-                  title:'④ 医療訴訟による診療継続困難',
-                  body:'日本医師会「医師賠償責任保険統計（2021年）」によると、医師はキャリア中に約25%が医療訴訟・紛争を経験。訴訟期間中の精神的ダメージから診療継続が困難になるケースもあります。この期間の収入補填として就業不能保険が有効です。',
-                  color:'border-purple-400 bg-purple-50'
-                },
-              ].map((item,i)=>(
-                <div key={i} className={`border-l-4 p-4 rounded-r-xl ${item.color}`}>
-                  <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">{item.body}</p>
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：開業医（50代・年収2,000万円）
                 </div>
-              ))}
+                <p className="text-sm text-gray-600 mb-4">医院固定費月200万円・スタッフ3名・国保加入 / 心疾患で3ヶ月休業</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">固定費燃焼乗数M</div>
+                    <div className="font-bold text-red-700">M ≒ 1.2</div>
+                    <div className="text-xs text-gray-500">200万円 ÷ 166万円（純利益）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">3ヶ月の純利益喪失</div>
+                    <div className="font-bold text-gray-900">498万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">固定費持ち出し（3ヶ月）</div>
+                    <div className="font-bold text-gray-900">600万円</div>
+                    <div className="text-xs text-gray-500">家賃・人件費・医療機器リース</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">消滅純利益相当期間</div>
+                    <div className="font-bold text-gray-900">T_lost = 3.6ヶ月分</div>
+                    <div className="text-xs text-gray-500">M × t = 1.2 × 3</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">合計キャッシュアウト</div>
+                    <div className="font-bold text-gray-900">1,098万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額366万円（純利益補填166万＋固定費補填200万）</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <div className="inline-block bg-green-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：勤務医（40代・年収1,500万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">基本給月75万円＋残業代月50万円・健保加入・2024年改革後 / 脳梗塞で6ヶ月休業</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金（月額）</div>
+                    <div className="font-bold text-gray-900">約50万円</div>
+                    <div className="text-xs text-gray-500">残業代削減後の標準報酬月額ベース</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">実質月収との差額</div>
+                    <div className="font-bold text-red-700">月▲75万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">450万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">固定費持ち出し</div>
+                    <div className="font-bold text-gray-900">なし（勤務医のため）</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-orange-100 rounded p-3 border border-orange-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-orange-700 text-xl">月額75万円（従前生活水準維持のための差額補填）</div>
+                </div>
+              </div>
+
             </div>
-            <p className="text-xs text-gray-500 mt-4">
-              出典：厚生労働省「医師の働き方改革 実態調査」2022年 / 日本医師会「勤務医の健康支援に関する検討報告書」2022年 / 厚生労働省「医療機関における院内感染対策」2022年 / 日本医師会「医師賠償責任保険統計」2021年
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              開業医の傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。勤務医の傷病手当金算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条・第43条</a>。固定費燃焼乗数：M = F/P、消滅純利益相当期間：T_lost = M × t。医療経済実態調査：<a href="https://www.mhlw.go.jp/bunya/iryouhoken/database/zenpan/jittaityousa/24_houkoku.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・第24回医療経済実態調査（令和5年）</a>。
             </p>
           </section>
 
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
-
-          {/* セクション4：チェックポイント */}
+          {/* セクション3：リスクデータ3件 */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師の就業不能保険選び5つのポイント</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師特有のリスクデータ（政府統計・法令根拠）
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「固定費燃焼乗数M」——開業医の3ヶ月休業が複数年分の純利益を消滅させる数学的証明</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  開業医の月次純利益をP、月次固定費をF、休業月数をtとする。固定費燃焼乗数 M = F / P、消滅純利益相当期間 T_lost = M × t。
+                  <a href="https://www.mhlw.go.jp/bunya/iryouhoken/database/zenpan/jittaityousa/24_houkoku.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「第24回医療経済実態調査（令和5年実施）」</a>によれば、無床診療所の収支差率は平均32.2%。
+                </p>
+                <div className="bg-blue-50 rounded p-3 mb-3 font-mono text-sm text-blue-900">
+                  月次売上500万円の診療所：純利益P = 161万円・固定費F ≒ 200万円<br />
+                  M = 200 / 161 ≒ 1.24<br />
+                  3ヶ月休業：T_lost = 1.24 × 3 = 3.7ヶ月分の純利益が消滅<br />
+                  さらに固定費600万円の実キャッシュアウトが発生
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  「3ヶ月の入院が、その後4ヶ月間の診療収入を全て返済に充てる状況を生む」という数学的に証明された開業医固有の致命的リスクが存在します。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「勤務医の2024年問題による保障デフレスパイラル」——過労で倒れたのに補償まで減る構造的矛盾</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  2024年4月施行の医師の働き方改革（時間外労働上限規制）により、勤務医の残業代が大幅に削減されました。<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条</a>の随時改定により、実収入の低下が3ヶ月後に標準報酬月額に反映されます。
+                </p>
+                <div className="bg-red-50 rounded p-3 mb-3 border border-red-200">
+                  <p className="text-sm text-red-800 font-semibold mb-1">保障デフレの連鎖：</p>
+                  <p className="text-sm text-red-700">残業代削減 → 標準報酬月額低下（健康保険法第43条）→ 傷病手当金減額（健康保険法第99条）</p>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  「過重労働で健康を害して倒れたのに、その原因である長時間労働が是正されたことで休業補償まで目減りする」という構造的矛盾が医師の働き方改革に内在しています。この「見えない保障デフレ」を民間収入保障保険で補うことが勤務医にも求められます。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「医師賠償責任保険の盲点」——訴訟ストレスによる就業不能は賠償保険でカバーされない</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  医師賠償責任保険は<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第709条（不法行為）</a>等に基づく損害賠償金・争訟費用をカバーします。しかし、医療過誤訴訟の対応に伴う極度の精神的ストレスから医師本人がうつ病等の精神疾患を発症して就業不能に陥った場合、その期間の逸失収益は賠償責任保険では一切補填されません。
+                </p>
+                <div className="bg-orange-50 rounded p-3 mb-3 border border-orange-200">
+                  <ul className="text-sm text-orange-800 space-y-1">
+                    <li>• 訴訟リスクと就業不能リスクが同時に発生する複合的危機</li>
+                    <li>• 医師賠償責任保険とは独立した収入保障保険が必要</li>
+                    <li>• 訴訟中に診療を停止すると固定費も継続（開業医は複合損失が甚大）</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント5つ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師の収入保障保険選び5つのチェックポイント
+            </h2>
             <div className="space-y-4">
-              {[
-                {
-                  number:'01',
-                  title:'「自分の専門科で働けない状態」を就業不能と定義する保険を選ぶ',
-                  detail:'一般的な就業不能保険は「全く働けない状態」を給付条件とするものが多いですが、医師の場合「外科医として手術ができないが内科的な業務はできる状態」など部分的な就業不能が起こりやすいです。「自分の職業（専門科）に従事できない状態」を就業不能と定義する保険を選ぶことが重要です。'
-                },
-                {
-                  number:'02',
-                  title:'開業医は診療所の固定費もカバーできる保障額に設定する',
-                  detail:'開業医の場合、個人収入の補填だけでなく診療所の固定費（家賃・スタッフ給与・医療機器リース）もカバーできる月額給付金を設定してください。個人収入分＋固定費分を合算した金額が必要な月額給付金の目安です。医療法人化している場合は法人保険との組み合わせも検討してください。'
-                },
-                {
-                  number:'03',
-                  title:'精神疾患特約は必須・給付日数の上限を確認する',
-                  detail:'医師のバーンアウト経験率は約40%。精神疾患特約は必須であり、給付日数に上限がない（または1,000日超の）商品を選んでください。うつ病の平均治療期間は1〜3年であり、60日・180日の給付上限では不十分です。'
-                },
-                {
-                  number:'04',
-                  title:'勤務医は支払対象外期間を180日以上に設定して保険料を効率化',
-                  detail:'勤務医は傷病手当金（最長18ヶ月）があるため、支払対象外期間を180日以上に設定することで保険料を大幅に抑えながら「18ヶ月以降の長期就業不能」に備えられます。開業医は傷病手当金がないため60日以下の短期タイプが適切です。'
-                },
-                {
-                  number:'05',
-                  title:'医師賠償責任保険との役割の違いを理解する',
-                  detail:'医師賠償責任保険は医療過誤による患者への賠償に備えるもので、就業不能保険（自分の収入補填）とは全く別の保険です。勤務先病院が医師賠償責任保険に加入していても、個人の就業不能リスクには別途対応が必要です。両方の保険を目的別に整備することが重要です。'
-                },
-              ].map((cp,i)=>(
-                <div key={i} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">{cp.number}</div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">1</span>
                   <div>
-                    <h3 className="font-bold text-gray-800 mb-2">{cp.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{cp.detail}</p>
+                    <h3 className="font-bold text-gray-900 mb-2">開業医はM = F/P で固定費燃焼乗数を計算し給付月額を設定する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      月次固定費Fと月次純利益Pを確認し、M = F/P を算出します。必要な給付月額 = 純利益P + 固定費F（両方をカバーする設計が必要）。開業医は傷病手当金がゼロのため、全額を民間保険でカバーします。
+                    </p>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">2</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">勤務医は「2024年改革後の標準報酬月額」で傷病手当金を再計算する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      残業代削減後の実際の標準報酬月額を給与明細で確認します。傷病手当金 = 現在の標準報酬月額 × 2/3 を再計算し、実質月収との差額を収入保障保険でカバーする設計を行います。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">3</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">医師賠償責任保険とは別に収入保障保険を確保する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      医師賠償責任保険は「他者への賠償」をカバーするもの。「自身の就業不能による収入喪失」は別途収入保障保険で備えます。両者は補完関係にあり、片方だけでは不完全です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">4</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">専門医資格・標榜科目の維持と長期療養の両立リスクを認識する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      長期休業によって症例数・研修単位を満たせなくなると専門医資格の更新が困難になる可能性があります。「治療に専念できる経済的余裕」が資格維持にも直結します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">5</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">支払対象外期間（免責期間）を職業形態に合わせて設定する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      開業医：固定費が即座に発生するため免責期間を短く（7〜30日）設定します。勤務医：傷病手当金が最長1年6ヶ月支給されるため免責期間を長く設定して保険料を抑える設計も可能です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </section>
 
-          {/* セクション5：失敗事例 */}
+          {/* セクション5：失敗事例3選 */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師でよくある就業不能保険の失敗事例3選</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師の収入保障保険よくある失敗事例3選
+            </h2>
             <div className="space-y-6">
-              {[
-                {
-                  title:'失敗①：「全く働けない状態」の定義で給付されなかった',
-                  situation:'45歳男性・外科医。',
-                  problem:'うつ病で手術ができない状態になったが、外来診療は継続できていた。加入していた就業不能保険は「全く働けない状態」のみ給付対象で、「外科手術ができないが業務は一部継続」という状態では給付されなかった。収入が30%減少した状態が1年以上続いた。',
-                  lesson:'医師は「自分の専門科に従事できない状態」を就業不能と定義する保険を選ぶこと。'
-                },
-                {
-                  title:'失敗②：開業医で休業中も固定費が発生し廃業',
-                  situation:'50歳男性・内科クリニック経営。',
-                  problem:'心筋梗塞で4ヶ月休業。就業不能保険の給付金（月30万円）は個人生活費には足りたが、診療所の固定費（家賃15万円・スタッフ給与40万円・リース10万円＝月65万円）を賄えず、やむなく閉院。患者への影響も甚大だった。',
-                  lesson:'開業医は個人収入補填＋診療所固定費をカバーできる月額給付金を設定すること。'
-                },
-                {
-                  title:'失敗③：精神疾患特約なしでバーンアウトの給付がゼロ',
-                  situation:'38歳男性・大学病院勤務医。',
-                  problem:'過労とバーンアウトでうつ病と診断され8ヶ月休業。加入していた就業不能保険は精神疾患特約なしのため給付ゼロ。傷病手当金のみで生活し、貯蓄が大幅に減少した。',
-                  lesson:'医師はバーンアウト経験率が約40%。精神疾患特約は必須。'
-                },
-              ].map((c,i)=>(
-                <div key={i} className="border border-red-200 rounded-xl overflow-hidden">
-                  <div className="bg-red-600 px-5 py-3">
-                    <h3 className="font-bold text-white">{c.title}</h3>
-                  </div>
-                  <div className="p-5 space-y-2 bg-white">
-                    <p className="text-sm text-gray-600"><span className="font-semibold">状況：</span>{c.situation}</p>
-                    <p className="text-sm text-gray-700"><span className="font-semibold">問題：</span>{c.problem}</p>
-                    <p className="text-sm text-blue-700 font-semibold bg-blue-50 p-2 rounded"><span>教訓：</span>{c.lesson}</p>
-                  </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  開業医が心疾患で3ヶ月休業。傷病手当金ゼロ＋固定費600万円の持ち出しで廃業危機に
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Aさん（52歳・内科開業医・年収2,000万円・スタッフ3名・医院固定費月200万円）。心筋梗塞で緊急入院、3ヶ月の安静が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>により傷病手当金はゼロ。売上ゼロの中、医院の家賃・スタッフ3名の人件費・医療機器リース料計200万円/月が継続。3ヶ月で固定費600万円が流出し、運転資金が枯渇。「国保加入の開業医に傷病手当金はない」という事実を知らなかった。収入保障保険に未加入で、廃業寸前まで追い込まれました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（国民健康保険法第58条第2項）：</span>開業医の月次給付必要額 = 純利益P + 固定費F。固定費が純利益を上回る場合（M &gt; 1）、短期間の休業でも事業が破綻します。
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  勤務医が医師の働き方改革後に脳卒中で倒れた。傷病手当金が改革前より月15万円少なかった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Bさん（45歳・病院勤務医・改革前年収1,500万円・残業代月50万円）。2024年の時間外労働上限規制で残業代が月25万円に削減された直後に脳梗塞を発症し6ヶ月の休業が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条</a>の随時改定により標準報酬月額が低下。傷病手当金が改革前の試算より月15万円少なくなりました。「残業が減って身体に良いはず」と思っていたが、「過労で倒れた補償まで減る」という矛盾を知らなかった。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（健康保険法第43条・第99条）：</span>2024年改革後に標準報酬月額を再確認し、傷病手当金の実額を把握した上で収入保障保険でギャップを補填すること。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  医療過誤訴訟のストレスでうつ病に。賠償保険は使えたが休業補償はゼロだった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Cさん（48歳・外科開業医）。手術後の合併症について患者家族から医療過誤として民事訴訟を起こされました。訴訟対応の精神的ストレスから重度のうつ病を発症し6ヶ月の休業が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span>医師賠償責任保険で訴訟対応費用と和解金はカバーされました。しかし医師自身の就業不能による6ヶ月間の逸失収益（純利益喪失996万円＋固定費1,200万円）は賠償責任保険では一切補填されませんでした。収入保障保険に未加入だったため、廃業を選択せざるを得ませんでした。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第709条</a>）：</span>医師賠償責任保険と収入保障保険は全く別のリスクをカバーします。訴訟リスクが高い外科・産科等の医師ほど、両保険の同時加入が不可欠です。
+                  </p>
+                </div>
+              </div>
+
             </div>
           </section>
 
           {/* セクション6：最終チェックリスト */}
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">医師の就業不能保険加入前・最終チェックリスト</h2>
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師の収入保障保険 最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <ul className="space-y-3">
                 {[
-                  '勤務医か開業医かで保険設計が異なることを理解した',
-                  '開業医の場合、診療所の固定費もカバーできる月額給付金を設定した',
-                  '「専門科に従事できない状態」を就業不能と定義する保険を選んだ',
-                  '精神疾患特約付き・給付日数1,000日以上の商品を選んだ',
-                  '勤務医は支払対象外期間180日以上で保険料を効率化した',
-                  '開業医は支払対象外期間60日以下で即時給付に備えた',
-                  '医師賠償責任保険と就業不能保険の役割の違いを理解した',
-                  '医療法人化している場合は法人保険との組み合わせを税理士に相談した',
-                ].map((item,i)=>(
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
-                    <span className="text-gray-700 text-sm">{item}</span>
+                  '開業医の場合：M = F/P（固定費燃焼乗数）を計算した',
+                  '開業医の場合：必要給付月額 = 純利益P + 固定費F として設定した',
+                  '勤務医の場合：2024年改革後の現在の標準報酬月額で傷病手当金を再計算した',
+                  '勤務医の場合：傷病手当金との差額を収入保障保険でカバーした',
+                  '医師賠償責任保険とは別に収入保障保険を確保した',
+                  '専門医資格・標榜科目の維持に必要な研修と長期療養の両立リスクを把握した',
+                  '支払対象外期間（免責期間）を職業形態（開業医/勤務医）に合わせて設定した',
+                  '給付期間を定年（または医院の廃業想定年齢）まで確保した',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="w-5 h-5 border-2 border-gray-400 rounded shrink-0 mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
-
           </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
