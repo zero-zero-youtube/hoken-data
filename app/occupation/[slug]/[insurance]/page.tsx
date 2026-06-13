@@ -383,6 +383,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
   const isPharmacistLife = occ.slug === 'pharmacist' && ins.slug === 'life'
   const isPharmacistCancer = occ.slug === 'pharmacist' && ins.slug === 'cancer'
+  const isSelfEmployedLife = occ.slug === 'self-employed' && ins.slug === 'life'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isRealEstateLife = occ.slug === 'real-estate' && ins.slug === 'life'
   const isRealEstateCancer = occ.slug === 'real-estate' && ins.slug === 'cancer'
@@ -403,7 +404,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -15728,6 +15729,317 @@ export default async function OccupationInsurancePage({ params }: Props) {
               </ul>
             </div>
 
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+        </div>
+      )}
+
+      {/* 自営業×生命保険 専用コンテンツ */}
+      {isSelfEmployedLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">自営業者の生命保険完全ガイド：事業債務の包括承継と遺族年金ゼロの三重リスク</h1>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              自営業者の生命保険設計には、大手比較サイトが一切触れていない「事業債務の包括承継」という致命的なリスクがあります。会社員が死亡した場合、遺族には遺族厚生年金が支給され、事業上の債務は法人格が引き継ぎます。しかし自営業者が死亡した場合、国民年金法第37条により子なし配偶者への遺族基礎年金はゼロ。さらに民法第896条の包括承継により、事業ローン・仕入れ債務・従業員への未払賃金・リース残債が全て遺族に承継されます。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              月次キャッシュフローはCF = P - (D + L)（P=公的給付・D=事業債務・L=生活費）で表されます。自営業者遺族はP≒0かつD{'>'} 0のため、CFは確実にマイナスになります。初期貯蓄Sから換算した家計崩壊タイムラインはT_collapse = S / (D + L - P)——事業債務Dが加わることで、貯蓄は数ヶ月で底をつきます。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              小規模企業共済（小規模企業共済法第9条）を活用している場合でも、「500万円×法定相続人の数」という非課税枠を超えると相続税が課され、額面通りの資金を手にできないリスクがあります。生命保険は、この三重の構造的欠陥に対する唯一の確実な備えです。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 自営業者が死亡すると事業ローンが遺族にそのまま引き継がれます</p>
+              <p className="text-red-700 text-sm leading-relaxed">
+                民法第896条（包括承継）により、事業ローン・仕入れ債務・リース残債が全て遺族に承継。<br />
+                個人事業主名義の口座は死亡と同時に凍結される一方、債権者からの支払督促は翌月から届きます。<br />
+                事業用債務と同額の生命保険がなければ、遺族の固有財産が脅かされます。
+              </p>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5 mb-6">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 子なし配偶者への遺族基礎年金はゼロです</p>
+              <p className="text-amber-700 text-sm leading-relaxed">
+                国民年金法第37条により遺族基礎年金の受給対象は「子のある配偶者」のみ。<br />
+                子なし世帯では遺族基礎年金ゼロ・寡婦年金は60〜65歳の最大5年間のみ・死亡一時金は最大32万円。<br />
+                会社員の配偶者が受け取れる遺族厚生年金との格差は、生涯で数千万円規模になります。
+              </p>
+            </div>
+
+            <p className="text-sm text-gray-600 mb-4 text-center">
+              事業債務・子の有無・配偶者の年齢——自分の条件での必要保険金額は、計算が複雑です。FPへの無料相談なら、この3つを伝えるだけで答えが出ます。
+            </p>
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション2：ケース別シミュレーション（カード型） */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業者のケース別・死亡保障ギャップシミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：小売業自営業者（40代・年収500万円・従業員2名・子2人）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">事業ローン残債1,000万円あり</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">遺族基礎年金（年額）</div>
+                    <div className="font-bold text-gray-900">約123万円</div>
+                    <div className="text-xs text-gray-500">基本額＋子2人加算</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">事業用債務の承継額</div>
+                    <div className="font-bold text-red-700">1,000万円</div>
+                    <div className="text-xs text-gray-500">民法第896条（包括承継）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">廃業コスト・従業員退職金等</div>
+                    <div className="font-bold text-gray-900">約150万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">生活費・教育費15年の不足額</div>
+                    <div className="font-bold text-gray-900">約2,700万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な死亡保険金の合計</div>
+                  <div className="font-bold text-red-700 text-xl">約3,850万円</div>
+                  <div className="text-xs text-gray-500 mt-1">事業債務1,000万円＋廃業コスト150万円＋生活費不足2,700万円</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：子なし自営業者（40代・年収400万円・配偶者あり）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">無借金経営・賃貸</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">遺族基礎年金</div>
+                    <div className="font-bold text-red-700">0円</div>
+                    <div className="text-xs text-gray-500">国民年金法第37条・子なし</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">寡婦年金（60〜65歳・5年間）</div>
+                    <div className="font-bold text-gray-900">約300万円（総額）</div>
+                    <div className="text-xs text-gray-500">国民年金法第49条・5年間のみ</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">廃業コスト</div>
+                    <div className="font-bold text-gray-900">約50万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">配偶者の生活費20年分の不足額</div>
+                    <div className="font-bold text-red-700">約4,500万円</div>
+                    <div className="text-xs text-gray-500">年金ゼロを前提</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な死亡保険金の合計</div>
+                  <div className="font-bold text-red-700 text-xl">約4,250万円</div>
+                  <div className="text-xs text-gray-500 mt-1">配偶者の生活費を全額民間保険でカバーする必要がある</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              遺族基礎年金の受給要件根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>。寡婦年金の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第49条</a>。事業用債務の承継根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第896条（包括承継）</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ3件 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業特有の生命保険リスクデータ（政府統計・法令根拠付き）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク①：「家計崩壊速度の数式」——事業債務が加わることで貯蓄が数ヶ月で底をつく
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  自営業者遺族の月次キャッシュフロー：CF = P - (D + L)（P=公的給付月額・D=事業債務返済月額・L=生活費月額）。会社員遺族の場合：D = 0、P（遺族厚生年金）は大きくCF ≒ 均衡。自営業者遺族の場合：P ≒ 0（子なしなら完全ゼロ）かつD {'>'} 0 → CFは確実にマイナス。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  初期流動資産Sが底をつくまでの崩壊タイムライン：T_collapse = S / |CF| = S / (D + L - P)。具体例：S=500万円・D=10万円/月・L=25万円/月・P=0の場合、T_collapse = 500万 / 35万 ≒ 14.3ヶ月。事業債務のない会社員遺族（D=0・P=15万円）の場合：T_collapse = 500万 / (25万-15万) = 50ヶ月（約4年）。事業債務の有無だけで崩壊速度が3.5倍以上異なる——この差を埋めるのが生命保険である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク②：「民法第896条の包括承継」——事業ローンは相続放棄しない限り遺族に全額移る
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  民法第896条は「相続人は相続開始の時から被相続人の財産に属した一切の権利義務を承継する」と規定する。「一切の権利義務」には事業ローン・仕入れ債務（買掛金）・従業員への未払賃金・リース契約の残債・連帯保証債務が全て含まれる。個人事業主名義の銀行口座は死亡と同時に凍結されるため、売掛金の回収が困難になる一方、債権者からの支払督促は翌月から届く。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  遺族が廃業を選択した場合でも、店舗・事務所の原状回復費用・残余在庫の処分費・清算手続き費用として平均30〜100万円の突発的なキャッシュアウトが発生する。「事業債務と同額の死亡保険金を遺族受取で設定する」ことが、包括承継リスクへの最も直接的な対策となる。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第896条（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク③：「小規模企業共済の非課税枠の罠」——多額の掛金が課税されて目減りするケース
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  小規模企業共済法第9条に基づく共済金（死亡退職金）は「みなし相続財産」として扱われ相続税の非課税枠が適用される。非課税枠は「500万円×法定相続人の数」。法定相続人が配偶者と子2人（計3人）の場合：1,500万円が非課税。しかし掛金残高が2,000万円の場合、超過分500万円に相続税が課される。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  さらに法人の代表を兼務して法人からも死亡退職金が支給される場合、非課税枠は合算されるため、実質的に使える手取り額が大幅に目減りする。「小規模企業共済があるから生命保険は不要」という過信が、遺族の資金計画を狂わせる典型的な落とし穴である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+            </div>
+
+            <p className="text-sm text-gray-600 mb-4 text-center">
+              リスクの大きさはわかった。でも自分の場合いくら必要かは別の話です。それを一緒に整理してくれるのが無料FP相談の本来の使い方です。
+            </p>
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業者の生命保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">① 事業用債務の総額を把握し、それと同額の保険金を設定する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  事業ローン残債・リース残債・仕入れ債務（買掛金）の合計額を確認する。この金額を「事業債務カバー枠」として生命保険金額に加算する。遺族が相続放棄を選ばなくて済む水準の保険金を確保することが最優先。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">② 子なし世帯は公的保障ゼロを前提に配偶者の20〜30年分の生活費を確保する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  国民年金法第37条により子なし配偶者への遺族基礎年金はゼロ。寡婦年金（最大5年間）と死亡一時金（最大32万円）だけでは配偶者の生活を支えられない。民間生命保険で配偶者が老齢年金を受け取れるまでの全期間をカバーする。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">③ 小規模企業共済の非課税枠と生命保険の役割を分けて設計する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  小規模企業共済は積立・節税の手段として活用しつつ、非課税枠を超える部分の相続税リスクを認識する。「確実に手元に届く死亡保険金」として生命保険を別途確保する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">④ 廃業コスト（30〜100万円）を保険金額に加算する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  突発的な事業清算費用は貯蓄から出すのが難しいタイミングで発生する。保険金額の計算式に廃業コスト分を上乗せしておく。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">⑤ 受取人指定を「配偶者」にして事業債務返済に充てられるよう設計する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  死亡保険金は受取人固有の権利であり相続財産に含まれない。受取人を配偶者に指定しておけば、相続放棄をしても保険金は受け取れる。事業債務超過の場合に相続放棄と保険金受取を両立できる唯一の手段。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例①「子なし自営業者が急死。遺族基礎年金ゼロで寡婦年金も60歳まで受け取れなかった」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Aさん（42歳・飲食店経営・年収400万円・妻35歳・子なし）が急死した。国民年金法第37条により妻への遺族基礎年金はゼロ。寡婦年金（国民年金法第49条）は妻が60歳になるまで受け取れないため、35歳から60歳までの25年間、公的年金からの収入保障が完全にゼロだった。死亡一時金（国民年金法第52条の2）は約28万円のみ。生命保険は「葬儀代として500万円」しか加入していなかったため、妻は25年間の生活費を自力で稼ぐ必要に迫られた。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（国民年金法第37条・第49条）：自営業者の子なし世帯では公的保障が事実上ゼロ。配偶者が老齢基礎年金を受け取るまでの全期間（最長30年以上）をカバーする4,000万円以上の生命保険が必要だった。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例②「事業ローン1,500万円が遺族に承継。妻が財務状況を知らず相続放棄の期限を逃した」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Bさん（48歳・建設業自営業者・事業ローン残債1,500万円・子2人）が急死した。妻は事業の財務状況を把握していなかった。民法第896条の包括承継により1,500万円の事業ローンが妻と子に承継された。相続放棄の熟慮期間（民法第915条・3ヶ月以内）に財務状況の把握が間に合わず、期限徒過により相続放棄の機会を失った。生命保険の死亡保険金2,000万円で辛うじてローンを返済できたが、残った500万円では生活費が全く足りなかった。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（民法第896条・第915条）：事業ローン残債と同額以上の生命保険が必須。妻への財務情報の共有と、「受取人=妻」の保険金設計が事前対策として不可欠。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例③「小規模企業共済2,000万円を過信。相続税で目減りして手取りが1,650万円になった」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Cさん（55歳・製造業自営業者・小規模企業共済掛金残高2,000万円・法定相続人3名）。「小規模企業共済があるから生命保険は不要」と思い込んでいた。小規模企業共済の死亡共済金は「みなし相続財産」扱い。非課税枠500万円×3人=1,500万円を超えた500万円部分に相続税が課された。実際に遺族の手元に届いた金額は約1,650万円。当初想定より350万円以上目減りし、事業清算費用と当面の生活費が不足した。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（小規模企業共済法第9条）：共済金は節税手段として優秀だが、非課税枠超過分には課税される。「確実に全額手元に届く」民間生命保険との役割分担設計が不可欠。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業者の生命保険加入前チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  '事業ローン・リース残債・仕入れ債務の合計額を確認し保険金額に加算した',
+                  '子なし世帯の場合、遺族基礎年金ゼロを前提に配偶者の20〜30年分の生活費を設定した（国民年金法第37条）',
+                  '廃業コスト（30〜100万円）を保険金額に加算した',
+                  '小規模企業共済の非課税枠（500万円×法定相続人数）と超過リスクを確認した',
+                  '死亡保険金の受取人を配偶者に指定し相続放棄と保険金受取の両立設計を確認した',
+                  '妻・家族に事業の財務状況（借入額・保証債務等）を共有した',
+                  'T_collapse = S / (D + L - P) で自分の家計崩壊タイムラインを試算した',
+                  '必要な保険金額の合計（事業債務＋廃業コスト＋生活費不足）を逆算して設定した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-gray-400 rounded mt-0.5"></span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p className="text-sm text-gray-600 mb-4 text-center">
+              チェックリストで気になる項目があったなら、それをそのままFPに見せてください。何をどう備えればいいか、無料で整理してもらえます。
+            </p>
             <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
 
