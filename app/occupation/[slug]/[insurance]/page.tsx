@@ -21328,251 +21328,363 @@ export default async function OccupationInsurancePage({ params }: Props) {
       )}
 
       {/* 建設業×就業不能保険 専用コンテンツ */}
+      {/* 建設業×収入保障保険 専用コンテンツ */}
       {isConstructionIncomeProtection && (
         <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
 
-          {/* セクション1：リード文 */}
+          {/* セクション1：リード文 + インフォボックス */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">建設業・現場作業員に収入保障保険が必要な理由——「特別加入で大丈夫」という最大の誤解</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              建設業は全産業で死亡労災ワースト1位（2024年：232人・全体の31.1%）という現実と向き合う職種です。収入保障保険・就業不能保険の観点では「特別加入の労災で大丈夫」という誤解が最大の落とし穴です。一人親方が特別加入の給付基礎日額を経費削減のために低く設定（例：日額3,500円）していると、実際に転落事故で休業しても1日わずか2,800円しか受け取れず、現場日当（約1万5千円）との間に5倍以上のギャップが生じます。
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+              建設業の収入保障保険——「2024年問題による保障デフレ」と「一人親方の三重消滅」を補う設計
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              建設業の収入保障保険設計には、大手比較サイトが一切触れていない「2024年問題による保障デフレスパイラル」と「一人親方の二重セーフティネット消滅」という二つの固有リスクがあります。
+              2024年4月施行の時間外労働上限規制により建設業従事者の残業代が削減されると、標準報酬月額の等級が下落し、傷病手当金も連動して減額されます。この損失倍率は λ = ΔSB / ΔW で表され、等級の境界（閾値）を跨ぐと λ &gt; 1 の逆転現象が発生します。月収がわずか0.1万円減っただけで等級が下落した場合、傷病手当金が月2万円削られる（λ=20）という非線形な毀損が起きます。
+              一人親方は更に深刻です。<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第55条第1項</a>により業務中の負傷には健康保険が適用されません。<a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000050" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働者災害補償保険法第33条</a>の特別加入未加入の場合、労災保険も適用されず医療費が全額10割自己負担。傷病手当金もゼロ（国保加入のため）という完全な保障消滅が発生します。
+              <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「令和6年度過労死等の労災補償状況」</a>では建設業の脳・心臓疾患労災請求件数は128件。身体的負荷のピークと住宅ローン・教育費のピークが重なる50代での就業不能が家計を直撃します。
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              さらに建設業の一人親方は業務外の事故（休日のケガ・私病）には特別加入が適用されず、国民健康保険のため傷病手当金もゼロ。骨折・脊髄損傷・重機事故による長期就業不能時に家族を守る唯一の手段が民間の収入保障保険です。本ページでは建設業従事者ならではのリスク構造と収入保障保険の正しい設計方法を解説します。
-            </p>
-            <div className="bg-red-50 border-l-4 border-red-400 p-5 my-5 rounded-r-xl">
-              <p className="font-bold text-red-800 mb-2">🚨 特別加入の給付基礎日額を低く設定すると休業補償が激減します</p>
-              <p className="text-red-700 text-sm leading-relaxed">
-                日額3,500円設定では1日2,800円（3,500円×80%）のみ。現場日当1万5千円との差は5倍以上。さらに業務外の事故・私病には特別加入が一切適用されません。実収入に見合った給付基礎日額の設定と民間収入保障保険との組み合わせが必須です。
-              </p>
-              <p className="text-xs text-red-600 mt-2">
-                出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/kanren/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「一人親方等の特別加入」</a>
-              </p>
-            </div>
-            <div className="bg-amber-50 border-l-4 border-amber-400 p-5 my-5 rounded-r-xl">
-              <p className="font-bold text-amber-800 mb-2">⚠️ 労災8割の罠：社会保険料・住民税は休業中も控除されます</p>
-              <p className="text-amber-700 text-sm leading-relaxed">
-                労災休業中も健康保険料・厚生年金保険料・住民税は免除されません。月収40万円のケースでは労災給付から約8万円が控除され、実質手取りは約24万円。月約8万円のショートが毎月発生します。この不足分を民間収入保障保険で補填する設計が最もコスパが高い防衛策です。
-              </p>
-            </div>
-          </section>
 
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
-
-          {/* セクション2：雇用形態別の公的保障 vs 民間収入保障保険の比較表 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">雇用形態別の公的保障 vs 民間収入保障保険の必要性</h2>
-            <div className="overflow-x-auto rounded-xl border border-gray-200">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-[#1b2631]">
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">雇用形態</span></th>
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">業務中の事故</span></th>
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">業務外の事故・私病</span></th>
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">民間収入保障保険の必要性</span></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {[
-                    ['建設会社の正社員', '労災保険（給付基礎日額×80%）', '健康保険・傷病手当金（月収の2/3）', '中〜高：労災給付の社会保険料控除後の不足分を補填'],
-                    ['一人親方（特別加入あり）', '特別加入の労災（選択した給付基礎日額×80%）', '❌ 特別加入は業務外に不適用・傷病手当金なし', '極めて高：業務外リスクが完全無保障'],
-                    ['一人親方（特別加入なし）', '❌ 業務中でも労災なし', '❌ 傷病手当金なし', '最高優先：あらゆるリスクが無保障'],
-                    ['下請け職人（雇用契約あり）', '元請けの労災保険', '健康保険・傷病手当金（月収の2/3）', '中：労災の不足分補填が主目的'],
-                  ].map(([type, onduty, offduty, necessity], i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-4 py-3 font-medium text-gray-800 text-xs">{type}</td>
-                      <td className="px-4 py-3 text-gray-700 text-xs">{onduty}</td>
-                      <td className="px-4 py-3 text-gray-700 text-xs">{offduty}</td>
-                      <td className="px-4 py-3 text-gray-700 text-xs">{necessity}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 2024年問題で月収が0.1万円減っただけで傷病手当金が月2万円削られるケースがあります</p>
+              <p className="text-sm text-red-700 mb-1">損失倍率 λ = ΔSB / ΔW</p>
+              <p className="text-sm text-red-700 mb-1">等級境界を跨ぐと λ &gt; 1 の逆転現象が発生。</p>
+              <p className="text-sm text-red-700 mb-1">月収42.5万→42.4万（ΔW=0.1万円）で等級下落→ΔSB=2万円・λ=20</p>
+              <p className="text-sm text-red-700">「収入が減った額以上に休業補償が削られる」非線形な毀損が建設業を直撃しています。</p>
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mt-4">
-              <p className="text-xs text-gray-600 leading-relaxed">
-                ※ 特別加入の給付基礎日額は実際の収入に近い水準で設定することが重要です。低く設定すると保険料は安くなりますが、長期休業時の給付が生活費を賄えない水準になります。民間収入保障保険と組み合わせて実収入の70〜80%を確保する設計が目標です。
-              </p>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 一人親方で特別加入なしの場合、業務中の事故で医療費が全額10割自己負担になります</p>
+              <p className="text-sm text-amber-700 mb-1"><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第55条第1項</a>：業務中の負傷には健康保険が適用されない</p>
+              <p className="text-sm text-amber-700 mb-1"><a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000050" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働者災害補償保険法第33条</a>の特別加入未加入→労災も適用されない</p>
+              <p className="text-sm text-amber-700 mb-1">国保の傷病手当金もゼロ（国民健康保険法第58条第2項）</p>
+              <p className="text-sm text-amber-700">三重のセーフティネット消滅が発生します。</p>
             </div>
           </section>
 
-          {/* セクション3：建設業特有のリスクデータ */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">建設業特有の3つの収入喪失リスク——政府統計が示す現実</h2>
-            <div className="space-y-8">
-
-              <div className="border border-gray-200 rounded-xl overflow-hidden">
-                <div className="bg-[#1b2631] px-5 py-3">
-                  <h3 className="font-bold text-white text-base">リスク①「特別加入の低額給付基礎日額」——日額3,500円設定→実質1日2,800円という偽の安心感</h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-gray-700 leading-relaxed text-sm">
-                    厚生労働省「令和6年労働災害発生状況」によると、建設業の死亡者は232人（全産業746人の31.1%）とワースト1位。しかし現場作業員が直面する最も深刻な問題は「一命は取り留めたが長期就業不能になるケース」です。多くの一人親方は労災特別加入の保険料を節約するために給付基礎日額を低く設定（日額3,500〜5,000円）しています。
-                  </p>
-                  <p className="text-gray-700 leading-relaxed text-sm mt-3">
-                    足場から転落して複雑骨折を負い半年間休業した場合、日額3,500円設定では1日2,800円×約180日＝約50万円の休業補償しか受け取れません。現場日当1万5千円×180日＝270万円との差額は約220万円。この220万円の不足が住宅ローンを直撃します。「特別加入に入っているから大丈夫」という偽の安心感が最も危険であり、実収入に近い給付基礎日額の設定と民間収入保障保険での上乗せが必須です。
-                  </p>
-                  <p className="text-xs text-gray-500 mt-3">
-                    出典：<a href="https://www.mhlw.go.jp/stf/newpage_58198.html" target="_blank" rel="noopener noreferrer" className="underline text-blue-600">厚生労働省「令和6年労働災害発生状況」</a>
-                  </p>
-                </div>
-              </div>
-
-              <div className="border border-gray-200 rounded-xl overflow-hidden">
-                <div className="bg-[#1b2631] px-5 py-3">
-                  <h3 className="font-bold text-white text-base">リスク②「業務外リスクの完全無保障」——一人親方の24時間365日リスクと高齢化問題</h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-gray-700 leading-relaxed text-sm">
-                    建設業の一人親方は業務中の事故に対して特別加入で備えることができますが、業務外（休日のDIY中の転落・プライベートでの交通事故・私病による就業不能）には特別加入が一切適用されません。国民健康保険加入者のため傷病手当金もゼロ。骨折などで数か月入院した場合、業務外であれば公的補償は医療費の3割負担のみで、収入補償はゼロです。
-                  </p>
-                  <p className="text-gray-700 leading-relaxed text-sm mt-3">
-                    特に建設業の一人親方は50代・60代の高齢化が進んでおり（就業者の約35%が55歳以上）、加齢に伴う転倒・骨折・生活習慣病による就業不能リスクが急増しています。24時間365日あらゆるリスクをカバーする民間収入保障保険（就業不能保険）が一人親方の命綱となります。
-                  </p>
-                  <p className="text-xs text-gray-500 mt-3">
-                    出典：<a href="https://www.mlit.go.jp/totikensangyo/const/content/001726127.pdf" target="_blank" rel="noopener noreferrer" className="underline text-blue-600">国土交通省「建設業の現状と課題」</a>
-                  </p>
-                </div>
-              </div>
-
-              <div className="border border-gray-200 rounded-xl overflow-hidden">
-                <div className="bg-[#1b2631] px-5 py-3">
-                  <h3 className="font-bold text-white text-base">リスク③「労災8割の罠」——社会保険料控除後の実質手取り月24万円シミュレーション</h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-gray-700 leading-relaxed text-sm">
-                    「労災から給与の約8割が出る」というのは技術的には正しいですが、実態は異なります。月収40万円の現場作業員が業務中の事故で3か月休業した場合のシミュレーション：労災給付（給付基礎日額約1.3万円×80%×90日）＝約94万円が受け取れます。しかし休業中も健康保険料（本人負担月約2万円）・厚生年金保険料（本人負担月約3.7万円）・住民税（月約1.5万円）の合計月約7.2万円は原則免除されません。
-                  </p>
-                  <p className="text-gray-700 leading-relaxed text-sm mt-3">
-                    3か月で約21.6万円が控除され、実質的な手取りは約72万円（月平均24万円）となります。休業前の手取り月約32万円との差は月約8万円。この「見えない社会保険料による月8万円のショート」を民間収入保障保険（月額10万円給付）でカバーする設計が最もコストパフォーマンスが高いです。
-                  </p>
-                  <p className="text-xs text-gray-500 mt-3">
-                    出典：<a href="https://www.mhlw.go.jp/stf/newpage_58198.html" target="_blank" rel="noopener noreferrer" className="underline text-blue-600">厚生労働省「令和6年労働災害発生状況」</a>
-                    ／<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="underline text-blue-600">厚生労働省「令和6年賃金構造基本統計調査」</a>
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
-
-          {/* セクション4：5つのチェックポイント */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">建設業従事者の収入保障保険選び5つのチェックポイント</h2>
-            <div className="space-y-5">
-              {[
-                {
-                  number: '01',
-                  title: '特別加入の給付基礎日額を実収入に近い水準で設定する',
-                  detail: '現場日当・月収を基準に給付基礎日額を設定してください。日額1万円以上（理想は1.5万円以上）に設定することで、長期休業時の生活費を一定程度確保できます。保険料の差は月数百円〜数千円程度であり、休業時の補償額の差（数百万円）に比べれば十分元が取れます。',
-                },
-                {
-                  number: '02',
-                  title: '業務外リスクをカバーする民間就業不能保険を別途確保する',
-                  detail: '特別加入は業務中のみが対象です。休日の事故・私病・生活習慣病による就業不能には適用されません。一人親方は特に業務外リスクが完全無保障になるため、民間の就業不能保険（月額10〜20万円給付）を別途確保することが必須です。',
-                },
-                {
-                  number: '03',
-                  title: '労災給付の実質手取りから不足する「月8万円」を補填する設計をする',
-                  detail: '労災補償の実質手取りと休業前の手取りの差額（月約8万円）をターゲットに、民間収入保障保険の月額給付を設定してください。過剰な保障は保険料の無駄になるため、不足分だけを精密に補填する設計が最もコスパが高いです。',
-                },
-                {
-                  number: '04',
-                  title: '高齢化した現場作業員は更新型保険の保険料上昇に注意する',
-                  detail: '55歳以上の現場作業員は更新型の就業不能保険・医療保険の保険料が急上昇します。60代まで現役で働く予定がある場合は、保険料が固定される長期定期型（60歳満期等）を選ぶことで保険料の安定化が図れます。',
-                },
-                {
-                  number: '05',
-                  title: '建設業は職業によって保険料が割増になるケースを確認する',
-                  detail: '高所作業・重機操作等の危険度が高い職種は、民間の就業不能保険・医療保険の審査で「割増保険料」「不担保条件」が付くケースがあります。加入前に職業の告知内容を正確に確認し、複数社で比較することが重要です。',
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
-                  <div className="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {item.number}
-                  </div>
-                  <div>
-                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* セクション5：よくある失敗事例3選 */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選——「特別加入があれば大丈夫」という誤解が招いた転落</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              建設業のケース別・就業不能損失シミュレーション
+            </h2>
             <div className="space-y-6">
-              {[
-                {
-                  title: '事例①「特別加入の給付基礎日額を最低額に設定していた。転落事故で1日2,800円の現実」',
-                  situation: 'Aさん（42歳・一人親方の内装工）。保険料節約のため給付基礎日額を3,500円（最低水準）で特別加入。足場から転落し複雑骨折で半年間休業。',
-                  problem: '1日2,800円（3,500円×80%）の休業補償×半年（約180日）＝約50万円の給付。実際の現場日当1.5万円×180日＝270万円との差額は約220万円。住宅ローンの返済（月12万円）が6か月で滞り競売にかけられそうになった。民間収入保障保険にも未加入。',
-                  lesson: '特別加入の給付基礎日額は実収入の水準（最低でも日額1万円以上）で設定する。さらに民間収入保障保険で上乗せすることで、長期休業時でも生活費を確保できる。',
-                },
-                {
-                  title: '事例②「休日のDIY中に転落。特別加入は業務外に適用されないと知らなかった」',
-                  situation: 'Bさん（50歳・一人親方の大工）。労災特別加入に加入しており「保険がある」と安心していた。休日に自宅屋根のDIY修理中に足を滑らせ転落、大腿骨骨折で3か月入院。',
-                  problem: '業務外の事故のため特別加入は一切適用なし。国民健康保険のため傷病手当金もゼロ。3か月間の収入がゼロになり、事業の運転資金を生活費に充当。民間の就業不能保険にも未加入だったため家族に多大な迷惑をかけた。',
-                  lesson: '特別加入は業務中のリスクのみをカバーする。業務外（休日の事故・私病）を含む24時間365日のリスクをカバーするには、民間の就業不能保険が唯一の選択肢。',
-                },
-                {
-                  title: '事例③「60代まで現役で働いたが、更新のたびに保険料が上がり60歳で解約」',
-                  situation: 'Cさん（58歳・建設会社の現場監督）。40代に加入した更新型の就業不能保険が更新のたびに保険料が上昇。58歳の更新で月額3.5万円になったため解約。60歳直前に現場での熱中症で3か月入院。',
-                  problem: '解約後の発症のため就業不能保険の給付ゼロ。労災補償は受給できたが社会保険料控除後の実質手取りは月約24万円。定年まであと2年の時期に貯蓄を大幅に取り崩すことになった。',
-                  lesson: '建設業で60代まで働く場合、保険料が固定される長期定期型（60歳満期）を40〜50代のうちに選ぶことで、更新型の保険料上昇リスクを回避できる。',
-                },
-              ].map((c, i) => (
-                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
-                  <div className="bg-orange-700 px-5 py-3">
-                    <p className="font-bold text-white text-sm">{c.title}</p>
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：建設会社勤務・現場監督（40代・年収600万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">基本給月30万円＋残業代月20万円→2024年問題で月10万円に削減・健保加入 / 腰椎圧迫骨折で6ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">2024年問題前の傷病手当金（試算）</div>
+                    <div className="font-bold text-gray-900">月約33.3万円</div>
+                    <div className="text-xs text-gray-500">標準報酬月額50万円 × 2/3</div>
                   </div>
-                  <div className="p-5 space-y-3">
-                    <div className="bg-gray-50 rounded-lg px-4 py-3">
-                      <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
-                      <p className="text-sm text-gray-600 leading-relaxed">{c.situation}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
-                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
-                    </div>
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
-                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
-                      <p className="text-sm text-amber-700">{c.lesson}</p>
-                    </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">2024年問題後の傷病手当金</div>
+                    <div className="font-bold text-red-700">月約27.3万円</div>
+                    <div className="text-xs text-gray-500">標準報酬月額41万円 × 2/3（等級下落後）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">規制前月収との差額</div>
+                    <div className="font-bold text-red-700">月▲22.7万円</div>
+                    <div className="text-xs text-gray-500">月収50万円 - 傷病手当金27.3万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">136.2万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">損失倍率λの実例</div>
+                    <div className="font-bold text-gray-900">等級境界付近では λ &gt; 1 が発生</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">工期遅延リスク</div>
+                    <div className="font-bold text-gray-900">発注者・元請けからの損害賠償リスク</div>
+                    <div className="text-xs text-gray-500">建設業法第19条の3</div>
                   </div>
                 </div>
-              ))}
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額22.7万円（従前生活水準維持のための差額補填）</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：一人親方の建設業者（40代・年収400万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">国保加入・労災特別加入なし / 現場での落下事故で3ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">健康保険の適用</div>
+                    <div className="font-bold text-red-700">適用外</div>
+                    <div className="text-xs text-gray-500">健康保険法第55条第1項・業務中事故</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">労災保険の適用</div>
+                    <div className="font-bold text-red-700">適用外</div>
+                    <div className="text-xs text-gray-500">労働者災害補償保険法第33条・特別加入なし</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">医療費の自己負担</div>
+                    <div className="font-bold text-gray-900">全額10割自己負担</div>
+                    <div className="text-xs text-gray-500">骨折治療・入院等で150万円以上の可能性</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">3ヶ月の収入損失</div>
+                    <div className="font-bold text-gray-900">約99万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">セーフティネット消滅の重さ</div>
+                    <div className="font-bold text-gray-900">健保・労災・傷病手当金の三重消滅</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な収入保障保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額33万円＋医療費補填一時金が必須</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              傷病手当金の算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>。一人親方の業務中事故・健保適用外の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第55条第1項</a>。労災特別加入の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000050" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働者災害補償保険法第33条</a>。過労死等労災補償状況：<a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和6年度過労死等の労災補償状況</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ3件 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              建設業特有のリスクデータ（政府統計・法令根拠）
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「2024年問題による保障デフレスパイラルと逆転現象」——等級境界を跨ぐとλ&gt;1になる数学的証明</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  残業代削減額をΔWとする。標準報酬月額Mは不連続な階段関数 M = f(W) として定まります。傷病手当金の毀損額：ΔSB = ΔM × 2/3。損失倍率：λ = ΔSB / ΔW = (2/3 × ΔM) / ΔW
+                </p>
+                <div className="bg-blue-50 rounded p-3 mb-3 font-mono text-sm text-blue-900">
+                  月収42.5万→42.4万（ΔW=0.1万円）で等級27→26に下落した場合：<br />
+                  ΔM = 3万円・ΔSB = 2万円・λ = 2万 ÷ 0.1万 = 20<br />
+                  わずか1,000円の収入減で傷病手当金が月2万円削られる「λ=20の逆転現象」
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  2024年問題で残業時間が段階的に削られる建設業従事者は、自覚のないまま就業不能時のセーフティネットを急速に失っています。2024年問題後に標準報酬月額を再確認し、収入保障保険でギャップを補填することが必須です。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和6年度過労死等の労災補償状況</a>
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「一人親方の三重セーフティネット消滅」——業務中事故で健保・労災・傷病手当金が全滅する罠</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  <a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第55条第1項</a>：「業務上の事由による疾病・負傷には健康保険給付を行わない」。<a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000050" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働者災害補償保険法第33条</a>の特別加入制度は任意加入。未加入一人親方が業務中に事故→健保も労災も適用されません。
+                </p>
+                <div className="bg-red-50 rounded p-3 mb-3 border border-red-200">
+                  <ul className="text-sm text-red-800 space-y-1">
+                    <li>• 健康保険：業務中の負傷には適用外（健康保険法第55条第1項）</li>
+                    <li>• 労災保険：特別加入なしでは適用外（労働者災害補償保険法第33条）</li>
+                    <li>• 傷病手当金：国保加入のためゼロ（国民健康保険法第58条第2項）</li>
+                    <li>• 骨折・転落事故の入院・手術費用は数百万円に達する可能性</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  特別加入の年間保険料は給付基礎日額に応じて数万円程度であり、リスクに対して極めて低コストな対策です。「特別加入＋収入保障保険」の両輪で業務中の全リスクをカバーする設計が一人親方の必須条件です。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「身体的負荷のピークと経済的責務のピークの合致」——50代での就業不能が最悪のタイミングを生む</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「令和6年度過労死等の労災補償状況」</a>によれば、建設業の脳・心臓疾患労災請求件数は128件と依然として高水準です。建設現場での長年の蓄積疲労により、50代で腰痛・膝関節疾患・脳心臓疾患を発症し就業不能となる確率が高まります。
+                </p>
+                <div className="bg-orange-50 rounded p-3 mb-3 border border-orange-200">
+                  <p className="text-sm text-orange-800 mb-1 font-semibold">50代に重なる二つのピーク：</p>
+                  <ul className="text-sm text-orange-700 space-y-1">
+                    <li>• 身体リスクのピーク：腰痛・膝関節・脳心臓疾患の発症確率が上昇</li>
+                    <li>• 経済的責務のピーク：住宅ローン残債（最大残高期）＋子供の大学進学費用</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  身体リスクのピークと家計支出のピークが同時に発生する「最悪のタイミング」を定量的に認識し、50代前に収入保障保険を確保することが重要です。給付期間を65歳（定年・引退年齢）まで設定することでこの期間全体をカバーできます。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント5つ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              建設業の収入保障保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">1</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">2024年問題後の現在の標準報酬月額で傷病手当金を再計算する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      残業代削減後の給与明細で現在の標準報酬月額を確認します。傷病手当金 = 現在の標準報酬月額 × 2/3 を再計算し、規制前の月収との差額を収入保障保険でカバーする設計を行います。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">2</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">一人親方は労災特別加入と収入保障保険を必ずセットで確保する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      <a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000050" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働者災害補償保険法第33条</a>の特別加入は業務中の医療費をカバー。収入保障保険は就業不能期間の収入損失をカバー。この2つがセットで初めて業務中の全リスクに対応できます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">3</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">支払対象外期間（免責期間）は雇用形態に合わせて設定する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      会社員（健保加入）：傷病手当金が最長1年6ヶ月支給されるため免責期間を長めに設定して保険料を抑えつつ、傷病手当金終了後をカバーします。一人親方（国保加入）：傷病手当金ゼロのため免責期間を最短（7日等）に設定します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">4</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">50代になる前に給付期間を65歳まで設定した保険に加入する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      身体リスクのピーク（50代）と経済的責務のピーク（住宅ローン・教育費）が重なります。遅くとも40代前半に加入し、給付期間を65歳まで設定します。加入が遅くなるほど保険料が上がり、健康状態によっては引受制限も発生します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">5</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">工期遅延リスクに備えた損害賠償引当金を確保する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      <a href="https://elaws.e-gov.go.jp/document?lawid=324AC0000000100" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">建設業法第19条の3</a>に関連する工期遅延・損害賠償リスクに備え、収入保障保険の給付金をキャッシュとして手元に確保し、緊急の代替要員手配費用や賠償交渉の原資として活用できる設計をします。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              建設業の収入保障保険よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  建設業の2024年問題後に腰椎骨折で休業。傷病手当金が規制前より月6万円少なかった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Aさん（45歳・現場監督・年収600万円）。2024年の時間外労働上限規制で残業代が月20万円から月10万円に削減された直後、腰椎圧迫骨折で6ヶ月の就業不能が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第43条</a>の随時改定により標準報酬月額が50万円から41万円に下落。傷病手当金が月33.3万円から月27.3万円に減額——月6万円の保障目減り。6ヶ月で36万円の追加損失が発生し、住宅ローンの返済が滞りました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（健康保険法第43条・第99条）：</span>2024年問題後は必ず標準報酬月額を再確認し、傷病手当金の実額を把握した上で収入保障保険でギャップを補填すること。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  一人親方が足場から転落。特別加入なしで医療費300万円が全額自己負担になった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Bさん（42歳・一人親方・年収400万円・国保加入・労災特別加入なし）。3階建て住宅の外壁工事中に足場から転落し、複雑骨折で3ヶ月の入院が必要になりました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第55条第1項</a>により業務中の負傷には健康保険が適用されない。<a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000050" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働者災害補償保険法第33条</a>の特別加入未加入のため労災保険も適用されない。医療費約300万円が全額10割自己負担。さらに傷病手当金もゼロのため3ヶ月間の収入99万円も全額喪失。合計損失約399万円に達しました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（健康保険法第55条第1項・労働者災害補償保険法第33条）：</span>一人親方は特別加入への加入が絶対条件。それでもカバーされない収入損失には収入保障保険が必要です。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  現場監督が脳卒中で休業。キーマン不在で工事が停止し元請けから損害賠償を請求された
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Cさん（52歳・現場代理人（現場監督）・年収700万円）。大型マンション建設工事の責任者として指揮をとっていたが、脳出血で突然倒れました。</p>
+                  <p><span className="font-semibold">問題：</span>Cさんが管理していた施工図・工程表・下請け業者との調整が全て停止。代替人員の確保に2週間以上かかり、工期が大幅に遅延しました。発注者から<a href="https://elaws.e-gov.go.jp/document?lawid=324AC0000000100" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">建設業法第19条の3</a>との関連で工期遅延による損害賠償請求（数百万円規模）が届きました。休業補償の傷病手当金は受け取れたが、損害賠償への対応で精神的・経済的に追い詰められました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（建設業法第19条の3）：</span>現場代理人・キーマンは就業不能と損害賠償リスクが連動します。収入保障保険の給付金を緊急の代替要員手配費用・賠償交渉の原資として確保する設計が重要です。
+                  </p>
+                </div>
+              </div>
+
             </div>
           </section>
 
           {/* セクション6：最終チェックリスト */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">加入前の最終チェックリスト（8項目）</h2>
-            <div className="space-y-3">
-              {[
-                '特別加入の給付基礎日額が実収入に近い水準（日額1万円以上）に設定されているか確認した',
-                '業務外（休日の事故・私病）をカバーする民間就業不能保険を別途確保した（または検討した）',
-                '労災給付の実質手取り（社会保険料・住民税控除後）を試算し、生活費との不足分を把握した',
-                '特別加入に未加入の一人親方は直ちに加入手続きを進めることにした',
-                '建設業の職業告知（高所作業・重機操作等）による保険料割増の有無を確認した',
-                '55歳以上の場合、更新型保険の保険料上昇リスクを把握し長期定期型への変更を検討した',
-                '月収40万円の場合の労災実質手取り（約24万円）と生活費の差額（月約8万円）を試算した',
-                '業務中・業務外・私病の3つのリスクを全てカバーする保障設計が完成しているか確認した',
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
-                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              建設業の収入保障保険 最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  '2024年問題後の現在の給与明細で標準報酬月額を確認した',
+                  '傷病手当金 = 現在の標準報酬月額 × 2/3 を再計算し規制前月収との差額を把握した',
+                  '一人親方の場合、労災特別加入の状況を確認した（労働者災害補償保険法第33条）',
+                  '業務中・業務外それぞれのリスクに対する保障が揃っているか確認した',
+                  '収入保障保険の支払対象外期間（免責期間）を雇用形態に合わせて設定した',
+                  '50代になる前に給付期間65歳までの保険に加入するスケジュールを設定した',
+                  '工期遅延・損害賠償リスクに備えた流動性資金として収入保障保険を位置づけた',
+                  '一人親方の場合、医療費の一時金特約を付加した',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="w-5 h-5 border-2 border-gray-400 rounded shrink-0 mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
-
           </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
