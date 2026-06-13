@@ -372,6 +372,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverLife = occ.slug === 'driver' && ins.slug === 'life'
   const isDriverIncomeProtection = occ.slug === 'driver' && ins.slug === 'income-protection'
   const isDriverCancer = occ.slug === 'driver' && ins.slug === 'cancer'
+  const isDriverDisability = occ.slug === 'driver' && ins.slug === 'disability'
   const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
   const isFreelanceEngineerLife = occ.slug === 'freelance-engineer' && ins.slug === 'life'
   const isFreelanceEngineerPension = occ.slug === 'freelance-engineer' && ins.slug === 'pension'
@@ -409,7 +410,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -13084,6 +13085,361 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   '学資保険の満期受取額と実際の大学学費の差額を把握した',
                   '不足分をNISA・積立投資で補完する計画を立てた',
                   '収入保障保険で歩合激減時の流動性を確保した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA③ */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+        </div>
+      )}
+
+{isDriverDisability && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">
+              ドライバーの就業不能保険——「リスクの指数関数的増大」と「2024年問題による保障デフレ」を徹底解説
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              ドライバーの就業不能保険設計には、大手比較サイトが一切触れていない「就業不能リスクの指数関数的増大」と「2024年問題による保障デフレ」という二つの固有リスクがあります。長時間座位と車両振動への曝露により、ドライバーの腰椎椎間板ヘルニアリスクは勤続年数Yの指数関数として P_lumbar(Y) = P_general × e^(kY) で増大します。一般職種と大差がない若年期と比べ、ベテランドライバーの就業不能リスクは指数関数的に高まります。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに2024年4月の時間外労働上限規制により残業代が削減されると、標準報酬月額の等級が下落し傷病手当金も連動して減額されます。損失倍率 λ = ΔSB / ΔW が等級境界を跨ぐと λ {'>'} 1 の逆転現象が発生——月収が0.1万円減っただけで傷病手当金が月2万円削られるケースもあります。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              一人親方ドライバーは国保加入のため傷病手当金がゼロ。車両リース代等の固定費も継続します。就業不能保険が唯一の収入補填手段です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-3">🚨 ドライバーの就業不能リスクは勤続年数とともに指数関数的に増大します</p>
+              <div className="bg-white rounded p-3 border border-red-200 mb-3 font-mono text-sm text-gray-800">
+                P_lumbar(Y) = P_general × e^(kY)
+              </div>
+              <ul className="text-sm text-red-800 space-y-1">
+                <li>・若いうちは一般職と大差なくても、ベテランになるほどリスクが爆発的に高まります</li>
+                <li>・リスクが低く保険料も安い若いうちに加入することが数理的に最も有利です</li>
+                <li>・2024年問題後は傷病手当金も目減りしています。今すぐ確認してください</li>
+              </ul>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 2024年問題後に標準報酬月額を確認しましたか？</p>
+              <ul className="text-sm text-amber-800 space-y-1">
+                <li>・時間外労働上限規制で残業代が削減されると健康保険法第43条の随時改定で標準報酬月額が低下します</li>
+                <li>・傷病手当金 = 標準報酬月額 × 2/3 も連動して減額されます</li>
+                <li>・「規制前の傷病手当金の金額」を前提に計画している場合は再計算が必要です</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA① */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              ドライバーのケース別・就業不能損失シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：会社員ドライバー（40代・年収600万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">基本給月30万円＋残業代月20万円→2024年問題で月10万円に削減・健保加入 / 腰椎圧迫骨折で6ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">2024年問題前の傷病手当金（試算）</div>
+                    <div className="font-bold text-gray-900">月約33.3万円</div>
+                    <div className="text-xs text-gray-500">標準報酬月額50万円 × 2/3</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">2024年問題後の傷病手当金</div>
+                    <div className="font-bold text-red-700">月約27.3万円</div>
+                    <div className="text-xs text-gray-500">標準報酬月額41万円 × 2/3（等級下落後）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">規制前月収との差額</div>
+                    <div className="font-bold text-red-700">月▲22.7万円</div>
+                    <div className="text-xs text-gray-500">月収50万円 - 傷病手当金27.3万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6ヶ月の収入損失累計</div>
+                    <div className="font-bold text-gray-900">136.2万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">職種転換困難リスク</div>
+                    <div className="font-bold text-gray-900">大型免許・運転技術は他業種に転用しにくい</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">就業不能リスクの指数倍率R(Y)</div>
+                    <div className="font-bold text-gray-900">勤続20年では R(20) = e^(0.07×20) ≒ 4.1倍</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額22.7万円（規制前月収との差額を補填）</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：一人親方ドライバー（40代・年収400万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">国保加入・月収約33万円 / 腰痛悪化で3ヶ月就業不能</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">3ヶ月の収入損失</div>
+                    <div className="font-bold text-gray-900">約99万円（全額喪失）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">車両リース代・駐車場代（3ヶ月）</div>
+                    <div className="font-bold text-gray-900">約30万円（固定費継続）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">合計損失</div>
+                    <div className="font-bold text-red-700">約129万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な就業不能保険の給付額</div>
+                  <div className="font-bold text-red-700 text-xl">月額33万円＋固定費補填（全額を民間保険でカバー）</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              傷病手当金の算定根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条・第43条</a>。一人親方の傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。就業不能リスク倍率：R(Y) = e^(kY)。過労死等労災補償状況：<a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和6年度</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              ドライバー特有のリスクデータ（政府統計3件）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「就業不能リスクの指数関数的増大」——若いうちに加入することの数理的優位性</h3>
+                </div>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-4">
+                  <p className="text-sm text-gray-700 mb-2">一般職種の腰椎疾患による就業不能確率をP_general、勤続年数をYとする。</p>
+                  <div className="space-y-1 text-sm font-mono text-gray-800 mb-3">
+                    <p>P_lumbar(Y) = P_general × e^(kY)（k=負荷係数）</p>
+                    <p>R(Y) = e^(kY)（k=0.07の場合）</p>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {[
+                      { year: '5年', val: '≒1.4倍' },
+                      { year: '10年', val: '≒2.0倍' },
+                      { year: '20年', val: '≒4.1倍' },
+                      { year: '30年', val: '≒8.2倍' },
+                    ].map((r) => (
+                      <div key={r.year} className="bg-red-50 rounded p-2 border border-red-200 text-center">
+                        <div className="text-xs text-gray-500">勤続{r.year}</div>
+                        <div className="font-bold text-red-700">{r.val}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  若年期には一般職と大差なくても、ベテランになるほど指数関数的にリスクが高まる。リスクが低く保険料も安い若いうちに就業不能保険に加入することが数理的に最も有利であることが証明される。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「2024年問題による傷病手当金の保障デフレ」——λ&gt;1の逆転現象が発生</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                  <div className="bg-orange-50 rounded p-4 border border-orange-200">
+                    <div className="text-xs text-gray-500 mb-1">損失倍率</div>
+                    <div className="font-bold text-gray-900 font-mono">λ = ΔSB / ΔW</div>
+                    <div className="text-xs text-gray-500 mt-1">= (2/3 × ΔM) / ΔW</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-4 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">等級境界を跨いだ場合</div>
+                    <div className="font-bold text-red-700">λ &gt; 1 の逆転現象</div>
+                    <div className="text-xs text-gray-500">月収0.1万円減→傷病手当金月2万円減（λ=20）</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  2024年問題で残業時間が削られたドライバーは、自覚のないまま就業不能時のセーフティネットを急速に失っている。健康保険法第43条の随時改定により標準報酬月額が低下し、健康保険法第99条の傷病手当金も連動して減額される。2024年問題後に給与明細で標準報酬月額を確認し、就業不能保険の給付月額を再設定することが必須。
+                </p>
+                <a href="https://elaws.e-gov.go.jp/document?lawid=211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：e-Gov法令検索「健康保険法第43条・第99条」
+                </a>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「職種転換困難」——ハンドルを握れなくなった後の収入回復が困難な構造</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                  <div className="bg-yellow-50 rounded p-3 border border-yellow-200 text-center">
+                    <div className="text-2xl font-bold text-yellow-700">244件</div>
+                    <div className="text-xs text-gray-600">脳・心臓疾患労災請求<br/>（道路貨物運送業）</div>
+                  </div>
+                  <div className="bg-yellow-50 rounded p-3 border border-yellow-200 text-center">
+                    <div className="text-2xl font-bold text-yellow-700">突出</div>
+                    <div className="text-xs text-gray-600">全産業トップクラスの<br/>過労死労災件数</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200 text-center">
+                    <div className="text-2xl font-bold text-red-700">収入半減</div>
+                    <div className="text-xs text-gray-600">内勤転職による<br/>年収損失リスク</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  大型車両の運転技術・長距離物流の業務知識は高度な専門技能だが、身体的理由で運転業務が不可能になった場合、内勤事務職等への転職は収入の大幅な低下を伴う。脳梗塞後遺症・重度の腰椎疾患により運転業務が不可能になった場合、配置転換先が存在しないケースが多く退職を余儀なくされる。就業不能保険の給付期間を長期（60〜65歳）に設定することで職種転換困難をカバーする設計が重要。
+                </p>
+                <a href="https://www.mhlw.go.jp/stf/newpage_59039.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「令和6年度過労死等の労災補償状況」
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* CTA② */}
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              ドライバーの就業不能保険選び 5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '01',
+                  title: 'リスクが低い若いうちに加入する（指数関数的リスク増大の逆用）',
+                  body: 'R(Y) = e^(kY) が証明する通り、若いうちはリスクが低く保険料も安い。20代・30代のうちに長期の就業不能保険に加入することが数理的に最も有利。',
+                },
+                {
+                  num: '02',
+                  title: '2024年問題後の現在の標準報酬月額で給付月額を再設定する',
+                  body: '残業代削減後の給与明細で標準報酬月額を確認する。傷病手当金（現在の標準報酬月額 × 2/3）を再計算し、月収との差額を就業不能保険でカバーする。',
+                },
+                {
+                  num: '03',
+                  title: '一人親方は傷病手当金ゼロ前提で給付月額を最大化する',
+                  body: '国保加入で傷病手当金がないため、実収入の全額をカバーする給付月額に設定する。車両リース代等の固定費も給付月額に上乗せする。',
+                },
+                {
+                  num: '04',
+                  title: '給付期間を長期（60〜65歳）に設定する',
+                  body: '腰椎疾患・脳心臓疾患による長期就業不能と職種転換困難を想定し、60〜65歳まで給付が継続する長期設定を選ぶ。',
+                },
+                {
+                  num: '05',
+                  title: '支払対象外期間（免責期間）を雇用形態に合わせて設定する',
+                  body: '会社員（健保）：傷病手当金が最長18ヶ月あるため免責期間を長めに設定可能。一人親方（国保）：傷病手当金ゼロのため免責期間を最短（7日）に設定する。',
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-gray-700">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded mb-3">事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">2024年問題後に腰椎骨折で休業。傷病手当金が規制前の試算より月6万円少なかった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Aさん（45歳・長距離トラック運転手・年収600万円）。2024年の時間外労働上限規制で残業代が月20万円から月10万円に削減された直後、腰椎圧迫骨折で6ヶ月の就業不能が必要になった。</p>
+                  <p><span className="font-bold">問題：</span>健康保険法第43条の随時改定で標準報酬月額が50万円→41万円に低下。傷病手当金が月33.3万円→月27.3万円に減額、月6万円の目減り。「2024年前の傷病手当金の金額」を前提に保険設計していたため補填が不足した。</p>
+                </div>
+                <div className="bg-red-50 rounded p-3 border border-red-200">
+                  <p className="text-sm font-bold text-red-800">教訓（健康保険法第43条）：2024年問題後は必ず標準報酬月額を再確認すること。就業不能保険の給付月額も現在の水準で再設定する。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-orange-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded mb-3">事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">一人親方ドライバーが腰痛で3ヶ月休業。傷病手当金ゼロ＋車両リース代で家計が破綻</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Bさん（42歳・一人親方・宅配ドライバー・年収400万円・国保加入）。慢性的な腰痛が悪化し3ヶ月の就業不能が必要になった。</p>
+                  <p><span className="font-bold">問題：</span>国民健康保険法第58条第2項により傷病手当金はゼロ。3ヶ月の収入99万円が全額喪失した上、車両リース代・駐車場代約30万円が固定費として継続した。合計損失約129万円で家計が破綻寸前になった。</p>
+                </div>
+                <div className="bg-orange-50 rounded p-3 border border-orange-200">
+                  <p className="text-sm font-bold text-orange-800">教訓（国民健康保険法第58条第2項）：一人親方は傷病手当金ゼロを前提に収入全額＋固定費をカバーする就業不能保険が必須。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-yellow-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mb-3">事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">脳梗塞後遺症で運転業務が不可能に。内勤への転職で年収が400万円から200万円に激減</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Cさん（52歳・会社員ドライバー・年収500万円・勤続25年）。脳梗塞を発症し、後遺症で運転業務が困難になった。</p>
+                  <p><span className="font-bold">問題：</span>会社に内勤ポストへの異動を打診したが、配置転換先が限られており年収200万円のポジションしか提示されなかった。就業不能保険に未加入で、以降は年収300万円の永続的な損失が発生した。R(25) = e^(0.07×25) ≒ 5.8倍のリスクを抱えていたが無自覚だった。</p>
+                </div>
+                <div className="bg-yellow-50 rounded p-3 border border-yellow-200">
+                  <p className="text-sm font-bold text-yellow-800">教訓：ドライバーの職種転換困難を認識し、就業不能保険の給付期間を60〜65歳まで設定して長期の収入補填を確保すること。</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              就業不能保険加入前の最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <ul className="space-y-3">
+                {[
+                  'R(Y) = e^(kY) で自分の就業不能リスク倍率を把握し早期加入を決断した',
+                  '2024年問題後の現在の標準報酬月額を給与明細で確認した',
+                  '傷病手当金（現在の標準報酬月額 × 2/3）を再計算し就業不能保険の給付月額を更新した',
+                  '一人親方の場合、傷病手当金ゼロを前提に収入全額をカバーする給付月額に設定した',
+                  '車両リース代等の固定費を給付月額に上乗せした（一人親方の場合）',
+                  '給付期間を60〜65歳（職種転換困難を考慮した長期設定）にした',
+                  '支払対象外期間（免責期間）を雇用形態に合わせて設定した',
+                  '腰椎疾患・脳心臓疾患が支払対象か確認した',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
