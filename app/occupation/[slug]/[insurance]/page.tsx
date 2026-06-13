@@ -386,6 +386,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isSelfEmployedLife = occ.slug === 'self-employed' && ins.slug === 'life'
   const isFreelanceMedical = occ.slug === 'freelance' && ins.slug === 'medical'
   const isSelfEmployedMedical = occ.slug === 'self-employed' && ins.slug === 'medical'
+  const isFreelanceLife = occ.slug === 'freelance' && ins.slug === 'life'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isRealEstateLife = occ.slug === 'real-estate' && ins.slug === 'life'
   const isRealEstateCancer = occ.slug === 'real-estate' && ins.slug === 'cancer'
@@ -406,7 +407,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -16662,6 +16663,371 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
             <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
+
+        </div>
+      )}
+
+      {/* フリーランス×生命保険 専用コンテンツ */}
+      {isFreelanceLife && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+              フリーランスの生命保険——「制度的不利2,400万円」を補う設計
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              フリーランスの生命保険設計には、大手比較サイトが一切触れていない「公的年金の機会損失」という構造的欠陥があります。
+              フリーランス（第1号被保険者）が死亡した場合、遺族が受け取れる公的年金は遺族基礎年金のみ。子なし配偶者は<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>によりゼロです。会社員なら子なし配偶者にも遺族厚生年金が支給されます。
+              この差額ΔPを毎年受け取り運用利回りr=2%で複利運用した場合の30年間の機会損失は：OL = ΔP × ((1+r)^30 - 1) / r。ΔP=60万円の場合、OL ≒ 2,434万円——フリーランスの遺族は会社員の遺族より2,400万円以上の「制度的な資産形成機会」を最初から奪われています。
+              さらに、<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第653条第1号</a>により業務委託契約は死亡と同時に全件消滅。進行中案件の報酬請求権が消え、着手金の返還義務や損害賠償リスクが遺族に発生します。団信に加入できない場合は住宅ローン残債も遺族に承継されます。
+              この三重の構造的不利を民間生命保険で補うことが、フリーランスの家族を守る唯一の手段です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 フリーランスの遺族は会社員の遺族より2,400万円以上の制度的不利を抱えています</p>
+              <p className="text-sm text-red-700 mb-1">機会損失 OL = ΔP × ((1+r)^30 - 1) / r</p>
+              <p className="text-sm text-red-700 mb-1">ΔP=60万円（遺族厚生年金の差額）・r=2%・30年の場合：OL ≒ 2,434万円</p>
+              <p className="text-sm text-red-700">子なし配偶者なら遺族基礎年金もゼロ（<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>）。この「制度的不利」を民間生命保険で補うことが最低限の義務です。</p>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 業務委託契約は死亡と同時に全件消滅します</p>
+              <p className="text-sm text-amber-700 mb-1"><a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第653条第1号</a>により、フリーランスの死亡と同時に全ての業務委託契約が終了。</p>
+              <p className="text-sm text-amber-700 mb-1">進行中案件の報酬請求権が消え、着手金の返還義務が遺族に発生します。</p>
+              <p className="text-sm text-amber-700">「案件が順調だから大丈夫」という安心感は、死亡した瞬間に完全に崩れます。</p>
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション2：ケース別シミュレーション */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランスのケース別・死亡保障ギャップシミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：フリーランスエンジニア（35歳・年収600万円・子2人・住宅ローン）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">国保・国民年金加入 / 団信加入有無で試算</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">遺族基礎年金（年額）</div>
+                    <div className="font-bold text-gray-900">約123万円（子2人加算）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">遺族厚生年金</div>
+                    <div className="font-bold text-red-700">0円</div>
+                    <div className="text-xs text-gray-500">第1号被保険者のため不支給</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">住宅ローン残債（団信加入の場合）</div>
+                    <div className="font-bold text-gray-900">消滅</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">住宅ローン残債（団信未加入の場合）</div>
+                    <div className="font-bold text-red-700">3,000万円が遺族に承継</div>
+                    <div className="text-xs text-gray-500">民法第896条</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">進行中案件の清算・賠償リスク</div>
+                    <div className="font-bold text-red-700">約200万円</div>
+                    <div className="text-xs text-gray-500">民法第415条・着手金返還等</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">生活費・教育費20年の不足額</div>
+                    <div className="font-bold text-gray-900">約3,500万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な死亡保険金の合計</div>
+                  <div className="font-bold text-red-700 text-xl">約6,700万円（団信未加入）/ 約3,700万円（団信加入）</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：フリーランスデザイナー（35歳・年収400万円・子なし・配偶者あり）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">国保・国民年金加入 / 賃貸</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">遺族基礎年金</div>
+                    <div className="font-bold text-red-700">0円</div>
+                    <div className="text-xs text-gray-500">国民年金法第37条・子なし</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">遺族厚生年金</div>
+                    <div className="font-bold text-red-700">0円</div>
+                    <div className="text-xs text-gray-500">第1号被保険者のため不支給</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">寡婦年金（60〜65歳・5年間）</div>
+                    <div className="font-bold text-gray-900">約300万円（総額）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">進行中案件の清算・賠償リスク</div>
+                    <div className="font-bold text-gray-900">約50万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">配偶者の生活費20年分</div>
+                    <div className="font-bold text-red-700">約4,800万円</div>
+                    <div className="text-xs text-gray-500">公的年金ゼロを前提</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">公的年金の機会損失（30年）</div>
+                    <div className="font-bold text-gray-900">OL ≒ 2,434万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な死亡保険金の合計</div>
+                  <div className="font-bold text-red-700 text-xl">約4,550万円</div>
+                  <div className="text-xs text-gray-500 mt-1">事業清算＋配偶者生活費（寡婦年金控除後）</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              遺族基礎年金の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>。委任終了の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第653条第1号</a>。包括承継の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第896条</a>。機会損失の計算：OL = ΔP × ((1+r)^30 - 1) / r（ΔP=年金格差・r=運用利回り）。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ3件 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランス特有のリスクデータ（政府統計・法令根拠）
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「公的年金の機会損失2,400万円」——フリーランスは制度設計上で会社員より不利な証明</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  フリーランス遺族の公的年金給付（基礎年金のみ）を P_FL、会社員遺族の給付（基礎年金＋遺族厚生年金）を P_EMP とすると、毎年の差額：ΔP = P_EMP - P_FL。
+                  この差額を安全資産の運用利回り r=2% で30年間複利運用した場合の機会損失：
+                </p>
+                <div className="bg-blue-50 rounded p-3 mb-3 font-mono text-sm text-blue-900">
+                  OL = ΔP × ((1+r)^30 - 1) / r<br />
+                  ΔP=60万円の場合：OL = 60万 × ((1.02)^30 - 1) / 0.02 = 60万 × 40.568 ≒ 2,434万円
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  フリーランスの遺族は「毎年60万円の現金が足りない」だけでなく、会社員の遺族が制度的に享受できた約2,400万円の資産形成機会を最初から奪われています。この機会損失OLをフリーランスが追加で確保すべき生命保険金額の理論的下限として設定します。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「民法第653条第1号による契約即日消滅」——死亡と同時に全収益が消える法的メカニズム</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  フリーランスの業務委託契約は法的に準委任契約（民法第648条）と解釈されます。<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第653条第1号</a>は「委任は受任者の死亡により終了する」と明確に規定します。
+                  フリーランスが急死した瞬間、進行中の全案件が法的に即日消滅します。
+                </p>
+                <div className="bg-red-50 rounded p-3 mb-3 border border-red-200">
+                  <ul className="text-sm text-red-800 space-y-1">
+                    <li>• 完成前の請負業務の報酬請求権は原則消滅</li>
+                    <li>• 受領済みの着手金の返還義務（民法第545条）が遺族に発生</li>
+                    <li>• 債務不履行による損害賠償義務（民法第415条）が遺族に重くのしかかる</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  「案件が好調だから経済的に大丈夫」という安心感は、死亡した瞬間に法律によって完全に無効化されます。この「将来収益の即日消滅」を見越した生命保険設計が不可欠です。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「団信未加入の住宅ローン残債リスク」——収入不安定で審査が通りにくいフリーランスの盲点</h3>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  金融機関の住宅ローン審査において、フリーランスは収入の不安定性から団体信用生命保険（団信）の加入条件が厳しく設定される場合があります。団信に加入できずワイド団信（金利0.2〜0.3%上乗せ）のみの場合、または団信自体に加入できない場合、死亡時に住宅ローン残債は消滅しません。
+                </p>
+                <div className="bg-orange-50 rounded p-3 mb-3 border border-orange-200">
+                  <ul className="text-sm text-orange-800 space-y-1">
+                    <li>• <a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第896条</a>の包括承継により、数千万円の住宅ローン残債が遺族にそのまま相続される</li>
+                    <li>• 遺族は住宅を失い自己破産に直結するリスク</li>
+                    <li>• 収入保障保険・逓減定期保険でローン残債をカバーする設計が必須</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                  フリーランスは「団信に入れているか確認する」→「入れていない場合は収入保障保険や逓減定期保険でローン残債をカバーする」という設計が不可欠です。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+          {/* セクション4：チェックポイント5つ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランスの生命保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">1</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">OL = ΔP × ((1+r)^30 - 1) / r で公的年金の機会損失を計算し保険金額に加算する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      会社員の遺族が受け取れる遺族厚生年金の年額をΔPとして、30年間の機会損失OLを算出します。この金額を生命保険金額の最低ラインとして設定することで、制度的不利を民間保険で補完できます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">2</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">団信の加入状況を確認し、未加入・ワイド団信の場合はローン残債をカバーする保険を設計する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      住宅ローンを組んでいる場合、団信への加入状況を確認します。団信未加入またはワイド団信の場合、収入保障保険・逓減定期保険でローン残債と同額の保障を確保します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">3</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">子なし配偶者への遺族基礎年金ゼロを前提に設計する</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      <a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>により子なし配偶者への遺族基礎年金はゼロです。配偶者が老齢基礎年金を受け取るまでの全期間（最長30年以上）をカバーする保険金額を設定します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">4</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">進行中案件の損害賠償リスク引当金を保険金額に上乗せする</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      <a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第415条</a>による損害賠償リスクに備え、通常の生活費カバーに加えて着手金返還・損害賠償相当額（数十〜数百万円）を保険金額に上乗せします。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="bg-blue-600 text-white text-sm font-bold w-7 h-7 rounded-full flex items-center justify-center shrink-0">5</span>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">デジタル遺品の「死後アクセス情報」を信頼できる人に共有しておく</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      クラウドアカウント・サーバーのアクセス情報を暗号化した上で配偶者・信頼できる同僚に共有しておきます。遺族への損害賠償リスクを事前に最小化する最も有効な対策です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランスの生命保険よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  フリーランスエンジニアが急死。進行中5件のSES契約が即日消滅し着手金150万円の返還請求が来た
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Aさん（38歳・フリーランスエンジニア・年収600万円・子2人）が心筋梗塞で急死。5社のSES契約が進行中で、うち2社から着手金を受領していました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第653条第1号</a>によりSES契約は死亡と同時に全件終了。2社から計150万円の着手金返還と民法第415条に基づく損害賠償請求が届きました。遺族基礎年金（子2人：年約123万円）のみでは家計が全く成り立たず、死亡保険金は2,000万円しかなく、着手金返還・損害賠償・生活費で5年以内に底をつきました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（民法第653条第1号・第415条）：</span>フリーランスの生命保険は着手金返還・損害賠償引当金として数百万円を上乗せし、遺族基礎年金の公的保障の薄さを補填する設計が必須。最低4,000万円以上が必要でした。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  団信に加入できないまま住宅ローンを組んだフリーランスが急死。残債3,000万円が遺族に承継された
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Bさん（40歳・フリーランスコンサルタント・年収700万円）。フリーランスの収入不安定性から団信の審査が通らず、住宅ローンを団信なしで組んでいました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第896条</a>の包括承継により住宅ローン残債3,000万円が配偶者と子2人に承継。死亡保険金1,500万円では残債の半分しかカバーできず、自宅を任意売却したものの残債が残り、最終的に配偶者が自己破産を選択しました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（民法第896条）：</span>団信の加入状況を必ず確認する。未加入の場合は収入保障保険・逓減定期保険でローン残債と同額の保障を確保すること。
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full mb-3">失敗事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">
+                  子なしフリーランス夫婦。夫が急死し妻への公的保障が完全にゼロだった
+                </h3>
+                <div className="text-sm text-gray-700 space-y-2 leading-relaxed">
+                  <p><span className="font-semibold">状況：</span>Cさん夫婦（夫35歳・フリーランスデザイナー・年収400万円、妻33歳・会社員・子なし）。夫が交通事故で急死しました。</p>
+                  <p><span className="font-semibold">問題：</span><a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>により子なし妻への遺族基礎年金はゼロ。第1号被保険者のため遺族厚生年金もゼロ。寡婦年金（国民年金法第49条）も妻が60歳になるまで受け取れません。会社員である妻の収入はあるものの、夫の収入400万円が消え家計が大幅に悪化。死亡保険金300万円は1年半で底をつきました。</p>
+                  <p className="bg-red-50 p-3 rounded border border-red-200 text-red-800">
+                    <span className="font-semibold">教訓（国民年金法第37条・第49条）：</span>フリーランスの子なし世帯は公的保障がほぼゼロ。機会損失OL=2,434万円を含めた4,000万円以上の生命保険が必要でした。
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランスの生命保険 最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  'OL = ΔP × ((1+r)^30 - 1) / r で公的年金の機会損失を計算し保険金額に加算した',
+                  '子なし世帯の場合、遺族基礎年金ゼロを前提に設計した（国民年金法第37条）',
+                  '団信の加入状況を確認し、未加入の場合はローン残債をカバーする保険を設計した',
+                  '進行中案件の着手金返還・損害賠償リスク相当額を保険金額に上乗せした（民法第653条第1号）',
+                  'クラウドアカウント・サーバーのアクセス情報を信頼できる人に共有した',
+                  '死亡保険金の受取人を配偶者に適切に指定した',
+                  '収入保障保険・逓減定期保険でローン残債の段階的なカバーを設計した',
+                  '必要保険金額の合計（生活費＋ローン残債＋事業清算＋機会損失）を逆算して設定した',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="w-5 h-5 border-2 border-gray-400 rounded shrink-0 mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
         </div>
       )}
