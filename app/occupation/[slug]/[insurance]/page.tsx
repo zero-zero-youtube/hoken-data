@@ -23,7 +23,7 @@ import { INSURANCE_DETAILS } from '@/lib/insuranceDetails'
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
 export async function generateStaticParams() {
-  const occupations = ['engineer','freelance-engineer','nurse','teacher','civil-servant','sales','driver','construction','restaurant','hairdresser','accountant','doctor','lawyer','designer','manager','manufacturing','pharmacist','real-estate','finance','part-time']
+  const occupations = ['engineer','freelance-engineer','nurse','teacher','civil-servant','sales','driver','construction','restaurant','hairdresser','accountant','doctor','lawyer','designer','manager','manufacturing','pharmacist','real-estate','finance','part-time','self-employed']
   const insurances = ['medical','life','income-protection','cancer','whole-life','pension','auto','fire','personal-accident','child']
   return occupations.flatMap(slug =>
     insurances.map(insurance => ({ slug, insurance }))
