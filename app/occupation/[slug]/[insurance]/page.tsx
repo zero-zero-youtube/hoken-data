@@ -375,6 +375,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverDisability = occ.slug === 'driver' && ins.slug === 'disability'
   const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
   const isDoctorDisability = occ.slug === 'doctor' && ins.slug === 'disability'
+  const isDoctorChild = occ.slug === 'doctor' && ins.slug === 'child'
   const isFreelanceEngineerLife = occ.slug === 'freelance-engineer' && ins.slug === 'life'
   const isFreelanceEngineerPension = occ.slug === 'freelance-engineer' && ins.slug === 'pension'
   const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
@@ -411,7 +412,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -13807,6 +13808,360 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
           {/* CTA③ */}
           <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+        </div>
+      )}
+
+{isDoctorChild && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-600">
+              医師家庭の学資保険——「確率1.0の資金ショート」と「ダブルピーク問題」を徹底解説
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              医師家庭の学資保険設計には、大手比較サイトが一切触れていない「私立医大×ダブルピーク問題」と「一般的な学資保険では確率1.0でショートする現実」があります。私立大学医学部の6年間の学費は平均約3,500万円（最大4,500万円）。一般的な学資保険の満期受取額（300万円程度）では私立医大学費の10%以下しかカバーできません。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              資金ショート額は S_hort = C_total - R で計算され、留年・浪人のリスクを加味すると C_total = C_y×(6+E_留年) + L×E_浪人——既卒の国家試験合格率は54〜59%まで急落するため、浪人による追加費用の期待値は無視できません。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに深刻なのが「ダブルピーク問題」です。勤務医が40〜50代に開業する際の設備投資ローン返済（月200万円規模）と、子の私立医大進学時の年間学費（500万円）が完全に重複します。私立医大初年度納付金は約1,000万円が一括請求されるため、開業直後のキャッシュフロー危機と学費請求が同時に発生します。学資保険は「入口の一部」と割り切り、終身保険・法人保険・教育資金贈与信託（1,500万円非課税枠）との組み合わせで総額を確保する設計が医師家庭には不可欠です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-3">🚨 一般的な学資保険（満期300万円）では私立医大では確率1.0でショートします</p>
+              <div className="bg-white rounded p-3 border border-red-200 mb-3 font-mono text-sm text-gray-800 space-y-1">
+                <p>S_hort = C_total - R</p>
+                <p>C_total = C_y×(6+E_留年) + L×E_浪人</p>
+              </div>
+              <ul className="text-sm text-red-800 space-y-1">
+                <li>・私立医大6年間の学費 C_y×6 ≒ 3,000万円</li>
+                <li>・一般的な学資保険満期受取額 R ≒ 300万円</li>
+                <li>・ショート額：約2,700万円（学資保険のみでは絶対に賄えない）</li>
+                <li>・留年・浪人が加わると更に500〜700万円の追加が必要です</li>
+              </ul>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 開業直後に子の私立医大入学が重なる「ダブルピーク」に注意してください</p>
+              <ul className="text-sm text-amber-800 space-y-1">
+                <li>・開業ローン返済月200万円＋私立医大年間学費500万円が同時に発生</li>
+                <li>・初年度納付金は約1,000万円の一括請求</li>
+                <li>・この時期のキャッシュフロー危機に備えた学資資金の「事前確保」が必須です</li>
+                <li>・学資保険の満期を18歳（大学入学時）に設定し流動性を確保してください</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA① */}
+          <AffiliateCTA primary="babyplanetMama" secondary="miraitecho" />
+
+          {/* セクション2：ケース別シミュレーション */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師家庭のケース別・教育資金シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：子が国公立大学医学部に現役合格
+                </div>
+                <p className="text-sm text-gray-600 mb-4">最もコストが低いシナリオ</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">6年間の基本学費</div>
+                    <div className="font-bold text-gray-900">約350万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">浪人・留年追加費用</div>
+                    <div className="font-bold text-gray-900">0円（ストレート卒業）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">一般的な学資保険満期受取額</div>
+                    <div className="font-bold text-gray-900">約300万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">資金ショート額</div>
+                    <div className="font-bold text-gray-900">約50万円（ほぼカバー可能）</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+                  <div className="text-xs text-gray-600 mb-1">追加で必要な準備額</div>
+                  <div className="font-bold text-blue-700 text-xl">約50万円（学資保険＋貯蓄でほぼ完結）</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：子が私立大学医学部に進学＋1浪・1留年
+                </div>
+                <p className="text-sm text-gray-600 mb-4">最もコストが高いシナリオ</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">6年間の基本学費</div>
+                    <div className="font-bold text-red-700">約3,500万円（平均）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">浪人（専門予備校代）</div>
+                    <div className="font-bold text-red-700">約500万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-red-100">
+                    <div className="text-xs text-gray-500 mb-1">留年（追加学費1年分）</div>
+                    <div className="font-bold text-gray-900">約500万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-red-100">
+                    <div className="text-xs text-gray-500 mb-1">総必要資金C_total</div>
+                    <div className="font-bold text-gray-900">約4,500万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-red-100">
+                    <div className="text-xs text-gray-500 mb-1">一般的な学資保険満期受取額</div>
+                    <div className="font-bold text-gray-900">約300万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">資金ショート額S_hort</div>
+                    <div className="font-bold text-red-700">約4,200万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">追加で必要な準備額</div>
+                  <div className="font-bold text-red-700 text-xl">約4,200万円（終身保険・法人保険・贈与信託の組み合わせが必須）</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              私立大学医学部の学費根拠：各大学公表データ。教育費の統計：<a href="https://www.mext.go.jp/a_menu/koutou/shinkou/07021403/1412031_00004.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">文部科学省・私立大学等の令和7年度入学者に係る学生納付金等調査</a>。資金ショート計算：S_hort = C_total - R、C_total = C_y×(6+E_留年) + L×E_浪人。教育資金贈与非課税の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000026" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">租税特別措置法第70条の2の2</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師家庭特有のリスクデータ（政府統計3件）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク①</span>
+                  <h3 className="font-bold text-gray-900">「確率1.0での資金ショート」——学資保険のみでは私立医大学費を賄えないことの数学的証明</h3>
+                </div>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-4">
+                  <div className="font-mono text-sm text-gray-800 space-y-1 mb-3">
+                    <p>C_total = C_y × (6 + E_留年) + L × E_浪人</p>
+                    <p>S_hort = C_total - R</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <div className="bg-green-50 rounded p-2 border border-green-200 text-center text-xs">
+                      <div>ストレート卒業</div>
+                      <div className="font-bold text-green-700 mt-1">S_hort ≒ 2,700万円</div>
+                    </div>
+                    <div className="bg-orange-50 rounded p-2 border border-orange-200 text-center text-xs">
+                      <div>1浪</div>
+                      <div className="font-bold text-orange-700 mt-1">S_hort ≒ 3,200万円</div>
+                    </div>
+                    <div className="bg-red-50 rounded p-2 border border-red-200 text-center text-xs">
+                      <div>1浪＋1留年</div>
+                      <div className="font-bold text-red-700 mt-1">S_hort ≒ 4,200万円</div>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  既卒の医師国家試験合格率は54〜59%のため浪人リスクは無視できない。学資保険を「私立医大の全額カバー手段」と誤解することは最も危険な保険設計の誤りの一つである。
+                </p>
+                <a href="https://www.mext.go.jp/a_menu/koutou/shinkou/07021403/1412031_00004.htm" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：文部科学省・私立大学等の令和7年度入学者に係る学生納付金等調査
+                </a>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク②</span>
+                  <h3 className="font-bold text-gray-900">「開業資金×教育資金のダブルピーク問題」——40〜50代のキャッシュフロー危機</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                  <div className="bg-orange-50 rounded p-4 border border-orange-200">
+                    <div className="text-xs text-gray-500 mb-1">開業ローン月返済額（年間）</div>
+                    <div className="font-bold text-orange-700 text-xl">月200万円 × 12ヶ月</div>
+                    <div className="text-xs text-gray-500">=年2,400万円の固定負担</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-4 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">私立医大入学初年度（一括請求）</div>
+                    <div className="font-bold text-red-700 text-xl">約1,000万円</div>
+                    <div className="text-xs text-red-600">開業直後に同時発生</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  厚生労働省「第24回医療経済実態調査（令和5年実施）」によれば、無床診療所（個人立）の収支差率は平均32.2%だが、開業初期（1〜3年目）は設備投資ローン返済により実質的な手取りが大幅に圧縮される。開業直後のキャッシュフロー危機と学費請求が重なると個人の流動資産が瞬時に枯渇するリスクがある。
+                </p>
+                <a href="https://www.mhlw.go.jp/bunya/iryouhoken/database/zenpan/jittaityousa/24_houkoku.html" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：厚生労働省「第24回医療経済実態調査（令和5年実施）」
+                </a>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0">リスク③</span>
+                  <h3 className="font-bold text-gray-900">「教育資金贈与信託の非課税枠」——1,500万円の活用と超過時の課税リスク</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                  <div className="bg-green-50 rounded p-3 border border-green-200 text-center">
+                    <div className="text-2xl font-bold text-green-700">1,500万円</div>
+                    <div className="text-xs text-gray-600">教育資金贈与の<br/>贈与税非課税枠</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200 text-center">
+                    <div className="text-2xl font-bold text-red-700">3,500万円</div>
+                    <div className="text-xs text-gray-600">私立医大6年間の<br/>平均学費</div>
+                  </div>
+                  <div className="bg-orange-50 rounded p-3 border border-orange-200 text-center">
+                    <div className="text-2xl font-bold text-orange-700">2,000万円</div>
+                    <div className="text-xs text-gray-600">非課税枠超過分<br/>（課税対象）</div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 mb-3">
+                  租税特別措置法第70条の2の2に基づく教育資金の一括贈与非課税制度では、祖父母から孫への教育資金として最大1,500万円まで贈与税が非課税となる。しかし私立医大の総学費（平均3,500万円）は非課税枠を大きく超過する。超過分には通常の贈与税が課税される。贈与信託の非課税枠を最大限活用しつつ、残額を終身保険・法人保険等で別途準備する戦略的設計が必要。
+                </p>
+                <a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000026" rel="noopener noreferrer" target="_blank" className="text-xs text-blue-600 underline">
+                  出典：e-Gov法令検索「租税特別措置法第70条の2の2」
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          {/* CTA② */}
+          <AffiliateCTA primary="babyplanetMama" secondary="miraitecho" />
+
+          {/* セクション4：チェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              医師家庭の学資保険選び 5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  num: '01',
+                  title: '学資保険は「総額の一部」と割り切り不足分の準備計画を立てる',
+                  body: '国公立医学部なら学資保険＋貯蓄でほぼカバー可能。私立医学部なら学資保険は「入口の10%」と割り切り、終身保険・法人保険・教育資金贈与信託で残額を確保する。',
+                },
+                {
+                  num: '02',
+                  title: '払込免除特約を必ず付加する',
+                  body: '「医療・福祉」業の精神障害労災ワースト1位という現実を踏まえ、親が就業不能に陥っても学資金が保全される払込免除特約は必須。',
+                },
+                {
+                  num: '03',
+                  title: '満期を18歳（大学入学時）に設定し初年度納付金に充てる',
+                  body: '私立医大の初年度納付金は約1,000万円の一括請求。学資保険の満期受取額（300万円程度）を初年度納付金の一部として活用する設計が現実的。',
+                },
+                {
+                  num: '04',
+                  title: '教育資金贈与信託（非課税枠1,500万円）を祖父母と連携して活用する',
+                  body: '祖父母が存命で資産がある場合、非課税枠1,500万円を医学部学費の一部として活用する設計を検討する。使途要件・領収書管理を事前に把握しておくことが必須。',
+                },
+                {
+                  num: '05',
+                  title: '留年・浪人リスクを保険設計に組み込む',
+                  body: '私立医大では留年リスクが高く、既卒合格率が54〜59%に急落する。追加費用（1年あたり500〜700万円）を想定した予備資金の確保を学資計画に含めておく。',
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-gray-700">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-white border border-red-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded mb-3">事例①</div>
+                <h3 className="font-bold text-gray-900 mb-3">子が私立医大に進学。学資保険300万円では初年度納付金の30%しか賄えなかった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Aさん（医師・52歳）。18年前に学資保険（満期300万円）に加入。子が私立大学医学部に現役合格した。</p>
+                  <p><span className="font-bold">問題：</span>初年度納付金が約1,000万円請求された。学資保険の満期受取額300万円では30%しかカバーできなかった。残り700万円を開業ローンの返済資金から捻出せざるを得ず、事業資金繰りが悪化した（ダブルピーク問題の直撃）。</p>
+                </div>
+                <div className="bg-red-50 rounded p-3 border border-red-200">
+                  <p className="text-sm font-bold text-red-800">教訓：医師家庭では学資保険を「一部」と割り切り、終身保険・法人保険等で別途4,000万円以上の教育資金を準備すること。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-orange-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded mb-3">事例②</div>
+                <h3 className="font-bold text-gray-900 mb-3">子が医学部で1留年し追加学費500万円。贈与税の追徴課税も重なった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Bさん（開業医・50歳）。祖父母から教育資金贈与信託1,500万円を活用済み。子が私立医大で1年留年し追加学費500万円が発生した。</p>
+                  <p><span className="font-bold">問題：</span>贈与信託の残高がなくなっており追加分は別途手当てが必要。別途祖父母から700万円の追加贈与を受けたが、租税特別措置法第70条の2の2の非課税枠を超過し超過分に贈与税が課税された。</p>
+                </div>
+                <div className="bg-orange-50 rounded p-3 border border-orange-200">
+                  <p className="text-sm font-bold text-orange-800">教訓（租税特別措置法第70条の2の2）：留年リスクを想定して贈与信託の非課税枠の使い方を慎重に設計すること。</p>
+                </div>
+              </div>
+
+              <div className="bg-white border border-yellow-200 rounded-lg p-6 shadow-sm">
+                <div className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mb-3">事例③</div>
+                <h3 className="font-bold text-gray-900 mb-3">子が国試浪人。24歳以降の生活費・予備校代を一切準備していなかった</h3>
+                <div className="bg-gray-50 rounded p-4 border border-gray-200 mb-3 text-sm text-gray-700 space-y-2">
+                  <p><span className="font-bold">状況：</span>Cさん（勤務医・52歳）。子が私立医大を6年で卒業したが国試に不合格。学資保険は18歳（入学時）に満期を迎えており資金はゼロ。</p>
+                  <p><span className="font-bold">問題：</span>24歳以降の生活費・医師国家試験専門予備校代（年間200〜400万円）を一切準備していなかった。既卒の合格率が54〜59%まで急落することを知らず、「6年で卒業すれば国試は合格する」と楽観視していた。</p>
+                </div>
+                <div className="bg-yellow-50 rounded p-3 border border-yellow-200">
+                  <p className="text-sm font-bold text-yellow-800">教訓：医学部教育の特殊性（留年・浪人リスク）を踏まえ、大学卒業後の追加費用として500〜700万円の予備資金を確保すること。</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              学資保険加入前の最終チェックリスト（8項目）
+            </h2>
+            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <ul className="space-y-3">
+                {[
+                  'S_hort = C_total - R で学資保険のショート額を計算した',
+                  '子が私立医大を目指す場合、学資保険を「一部（入口）」と割り切った',
+                  '不足分（2,700〜4,200万円）を終身保険・法人保険・贈与信託で準備する計画を立てた',
+                  '教育資金贈与信託の非課税枠（1,500万円）を確認し活用計画を立てた',
+                  '留年（追加学費500万円）・浪人（追加費用500万円）のリスクを資金計画に含めた',
+                  '払込免除特約を付加した',
+                  '満期を18歳（大学入学時）に設定し初年度納付金の一部として活用する設計にした',
+                  '開業ローン返済と教育費のダブルピークが重なる時期を把握した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* CTA③ */}
+          <AffiliateCTA primary="babyplanetMama" secondary="miraitecho" />
 
         </div>
       )}
