@@ -385,6 +385,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPharmacistCancer = occ.slug === 'pharmacist' && ins.slug === 'cancer'
   const isSelfEmployedLife = occ.slug === 'self-employed' && ins.slug === 'life'
   const isFreelanceMedical = occ.slug === 'freelance' && ins.slug === 'medical'
+  const isSelfEmployedMedical = occ.slug === 'self-employed' && ins.slug === 'medical'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isRealEstateLife = occ.slug === 'real-estate' && ins.slug === 'life'
   const isRealEstateCancer = occ.slug === 'real-estate' && ins.slug === 'cancer'
@@ -405,7 +406,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -16345,6 +16346,326 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
         </div>
       )}
+
+      {/* 自営業×医療保険 専用コンテンツ */}
+      {isSelfEmployedMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">自営業者の医療保険完全ガイド：固定費燃焼乗数と傷病手当金ゼロの二重打撃</h1>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              自営業者の医療保険設計には、大手比較サイトが一切触れていない「固定費燃焼乗数」という致命的なリスクがあります。会社員が入院しても企業は事業を継続しますが、自営業者が入院すると売上がゼロになる一方で家賃・人件費・リース料などの固定費は毎月引き落とされ続けます。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              この構造を「固定費燃焼乗数 M = F / P（F=月次固定費・P=月次純利益）」で表すと、Mが大きいほど休業の破壊力が増します。月商150万円・固定費120万円・純利益30万円の飲食店の場合 M = 4.0。3ヶ月の入院でT_lost = M × t = 12ヶ月分の純利益が消滅します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに国民健康保険法第58条第2項により傷病手当金はゼロ。前年高収入の場合は休業中も高額な国保税が請求され続けます（地方税法：前年所得ベース算定）。医療保険の診断一時金・入院給付金は、この「固定費の燃焼を止める消火剤」として機能します。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 M = F/P（固定費燃焼乗数）が高いほど入院が事業を破壊します</p>
+              <p className="text-red-700 text-sm leading-relaxed">
+                M = 4.0（飲食店の典型例）の場合、3ヶ月の入院で12ヶ月分の純利益が消滅。<br />
+                売上ゼロでも家賃・人件費・リース料は毎月引き落とされ続けます。<br />
+                国民健康保険法第58条第2項により傷病手当金もゼロ。医療保険の一時金が「固定費の燃焼を止める消火剤」になります。
+              </p>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5 mb-6">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 前年高収入だと休業中も高額な国保税が請求されます</p>
+              <p className="text-amber-700 text-sm leading-relaxed">
+                国保税は前年所得ベースで算定（地方税法）。<br />
+                前年年収1,000万円の自営業者が翌年休業しても年間約100万円の国保税が請求され続けます。<br />
+                休業直後に自治体窓口で減額申請を行うことが必須です。
+              </p>
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション2：ケース別シミュレーション（カード型） */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業者のケース別・入院損失シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：飲食店経営（40代・月商150万円・固定費120万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">胃がんで3ヶ月入院 / 国保加入</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">固定費燃焼乗数M</div>
+                    <div className="font-bold text-red-700">M = 4.0</div>
+                    <div className="text-xs text-gray-500">120万円 ÷ 30万円（純利益）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">3ヶ月の売上損失</div>
+                    <div className="font-bold text-gray-900">450万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">固定費継続損失（3ヶ月）</div>
+                    <div className="font-bold text-gray-900">360万円</div>
+                    <div className="text-xs text-gray-500">家賃・人件費・リース等</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">治療費（高額療養費・区分ウ）</div>
+                    <div className="font-bold text-gray-900">約25万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">消滅した純利益相当期間</div>
+                    <div className="font-bold text-gray-900">T_lost = 12ヶ月分</div>
+                    <div className="text-xs text-gray-500">M × t = 4.0 × 3ヶ月</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">合計損失・必要な医療保険給付額</div>
+                  <div className="font-bold text-red-700 text-xl">約835万円 → 診断一時金＋入院給付金で対応</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <div className="inline-block bg-green-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：IT系自営業（35歳・月収50万円・固定費10万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">骨折で2ヶ月入院 / 国保加入</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">固定費燃焼乗数M</div>
+                    <div className="font-bold text-gray-900">M = 0.25（低リスク）</div>
+                    <div className="text-xs text-gray-500">10万円 ÷ 40万円（純利益）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">2ヶ月の収入損失</div>
+                    <div className="font-bold text-gray-900">100万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">固定費継続損失（2ヶ月）</div>
+                    <div className="font-bold text-gray-900">20万円</div>
+                    <div className="text-xs text-gray-500">サーバー代・SaaS利用料等</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">治療費（高額療養費・区分ウ）</div>
+                    <div className="font-bold text-gray-900">約10万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">消滅した純利益相当期間</div>
+                    <div className="font-bold text-gray-900">T_lost = 0.5ヶ月分</div>
+                    <div className="text-xs text-gray-500">M × t = 0.25 × 2ヶ月</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-orange-100 rounded p-3 border border-orange-300">
+                  <div className="text-xs text-gray-600 mb-1">合計損失・必要な医療保険給付額</div>
+                  <div className="font-bold text-orange-700 text-xl">約130万円 → 入院一時金＋日額給付で対応</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。固定費燃焼乗数の概念：M = F/P（F=月次固定費・P=月次純利益）。T_lost = M × t（t=休業月数）で消滅する純利益相当期間を算出。小規模企業共済の傷病災害時貸付（年利0.9%）：<a href="https://www.smrj.go.jp/kyosai/skyosai/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">中小機構・小規模企業共済</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ3件 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業特有の医療保険リスクデータ（政府統計・法令根拠付き）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク①：「固定費燃焼乗数M」——3ヶ月の入院が12ヶ月分の純利益を消滅させる数学的証明
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  自営業者の月次利益構造：P = S - V - F（S=売上・V=変動費・F=固定費）。固定費燃焼乗数 M = F / P。休業月数tにおける消滅純利益相当期間：T_lost = M × t。飲食業（M=4.0）が3ヶ月休業：T_lost = 12ヶ月分の純利益が消滅。IT系自営業（M=0.25）が3ヶ月休業：T_lost = 0.75ヶ月分（相対的低リスク）。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  M {'>'} 1（固定費 {'>'} 純利益）の業種——飲食・小売・美容・製造等——では休業開始と同時に毎月純損失が累積し、事業の運転資金を急速に食いつぶす。この「固定費の燃焼」を止めるには、休業前後に即座に使える流動性が必要。医療保険の診断一時金・入院給付金が「消火剤」として機能する唯一の手段となる。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク②：「国保料の遅行性ダメージ」——収入ゼロの休業中に前年ベースの高額国保税が請求される
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  国民健康保険税は地方税法第703条の4等に基づき「前年の所得」をベースに算定される。前年に年収1,000万円を得た自営業者が翌年の年初に重病で倒れた場合、当年の収入がゼロになることが確実でも、前年ベースで確定した年間国保税（自治体によっては年間100万円超）の支払い義務はリアルタイムには免除されない。収入ゼロの療養中に医療費・生活費・国保税の三重苦が発生する。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  対策は2つ：①休業直後に自治体の国保担当窓口で減額申請を行う（即応しないが必要）、②民間医療保険の給付金を生活防衛資金として確保しておく。どちらか一方だけでは不十分。両方の対策が必要である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=314AC0000000226" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">地方税法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク③：「小規模企業共済の傷病災害時貸付」——医療保険との役割分担で資金ショートを防ぐ
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  小規模企業共済に加入している自営業者は、「傷病災害時貸付」を活用することで年利0.9%という低金利でこれまでの掛金納付範囲内の資金を迅速に調達できる。ただし貸付実行まで一定の審査期間が必要であり、入院直後の「即座の現金」には使いにくい面がある。また貸付限度額を超える固定費赤字には対応できない。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  民間医療保険との最適な役割分担：入院直後〜2週間は医療保険の診断一時金・入院一時金（即日〜数日で支払）、2週間〜1ヶ月は小規模企業共済の傷病災害時貸付（審査完了後）、1ヶ月以上の長期は就業不能保険の月額給付。この三段構えで自営業者の長期療養リスクをカバーする設計が最適である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://www.smrj.go.jp/kyosai/skyosai/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">中小機構・小規模企業共済</a>
+                </p>
+              </div>
+
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業者の医療保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">① M = F/P で自分の固定費燃焼乗数を計算する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  月次固定費Fと月次純利益Pを確認し、M = F/P を算出する。M {'>'} 1 の場合は医療保険の優先度が極めて高い。T_lost = M × t（想定休業月数）で消滅する純利益相当期間を把握する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">② 診断一時金を「固定費の消火剤」として設定する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  固定費月額 × 想定休業月数 が最低限必要な診断一時金の目安。飲食業・小売業など M {'>'} 1 の業種は特に高額な診断一時金が必要。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">③ 小規模企業共済の傷病災害時貸付と役割を分担する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  入院直後の即時資金は医療保険でカバー。2週間以降の長期資金は共済貸付と就業不能保険で対応。三段構えの設計で空白期間をなくす。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">④ 前年高収入の場合、国保税の減額申請手続きを事前に確認する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  休業直後に自治体の国保担当窓口で減額申請を行う手続きを事前に把握しておく。即応しないため早めの申請が重要。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">⑤ 高額療養費の世帯合算を活用する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  同一世帯の家族が同じ国保に加入している場合、医療費を世帯合算して限度額を適用できる。70歳未満は自己負担21,000円以上のものが合算対象。家族の医療費と合算することで実質的な自己負担を下げられる。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例①「飲食店主が胃がんで3ヶ月入院。固定費360万円が流出し退院前に自己破産手続きを余儀なくされた」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Aさん（42歳・飲食店経営・月商150万円・固定費120万円）。胃がんの手術と抗がん剤治療で3ヶ月の入院が必要になった。国民健康保険法第58条第2項により傷病手当金はゼロ。売上がゼロの中、店舗家賃と厨房機器のリース料計360万円の支払いが継続。運転資金が枯渇し、退院前に自己破産手続きを余儀なくされた。M = 120万/30万 = 4.0、T_lost = 4.0 × 3 = 12ヶ月分の純利益が消滅。医療保険の診断一時金300万円があれば、固定費を払いながら退院まで乗り越えられた。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（国民健康保険法第58条第2項）：M {'>'} 1 の自営業者には診断一時金が固定費月額×休業月数以上必要。飲食業・小売業は特に優先度が高い。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例②「前年年収900万円の自営業者が休業中に国保税年90万円を請求された。滞納で口座が差し押さえられた」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Bさん（45歳・建設業自営業者・前年年収900万円）。腰椎ヘルニアの悪化で6ヶ月の療養が必要になり収入がほぼゼロになった。前年の高収入に基づき算定された国保税が年間約90万円。収入ゼロの中で月約7.5万円の国保税が請求され続けた。医療費・生活費・国保税の三重苦で滞納が発生し、自治体から事業用口座への差し押さえ予告通知が届いた。減額申請の手続きを知らず、即応しない制度設計の被害者となった。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（地方税法第703条の4）：前年高収入の自営業者は休業直後に国保税の減額申請を行うこと。医療保険の給付金を国保税支払いの生活防衛資金として確保しておくことが必須。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例③「小規模企業共済の貸付審査に2週間かかった。その間の固定費支払いで資金ショートした」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Cさん（48歳・小売業自営業者・小規模企業共済加入）。心疾患で緊急入院し、退院後も2ヶ月の療養が必要になった。「小規模企業共済の傷病災害時貸付があるから大丈夫」と思っていた。貸付申請から実行まで約2週間の審査期間が必要だった。入院直後の2週間、固定費（家賃・人件費）の支払いに充てる即時資金がなく、従業員給与の支払いが1週間遅延し労働基準法第24条違反のリスクが生じた。医療保険の診断一時金があれば入院当日から資金を確保できた。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓：小規模企業共済の貸付は審査期間があり「即時の現金」にはならない。入院直後の空白期間は医療保険の診断一時金・入院一時金でカバーすること。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              自営業者の医療保険加入前チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  'M = F/P（固定費燃焼乗数）を計算し自分の休業リスクの大きさを把握した',
+                  'T_lost = M × t（想定休業月数）で消滅する純利益相当期間を試算した',
+                  '診断一時金を「固定費月額 × 想定休業月数」以上に設定した',
+                  '傷病手当金ゼロを前提に入院給付金・就業不能保険をセットで確保した',
+                  '小規模企業共済の傷病災害時貸付と医療保険の役割分担を設計した',
+                  '前年高収入の場合、休業直後の国保税減額申請手続きを確認した',
+                  '高額療養費の世帯合算制度を把握した',
+                  '限度額適用認定証の事前申請方法を確認した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-gray-400 rounded mt-0.5"></span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+        </div>
+      )}
+
 
       {isPharmacistMedical && (
         <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
