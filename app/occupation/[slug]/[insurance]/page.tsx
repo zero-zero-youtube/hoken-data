@@ -17865,263 +17865,311 @@ export default async function OccupationInsurancePage({ params }: Props) {
       )}
 
       {/* パートタイム×生命保険 専用コンテンツ */}
+      {/* パートタイム×生命保険 専用コンテンツ */}
       {isPartTimeLife && (
         <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
 
-          {/* セクション1：リード文 */}
+          {/* セクション1：リード文 + インフォボックス */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">パートタイム労働者に生命保険が必要な理由</h2>
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">パートタイム労働者の生命保険完全ガイド：家事労働の経済的価値と公的保障ゼロの落とし穴</h1>
             <p className="text-gray-700 leading-relaxed mb-4">
-              パートタイム労働者は2,126万人と雇用者全体の36.5%を占め
-              （総務省「労働力調査」2025年平均）、
-              特に女性の非正規比率は47.8%に達します
-              （令和4年就業構造基本調査）。
-              非正規雇用の約9割は年間所得200万円未満であり、
-              低収入の中でいかに家族を守る保障を設計するかが
-              パートタイム労働者の生命保険選びの核心です。
+              パートタイム労働者の生命保険設計において、最も見落とされているのが「家事労働の経済的価値」です。内閣府「無償労働の貨幣評価」報告書によれば、市場賃金代替法による専業主婦の無償労働の貨幣評価額は年間約276万円。パート収入Wと家事労働価値Hを合算すると、家族が失う真の経済的損失はV = W + H = 120万円 + 276万円 = 396万円/年になります。
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              特に2025年に成立した遺族厚生年金の改正
-              （2028年4月施行）により、
-              60歳未満で配偶者を亡くした場合は
-              原則5年間の有期給付に変わります。
-              これまで「終身でもらえる」と思っていた遺族年金が
-              5年で終了するケースが生まれます。
-              扶養範囲内で働くパートタイム労働者は
-              この改正の影響を最も大きく受ける層の一つです。
+              パート収入だけを見て「年収120万円だから保険は最低限でいい」という設計をすると、毎年276万円の赤字が家計に発生し続けます。真に必要な保険金額はIns_V = (W + H) × t（t=補填年数）で計算されます。
             </p>
-            <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-4 rounded-r-xl">
-              <p className="font-bold text-amber-800">
-                ⚠️ パートで扶養範囲内（年収130万円未満）で働く場合の重大な盲点
-              </p>
-              <p className="text-amber-700 text-sm mt-1">
-                扶養範囲内パートは国民年金のみ加入のため、
-                配偶者が死亡しても遺族厚生年金は受け取れません。
-                受け取れるのは遺族基礎年金（子がいる場合のみ・年約109万円）のみです。
-                子のない夫婦では公的給付がゼロになる可能性があります。
-                公的保障の空白地帯を理解した上で
-                生命保険を設計する必要があります。
-              </p>
-              <p className="text-xs text-amber-600 mt-2">
-                出典：<a href="https://www.nenkin.go.jp/tokusetsu/tekiyokakudai_kojin.html" target="_blank" rel="noopener noreferrer" className="underline">日本年金機構「社会保険の適用拡大」</a>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              さらに、厚生年金保険法第58条により第3号被保険者（扶養内パート）が死亡しても遺族厚生年金は支給されません。国民年金法第37条により子なし世帯や夫の年収が850万円以上の場合は遺族基礎年金もゼロです。「パートだから保険は不要」という思い込みが、残された家族を深刻な経済的困窮に追い込む最大の落とし穴です。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 パートの死亡で家族が失う経済的損失はパート収入だけではありません</p>
+              <p className="text-red-700 text-sm leading-relaxed">
+                V = W（パート収入）+ H（家事労働価値276万円）= 年間約396万円<br />
+                パート収入120万円のみで保険設計すると毎年▲276万円の赤字が家計に発生し続けます。<br />
+                家事労働の市場調達コストを含めた保険設計が必要です。
               </p>
             </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5 mb-6">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 扶養内パートが死亡しても遺族厚生年金は支給されません</p>
+              <p className="text-amber-700 text-sm leading-relaxed">
+                厚生年金保険法第58条により第3号被保険者の死亡には遺族厚生年金が支給されない。<br />
+                夫の年収が850万円以上の場合は遺族基礎年金もゼロ（国民年金法第37条）。<br />
+                「高収入の夫がいるから大丈夫」という世帯ほど公的保障が手薄になるという逆説があります。
+              </p>
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
 
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
-
-          {/* セクション2：公的保障と民間保険の役割分担 */}
+          {/* セクション2：ケース別シミュレーション（カード型） */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">パートの加入状況別・公的保障と民間生命保険の役割分担</h2>
-            <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-[#1b2631]">
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">加入状況</span></th>
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">遺族厚生年金</span></th>
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">遺族基礎年金</span></th>
-                    <th className="px-4 py-3 text-left"><span className="text-white font-bold">備考</span></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {[
-                    ['扶養範囲内パート（130万円未満）', '❌ なし', '✅ あり（子がいる場合のみ）', '国民年金のみ加入'],
-                    ['社会保険加入パート（週20h・月8.8万円以上）', '✅ あり（加入期間に比例）', '✅ あり', '厚生年金に加入'],
-                    ['配偶者（正社員）の被扶養者', '✅ あり（配偶者の年金から）', '✅ あり', '第3号被保険者'],
-                  ].map(([status, kousei, kiso, note], i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-4 py-3 font-medium text-gray-800">{status}</td>
-                      <td className="px-4 py-3 text-gray-700">{kousei}</td>
-                      <td className="px-4 py-3 text-gray-700">{kiso}</td>
-                      <td className="px-4 py-3 text-gray-600 text-xs">{note}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              パートタイム労働者のケース別・死亡保障ギャップシミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：扶養内パート（30代・年収120万円・子2人・配偶者高収入）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">第3号被保険者・夫の年収1,000万円</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">遺族基礎年金</div>
+                    <div className="font-bold text-red-700">0円</div>
+                    <div className="text-xs text-gray-500">夫の年収850万円超・生計維持要件不満足</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">遺族厚生年金</div>
+                    <div className="font-bold text-red-700">0円</div>
+                    <div className="text-xs text-gray-500">厚生年金保険法第58条・第3号被保険者</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">パート収入の喪失（10年分）</div>
+                    <div className="font-bold text-gray-900">1,200万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">家事代行・保育代替コスト（10年）</div>
+                    <div className="font-bold text-gray-900">2,760万円</div>
+                    <div className="text-xs text-gray-500">年276万円×10年（内閣府データ）</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">配偶者の減収リスク（10年）</div>
+                    <div className="font-bold text-red-700">1,000万円</div>
+                    <div className="text-xs text-gray-500">時短勤務・年100万円減収×10年</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">公的保障合計</div>
+                    <div className="font-bold text-gray-900">0円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な生命保険金</div>
+                  <div className="font-bold text-red-700 text-xl">約4,960万円</div>
+                  <div className="text-xs text-gray-500 mt-1">収入喪失＋家事代替コスト＋配偶者減収の合計</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <div className="inline-block bg-green-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：社保加入パート（40代・年収160万円・子1人）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">第2号被保険者（社会保険加入）</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">遺族厚生年金（年額）</div>
+                    <div className="font-bold text-gray-900">約15万円</div>
+                    <div className="text-xs text-gray-500">標準報酬月額が低く給付は極小</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">パート収入の喪失（10年分）</div>
+                    <div className="font-bold text-gray-900">1,600万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">家事代行・保育代替コスト（10年）</div>
+                    <div className="font-bold text-gray-900">1,500万円</div>
+                    <div className="text-xs text-gray-500">年150万円×10年（子が中学生以上想定）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-green-100">
+                    <div className="text-xs text-gray-500 mb-1">配偶者の減収リスク（10年）</div>
+                    <div className="font-bold text-gray-900">500万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">必要な生命保険金（遺族年金控除後）</div>
+                  <div className="font-bold text-red-700 text-xl">約3,585万円</div>
+                </div>
+              </div>
+
             </div>
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-              <p className="font-bold text-red-800 mb-2">🔴 2028年4月施行：遺族厚生年金の有期化で状況が大きく変わる</p>
-              <p className="text-red-700 text-sm">
-                現行制度：30歳以上の妻は遺族厚生年金を終身受給<br />
-                2028年4月以降：60歳未満で配偶者を亡くした場合は原則5年間の有期給付に変更<br /><br />
-                子が18歳になった後に受給開始した場合は5年で打ち切り。
-                5年後も月収約10万円以下の低所得者は継続給付があるが、
-                それでも生活の安定は難しい。
-                生命保険の重要性がさらに高まります。
-              </p>
-              <p className="text-xs text-red-600 mt-2">
-                出典：<a href="https://www.moneypro.jp/columns/others/5939/" target="_blank" rel="noopener noreferrer" className="underline">遺族厚生年金2025年改正の詳細</a>
-              </p>
-            </div>
-            <p className="text-xs text-gray-500 mt-2">
-              出典：<a href="https://www.stat.go.jp/data/roudou/sokuhou/nen/ft/pdf/youyaku.pdf" target="_blank" rel="noopener noreferrer" className="underline">総務省「労働力調査」2025年平均</a>
-              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和4年賃金構造基本統計調査」</a>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              家事労働の経済的価値の根拠：<a href="https://www.esri.cao.go.jp/jp/sna/sonota/satellite/roudou/contents/musyouroudou_230721.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">内閣府「無償労働の貨幣評価」報告書（市場賃金代替法・年間約276万円）</a>。遺族厚生年金の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=323AC0000000115" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生年金保険法第58条</a>。遺族基礎年金の根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>。
             </p>
           </section>
 
-          {/* セクション3：パートタイム特有のリスクデータ */}
+          {/* セクション3：リスクデータ3件 */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">パートタイム労働者が直面する生命保険リスクの実態</h2>
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-lg font-bold text-[#0f172a] mb-2">① 低収入世帯の遺族保障の薄さ</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  厚生労働省「令和4年賃金構造基本統計調査」によると、
-                  非正規雇用の平均年収は306万円（正規531万円との差225万円）。
-                  パート・アルバイトの約9割は年間所得200万円未満です。
-                  遺族基礎年金（子1人で年約109万円）のみでは
-                  生活費月20〜25万円（総務省「家計調査」）を賄えません。
-                  年間約130〜190万円もの生活費不足が生じ、
-                  民間生命保険なしでは家族の生活が成り立ちません。
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#0f172a] mb-2">② 2028年遺族厚生年金改正の低収入世帯への打撃</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  2028年4月以降、60歳未満で配偶者を亡くした場合は
-                  遺族厚生年金が原則5年間の有期給付に変わります。
-                  女性の非正規比率が47.8%という現状を踏まえると、
-                  「遺族厚生年金が終わった後に十分な収入を得られない女性が多数発生する」
-                  という問題が現実的になります。
-                  月収10万円以下なら5年後も継続給付がありますが、
-                  それでも生活は厳しく、
-                  5年間で終了するケースへの備えが急務です。
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#0f172a] mb-2">③ 扶養範囲内パートの「保険空白地帯」</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  年収130万円未満で働くパートは国民年金のみ加入のため、
-                  自分が死亡した場合に配偶者が受け取れる遺族厚生年金はゼロです
-                  （第3号被保険者として夫の厚生年金からは受け取れます）。
-                  さらに子のない夫婦の場合、自分が死亡しても
-                  遺族基礎年金すら支給されません。
-                  社会保険加入パートですら、
-                  加入期間が短ければ遺族厚生年金は月数千円の可能性があります。
-                  この「保険空白地帯」を民間生命保険で埋めることが必須です。
-                </p>
-              </div>
-            </div>
-            <p className="text-xs text-gray-500 mt-6">
-              出典：<a href="https://www.stat.go.jp/data/roudou/sokuhou/nen/ft/pdf/youyaku.pdf" target="_blank" rel="noopener noreferrer" className="underline">総務省「労働力調査」2025年平均</a>
-              <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2024/index.html" target="_blank" rel="noopener noreferrer" className="underline">厚生労働省「令和4年賃金構造基本統計調査」</a>
-              <a href="https://www.nenkin.go.jp/tokusetsu/tekiyokakudai_kojin.html" target="_blank" rel="noopener noreferrer" className="underline">日本年金機構「社会保険の適用拡大」</a>
-              <a href="https://www.moneypro.jp/columns/others/5939/" target="_blank" rel="noopener noreferrer" className="underline">遺族厚生年金2025年改正の詳細</a>
-            </p>
-          </section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              パートタイム特有の生命保険リスクデータ（政府統計・法令根拠付き）
+            </h2>
+            <div className="space-y-6">
 
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク①：「家事労働の経済的価値」——パート収入だけで保険設計すると毎年276万円の赤字が続く
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  内閣府「無償労働の貨幣評価」報告書（令和3年版社会生活基本調査使用）によれば、市場賃金代替法による専業主婦の無償労働の貨幣評価額は年間約276万円。パート収入W・家事労働価値Hとすると、家族が失う真の経済的損失：V = W + H。パート年収120万円の場合：V = 120万 + 276万 = 396万円/年。収入Wのみで保険設計した場合の年次赤字：ΔCF = -H = -276万円。10年間の累積赤字：2,760万円。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  真に必要な保険金額：Ins_V = (W + H) × t = (120万 + 276万) × 10年 = 3,960万円。「パートだから保険は少額でいい」という設計が家計崩壊を招く根本的な誤りである。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://www.esri.cao.go.jp/jp/sna/sonota/satellite/roudou/contents/musyouroudou_230721.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">内閣府「無償労働の貨幣評価」報告書</a>
+                </p>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク②：「高収入世帯ほど公的保障がゼロになる逆説」——夫の年収850万円超で遺族基礎年金も不支給
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  遺族基礎年金の受給には「生計維持要件」があり、残された配偶者（夫）の前年収入が850万円以上（または所得655.5万円以上）の場合、支給対象から除外される。さらに第3号被保険者（扶養内パート）が死亡した場合、厚生年金保険法第58条により遺族厚生年金は一切支給されない。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  「夫が高収入だから公的保障は十分」という誤解が最大の盲点となる。高収入世帯ほど公的保障がゼロになり、民間生命保険への依存度が高まるという逆説が存在する。この世帯こそ、家事労働価値を含めた高額な死亡保険金の設計が必要である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=341AC0000000141" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク③：「残された配偶者の減収連鎖」——育児負担が大黒柱の年収を不可逆的に下げる
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  パートタイム労働者が死亡した後、残された配偶者（夫）が育児・家事のすべてを負担しながら仕事を続けることは現実的に困難である。残業の大幅削減・時短勤務への変更・転職を余儀なくされるケースが多く、年収が600万円から400万円に激減する事例が現実に発生している。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  民法第760条は「夫婦は婚姻から生ずる費用を分担する」と定め、家事労働の提供もこの費用分担に含まれると解される。その提供者が消滅することで、配偶者は市場から代替サービスを調達するか、自身の労働時間を削減するかの二択を迫られる。この「見えない二次被害」を死亡保険金の設計に含めることが不可欠である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第760条（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
 
           {/* セクション4：5つのチェックポイント */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">パートタイム労働者の生命保険選び5つのポイント</h2>
-            <div className="space-y-5">
-              {[
-                {
-                  number: '01',
-                  title: '扶養範囲内か社会保険加入かで公的保障が大きく変わる',
-                  detail: '現在の社会保険加入状況（国民年金のみ or 厚生年金加入）を確認してください。扶養範囲内パートは遺族厚生年金がゼロのため、民間生命保険の必要額が社会保険加入パートより大きくなります。2026年10月に月額8.8万円要件が撤廃予定・2027年10月から企業規模要件が36人以上に拡大と、適用拡大が続いています。',
-                },
-                {
-                  number: '02',
-                  title: '2028年改正後は収入保障保険との組み合わせを検討する',
-                  detail: '2028年4月以降、子のない世帯では遺族厚生年金が5年で終了します。5年後の生活費不足に備えるため、配偶者の生命保険に収入保障保険（月額給付型）を追加することを検討してください。特に配偶者が60歳未満で死亡するリスクへの備えが重要です。',
-                },
-                {
-                  number: '03',
-                  title: '配偶者（正社員）の生命保険額が適切か確認する',
-                  detail: 'パート収入では残された場合の生活費が不足します。配偶者（正社員）の生命保険は「遺族年金＋保険金で残りの人生を賄えるか」という観点で見直してください。子の教育費・住宅費・老後の生活費まで試算した上で必要保障額を設定してください。',
-                },
-                {
-                  number: '04',
-                  title: '保険料の手頃さが最優先：月3,000〜5,000円のシンプルな定期保険から',
-                  detail: '非正規雇用の平均年収306万円では高額な保険料を払い続けることが困難です。まず月額3,000〜5,000円程度のシンプルな掛け捨て定期保険（収入保障保険）から始め、余裕ができたら追加を検討してください。無理な保険料設定は解約につながります。',
-                },
-                {
-                  number: '05',
-                  title: '子の独立後の保障見直しを忘れずに',
-                  detail: '子が18歳を過ぎると遺族基礎年金も失効します。2028年改正後は遺族厚生年金も5年で終了するため、子の独立後も配偶者が60歳未満である間は一定の生命保険が必要です。ライフステージの変化に合わせた保険の見直しを計画してください。',
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 bg-[#f8fafc] border border-gray-200 rounded-xl p-5">
-                  <div className="flex-shrink-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {item.number}
-                  </div>
-                  <div>
-                    <p className="font-bold text-[#0f172a] mb-1">{item.title}</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.detail}</p>
-                  </div>
-                </div>
-              ))}
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              パートタイム労働者の生命保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">① Ins_V = (W + H) × t で真に必要な保険金額を計算する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  W=パート年収、H=家事労働価値（年276万円を目安）、t=補填年数。パート収入Wだけで計算すると保険金額が著しく過小になる。家事代行・保育の市場調達コストを加算した額を基準に設定する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">② 夫の年収が850万円以上の場合、公的保障ゼロを前提に設計する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  生計維持要件（年収850万円基準）を確認し、遺族基礎年金が支給されないケースでは民間保険で全額カバーする設計を行う。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">③ 配偶者の減収リスク（時短勤務・転職による収入減）を保険金額に加算する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  残された配偶者が育児のために収入を減らす可能性を見込んで保険金額を上乗せする。年収減少額×補填年数を加算する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">④ 社保加入パート（年収106万円超）の場合、遺族厚生年金の実額を確認する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  遺族厚生年金の支給対象にはなるが、標準報酬月額が低いため給付額は極小。「遺族厚生年金がある」という安心感が過信につながらないよう実額を確認する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">⑤ 子どもが独立した後も配偶者の老後生活費を見据えた設計をする</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  遺族基礎年金は末子が18歳到達年度末で支給が終わる。その後の配偶者の老後生活費（老齢基礎年金受給まで）をカバーする長期の保障設計が必要。
+                </p>
+              </div>
+
             </div>
           </section>
 
-          {/* セクション5：よくある失敗事例 */}
+          {/* セクション5：失敗事例3選 */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">よくある失敗事例3選</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
             <div className="space-y-6">
-              {[
-                {
-                  title: '失敗①：扶養範囲内なので遺族年金は夫の分がもらえると思っていた',
-                  situation: 'Aさん（42歳・パート・年収100万円）。夫（45歳・会社員）が病死。子なし。',
-                  problem: 'Aさん自身が扶養の第3号被保険者のため夫の遺族厚生年金は受給できたが、子がいないため遺族基礎年金はゼロ。2028年改正後は遺族厚生年金も5年で終了（子なし世帯）。5年後の生活費を確保する手段がなく、生活の見通しが立たなくなった。',
-                  lesson: '2028年以降は「終身でもらえる」という前提が崩れる。5年後の生活費を確保する生命保険が必要。',
-                },
-                {
-                  title: '失敗②：夫婦2人ともパートで生命保険を節約した',
-                  situation: 'Bさん（38歳・パート年収80万円）と夫（40歳・パート年収120万円）。子2人。夫が事故死。',
-                  problem: '夫の社会保険加入期間が短く遺族厚生年金は月1.5万円程度。子が2人いるため遺族基礎年金は月10万円程度受給できたが、子が18歳になると終了。月の生活費が著しく不足し、Bさんが生活保護を申請せざるを得ない状況になった。',
-                  lesson: '低収入世帯ほど民間生命保険（収入保障保険）の必要額が大きくなるという逆説を理解すること。',
-                },
-                {
-                  title: '失敗③：子が独立したら生命保険を解約してしまった',
-                  situation: 'Cさん（52歳・パート）。夫（55歳・正社員）。子の独立を機に生命保険を全解約。',
-                  problem: '2028年改正後は60歳未満での死別→遺族厚生年金は5年間のみ。夫が60歳未満で死亡すると5年で年金が終了し、Cさんが65歳で老齢年金を受け取るまでの10年近くが無保障になる可能性がある。',
-                  lesson: '子の独立後も配偶者が60歳になるまでの間は一定の生命保険が必要。2028年改正を見据えた見直しを行うこと。',
-                },
-              ].map((c, i) => (
-                <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
-                  <div className="bg-amber-700 px-5 py-3">
-                    <p className="font-bold text-white text-sm">{c.title}</p>
-                  </div>
-                  <div className="p-5 space-y-3">
-                    <div className="text-xs text-gray-500 font-medium">【状況】{c.situation}</div>
-                    <div>
-                      <p className="text-xs font-bold text-gray-700 mb-1">問題</p>
-                      <p className="text-sm text-gray-600 leading-relaxed">{c.problem}</p>
-                    </div>
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
-                      <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
-                      <p className="text-sm text-amber-700">{c.lesson}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例①「年収120万円のパート妻が急死。夫の年収1,000万円で遺族基礎年金ゼロ。家事代行で年250万円が吹き飛んだ」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Aさん（38歳・扶養内パート・年収120万円・子2人）が急死。夫の年収は1,050万円。国民年金法第37条の生計維持要件（年収850万円未満）を夫が超過しており遺族基礎年金は不支給。厚生年金保険法第58条により遺族厚生年金もゼロ。夫は育児のために残業を大幅に削減し年収が850万円に低下。家事代行・ベビーシッター代として年250万円の支出増が発生した。死亡保険金は500万円しかなく、2年で底をついた。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（国民年金法第37条・厚生年金保険法第58条）：パートの生命保険は「収入の補填」ではなく「代替労働力の市場調達コスト」として設計する。最低でも3,000万円以上が必要だった。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例②「社保加入パートの妻が死亡。遺族厚生年金は月1.2万円だった」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Bさん（42歳・社保加入パート・年収160万円・子1人）が病死。「社保加入しているから遺族厚生年金がある」と夫は安心していた。遺族厚生年金の計算ベースとなる標準報酬月額は約13万円。計算された遺族厚生年金は年間約15万円（月約1.2万円）という極小の金額。家事代行・学童保育費が月12万円追加で発生し、月10.8万円の収支悪化。「社保加入=十分な遺族年金」という誤解が命取りだった。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（厚生年金保険法第60条）：社保加入パートの遺族厚生年金は標準報酬月額が低いため実質機能しない。実際の給付額を計算した上で不足分を民間保険でカバーすること。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例③「妻の死亡後、夫が時短勤務に変更。年収が600万→400万円になり住宅ローンが払えなくなった」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Cさん夫婦（夫40歳・会社員・年収600万円、妻35歳・パート・年収130万円・子2人）。妻が交通事故で急死した。夫は小学生2人の育児のために残業をやめ時短勤務へ変更。年収が600万円から400万円に激減した。住宅ローン月18万円の返済が家計を圧迫し、貯蓄が急速に目減りした。妻の死亡保険金300万円は1年半で底をついた。民法第760条の婚姻費用分担（家事労働の提供を含む）が消滅した結果、代替コストが夫の労働時間と収入を直撃した形だった。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（民法第760条）：パートの死亡保険金には「配偶者の減収リスク（年200万円×10年=2,000万円）」を必ず加算すること。
+                </p>
+              </div>
+
             </div>
           </section>
 
           {/* セクション6：最終チェックリスト */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-6">生命保険加入前の最終チェックリスト</h2>
-            <div className="space-y-3">
-              {[
-                '現在の社会保険加入状況（国民年金のみ or 厚生年金加入）を確認した',
-                '配偶者が死亡した場合に受け取れる遺族年金額をシミュレーションした',
-                '2028年遺族厚生年金改正の影響を自分の家庭に当てはめて確認した',
-                '子の年齢と遺族基礎年金の受給期間（子が18歳まで）の関係を把握した',
-                '配偶者（正社員）の生命保険は残された家族の生活費をカバーできる額か確認した',
-                '自分自身が死亡した場合の必要保障額を試算した（低収入でも葬儀費用等は必要）',
-                '月額3,000〜5,000円程度の収入保障保険（掛け捨て）の見積もりを取った',
-                '子の独立後も60歳未満は保障が必要なことを確認した',
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-lg px-4 py-3 border border-gray-100 text-sm">
-                  <span className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs">✓</span>
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              パートタイム労働者の生命保険加入前チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  'V = W（パート年収）+ H（家事労働価値276万円）で真の経済的損失を計算した',
+                  'Ins_V = (W + H) × t で真に必要な保険金額を算出した',
+                  '夫の年収が850万円以上か確認し、超過する場合は公的保障ゼロを前提に設計した',
+                  '遺族厚生年金（社保加入の場合）の実際の給付額を計算し過信しないようにした',
+                  '配偶者の減収リスク（時短勤務・転職による収入減）を保険金額に加算した',
+                  '家事代行・保育の年間市場調達コストを試算し保険金額の根拠とした',
+                  '末子が18歳になった後の配偶者の生活費もカバーする長期設計をした',
+                  '死亡保険金の受取人を配偶者に指定した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-gray-400 rounded mt-0.5"></span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
 
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
           </section>
 
         </div>
