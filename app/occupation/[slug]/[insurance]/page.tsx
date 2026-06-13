@@ -23,7 +23,7 @@ import { INSURANCE_DETAILS } from '@/lib/insuranceDetails'
 type Props = { params: Promise<{ slug: string; insurance: string }> }
 
 export async function generateStaticParams() {
-  const occupations = ['engineer','freelance-engineer','nurse','teacher','civil-servant','sales','driver','construction','restaurant','hairdresser','accountant','doctor','lawyer','designer','manager','manufacturing','pharmacist','real-estate','finance','part-time','self-employed']
+  const occupations = ['engineer','freelance-engineer','nurse','teacher','civil-servant','sales','driver','construction','restaurant','hairdresser','accountant','doctor','lawyer','designer','manager','manufacturing','pharmacist','real-estate','finance','part-time','self-employed','freelance']
   const insurances = ['medical','life','income-protection','cancer','whole-life','pension','auto','fire','personal-accident','child']
   return occupations.flatMap(slug =>
     insurances.map(insurance => ({ slug, insurance }))
@@ -384,6 +384,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPharmacistLife = occ.slug === 'pharmacist' && ins.slug === 'life'
   const isPharmacistCancer = occ.slug === 'pharmacist' && ins.slug === 'cancer'
   const isSelfEmployedLife = occ.slug === 'self-employed' && ins.slug === 'life'
+  const isFreelanceMedical = occ.slug === 'freelance' && ins.slug === 'medical'
   const isRealEstateMedical = occ.slug === 'real-estate' && ins.slug === 'medical'
   const isRealEstateLife = occ.slug === 'real-estate' && ins.slug === 'life'
   const isRealEstateCancer = occ.slug === 'real-estate' && ins.slug === 'cancer'
@@ -404,7 +405,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -16022,6 +16023,314 @@ export default async function OccupationInsurancePage({ params }: Props) {
                   '妻・家族に事業の財務状況（借入額・保証債務等）を共有した',
                   'T_collapse = S / (D + L - P) で自分の家計崩壊タイムラインを試算した',
                   '必要な保険金額の合計（事業債務＋廃業コスト＋生活費不足）を逆算して設定した',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-5 h-5 border-2 border-gray-400 rounded mt-0.5"></span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+        </div>
+      )}
+
+      {/* フリーランス×医療保険 専用コンテンツ */}
+      {isFreelanceMedical && (
+        <div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+          {/* セクション1：リード文 + インフォボックス */}
+          <section>
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">フリーランスの医療保険完全ガイド：入院損失の非線形モデルと傷病手当金ゼロの現実</h1>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              フリーランスの医療保険設計には、大手比較サイトが一切触れていない「入院日数と損失の非線形関係」という固有リスクがあります。会社員が入院した場合、有給休暇と傷病手当金（健康保険法第99条）により収入が補填されます。しかしフリーランスが加入する国民健康保険には、国民健康保険法第58条第2項により傷病手当金が実質ゼロ。入院初日から収入が完全に止まります。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              収入損失は入院日数Dに比例してL = r × D（r=日次収入）で増加しますが、これだけではありません。猶予日数D_0を超えた瞬間から、納期遅延による違約金・クライアントからの契約解除・信用失墜という「ペナルティP(D) = k(D - D_0)²」が加速度的に発生します。総損失 L_total = r × D + P(D) は入院が長引くほど放物線を描いて拡大します。
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              民間医療保険の「入院一時金」は、このP(D)が発動する前に代替手配・外注費として使える戦略的な流動性資産です。傷病手当金がない分、フリーランスにとって医療保険は会社員以上に重要な備えとなります。
+            </p>
+
+            {/* 赤い警告インフォボックス */}
+            <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+              <p className="font-bold text-red-800 mb-2">🚨 フリーランスは入院初日から収入がゼロになります</p>
+              <p className="text-red-700 text-sm leading-relaxed">
+                国民健康保険法第58条第2項により傷病手当金は実質ゼロ。<br />
+                年収600万円のフリーランスエンジニアが10日間入院すると収入損失だけで約25万円。<br />
+                さらに納期遅延でクライアントから契約解除されると将来収益も失います。
+              </p>
+            </div>
+
+            {/* アンバーのインフォボックス */}
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5 mb-6">
+              <p className="font-bold text-amber-800 mb-2">⚠️ 限度額適用認定証を事前に申請しておくと窓口負担を抑えられます</p>
+              <p className="text-amber-700 text-sm leading-relaxed">
+                フリーランスは経費控除後の所得が低く「区分エ」に該当しやすい。<br />
+                事前に限度額適用認定証を申請しておけば、退院時の窓口負担を月額57,600円（区分エ）に抑えられます。<br />
+                入院前の事前申請が必須です。
+              </p>
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション2：ケース別シミュレーション（カード型） */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランスのケース別・入院損失シミュレーション
+            </h2>
+            <div className="space-y-6">
+
+              {/* ケースA */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースA：フリーランスエンジニア（35歳・年収600万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">国保加入 / 盲腸炎で10日間入院</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">日次収入 r</div>
+                    <div className="font-bold text-gray-900">約25,000円/日</div>
+                    <div className="text-xs text-gray-500">600万円 ÷ 240日</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">10日間の収入損失</div>
+                    <div className="font-bold text-gray-900">約25万円</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">入院医療費（区分ウ想定）</div>
+                    <div className="font-bold text-gray-900">約8.5万円</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">納期遅延ペナルティP(D)</div>
+                    <div className="font-bold text-red-700">約30万円（契約解除・代替外注費等）</div>
+                    <div className="text-xs text-gray-500">民法第415条・D_0超過で発動</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">会社員との保障格差</div>
+                    <div className="font-bold text-gray-900">傷病手当金で約8.3万円が補填される差</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">総損失・必要な医療保険給付額</div>
+                  <div className="font-bold text-red-700 text-xl">約63.5万円 → 入院一時金＋日額給付で対応</div>
+                </div>
+              </div>
+
+              {/* ケースB */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <div className="inline-block bg-orange-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+                  ケースB：フリーランスデザイナー（30代・年収300万円）
+                </div>
+                <p className="text-sm text-gray-600 mb-4">国保加入・区分エ / 骨折で1ヶ月入院</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">傷病手当金</div>
+                    <div className="font-bold text-red-700">ゼロ</div>
+                    <div className="text-xs text-gray-500">国民健康保険法第58条第2項</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">1ヶ月の収入損失</div>
+                    <div className="font-bold text-gray-900">約25万円（月収全額）</div>
+                  </div>
+                  <div className="bg-white rounded p-3 border border-orange-100">
+                    <div className="text-xs text-gray-500 mb-1">入院医療費（区分エ・限度額適用）</div>
+                    <div className="font-bold text-gray-900">35,400円</div>
+                    <div className="text-xs text-gray-500">限度額適用認定証を事前申請した場合</div>
+                  </div>
+                  <div className="bg-red-50 rounded p-3 border border-red-200">
+                    <div className="text-xs text-gray-500 mb-1">次期案件の逸失利益</div>
+                    <div className="font-bold text-red-700">約10万円</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+                  <div className="text-xs text-gray-600 mb-1">総損失・必要な医療保険給付額</div>
+                  <div className="font-bold text-red-700 text-xl">約38.5万円 → 入院一時金＋日額給付で対応</div>
+                </div>
+              </div>
+
+            </div>
+            <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+              傷病手当金ゼロの根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項</a>。高額療養費区分エの根拠：<a href="https://www.kyoukaikenpo.or.jp/benefit/high_cost_medical_expenses/002/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第115条（区分エの自己負担上限57,600円）</a>。納期遅延の損害賠償根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">民法第415条（債務不履行）</a>。
+            </p>
+          </section>
+
+          {/* セクション3：リスクデータ3件 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランス特有の医療保険リスクデータ（政府統計・法令根拠付き）
+            </h2>
+            <div className="space-y-6">
+
+              {/* リスク① */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク①：「入院損失の非線形モデル」——猶予日数を超えた瞬間から損失が放物線を描いて拡大する
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  フリーランスの入院による総損失 L_total = r × D + P(D)。r = 日次収入（年収÷240日）、D = 入院日数。P(D) = k(D - D_0)²（D {'>'} D_0のとき）。D_0 = 納期遅延が許容される猶予日数（例：3〜5日）、k = ペナルティ係数（クライアントとの契約内容による）。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  会社員の場合：有給休暇と傷病手当金でLが補填され、P(D)は企業組織が吸収するため個人に発生しない。フリーランスの場合：D {'>'} D_0 を超えた瞬間からP(D)が作動し、損失が直線から放物線へと形を変えて爆発的に増加する。年収600万円・D_0=5日・k=5万円のフリーランスが10日間入院した場合：L = 25,000 × 10 = 25万円（収入損失）、P(10) = 5万 × (10-5)² = 125万円（ペナルティ）、L_total = 150万円——入院前の想定（25万円）の6倍に膨れ上がる。入院一時金はこのP(D)が発動する前に代替外注費として使える戦略的な流動性資産である。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条第2項（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+              {/* リスク② */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク②：「限度額適用認定証」——事前申請で退院時の窓口負担を57,600円に抑えられる
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  フリーランスは収入の変動が激しく、経費控除後の事業所得が低くなりやすい。そのため高額療養費の所得区分において「区分エ（標準報酬月額26万円以下相当）」に該当するケースが多い。区分エの自己負担上限：月額57,600円（多数該当は44,400円）。区分オ（住民税非課税世帯）：月額35,400円（多数該当は24,600円）。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  しかし「限度額適用認定証」を事前に申請していなければ、退院時に医療費の3割全額を立て替える必要がある。現金がない状態での高額立替は即座に生活困窮につながる。入院が決まった（または予定された）タイミングで即座に市区町村へ申請することが必須。民間医療保険の入院一時金は、この立替資金としても機能する。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://www.kyoukaikenpo.or.jp/benefit/high_cost_medical_expenses/002/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">高額療養費制度（健保組合）</a>
+                </p>
+              </div>
+
+              {/* リスク③ */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-lg mb-3">
+                  リスク③：「前年所得ベースの国保料」——休業中も高額な保険料が請求される逆説
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  国民健康保険税（料）は地方税法の規定により「前年の所得」をベースに算定される。前年に高収入を得たフリーランスが翌年に重病で休業した場合、本年の収入がゼロになることが確実でも、前年ベースで確定した高額な国保税の支払い義務は免除・減免されない（自治体への申請が必要だが即応しない）。
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  収入ゼロの休業中に、前年好業績に基づく最高水準の国保税が請求されるという「逆説的な二重苦」が発生する。最悪の場合、滞納による財産差し押さえに発展するリスクもある。民間医療保険の給付金は、この「空白期間の公租公課」を乗り越えるための生活防衛資金としても機能する。
+                </p>
+                <p className="text-xs text-gray-500">
+                  出典：<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法（e-Gov法令検索）</a>
+                </p>
+              </div>
+
+            </div>
+
+            <AffiliateCTA primary={affiliateCta.primary} secondary={affiliateCta.secondary} />
+          </section>
+
+          {/* セクション4：5つのチェックポイント */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランスの医療保険選び5つのチェックポイント
+            </h2>
+            <div className="space-y-4">
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">① 入院一時金を重視する——P(D)が発動する前の流動性確保が最優先</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  日額給付より入院確定時点で即座に支払われる「入院一時金」を重視する。代替外注費・急な経費に即座に使える流動性として機能する。目安は最低50万円以上の入院一時金特約。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">② 限度額適用認定証を今すぐ申請できる準備をしておく</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  入院が決まった瞬間に市区町村窓口へ申請できるよう、手続き方法を事前に確認しておく。区分エ・区分オの自己負担上限を把握し、立替資金のシミュレーションをしておく。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">③ 短期入院（5〜10日）から保障される保険を選ぶ</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  フリーランスはD_0（猶予日数）が短いため、短期入院でも損失が大きい。「5日以上の入院から給付」など短期対応の保険を選ぶ。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">④ 就業不能保険とのセット加入で長期入院にも備える</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  1ヶ月以上の長期入院では医療保険の日額給付だけでは不足する。就業不能保険（月額給付型）を組み合わせて長期の収入補填も確保する。
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-2">⑤ フリーランス協会の所得補償との重複・補完関係を確認する</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  フリーランス協会の所得補償保険には免責期間が設定されている。短期入院の初動は民間医療保険でカバーし、長期化した場合はフリーランス協会の補償と組み合わせる二段構えが最適。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション5：失敗事例3選 */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              よくある失敗事例3選
+            </h2>
+            <div className="space-y-6">
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例①「年収600万のフリーランスエンジニアが盲腸で10日入院。収入損失＋契約解除で63万円以上の損失が発生した」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Aさん（35歳・フリーランスエンジニア・年収600万円・国保加入）。急性虫垂炎で緊急入院、10日間の絶対安静が必要になった。国民健康保険法第58条第2項により傷病手当金はゼロ。10日間の収入損失約25万円に加え、納期を5日超過したクライアントから民法第415条（債務不履行）に基づき契約を即時解除された。代替エンジニアへの引き継ぎ費用として約30万円の賠償を求められた。医療保険の入院一時金50万円があれば、引き継ぎ費用を支払い契約解除を避けられた。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓（国民健康保険法第58条第2項・民法第415条）：入院一時金は「医療費の補填」ではなく「業務継続のための緊急資金」として機能する。最低50万円以上の入院一時金が必要。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例②「限度額適用認定証を知らずに退院時に50万円を立て替えた。手元資金がショートした」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Bさん（30代・フリーランスデザイナー・年収300万円・国保区分エ）。骨折で1ヶ月入院し、退院時に医療費の3割（約15万円）を窓口で立て替えた。さらに入院中の生活費・固定費で手元資金がほぼゼロになっていた。限度額適用認定証の事前申請制度を知らなかったため、区分エの自己負担上限35,400円に抑えられるはずが、3割全額を立て替えた。退院後に高額療養費の還付申請をしたが、還付まで2〜3ヶ月かかり、その間の生活費を捻出できずクレジットカードのリボ払いに頼った。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓：限度額適用認定証は入院前・入院直後に必ず申請する。民間医療保険の一時金は立替資金にも使える。
+                </p>
+              </div>
+
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 className="font-bold text-red-800 mb-3">
+                  事例③「前年高収入で国保料が年90万円。休業中も請求が続き滞納で口座が差し押さえられた」
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  Cさん（40代・フリーランスコンサルタント・前年年収900万円）。重度の腰椎ヘルニアで6ヶ月の療養が必要になり収入がほぼゼロになった。前年の高収入に基づき算定された国保税が年間約90万円。休業中も月額約7.5万円の国保税が請求され続けた。収入ゼロの中で医療費・生活費・国保税の三重苦に陥り、国保税を滞納。自治体から財産差し押さえの予告通知が届き、事業用口座の使用が制限された。
+                </p>
+                <p className="text-sm font-bold text-red-700">
+                  教訓：休業直後に自治体の国保担当窓口へ減額申請を行うことが必須。民間医療保険の給付金は国保税・生活費の空白期間を埋める生活防衛資金として機能する。
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* セクション6：最終チェックリスト */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+              フリーランスの医療保険加入前チェックリスト（8項目）
+            </h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <ul className="space-y-3">
+                {[
+                  '国保加入を確認し、傷病手当金ゼロを前提に医療保険を設計した',
+                  '限度額適用認定証の申請方法を事前に確認した',
+                  '自分の高額療養費区分（エ・オ等）を把握した',
+                  '入院一時金50万円以上を確保した（P(D)発動前の流動性として）',
+                  '短期入院（5〜10日）から保障される保険を選んだ',
+                  '就業不能保険との組み合わせで長期入院にも備えた',
+                  '前年高収入の場合、休業直後に国保税の減額申請ができることを把握した',
+                  'フリーランス協会の所得補償との補完関係を確認した',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-5 h-5 border-2 border-gray-400 rounded mt-0.5"></span>
