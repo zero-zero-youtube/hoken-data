@@ -430,6 +430,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManagerMedical = occ.slug === 'manager' && ins.slug === 'medical'
   const isManagerIncomeProtection = occ.slug === 'manager' && ins.slug === 'income-protection'
   const isManagerDisability = occ.slug === 'manager' && ins.slug === 'disability'
+  const isManagerPension = occ.slug === 'manager' && ins.slug === 'pension'
   const isPartTimeLife = occ.slug === 'part-time' && ins.slug === 'life'
   const isManufacturingLife = occ.slug === 'manufacturing' && ins.slug === 'life'
   const isManufacturingIncomeProtection = occ.slug === 'manufacturing' && ins.slug === 'income-protection'
@@ -467,7 +468,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -41410,6 +41411,294 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '好調期の一時払い・増額払いで積立を加速する計画を立てた',
           '意図的な業績計上タイミングの調整が将来の年金権を損なうことを認識した',
           '安易な繰上げ受給（生涯減額固定）に頼らない財務設計をした',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isManagerPension && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* セクション1：リード文 + 2色のインフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-4">管理職×個人年金保険｜役職定年後の収入急落と二段構え個人年金設計の数式証明</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      管理職の個人年金保険設計には、大手比較サイトが一切触れない「役職定年後の収入急落と二段構え個人年金設計の数式証明」があります。役職定年前の月収R_before・役職定年後の月収R_after（R_before の60%と仮定）・老後の希望月収R_old・65歳からの公的年金月額P_pubとして、第一期（55〜65歳：役職定年後〜公的年金開始まで）の月次不足額：gap1=R_old-R_after=R_old-0.6×R_before。第二期（65歳以降）の月次不足額：gap2=R_old-P_pub。個人年金保険の給付設計B_pension(t)は年齢tに応じて、55≤t&lt;65ではgap1を、t≥65ではgap2を満たす「二段構え」で最適化する必要があります。単一の「65歳からの終身年金」に資金を集中させるのではなく「55歳から受取を開始する10年確定年金」と「65歳以降の終身年金」を分離・並行して設計することが財務的合理性の最も高い戦略です。大企業の多くは55歳前後に役職定年制度を設けており、役職手当の喪失で年収が28〜50%減少します（<a href="https://www.jinji.go.jp/content/900026821.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">人事院・役職定年制等の運用状況</a>）。この時期は子供の大学進学費用がピークと重なることが多く、収入急落と支出ピークの衝突がリスクの本質です。さらに役員昇格時の節税策（役員賞与への報酬偏重）は厚生年金保険法第24条の4の標準賞与額上限（月150万円）に抵触し、年金算定基礎から除外される致命的な落とし穴があります。大企業管理職の平均退職金は約2,230万円（<a href="https://www.mhlw.go.jp/churoi/chousa/chingin/21/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">中央労働委員会・令和3年賃金事情等総合調査</a>）と水準は高い一方、受取タイミングの設計ミスが多額の税負担を招くリスクも存在します。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="text-red-800 font-semibold text-sm leading-relaxed">
+        🚨 役職定年（55歳前後）で年収が28〜50%急落——教育費ピークと衝突する構造的リスク：<br />
+        人事院調査：役職定年による年収急落率は約28〜50%（多くの企業が55歳前後に設定）。<br />
+        晩婚化の影響で子供の大学進学時期と役職定年が重なるケースが頻発。<br />
+        標準賞与額の上限（月150万円）：役員賞与に偏重した報酬設計は年金算定から除外される。<br />
+        在職老齢年金制度：65歳以降も高額報酬継続なら年金が全額支給停止のリスクも。
+      </p>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+        ⚠️ B_pension(t)の二段構え設計——単一の終身年金ではなく分離・並行が最適解：<br />
+        第一期（55〜65歳）：gap1=R_old-0.6×R_before→55歳受取開始の10年確定年金で補填。<br />
+        第二期（65歳以降）：gap2=R_old-P_pub→65歳受取開始の終身年金で補填。<br />
+        退職金とiDeCo・DC一時金の同一年受取：退職所得控除超過で税負担激増のリスクあり。<br />
+        役員報酬設計時：賞与偏重ではなく月額報酬を適正に保つことが年金権確保の鍵。
+      </p>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション2：ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      管理職のケース別・役職定年前後のキャッシュフローシミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：役職定年前（50〜54歳）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">手取り月収80万円・必須生活費60万円</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">月額実収入</div>
+            <div className="font-bold text-gray-900">80万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">必須生活費・教育費負担</div>
+            <div className="font-bold text-gray-900">60万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">単月のキャッシュフロー収支</div>
+            <div className="font-bold text-gray-900">+20万円（余裕あり）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">この時期にやるべきこと</div>
+            <div className="font-bold text-gray-900">老後・役職定年へ向けた積立を最大化</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">余裕資金を二段構え個人年金保険の積立に充当する好機</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：役職定年後（55〜60歳）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">手取り月収48万円（約40%減額）・生活費水準は不変</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">月額実収入</div>
+            <div className="font-bold text-red-700">48万円（約40%の減額）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">必須生活費・教育費負担</div>
+            <div className="font-bold text-red-700">60万円（支出水準は下がらない）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">単月のキャッシュフロー収支</div>
+            <div className="font-bold text-red-700">-12万円（赤字に転落）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">必要な民間保険給付額</div>
+            <div className="font-bold text-red-700">月額12万円の個人年金受取（確定年金）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">55歳受取開始の確定年金で赤字を即座にカバーする設計が必須</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：中央労働委員会賃金事情調査：<a href="https://www.mhlw.go.jp/churoi/chousa/chingin/21/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">令和3年賃金事情等総合調査</a>　人事院・役職定年制調査：<a href="https://www.jinji.go.jp/content/900026821.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">役職定年制等の運用状況</a>
+    </p>
+  </section>
+
+  {/* セクション3：管理職特有のリスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      管理職特有の老後リスク3選（政府統計・法令根拠付き）
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク①</div>
+        <h3 className="font-bold text-gray-900 mb-3">B_pension(t)の二段構え設計——gap1とgap2を分離して補填する数式証明</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          大企業管理職が直面する役職定年後の収入急落と65歳からの公的年金受給という2つのキャッシュフローの断層を平準化する個人年金保険の最適な二段構え設計を導出する。役職定年前の月収R_before・役職定年後の月収R_after=0.6×R_before（統計的に60%への減少）・老後希望月収R_old・公的年金月額P_pubとして、第一期（55≤t&lt;65）の不足額gap1=R_old-0.6×R_before。第二期（t≥65）の不足額gap2=R_old-P_pub。B_pension(t)≥gap1（55〜65歳）またはgap2（65歳以降）を満たす二段構え——「55歳から受取開始の10年確定年金」と「65歳以降の終身年金」を分離・並行して設計することが財務的合理性の最も高い戦略であることが数学的に証明される。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.mhlw.go.jp/churoi/chousa/chingin/21/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・中央労働委員会「令和3年賃金事情等総合調査」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク②</div>
+        <h3 className="font-bold text-gray-900 mb-3">標準賞与額の上限（厚生年金保険法第24条の4）——役員賞与偏重の節税策が招く年金算定からの除外</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          役員に昇格すると報酬が「給与」から「役員報酬」へと切り替わる。節税や社会保険料の圧縮を意図して毎月の定期同額給与を極端に低く抑え、業績連動型の役員賞与に報酬を偏重させるケースがあるが、厚生年金保険法第24条の4の規定により厚生年金の標準賞与額の上限は月間150万円（累計上限設定あり）に制限されている。150万円を超える部分については厚生年金の算定基礎から完全に除外され、莫大な報酬を得ていたにもかかわらず将来の年金給付額には一切反映されない制度設計上の致命的な落とし穴が存在する。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00022.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「厚生年金保険・健康保険 適用事業所と被保険者」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク③</div>
+        <h3 className="font-bold text-gray-900 mb-3">在職老齢年金制度——高額報酬継続による年金支給停止リスクと支給停止基準の変化</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          60歳以降あるいは65歳以降も役員や顧問として企業に留まり高い報酬を得る場合、老齢厚生年金の一部または全額が支給停止となる在職老齢年金制度（厚生年金保険法第46条）が存在する。令和8年（2026年）4月からはこの基準額が月額65万円に引き上げられるが、依然として高水準の報酬を受け取る管理職層にとっては、支払ってきた保険料に見合う年金が受け取れないまま生涯を終えるリスクが存在する。個人年金保険は在職老齢年金の支給停止計算に含まれないため、役職定年後も継続して働く管理職にとって「給与が減らない」確実な老後収入補完として機能する。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00022.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「在職老齢年金制度の仕組み」</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション4：5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      管理職の個人年金保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      {[
+        {
+          num: '01',
+          title: '二段構え設計（55歳〜10年確定年金＋65歳〜終身年金）を構築する（最重要）',
+          body: 'gap1=R_old-0.6×R_before（役職定年後の不足額）とgap2=R_old-P_pub（公的年金後の不足額）を計算し、それぞれを別の個人年金保険商品（55歳受取開始の有期確定年金・65歳受取開始の終身年金）でカバーする設計を行う。',
+        },
+        {
+          num: '02',
+          title: '役員報酬の設計時は標準賞与額の上限（月150万円）を意識する',
+          body: '節税目的での賞与偏重設計は厚生年金保険法第24条の4の上限を超えた部分が年金算定から除外される。月額報酬を適正に保ち、年金算定基礎を確保した上で、節税は個人年金保険の保険料控除等の合法的な手段で行う。',
+        },
+        {
+          num: '03',
+          title: '退職金とDC一時金の受取タイミングをずらして退職所得控除を最大活用する',
+          body: '所得税法第30条の退職所得控除枠の超過を避けるため、企業からの退職一時金と企業型DCの一時金は受取年度を5年以上ずらすことを検討する。同一年での一括受取は税負担を激増させるリスクがある。',
+        },
+        {
+          num: '04',
+          title: '在職老齢年金の対象外である個人年金保険を「働きながらの老後収入」として活用する',
+          body: '65歳以降も顧問・役員として働く場合、在職老齢年金で公的年金が支給停止されるリスクがある。個人年金保険はこの制度の対象外であるため、働きながらでも確実に受け取れる老後収入として位置付ける。',
+        },
+        {
+          num: '05',
+          title: '教育費ピークと役職定年が重なる時期を事前にシミュレーションする',
+          body: '子供の大学進学費用のピークと役職定年（55歳前後）の年収急落が重なるリスクを30代・40代のうちに把握し、55歳時点で十分な個人年金保険の積立が完了しているよう早期から計画する。',
+        },
+      ].map((item, i) => (
+        <div key={i} className="flex gap-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+            {item.num}
+          </div>
+          <div>
+            <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* セクション5：よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      管理職の個人年金保険でよくある失敗事例3選
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-red-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例①「役員賞与に報酬を偏重する節税策で年金算定基礎が大幅に減少した」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">A氏（55歳）新任役員。コンサルタントの助言に従い、毎月の役員報酬を低く抑え、年1回の役員賞与として600万円を支給する設計を採用した。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">厚生年金保険法第24条の4の規定により厚生年金の標準賞与額の上限は月間150万円に制限されている。その結果、150万円を超える部分については厚生年金の算定基礎から完全に除外され、莫大な報酬を得ていたにもかかわらず将来の年金給付額には一切反映されないという制度設計上の致命的な失敗を犯した。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（厚生年金保険法第24条の4）</p>
+            <p className="text-sm text-amber-700">役員報酬の設計時は標準賞与額の上限を必ず確認すること。年金算定基礎を確保した上で節税は個人年金保険の保険料控除等の合法的手段で行うこと。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-orange-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例②「65歳超えても代表取締役として高額報酬。在職老齢年金で年金が全額支給停止された」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">B氏（68歳）企業の代表取締役。65歳を超えても月に100万円を超える役員報酬を受け取り続けていた。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">本人は65歳になれば自動的に全額の年金が受給できると思い込んでいたが、厚生年金保険法第46条に基づく在職老齢年金の規定により、基本月額と総報酬月額相当額の合計が基準額を大幅に超過したため老齢厚生年金の受給権が全額停止された。加給年金までもが支給停止となり年金制度からの還元を一切受けられなかった。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（厚生年金保険法第46条）</p>
+            <p className="text-sm text-amber-700">高額報酬を継続する場合は在職老齢年金の支給停止を前提とした老後計画を立てること。個人年金保険（支給停止対象外）を「働きながらの確実な老後収入」として準備すること。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-yellow-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例③「退職金とDC一時金を同年に受給。退職所得控除超過で多額の税金が課税された」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">C氏（60歳）定年退職した管理職。長年勤め上げた企業からの退職一時金（2,000万円）と企業型確定拠出年金（DC）の一時金（1,000万円）を同一の年に一括で受給した。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">所得税法第30条および第77条に基づく退職所得控除は勤続年数に応じて非課税枠が設けられているが、2つの制度からの支給を同年に受けたことで非課税枠を大きく超過し、多額の所得税および住民税が課税され手取り額が大幅に目減りした。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（所得税法第30条）</p>
+            <p className="text-sm text-amber-700">退職金とDC一時金の受取タイミングを5年以上ずらすことで退職所得控除を再適用できる可能性がある。受取前にFPへの相談で税負担を最小化する設計をすること。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* セクション6：最終チェックリスト */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      加入前の最終チェックリスト（8項目）
+    </h2>
+    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+      <ul className="space-y-3">
+        {[
+          'gap1=R_old-0.6×R_before（役職定年後の不足額）を計算した',
+          'gap2=R_old-P_pub（公的年金後の不足額）を計算した',
+          '55歳受取開始の10年確定年金と65歳受取開始の終身年金の二段構えを設計した',
+          '役員報酬設計時は標準賞与額の上限（月150万円）を意識して月額報酬を適正に保った',
+          '退職金とDC一時金の受取タイミングを5年以上ずらす計画を立てた',
+          '65歳以降も働く場合は在職老齢年金の支給停止を前提に個人年金保険を準備した',
+          '子供の教育費ピークと役職定年の重なりを事前にシミュレーションした',
+          '役職定年前（収入余裕期）に個人年金保険の積立を最大化した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
