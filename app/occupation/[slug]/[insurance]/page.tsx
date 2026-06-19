@@ -358,6 +358,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFinanceIncomeProtection = occ.slug === 'finance' && ins.slug === 'income-protection'
   const isFinanceDisability = occ.slug === 'finance' && ins.slug === 'disability'
   const isFinancePension = occ.slug === 'finance' && ins.slug === 'pension'
+  const isFinanceCancer = occ.slug === 'finance' && ins.slug === 'cancer'
   const isManagerCancer = occ.slug === 'manager' && ins.slug === 'cancer'
   const isManufacturingCancer = occ.slug === 'manufacturing' && ins.slug === 'cancer'
   const isDoctorIncomeProtection = occ.slug === 'doctor' && ins.slug === 'income-protection'
@@ -471,7 +472,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -42577,6 +42578,294 @@ export default async function OccupationInsurancePage({ params }: Props) {
   </section>
 
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isFinanceCancer && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* セクション1：リード文 + 2色のインフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-4">金融業×がん保険｜高収入従事者の逸失収入ギャップと「戦略的猶予期間」の数式証明</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      金融業のがん保険設計には、大手比較サイトが一切触れない「高収入金融業従事者のがん治療中の生活費枯渇タイムラインと一時金がもたらす『戦略的猶予期間』の数式証明」があります。事務所維持費や生活費の月次固定費をF、<a href="https://laws.e-gov.go.jp/law/311AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法第99条</a>が適用される傷病手当金の法定上限をHI_max≈92.6万円、発病時の流動性貯蓄残高をSとして、がん保険未加入時の貯蓄が枯渇するまでのタイムライン：T_bankrupt=S/(F-HI_max)（F&gt;HI_maxの高収入家計を想定）。民間のがん診断一時金G（例：1,000万円）が支給された場合：T_bankrupt(with)=(S+G)/(F-HI_max)=T_bankrupt+G/(F-HI_max)。F=120万円（タワマン＋教育費）の高収入金融従事者の場合、毎月120-92.6=27.4万円の激しい赤字が出血のように続きますが、一時金1,000万円があれば追加で1,000/27.4≈36.5ヶ月（約3年間）の猶予期間が生まれます。<a href="https://www.kyoukaikenpo.or.jp/g3/cat330/sb3150/h28/280222/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険の標準報酬月額上限は139万円で頭打ち</a>のため、傷病手当金の上限は約92.6万円に固定されており、月収250万円の高収入金融業従事者では月次逸失収入が約157.4万円にも激増します。生涯がん罹患リスクは男性61.1%・女性50.1%——2人に1人が罹患する時代において、高額ながん診断一時金は単なる医療費補填ではなく「公的制度の上限額による逆進性を緩和する戦略的猶予期間を創出する」数学的機能を持つことが論証されます。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="text-red-800 font-semibold text-sm leading-relaxed">
+        🚨 月収250万円でも傷病手当金は上限92.6万円——逸失収入ギャップが月157.4万円に激増：<br />
+        標準報酬月額上限139万円（協会けんぽ第50級）で頭打ち——高収入ほど補填率が低下。<br />
+        F&gt;HI_maxの高収入家計：毎月の赤字が出血のように継続（タワマン＋教育費の固定費）。<br />
+        混合診療のリスク：先進医療の要件を満たさないと保険適用部分も含めて全額自己負担。<br />
+        生涯がん罹患リスク男性61.1%・女性50.1%——2人に1人が罹患する現実を直視すること。
+      </p>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+        ⚠️ T_bankrupt(with)=T_bankrupt+G/(F-HI_max)——一時金が創出する「約3年間の戦略的猶予」：<br />
+        F=120万円・HI_max=92.6万円の場合：毎月27.4万円の赤字が継続する構造的リスク。<br />
+        一時金G=1,000万円：追加で1,000/27.4≈36.5ヶ月（約3年）の猶予期間を創出。<br />
+        この猶予期間は資格維持・先進医療の検討・生活水準のソフトランディングに活用できる。<br />
+        AFP・CFP等の継続教育義務：がん治療長期化による資格失効リスクも一時金でカバー。
+      </p>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="babyplanetCancer" secondary="miraitecho" />
+
+  {/* セクション2：ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融業のケース別・がん罹患時の逸失収入ギャップシミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：月収80万円の一般管理職
+        </div>
+        <p className="text-sm text-gray-600 mb-4">月次固定費80万円・傷病手当金上限92.6万円</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">治療休職前の実月収</div>
+            <div className="font-bold text-gray-900">80万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">休職中の傷病手当金（月額換算）</div>
+            <div className="font-bold text-gray-900">約53.3万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">毎月の逸失収入（収入減額分）</div>
+            <div className="font-bold text-gray-900">約26.7万円の減少</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">必要な民間保険給付額</div>
+            <div className="font-bold text-gray-900">一般的な医療保険でカバー可能</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">F&lt;HI_maxのため標準的な設計で対応可能</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：月収250万円の高収入金融業従事者
+        </div>
+        <p className="text-sm text-gray-600 mb-4">月次固定費120万円・傷病手当金上限92.6万円（頭打ち）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">治療休職前の実月収</div>
+            <div className="font-bold text-red-700">250万円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">休職中の傷病手当金（法定上限で頭打ち）</div>
+            <div className="font-bold text-red-700">約92.6万円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">毎月の逸失収入（収入減額分）</div>
+            <div className="font-bold text-red-700">約157.4万円の激減</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">必要な民間保険給付額</div>
+            <div className="font-bold text-red-700">数千万円規模のがん診断一時金</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">一時金1,000万円で約36.5ヶ月の戦略的猶予を創出</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：協会けんぽ標準報酬月額：<a href="https://www.kyoukaikenpo.or.jp/g3/cat330/sb3150/h28/280222/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">標準報酬月額の等級区分の改定</a>　健康保険法：<a href="https://laws.e-gov.go.jp/law/311AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">e-Gov・健康保険法第99条</a>
+    </p>
+  </section>
+
+  {/* セクション3：金融業特有のリスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融業特有のがんリスク3選（政府統計・法令根拠付き）
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク①</div>
+        <h3 className="font-bold text-gray-900 mb-3">T_bankrupt(with)=T_bankrupt+G/(F-HI_max)——一時金が創出する戦略的猶予期間の数式証明</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          高収入者ががんに罹患した際、公的保障の上限がもたらす枯渇スピードの速さと、がん診断一時金がもたらす「時間の猶予」を論理的に証明する。事務所維持費や生活費の月次固定費F・傷病手当金の法定上限HI_max≈92.6万円・発病時の流動性貯蓄残高Sとして、がん保険未加入時の貯蓄枯渇タイムライン：T_bankrupt=S/(F-HI_max)（F&gt;HI_maxの高収入家計を想定）。診断一時金G支給後：T_bankrupt(with)=(S+G)/(F-HI_max)=T_bankrupt+G/(F-HI_max)。F=120万円（タワマン＋教育費）の場合、毎月27.4万円の赤字が継続。一時金G=1,000万円があれば1,000/27.4≈36.5ヶ月の追加猶予を創出する。これは医療費補填ではなく「公的制度の上限額による逆進性を緩和する戦略的猶予期間」として機能する。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://laws.e-gov.go.jp/law/311AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">e-Gov「健康保険法」（第99条・第86条）</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク②</div>
+        <h3 className="font-bold text-gray-900 mb-3">標準報酬月額139万円の逆進性——高収入ほど傷病手当金の補填率が低下する構造的問題</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          高収入の金融業従事者は都心のタワーマンションの高額な住宅ローンや子供の私立学校の学費など、高い生活水準に基づいた重い「固定費」を抱えていることが多い。しかし実際の月収が200万円や300万円であったとしても、健康保険法上の標準報酬月額は139万円（協会けんぽ第50級）で頭打ちとなる。結果として支給される傷病手当金は月額約92.6万円に制限され、固定費の支払いが即座に滞る「逆進的」な家計破綻リスクが存在する。さらに金融業特有の極度のプレッシャー・長時間労働・睡眠不足は交感神経を慢性的に優位な状態に置きNK細胞の活性を低下させ、構造的にがん発症リスクが高まりやすい職業環境にある。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.kyoukaikenpo.or.jp/g3/cat330/sb3150/h28/280222/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">協会けんぽ「標準報酬月額の等級区分の改定」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク③</div>
+        <h3 className="font-bold text-gray-900 mb-3">混合診療の壁——先進医療選択の失敗が保険適用部分まで全額自己負担にする落とし穴</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          最先端の未承認抗がん剤治療等を選択する際、健康保険法第86条（保険外併用療養費・評価療養）の要件を満たすと見込んでいても、要件を満たさない場合は「混合診療」と見なされる。結果として保険適用される基礎的な診療部分も含めて全額自己負担（10割負担）となり、数千万円の金融資産が一瞬にして消滅するリスクがある。さらにAFP・CFP・証券アナリスト等の高度な金融専門資格は継続教育（CE）単位の取得・高額な更新費用の支払いが義務付けられており、がん治療の長期化による収入激減でこれらの費用が捻出できなくなると資格が失効し、復職後のキャリア構築が不可能になる二次的リスクも生じる。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://laws.e-gov.go.jp/law/311AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">e-Gov「健康保険法第86条（保険外併用療養費）」</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="babyplanetCancer" secondary="miraitecho" />
+
+  {/* セクション4：5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融業のがん保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      {[
+        {
+          num: '01',
+          title: 'T_bankrupt(with)=T_bankrupt+G/(F-HI_max)を計算し必要な一時金規模を把握する（最重要）',
+          body: '自分の月次固定費Fと傷病手当金の実際の上限（標準報酬月額139万円×2/3≈92.6万円）の差を計算する。F>HI_maxの場合、その差額を埋める一時金規模（数千万円単位も検討）を設計する。',
+        },
+        {
+          num: '02',
+          title: '標準報酬月額の上限（139万円）を理解し「月収の3分の2」という誤解を解消する',
+          body: '高収入者ほど「傷病手当金は月収の3分の2出る」という誤解が深刻な家計破綻を招く。実際は標準報酬月額の上限に縛られるため、月収が200万円を超える時点で補填率が著しく低下することを正確に把握する。',
+        },
+        {
+          num: '03',
+          title: '先進医療・自由診療を検討する場合は混合診療のリスクを事前に医師・保険会社に確認する',
+          body: '評価療養の要件を満たさない自由診療を選択すると保険適用部分まで全額自己負担になるリスクがある。先進医療特約付きのがん保険を選び、治療選択前に必ず医療機関・保険会社に適用条件を確認する。',
+        },
+        {
+          num: '04',
+          title: 'AFP・CFP等の専門資格更新費用をがん診断一時金の用途に含めて試算する',
+          body: 'がん治療の長期化による継続教育の履行困難・資格失効リスクに備え、診断一時金の一部を資格更新費用（オンライン研修・試験費用等）に充当できる規模で設計する。',
+        },
+        {
+          num: '05',
+          title: '生涯がん罹患リスク（男性61.1%・女性50.1%）を前提に十分な一時金を確保する',
+          body: '2人に1人が罹患するというリスクの高さを直視し、「自分だけは大丈夫」という楽観的バイアスを排除した一時金設計を行う。高収入層ほど一時金の絶対額を大きくする必要がある。',
+        },
+      ].map((item, i) => (
+        <div key={i} className="flex gap-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+            {item.num}
+          </div>
+          <div>
+            <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* セクション5：よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融業のがん保険でよくある失敗事例3選
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-red-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例①「傷病手当金の計算上限を誤認。月収の3分の2が出ると思い住宅ローンが滞納に陥った」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">A氏（44歳）外資系金融機関の役員。月収300万円。がんで休職した際、「月収の3分の2である200万円が傷病手当金として支給される」と思い込んでいた。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">健康保険法第99条に基づく算定基礎は標準報酬月額の上限（139万円）に縛られるため、実際の支給額は約92.6万円に留まった。この誤算により毎月100万円超の住宅ローン返済が滞り、自宅の売却を余儀なくされた。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（健康保険法第99条）</p>
+            <p className="text-sm text-amber-700">標準報酬月額の上限を正確に理解し、実際の傷病手当金額を事前に試算すること。高収入であるほど「月収の3分の2」という単純計算は当てはまらない。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-orange-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例②「混合診療と見なされ保険適用部分も全額自己負担。数千万円の金融資産が一瞬で消滅した」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">B氏（48歳）外資系金融マン。最先端の未承認抗がん剤治療を選択した。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">健康保険法第86条（特定療養費・保険外併用療養費）の要件を満たす「評価療養」に該当すると見込んでいたが、要件を満たさず「混合診療」と見なされた。結果として保険適用される基礎的な診療部分も含めて全額自己負担（10割負担）となり、数千万円の金融資産が一瞬にして消滅した。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（健康保険法第86条）</p>
+            <p className="text-sm text-amber-700">先進医療・自由診療を選択する前に必ず混合診療の要件を医師・保険会社と確認すること。先進医療特約付きのがん保険で適用条件を明確にしておくことが必須。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-yellow-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例③「傷病手当金の支給期間満了（1年6月）で完全な無収入化。障害年金も間に合わなかった」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">C氏（51歳）金融業従事者。がんの転移により治療が長期化し休職期間が1年半を超過した。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">健康保険法第99条第4項には「傷病手当金の支給期間は、支給を始めた日から起算して通算1年6月を超えない」と規定されている。この期間を超過した時点で傷病手当金の支給が完全に打ち切られ、障害年金の認定も間に合わず完全に無収入の状態に陥った。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（健康保険法第99条第4項）</p>
+            <p className="text-sm text-amber-700">がん診断一時金で18ヶ月超の長期療養に備えること。傷病手当金満了後の収入空白を一時金または収入保障保険でカバーする二段構えの設計が必須。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* セクション6：最終チェックリスト */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      加入前の最終チェックリスト（8項目）
+    </h2>
+    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+      <ul className="space-y-3">
+        {[
+          'T_bankrupt(with)=T_bankrupt+G/(F-HI_max)を計算し必要な一時金規模を把握した',
+          '標準報酬月額の上限（139万円）と実際の傷病手当金額（約92.6万円）を確認した',
+          '月次固定費Fと傷病手当金上限HI_maxのギャップを正確に試算した',
+          '先進医療・自由診療選択時の混合診療リスクを医師・保険会社に確認した',
+          'AFP・CFP等の資格更新費用を診断一時金の用途に含めて試算した',
+          '傷病手当金支給期間（通算1年6月）満了後の備えを設計した',
+          '生涯がん罹患リスク（2人に1人）を前提に十分な一時金額を設定した',
+          '定期的ながん検診（年1回以上）を受診している',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="babyplanetCancer" secondary="miraitecho" />
 
 </div>
 )}
