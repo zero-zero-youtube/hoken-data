@@ -470,9 +470,10 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDoctorMedical = occ.slug === 'doctor' && ins.slug === 'medical'
   const isPartTimeCancer = occ.slug === 'part-time' && ins.slug === 'cancer'
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
+  const isPartTimeChild = occ.slug === 'part-time' && ins.slug === 'child'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -42866,6 +42867,166 @@ export default async function OccupationInsurancePage({ params }: Props) {
   </section>
 
   <AffiliateCTA primary="babyplanetCancer" secondary="miraitecho" />
+
+</div>
+)}
+
+{isPartTimeChild && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* S1: パートの手取り危機 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">パート勤務で子どもの教育費を用意できる？2026年問題が直撃する理由</h2>
+    <p className="text-gray-700 leading-relaxed mb-4">2024年10月から社会保険の適用拡大（いわゆる2026年問題）が段階的に進み、パート・アルバイトの手取りが最大15%前後減少するケースが報告されています。月収15万円のパートなら手取りが約2万2,500円減り、子どもの教育費積立に回せる余裕がさらに狭まります。</p>
+    <p className="text-gray-700 leading-relaxed mb-4">文部科学省の調査によると、幼稚園から大学（国公立）までの教育費総額は約1,000万円。私立大学まで含めると1,500〜2,000万円超になります。毎月の積立だけでは追いつかない家庭が増えており、学資保険が果たす役割は以前より大きくなっています。</p>
+    <div className="bg-orange-50 border-l-4 border-orange-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-orange-800 mb-2">手取り減少のシミュレーション（月収15万円の場合）</p>
+      <ul className="text-orange-700 space-y-1 text-sm">
+        <li>• 健康保険料：約7,500円／月の新規負担</li>
+        <li>• 厚生年金保険料：約13,650円／月の新規負担</li>
+        <li>• 合計で年間約25万円超の負担増</li>
+        <li>→ 学資保険の積立を今から始めることで影響を最小化できる</li>
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">こうした状況だからこそ、「今の家計で無理なく続けられる保険料設定」が最重要になります。まずは無料の相談窓口で、あなたの収入に合ったプランを比較してみましょう。</p>
+  </section>
+
+  <AffiliateCTA primary="babyplanetMama" secondary="miraitecho" />
+
+  {/* S2: 学資保険の基礎と選び方 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">学資保険とは？パートママが知っておくべき基本の仕組み</h2>
+    <p className="text-gray-700 leading-relaxed mb-4">学資保険は、子どもの教育資金を計画的に積み立てるための貯蓄型保険です。毎月一定額の保険料を払い込み、子どもが進学する時期（18歳・22歳など）に満期保険金や祝い金が受け取れます。</p>
+    <div className="overflow-x-auto mb-6">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr className="bg-blue-600 text-white">
+            <th className="border border-blue-400 px-4 py-2 text-left">チェック項目</th>
+            <th className="border border-blue-400 px-4 py-2 text-left">確認ポイント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="bg-white">
+            <td className="border border-gray-200 px-4 py-2 font-medium">返戻率</td>
+            <td className="border border-gray-200 px-4 py-2">払込総額に対して何％戻ってくるか（105〜110%が目安）</td>
+          </tr>
+          <tr className="bg-gray-50">
+            <td className="border border-gray-200 px-4 py-2 font-medium">払込期間</td>
+            <td className="border border-gray-200 px-4 py-2">10年払い・15年払いなど。家計に合わせて選択</td>
+          </tr>
+          <tr className="bg-white">
+            <td className="border border-gray-200 px-4 py-2 font-medium">受取タイミング</td>
+            <td className="border border-gray-200 px-4 py-2">高校入学時・大学入学時など複数の祝い金があるか</td>
+          </tr>
+          <tr className="bg-gray-50">
+            <td className="border border-gray-200 px-4 py-2 font-medium">育英条項</td>
+            <td className="border border-gray-200 px-4 py-2">契約者（親）が死亡した場合に以後の保険料が免除される特約</td>
+          </tr>
+          <tr className="bg-white">
+            <td className="border border-gray-200 px-4 py-2 font-medium">月額保険料</td>
+            <td className="border border-gray-200 px-4 py-2">手取りの5〜10%以内に収まるか</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p className="text-gray-700 leading-relaxed">特にパート勤務の場合、育英条項（契約者死亡時の保険料免除）は必須チェックポイント。万が一のときでも子どもの教育資金が守られます。</p>
+  </section>
+
+  {/* S3: 最低積立額の数式証明 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">いくら積み立てれば足りる？教育費の逆算シミュレーション</h2>
+    <p className="text-gray-700 leading-relaxed mb-4">教育費の必要額をゴールから逆算する考え方（P_child_min）を使うと、毎月いくら必要かが明確になります。</p>
+    <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6">
+      <p className="font-bold text-blue-900 mb-3 text-lg">P_child_min の考え方</p>
+      <div className="bg-white rounded-lg p-4 font-mono text-sm text-blue-800 mb-3">
+        <p>目標額 ÷ 積立期間（月数）＝ 最低月額積立額</p>
+        <p className="mt-2 text-gray-500">例）200万円 ÷ 180ヶ月（15年）＝ 約11,111円／月</p>
+      </div>
+      <ul className="text-blue-700 text-sm space-y-1">
+        <li>• 大学入学金＋初年度学費：私立文系で約130万円、理系で約155万円</li>
+        <li>• 生活費・仕送り：年間100〜150万円×4年</li>
+        <li>• 高校〜大学の総額：600〜1,000万円を見込む</li>
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed mb-4">月1万円前後から始められる学資保険も多く、子どもが0〜2歳のうちに加入するほど返戻率が高くなります。手取りが減る前に早めに動くことが重要です。</p>
+    <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5">
+      <p className="font-bold text-yellow-800 mb-2">⚠️ 給付額が足りなくなるリスク</p>
+      <p className="text-yellow-700 text-sm">インフレや大学授業料の値上がりにより、加入時点で設定した満期金額では足りなくなる可能性があります。学資保険だけに頼らず、つみたてNISAなどと組み合わせる設計を専門家に相談しましょう。</p>
+    </div>
+  </section>
+
+  {/* S4: パート特有の注意点 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">パート勤務ならではの落とし穴と対策</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-800 mb-2">落とし穴①：収入変動による保険料払い込み困難</p>
+        <p className="text-red-700 text-sm">勤務時間の変化や職場の閉店・人員削減で収入が突然下がることがあります。払済保険（払込停止して積立を維持）や減額制度があるか事前に確認を。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-800 mb-2">落とし穴②：社会保険加入で手取りが激減するタイミング</p>
+        <p className="text-red-700 text-sm">2026年以降の社会保険適用拡大で手取りが減るタイミングと、保険料払込開始が重なると家計を圧迫します。口座引き落とし日と給与支払日のズレにも注意。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-800 mb-2">落とし穴③：配偶者の扶養内で保険料控除を活かしきれない</p>
+        <p className="text-red-700 text-sm">学資保険の保険料は生命保険料控除（最大4万円）の対象ですが、課税所得が低いパートの場合、節税効果が限定的になることも。契約者を配偶者にする選択肢も検討できます。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 相談先の選び方 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">どこに相談すればいい？無料FP相談の活用法</h2>
+    <p className="text-gray-700 leading-relaxed mb-4">学資保険は各社の商品設計が異なり、返戻率・受取タイミング・特約の内容を一社ずつ比較するのは大変です。無料のFP（ファイナンシャルプランナー）相談を活用すると、複数社を一度に比較でき、家計状況に合ったプランを提案してもらえます。</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <p className="font-bold text-green-800 mb-2">保険相談窓口のメリット</p>
+        <ul className="text-green-700 text-sm space-y-1">
+          <li>✓ 複数社を横断比較できる</li>
+          <li>✓ 手数料無料（保険会社から報酬）</li>
+          <li>✓ 子育て・家計相談も同時にできる</li>
+          <li>✓ オンライン相談にも対応</li>
+        </ul>
+      </div>
+      <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <p className="font-bold text-green-800 mb-2">相談前に準備するもの</p>
+        <ul className="text-green-700 text-sm space-y-1">
+          <li>✓ 月収・手取りの金額</li>
+          <li>✓ 子どもの年齢・人数</li>
+          <li>✓ 希望する教育費の目安</li>
+          <li>✓ 現在加入している保険の内容</li>
+        </ul>
+      </div>
+    </div>
+    <p className="text-gray-700 leading-relaxed">「何社も話を聞きに行く時間がない」パートママにこそ、一度の相談で複数社を比較できる窓口の利用がおすすめです。</p>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">パート×学資保険 加入前チェックリスト8項目</h2>
+    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+      <ul className="space-y-3">
+        {[
+          '子どもの年齢を確認した（0〜2歳が最も返戻率が高い）',
+          '月収に占める保険料の割合を計算した（目安：手取りの5〜10%以内）',
+          '育英条項（保険料払込免除特約）があるか確認した',
+          '2026年問題による手取り減少を家計シミュレーションに反映した',
+          '払済制度・減額制度など柔軟性があるか確認した',
+          '学資保険＋つみたてNISAの組み合わせを検討した',
+          '複数社の返戻率・受取タイミングを比較した',
+          '無料FP相談で家計全体のバランスを確認した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</span>
+            <span className="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">手取りが減っていく時代だからこそ、計画的な教育費積立が家族の安心につながります。まずは無料相談で、あなたの家計に合ったプランを見つけてください。</p>
+  </section>
+
+  <AffiliateCTA primary="babyplanetMama" secondary="miraitecho" />
 
 </div>
 )}
