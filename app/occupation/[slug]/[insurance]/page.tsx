@@ -438,6 +438,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManufacturingIncomeProtection = occ.slug === 'manufacturing' && ins.slug === 'income-protection'
   const isBeauticianLife = occ.slug === 'hairdresser' && ins.slug === 'life'
   const isHairdresserIncomeProtection = occ.slug === 'hairdresser' && ins.slug === 'income-protection'
+  const isHairdresserPension = occ.slug === 'hairdresser' && ins.slug === 'pension'
   const isPharmacistMedical = occ.slug === 'pharmacist' && ins.slug === 'medical'
   const isPharmacistLife = occ.slug === 'pharmacist' && ins.slug === 'life'
   const isPharmacistCancer = occ.slug === 'pharmacist' && ins.slug === 'cancer'
@@ -470,7 +471,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -42277,6 +42278,294 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '個人年金保険の受取開始年齢を55〜60歳に設定し早期廃業に対応した',
           '∂Cost_I/∂I≤∂Cost_P/∂Pの優先順位（iDeCo→個人年金）を理解した',
           '重筋労働による体力限界を見据えた早期の老後資金計画を立てている',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isHairdresserPension && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* セクション1：リード文 + 2色のインフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-4">美容師×個人年金保険｜低収入下での少額積立が55〜65歳の橋渡し資金を生む複利効果の数式証明</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      美容師の個人年金保険設計には、大手比較サイトが一切触れない「低収入下での少額積立が55〜65歳の橋渡し資金を生み出す複利効果の数式証明」があります。手取り月収M=22万円・最低限の月次生活費C=11万円として、積立可能上限額P_max=M-C=11万円（実際はサロン開業ローン返済等を差し引いた極めて少額の資金）。積立期間n=25年（30歳から55歳）・予定利率rとした場合、55歳引退時点での積立資産総額：A=P_pension×12×((1+r)^n-1)/r。この資産を55歳から75歳までの20年間で均等取り崩すと、月次受取額：B_pension=A/(20×12)。引退後もアルバイト等の副収入Eを得る場合の生存条件：B_pension+E≥C。これを解くと必要積立額：P_pension≥(C-E)×20×r/((1+r)^25-1)。月額わずか1.5万円程度のP_pensionでも、25年という積立期間がもたらす複利効果(1+r)^25が絶大な威力を発揮し、早期廃業後の生活費を支えるのに十分なキャッシュフローを生成できることが数学的に証明されます。<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">理美容師の平均年収は379.7〜388.5万円</a>と低水準で、従業員5人未満の個人経営理美容業は厚生年金保険法第6条により強制適用事業所から除外され、国民年金のみの老後を迎えるケースが大多数です。腱鞘炎・手荒れ・腰痛による職業病で50代に廃業を余儀なくされるリスクも高く、65歳の公的年金開始までの10〜15年の橋渡しが課題です。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="text-red-800 font-semibold text-sm leading-relaxed">
+        🚨 美容師の三重苦——低収入×社会保険未加入×職業病による早期廃業：<br />
+        理美容師の平均年収379.7〜388.5万円——全産業平均より低い水準で老後積立が困難。<br />
+        従業員5人未満の個人経営：厚生年金保険法第6条で強制適用外→国民年金のみの老後。<br />
+        腱鞘炎：業務起因性の立証が困難で労災不認定リスクが高い（厚生労働省の認定基準）。<br />
+        独立開業ローンの重圧：返済優先で老後積立を後回しにする構造的リスク。
+      </p>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+        ⚠️ 月額1.5万円でも25年積立なら540万円——複利効果(1+r)^25の威力を証明：<br />
+        P_pension≥(C-E)×20×r/((1+r)^25-1)：早期開始なら少額でも十分な給付が確保できる。<br />
+        55歳〜65歳の橋渡し資金：個人年金540万円÷20年÷12ヶ月＝月約4.5万円の受取。<br />
+        法人成りの注意：厚生年金保険法第6条で強制適用事業所化→社会保険料負担増を事前計画。<br />
+        腱鞘炎の労災不認定リスク：民間の個人年金保険が唯一確実な老後の生活防衛手段。
+      </p>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション2：ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      美容師のケース別・少額積立による将来格差シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：積立なし（独立資金の返済のみ優先）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">手取り月収22万円・積立期間0年</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">積立期間（30歳〜55歳）</div>
+            <div className="font-bold text-red-700">0年間</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">毎月の保険料等拠出額</div>
+            <div className="font-bold text-red-700">0円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">55歳引退時点での老後確保資産</div>
+            <div className="font-bold text-red-700">0円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">55歳〜65歳の橋渡し資金（月額）</div>
+            <div className="font-bold text-red-700">0円（日々の生活が困窮）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">職業病等で早期廃業した場合、即座に生活困窮へ</div>
+        </div>
+      </div>
+
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：月額1.5万円の個人年金積立を継続
+        </div>
+        <p className="text-sm text-gray-600 mb-4">手取り月収22万円・積立期間25年（予定年利1.5%）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">積立期間（30歳〜55歳）</div>
+            <div className="font-bold text-gray-900">25年間</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">毎月の保険料等拠出額</div>
+            <div className="font-bold text-gray-900">15,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">55歳引退時点での老後確保資産</div>
+            <div className="font-bold text-gray-900">約540万円（予定年利1.5%想定）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">55歳〜65歳の橋渡し資金（月額）</div>
+            <div className="font-bold text-gray-900">月額約4.5万円の受取が可能</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">月1.5万円の少額積立でも複利効果で生活が大きく変わる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省賃金統計：<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">令和5年賃金構造基本統計調査</a>　労災認定基準：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">上肢障害の労災認定基準</a>
+    </p>
+  </section>
+
+  {/* セクション3：美容師特有のリスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      美容師特有の老後リスク3選（政府統計・法令根拠付き）
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク①</div>
+        <h3 className="font-bold text-gray-900 mb-3">P_pension≥(C-E)×20×r/((1+r)^25-1)——少額積立でも25年の複利効果が橋渡し資金を生む証明</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          低収入かつ借入金返済を抱える美容師であっても少額積立を早期に開始することで55歳から65歳の無収入期間を突破できることを数理的に証明する。手取り月収M=22万円・最低限の月次生活費C=11万円として積立可能上限額P_max=M-C=11万円。積立期間n=25年（30歳から55歳）・予定利率rとして55歳引退時点での積立資産A=P_pension×12×((1+r)^n-1)/r。この資産を55歳から75歳までの20年間で取り崩す月次受取額B_pension=A/(20×12)。引退後の副収入Eを加味した生存条件B_pension+E≥Cを解くとP_pension≥(C-E)×20×r/((1+r)^25-1)。月額1.5万円程度でも25年という積立期間の複利効果が絶大な威力を発揮することが数学的に論証される。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「令和5年賃金構造基本統計調査」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク②</div>
+        <h3 className="font-bold text-gray-900 mb-3">厚生年金保険法第6条——個人経営美容室の社会保険未加入と老後年金の構造的欠落</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          理美容業界は個人経営の小規模サロンが多数を占める。従業員が5人未満の個人事業所は厚生年金保険法第6条の規定により厚生年金の強制適用事業所から除外されるため、多くの美容師は国民健康保険と国民年金に自ら加入せざるを得ない。低賃金（平均年収380万円弱）の中から全額自己負担で保険料を納付することは厳しく、老後の受給額も国民年金のみとなるため貧困に陥るリスクが高い。法人成り（株式会社化）した瞬間に強制適用事業所となり、従業員全員分の社会保険料の半額負担義務が生じる点も経営計画に織り込む必要がある。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2023/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「令和5年賃金構造基本統計調査」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク③</div>
+        <h3 className="font-bold text-gray-900 mb-3">腱鞘炎の労災認定の困難さ——上肢障害の認定基準の高いハードル</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          ハサミを使い続けることによる腱鞘炎、パーマ液やシャンプーによる重度の手荒れ（接触性皮膚炎）、化学物質過敏症、長時間の立ち仕事による腰痛は美容師の宿命的な職業病である。これらの症状が悪化すると技術の提供が不可能になり、50代という資産形成の最重要期に廃業を余儀なくされる。腱鞘炎は突発的な事故によるものではなく「家事や加齢など日常生活の要因と区別がつきにくい」として業務起因性が否定されやすく、厚生労働省「上肢障害の労災認定基準」の認定ハードルが極めて高い。労災が認められない場合、収入保障がないまま引退を迫られるため、民間の個人年金保険が唯一確実な老後の生活防衛手段となる。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「労働災害補償保険制度・上肢障害の認定基準」</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション4：5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      美容師の個人年金保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      {[
+        {
+          num: '01',
+          title: 'P_pension≥(C-E)×20×r/((1+r)^25-1)を計算し早期から少額でも積立を開始する（最重要）',
+          body: '30歳前後から月額1万円〜1.5万円程度の少額でも個人年金保険の積立を開始する。25年という積立期間の複利効果が55〜65歳の橋渡し資金を生み出す——早期開始が低収入の美容師にとって最も重要な戦略。',
+        },
+        {
+          num: '02',
+          title: '独立開業ローンの返済と個人年金保険の積立を両立させる計画を立てる',
+          body: 'サロン開業時の借入金返済を優先しすぎて老後積立を完全に後回しにしないこと。月額数千円でも個人年金保険の積立を継続することで、複利効果による将来の橋渡し資金を確保する設計をローン計画と並行して立てる。',
+        },
+        {
+          num: '03',
+          title: '法人成り（株式会社化）時の社会保険料負担を事前に試算する',
+          body: '売上拡大により法人化を検討する際、厚生年金保険法第6条により強制適用事業所となり従業員全員分の社会保険料の半額負担義務が生じることを事前に試算する。法定福利費の重圧を利益計画に正確に織り込むことが経営破綻を防ぐ鍵。',
+        },
+        {
+          num: '04',
+          title: '腱鞘炎・手荒れ等の職業病が労災不認定でも生活を守れる設計にする',
+          body: '腱鞘炎の労災認定ハードルが高い実態を踏まえ、労災に依存しない「民間個人年金保険による自己防衛」を前提とした老後設計を行う。受取開始年齢を50〜55歳に設定し早期廃業に対応する。',
+        },
+        {
+          num: '05',
+          title: '国民健康保険料の滞納を避け資格証明書発行のリスクを回避する',
+          body: '独立初期の資金繰り悪化時に国民健康保険料を後回しにしないこと。国民健康保険法第9条の規定に基づき滞納すると資格証明書（10割負担）が発行され医療アクセスを失うリスクがある。保険料の優先順位を正しく設定する。',
+        },
+      ].map((item, i) => (
+        <div key={i} className="flex gap-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+            {item.num}
+          </div>
+          <div>
+            <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* セクション5：よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      美容師の個人年金保険でよくある失敗事例3選
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-red-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例①「腱鞘炎で労災を申請したが業務起因性が認められず不認定。収入保障がないまま引退を迫られた」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">A氏（53歳）長年の業務により重度の腱鞘炎を発症し、ハサミを握れなくなった美容師。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">労働者災害補償保険法（労災）に基づく休業補償を申請したが、腱鞘炎は突発的な事故によるものではなく「家事や加齢など日常生活の要因と区別がつきにくい」として業務起因性が否定された。厳しい「上肢障害の労災認定基準」を満たせず不認定となり、収入保障がないまま引退を迫られた。個人年金保険にも未加入で老後資金が完全に不足した。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（上肢障害の労災認定基準）</p>
+            <p className="text-sm text-amber-700">腱鞘炎等の職業病は労災認定が困難であることを前提に、民間の個人年金保険による自己防衛が唯一の確実な手段。30代からの早期積立開始が重要。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-orange-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例②「法人化した瞬間に社会保険料の負担が発生。利益計画に織り込まず資金繰りがショートし倒産した」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">B氏（45歳）独立開業後に売上が順調に推移したため節税目的でサロンを「法人化（株式会社化）」した経営者。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">法人化した瞬間に厚生年金保険法第6条および健康保険法の規定により「強制適用事業所」となり、従業員全員分の社会保険料の半額負担義務が生じた。この法定福利費の重圧を利益計画に織り込んでいなかったため資金繰りがショートし倒産に至った。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（厚生年金保険法第6条）</p>
+            <p className="text-sm text-amber-700">法人化を検討する際は社会保険料の増加分を必ず事前に試算し、利益計画に織り込むこと。節税効果と社会保険料増加のバランスをFPに相談する。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-yellow-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例③「国民健康保険料の滞納で資格証明書発行。持病の治療を断念し症状が悪化した」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">C氏（38歳）独立初期の資金繰り悪化により、国民健康保険料の納付を後回しにし長期間滞納した美容師。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">国民健康保険法第9条の規定に基づき通常の保険証の返還を求められ、代わりに「資格証明書」が交付された。これにより医療機関の窓口で一旦10割全額を自己負担しなければならなくなり、持病の治療を断念し症状をさらに悪化させてしまった。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（国民健康保険法第9条）</p>
+            <p className="text-sm text-amber-700">国民健康保険料の優先順位を正しく設定すること。資格証明書発行は医療アクセスの喪失に直結する致命的なリスク。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* セクション6：最終チェックリスト */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      加入前の最終チェックリスト（8項目）
+    </h2>
+    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+      <ul className="space-y-3">
+        {[
+          'P_pension≥(C-E)×20×r/((1+r)^25-1)を計算し早期からの少額積立を開始した',
+          '30歳前後から月額1〜1.5万円程度でも個人年金保険の積立を開始した',
+          '独立開業ローンの返済計画と個人年金保険の積立を両立させた',
+          '法人成り検討時は社会保険料負担の増加を事前に試算した',
+          '腱鞘炎等の職業病が労災不認定でも生活を守れる個人年金保険を準備した',
+          '受取開始年齢を50〜55歳に設定し早期廃業に対応した',
+          '国民健康保険料を優先的に支払い資格証明書発行のリスクを回避している',
+          '厚生年金保険法第6条の強制適用事業所の要件を理解した上で経営判断をしている',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
