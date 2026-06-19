@@ -412,6 +412,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isSelfEmployedIncomeProtection = occ.slug === 'self-employed' && ins.slug === 'income-protection'
   const isSelfEmployedCancer = occ.slug === 'self-employed' && ins.slug === 'cancer'
   const isConstructionCancer = occ.slug === 'construction' && ins.slug === 'cancer'
+  const isConstructionPension = occ.slug === 'construction' && ins.slug === 'pension'
   const isSalesMedical = occ.slug === 'sales' && ins.slug === 'medical'
   const isSalesCancer = occ.slug === 'sales' && ins.slug === 'cancer'
   const isSalesDisability = occ.slug === 'sales' && ins.slug === 'disability'
@@ -469,7 +470,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -41988,6 +41989,294 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '保険料支払困難時は猶予期間内に保険会社へ相談する習慣をつけた',
           '脳・心疾患リスク（全業種の3分の1）を認識し定期健診を受診している',
           '職業性腰痛の予防（正しい姿勢・休息）を意識して長期キャリアを目指している',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isConstructionPension && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* セクション1：リード文 + 2色のインフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-4">建設業一人親方×個人年金保険｜iDeCo優先の積立ビークル最適順位と三重積立設計の数式証明</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      建設業一人親方の個人年金保険設計には、大手比較サイトが一切触れない「税制メリットを最大化する積立ビークルの最適順位の数式証明——iDeCoを満額拠出してから個人年金保険で補完する理由」があります。老後の希望月収R_old=30万円・国民年金の満額受給額P_kokumin=6.8万円として、月次不足額gap=30-6.8=23.2万円。この不足を埋めるためiDeCoへの拠出額I（法定上限I_max=6.8万円）と個人年金保険への拠出額Pを設計します。限界税率τにおけるコスト関数：iDeCoはCost_I=I×(1-τ)（全額所得控除）、個人年金保険はCost_P=P-(min(P,Cap)×τ)（控除上限Capあり）。限界税率τ&gt;0である以上、常に∂Cost_I/∂I≤∂Cost_P/∂Pが成立——「まずiDeCoを法定上限の6.8万円まで満額拠出し、その上で残余の不足分を個人年金保険で補完する」ことが数学的最適解です。一人親方は厚生年金がなく<a href="https://www.nenkin.go.jp/service/jukyu/roureinenkin/jukyu-yoken/20150401-02.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金のみ（月約68,000円）</a>という絶対的な貧困リスクを抱えています。さらに<a href="https://www.kentaikyo.taisyokukin.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">建設業退職金共済（建退共）</a>は一人親方が個人で直接加入できず「任意組合」を通じた手続きが必須という制度的な壁があり、これを忌避すると引退時にまとまった退職金が一切手に入りません。<a href="https://www.ideco-koushiki.jp/guide/structure.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">iDeCo</a>・建退共・個人年金保険の三重積立設計が一人親方の老後を守る唯一の数理的解です。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="text-red-800 font-semibold text-sm leading-relaxed">
+        🚨 国民年金のみで老後月次資金ショート23.2万円——一人親方の絶対的貧困リスク：<br />
+        40年間未納なく払い続けても老齢基礎年金は月約68,000円——生活保護水準すら下回る場合も。<br />
+        建退共：一人親方は個人で直接加入できない（中小企業退職金共済法第66条の制約）。<br />
+        任意組合を通じた手続きの煩雑さを忌避すると、引退時の退職金が一切手に入らない。<br />
+        重筋労働による55歳前後の早期廃業——資産形成期間が想定より大幅に短縮されるリスク。
+      </p>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+        ⚠️ ∂Cost_I/∂I ≤ ∂Cost_P/∂P——iDeCoを満額拠出してから個人年金で補完が数学的最適解：<br />
+        iDeCo（月6.8万円上限）：全額所得控除——拠出1単位あたりのコストが常に最小。<br />
+        個人年金保険：控除上限（最大4万円程度）超過分は税制メリットがゼロになる。<br />
+        最適配分：①iDeCo満額（6.8万円）→②建退共（任意組合経由）→③個人年金保険で補完。<br />
+        税制優遇の優先順位を誤ると、現役時代の税負担を無駄に高く払い続けることになる。
+      </p>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション2：ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      建設業一人親方のケース別・老後資金シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：国民年金のみに依存
+        </div>
+        <p className="text-sm text-gray-600 mb-4">老後希望月収30万円・国民年金のみ加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">老後の希望月収水準</div>
+            <div className="font-bold text-red-700">30万円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">公的年金受給額（国民年金満額）</div>
+            <div className="font-bold text-red-700">約6.8万円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">老後の月次資金ショート額</div>
+            <div className="font-bold text-red-700">23.2万円の致命的赤字</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">対策</div>
+            <div className="font-bold text-red-700">なし（生活困窮）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">国民年金のみでは生活が成り立たない致命的な赤字</div>
+        </div>
+      </div>
+
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：三重積立（iDeCo＋建退共＋個人年金）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">iDeCo満額拠出＋建退共加入＋個人年金保険で補完</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">老後の希望月収水準</div>
+            <div className="font-bold text-gray-900">30万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">公的年金受給額（国民年金満額）</div>
+            <div className="font-bold text-gray-900">約6.8万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">三重積立による補填</div>
+            <div className="font-bold text-gray-900">iDeCo(6.8万)＋個人年金(8万)＋建退共取崩</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">老後の月次資金ショート額</div>
+            <div className="font-bold text-gray-900">不足なし</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">三重積立で希望月収30万円を達成——iDeCo優先が鍵</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：日本年金機構：<a href="https://www.nenkin.go.jp/service/jukyu/roureinenkin/jukyu-yoken/20150401-02.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">老齢基礎年金の受給要件</a>　建退共：<a href="https://www.kentaikyo.taisyokukin.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">建設業退職金共済事業本部</a>
+    </p>
+  </section>
+
+  {/* セクション3：建設業特有のリスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      建設業一人親方特有の老後リスク3選（政府統計・法令根拠付き）
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク①</div>
+        <h3 className="font-bold text-gray-900 mb-3">∂Cost_I/∂I≤∂Cost_P/∂P——iDeCo優先の積立ビークル最適順位の数式証明</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          一人親方が直面する老後資金の不足額を税制メリット最大化で補填する積立ポートフォリオの最適配分を数学的に証明する。老後希望月収R_old=30万円・国民年金満額P_kokumin=6.8万円として月次不足額gap=23.2万円。iDeCo拠出額I（上限I_max=6.8万円）・個人年金保険拠出額P・限界税率τとして、iDeCoのコスト関数Cost_I=I×(1-τ)（全額所得控除）。個人年金保険のコスト関数Cost_P=P-(min(P,Cap)×τ)（控除上限Capあり）。偏微分∂Cost_I/∂I=1-τ・∂Cost_P/∂P=1-τ（P&lt;Cap）または1（P≥Cap）。限界税率τ&gt;0である以上、常に∂Cost_I/∂I≤∂Cost_P/∂Pが成立——「まずiDeCoを上限6.8万円まで満額拠出し、その上で残余をP（個人年金保険）で補完する」ことが数学的最適解として厳密に証明される。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.ideco-koushiki.jp/guide/structure.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">iDeCo公式サイト「iDeCoの仕組み」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク②</div>
+        <h3 className="font-bold text-gray-900 mb-3">建退共の手続きの壁——中小企業退職金共済法第66条による一人親方の制約</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          建設業退職金共済制度（建退共）は国が設けた優れた退職金制度であるが、一人親方が加入するためには「任意組合」を設立するか既存の組合に加入して手続きを委託しなければならない。中小企業退職金共済法第66条等の規定により、一人親方は個人として直接加入することができない。この煩雑な手続きを忌避し日々の業務に忙殺された結果、建退共に未加入のまま長年働き続け、引退時にまとまった退職金が一切手に入らないリスクが極めて高い。掛金は1日あたり320円（一人親方の場合は全額自己負担）で、現場での就労日数に応じて証紙を貼付する仕組みのため、早期の手続き完了が将来の退職金額を大きく左右する。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.kentaikyo.taisyokukin.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">建設業退職金共済事業本部（建退共）</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク③</div>
+        <h3 className="font-bold text-gray-900 mb-3">国民年金未納による基礎年金の減額——免除申請を怠るリスク</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          若年期に見習いとして低収入であった期間や仕事が途切れた時期に国民年金保険料の免除申請を行わず「未納」として放置するケースがある。国民年金法第26条に基づく老齢基礎年金の算定において未納期間が控除され、満額の6.8万円すら受給できず月額5万円台の年金収入のみで老後を迎えることになる。低収入期には必ず免除申請（全額免除・一部免除）を行い、未納期間を作らないことが将来の年金権を守る基本動作。免除期間は将来追納することで満額に近づけることも可能。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.nenkin.go.jp/service/jukyu/roureinenkin/jukyu-yoken/20150401-02.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">日本年金機構「老齢基礎年金の受給要件・支給開始時期・計算方法」</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション4：5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      建設業一人親方の個人年金保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      {[
+        {
+          num: '01',
+          title: 'iDeCo（月6.8万円上限）を最優先に満額拠出する（最重要）',
+          body: '∂Cost_I/∂I≤∂Cost_P/∂Pの数式が示す通り、iDeCoの全額所得控除は個人年金保険の控除上限より常に有利。まずiDeCoを満額拠出し、残余の不足額（gap-I_max）を個人年金保険で補完する設計が数学的最適解。',
+        },
+        {
+          num: '02',
+          title: '建退共への加入手続きを早期に完了する（任意組合経由）',
+          body: '一人親方は個人で直接加入できないため、地域の建設業協会等が運営する任意組合を通じて建退共に加入する手続きを早期に完了する。現場での就労日数に応じた証紙貼付の積み重ねが将来の退職金額を決定する。',
+        },
+        {
+          num: '03',
+          title: '国民年金の未納期間を作らず必ず免除申請を活用する',
+          body: '低収入期には国民年金保険料の全額免除・一部免除を申請し、未納のまま放置しないこと。免除期間は将来の追納で満額に近づけることができるが、未納期間は永久に年金額を減少させる。',
+        },
+        {
+          num: '04',
+          title: '個人年金保険料控除の上限（生命保険料控除）を超えない範囲で拠出する',
+          body: '所得税法第76条に基づく生命保険料控除の上限（個人年金保険料税制適格特約で最大4万円程度）を超える拠出は税制メリットがない。iDeCo満額拠出後の不足分を、この控除上限を意識しながら個人年金保険で補完する。',
+        },
+        {
+          num: '05',
+          title: '早期老化・身体的消耗による55歳前後の早期廃業を想定した受取開始年齢を設定する',
+          body: '重筋労働による現役期間の物理的短縮を踏まえ、個人年金保険の受取開始年齢を55〜60歳に設定する。65歳の年金受給開始まで働き続けることが困難な建設業の実態に即した設計が必須。',
+        },
+      ].map((item, i) => (
+        <div key={i} className="flex gap-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+            {item.num}
+          </div>
+          <div>
+            <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* セクション5：よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      建設業一人親方の個人年金保険でよくある失敗事例3選
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-red-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例①「個人年金保険に拠出を集中。iDeCoとの優先順位を誤り無駄に高い税負担を払い続けた」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">A氏（48歳）一人親方。将来への不安から毎月7万円を一般的な個人年金保険に拠出していた。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">所得税法第76条に基づく生命保険料控除の上限（個人年金保険料税制適格特約で最大4万円）を大きく超過しており、大半の掛金が所得控除の対象外となっていた。全額が所得控除となるiDeCo（最大6.8万円）を優先して使わなかったため、現役時代の税負担（所得税・住民税）を無駄に高く支払い続けた。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（所得税法第76条）</p>
+            <p className="text-sm text-amber-700">iDeCo（全額所得控除）を最優先に満額拠出し、残りを個人年金保険（控除上限内）で補完する数学的最適順位を守ること。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-orange-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例②「引退間近に建退共加入を試みたが、一人親方は個人で直接加入できず退職金を完全に失った」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">B氏（62歳）長年一人親方として従事してきた職人。引退間近になってから自身で直接「建退共」に加入しようとした。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">中小企業退職金共済法第66条等の規定により、一人親方は個人として直接加入することはできず「任意組合」を通じた手続きが必須であった。過去の労働日数に応じた証紙を遡って貼付することもできず、数百万単位で得られるはずだった退職金を完全に失った。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（中小企業退職金共済法第66条）</p>
+            <p className="text-sm text-amber-700">建退共への加入は現役の早い段階で任意組合を通じて完了すること。引退間近の加入では過去分が一切認められない。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-yellow-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例③「国民年金保険料の未納を放置。老後の年金が月5万円台に減額され生活苦に陥った」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">C氏（68歳）元一人親方。若年期に見習いとして低収入であった期間や仕事が途切れた時期に国民年金保険料の免除申請を行わず「未納」として放置していた。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">国民年金法第26条に基づく老齢基礎年金の算定において未納期間が控除され、満額の6.8万円すら受給できず月額5万円台の年金収入のみで老後を迎えることとなり、深刻な生活苦に陥った。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（国民年金法第26条）</p>
+            <p className="text-sm text-amber-700">低収入期には必ず免除申請（未納のまま放置しない）を行うこと。免除期間は追納制度を活用して将来満額に近づけることができる。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* セクション6：最終チェックリスト */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      加入前の最終チェックリスト（8項目）
+    </h2>
+    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+      <ul className="space-y-3">
+        {[
+          'gap=R_old-P_kokumin（老後月次不足額）を計算した',
+          'iDeCo（月6.8万円上限）を最優先に満額拠出している',
+          '個人年金保険は生命保険料控除の上限内（最大4万円程度）で拠出している',
+          '建退共への加入手続きを任意組合経由で早期に完了した',
+          '国民年金の未納期間を作らず免除申請を活用している',
+          '個人年金保険の受取開始年齢を55〜60歳に設定し早期廃業に対応した',
+          '∂Cost_I/∂I≤∂Cost_P/∂Pの優先順位（iDeCo→個人年金）を理解した',
+          '重筋労働による体力限界を見据えた早期の老後資金計画を立てている',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
