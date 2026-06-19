@@ -421,6 +421,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverIncomeProtection = occ.slug === 'driver' && ins.slug === 'income-protection'
   const isDriverCancer = occ.slug === 'driver' && ins.slug === 'cancer'
   const isDriverDisability = occ.slug === 'driver' && ins.slug === 'disability'
+  const isDriverPension = occ.slug === 'driver' && ins.slug === 'pension'
   const isDoctorCancer = occ.slug === 'doctor' && ins.slug === 'cancer'
   const isDoctorDisability = occ.slug === 'doctor' && ins.slug === 'disability'
   const isDoctorChild = occ.slug === 'doctor' && ins.slug === 'child'
@@ -468,7 +469,7 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -41699,6 +41700,294 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '65歳以降も働く場合は在職老齢年金の支給停止を前提に個人年金保険を準備した',
           '子供の教育費ピークと役職定年の重なりを事前にシミュレーションした',
           '役職定年前（収入余裕期）に個人年金保険の積立を最大化した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isDriverPension && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* セクション1：リード文 + 2色のインフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-4">ドライバー×個人年金保険｜2024年問題後の可処分所得減少下でも「減額継続」が最適な数式証明</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      ドライバーの個人年金保険設計には、大手比較サイトが一切触れない「2024年問題後の可処分所得減少下でも『減額継続』が『解約』より遥かに優れている数式証明」があります。規制前の月収R_before・規制後の月収R_after（R_before&gt;R_after）・固定的な月次生活費C・当初の個人年金保険料P_pensionとして、規制後に家計が赤字（R_after-C-P_pension&lt;0）に陥った場合、保険料を新たな水準P'_pension（P'_pension≤R_after-C）に減額することで対応します。この減額された保険料での老後給付月額：B_pension=P'_pension×12×((1+r)^n-1)/r/(y×12)。注目すべきは複利効果の項(1+r)^n——毎月の積立額P'_pensionが半減しても、契約を完全に解約（n=0）せず積立期間nを長く保てば、指数関数的に増大する(1+r)^nの効果により給付額の低下を非線形に緩和できます。これは「解約」ではなく「減額による積立継続」が数学的に最も優れた老後資産防衛策であることを証明しています。<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/gyousei/roudoujouken_00001.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">改善基準告示（令和6年4月施行）</a>により時間外労働は年960時間に制限され、残業代依存度の高いドライバーの可処分所得が構造的に減少しました。さらに<a href="https://www.mhlw.go.jp/stf/newpage_33879.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">脳・心疾患の労災認定は運送業が全産業の約3分の1</a>を占める深刻なリスクがあり、長時間運転による職業性腰痛・視力低下から55歳前後での早期離脱も常態化しています。<a href="https://www.chusho.meti.go.jp/pamflet/sonota/kigyonenkin/kigyonen_1.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">中小・零細運送会社では企業年金・退職金制度の導入率が著しく低く</a>、個人年金保険による自助努力の重要性が他業種より極めて高い職種です。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="text-red-800 font-semibold text-sm leading-relaxed">
+        🚨 2024年問題で月収が構造的に減少——積立余力が15万円から5万円に激減した実例：<br />
+        改善基準告示（令和6年4月施行）：特別条項適用時でも時間外労働は年960時間に制限。<br />
+        残業代・歩合給依存の月収45万円→35万円（10万円減）への構造的な下落リスク。<br />
+        脳・心疾患の労災認定：運送業が全産業の約3分の1を占める——最も危険な業種の一つ。<br />
+        中小・零細運送会社：企業年金・退職金制度の導入率が著しく低い構造的弱点。
+      </p>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="text-amber-800 font-semibold text-sm leading-relaxed">
+        ⚠️ 解約ではなく「減額継続」が複利効果(1+r)^nを最大化する数学的に正しい選択：<br />
+        保険料半減でも積立期間nを保てば(1+r)^nの非線形緩和効果で給付額低下を抑制。<br />
+        解約による元本割れ（早期解約では返戻率50%以下も）は資産形成の完全な放棄。<br />
+        55歳前後の早期離脱が常態化——受取開始年齢を65歳に設定すると10年間の資金枯渇リスク。<br />
+        受取開始55〜60歳の設計が職業性腰痛・視力低下による早期離脱に対応する鍵。
+      </p>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション2：ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      ドライバーのケース別・2024年問題前後の積立余力シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：法規制前（残業無制限期）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">月間総収入45万円（残業代・歩合込）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">月間総収入</div>
+            <div className="font-bold text-gray-900">45万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">月次生活費</div>
+            <div className="font-bold text-gray-900">30万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">将来への積立余力</div>
+            <div className="font-bold text-gray-900">15万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">推奨アクション</div>
+            <div className="font-bold text-gray-900">高額な積立が可能——今のうちに最大化</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">余力がある今こそ積立を最大化する好機</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：法規制後（年960時間上限適用）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">月間総収入35万円（残業規制による大幅減）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">月間総収入</div>
+            <div className="font-bold text-red-700">35万円（10万円減）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">月次生活費</div>
+            <div className="font-bold text-red-700">30万円（容易には圧縮できない）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">将来への積立余力</div>
+            <div className="font-bold text-red-700">5万円（余力が激減）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">推奨アクション</div>
+            <div className="font-bold text-red-700">少額でも積立を継続し複利を確保</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">減額しても解約せず継続することが複利効果を守る唯一の道</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省改善基準告示：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/gyousei/roudoujouken_00001.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">自動車運転者の労働時間等の改善基準</a>　過労死等労災：<a href="https://www.mhlw.go.jp/stf/newpage_33879.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">過労死等の労災補償状況</a>
+    </p>
+  </section>
+
+  {/* セクション3：ドライバー特有のリスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      ドライバー特有の老後リスク3選（政府統計・法令根拠付き）
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク①</div>
+        <h3 className="font-bold text-gray-900 mb-3">B_pension=P'_pension×12×((1+r)^n-1)/r/(y×12)——減額継続が複利効果を守る数式証明</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          2024年問題により積立余力が低下したドライバーが将来の給付額を最大化するための最適化条件を証明する。規制前の月収R_before・規制後の月収R_after・固定的な月次生活費C・当初の個人年金保険料P_pensionとして、規制後に家計が赤字（R_after-C-P_pension&lt;0）に陥った場合、保険料をP'_pension（P'_pension≤R_after-C）に減額する。この減額された保険料を積立期間n年・予定利率rで運用した老後給付月額（受取期間y年）：B_pension=P'_pension×12×((1+r)^n-1)/r/(y×12)。分子の複利効果項(1+r)^nに注目すると、保険料が半減しても積立期間nを長く保てば指数関数的に増大する(1+r)^nの効果により給付額低下を非線形に緩和できる——「解約」ではなく「減額による積立継続」が数学的に最も優れた老後資産防衛策であることが証明される。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.chusho.meti.go.jp/pamflet/sonota/kigyonenkin/kigyonen_1.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">中小企業庁「中小企業のための企業年金・退職金制度の手引き」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク②</div>
+        <h3 className="font-bold text-gray-900 mb-3">脳・心疾患の労災認定——運送業が全業種の約3分の1を占める深刻な実態</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          厚生労働省「過労死等の労災補償状況」によれば、脳・心疾患による労災認定は運送業が全産業の中で突出し全体の約3分の1を占める。長時間の運転姿勢・不規則な睡眠・荷待ち時間のストレスは脳・心疾患の発症リスクを高めるだけでなく、腰椎椎間板ヘルニアなどの重度な整形外科的疾患を引き起こす原因となる。改善基準告示（令和6年4月施行）による時間外労働年960時間の制限は過労死防止の人道的措置だが、歩合給・残業代に依存していたドライバーには可処分所得の構造的な下落をもたらし、老後資産形成の原資を直接的に奪うリスクとなる。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.mhlw.go.jp/stf/newpage_33879.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省「過労死等の労災補償状況」</a>
+        </p>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded mb-3">リスク③</div>
+        <h3 className="font-bold text-gray-900 mb-3">中小運送会社の企業年金未発達と55歳前後の早期離脱——受取開始年齢設計の失敗例</h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          中小企業庁の調査によれば、中小企業における退職金・企業年金の導入率は大企業に比べ著しく低い。大手物流企業（ヤマト・佐川等）では確定給付企業年金（DB）・企業型確定拠出年金（DC）が整備されているが、日本の運送業界の大半を占める中小・零細運送会社では退職金制度が存在しないか極めて少額に留まる。加齢に伴う視力低下・反射神経の衰え、職業性腰痛により本来の定年（60〜65歳）を待たずして55歳前後で運転業務から離脱せざるを得なくなるリスクが高い。受取開始年齢を安易に「公的年金と同じ65歳」に設定すると、退職から年金受給開始までの10年間、生活資金を引き出せず中途解約による元本割れを招くリスクがある。
+        </p>
+        <p className="text-xs text-gray-500">
+          出典：<a href="https://www.chusho.meti.go.jp/pamflet/sonota/kigyonenkin/kigyonen_1.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">中小企業庁「中小企業のための企業年金・退職金制度の手引き」</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* セクション4：5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      ドライバーの個人年金保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      {[
+        {
+          num: '01',
+          title: '2024年問題で積立余力が減った場合は「減額」を選び「解約」は絶対に避ける（最重要）',
+          body: 'B_pension=P\'_pension×12×((1+r)^n-1)/r/(y×12)が示す通り、保険料を減額しても積立期間nを保てば複利効果(1+r)^nが給付額低下を緩和する。解約は元本割れを伴う最悪の選択——必ず減額・払済保険変更を先に検討する。',
+        },
+        {
+          num: '02',
+          title: '受取開始年齢を55〜60歳に設定して早期離脱リスクに対応する',
+          body: '職業性腰痛・視力低下・反射神経の衰えによる55歳前後の早期離脱が常態化している実態を踏まえ、受取開始年齢を65歳ではなく55〜60歳に設定する。退職から公的年金受給開始までの「橋渡し収入」として機能させる設計が必須。',
+        },
+        {
+          num: '03',
+          title: '中小・零細運送会社勤務の場合は企業年金不在を前提に積立額を多めに設計する',
+          body: '勤務先に企業年金・退職金制度がない、または少額の場合、その分を個人年金保険で完全に補完する必要がある。大手物流企業のDB・DC制度がある同業者との老後資産格差を認識し、自助努力の積立額を多めに確保する。',
+        },
+        {
+          num: '04',
+          title: '改善基準告示違反の隠蔽（記録改ざん）リスクを認識し記録を自身でも保管する',
+          body: '労働基準法第36条に基づく上限規制を超過した長時間労働の記録改ざんがあった場合、労災認定が困難になるリスクがある。自身の運行記録・休息時間を可能な限り記録し、労災認定の備えをすることが老後設計の前提条件。',
+        },
+        {
+          num: '05',
+          title: '猶予期間を活用し早期に保険会社へ相談する文化を持つ',
+          body: '保険料の支払いが困難になった際は、猶予期間内（払込期月の翌月末まで）に速やかに保険会社へ相談し、払済保険への変更等の防衛措置を講じる。放置による無催告失効を防ぐことが資産保全の鍵。',
+        },
+      ].map((item, i) => (
+        <div key={i} className="flex gap-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+            {item.num}
+          </div>
+          <div>
+            <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* セクション5：よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      ドライバーの個人年金保険でよくある失敗事例3選
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-red-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例①「労働時間の改ざんで労災不認定。過労によるくも膜下出血の補償が一切受けられなかった」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">A氏（48歳）トラックドライバー。労働基準法第36条に基づく上限規制（年960時間）を超過して労働させられていたが、運行管理者によりデジタルタコグラフ等の業務記録が改ざんされていた。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">客観的な労働時間が「法定内」に調整されていたため、労働者災害補償保険法上の業務起因性が直ちに認められず、長期間にわたり休業補償が受けられず家計が破綻した。個人年金保険にも未加入で、収入が完全に途絶えた期間の生活費を確保する手段がなかった。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（労働基準法第36条）</p>
+            <p className="text-sm text-amber-700">自身の運行記録・休息時間を独自に記録しておくこと。労災が認められない可能性も踏まえ、個人年金保険・収入保障保険等の自助努力での備えが不可欠。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-orange-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例②「55歳で腰痛により離脱。受取開始を65歳に設定していたため10年間生活資金が引き出せなかった」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">B氏（55歳）長年トラックドライバーとして勤務。職業性の重度な腰痛を患い55歳でトラックを降りざるを得なくなった。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">個人年金保険に加入していたものの受取開始年齢を安易に「公的年金と同じ65歳」に設定していた。結果として退職から年金受給開始までの10年間、生活資金を引き出すことができず、やむを得ずペナルティを伴う中途解約を行い元本割れを引き起こした。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓</p>
+            <p className="text-sm text-amber-700">受取開始年齢を55〜60歳に設定し、早期離脱リスクに対応した「橋渡し収入」としての設計を行うこと。65歳一本化は職業性疾患リスクの高いドライバーには不適切。</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="bg-yellow-700 px-5 py-3">
+          <p className="font-bold text-white text-sm">事例③「2024年問題で手取りが8万円減少。個人年金保険を早期解約し元本割れで老後資産形成を放棄した」</p>
+        </div>
+        <div className="p-5 space-y-3">
+          <div className="bg-gray-50 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-gray-700 mb-1">【状況】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">C氏（45歳）トラックドライバー。2024年の上限規制適用後、手取り収入が月額8万円減少した。</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-gray-700 mb-1">【問題】</p>
+            <p className="text-sm text-gray-600 leading-relaxed">生活費を捻出するために月額3万円の個人年金保険を解約した。保険法第64条（解除）に基づく任意解約であったが、加入から日が浅かったため解約返戻金は支払った保険料の半分以下となった。減額手続き（払済保険への変更）等の制度を活用せず解約したことで老後に向けた強制貯蓄のメカニズムを完全に放棄してしまった。</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+            <p className="text-xs font-bold text-amber-800 mb-1">📌 教訓（保険法第64条）</p>
+            <p className="text-sm text-amber-700">収入減少時は解約より先に「減額」「払済保険変更」を検討すること。複利効果(1+r)^nを保つために積立期間を継続することが最優先課題。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* セクション6：最終チェックリスト */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      加入前の最終チェックリスト（8項目）
+    </h2>
+    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+      <ul className="space-y-3">
+        {[
+          '2024年問題による収入減少を踏まえ「減額」を優先し「解約」を避ける方針を決めた',
+          'B_pension=P\'_pension×12×((1+r)^n-1)/r/(y×12)を計算し減額後の給付額を確認した',
+          '受取開始年齢を55〜60歳に設定し早期離脱リスクに対応した',
+          '勤務先の企業年金・退職金制度の有無を確認し不足分を個人年金で補完した',
+          '改善基準告示の遵守状況を自身でも記録し労災認定の備えをしている',
+          '保険料支払困難時は猶予期間内に保険会社へ相談する習慣をつけた',
+          '脳・心疾患リスク（全業種の3分の1）を認識し定期健診を受診している',
+          '職業性腰痛の予防（正しい姿勢・休息）を意識して長期キャリアを目指している',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5"></span>
