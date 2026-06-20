@@ -474,8 +474,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
   const isEngineerWholeLife = occ.slug === 'engineer' && ins.slug === 'whole-life'
   const isFreelanceEngineerWholeLife = occ.slug === 'freelance-engineer' && ins.slug === 'whole-life'
+  const isNurseWholeLife = occ.slug === 'nurse' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -43462,6 +43463,224 @@ export default async function OccupationInsurancePage({ params }: Props) {
       </ul>
     </div>
     <p className="text-gray-700 leading-relaxed">国民年金のみの加入で生じる遺族保障の空白は、終身保険なしでは埋めることができません。Gap_freelance数式を活用して保障不足額を正確に把握し、小規模企業共済と組み合わせた自己責任の保障設計を始めましょう。まずは無料のFP相談で、あなたの家族構成・収入状況に合ったプランを比較してみてください。</p>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isNurseWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* S1: リード文 + 2色インフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">看護師の終身保険設計——休職時の流動性バッファをL_buffer数式で最適化する</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">看護師の終身保険設計には、大手比較サイトが一切触れない「終身保険のキャッシュバリューを用いた離職・休職時の流動性バッファ最適化の数式証明」があります。看護師は夜勤や交代制勤務による過酷な労働環境にあり、日本看護協会の調査では2交代勤務者の約5割が月5回以上の夜勤をこなしています。睡眠障害や慢性疲労、腰痛（有訴率51.7%以上）といった健康リスクが高く、メンタルヘルス不調による早期離職が頻発しています。離職・休職時に引き出し可能な流動性バッファL_bufferは、その時点での終身保険の解約返戻金CV_tの80%、または休職想定月数Mと月間必要生活費E_monthlyから育児休業給付金・傷病手当金の月額I_allowanceを引いた額の合計のいずれか小さい方として、L_buffer=min(CV_t×0.8, Σ(E_monthly−I_allowance)[m=1〜M])という数式で最適化されます。終身保険の「契約者貸付機能」や払済保険への変更機能は、一時的な収入減に対する強力なキャッシュフロー調整弁として機能します。</p>
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 夜勤手当の喪失で休職時の手取りが半分以下に——掛け捨て保険だけでは家計が破綻</p>
+      <ul className="text-red-700 space-y-1 text-sm">
+        <li>• 2交代勤務者の約5割が月5回以上の夜勤——夜勤手当は収入の1割以上を占める傾向</li>
+        <li>• 腰痛有訴率51.7%以上、慢性疲労・睡眠障害によるメンタルヘルス不調が早期離職を招く</li>
+        <li>• 傷病手当金（標準報酬月額の2/3）は夜勤手当を含まず、休職時の実質手取りは半減する</li>
+        <li>• 貯蓄性のない掛け捨て保険のみでは、生活費の補填ができず高金利ローンに依存するリスクがある</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-amber-800 mb-2">⚠️ L_buffer=min(CV_t×0.8, Σ(E_monthly−I_allowance))——終身保険が休職時の命綱になる</p>
+      <ul className="text-amber-700 space-y-1 text-sm">
+        <li>• CV_t（その時点の解約返戻金）の80%を上限とした契約者貸付が、無審査・低金利で利用可能</li>
+        <li>• E_monthly（月間必要生活費）からI_allowance（傷病手当金等）を引いた不足額をカバーする設計</li>
+        <li>• 出産・育児休業時の収入減にも同様の流動性バッファ機能が活用できる</li>
+        <li>• 払済保険への変更により、保険料負担を止めても死亡保障を一定額維持することも可能</li>
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">看護師のケース別・休職時の流動性確保シミュレーション</h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースA：掛け捨て保険のみ・貯蓄不足</div>
+        <p className="text-sm text-gray-600 mb-4">28歳女性看護師、35歳で過労により1年間休業</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">休職時の手取り減収</div>
+            <div className="font-bold text-gray-900">夜勤手当喪失等で月額約12万円のショート（年144万円）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">キャッシュ確保手段</div>
+            <div className="font-bold text-gray-900">貯蓄の切り崩し（貯蓄ゼロへ転落）、高金利ローン</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">復職後の資産形成</div>
+            <div className="font-bold text-gray-900">ゼロからのリスタート、ローン返済で疲弊</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">老後資金（60歳）</div>
+            <div className="font-bold text-gray-900">公的年金＋退職金のみ（夜勤減による退職金減額）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">休職が貯蓄ゼロ・負債発生の引き金になる</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースB：終身保険による流動性確保済み</div>
+        <p className="text-sm text-gray-600 mb-4">同左。22歳から終身保険（月払1.5万円）で資産形成</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">休職時の手取り減収</div>
+            <div className="font-bold text-red-700">同様に月額約12万円のショート</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">キャッシュ確保手段</div>
+            <div className="font-bold text-red-700">契約者貸付で150万円を年利約3%で調達（無審査）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">復職後の資産形成</div>
+            <div className="font-bold text-red-700">保険契約は継続し、死亡保障と将来の退職金原資を維持</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">老後資金（60歳）</div>
+            <div className="font-bold text-red-700">終身保険の解約返戻金 約800万円を加算</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">休職を乗り切り、資産形成を中断させずに継続できる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：日本看護協会・<a href="https://www.nurse.or.jp/nursing/assets/jigyo_houkoku.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">病院看護職の夜勤・交代制勤務等実態調査</a>　<a href="https://laws.e-gov.go.jp/law/211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法</a>
+    </p>
+  </section>
+
+  {/* S3: 看護師特有のリスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">看護師特有のリスク——政府統計3件で証明する終身保険の必要性</h2>
+    <div className="space-y-8">
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク①：夜勤・交代制勤務の実態とL_buffer数式証明</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">日本看護協会の調査によれば、2交代勤務者の約5割が月5回以上の夜勤をこなしている。睡眠障害や慢性疲労、腰痛（有訴率51.7%以上）といった健康リスクが高く、メンタルヘルス不調による早期離職が頻発している。離職・休職時に必要な流動性バッファL_bufferは、終身保険の解約返戻金CV_tの80%を上限とし、休職想定月数Mにわたる月間必要生活費E_monthlyから育児休業給付金・傷病手当金I_allowanceを引いた不足額の合計と比較していずれか小さい方として算出される。終身保険のキャッシュバリューは、この流動性確保の中核となる資産である。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.nurse.or.jp/nursing/assets/jigyo_houkoku.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">日本看護協会・病院看護職の夜勤・交代制勤務等実態調査</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク②：健康保険法第99条の傷病手当金と夜勤手当喪失による実質手取り半減リスク</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">健康保険法第99条に基づく傷病手当金は標準報酬月額の3分の2が支給されるが、夜勤手当（看護師の年収の1割以上を占める傾向）が喪失するため、実質的な手取り収入は半分以下に激減するケースが多い。貯蓄性がなく掛け捨ての医療保険にのみ加入していた場合、生活費の補填ができず高金利のカードローンに依存し、復職後も負債返済に苦しむという財務的失敗事例が散見される。終身保険の解約返戻金を活用した契約者貸付であれば、低金利・無審査で迅速に資金を確保できる。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://laws.e-gov.go.jp/law/211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法（e-Gov法令検索）第99条</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク③：夜勤・交代制勤務ガイドラインが示す健康影響の科学的根拠</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">日本看護協会による夜勤・交代制勤務ガイドラインでは、夜勤負担が看護師の健康に与える影響について科学的根拠に基づく分析がなされている。女性従事者の比率が高い看護職においては、出産・育児休業時の収入減や、バーンアウトによる休職期間の収入補填ニーズが極めて高く、終身保険の払済保険への変更機能を含む柔軟な資金繰り対応が重要な意味を持つ。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.nurse.or.jp/nursing/assets/reference_material01.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">日本看護協会・夜勤・交代制勤務ガイドライン参考資料</a></p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">看護師の終身保険選び5つのチェックポイント</h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">L_buffer数式で休職時に必要な流動性バッファを事前に計算する（最重要）</p>
+          <p className="text-gray-600 text-sm">解約返戻金の80%を上限とした契約者貸付額と、休職時の生活費不足額を見積もり、保険設計に反映させる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">22歳前後の早期に終身保険に加入し、解約返戻金の蓄積期間を確保する</p>
+          <p className="text-gray-600 text-sm">早期加入により、休職が発生しうる年代までに十分な解約返戻金を積み上げておくことができる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">夜勤手当を除いた基本給ベースで生活費設計を行う</p>
+          <p className="text-gray-600 text-sm">傷病手当金の算定基礎に夜勤手当が含まれないことを前提に、休職時の収入減少幅を正確に見積もっておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">契約者貸付制度と払済保険への変更手続きを事前に確認する</p>
+          <p className="text-gray-600 text-sm">休職・離職時に速やかに資金を確保できるよう、加入時に手続きの詳細を保険会社に確認しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">出産・育児休業時の収入減対策としても終身保険の流動性機能を活用する</p>
+          <p className="text-gray-600 text-sm">育児休業給付金だけでは不足する生活費を、終身保険のキャッシュバリューで補完する設計を検討する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">看護師が終身保険で陥りがちな失敗事例3選</h2>
+    <div className="space-y-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例①「夜勤手当抜きの傷病手当金で生活費が不足。高金利カードローンに依存した」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>J氏（30歳）看護師。過労により1年間の休職を余儀なくされた。</p>
+          <p><span className="font-semibold">問題：</span>健康保険法第99条に基づく傷病手当金は標準報酬月額の2/3が支給されたが、夜勤手当（月収の約2割）が算定基礎から外れたため、実質的な手取りは想定より大幅に少なかった。生活費が不足し、高金利のカードローンに依存することとなった。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（健康保険法第99条）：</span>傷病手当金の算定基礎に夜勤手当が含まれないことを事前に理解し、終身保険等の流動性確保手段を準備しておくべきである。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例②「貯蓄性のない医療保険のみに加入。休職で貯蓄が完全に枯渇した」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>K氏（33歳）看護師。腰痛の悪化により長期休職に至った。</p>
+          <p><span className="font-semibold">問題：</span>掛け捨ての医療保険のみに加入していたため、休職中の生活費を貯蓄から切り崩す以外の手段がなかった。貯蓄が完全に枯渇し、復職後もゼロからの資産形成を強いられた。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>貯蓄性のある終身保険を併用していれば、契約者貸付による低金利の資金調達が可能であり、貯蓄の枯渇を防げたはずである。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例③「育児休業中の収入減を見誤り、保険料の払込が困難になった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>L氏（29歳）看護師。出産・育児休業を取得した際、夜勤手当の喪失と育児休業給付金の少なさで想定以上に収入が減少した。</p>
+          <p><span className="font-semibold">問題：</span>終身保険の保険料払込が一時的に困難になり、払込猶予期間内に対応できず契約が失効するリスクに直面した。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>出産・育児休業による収入減少を事前にシミュレーションし、保険料を無理のない範囲で設定するか、払済保険への変更手続きをあらかじめ確認しておくべきである。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: 最終チェックリスト */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">看護師×終身保険 加入前チェックリスト8項目</h2>
+    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+      <ul className="space-y-3">
+        {[
+          'L_buffer=min(CV_t×0.8, Σ(E_monthly−I_allowance))を計算し休職時の流動性バッファを把握した',
+          '22歳前後の早期に終身保険へ加入した（または加入を検討した）',
+          '夜勤手当を除いた基本給ベースで休職時の収入減少幅を見積もった',
+          '傷病手当金（標準報酬月額の2/3）の算定基礎に夜勤手当が含まれないことを理解した',
+          '契約者貸付制度の金利・上限額を把握した',
+          '払済保険への変更手続きを事前に確認した',
+          '出産・育児休業時の収入減対策として終身保険の流動性機能を検討した',
+          '復職後も保険契約が継続し、死亡保障と退職金原資が維持されることを確認した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</span>
+            <span className="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">夜勤による健康リスクと、休職時の夜勤手当喪失は看護師固有のリスクです。L_buffer数式を活用して必要な流動性バッファを把握し、終身保険のキャッシュバリューを命綱とした保障設計を始めましょう。まずは無料のFP相談で、あなたの勤務状況に合ったプランを比較してみてください。</p>
   </section>
 
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
