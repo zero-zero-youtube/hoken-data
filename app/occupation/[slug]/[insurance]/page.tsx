@@ -483,8 +483,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isRestaurantWholeLife = occ.slug === 'restaurant' && ins.slug === 'whole-life'
   const isHairdresserWholeLife = occ.slug === 'hairdresser' && ins.slug === 'whole-life'
   const isAccountantWholeLife = occ.slug === 'accountant' && ins.slug === 'whole-life'
+  const isDoctorWholeLife = occ.slug === 'doctor' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -45595,6 +45596,279 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '事務所の企業価値・純資産評価額を定期的に見直した',
       '終身保険金が出資比率に応じた買取資金をカバーできるか確認した',
       '独立開業時の退職金制度の不存在を前提とした資金計画を立てた',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isDoctorWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">医師の終身保険——開業医の相続税納税資金・代償分割と事業承継を同時解決する設計法</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    医師の終身保険設計には、大手比較サイトが一切触れない「開業医のクリニック事業承継・相続時の流動性不足リスクを解消する数式証明」があります。
+    勤務医の過重労働は深刻な社会問題であり、2024年4月より「医師の働き方改革」として時間外労働の上限規制
+    （原則A水準で年960時間、地域医療確保等のB/C水準で年1,860時間）が適用されました。
+    これにより異常な長時間労働はある程度是正されるものの、当直やオンコール待機による心身の摩耗、
+    過労死リスクは依然として高い状況です。
+    一方、開業医（クリニック経営者）は高収入である反面、医療機器や不動産等の事業性資金の借入が多く、
+    資産が非流動的になりやすい傾向があります。
+    相続税納税および代償分割のための流動性（現金）不足額Liq_riskは、
+    医療法人出資持分やクリニック用不動産の評価額Value_clinicと個人資産Asset_personalの合計に、
+    適用される最高税率Tax_rate（最大55%）を乗じた額から、
+    遺族が即座に動かせる手元現金Cash_availableを引いた額として、
+    Liq_risk=(Value_clinic+Asset_personal)×Tax_rate−Cash_availableという数式で算出されます。
+    終身保険は、過労による死亡時の強固なセーフティネットであると同時に、
+    高額な相続税を圧縮するための「非課税枠の最大活用」および「代償分割のキャッシュ確保」という
+    富裕層特有の財務戦略ツールとして必須です。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 開業医の資産は不動産・医療機器が中心——相続税の納税資金が現金不足で確保できない危機</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・時間外労働の上限規制（A水準年960時間等）が適用されても、当直・オンコールの摩耗は続く</li>
+        <li>・クリニック用不動産や医療機器への投資が多く、資産が非流動的になりやすい</li>
+        <li>・相続税の最高税率は55%に達し、現金が不足すると納税資金がショートする</li>
+        <li>・医師ではない他の子供たちへの代償分割（現金分配）ができず、争族のリスクが高まる</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Liq_risk=(Value_clinic+Asset_personal)×Tax_rate−Cash_available——終身保険が解決策</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・Value_clinic（医療法人出資持分・不動産評価額）が高額になるほど納税資金需要が増大する</li>
+        <li>・Tax_rate（最高税率55%）を前提に、必要な現金確保額を事前に算出しておく</li>
+        <li>・相続税法第12条（生命保険金の非課税）を活用すれば、納税資金と非課税枠を同時に確保できる</li>
+        <li>・終身保険の保険金は代償分割資金としても機能し、後継者がクリニックを存続できる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    開業医のケース別・相続税納税資金と事業承継シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：全額不動産・事業資産、保険なし
+      </div>
+      <p className="text-sm text-gray-600 mb-4">総資産2億円（うち現金2,000万）。相続人3人</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">相続税納税資金</div>
+          <div className="font-bold text-gray-900">約4,000万円必要（現金2,000万円では2,000万円ショート）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">代償分割の可否</div>
+          <div className="font-bold text-gray-900">不可（後継者以外の子供に現金を渡せず争族に）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">クリニックの存続</div>
+          <div className="font-bold text-gray-900">売却・廃業を余儀なくされる</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">死亡退職金・保険金</div>
+          <div className="font-bold text-gray-900">0円</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">現金不足が事業承継を完全に阻害する</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：事業資産＋終身保険1億円
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。現金を保険料に充て、1億円の法人契約終身保険等に加入</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">死亡退職金・保険金</div>
+          <div className="font-bold text-red-700">1億円のキャッシュが即座に流入</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">相続税納税資金</div>
+          <div className="font-bold text-red-700">保険金から納税資金を完全に確保</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">代償分割の可否</div>
+          <div className="font-bold text-red-700">可能（保険金を財源として他の兄弟に現金を支払い解決）</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">クリニックの存続</div>
+          <div className="font-bold text-red-700">後継者が無借金で事業を継続可能</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険が事業承継と争族防止を同時に実現する</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：厚生労働省・<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/ishi-hatarakikata_64393.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">医師の働き方改革</a>　国税庁・<a href="https://www.nta.go.jp/law/tsutatsu/kihon/sisan/sozoku2/01/03.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">相続税法基本通達第12条</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">医師特有の3大リスク——政府統計で見るLiq_risk設計の根拠</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">🏥</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 医師の働き方改革とLiq_risk数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          2024年4月より時間外労働の上限規制（原則A水準で年960時間、B/C水準で年1,860時間）が適用されたが、
+          当直・オンコール待機による心身の摩耗は依然として続いている。
+          開業医の相続税納税・代償分割のための流動性不足額Liq_riskは、
+          医療法人出資持分・不動産評価額と個人資産の合計に最高税率（最大55%）を乗じた額から手元現金を引いた額として算出される。
+          終身保険は、この流動性不足を解消する中核的なツールである。
+        </p>
+        <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/ishi-hatarakikata_64393.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 医師の働き方改革</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⏰</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 医師の働き方改革推進検討会が示す当直・オンコール負担の実態</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          当直やオンコール待機による心身の摩耗は、時間外労働の上限規制だけでは完全には解消されない。
+          過労死リスクが依然として高い中、開業医の資産構成（不動産・医療機器中心）は、
+          急死時の遺族の流動性確保を一層困難にする。
+          上限規制の施行後も、過労による健康リスクを前提とした保障設計が不可欠である。
+        </p>
+        <a href="https://www.mhlw.go.jp/content/10800000/000818136.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 医師の働き方改革の推進に関する検討会</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">📋</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 相続税法基本通達第12条に基づく生命保険金非課税枠の活用</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          国税庁の相続税法基本通達第12条は、生命保険金の非課税枠の取り扱いを定めている。
+          開業医の資産は不動産・医療法人出資持分が中心となりやすく、
+          現金の少なさが相続税の納税資金不足や代償分割の困難を招く。
+          終身保険による非課税枠の活用と現金確保が、事業承継の成否を左右する。
+        </p>
+        <a href="https://www.nta.go.jp/law/tsutatsu/kihon/sisan/sozoku2/01/03.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：国税庁 相続税法基本通達第12条</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">医師の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'Liq_risk数式で相続税納税・代償分割の流動性不足額を事前に計算する（最重要）',
+        body: '医療法人出資持分・不動産等の評価額と最高税率から必要な現金額を算出し、終身保険の保障額を設計する。評価額は毎年変動するため、定期的な見直しを顧問税理士と行うことが重要。'
+      },
+      {
+        num: '02',
+        title: '法人契約の終身保険を活用し、損金性と非課税枠の両方を考慮する',
+        body: '医療法人として終身保険に加入する場合の税務上の扱いを顧問税理士等に確認しておく。法人契約と個人契約では受取人・課税関係が異なるため、事業承継の目的に合わせて設計する。'
+      },
+      {
+        num: '03',
+        title: '後継者以外の相続人への代償分割資金を終身保険で確保する',
+        body: '医師である後継者にクリニックを集中して相続させる場合、他の相続人への代償金を保険金で準備する。保険金の受取人を後継者に設定することで、代償分割資金を即座に確保できる。'
+      },
+      {
+        num: '04',
+        title: '当直・オンコール負担による過労死リスクを踏まえた保障額の余裕を持たせる',
+        body: '時間外労働の上限規制があっても摩耗は完全には解消されないことを前提に、想定より高めの保障額を検討する。早期加入により保険料を抑えつつ十分な保障額を確保することが合理的。'
+      },
+      {
+        num: '05',
+        title: '相続税の納税期限（相続開始から10ヶ月以内）に対応できる現金を準備する',
+        body: '納税期限内に現金が用意できないと不動産の安値売却に追い込まれるリスクがある。終身保険の保険金は相続発生から比較的短期間で受け取れるため、納税資金確保の手段として有効。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">KK氏（55歳・開業医）：総資産2億円中現金2,000万円のみ、相続税納税資金が2,000万円ショート</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        過労により急死したKK氏。総資産2億円のうち現金は2,000万円のみだった。
+        相続税の納税資金として約4,000万円が必要であったが、現金では2,000万円ショートした。
+        相続税法第12条の非課税枠も活用していなかったため、納税資金の確保に苦労し、
+        結果的にクリニックの不動産を安値で売却せざるを得なかった。
+        開業医は資産が不動産・医療機器中心になりやすいことを前提に、
+        終身保険で現金（非課税枠を含む）を計画的に準備しておくべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">LL氏（開業医）：後継者以外の子供への代償分割資金が準備できず、争族に発展</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        後継者である長男にクリニックを集中して相続させたかったLL氏。
+        しかし他の子供たち（医師ではない）への代償分割資金を準備していなかったため、
+        相続発生後に争族が発生し、クリニックの経営にも悪影響が及んだ。
+        終身保険を後継者を受取人として準備しておけば、保険金を代償分割資金として活用でき、
+        争族を未然に防ぐことができた。事業承継と争族防止の両立には、事前の設計が不可欠。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">MM氏（勤務医）：時間外労働の上限規制で安心し、当直・オンコールの摩耗を見過ごす</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        時間外労働の上限規制が適用されたことで、過重労働リスクが解消されたと考えていたMM氏。
+        A水準（年960時間）の範囲内であっても、当直・オンコール待機による心身の摩耗は継続し、
+        結果的に健康を損なった。
+        上限規制があっても摩耗は完全には解消されないことを理解し、
+        終身保険等による保障を継続的に見直すべきだった。
+        規制の適用は「リスクがなくなった」ことを意味せず、むしろ長期的な備えが必要。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'Liq_risk=(Value_clinic+Asset_personal)×Tax_rate−Cash_availableを計算し不足額を把握した',
+      '法人契約の終身保険の税務上の扱いを顧問税理士等に確認した',
+      '後継者以外の相続人への代償分割資金を終身保険で確保した',
+      '相続税の最高税率（最大55%）を前提に必要な現金額を見積もった',
+      '相続税の納税期限（10ヶ月以内）に対応できる現金を準備した',
+      '当直・オンコール負担による過労死リスクを踏まえた保障額を設定した',
+      '相続税法第12条（生命保険金の非課税枠）を活用した設計を行った',
+      '医療法人出資持分・不動産評価額を定期的に見直した',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
