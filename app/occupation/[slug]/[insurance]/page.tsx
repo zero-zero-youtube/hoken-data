@@ -477,8 +477,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isNurseWholeLife = occ.slug === 'nurse' && ins.slug === 'whole-life'
   const isTeacherWholeLife = occ.slug === 'teacher' && ins.slug === 'whole-life'
   const isCivilServantWholeLife = occ.slug === 'civil-servant' && ins.slug === 'whole-life'
+  const isSalesWholeLife = occ.slug === 'sales' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -44119,6 +44120,224 @@ export default async function OccupationInsurancePage({ params }: Props) {
       </ul>
     </div>
     <p className="text-gray-700 leading-relaxed">高水準の退職手当と堅実な貯蓄を持つ地方公務員にとって、相続税対策は無視できないテーマです。Tax_savings数式で非課税枠の活用効果を数値化し、一時払終身保険を活用した合法的な節税と円滑な資産承継を設計しましょう。まずは無料のFP相談で、あなたの資産規模・家族構成に合ったプランを比較してみてください。</p>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isSalesWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* S1: リード文 + 2色インフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">営業職の終身保険設計——歩合給収入をCF_stable数式でスムージングする</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">営業職の終身保険設計には、大手比較サイトが一切触れない「歩合給による収入変動を平準化するインカム・スムージング機能の数式証明」があります。営業職は、歩合給（インセンティブ）の比率が高い企業において収入の不安定性が顕著であり、厳しいノルマによる過度な精神的ストレスから心疾患や精神障害を発症するリスクを抱えています。過労死等防止対策白書によれば、精神障害の請求件数において「卸売業、小売業」は他業種と比較しても非常に高い水準にあります。営業職の生活水準を維持するための安定化されたキャッシュフローCF_stableは、固定給部分Income_base、期tにおける歩合給Incentive_t（成績により大きく変動）、そして終身保険の契約者貸付を用いた資金調達ΔLoan_policy（成績不振時にプラス）の合計として、CF_stable=Income_base+Incentive_t+ΔLoan_policyという数式で表されます。終身保険は、死亡保障としての役割に加え、歩合給による収入の波を平準化する「インカム・スムージング機能（契約者貸付）」と、ノルマ達成のプレッシャーによる早期リタイアの原資（解約返戻金）として強力に作用します。</p>
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 歩合給依存の生活設計——スランプ時の収入半減が貯蓄を直撃する危機</p>
+      <ul className="text-red-700 space-y-1 text-sm">
+        <li>• 精神障害の労災請求件数で「卸売業、小売業」は他業種より非常に高い水準にある</li>
+        <li>• 労働基準法第27条の保障給規定があっても、成績不振時の給与激減は実質的に避けられない</li>
+        <li>• 傷病手当金も直近の標準報酬月額に依存するため、不振期の休職では給付額自体が低く算定される</li>
+        <li>• 貯蓄性に乏しい生活では、住宅ローンの滞納や教育費のショートを引き起こすリスクがある</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-amber-800 mb-2">⚠️ CF_stable=Income_base+Incentive_t+ΔLoan_policy——終身保険で収入の波を平準化</p>
+      <ul className="text-amber-700 space-y-1 text-sm">
+        <li>• 固定給Income_baseと歩合給Incentive_tだけでは、成績不振期のキャッシュフローが大きく落ち込む</li>
+        <li>• ΔLoan_policy（契約者貸付）を活用すれば、好調期に積み上げた解約返戻金から低金利で資金調達できる</li>
+        <li>• 好調期に終身保険へ資金をプールしておくことが、不調期の生活防衛の鍵となる</li>
+        <li>• 独立・退職時には、解約返戻金を退職金代替や開業資金として転用することも可能</li>
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">営業職のケース別・歩合給収入変動とインカム・スムージングシミュレーション</h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースA：終身保険なし・歩合給依存</div>
+        <p className="text-sm text-gray-600 mb-4">フルコミッション型営業、スランプにより年収半減</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">収入減時の対応</div>
+            <div className="font-bold text-gray-900">カードローンや消費者金融等の高金利借入に依存</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">精神疾患休職時</div>
+            <div className="font-bold text-gray-900">低く算定された傷病手当金のみで家計破綻</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">退職・独立時</div>
+            <div className="font-bold text-gray-900">退職金制度が薄く、手元資金ゼロ</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">収入のボラティリティに耐えられず破産リスク高</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">スランプ期に高金利借入で生活が悪化する</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースB：終身保険をバッファとして活用</div>
+        <p className="text-sm text-gray-600 mb-4">同左。好調期に終身保険へ資金をプール済み</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">収入減時の対応</div>
+            <div className="font-bold text-red-700">契約者貸付制度により低金利・無審査で生活費を補填</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">精神疾患休職時</div>
+            <div className="font-bold text-red-700">解約返戻金を切り崩し、治療に専念できる環境を確保</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">退職・独立時</div>
+            <div className="font-bold text-red-700">解約返戻金を利用して独立開業資金に充当</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">保険資産による高度なインカム・スムージングを実現</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">収入の波を終身保険で乗り越え、生活を防衛する</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省・<a href="https://www.mhlw.go.jp/stf/newpage_33879.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">令和4年度過労死等の労災補償状況</a>　<a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/dl/2207252-1.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">精神障害の労災認定</a>
+    </p>
+  </section>
+
+  {/* S3: 営業職特有のリスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">営業職特有のリスク——政府統計3件で証明する終身保険の必要性</h2>
+    <div className="space-y-8">
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク①：精神障害の労災請求件数の業種別傾向とCF_stable数式証明</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">厚生労働省「令和4年度過労死等の労災補償状況」によれば、精神障害の請求件数において「卸売業、小売業」は他業種と比較しても非常に高い水準にある。営業職の生活水準を維持するための安定化キャッシュフローCF_stableは、固定給Income_base、歩合給Incentive_t、終身保険の契約者貸付ΔLoan_policyの合計として算出される。歩合給による収入の波を平準化するため、終身保険の流動性機能が不可欠である。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.mhlw.go.jp/stf/newpage_33879.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和4年度過労死等の労災補償状況</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク②：厳しいノルマによる精神障害発症リスクと労災認定基準</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">厳しいノルマによる過度な精神的ストレスから心疾患や精神障害を発症するリスクが営業職には常在する。厚生労働省の精神障害の労災認定基準によれば、業務による強い心理的負荷が認定の判断材料となるが、認定までのプロセスは長期化しやすい。その間の生活費を確保する手段として、終身保険の契約者貸付は重要な役割を果たす。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/dl/2207252-1.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・精神障害の労災認定基準</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク③：労働基準法第27条の保障給規定とその限界</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">労働基準法第27条は出来高払制（歩合給）における一定の賃金保障を定めているが、実態としてノルマ未達時の給与激減は避けられない。健康保険法第99条に基づく傷病手当金も直近の標準報酬月額に依存するため、成績不振期にメンタルヘルス不調で休職すると、給付額自体が低く算定される。終身保険の流動性機能が、この制度的な保障の薄さを補完する。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://laws.e-gov.go.jp/law/211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働基準法（e-Gov法令検索）第27条</a></p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">営業職の終身保険選び5つのチェックポイント</h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">CF_stable数式で歩合給の変動を見据えたキャッシュフロー設計を行う（最重要）</p>
+          <p className="text-gray-600 text-sm">固定給と歩合給の比率、過去の収入変動幅を把握し、終身保険の契約者貸付でどの程度の不足をカバーすべきか計算する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">好調期に終身保険へ計画的に資金をプールしておく</p>
+          <p className="text-gray-600 text-sm">収入が良いタイミングで保険料負担を厚くし、解約返戻金を積み上げておくことで、不調期の備えとする。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">労働基準法第27条の保障給規定の内容を勤務先で確認する</p>
+          <p className="text-gray-600 text-sm">自社の出来高払制における最低保障給の水準を理解し、実際の不足額を見積もっておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">契約者貸付制度の金利・上限額を事前に確認する</p>
+          <p className="text-gray-600 text-sm">成績不振時に速やかに資金調達できるよう、加入時に契約者貸付の条件を確認しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">独立・転職時の開業資金・つなぎ資金としての活用も視野に入れる</p>
+          <p className="text-gray-600 text-sm">営業職は独立のハードルが比較的低い職種でもあるため、解約返戻金を将来の開業資金として位置づけることも検討する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">営業職が終身保険で陥りがちな失敗事例3選</h2>
+    <div className="space-y-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例①「ノルマ未達による給与激減を見誤り、高金利のカードローンに依存した」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>S氏（34歳）フルコミッション型営業職。半年間のスランプで年収が半減した。</p>
+          <p><span className="font-semibold">問題：</span>労働基準法第27条の最低保障給はあったものの、想定していた歩合給収入が大幅に減少。生活費の不足を高金利のカードローンで補填し、利息負担が雪だるま式に増加した。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（労働基準法第27条）：</span>出来高払制には一定の保障給規定があるものの、実際の生活水準を維持するには不十分であることを理解し、終身保険等の自助努力での流動性確保が必要である。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例②「精神障害の労災認定が長期化し、その間の生活費が確保できなかった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>T氏（39歳）営業職。厳しいノルマによる精神的ストレスから精神障害を発症し休職した。</p>
+          <p><span className="font-semibold">問題：</span>労災認定の判断には時間がかかり、認定までの間は低く算定された傷病手当金のみで生活せざるを得なかった。貯蓄も底をつき、家計が大きく圧迫された。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>労災認定のプロセスは長期化することを前提に、終身保険の解約返戻金や契約者貸付による流動性確保を準備しておくべきである。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例③「好調期に資金をプールせず、不調期に手元資金がゼロになった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>U氏（41歳）営業職。好調期の高収入を生活水準の向上にすべて使い、保険等での資産形成を行っていなかった。</p>
+          <p><span className="font-semibold">問題：</span>その後のスランプで収入が大幅に減少した際、手元資金が全くなく、生活費の確保に苦労した。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>好調期にこそ将来のリスクに備えた資産形成（終身保険等）を行うべきであり、収入が高い時期の支出管理が長期的な生活の安定を左右する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: 最終チェックリスト */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">営業職×終身保険 加入前チェックリスト8項目</h2>
+    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+      <ul className="space-y-3">
+        {[
+          'CF_stable=Income_base+Incentive_t+ΔLoan_policyを計算し平準化に必要な金額を把握した',
+          '過去の歩合給の変動幅（好調期・不調期の差）を確認した',
+          '好調期に終身保険へ計画的に資金をプールする方針を立てた',
+          '労働基準法第27条の保障給規定の内容を勤務先で確認した',
+          '契約者貸付制度の金利・上限額を把握した',
+          '傷病手当金の算定基礎が直近の標準報酬月額に依存することを理解した',
+          '独立・転職時の開業資金としての解約返戻金の活用可能性を検討した',
+          '不調期に高金利の借入に依存しない代替手段を準備した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</span>
+            <span className="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">歩合給による収入の波は営業職のさだめですが、終身保険のインカム・スムージング機能を活用すれば、スランプ期にも生活の安定を守れます。CF_stable数式で必要な流動性バッファを計算し、好調期のうちに保険資産を積み上げておきましょう。まずは無料のFP相談で、あなたの収入構造に合ったプランを比較してみてください。</p>
   </section>
 
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
