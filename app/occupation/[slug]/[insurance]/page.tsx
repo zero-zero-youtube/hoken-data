@@ -476,8 +476,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFreelanceEngineerWholeLife = occ.slug === 'freelance-engineer' && ins.slug === 'whole-life'
   const isNurseWholeLife = occ.slug === 'nurse' && ins.slug === 'whole-life'
   const isTeacherWholeLife = occ.slug === 'teacher' && ins.slug === 'whole-life'
+  const isCivilServantWholeLife = occ.slug === 'civil-servant' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -43900,6 +43901,224 @@ export default async function OccupationInsurancePage({ params }: Props) {
       </ul>
     </div>
     <p className="text-gray-700 leading-relaxed">精神疾患による中途退職リスクと退職金カーブの崩壊は、教員特有のリスクです。Loss_retire数式を活用して退職金喪失額を把握し、短期払込型の終身保険でこのリスクをヘッジする保障設計を始めましょう。まずは無料のFP相談で、あなたの勤続年数・家族構成に合ったプランを比較してみてください。</p>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isCivilServantWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* S1: リード文 + 2色インフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">地方公務員の終身保険設計——相続税非課税枠をTax_savings数式で最大活用する</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">地方公務員の終身保険設計には、大手比較サイトが一切触れない「相続税の非課税枠を活用した資産承継の数式証明」があります。地方公務員（一般行政職等）は、強固な身分保障と高水準の退職手当（定年退職平均約2,180万円）を有し、死亡時の公的保障も厚く、地方公務員災害補償法に基づく遺族補償年金や、共済組合による家族弔慰金等が給付されます。したがって、地方公務員における終身保険の主目的は「遺族の生活費補填」というより、潤沢な退職金と堅実な貯蓄によって形成された資産の「相続税対策（非課税枠の活用）」と「遺族への円滑な資産承継（代償分割資金の確保）」にシフトします。相続税法第12条に基づく生命保険金の非課税限度額を活用した節税効果Tax_savingsは、課税対象となる現金Cashと「500万円×法定相続人数N_heirs」のいずれか小さい方に、適用される限界相続税率Tax_rateを乗じた額として、Tax_savings=min(Cash, 5,000,000×N_heirs)×Tax_rateという数式で算出されます。</p>
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 全額現金で保有すると、堅実に築いた資産が相続税で大きく削られるリスク</p>
+      <ul className="text-red-700 space-y-1 text-sm">
+        <li>• 定年退職平均約2,180万円の退職手当と長年の貯蓄が、基礎控除を大幅に超過するケースが多い</li>
+        <li>• 生命保険の非課税枠（500万円×法定相続人数）を全く使わないと、無駄な税金を納付することになる</li>
+        <li>• 現金は遺産分割協議の対象となり、相続時に口座凍結リスクも生じる</li>
+        <li>• 堅実な資産形成を税制面で無為にしてしまう公務員家庭の失敗事例が存在する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Tax_savings=min(Cash, 5,000,000×N_heirs)×Tax_rate——非課税枠を最大限活用する設計</p>
+      <ul className="text-amber-700 space-y-1 text-sm">
+        <li>• N_heirs（法定相続人の数）が多いほど非課税枠が大きくなる（例：3人なら1,500万円）</li>
+        <li>• 現金の一部を一時払終身保険に移行することで、課税遺産総額を直接圧縮できる</li>
+        <li>• 受取人を指定した終身保険は遺産分割協議の対象外となり、即時受取が可能</li>
+        <li>• 相続税法第12条第1項第5号の規定を活用し、合法的かつ確実に税負担を軽減できる</li>
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">地方公務員のケース別・相続税非課税枠活用シミュレーション</h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースA：全額現金預金・終身保険なし</div>
+        <p className="text-sm text-gray-600 mb-4">相続財産9,000万円（法定相続人：妻、子2名の計3人）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">基礎控除額</div>
+            <div className="font-bold text-gray-900">3,000万円＋(600万円×3人)＝4,800万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">生命保険非課税枠</div>
+            <div className="font-bold text-gray-900">0円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">課税遺産総額</div>
+            <div className="font-bold text-gray-900">9,000万－4,800万＝4,200万円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">相続税総額（概算）</div>
+            <div className="font-bold text-gray-900">420万円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">非課税枠を使わず420万円の相続税を納付</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースB：現金の一部を一時払終身保険へ移行</div>
+        <p className="text-sm text-gray-600 mb-4">同左。現金のうち1,500万円を終身保険（受取人：妻）化</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">基礎控除額</div>
+            <div className="font-bold text-red-700">4,800万円（同額）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">生命保険非課税枠</div>
+            <div className="font-bold text-red-700">500万円×3人＝1,500万円控除</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">課税遺産総額</div>
+            <div className="font-bold text-red-700">9,000万－4,800万－1,500万＝2,700万円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">相続税総額（概算）</div>
+            <div className="font-bold text-red-700">270万円（150万円のダイレクトな節税）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">非課税枠活用で150万円節税＋資産分割が容易に</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：国税庁・<a href="https://www.nta.go.jp/publication/pamph/sozoku/shikata-sozoku2024/pdf/E4.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">相続税の非課税限度額の計算式</a>　内閣人事局・<a href="https://studying.jp/komuin/about-more/severance-pay.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">退職手当の支給状況</a>
+    </p>
+  </section>
+
+  {/* S3: 地方公務員特有のリスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">地方公務員特有のリスク——政府統計3件で証明する終身保険の必要性</h2>
+    <div className="space-y-8">
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク①：相続税の生命保険金非課税限度額とTax_savings数式証明</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">相続税法第12条第1項第5号は「500万円×法定相続人の数」を生命保険金の非課税財産として認めている。終身保険を活用した節税効果Tax_savingsは、課税対象となる現金Cashと非課税枠（500万円×法定相続人数N_heirs）のいずれか小さい方に、適用される限界相続税率Tax_rateを乗じて算出される。退職金と長年の貯蓄で形成された金融資産が基礎控除を大幅に超過する公務員家庭において、この非課税枠の活用は極めて重要である。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.nta.go.jp/publication/pamph/sozoku/shikata-sozoku2024/pdf/E4.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国税庁・相続税の申告のしかた（非課税財産の計算）</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク②：地方公務員の高水準な退職手当と相続税負担の発生リスク</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">内閣人事局の調査によれば、地方公務員の定年退職時の退職手当は平均約2,180万円と高水準である。長年の堅実な貯蓄と合わせると、相続財産が基礎控除額を超過し相続税が発生するケースが少なくない。全額を現金で保有していたために多額の相続税が発生する失敗事例が多く、生命保険金の非課税枠を活用しないことは、堅実な資産形成を無為にする行為である。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://studying.jp/komuin/about-more/severance-pay.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">退職手当の支給状況</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク③：地方公務員災害補償法に基づく死亡時の公的保障と相続対策の役割分担</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">地方公務員災害補償法に基づく遺族補償年金や、共済組合による家族弔慰金等は、地方公務員の死亡時の生活費補填という観点では手厚い保障となっている。このため、地方公務員における終身保険の主目的は遺族の生活費補填ではなく、相続税対策と資産の円滑な承継にシフトする。受取人を指定した終身保険は遺産分割協議の対象外の財産となり、代償分割資金としても活用できる。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://laws.e-gov.go.jp/law/342AC0000000121/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">地方公務員災害補償法（e-Gov法令検索）</a></p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">地方公務員の終身保険選び5つのチェックポイント</h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Tax_savings数式で非課税枠による節税効果を事前に計算する（最重要）</p>
+          <p className="text-gray-600 text-sm">法定相続人の数×500万円の非課税枠と、保有資産・現金の規模を比較し、終身保険化すべき金額を算出する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">退職手当と貯蓄の合計額が相続税の基礎控除を超えるか確認する</p>
+          <p className="text-gray-600 text-sm">基礎控除額（3,000万円＋600万円×法定相続人数）を超える資産規模であれば、相続税対策の検討が必須となる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">受取人を指定した終身保険で遺産分割協議外の財産を確保する</p>
+          <p className="text-gray-600 text-sm">受取人固有の財産として扱われるため、遺産分割協議を待たずに速やかに資金を受け取れる利点がある。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">代償分割資金としての終身保険の活用を検討する</p>
+          <p className="text-gray-600 text-sm">不動産等を後継者に集中して相続させる場合、他の相続人への代償金として終身保険の保険金を活用できる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">一時払終身保険と分割払い終身保険のどちらが資産規模・年齢に適しているか検討する</p>
+          <p className="text-gray-600 text-sm">退職金等のまとまった資金がある場合は一時払い、現役世代であれば分割払いなど、ライフステージに応じた選択をする。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">地方公務員が終身保険で陥りがちな失敗事例3選</h2>
+    <div className="space-y-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例①「全額現金保有で相続税の非課税枠を使わず、多額の税金を納付した」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>P氏（68歳）退職した元地方公務員。退職手当と長年の貯蓄合計9,000万円を全額現金・預貯金で保有していた。</p>
+          <p><span className="font-semibold">問題：</span>相続税法第12条第1項第5号の生命保険金非課税枠（500万円×法定相続人数）を全く活用していなかったため、本来であれば150万円程度節税できたはずの相続税を全額納付することとなった。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（相続税法第12条第1項第5号）：</span>現金・預貯金の一部を生命保険化することで、合法的かつ確実に相続税負担を軽減できることを理解しておくべきである。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例②「不動産中心の資産構成で、代償分割の現金が用意できず争族になった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>Q氏（70歳）元地方公務員。自宅不動産の評価額が高く、後継者である長男に不動産を相続させたかった。</p>
+          <p><span className="font-semibold">問題：</span>民法上の遺産分割における公平性を保つための代償金（他の兄弟姉妹への現金支払い）を準備していなかったため、相続発生後に長男が現金を用意できず、兄弟間で争いが生じた。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>終身保険を後継者を受取人として準備しておけば、保険金を代償分割資金として即座に活用でき、争族を未然に防ぐことができる。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例③「相続税の納税資金を見誤り、不動産を急いで売却する必要が生じた」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>R氏（72歳）元地方公務員の遺族。相続財産の大半が不動産で、現金が少なかった。</p>
+          <p><span className="font-semibold">問題：</span>相続税の納税期限（相続開始から10ヶ月以内）までに現金を用意できず、不動産を相場より安く急いで売却せざるを得なくなった。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>終身保険による現金（死亡保険金）を準備しておけば、納税資金として即座に活用でき、資産を安値で手放すリスクを回避できる。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: 最終チェックリスト */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">地方公務員×終身保険 加入前チェックリスト8項目</h2>
+    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+      <ul className="space-y-3">
+        {[
+          'Tax_savings=min(Cash, 5,000,000×N_heirs)×Tax_rateを計算し節税効果を把握した',
+          '退職手当＋貯蓄の合計額が相続税の基礎控除を超えるか確認した',
+          '法定相続人の数に応じた非課税枠（500万円×人数）を把握した',
+          '現金の一部を一時払終身保険へ移行することを検討した',
+          '受取人を指定し、遺産分割協議外の財産として確保した',
+          '代償分割資金としての終身保険の活用を検討した',
+          '相続税の納税期限（10ヶ月以内）に対応できる現金（保険金）を準備した',
+          '一時払い・分割払いのどちらが自分の資産規模・年齢に適しているか検討した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</span>
+            <span className="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">高水準の退職手当と堅実な貯蓄を持つ地方公務員にとって、相続税対策は無視できないテーマです。Tax_savings数式で非課税枠の活用効果を数値化し、一時払終身保険を活用した合法的な節税と円滑な資産承継を設計しましょう。まずは無料のFP相談で、あなたの資産規模・家族構成に合ったプランを比較してみてください。</p>
   </section>
 
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
