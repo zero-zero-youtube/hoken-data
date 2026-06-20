@@ -484,8 +484,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isHairdresserWholeLife = occ.slug === 'hairdresser' && ins.slug === 'whole-life'
   const isAccountantWholeLife = occ.slug === 'accountant' && ins.slug === 'whole-life'
   const isDoctorWholeLife = occ.slug === 'doctor' && ins.slug === 'whole-life'
+  const isLawyerWholeLife = occ.slug === 'lawyer' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -45869,6 +45870,270 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '当直・オンコール負担による過労死リスクを踏まえた保障額を設定した',
       '相続税法第12条（生命保険金の非課税枠）を活用した設計を行った',
       '医療法人出資持分・不動産評価額を定期的に見直した',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isLawyerWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">弁護士の終身保険——ハイインカム・ローセーフティネットのギャップを数式で解決する設計法</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    弁護士の終身保険設計には、大手比較サイトが一切触れない「ハイインカム・ローセーフティネットのギャップを埋める数式証明」があります。
+    弁護士は、高度な専門知識を要する高ストレス業務であり、独立開業して個人事務所を構えるケースや、
+    パートナー弁護士として共同経営を行うケースが多くあります。
+    独立した弁護士は国民年金第1号被保険者となり、企業に勤務するインハウスローヤーのような退職金制度は存在しません。
+    高額な報酬を得る一方で、国民年金のみによる遺族保障の薄さ（遺族厚生年金なし）という
+    極端なアンバランスが生じています。
+    高所得フリーランス・自由業における生活水準維持のための必要保障額S_lawyerは、
+    高い教育水準・生活水準を維持するための年間費用Living_Cost_highの将来にわたる合計から、
+    国民年金法に基づく遺族基礎年金P_kiso（子が18歳になるまでのみ）を引いた額として、
+    S_lawyer=Σ(Living_Cost_high×(1+inf)^t)−P_kisoという数式で表されます。
+    終身保険は、この「ハイインカム・ローセーフティネット」のギャップを埋め、
+    自己責任での退職金形成と遺族の生活水準の維持を確約する手段となります。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 高所得でも遺族保障は国民年金のみ——会社員と比較して圧倒的な保障ギャップが存在</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・独立弁護士は国民年金第1号被保険者であり、遺族厚生年金が一切支給されない</li>
+        <li>・高い生活水準（私立校の学費等）を前提とした家計は、収入途絶時に急激に崩れる</li>
+        <li>・国民年金法に基づく遺族基礎年金は、高所得者の生活水準を支えるには到底及ばない金額</li>
+        <li>・過労で倒れた独立弁護士の家庭が、自宅売却を余儀なくされた実例が存在する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ S_lawyer=Σ(Living_Cost_high×(1+inf)^t)−P_kiso——高所得層に相応しい保障設計</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・Living_Cost_high（高水準の生活費・教育費）を前提とした必要保障額を算出する</li>
+        <li>・インフレ率infを考慮し、将来にわたる生活費の増加分も保障額に織り込む</li>
+        <li>・P_kiso（遺族基礎年金）はごく限られた期間・金額のため、ギャップの大部分を終身保険でカバー</li>
+        <li>・解約返戻金は引退時の「自前の退職金」としても活用でき、ライフプラン全体を支える</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    弁護士のケース別・高所得層の生活水準維持シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：貯蓄のみ・終身保険なし
+      </div>
+      <p className="text-sm text-gray-600 mb-4">独立弁護士（年収2,000万円）、45歳で過労死</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">遺族の公的年金</div>
+          <div className="font-bold text-gray-900">遺族基礎年金 約105万円/年（数年間で終了）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">教育費・生活費維持</div>
+          <div className="font-bold text-gray-900">私立学費等の支払いで現金数千万円が急速に枯渇</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">引退時の退職金代替</div>
+          <div className="font-bold text-gray-900">業務のフェードアウトに伴い収入減、貯蓄の切り崩し</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-gray-900">死後の生活水準の急激な暗転リスク</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">高所得でも保障の薄さは会社員と変わらない</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：終身保険5,000万円加入
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。税理士の助言で終身保険5,000万円に加入済み</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">遺族の公的年金</div>
+          <div className="font-bold text-red-700">同左（約105万円/年）</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">教育費・生活費維持</div>
+          <div className="font-bold text-red-700">保険金5,000万円により、従前の生活水準と学費を完全維持</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">引退時の退職金代替</div>
+          <div className="font-bold text-red-700">解約返戻金を「自前の退職金」として活用し悠々自適</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-red-700">高所得層に相応しい盤石なキャッシュフローの構築</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険が高水準の生活を死後も維持させる</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：<a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法・遺族基礎年金の支給要件</a>　厚生労働省・<a href="https://www.mhlw.go.jp/content/11901000/001144663.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">フリーランス・トラブル110番</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">弁護士特有の3大リスク——法的根拠で見るS_lawyer設計の必要性</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">⚖</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 国民年金法第37条の遺族基礎年金支給要件とS_lawyer数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          独立弁護士は国民年金第1号被保険者となり、企業に勤務するインハウスローヤーのような退職金制度は存在しない。
+          高所得フリーランスの必要保障額S_lawyerは、高い生活水準を維持するための年間費用の将来合計から、
+          遺族基礎年金（子が18歳になるまでのみ）を引いた額として算出される。
+          終身保険は、このギャップを埋める唯一の確実な手段である。
+        </p>
+        <a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：国民年金法第37条（遺族基礎年金の支給要件）</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">📊</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② フリーランス・トラブル110番が示す高所得自由業の社会保障課題</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          厚生労働省のフリーランス・トラブル110番の相談状況からは、
+          高所得自由業における取引上のトラブルや社会保障の課題が浮かび上がる。
+          高収入であっても、会社員のような厚生年金・企業年金からの保障はなく、
+          自己責任での備えが不可欠である。
+        </p>
+        <a href="https://www.mhlw.go.jp/content/11901000/001144663.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 フリーランス・トラブル110番 相談状況</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">📋</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ フリーランス実態調査（専門職推計）が示す自営業弁護士の実態</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          内閣府によるフリーランス実態調査では、弁護士等専門職のフリーランス・自営業実態が推計されている。
+          高所得でありながら退職金制度がなく、遺族保障も国民年金のみという構造的なギャップが、
+          専門職フリーランス特有の課題として確認されている。
+        </p>
+        <a href="https://www.esri.cao.go.jp/jp/esri/archive/snaq/snaq166/snaq166_h.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：内閣府 フリーランス実態調査（専門職推計）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">弁護士の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'S_lawyer数式で高水準の生活費を前提とした必要保障額を計算する（最重要）',
+        body: '私立校の学費等を含めた将来の生活費総額から遺族基礎年金を引いた額を算出し、保障額を設計する。インフレ率を加味した将来値で計算することで、過小評価を防ぐ。'
+      },
+      {
+        num: '02',
+        title: '国民年金第1号被保険者であることを前提に、会社員より高めの保障額を設定する',
+        body: '遺族厚生年金がないことを踏まえ、会社員のセーフティネットとの差を終身保険で補う。会社員と同等の保障を自前で構築するには、相応の保障額が必要になることを理解する。'
+      },
+      {
+        num: '03',
+        title: 'インフレ率を考慮した将来の生活費上昇分も保障額に織り込む',
+        body: '特に教育費は将来上昇する可能性が高いため、現在の生活費だけでなく将来分も見据えて設計する。S_lawyerの数式における(1+inf)^tの部分がこの将来価値調整を担う。'
+      },
+      {
+        num: '04',
+        title: '引退時の退職金代替として解約返戻金の活用計画を立てる',
+        body: '業務のフェードアウト時の収入減少を見据え、解約返戻金を退職金として活用する計画を持つ。低解約返戻金型終身保険は、払込完了後に解約返戻金が大幅に増加するため効率的。'
+      },
+      {
+        num: '05',
+        title: '顧問税理士・FPと連携し、保険料の税務上の扱いを確認する',
+        body: '個人事業主としての保険料の取り扱いについて、専門家のアドバイスを受けながら設計する。弁護士自身が税務に精通していても、自己の保険設計には第三者の客観的な意見が有益。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">NN氏（45歳・独立弁護士・年収2,000万円）：過労死で私立学費が払えず自宅売却に</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        過労により急死したNN氏。私立校に通う子供がいたが、終身保険に未加入だった。
+        国民年金法第37条に基づく遺族基礎年金のみでは、私立校の学費等の高水準な生活費を維持できなかった。
+        法人化しておらず厚生年金に未加入だったため、自宅を売却して生活水準を大幅に落とさざるを得なかった。
+        高所得であっても遺族保障は国民年金のみであることを理解し、
+        終身保険で生活水準を維持できる保障額を確保しておくべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">OO氏（独立弁護士）：高収入を背景に保険を後回しにし、FPとの相談で危機に気づく</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        高収入を背景に高水準の生活を送っていたOO氏。保険加入の必要性を感じておらず、備えを後回しにしていた。
+        ファイナンシャルプランナーとの相談で初めて、万が一の事態が発生した場合に貯蓄だけでは生活水準を維持できないことが明らかになった。
+        高所得であるほど生活水準の維持に必要な保障額も大きくなることを理解し、
+        早期に終身保険等で備えるべきだった。早期加入ほど保険料が低く設定できるため、タイミングが重要。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">PP氏（独立弁護士）：インフレによる教育費上昇を見込まず保障額が不足</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        終身保険には加入していたが、現在の生活費水準のみを基準に保障額を設定していたPP氏。
+        数年後、教育費が想定以上に上昇し、当初設定した保障額では生活水準の維持が困難になることが判明した。
+        S_lawyerの数式が示すように、将来の生活費上昇（インフレ・教育費上昇）も見込んだ保障額の設計を行い、
+        定期的に見直すことが重要だった。保険加入後も定期的なレビューが欠かせない。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'S_lawyer=Σ(Living_Cost_high×(1+inf)^t)−P_kisoを計算し必要保障額を把握した',
+      '国民年金第1号被保険者であり遺族厚生年金がないことを理解した',
+      '私立校の学費等、高水準の生活費を前提とした保障額を設定した',
+      'インフレ率を考慮した将来の生活費上昇分を保障額に織り込んだ',
+      '引退時の退職金代替として解約返戻金の活用計画を立てた',
+      '顧問税理士・FPと連携し保険料の税務上の扱いを確認した',
+      '遺族基礎年金の給付期間（子が18歳になるまで）を理解した',
+      '定期的に保障額の見直しを行う計画を立てた',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
