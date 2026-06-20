@@ -481,8 +481,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverWholeLife = occ.slug === 'driver' && ins.slug === 'whole-life'
   const isConstructionWholeLife = occ.slug === 'construction' && ins.slug === 'whole-life'
   const isRestaurantWholeLife = occ.slug === 'restaurant' && ins.slug === 'whole-life'
+  const isHairdresserWholeLife = occ.slug === 'hairdresser' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -45066,6 +45067,270 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '契約者貸付制度の存在と利用条件を理解した',
       '民法第899条（債務の承継）により事業用負債が遺族に相続されることを理解した',
       'パンデミック等の経営危機時の資金繰り手段として終身保険を位置づけた',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isHairdresserWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">美容師・理容師の終身保険——職業病による早期離職と遺族年金ゼロリスクを同時解決する設計法</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    美容師・理容師の終身保険設計には、大手比較サイトが一切触れない「職業病による早期離職時の必要キャッシュバッファの数式証明」があります。
+    美容師・理容師は、長時間の立ち仕事や腱鞘炎、化学物質過敏症（手荒れ等）といった職業病による早期離職リスクが極めて高い職業です。
+    独立開業してサロンオーナーとなった場合、法人化していなければ国民健康保険・国民年金の加入となり、
+    休業時の傷病手当金は存在せず、遺族保障も極度に薄くなります。
+    また、店舗内装等にかかる初期投資が大きく、借入金に対する事業保障が必須となります。
+    職業病等による早期離職時に必要なキャッシュバッファBuffer_healthは、
+    平均収入Income_avgと回復・業態転換にかかる月数M_recoveryの積に、
+    その間に発生する店舗借入金の返済額Debt_repaymentを加え、
+    終身保険の解約返戻金または契約者貸付による調達額CV_policyを引いた額が、
+    ゼロ以下（健全な状態）であることを示す、
+    Buffer_health=(Income_avg×M_recovery)+Debt_repayment−CV_policy≤0という数式で表されます。
+    終身保険は、職業病でハサミが握れなくなった際の「強制リタイア資金（解約返戻金）」としての性質と、
+    万が一の際の事業債務清算機能を併せ持ちます。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 国民年金のみの独立開業美容師——子がいない配偶者には遺族年金が一切支給されない</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・国民年金法第37条により、遺族基礎年金は「子のある配偶者」または「子」にのみ支給される</li>
+        <li>・腱鞘炎・手荒れ等の職業病でハサミが握れなくなっても、国保には傷病手当金が存在しない</li>
+        <li>・店舗内装等の初期投資にかかる借入金が、死亡時にそのまま遺族に残るリスクがある</li>
+        <li>・休業時の収入ゼロが即座に廃業・生活破綻に直結する構造的な脆さがある</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Buffer_health=(Income_avg×M_recovery)+Debt_repayment−CV_policy≤0——終身保険が命綱になる</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・Income_avg×M_recovery（平均収入×回復月数）が休業中に必要な生活費の総額</li>
+        <li>・Debt_repayment（その間の店舗借入金返済額）も合わせて考慮する必要がある</li>
+        <li>・CV_policy（終身保険の解約返戻金・契約者貸付調達額）でこの不足額をゼロ以下に抑える設計</li>
+        <li>・死亡時には保険金で店舗借入金を完済し、生活費も遺族に残すことができる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    美容師のケース別・職業病による休業と終身保険の流動性シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：保険なし・国民年金のみ
+      </div>
+      <p className="text-sm text-gray-600 mb-4">独立開業美容師（子なし）。手荒れ悪化で半年休業</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">休業補償（公的）</div>
+          <div className="font-bold text-gray-900">0円（国保のため傷病手当金なし）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">休業中の資金繰り</div>
+          <div className="font-bold text-gray-900">店舗家賃と生活費が払えず、借金膨張・廃業へ</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">死亡時の遺族保障</div>
+          <div className="font-bold text-gray-900">遺族年金ゼロ。配偶者に借入金がのしかかる</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-gray-900">職業病がダイレクトに経済的死をもたらす</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">休業も死亡も生活基盤を直撃する</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：終身保険による資金プールあり
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。低解約返戻金型終身保険の払込完了後</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">休業補償（公的）</div>
+          <div className="font-bold text-red-700">0円（同様に傷病手当金なし）</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">休業中の資金繰り</div>
+          <div className="font-bold text-red-700">契約者貸付で300万円を引き出し、休業期間を凌ぐ</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">死亡時の遺族保障</div>
+          <div className="font-bold text-red-700">死亡保険金により店舗借入金を完済し、生活費を残す</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-red-700">健康リスク・死亡リスク双方を網羅的にカバー</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険が休業期も死亡時も家計を守る</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：<a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条（遺族基礎年金）</a>　内閣府・<a href="https://www.esri.cao.go.jp/jp/esri/archive/snaq/snaq166/snaq166_h.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">フリーランス実態調査</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">美容師・理容師特有の3大リスク——法的根拠で見るBuffer_health設計の必要性</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">✂</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 国民年金法第37条の遺族基礎年金支給要件とBuffer_health数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          国民年金法に基づく遺族基礎年金は、18歳未満の子がいない配偶者には支給されない。
+          美容師夫婦で店舗を経営しており、夫が不慮の事故で死亡した際、国民年金のみであったために妻への遺族年金がゼロとなり、
+          店舗の借入金だけが残されるというケースがある。
+          Buffer_healthはゼロ以下（Buffer_health≤0）となるよう、CV_policy（終身保険の調達額）を設計することが必要不可欠である。
+        </p>
+        <a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：国民年金法第37条（遺族基礎年金の支給要件）</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">📊</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 自営業主（美容師等）の社会保障加入実態の脆弱性</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          内閣府によるフリーランス実態調査では、美容師等の自営業主の社会保障加入実態が裏付けられている。
+          独立開業した美容師は会社員と異なり厚生年金・健康保険から離脱し、国民年金・国民健康保険のみの加入となるため、
+          休業時・死亡時の保障が極度に薄くなる。終身保険による自助努力での備えが不可欠である。
+        </p>
+        <a href="https://www.esri.cao.go.jp/jp/esri/archive/snaq/snaq166/snaq166_h.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：内閣府 フリーランス実態調査</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">🏥</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 国民健康保険における傷病手当金の不存在</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          健康保険法第99条に基づく傷病手当金は健康保険（会社員等）の制度であり、国民健康保険には原則として存在しない
+          （任意給付として一部自治体が導入する例があるのみ）。
+          腱鞘炎の悪化でハサミが握れなくなり廃業を余儀なくされた際、この制度的な保障の薄さが即座に生活破綻に直結する。
+          終身保険の流動性機能（契約者貸付）がこのリスクを救済する唯一の手段となる。
+        </p>
+        <a href="https://laws.e-gov.go.jp/law/211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：e-Gov 健康保険法（第99条）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">美容師・理容師の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'Buffer_health数式で職業病による休業時の必要資金を事前に計算する（最重要）',
+        body: '平均収入×回復月数に店舗借入金返済額を加えた金額を、終身保険でどの程度カバーできるか計算する。CV_policyがこの合計を上回るように終身保険を設計することが目標。'
+      },
+      {
+        num: '02',
+        title: '国民健康保険には傷病手当金が原則存在しないことを前提に保障設計を行う',
+        body: '会社員と異なり休業時の公的補償がほぼないことを理解し、終身保険の契約者貸付機能で備える。低解約返戻金型終身保険の払込完了後は、解約返戻金が増加し流動性資産として機能する。'
+      },
+      {
+        num: '03',
+        title: '子の有無にかかわらず十分な死亡保険金額を設定する',
+        body: '遺族基礎年金は子がいない配偶者には支給されないため、子の有無を問わず十分な保障額を確保する。子がいない共同経営の美容師夫婦ほど、終身保険による手厚い死亡保障が重要になる。'
+      },
+      {
+        num: '04',
+        title: '店舗の借入金残高を死亡保険金額の設計に反映させる',
+        body: '独立開業にかかる内装・機器等の借入金を終身保険の保険金で完済できる水準に設定する。借入残高を定期的に見直し、保険金額との乖離が生じていないか確認する。'
+      },
+      {
+        num: '05',
+        title: '腱鞘炎・手荒れ等の職業病による早期離職リスクを見据えた契約者貸付の活用を検討する',
+        body: 'ハサミが握れなくなった場合の「強制リタイア資金」として、解約返戻金の活用方法を事前に検討しておく。契約者貸付の金利・上限額・返済方法を加入時に保険会社に確認しておくことが重要。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">EE氏（36歳・独立開業美容師）：子なし夫婦、夫の急死で遺族年金ゼロ・借入金600万円が残る</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        妻と店舗を共同経営していたEE氏。子供はいなかった。不慮の事故で急死した結果、
+        国民年金法第37条の規定により子がいない配偶者には遺族基礎年金が支給されず、妻は遺族年金を一切受け取れなかった。
+        店舗の借入金600万円のみが残され、妻一人で返済しながら経営を継続するか廃業するかの厳しい選択を迫られた。
+        子の有無にかかわらず、独立開業美容師は終身保険による十分な死亡保険金額を確保しておくべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">FF氏（41歳・独立開業美容師）：腱鞘炎悪化でハサミが握れなくなり、休業補償ゼロで廃業</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        長年の施術で腱鞘炎が悪化し、ハサミが握れなくなったFF氏。
+        国民健康保険には健康保険法第99条の傷病手当金に相当する制度がなく、休業中の収入がゼロになった。
+        店舗家賃と生活費が払えず、借金が膨張し最終的に廃業に至った。
+        国保加入者には休業時の公的補償がほぼないことを前提に、終身保険の契約者貸付等で休業時の流動性を確保しておくべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">GG氏（39歳・独立開業美容師）：保障額300万円では店舗借入金500万円を完済できなかった</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        終身保険には加入していたが、保障額は300万円程度と低めだったGG氏。
+        実際の店舗内装借入金は500万円あり、終身保険の死亡保険金だけでは完済できず、不足分200万円が遺族に残された。
+        遺族は自身の収入から借入金を返済しながら生活を立て直さなければならない状況に追い込まれた。
+        終身保険の死亡保険金額は、店舗の借入金残高を正確に把握した上で、それを完済できる水準に設定すべきだった。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'Buffer_health=(Income_avg×M_recovery)+Debt_repayment−CV_policy≤0を計算し必要資金を把握した',
+      '国民健康保険には傷病手当金が原則存在しないことを理解した',
+      '子の有無にかかわらず十分な死亡保険金額を設定した',
+      '店舗の借入金残高を死亡保険金額の設計に反映させた',
+      '契約者貸付制度の金利・上限額を把握した',
+      '腱鞘炎・手荒れ等の職業病による早期離職リスクを見据えた保障設計を行った',
+      '国民年金法第37条（遺族基礎年金の支給要件）を理解した',
+      '終身保険の保険金で店舗借入金を完済できる水準か確認した',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
