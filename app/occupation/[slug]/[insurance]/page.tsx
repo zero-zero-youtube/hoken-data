@@ -472,8 +472,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeIncomeProtection = occ.slug === 'part-time' && ins.slug === 'income-protection'
   const isPartTimeChild = occ.slug === 'part-time' && ins.slug === 'child'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
+  const isEngineerWholeLife = occ.slug === 'engineer' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -43027,6 +43028,224 @@ export default async function OccupationInsurancePage({ params }: Props) {
   </section>
 
   <AffiliateCTA primary="babyplanetMama" secondary="miraitecho" />
+
+</div>
+)}
+
+{isEngineerWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* S1: リード文 + 2色インフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">システムエンジニア・プログラマーの終身保険設計——IT企業の退職金格差をDB_opt数式で補完する</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">システムエンジニア・プログラマーの終身保険設計には、大手比較サイトが一切触れない「IT企業の退職金制度格差を終身保険で補完する数式証明」があります。エンジニアにとって最適な終身保険の死亡保険金額DB_optは、目標とする老後資金R_target、勤務先の退職金見込額R_actual（自己都合退職による減額リスクを考慮した期待値）、終身保険の予定利率または運用利回りi、退職までの残存年数T、そして遺族の必要保障額S_deathから、DB_opt=max((R_target−R_actual)×(1+i)^(−T), S_death)として算出されます。IT業界の退職金制度導入率は74.9%（令和5年調査）にとどまり、従業員30〜99人規模の企業ではさらに70.1%まで低下します。平均退職給付額も約1,192万円と他産業と比較して見劣りする水準であり、雇用の流動性が高いエンジニアにとって「自己都合退職による減額リスク」は無視できません。終身保険は所属企業に依存しない「ポータブルな退職金代替資産」として機能し、転職を繰り返しても保障と資産形成の連続性を維持できる点が、企業の退職金制度に頼る設計との決定的な違いです。</p>
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 IT企業の退職金制度格差——転職と長時間労働が老後資金を直撃する危機</p>
+      <ul className="text-red-700 space-y-1 text-sm">
+        <li>• 退職金制度導入率はわずか74.9%（令和5年）、中小企業ではさらに70.1%へ低下</li>
+        <li>• 平均退職給付額は約1,192万円——他産業と比較して見劣りする水準</li>
+        <li>• 長時間労働でメンタル休職に至れば、残業代消失で手取りが実質半減</li>
+        <li>• 休職後の自己都合退職では退職金がさらに大幅減額され、老後資金のギャップが拡大する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-amber-800 mb-2">⚠️ DB_opt=max((R_target−R_actual)×(1+i)^(−T), S_death)——転職前提の保障設計が必須</p>
+      <ul className="text-amber-700 space-y-1 text-sm">
+        <li>• R_target（目標老後資金）からR_actual（実際の退職金見込額）を引いたギャップを終身保険で補完する設計</li>
+        <li>• (1+i)^(−T)で現在価値に割り引くことで、必要な保険金額を正確に算出できる</li>
+        <li>• S_death（遺族の必要保障額）との大きい方を採用——資産形成と死亡保障を両方カバー</li>
+        <li>• 転職によって退職金がリセットされても、終身保険は契約者本人に紐づくため保障が継続する</li>
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">エンジニアのケース別・メンタル休職と自己都合退職による資金ギャップシミュレーション</h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースA：終身保険なし（企業退職金のみに依存）</div>
+        <p className="text-sm text-gray-600 mb-4">35歳男性SE、45歳でメンタル休職→自己都合退職</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">退職金受給額</div>
+            <div className="font-bold text-gray-900">304万円（自己都合退職による大幅減額）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">休職時キャッシュフロー</div>
+            <div className="font-bold text-gray-900">傷病手当金のみ（残業代消失で貯蓄200万円減少）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">65歳時確保資金</div>
+            <div className="font-bold text-gray-900">約1,200万円（再就職後の退職金合算等）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時の保障</div>
+            <div className="font-bold text-gray-900">企業の弔慰金規定のみ（薄い・転職でリセット）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">老後資金不足、死亡時の保障空白が持続</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースB：終身保険1,000万円で保障設計済み</div>
+        <p className="text-sm text-gray-600 mb-4">同左。30歳時に低解約返戻金型終身保険に加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">退職金受給額</div>
+            <div className="font-bold text-red-700">304万円（同額）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">休職時キャッシュフロー</div>
+            <div className="font-bold text-red-700">契約者貸付制度により250万円の資金調達（低金利）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">65歳時確保資金</div>
+            <div className="font-bold text-red-700">約2,300万円（解約返戻金約1,100万円を加算）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">死亡時の保障</div>
+            <div className="font-bold text-red-700">終身保険1,000万円が転職に関係なく継続</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">老後資金目標を達成、死亡時も即時キャッシュを確保</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省・<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/23/chousa.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">令和5年就労条件総合調査</a>　内閣官房・<a href="https://studying.jp/komuin/about-more/severance-pay.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">退職手当の支給状況</a>
+    </p>
+  </section>
+
+  {/* S3: エンジニア特有のリスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">エンジニア特有のリスク——政府統計3件で証明する終身保険の必要性</h2>
+    <div className="space-y-8">
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク①：IT業界の退職金制度導入率の構造的格差とDB_opt数式証明</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">IT業界（情報通信業）の退職金制度導入率は74.9%（令和5年就労条件総合調査）にとどまり、従業員30〜99人規模の中小企業ではさらに70.1%まで低下する。平均退職給付額も約1,192万円と他産業と比較して見劣りする水準にある。この企業規模・業態による格差を数式で表すと、エンジニアに最適な終身保険の死亡保険金額DB_optは、目標とする老後資金R_targetと勤務先の退職金見込額R_actualとの差を、終身保険の予定利率iと残存年数Tで現在価値に割り引いた額、または遺族の必要保障額S_deathのいずれか大きい方として算出される。雇用の流動性が高く転職を繰り返しやすいエンジニアにとって、企業依存の退職金制度は構造的に脆弱であり、所属企業に依存しない「ポータブルな退職金代替資産」としての終身保険のニーズが極めて高い。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/23/chousa.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">厚生労働省・令和5年就労条件総合調査</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク②：自己都合退職による退職手当の大幅減額リスク</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">退職手当（退職金）は、定年退職と自己都合退職とで支給額が大きく異なる構造になっている。長時間労働によるメンタル不調で休職に至り、復職できずに自己都合退職を選択した場合、定年退職時に想定していた退職金から大幅に減額される。エンジニアの場合、メンタル休職→自己都合退職という経路を辿るケースは35歳前後でも珍しくなく、想定していた老後資金計画そのものが崩壊するリスクがある。終身保険による自助努力での資産形成は、この減額リスクを相殺する唯一の確実な手段である。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://studying.jp/komuin/about-more/severance-pay.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">退職手当の支給状況</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク③：健康保険法第99条の傷病手当金の限界と残業代消失の実質手取り半減リスク</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">労働基準法第37条に基づく時間外労働の割増賃金（残業代）に生活設計の一部を依存しているエンジニアは少なくない。長時間労働によるうつ病等で休職に至ると、健康保険法第99条により最長1年6ヶ月の傷病手当金（標準報酬月額の3分の2）が支給されるが、残業代部分は算定基礎に含まれにくいため、実質的な手取りは半減する。この間、生活費を貯蓄から切り崩すことになり、復職後の資産形成にも大きなダメージを残す。終身保険の契約者貸付制度を活用すれば、低金利・無審査で迅速に資金調達ができ、貯蓄の取り崩しを防ぐことができる。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://laws.e-gov.go.jp/law/211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法（e-Gov法令検索）第99条</a></p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: エンジニアの終身保険選び5つのチェックポイント */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">エンジニアの終身保険選び5つのチェックポイント</h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">DB_opt数式で目標老後資金と退職金見込額のギャップを定量化する（最重要）</p>
+          <p className="text-gray-600 text-sm">DB_opt=max((R_target−R_actual)×(1+i)^(−T), S_death)を実際に計算し、自社の退職金制度では老後資金にどの程度のギャップが生じるかを把握することが、保障額設計の出発点となる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">30歳前後の早期に低解約返戻金型終身保険へ加入し、運用効率を最大化する</p>
+          <p className="text-gray-600 text-sm">早期加入により積立期間を長く確保することで、(1+i)^(−T)の効果を活かし、同じ保険料でより大きな資産形成効果が得られる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">自己都合退職時の退職金減額率を就業規則で必ず確認する</p>
+          <p className="text-gray-600 text-sm">退職金規定は会社によって大きく異なる。定年退職時の見込額だけでなく、自己都合退職時の支給率を事前に確認し、想定外の減額リスクを把握しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">契約者貸付制度の金利・上限額を加入前に確認しておく</p>
+          <p className="text-gray-600 text-sm">メンタル休職等で収入が一時的に減少した際、終身保険の解約返戻金を担保にした契約者貸付は、低金利・無審査で速やかに資金調達できる強力なセーフティネットとなる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">転職時も保障が継続するポータブル資産であることを理解し、企業依存から脱却する</p>
+          <p className="text-gray-600 text-sm">企業の退職金制度は転職によってリセットされるが、終身保険は契約者本人に紐づくため、何度転職しても保障と資産形成の連続性が維持される。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">エンジニアが終身保険で陥りがちな失敗事例3選</h2>
+    <div className="space-y-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例①「残業代依存の生活設計のままメンタル休職。傷病手当金だけでは生活が成り立たなかった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>D氏（37歳）システムエンジニア。長時間労働が続き、35歳でうつ病と診断され休職に至った。</p>
+          <p><span className="font-semibold">問題：</span>健康保険法第99条に基づき標準報酬月額の3分の2が傷病手当金として支給されたが、月収の3割以上を占めていた残業代が算定基礎に含まれず、実質的な手取りは月収時の半分以下に激減した。生活費の不足を貯蓄から切り崩し、200万円近い貯蓄を1年で失った。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（健康保険法第99条）：</span>残業代に依存した生活設計はリスクが高い。終身保険の契約者貸付等、貯蓄以外の流動性確保手段を事前に準備しておくべきである。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例②「就業規則の退職金規定を確認せず転職。自己都合退職金が想定の半分以下だった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>E氏（42歳）システムエンジニア。転職を機にメンタル不調となり休職後、復職困難と判断し自己都合退職を選択した。</p>
+          <p><span className="font-semibold">問題：</span>入社時に就業規則の退職金規定を確認していなかったため、定年退職時の想定額（約800万円）に対し、自己都合退職による支給率の減額で実際の受給額が304万円にとどまった。老後資金計画の前提が崩れた。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（労働基準法第89条）：</span>就業規則に記載された退職金の支給率（自己都合・会社都合の差）を入社時・転職時に必ず確認すること。終身保険等の自助努力資産でギャップを事前に埋めておく必要がある。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例③「残業規制強化で収入が想定外に減少。退職金代替資産の不足が表面化した」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>F氏（39歳）システムエンジニア。転職先で労働基準法第37条に基づく時間外労働の管理が厳格化され、残業代を前提とした収入設計が崩れた。</p>
+          <p><span className="font-semibold">問題：</span>残業代込みの収入を前提にローンや教育費の計画を立てていたため、収入減少後に資金繰りが悪化。退職金制度への依存度が高く、自己資産の形成が不十分だったことが顕在化した。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（労働基準法第37条）：</span>残業代は会社の労務管理方針により変動しうる不安定な収入源である。終身保険等のポータブルな資産形成を、残業代に依存しない形で進めておくことが重要である。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: 最終チェックリスト */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">システムエンジニア×終身保険 加入前チェックリスト8項目</h2>
+    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+      <ul className="space-y-3">
+        {[
+          'DB_opt=max((R_target−R_actual)×(1+i)^(−T), S_death)を計算し保障ギャップを把握した',
+          '30歳前後の早期に低解約返戻金型終身保険へ加入した（または加入を検討した）',
+          'IT業界の退職金制度導入率（74.9%）が自社にも当てはまるか確認した',
+          '自己都合退職時の退職金減額率を就業規則で確認した',
+          '契約者貸付制度の金利・上限額を把握した',
+          'メンタル不調による休職時の傷病手当金額（標準報酬月額の2/3）を計算した',
+          '転職時も保障が継続するポータブル資産であることを理解した',
+          '65歳時点での確保資金が目標老後資金に届くか再計算した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</span>
+            <span className="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">IT業界の退職金格差と転職リスクは今後も拡大が予想されます。DB_opt数式を活用して自分に最適な終身保険の保障額を設計し、企業依存から脱却したポータブルな資産形成を始めましょう。まずは無料のFP相談で、あなたの状況に合ったプランを比較してみてください。</p>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
 </div>
 )}
