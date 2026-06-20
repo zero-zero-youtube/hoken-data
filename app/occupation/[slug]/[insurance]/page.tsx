@@ -475,8 +475,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isEngineerWholeLife = occ.slug === 'engineer' && ins.slug === 'whole-life'
   const isFreelanceEngineerWholeLife = occ.slug === 'freelance-engineer' && ins.slug === 'whole-life'
   const isNurseWholeLife = occ.slug === 'nurse' && ins.slug === 'whole-life'
+  const isTeacherWholeLife = occ.slug === 'teacher' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -43681,6 +43682,224 @@ export default async function OccupationInsurancePage({ params }: Props) {
       </ul>
     </div>
     <p className="text-gray-700 leading-relaxed">夜勤による健康リスクと、休職時の夜勤手当喪失は看護師固有のリスクです。L_buffer数式を活用して必要な流動性バッファを把握し、終身保険のキャッシュバリューを命綱とした保障設計を始めましょう。まずは無料のFP相談で、あなたの勤務状況に合ったプランを比較してみてください。</p>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isTeacherWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* S1: リード文 + 2色インフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">教員・教師の終身保険設計——精神疾患による中途退職リスクをLoss_retire数式でヘッジする</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">教員・教師の終身保険設計には、大手比較サイトが一切触れない「精神疾患による中途退職リスクと退職金カーブの崩壊を相殺する数式証明」があります。公立学校の教職員は、業務の過大さや保護者対応による精神的負荷が極めて高く、文部科学省の調査によれば精神疾患による病気休職者は7,087人（全教育職員の0.77%）に達し、高止まりが続いています。公務員特有の公立学校共済組合の死亡弔慰金（標準報酬月額の1.25ヶ月分等）など公的死亡保障は手厚い一方、精神疾患による「中途退職リスク」が最大のアキレス腱です。定年退職であれば約2,180万円の退職手当が支給されますが、自己都合退職では数百万円規模に激減します。この中途退職による退職金の喪失額Loss_retireは、定年退職時の期待退職金R_teinen(60)から、年齢tにおける自己都合退職金R_jiko(t_retire)を引いた額として、Loss_retire=R_teinen(60)−R_jiko(t_retire)という数式で算出されます。終身保険は、この「退職金カーブの崩壊リスク」をヘッジする確定利回りの金融資産として機能します。</p>
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 精神疾患による病気休職者7,087人——中途退職で2,180万円の退職金が数百万円に激減</p>
+      <ul className="text-red-700 space-y-1 text-sm">
+        <li>• 全教育職員の0.77%が精神疾患による病気休職という高止まり状態が続いている</li>
+        <li>• 定年退職を前提とした2,180万円の退職金は、自己都合退職では大幅に減額される</li>
+        <li>• 公的死亡保障（死亡弔慰金等）は死亡時にしか機能せず、生存時の中途退職リスクには対応できない</li>
+        <li>• 子の大学進学費用と退職金減額が重なり、家計が破綻する事例が存在する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Loss_retire=R_teinen(60)−R_jiko(t_retire)——退職金カーブの崩壊を終身保険でヘッジ</p>
+      <ul className="text-amber-700 space-y-1 text-sm">
+        <li>• R_teinen(60)（定年退職時の期待退職金約2,180万円）が設計の出発点となる</li>
+        <li>• R_jiko(t_retire)（自己都合退職金）は勤続年数による支給率減額が適用され大幅に下がる</li>
+        <li>• このLoss_retire（喪失額）を終身保険の解約返戻金で相殺する設計が最適解</li>
+        <li>• 短期払込型の終身保険であれば、若年期の加入で効率的にこのリスクをヘッジできる</li>
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">教員のケース別・精神疾患による中途退職と退職金減額シミュレーション</h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースA：共済の死亡保障のみ・終身保険なし</div>
+        <p className="text-sm text-gray-600 mb-4">45歳で精神疾患により自己都合退職</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">退職金受給額</div>
+            <div className="font-bold text-gray-900">約800万円（定年時より約1,300万円の減額）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時保障（在職中）</div>
+            <div className="font-bold text-gray-900">遺族共済年金＋死亡弔慰金のみ</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">退職後の流動資産</div>
+            <div className="font-bold text-gray-900">退職金800万のみ。教育費等で5年以内に枯渇リスク大</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">定年退職を前提とした資金計画が崩壊</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">中途退職ペナルティが家計を直撃する</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースB：共済＋終身保険1,500万円</div>
+        <p className="text-sm text-gray-600 mb-4">同左。25歳時に終身保険加入（短期払込）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">退職金受給額</div>
+            <div className="font-bold text-red-700">約800万円（同額）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">死亡時保障（在職中）</div>
+            <div className="font-bold text-red-700">公的保障＋終身保険1,500万円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">退職後の流動資産</div>
+            <div className="font-bold text-red-700">退職金800万＋解約返戻金約1,000万円＝1,800万円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">中途退職ペナルティを保険資産で吸収し家計維持</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">退職金カーブの崩壊を終身保険が相殺する</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：文部科学省・<a href="https://www.mext.go.jp/a_menu/shotou/jinji/1411820_00009.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">公立学校教職員の人事行政状況調査</a>　<a href="https://laws.e-gov.go.jp/law/337AC0000000152" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">地方公務員等共済組合法</a>
+    </p>
+  </section>
+
+  {/* S3: 教員特有のリスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">教員特有のリスク——政府統計3件で証明する終身保険の必要性</h2>
+    <div className="space-y-8">
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク①：精神疾患による病気休職者の高止まりとLoss_retire数式証明</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">文部科学省の調査によれば、精神疾患による病気休職者は7,087人（全教育職員の0.77%）に達し、高止まりが続いている。中途退職による退職金の喪失額Loss_retireは、定年退職時の期待退職金R_teinen(60)（約2,180万円）から、自己都合退職金R_jiko(t_retire)（勤続年数による支給率減額適用）を引いた額として算出される。終身保険の解約返戻金は、このペナルティを相殺するために設計されるべきである。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.mext.go.jp/a_menu/shotou/jinji/1411820_00009.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">文部科学省・公立学校教職員の人事行政状況調査</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク②：公立学校共済組合の死亡弔慰金制度の給付水準と限界</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">公立学校共済組合の死亡弔慰金は標準報酬月額の1.25ヶ月分等と、公務員特有の手厚い公的死亡保障が用意されている。しかし、この保障は死亡時にしか機能せず、精神疾患による生存時の中途退職リスクには全く対応できない。退職金の大幅減額という「生きているがゆえのリスク」をカバーするのは、終身保険の解約返戻金のみである。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.kouritu.or.jp/okayama/tetsuduki/kyosai/shibo/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">公立学校共済組合・死亡給付の手続き</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク③：地方公務員等共済組合法に基づく退職金構造と自己都合退職の減額率</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">地方公務員等共済組合法に基づく退職金制度では、定年退職時に約2,180万円の退職手当が支給される一方、自己都合退職では支給率が大幅に下がり数百万円規模に激減する。地方公務員法第28条（降任、免職、休職等）に基づき精神疾患で休職し、復職できずに自己都合退職に至るケースは少なくなく、子の大学進学費用と重なって家計が破綻する事例が存在する。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://laws.e-gov.go.jp/law/337AC0000000152" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">地方公務員等共済組合法（e-Gov法令検索）</a></p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">教員の終身保険選び5つのチェックポイント</h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Loss_retire数式で中途退職時の退職金喪失額を事前に把握する（最重要）</p>
+          <p className="text-gray-600 text-sm">定年退職時の期待退職金と、現時点で自己都合退職した場合の支給額の差を計算し、終身保険でどの程度カバーすべきかを設計する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">25歳前後の早期に短期払込型終身保険へ加入し、効率的にリスクをヘッジする</p>
+          <p className="text-gray-600 text-sm">短期間で払込を完了させることで、中途退職リスクが高まる前に十分な解約返戻金を確保できる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">公立学校共済組合の死亡弔慰金制度は死亡時のみ機能することを正しく理解する</p>
+          <p className="text-gray-600 text-sm">死亡弔慰金は生存時の中途退職リスクには無力であるため、別途終身保険による備えが必要。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">地方公務員法第28条に基づく休職制度の期間・復職条件を事前に確認する</p>
+          <p className="text-gray-600 text-sm">休職から復職できない場合のシナリオを想定し、退職金減額リスクへの備えを進めておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">子の教育費スケジュールと退職金カーブのリスクが重なる時期を把握する</p>
+          <p className="text-gray-600 text-sm">中途退職と教育費の支出ピークが重なると家計破綻リスクが急増するため、そのタイミングを見据えた保障設計を行う。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">教員が終身保険で陥りがちな失敗事例3選</h2>
+    <div className="space-y-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例①「精神疾患で休職後、復職できず自己都合退職。退職金が想定の半分以下になった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>M氏（48歳）公立中学校教員。保護者対応や業務過多により精神疾患を発症し休職した。</p>
+          <p><span className="font-semibold">問題：</span>地方公務員法第28条に基づき休職したものの、復職できずに自己都合退職に至った。定年退職であれば約2,180万円が想定されていたが、実際の受給額は約800万円にとどまり、子の大学進学費用と重なって家計が大きく圧迫された。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（地方公務員法第28条）：</span>休職制度の期間・復職条件を事前に理解し、復職できない場合の退職金減額リスクに対して終身保険等で備えておくべきである。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例②「死亡弔慰金があるから安心と過信し、生存時のリスクへの備えを怠った」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>N氏（52歳）公立小学校教員。公立学校共済組合の死亡弔慰金制度を理解していたため、保険加入の必要性を感じていなかった。</p>
+          <p><span className="font-semibold">問題：</span>地方公務員等共済組合法第72条に基づく弔慰金等は死亡時にしか機能せず、本人が精神疾患で中途退職した際の退職金減額には全く対応しなかった。生存時のリスクへの備えがなく、退職後の生活資金が大幅に不足した。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（地方公務員等共済組合法第72条）：</span>公的死亡保障と生存時の退職金減額リスクは別物であることを理解し、両方に対応できる終身保険等の自助努力が必要である。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例③「定年退職前提の資金計画を立てていたが、中途退職で計画が崩壊した」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>O氏（44歳）公立高校教員。定年退職時の約2,180万円の退職金を前提に、子の私立大学進学資金を計画していた。</p>
+          <p><span className="font-semibold">問題：</span>過重労働によるメンタル不調で中途退職に至り、退職金は数百万円規模に激減。計画していた教育資金が確保できず、子の進学先を変更せざるを得なくなった。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>定年退職のみを前提とした資金計画はリスクが高い。終身保険の解約返戻金を組み込んだ、中途退職シナリオにも対応できる計画を立てるべきである。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: 最終チェックリスト */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">教員×終身保険 加入前チェックリスト8項目</h2>
+    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+      <ul className="space-y-3">
+        {[
+          'Loss_retire=R_teinen(60)−R_jiko(t_retire)を計算し中途退職時の退職金喪失額を把握した',
+          '25歳前後の早期に短期払込型終身保険へ加入した（または加入を検討した）',
+          '公立学校共済組合の死亡弔慰金制度は死亡時のみ機能することを理解した',
+          '地方公務員法第28条に基づく休職制度の期間・復職条件を確認した',
+          '自己都合退職時の退職金支給率を就業規則・共済規定で確認した',
+          '子の教育費スケジュールと中途退職リスクが重なる時期を把握した',
+          '短期払込完了後の解約返戻金が中途退職時の不足額をカバーできるか計算した',
+          '定年退職のみを前提とした資金計画になっていないか再確認した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</span>
+            <span className="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">精神疾患による中途退職リスクと退職金カーブの崩壊は、教員特有のリスクです。Loss_retire数式を活用して退職金喪失額を把握し、短期払込型の終身保険でこのリスクをヘッジする保障設計を始めましょう。まずは無料のFP相談で、あなたの勤続年数・家族構成に合ったプランを比較してみてください。</p>
   </section>
 
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
