@@ -486,8 +486,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDoctorWholeLife = occ.slug === 'doctor' && ins.slug === 'whole-life'
   const isLawyerWholeLife = occ.slug === 'lawyer' && ins.slug === 'whole-life'
   const isDesignerWholeLife = occ.slug === 'designer' && ins.slug === 'whole-life'
+  const isManagerWholeLife = occ.slug === 'manager' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -46401,6 +46402,269 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '契約者貸付の金利・審査の有無を比較検討した',
       'フリーランス新法は所得補償ではないことを正しく理解した',
       '事業用固定費（クレジットカード支払い等）の規模を把握した',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isManagerWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">会社管理職・部長職の終身保険——労災不認定リスクと退職金充足率の数式証明</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    会社管理職・部長職の終身保険設計には、大手比較サイトが一切触れない「労災不認定リスクと企業退職金の不足分を補完する充足率の数式証明」があります。
+    企業の管理職（部長職等）は、労働基準法第41条（労働時間等に関する規定の適用除外）に該当する「管理監督者」として扱われることが多く、
+    残業代の支給対象外となる一方で、経営陣と現場の板挟みによる極度の精神的・肉体的ストレスを抱えています。
+    過労死等防止対策白書によれば、職種別の自殺死亡割合において「管理職等」が42.9%という高い比率を占めるデータも存在します。
+    企業の退職金制度の不足分を補完し、目標とする老後資金到達率を達成するための充足率Replacement_Rateは、
+    企業の退職金R_corporate（自己都合による減額リスクを含む）、
+    終身保険の解約返戻金CV_whole_life（不足分を補完）、
+    公的年金Pension_publicの合計を、退職後の生活費Living_Cost_retirementで割った値が1.0以上となることを示す、
+    Replacement_Rate=(R_corporate+CV_whole_life+Pension_public)/Living_Cost_retirement≥1.0という数式で表されます。
+    終身保険は、この「ハイリスクな管理職期」を乗り切るための補完的退職金および死亡保障として機能します。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 管理職等の自殺死亡割合42.9%——「管理監督者」だから労災認定が難航するリスク</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・管理監督者は残業代の支給対象外となる一方、経営陣と現場の板挟みで極度のストレスを抱える</li>
+        <li>・労災認定（過労死ラインの立証）が、管理監督者であるために難航するケースが多い</li>
+        <li>・労災不認定の場合、数千万円規模の労災遺族補償年金が受け取れない事態に陥る</li>
+        <li>・会社の死亡弔慰金と遺族厚生年金のみでは、大学生の子供の学費が払えなくなる事例が存在する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Replacement_Rate=(R_corporate+CV_whole_life+Pension_public)/Living_Cost_retirement≥1.0</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・R_corporate（企業の退職金）は自己都合退職や定年前死亡で減額されるリスクを含む不確実な資産</li>
+        <li>・CV_whole_life（終身保険の解約返戻金）が、この不確実性を補う確定的な資産として機能する</li>
+        <li>・充足率が1.0を下回る場合、終身保険の保障額・積立額を増やす必要がある</li>
+        <li>・管理職昇進時に保障額を見直し、増額しておくことが望ましい</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    管理職のケース別・労災不認定と退職金不足の充足率シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：企業退職金に全依存・労災不認定
+      </div>
+      <p className="text-sm text-gray-600 mb-4">50歳部長職、自宅で心疾患により急死。労災不認定</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">遺族への公的保障</div>
+          <div className="font-bold text-gray-900">遺族厚生年金のみ（労災遺族補償年金は0円）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">会社の弔慰金・退職金</div>
+          <div className="font-bold text-gray-900">約1,000万円（定年到達前のため少額）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">大学学費・住宅ローン</div>
+          <div className="font-bold text-gray-900">団体信用生命保険で住宅は残るが、学費と生活費が不足</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">生存退職時の活用</div>
+          <div className="font-bold text-gray-900">企業の退職金のみ（インフレ対応に不安）</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">労災不認定が家計に致命的な打撃を与える</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：終身保険2,000万円で自助防衛
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。管理職昇進時に終身保険を増額済み</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">遺族への公的保障</div>
+          <div className="font-bold text-red-700">同左（遺族厚生年金のみ）</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">会社の弔慰金・退職金＋保険金</div>
+          <div className="font-bold text-red-700">1,000万円＋終身保険金2,000万円</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">大学学費・住宅ローン</div>
+          <div className="font-bold text-red-700">2,000万円の現金で学費完納、生活水準を維持</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">生存退職時の活用</div>
+          <div className="font-bold text-red-700">解約返戻金を加算し、ゆとりある老後資金を確立</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険が労災不認定リスクを完全に相殺する</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：厚生労働省・<a href="https://www.mhlw.go.jp/stf/newpage_65250.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">令和6年度過労死等防止対策白書</a>　<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/24/dl/gaikyou.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">就労条件総合調査（退職給付制度）</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">管理職特有の3大リスク——政府統計で見るReplacement_Rate設計の根拠</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">💼</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 管理職等の自殺死亡割合42.9%とReplacement_Rate数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          過労死等防止対策白書によれば、職種別の自殺死亡割合において「管理職等」が42.9%という高い比率を占める。
+          企業の退職金不足分を補完する充足率Replacement_Rateは、
+          企業の退職金、終身保険の解約返戻金、公的年金の合計を退職後の生活費で割った値として算出され、
+          1.0以上となるよう設計する必要がある。
+        </p>
+        <a href="https://www.mhlw.go.jp/stf/newpage_65250.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 令和6年度過労死等防止対策白書</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⚠</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 過労死等防止対策白書統計分析が示す管理職層の高リスク構造</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          独立行政法人労働者健康安全機構の統計分析資料では、管理職層特有の過重労働・精神的負荷の高さが分析されている。
+          労働安全衛生法に基づくストレスチェック制度や過労死防止大綱の推進にもかかわらず、
+          管理職の過重労働は水面下で進行しやすい構造的な問題がある。
+        </p>
+        <a href="https://records.johas.go.jp/rep20230110.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：独立行政法人労働者健康安全機構 過労死等防止対策白書 統計分析</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">📋</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 就労条件総合調査が示す退職給付制度の自己都合減額リスク</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          厚生労働省の就労条件総合調査では、企業の退職金制度における自己都合退職時の減額構造が示されている。
+          定年前の過労死やメンタル不調による中途退職は、生涯賃金と退職金の想定を大きく狂わせるため、
+          終身保険による補完的な退職金形成が重要である。
+        </p>
+        <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/24/dl/gaikyou.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 就労条件総合調査（退職給付制度）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">会社管理職・部長職の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'Replacement_Rate数式で企業退職金の充足率を事前に計算する（最重要）',
+        body: '企業の退職金・公的年金の合計と退職後の生活費を比較し、終身保険でどの程度補完すべきかを設計する。自己都合退職・定年前死亡時の減額後の金額で計算することが重要。'
+      },
+      {
+        num: '02',
+        title: '管理監督者であることが労災認定に影響する可能性を理解する',
+        body: '過労死ラインの立証が管理監督者であるために難航するケースがあることを前提に、保障額に余裕を持たせる。労災の判定結果に関係なく受け取れる終身保険金の意義はここにある。'
+      },
+      {
+        num: '03',
+        title: '管理職昇進時に保障額の見直し・増額を行う',
+        body: '責任やストレスが増す管理職への昇進を機に、終身保険の保障額を見直すことが望ましい。ライフイベント（昇進・子の進学・住宅購入等）のたびに保障額の充足率を再計算する習慣をつける。'
+      },
+      {
+        num: '04',
+        title: '会社の死亡弔慰金・退職金規定の水準を確認する',
+        body: '定年到達前の死亡時にどの程度の弔慰金・退職金が支給されるかを事前に確認しておく。就業規則や退職金規定を確認し、定年前死亡・自己都合退職時の具体的な金額を把握する。'
+      },
+      {
+        num: '05',
+        title: '団体信用生命保険（住宅ローン）と終身保険の役割分担を理解する',
+        body: '団信は住宅ローンの完済に限定されるため、学費・生活費は別途終身保険でカバーする必要がある。団信と終身保険は目的が異なることを理解し、保障額を設計する。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">TT氏（50歳・部長職）：管理監督者のため労災認定が難航、遺族補償年金が受け取れなかった</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        自宅で心疾患により急死したTT氏。労災認定（過労死ラインの立証）が管理監督者であるために難航し、
+        結果として数千万円の労災遺族補償年金が受け取れなかった。
+        会社の死亡弔慰金と遺族厚生年金のみで、残された大学生の子供の学費が払えなくなった。
+        管理監督者は労災認定が難航するリスクを前提に、
+        労災の判定結果に関係なく支給される終身保険等での備えが不可欠だった。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">UU氏（48歳・管理職）：団信があるから安心と過信し、学費・生活費への備えを怠る</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        住宅ローンに団体信用生命保険を付けていたUU氏。保障は十分だと考えていた。
+        しかし団信は住宅ローンの完済にのみ適用されるものであり、子の学費や日々の生活費には全く対応しなかった。
+        死亡後、住宅は残ったものの生活費の確保に苦労した。
+        団体信用生命保険は住宅ローン専用の保障であることを理解し、
+        学費・生活費は別途終身保険でカバーする設計が必要だった。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">VV氏（45歳・課長から部長へ昇進）：昇進時に保障額を見直さず、責任の増大に保障が追いつかない</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        昇進前の保障額のまま終身保険を継続していたVV氏。
+        昇進によりストレス・責任が大幅に増大したにもかかわらず、保障額は昇進前のままであったため、
+        万が一の際の必要保障額に対して不足する状態が続いていた。
+        管理職への昇進等、ライフステージの変化に応じて保障額を定期的に見直し、
+        必要に応じて増額すべきだった。Replacement_Rateの再計算を昇進のたびに実施することが重要。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'Replacement_Rate=(R_corporate+CV_whole_life+Pension_public)/Living_Cost_retirementを計算した',
+      '管理監督者であることが労災認定に影響する可能性を理解した',
+      '管理職昇進時に保障額の見直し・増額を行った',
+      '会社の死亡弔慰金・退職金規定の水準を確認した',
+      '団体信用生命保険（住宅ローン）の適用範囲を理解した',
+      '学費・生活費への備えを団信とは別に終身保険で確保した',
+      '労働基準法第41条（管理監督者）の適用範囲を理解した',
+      '充足率（Replacement_Rate）が1.0以上となるよう保障額を設計した',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
