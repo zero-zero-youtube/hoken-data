@@ -480,8 +480,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isSalesWholeLife = occ.slug === 'sales' && ins.slug === 'whole-life'
   const isDriverWholeLife = occ.slug === 'driver' && ins.slug === 'whole-life'
   const isConstructionWholeLife = occ.slug === 'construction' && ins.slug === 'whole-life'
+  const isRestaurantWholeLife = occ.slug === 'restaurant' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -44806,6 +44807,265 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '65歳時の解約返戻金を退職金代替資産として活用する計画を立てた',
       '建設業の死亡労働災害統計（墜落・転落リスク）を理解した',
       '終身保険料を事業所得の中で継続可能な範囲に設定した',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isRestaurantWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">飲食店経営・調理師の終身保険——事業性負債の清算資金と退職金代替を同時解決する設計法</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    飲食店経営・調理師の終身保険設計には、大手比較サイトが一切触れない「経営者死亡時の連帯保証債務と運転資金枯渇を防ぐ事業保障額の数式証明」があります。
+    外食産業・飲食店経営は長時間労働が慢性化しており、労働政策研究・研修機構の調査では「店長」の29.0%が1週間あたり60時間以上の労働を行っています。
+    個人事業主として飲食店を経営する場合、過重労働による健康リスクに晒されながらも、企業退職金は一切ありません。
+    また、店舗のリース代や内装工事の借入金（事業債務）を個人で連帯保証しているケースが多く、店長（経営者）の死亡は即座に遺族の破産に直結します。
+    経営者死亡時に必要な事業保障額S_businessは、店舗開発費や日本政策金融公庫等からの残存借入金Debt_outstanding、
+    家賃・リース料等の月間固定費Fixed_Cost_monthlyの事業清算までの約6ヶ月分、
+    そして店舗の原状回復（スケルトン戻し）や従業員の解雇費用等の清算コストC_closureの合計として、
+    S_business=Debt_outstanding+(Fixed_Cost_monthly×6)+C_closureという数式で算出されます。
+    終身保険は、こうした事業性負債の清算資金として機能するほか、小規模企業共済と組み合わせることで「事業防衛資金」として絶大な効果を発揮します。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 店長の29.0%が週60時間以上労働——過重労働と事業性負債の連帯保証が二重に家計を圧迫</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・個人事業主として飲食店を経営する場合、企業退職金は一切なく自助努力が必須となる</li>
+        <li>・店舗のリース代・内装工事の借入金を個人で連帯保証しているケースが多い</li>
+        <li>・民法第899条（債務の承継）により、経営者死亡時には事業用借入金が遺族に相続される</li>
+        <li>・事業性負債への備えがないと、経営者の死＝家族の生活基盤の完全崩壊につながる</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ S_business=Debt_outstanding+(Fixed_Cost_monthly×6)+C_closure——事業保障額を正確に算出</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・Debt_outstanding（残存借入金）が事業保障額の最も大きな構成要素となる</li>
+        <li>・Fixed_Cost_monthly×6（固定費の6ヶ月分）で事業清算までの運転資金を確保する</li>
+        <li>・C_closure（原状回復・解雇費用）も忘れずに保障額に組み込む必要がある</li>
+        <li>・小規模企業共済と終身保険を組み合わせることで、経営危機時の事業防衛資金として機能する</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    飲食店経営者のケース別・事業性負債と終身保険による事業保障シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：保険なし・借入金のみ
+      </div>
+      <p className="text-sm text-gray-600 mb-4">飲食店経営。借入金残高1,000万円。原状回復費300万</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">店主死亡時のキャッシュ</div>
+          <div className="font-bold text-gray-900">0円（事業用口座は凍結）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">負債の処理</div>
+          <div className="font-bold text-gray-900">負債1,300万円が残り、遺族は相続放棄（自宅も喪失）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">生存時のパンデミック危機</div>
+          <div className="font-bold text-gray-900">銀行の追加融資が下りず黒字倒産</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-gray-900">経営者の死＝家族の生活基盤の完全崩壊</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">事業性負債が遺族の人生を破壊する</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：終身保険2,000万円加入
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。事業保障目的で終身保険に加入</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">店主死亡時のキャッシュ</div>
+          <div className="font-bold text-red-700">保険金2,000万円が遺族個人の口座に即時入金</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">負債の処理</div>
+          <div className="font-bold text-red-700">保険金から1,300万を清算し、700万円が手元に残る</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">生存時のパンデミック危機</div>
+          <div className="font-bold text-red-700">解約返戻金から無審査で貸付を受け資金繰り維持</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-red-700">事業清算コストを完済し、遺族の生活再建が可能</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険が事業性負債から家族を守る</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：労働政策研究・研修機構・<a href="https://www.jil.go.jp/kokunai/blt/backnumber/2025/12/tokushu_01.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">過労死等防止対策白書 外食産業調査</a>　中小企業基盤整備機構・<a href="https://www.chusho.meti.go.jp/koukai/shingikai/kyousai/027/001.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">小規模企業共済制度の現状</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">飲食店経営者特有の3大リスク——政府統計で見るS_business設計の根拠</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">🍳</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 外食産業の長時間労働実態とS_business数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          労働政策研究・研修機構の調査では「店長」の29.0%が1週間あたり60時間以上の労働を行っている。
+          経営者死亡時に必要な事業保障額S_businessは、残存借入金Debt_outstanding、
+          固定費の6ヶ月分(Fixed_Cost_monthly×6)、原状回復・解雇費用等の清算コストC_closureの合計として算出される。
+          過重労働による健康リスクと事業性負債が重なることで、経営者の死亡は即座に遺族の経済的危機を招く。
+        </p>
+        <a href="https://www.jil.go.jp/kokunai/blt/backnumber/2025/12/tokushu_01.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：労働政策研究・研修機構 過労死等防止対策白書 外食産業調査</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">🏦</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 小規模企業共済制度による退職金代替機能との組み合わせ</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          中小企業基盤整備機構の小規模企業共済制度は、個人事業主の退職金代替として活用されている。
+          しかし、共済の積立額だけでは経営者死亡時の事業性負債の清算には不十分なケースが多く、
+          終身保険による即時のキャッシュ確保機能との組み合わせが重要である。
+        </p>
+        <a href="https://www.chusho.meti.go.jp/koukai/shingikai/kyousai/027/001.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：中小企業基盤整備機構 小規模企業共済制度の現状</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">⏰</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 宿泊業・飲食サービス業の長時間労働傾向と健康リスクの裏付け</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          厚生労働省「令和4年就労条件総合調査」では、宿泊業・飲食サービス業の長時間労働の傾向が裏付けられている。
+          長時間労働による健康リスクが高い一方、個人事業主としての企業退職金は一切なく、
+          終身保険による自助努力での備えが不可欠である。
+        </p>
+        <a href="https://fpeo.co.jp/news/news-8325/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 令和4年就労条件総合調査（解説）</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">飲食店経営者の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'S_business数式で事業保障額（死亡保険金額）を正確に算出する（最重要）',
+        body: '残存借入金、固定費の6ヶ月分、原状回復・解雇費用を合計し、終身保険の保障額をこの水準に設定する。感覚的な金額ではなく、数式に基づいた設計が遺族を守る。'
+      },
+      {
+        num: '02',
+        title: '店舗の借入金・リース契約の連帯保証範囲を正確に把握する',
+        body: '個人で連帯保証している事業性負債の総額を確認し、保障額の設計に正確に反映させる。リース契約の残存期間も含めた総債務額を算定することが重要。'
+      },
+      {
+        num: '03',
+        title: '小規模企業共済と終身保険を併用し、退職金代替と事業防衛の両方をカバーする',
+        body: '小規模企業共済の積立に加え、終身保険による即時のキャッシュ確保機能を組み合わせる。共済金の受け取りには手続き期間があるため、即時払いとなる終身保険が死亡直後の資金需要を担う。'
+      },
+      {
+        num: '04',
+        title: '店舗の原状回復費用（スケルトン戻し等）の概算を事前に把握しておく',
+        body: '廃業時に発生する原状回復費用の概算を内装業者等に確認し、保障額に組み込んでおく。飲食店の厨房設備撤去・原状回復は数百万円規模になるケースが多い。'
+      },
+      {
+        num: '05',
+        title: 'パンデミック等の経営危機時の資金繰り手段として契約者貸付を理解する',
+        body: '銀行融資が下りない状況でも、終身保険の解約返戻金を担保にした契約者貸付を利用できる。経営危機時の重要な資金調達手段として加入時にその仕組みを正確に理解しておく。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">BB氏（48歳・居酒屋経営者）：事業用ローンの存在を保険設計に反映せず、遺族が相続放棄</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        過労による脳出血で急死したBB氏。事業用ローン1,000万円が残っていたが、終身保険による手当てがなかった。
+        民法第899条（債務の承継）により事業用借入金は遺族に相続される。
+        遺族にはローン返済能力がなく、店舗の原状回復費用（約300万円）も払えず、やむを得ず相続放棄を選択し、夫名義の自宅も失った。
+        事業用負債は必ず遺族に相続されることを前提に、終身保険でその全額をカバーできる保障額を設定すべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">CC氏（52歳・レストラン経営者）：小規模企業共済だけで十分と判断し、即時資金確保を怠る</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        小規模企業共済に加入していたCC氏。それで十分と考え終身保険には未加入だった。
+        しかし共済金の受け取りには一定の手続き期間が必要であり、経営者死亡直後の事業用口座凍結期間中の運転資金が確保できなかった。
+        仕入先への支払いが滞り、信用不安から営業継続が困難に。
+        小規模企業共済は退職金代替として有効だが、死亡直後の即時資金需要には終身保険による現金確保が不可欠だった。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">DD氏（45歳・カフェ経営者）：契約者貸付を知らず、パンデミック時に黒字倒産</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        終身保険には加入していたが、契約者貸付制度の存在を知らなかったDD氏。
+        パンデミックによる需要減少時、銀行の追加融資が下りず資金繰りが悪化した。
+        終身保険の解約返戻金を担保にした契約者貸付を利用できることを知らず、黒字倒産に至った。
+        終身保険の契約者貸付制度は経営危機時の重要な資金調達手段であり、加入時にその仕組みを正確に理解しておくべきだった。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'S_business=Debt_outstanding+(Fixed_Cost_monthly×6)+C_closureを計算し事業保障額を算出した',
+      '店舗の借入金・リース契約の連帯保証範囲を正確に把握した',
+      '終身保険の死亡保険金額が事業性負債の全額をカバーできるか確認した',
+      '小規模企業共済と終身保険を併用する設計を検討した',
+      '店舗の原状回復費用（スケルトン戻し等）の概算を把握した',
+      '契約者貸付制度の存在と利用条件を理解した',
+      '民法第899条（債務の承継）により事業用負債が遺族に相続されることを理解した',
+      'パンデミック等の経営危機時の資金繰り手段として終身保険を位置づけた',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
