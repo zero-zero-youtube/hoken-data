@@ -479,8 +479,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isCivilServantWholeLife = occ.slug === 'civil-servant' && ins.slug === 'whole-life'
   const isSalesWholeLife = occ.slug === 'sales' && ins.slug === 'whole-life'
   const isDriverWholeLife = occ.slug === 'driver' && ins.slug === 'whole-life'
+  const isConstructionWholeLife = occ.slug === 'construction' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -44548,6 +44549,263 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '会社の団体生命保険の内容を確認し重複・不足を整理した',
       '解約返戻金の推移シミュレーションを見て老後資金計画と照合した',
       '複数社（少なくとも3社以上）の見積もりを取り比較検討した',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isConstructionWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">建設業・一人親方の終身保険——退職金代替積立と労災外死亡リスクを同時解決する設計法</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    建設業・現場作業員の終身保険設計には、大手比較サイトが一切触れない「一人親方の退職金代替額を終身保険で積立形成する数式証明」があります。
+    建設業は全産業の死亡労働災害の約3割を占めており、令和6年の死亡者数232人のうち、墜落・転落による死亡が77人（約33%）に達します。
+    特に深刻な構造問題は、労働者を使用せずに事業を行う「一人親方」の存在です。
+    彼らは労働基準法上の労働者ではないため、原則として労災保険の対象外であり、企業退職金制度も存在しません。
+    労働者災害補償保険法に基づく「特別加入制度」を利用することで業務上の死傷に対する補償は得られますが、将来の退職金形成は完全に自己責任となります。
+    一人親方が将来必要とする退職金代替額V_targetは、毎年の終身保険料P_annual（事業所得の一部を天引き拠出）を、終身保険の実質的な内部収益率r_internalで運用した場合の積立総額として、
+    V_target=ΣP_annual×(1+r_internal)^t≥Target_Severanceという数式で表されます。
+    終身保険は、一人親方にとって「強制的な退職金積立」と「労災適用外死亡リスクのカバー」を兼ね備えた最適解です。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 建設業の死亡労働災害は全産業の約3割——一人親方は労災保険の対象外になりやすい</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・令和6年の死亡者数232人のうち、墜落・転落による死亡が77人（約33%）に達する</li>
+        <li>・一人親方は労働基準法上の労働者ではなく、特別加入をしない限り労災保険の対象外</li>
+        <li>・特別加入の保険料を惜しんで未加入だった場合、死亡時の遺族補償が一切支払われない</li>
+        <li>・企業に属していないため、会社からの見舞金もゼロとなり事業ローンのみが遺族に残る</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ V_target=ΣP_annual×(1+r_internal)^t≥Target_Severance——終身保険が自前の退職金になる</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・P_annual（事業所得から拠出する終身保険料）を毎年積み上げていく設計</li>
+        <li>・r_internal（終身保険の実質的な内部収益率）により、長期的には目標退職金に到達する</li>
+        <li>・労災の特別加入制度と終身保険を併用することで、死亡リスクと老後リスクの両方をカバー</li>
+        <li>・解約返戻金は65歳時に「自前の退職金」として受け取ることができる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    一人親方のケース別・労災特別加入と終身保険の事業保障シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：特別加入なし・終身保険なし
+      </div>
+      <p className="text-sm text-gray-600 mb-4">40歳一人親方、現場で墜落死。事業用負債500万円</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">労災遺族補償</div>
+          <div className="font-bold text-gray-900">0円（特別加入未加入のため）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">死亡時一時金</div>
+          <div className="font-bold text-gray-900">0円</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">遺族の財務状況</div>
+          <div className="font-bold text-gray-900">マイナス500万円（相続放棄を余儀なくされる）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">生存時の活用（65歳）</div>
+          <div className="font-bold text-gray-900">国民年金のみ（老後破産の危機）</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">特別加入なし＋保険なしは事業の終焉＝遺族の破産</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：特別加入あり＋終身保険3,000万円
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。終身保険に事業保障目的で加入済み</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">労災遺族補償</div>
+          <div className="font-bold text-red-700">給付基礎日額に基づく遺族補償年金支給</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">死亡時一時金</div>
+          <div className="font-bold text-red-700">終身保険金 3,000万円</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">遺族の財務状況</div>
+          <div className="font-bold text-red-700">借入金500万を清算し、2,500万円の純資産と年金が残る</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">生存時の活用（65歳）</div>
+          <div className="font-bold text-red-700">解約返戻金を「自前の退職金」として受取可能</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">特別加入＋終身保険が事業と家族を両方守る</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：<a href="https://www.kensaibou.or.jp/safe_tech/statistics/occupational_accidents.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">建設業における労働災害発生状況</a>　<a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/dl/040324-6.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労災保険特別加入制度のしおり</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">建設業特有の3大リスク——政府統計で見るV_target設計の根拠</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">🏗</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 建設業の死亡労働災害統計とV_target数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          建設業は全産業の死亡労働災害の約3割を占め、令和6年の死亡者数232人のうち、墜落・転落による死亡が77人（約33%）に達する。
+          一人親方が将来必要とする退職金代替額V_targetは、毎年の終身保険料P_annualを実質的な内部収益率r_internalで運用した積立総額として算出される。
+          V_target≥Target_Severanceを満たすように設計することが一人親方の資産形成の核心である。
+        </p>
+        <a href="https://www.kensaibou.or.jp/safe_tech/statistics/occupational_accidents.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：建設業労働災害防止協会 労働災害発生状況</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⚠</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 墜落・転落災害統計が示す現場リスクの高さ</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          建設業労働災害防止協会の統計によれば、墜落・転落災害は建設業の死亡災害の中でも最も多い類型である。
+          労働者を使用せずに事業を行う一人親方は労災保険の対象外となるケースが多く、
+          現場での重大事故が即座に事業の終焉と遺族の困窮を招くリスクがある。
+        </p>
+        <a href="https://www.kasetsuanzen.or.jp/industrial_accident/fall/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：建設業労働災害防止協会 墜落・転落災害統計</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">📋</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 労災保険特別加入制度の利用実態と未加入リスク</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          労働者災害補償保険法第33条に基づく一人親方等の特別加入を、保険料を惜しんで行わなかった一人親方が現場で墜落死する事例が存在する。
+          労災保険からの遺族補償が一切支払われず、企業に属していないため会社からの見舞金もゼロとなる。
+          遺族には事業ローンのみが残され自己破産に至るケースにおいて、事業保障としての終身保険が決定的な明暗を分ける。
+        </p>
+        <a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/dl/040324-6.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 労災保険特別加入制度のしおり</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">建設業（一人親方）の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: '労災保険の特別加入（労働者災害補償保険法第33条）に必ず加入する（最重要・前提条件）',
+        body: '特別加入をしていなければ業務上の死傷に対する補償が一切得られない。終身保険と並行して、労働保険事務組合や一人親方組合を通じた特別加入を必ず検討する。'
+      },
+      {
+        num: '02',
+        title: 'V_target数式で退職金代替額の積立計画を立てる',
+        body: '毎年の終身保険料と実質的な内部収益率から、何歳までにどの程度の解約返戻金が形成されるかを計算する。目標退職金額（Target_Severance）に到達するよう逆算して保険料を設定する。'
+      },
+      {
+        num: '03',
+        title: '事業用負債（借入金）の残高を死亡保険金額の設計に反映させる',
+        body: '現場用車両・資機材のローン等の事業性負債は民法第899条により遺族に相続される。死亡保険金でこれらを完済できる水準に保障額を設定することが最低条件。'
+      },
+      {
+        num: '04',
+        title: '特別加入の給付基礎日額の設定水準を確認する',
+        body: '特別加入時に選択する給付基礎日額によって労災補償水準が決まるため、実際の事業収入に見合った水準を選択する。給付基礎日額が低いと、終身保険での上乗せが必要になる。'
+      },
+      {
+        num: '05',
+        title: '65歳時の解約返戻金を「自前の退職金」として活用する計画を立てる',
+        body: '企業退職金がない一人親方にとって、終身保険の解約返戻金が実質的な退職金代替資産となる。払済保険への変更・一部解約など、老後の資金需要に応じた柔軟な活用方法を保険会社に確認しておく。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">Y氏（38歳・一人親方の電気工事業者）：特別加入の保険料を惜しみ、墜落死で遺族補償がゼロ</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        労災保険の特別加入の保険料負担を惜しみ未加入のまま現場作業を続けていたY氏。
+        屋根工事中の墜落事故で死亡したが、労働者災害補償保険法第33条に基づく特別加入をしていなかったため、
+        労災遺族補償が一切支払われなかった。事業用ローン400万円が残り、遺族は相続放棄を余儀なくされた。
+        月額数千円の特別加入保険料を惜しんだことが、遺族の生活を根底から破壊した。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">Z氏（45歳・一人親方の内装業者）：事業用負債を考慮せず保障額を低く設定</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        終身保険に加入していたが、保障額は500万円程度と低めに設定していたZ氏。
+        民法第899条（債務の承継）により事業用借入金は遺族に相続される。
+        実際の事業用負債は800万円あり、終身保険の保険金では完済できず、遺族の手元に資金が残らなかった。
+        終身保険の保障額は事業用負債の残高を正確に把握した上で、それを完済できる水準に設定すべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">AA氏（42歳・一人親方の塗装業者）：給付基礎日額の設定を確認せず補償が想定より低かった</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        特別加入はしていたが、給付基礎日額の設定内容を詳しく確認していなかったAA氏。
+        実際の事故発生時、想定していたよりも給付基礎日額が低く設定されていたため、
+        労災からの補償額が予想を下回った。終身保険での備えも不十分だったため、生活費の確保に苦労する事態に。
+        特別加入時の給付基礎日額は実際の事業収入に見合った水準を選択し、終身保険との組み合わせで総合的に備えることが重要。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      '労災保険の特別加入（労働者災害補償保険法第33条）に加入した',
+      'V_target=ΣP_annual×(1+r_internal)^t≥Target_Severanceを計算し積立計画を立てた',
+      '事業用負債（借入金）の残高を死亡保険金額の設計に反映させた',
+      '特別加入の給付基礎日額の設定水準を確認した',
+      '終身保険の保険金で事業用負債を完済できる水準か確認した',
+      '65歳時の解約返戻金を退職金代替資産として活用する計画を立てた',
+      '建設業の死亡労働災害統計（墜落・転落リスク）を理解した',
+      '終身保険料を事業所得の中で継続可能な範囲に設定した',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
