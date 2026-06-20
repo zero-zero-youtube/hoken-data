@@ -485,8 +485,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isAccountantWholeLife = occ.slug === 'accountant' && ins.slug === 'whole-life'
   const isDoctorWholeLife = occ.slug === 'doctor' && ins.slug === 'whole-life'
   const isLawyerWholeLife = occ.slug === 'lawyer' && ins.slug === 'whole-life'
+  const isDesignerWholeLife = occ.slug === 'designer' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -46134,6 +46135,272 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '顧問税理士・FPと連携し保険料の税務上の扱いを確認した',
       '遺族基礎年金の給付期間（子が18歳になるまで）を理解した',
       '定期的に保障額の見直しを行う計画を立てた',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isDesignerWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">デザイナー・クリエイターの終身保険——収入変動を平準化するキャッシュフロー設計の数式証明</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    デザイナー・クリエイターの終身保険設計には、大手比較サイトが一切触れない「収入変動率の高いフリーランスのキャッシュフロー平準化の数式証明」があります。
+    デザイナーやクリエイターはフリーランス比率が極めて高く、業務委託契約に基づくプロジェクトベースの働き方が主流です。
+    このため、収入のボラティリティ（変動幅）が大きく、病気やケガによる一時的な休業が即座に収入ゼロに直結します。
+    2024年施行のフリーランス新法（特定受託事業者に係る取引の適正化等に関する法律）は報酬支払いの遅延防止等を定めていますが、
+    所得補償や退職金制度は提供しません。
+    収入変動率が高いフリーランスが、終身保険の貸付制度を用いてキャッシュフローを安定させるモデルでは、
+    平準化された手元キャッシュフローCF_smoothは、プロジェクトの有無により激しく変動する事業収入Income_fluctuatingから
+    固定費Expenses_fixedを引き、終身保険の契約者貸付ΔLoan_policy（収入減時はプラス、収入増時は返済でマイナス）を加えた額として、
+    CF_smooth=Income_fluctuating−Expenses_fixed+ΔLoan_policyという数式で表されます。
+    デザイナーにおける終身保険は、死亡保障以上に「払込免除特約を活用した罹患時の保険料免除」や
+    「低解約返戻金期間を過ぎた後の圧倒的な流動性」を利用した【収入平準化システム】としての性質を強く持ちます。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 フリーランス新法は所得補償ではない——病気・ケガによる休業が即座に収入ゼロに直結する</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・プロジェクトベースの働き方は収入のボラティリティが大きく、休業がそのまま収入消失となる</li>
+        <li>・フリーランス新法は報酬支払いの適正化が目的であり、所得補償・退職金制度は提供しない</li>
+        <li>・国民健康保険には会社員のような傷病手当金制度が原則存在しない</li>
+        <li>・事業用クレジットカードの引き落としができずブラックリスト入りし、廃業に追い込まれる事例がある</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ CF_smooth=Income_fluctuating−Expenses_fixed+ΔLoan_policy——終身保険が平準化装置になる</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・Income_fluctuating（変動する事業収入）から固定費を引いた額がベースのキャッシュフロー</li>
+        <li>・ΔLoan_policy（契約者貸付）を活用すれば、収入減少時に低金利・無審査で資金を補填できる</li>
+        <li>・低解約返戻金期間を過ぎれば、解約返戻金を活用した流動性が大きく向上する</li>
+        <li>・払込免除特約があれば、罹患時に保険料負担なく保障を継続できる場合もある</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    デザイナーのケース別・休業時のキャッシュフロー平準化シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：現金預金なし・掛け捨て保険のみ
+      </div>
+      <p className="text-sm text-gray-600 mb-4">35歳フリーランスデザイナー、事故で3ヶ月休業</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">休業中の公的補償</div>
+          <div className="font-bold text-gray-900">0円（国民健康保険に傷病手当金なし）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">資金ショート回避策</div>
+          <div className="font-bold text-gray-900">カードローン（年利15%）、審査落ちのリスク大</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">復帰後の財務負担</div>
+          <div className="font-bold text-gray-900">借入金100万円に対し、高額な利息支払いで苦しむ</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-gray-900">一時的な休業がクリエイター生命を絶つ</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">休業がそのまま事業の存続を脅かす</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：終身保険の解約返戻金ベースラインあり
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。過去10年で終身保険に積立（返戻金400万）</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">休業中の公的補償</div>
+          <div className="font-bold text-red-700">0円（同様に傷病手当金なし）</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">資金ショート回避策</div>
+          <div className="font-bold text-red-700">契約者貸付（年利2〜3%程度）、無審査で翌日着金</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">復帰後の財務負担</div>
+          <div className="font-bold text-red-700">貸付金は自分のペースで返済可能。保険契約も有効のまま</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-red-700">保険資産が究極のキャッシュフロー防衛線となる</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険があれば休業も乗り越えられる</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：<a href="https://hq-hq.co.jp/articles/241211_135" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">フリーランス新法</a>　内閣官房・<a href="https://www.cao.go.jp/zei-cho/content/3noukan5kai3.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">フリーランス実態調査</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">デザイナー・クリエイター特有の3大リスク——法的根拠で見るCF_smooth設計の必要性</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">🎨</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① フリーランス新法の保障範囲とCF_smooth数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          特定受託事業者に係る取引の適正化等に関する法律（フリーランス新法）は、
+          報酬支払いの遅延防止等を定めているが、所得補償や退職金制度は提供しない。
+          平準化された手元キャッシュフローCF_smoothは、変動する事業収入から固定費を引いた額に
+          終身保険の契約者貸付を加えた額として算出され、休業時の資金確保の中核となる。
+        </p>
+        <a href="https://hq-hq.co.jp/articles/241211_135" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：フリーランス新法（特定受託事業者に係る取引の適正化等に関する法律）</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">📊</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② フリーランス実態調査が示す社会保障加入実態と収入変動の実態</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          内閣官房によるフリーランス実態調査では、デザイナー等のフリーランスの社会保障加入実態・収入変動の実態が裏付けられている。
+          プロジェクトベースの働き方は、契約打ち切りや病気・ケガによる休業が即座に収入消失に直結する
+          構造的なリスクを抱えている。
+        </p>
+        <a href="https://www.cao.go.jp/zei-cho/content/3noukan5kai3.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：内閣官房 フリーランス実態調査</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">📋</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ フリーランス白書2018が示す働き方の多様性と収入不安定性</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          厚生労働省のフリーランス白書2018では、デザイナー等のフリーランスの働き方の多様性と収入の不安定性が分析されている。
+          収入の波が大きいフリーランスにとって、終身保険のキャッシュバリューを活用した収入平準化システムは、
+          事業継続の生命線となる。
+        </p>
+        <a href="https://www.mhlw.go.jp/file/05-Shingikai-12602000-Seisakutoukatsukan-Sanjikanshitsu_Roudouseisakutantou/0000189092_2.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 フリーランス白書2018</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">デザイナー・クリエイターの終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'CF_smooth数式で休業時に必要な資金調達額を事前に計算する（最重要）',
+        body: '過去の収入変動幅と固定費を把握し、契約者貸付でどの程度の不足をカバーすべきか設計する。収入最低月の実績値を使ってシミュレーションすることで、必要な解約返戻金残高の目安がわかる。'
+      },
+      {
+        num: '02',
+        title: '国民健康保険には傷病手当金が原則存在しないことを前提に保障設計を行う',
+        body: '会社員と異なり休業時の公的補償がほぼないことを理解し、終身保険の流動性機能で備える。フリーランス新法は取引環境の改善が目的であり、収入途絶への備えにはならないことを正確に理解する。'
+      },
+      {
+        num: '03',
+        title: '低解約返戻金期間を過ぎた後の流動性向上を見据えて長期保有を前提に加入する',
+        body: '早期の解約は不利になりやすいため、長期保有を前提とした資金計画を立てる。低解約返戻金型終身保険の払込完了後は解約返戻金が大幅に増加し、流動性が向上する点を理解しておく。'
+      },
+      {
+        num: '04',
+        title: '払込免除特約の有無・適用条件を加入時に確認する',
+        body: '罹患時に保険料負担なく保障を継続できる特約があるかどうかを事前に確認しておく。適用条件（3大疾病・就業不能状態等）により対象となる疾病・状態が異なるため、細かく確認することが重要。'
+      },
+      {
+        num: '05',
+        title: '契約者貸付の金利・審査の有無を比較し、緊急時に使いやすい契約を選ぶ',
+        body: '低金利・無審査で迅速に資金調達できる契約者貸付の条件を、加入前に比較検討する。緊急時に実際に使えるかどうかを事前に把握しておくことで、いざという時に迷わず行動できる。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">QQ氏（35歳・フリーランスデザイナー）：利き手骨折で3ヶ月休業、高金利カードローンに依存</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        事故により利き手を骨折し、3ヶ月間業務ができなくなったQQ氏。
+        フリーランス新法第3条により支払期日は守られるようになっても、
+        国民健康保険には傷病手当金がないため収入が途絶えた。
+        事業用クレジットカードの引き落としができずブラックリスト入りするリスクに直面し、
+        高金利のカードローンに依存することとなった。
+        フリーランス新法は取引環境の改善が目的であり、収入途絶への備えにはならないことを理解し、
+        終身保険等で自助努力の保障を構築すべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">RR氏（フリーランスデザイナー）：収入減少時に焦って早期解約し、元本割れで流動性喪失</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        収入減少時に焦って終身保険を解約したRR氏。
+        加入から数年しか経過していなかったため解約返戻金が極めて低く、元本を大きく割り込む結果となった。
+        本来であれば契約者貸付で対応できたはずの資金需要に、十分対応できなかった。
+        解約返戻金が低い早期は、契約者貸付や払済保険への変更を優先的に検討し、
+        解約は最後の手段とすべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">SS氏（フリーランスデザイナー）：払込免除特約の適用条件を未確認、罹患時も保険料負担が継続</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        終身保険に加入していたが、払込免除特約の有無や条件を確認していなかったSS氏。
+        病気で長期間業務ができなくなった際、払込免除特約が適用される条件を満たしていなかったため、
+        保険料負担が継続し、ただでさえ厳しい家計をさらに圧迫した。
+        加入時に払込免除特約の有無・適用条件を確認し、
+        自身の働き方やリスクに合った契約を選ぶべきだった。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'CF_smooth=Income_fluctuating−Expenses_fixed+ΔLoan_policyを計算し休業時の資金調達額を把握した',
+      '国民健康保険には傷病手当金が原則存在しないことを理解した',
+      '過去の収入変動幅（好調期・不調期の差）を確認した',
+      '低解約返戻金期間を過ぎるまでの長期保有を前提とした計画を立てた',
+      '払込免除特約の有無・適用条件を確認した',
+      '契約者貸付の金利・審査の有無を比較検討した',
+      'フリーランス新法は所得補償ではないことを正しく理解した',
+      '事業用固定費（クレジットカード支払い等）の規模を把握した',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
