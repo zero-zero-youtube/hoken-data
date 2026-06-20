@@ -473,8 +473,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeChild = occ.slug === 'part-time' && ins.slug === 'child'
   const isEngineerCancer = occ.slug === 'engineer' && ins.slug === 'cancer'
   const isEngineerWholeLife = occ.slug === 'engineer' && ins.slug === 'whole-life'
+  const isFreelanceEngineerWholeLife = occ.slug === 'freelance-engineer' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -43243,6 +43244,224 @@ export default async function OccupationInsurancePage({ params }: Props) {
       </ul>
     </div>
     <p className="text-gray-700 leading-relaxed">IT業界の退職金格差と転職リスクは今後も拡大が予想されます。DB_opt数式を活用して自分に最適な終身保険の保障額を設計し、企業依存から脱却したポータブルな資産形成を始めましょう。まずは無料のFP相談で、あなたの状況に合ったプランを比較してみてください。</p>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isFreelanceEngineerWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+  {/* S1: リード文 + 2色インフォボックス */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">フリーランスエンジニアの終身保険設計——公的年金の遺族保障空白をGap_freelance数式で証明する</h2>
+    <p className="text-gray-700 leading-relaxed mb-6">フリーランスエンジニアの終身保険設計には、大手比較サイトが一切触れない「公的年金の遺族保障不足額（保障空白）の数式証明」があります。独立開業したフリーランスエンジニアは、厚生年金や企業退職金といったセーフティネットを完全に喪失し、国民年金のみの加入となります。万が一の死亡時、遺族に支給されるのは子が18歳に達するまでの「遺族基礎年金」に限定され、遺族厚生年金は一切支給されません。この公的年金の遺族保障不足額Gap_freelanceは、子が18歳に達するまでの期間における必要生活費Exp_tと遺族基礎年金P_kiso,tとの差の合計、およびそれ以降の期間における必要生活費Exp_tの合計として、Gap_freelance=Σ(Exp_t−P_kiso,t)[t=1〜18−子の年齢]+Σ(Exp_t)[18−子の年齢〜終了]という数式で定量化されます。2024年11月施行のフリーランス新法により取引環境の改善は見込まれるものの、社会保障の拡充までは担保されていません。業務委託契約者の死亡・就業不能は即座に事業崩壊と遺族の困窮を招くため、終身保険は事業の継続性と家族の生活防衛の要となります。</p>
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 国民年金のみ加入——フリーランスエンジニアの遺族保障は「子が18歳になるまで」で終了</p>
+      <ul className="text-red-700 space-y-1 text-sm">
+        <li>• 遺族基礎年金は「子のある配偶者」または「子」にのみ支給され、子がいなければ一切支給されない</li>
+        <li>• 遺族厚生年金は存在せず、会社員エンジニアと比較して遺族の生涯保障に圧倒的な差が生じる</li>
+        <li>• フリーランス新法（2024年11月施行）は報酬支払いの適正化が目的であり、社会保障の空白は埋まらない</li>
+        <li>• 業務委託契約者の死亡は即座に事業崩壊を招き、遺族の生活基盤を直撃する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg mb-4">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Gap_freelance=Σ(Exp_t−P_kiso,t)+Σ(Exp_t)——保障空白を終身保険で完全に埋める設計</p>
+      <ul className="text-amber-700 space-y-1 text-sm">
+        <li>• 子が18歳になるまでの期間：必要生活費から遺族基礎年金を引いた不足額を算出</li>
+        <li>• 子が18歳以降の期間：遺族基礎年金が打ち切られるため、必要生活費の全額が不足額となる</li>
+        <li>• 終身保険はこのGap_freelanceを完全に埋める水準（死亡保険金額）で設計するのが最適解</li>
+        <li>• 小規模企業共済等と組み合わせることで、死亡保障と退職金代替の両方を確保できる</li>
+      </ul>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">フリーランスエンジニアのケース別・公的年金保障空白シミュレーション</h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースA：終身保険・共済なし（国民年金のみ）</div>
+        <p className="text-sm text-gray-600 mb-4">30歳男性フリーランスエンジニア、配偶者と子（0歳）1人</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時の公的保障</div>
+            <div className="font-bold text-gray-900">遺族基礎年金 約105万円/年（18年間のみ）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時の一時金</div>
+            <div className="font-bold text-gray-900">0円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">遺族の累積収支（20年）</div>
+            <div className="font-bold text-gray-900">▲約2,400万円の赤字（生活費月20万円想定）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">生存時の退職金代替</div>
+            <div className="font-bold text-gray-900">自助努力の現金預金のみ（インフレで実質目減り）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">死亡時・生存時とも保障の空白が持続</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">ケースB：終身保険3,000万円＋小規模企業共済</div>
+        <p className="text-sm text-gray-600 mb-4">同左。月額保険料2.5万円、共済掛金3万円</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時の公的保障</div>
+            <div className="font-bold text-red-700">遺族基礎年金 約105万円/年（同額）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">死亡時の一時金</div>
+            <div className="font-bold text-red-700">3,000万円（非課税枠内適用で全額受取可能）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">遺族の累積収支（20年）</div>
+            <div className="font-bold text-red-700">＋約600万円の黒字（教育費・住居費確保）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">生存時の退職金代替（65歳時）</div>
+            <div className="font-bold text-red-700">解約返戻金1,000万＋共済1,200万＝2,200万円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">死亡時の保障空白を完全に解消、退職金代替資産も確保</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法・遺族基礎年金の支給要件</a>　内閣官房・<a href="https://www.cao.go.jp/zei-cho/content/3noukan5kai3.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">フリーランス実態調査結果</a>
+    </p>
+  </section>
+
+  {/* S3: フリーランスエンジニア特有のリスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">フリーランスエンジニア特有のリスク——政府統計3件で証明する終身保険の必要性</h2>
+    <div className="space-y-8">
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク①：国民年金のみ加入による遺族保障の構造的空白とGap_freelance数式証明</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">独立開業したフリーランスエンジニアは、厚生年金や企業退職金といったセーフティネットを完全に喪失し、国民年金のみの加入となる。万が一の死亡時、遺族に支給されるのは「遺族基礎年金」に限定され、遺族厚生年金は支給されない。この公的年金の遺族保障不足額は、子が18歳に達するまでの不足額の合計と、それ以降の必要生活費全額の合計として数式化され、Gap_freelance=Σ(Exp_t−P_kiso,t)[t=1〜18−子の年齢]+Σ(Exp_t)[18−子の年齢〜終了]で表される。終身保険はこのギャップを完全に埋める水準で設計されるべきである。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法・遺族基礎年金の支給要件</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク②：フリーランス新法（2024年11月施行）の保障範囲の限界</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">特定受託事業者に係る取引の適正化等に関する法律（フリーランス新法）は、報酬支払いの遅延防止やハラスメント対策を定めており、取引環境の改善には寄与する。しかし、この法律は所得補償・退職金・遺族年金といった社会保障の拡充までは対象としていない。業務委託契約者の死亡・就業不能は即座に事業崩壊と遺族の困窮を招くため、フリーランス新法だけでは保障の空白を埋めることはできず、終身保険による自助努力が不可欠である。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://hq-hq.co.jp/articles/241211_135" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">フリーランス新法の概要と保障範囲</a></p>
+      </div>
+      <div className="border border-gray-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">リスク③：フリーランス実態調査が示す社会保障加入実態の脆弱性</h3>
+        <p className="text-gray-700 leading-relaxed mb-3">内閣官房によるフリーランス実態調査では、フリーランスエンジニアを含む独立事業者の社会保険未加入率の高さ、企業退職金制度の不存在が裏付けられている。会社員エンジニアであれば企業の福利厚生・退職金制度・厚生年金による複層的な保障があるのに対し、フリーランスエンジニアはこれらすべてを自己責任で構築する必要がある。終身保険は、その自己責任構築の中核となる資産形成・死亡保障ツールである。</p>
+        <p className="text-xs text-gray-500">出典：<a href="https://www.cao.go.jp/zei-cho/content/3noukan5kai3.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">内閣官房・フリーランス実態調査結果</a></p>
+      </div>
+    </div>
+  </section>
+
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">フリーランスエンジニアの終身保険選び5つのチェックポイント</h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Gap_freelance数式で公的年金の遺族保障不足額を定量化する（最重要）</p>
+          <p className="text-gray-600 text-sm">子が何歳になるまで遺族基礎年金が支給されるか、それ以降の生活費がどの程度不足するかを具体的に計算し、終身保険の死亡保険金額をその不足額に合わせて設計する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">死亡保険金額を、子が独立するまでの生活費＋教育費の総額に基づいて設定する</p>
+          <p className="text-gray-600 text-sm">会社員と異なり遺族厚生年金がないため、必要保障額は会社員エンジニアより大きく設定する必要がある。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">小規模企業共済と終身保険を組み合わせ、死亡保障と退職金代替の両方を確保する</p>
+          <p className="text-gray-600 text-sm">小規模企業共済は退職金代替として税制優遇があり、終身保険は死亡保障と貯蓄性を兼ね備える。両者を組み合わせることで保障の空白を効率的に埋められる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">業務委託契約の不安定性を踏まえ、保険料は変動の少ない範囲で設定する</p>
+          <p className="text-gray-600 text-sm">案件の有無により収入が変動しやすいフリーランスエンジニアにとって、保険料は収入が落ち込んでも継続できる範囲で設定することが重要。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">非課税枠（500万円×法定相続人数）を意識した死亡保険金額の設計を検討する</p>
+          <p className="text-gray-600 text-sm">将来的に資産が増えた場合、相続税の非課税枠を活用できる終身保険の特性を理解し、長期的な資産承継の視点も持っておく。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: よくある失敗事例3選 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">フリーランスエンジニアが終身保険で陥りがちな失敗事例3選</h2>
+    <div className="space-y-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例①「子がいない配偶者を残して急死。遺族基礎年金が一切支給されなかった」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>G氏（32歳）フリーランスエンジニア。結婚していたが子供はまだいなかった。不慮の事故で急死した。</p>
+          <p><span className="font-semibold">問題：</span>国民年金法第37条の規定により、遺族基礎年金は「子のある配偶者」または「子」にのみ支給される。子がいない配偶者は遺族基礎年金の対象外となり、遺族厚生年金もないため、配偶者は完全な無収入状態に転落した。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（国民年金法第37条）：</span>子の有無によって遺族年金の支給対象が大きく変わることを理解し、子の有無にかかわらず十分な死亡保険金額の終身保険に加入しておく必要がある。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例②「フリーランス新法施行を保障の拡充と誤解し、保険加入を後回しにした」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>H氏（35歳）フリーランスエンジニア。2024年のフリーランス新法施行のニュースを見て、保障が拡充されたと誤解した。</p>
+          <p><span className="font-semibold">問題：</span>特定受託事業者に係る取引の適正化等に関する法律第3条は報酬支払期日の適正化を定めるものであり、死亡時の遺族保障や所得補償とは無関係である。保険加入を後回しにしていたところ、病気により長期離脱を余儀なくされ、収入が完全に途絶えた。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓（特定受託事業者に係る取引の適正化等に関する法律第3条）：</span>フリーランス新法は取引環境の改善が目的であり、社会保障の代替にはならないことを正しく理解し、早期に終身保険等で自助努力の保障を構築すべきである。</p>
+        </div>
+      </div>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <h3 className="font-bold text-gray-900 mb-2">事例③「業務委託契約の急な終了で収入が途絶え、保険料を払えず失効した」</h3>
+        <div className="text-sm text-gray-700 space-y-2">
+          <p><span className="font-semibold">状況：</span>I氏（38歳）フリーランスエンジニア。主要取引先との業務委託契約が突然終了し、数ヶ月にわたり収入が大きく減少した。</p>
+          <p><span className="font-semibold">問題：</span>保険料の払込が困難になり、払込猶予期間内に対応できず契約が失効した。その後の案件確保はできたが、再加入時には年齢や健康状態により条件が悪化していた。</p>
+          <p className="bg-yellow-50 border border-yellow-200 rounded p-2"><span className="font-semibold">教訓：</span>業務委託契約は会社員の雇用契約より不安定であることを前提に、保険料は収入の変動を考慮した無理のない範囲で設定し、収入途絶時には速やかに保険会社へ連絡して払済保険等への変更を検討すべきである。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: 最終チェックリスト */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">フリーランスエンジニア×終身保険 加入前チェックリスト8項目</h2>
+    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+      <ul className="space-y-3">
+        {[
+          'Gap_freelance=Σ(Exp_t−P_kiso,t)+Σ(Exp_t)を計算し公的年金の保障不足額を把握した',
+          '子が何歳まで遺族基礎年金が支給されるかを確認した',
+          '死亡保険金額を、遺族厚生年金がない前提で会社員より高めに設定した',
+          '小規模企業共済と終身保険を組み合わせた保障設計を検討した',
+          'フリーランス新法は社会保障の拡充ではないことを正しく理解した',
+          '業務委託契約の不安定性を踏まえ、無理のない保険料を設定した',
+          '払込猶予期間・払済保険変更の仕組みを事前に確認した',
+          '非課税枠（500万円×法定相続人数）を意識した死亡保険金額を検討した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</span>
+            <span className="text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p className="text-gray-700 leading-relaxed">国民年金のみの加入で生じる遺族保障の空白は、終身保険なしでは埋めることができません。Gap_freelance数式を活用して保障不足額を正確に把握し、小規模企業共済と組み合わせた自己責任の保障設計を始めましょう。まずは無料のFP相談で、あなたの家族構成・収入状況に合ったプランを比較してみてください。</p>
   </section>
 
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
