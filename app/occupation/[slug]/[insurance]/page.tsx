@@ -482,8 +482,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isConstructionWholeLife = occ.slug === 'construction' && ins.slug === 'whole-life'
   const isRestaurantWholeLife = occ.slug === 'restaurant' && ins.slug === 'whole-life'
   const isHairdresserWholeLife = occ.slug === 'hairdresser' && ins.slug === 'whole-life'
+  const isAccountantWholeLife = occ.slug === 'accountant' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -45331,6 +45332,269 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '腱鞘炎・手荒れ等の職業病による早期離職リスクを見据えた保障設計を行った',
       '国民年金法第37条（遺族基礎年金の支給要件）を理解した',
       '終身保険の保険金で店舗借入金を完済できる水準か確認した',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isAccountantWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">公認会計士・税理士の終身保険——パートナー持分買取資金の確保と退職金代替を同時解決する設計法</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    公認会計士・税理士の終身保険設計には、大手比較サイトが一切触れない「パートナー制事務所における持分買取資金（バイアウト資金）確保の数式証明」があります。
+    公認会計士・税理士は、監査期や確定申告期における極端な過重労働が常態化しており、
+    専門・技術サービス業における精神障害や脳・心臓疾患の労災請求件数は高止まりしています。
+    監査法人に勤務している間は高水準の給与と退職金が見込めますが、独立開業した場合は小規模企業共済等を用いた自助努力による退職金形成が必須となります。
+    また、共同経営（パートナー制）の会計事務所においてパートナーが急死した場合、
+    遺族への持分払戻し（出資買取）のための多額の現金が必要となり、
+    法人契約または個人契約の終身保険による「事業承継・持分買取資金の確保」が決定的に重要となります。
+    死亡したパートナーの遺族に支払うべき持分買取資金Cash_buyoutは、
+    死亡したパートナーの出資比率Share_deceasedと会計事務所の企業価値・純資産評価額Valuation_firmの積として、
+    Cash_buyout=Share_deceased×Valuation_firm≤DB_partnerという数式で表され、
+    残されたパートナーまたは法人が受け取る終身保険金DB_partnerでこの金額をカバーする設計が求められます。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 共同経営パートナーの急死——持分買取資金がなければ優良事務所も連鎖倒産する</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・監査期・確定申告期の過重労働により精神障害・脳心臓疾患の労災請求件数が高止まりしている</li>
+        <li>・パートナーが急死すると、民法上の組合契約に基づき遺族から持分の払戻しを要求される</li>
+        <li>・高収益な事務所ほど持分評価額が高騰し、買取資金の準備がなければ事務所解散の危機に陥る</li>
+        <li>・銀行融資も経営者の急死を理由に難航しやすく、現金の即時確保が極めて重要となる</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Cash_buyout=Share_deceased×Valuation_firm≤DB_partner——終身保険が事務所を守る</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・Share_deceased（死亡パートナーの出資比率）とValuation_firm（事務所評価額）の積が買取資金</li>
+        <li>・DB_partner（残されたパートナーが受け取る終身保険金）でこの金額を上回る設計が最適解</li>
+        <li>・相手方を被保険者とする終身保険にパートナー間で相互に加入する形が一般的</li>
+        <li>・生命保険という「死亡をトリガーに即座に多額のキャッシュを生み出す」機能が解散を防ぐ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    会計士・税理士のケース別・パートナー持分買取資金シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：持分買取資金の準備なし
+      </div>
+      <p className="text-sm text-gray-600 mb-4">共同経営の税理士（持分50%・評価額5,000万円）が急死</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">遺族への払戻請求</div>
+          <div className="font-bold text-gray-900">遺族から5,000万円の現金払戻しを要求される</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">事務所の資金繰り</div>
+          <div className="font-bold text-gray-900">現金がなく、銀行融資も急死を理由に難航。解散の危機</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">独立時の退職金形成</div>
+          <div className="font-bold text-gray-900">現金預金のみ（税引後利益からの蓄積で非効率）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-gray-900">キーマンの死が優良事務所を連鎖倒産に導く</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">持分買取資金の不在が事務所解散を招く</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：パートナー間で相互に終身保険加入
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。相手方を名義人とする終身保険5,000万円に加入</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">遺族への払戻請求</div>
+          <div className="font-bold text-red-700">遺族から5,000万円の現金払戻しを要求される（同様）</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">事務所の資金繰り</div>
+          <div className="font-bold text-red-700">保険金5,000万円が即座におり、自己資金ゼロで買取完了</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">独立時の退職金形成</div>
+          <div className="font-bold text-red-700">支払保険料の一定割合を損金算入しつつ簿外資産を形成</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-red-700">完璧な事業承継と遺族への責任を全う可能</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険が事務所の存続と遺族の生活を両方守る</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：<a href="https://ykc-g.com/2265/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">精神障害の労災補償状況（専門サービス業等）</a>　中小企業基盤整備機構・<a href="https://skyosai.smrj.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">小規模企業共済</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">会計士・税理士特有の3大リスク——政府統計で見るCash_buyout設計の根拠</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">📊</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 専門・技術サービス業の精神障害労災補償状況とCash_buyout数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          監査期や確定申告期における極端な過重労働が常態化しており、
+          専門・技術サービス業における精神障害の労災請求件数は高止まりしている。
+          パートナー制事務所における持分買取資金Cash_buyoutは、死亡パートナーの出資比率Share_deceasedと
+          事務所の企業価値Valuation_firmの積として算出され、
+          終身保険金DB_partnerでこの金額をカバーする設計が求められる。
+        </p>
+        <a href="https://ykc-g.com/2265/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：精神障害の労災補償状況（専門サービス業等）</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⚖</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 税理士業界における精神障害労災申請の過去最多更新</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          税理士法人の資料によれば、精神障害の労災申請は過去最多を記録している。
+          確定申告期の極端な業務集中が、独立開業した税理士・会計士の健康リスクを高めている実態が裏付けられている。
+          こうした業界特有の健康リスクを踏まえた上で、余裕のある保障額設計が求められる。
+        </p>
+        <a href="https://www.kubokaikei.com/wp-content/uploads/2023/07/zatsugaku_vol_596.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：税理士業界における精神障害労災申請統計</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">🏦</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 小規模企業共済制度による退職金形成との関係</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          中小企業基盤整備機構の小規模企業共済制度は、独立開業した会計士・税理士の退職金代替として活用される。
+          しかし、小規模企業共済の積立だけではパートナー死亡時の持分買取資金需要には対応できず、
+          終身保険による即時のキャッシュ確保機能との組み合わせが不可欠である。
+        </p>
+        <a href="https://skyosai.smrj.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：中小企業基盤整備機構 小規模企業共済</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">公認会計士・税理士の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'Cash_buyout数式で持分買取資金を事前に計算する（最重要・パートナー制事務所の場合）',
+        body: '自身の出資比率と事務所の評価額から、死亡時に必要となる持分買取資金を算出し、終身保険の保障額を設計する。事務所の評価額は毎年変動するため、定期的に見直しを行うことが必要。'
+      },
+      {
+        num: '02',
+        title: 'パートナー間で相互に終身保険へ加入する仕組みを構築する',
+        body: '相手方を被保険者とする終身保険にパートナー間で相互加入することで、死亡時の資金不足を防ぐ。加入形態（法人契約・個人契約）と受取人の設定を事前に取り決めておくことが重要。'
+      },
+      {
+        num: '03',
+        title: '小規模企業共済と終身保険を組み合わせ、退職金形成を効率化する',
+        body: '小規模企業共済の積立に加え、終身保険の貯蓄性と死亡保障を組み合わせた設計を行う。共済の手続き期間と終身保険の即時払いの違いを理解し、それぞれの役割を明確にする。'
+      },
+      {
+        num: '04',
+        title: '確定申告期・監査期の過重労働による健康リスクを保障設計に反映させる',
+        body: '業界特有の過重労働実態を踏まえ、終身保険の保障額を余裕を持って設定する。精神障害・脳心臓疾患のリスクが高いことを認識し、早めの加入と十分な保障額の確保が重要。'
+      },
+      {
+        num: '05',
+        title: '法人契約・個人契約のどちらが税務上有利か顧問税理士等に確認する',
+        body: '支払保険料の損金算入の扱いなど、契約形態による税務上の違いを事前に確認する。自らが税理士であっても、自身の保険設計については客観的な第三者の意見を求めることが望ましい。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">HH氏（共同経営税理士事務所・パートナー2名）：急死で持分買取資金が準備されておらず事務所が解散危機</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        一方のパートナーが過労により急死した。民法上の組合契約に基づき、
+        死亡したパートナーの遺族から持分（評価額5,000万円）の払戻しを要求された。
+        事務所に現金がなく、銀行融資も経営者の急死を理由に難航し、解散の危機に陥った。
+        パートナー制事務所では、相互に終身保険へ加入し、死亡時に即座に持分買取資金を確保できる体制を構築しておくべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">II氏（独立開業税理士）：小規模企業共済だけで十分と判断し、即時資金確保を怠る</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        小規模企業共済に加入していたII氏。それで老後資金は十分だと考え終身保険には未加入だった。
+        しかしパートナーの死亡時、共済金の受け取りには一定の手続き期間が必要であり、
+        即時に必要な持分買取資金には対応できなかった。
+        小規模企業共済は退職金代替として有効だが、死亡直後の即時資金需要には終身保険による現金確保が不可欠だった。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">JJ氏（独立開業会計士）：確定申告期の過重労働リスクを過小評価し、保障額が事業規模に不十分だった</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        確定申告期の業務集中による健康リスクを軽視していたJJ氏。
+        過労により健康を損ない業務継続が困難になった際、
+        終身保険の保障額が事務所の事業規模に対して不十分であることが判明した。
+        業界特有の過重労働実態を正しく認識し、余裕を持った保障額を設定すべきだった。
+        確定申告期・監査期を前提に、定期的な保障額の見直しを習慣化することが重要。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'Cash_buyout=Share_deceased×Valuation_firmを計算し持分買取資金を把握した',
+      'パートナー間で相互に終身保険へ加入する仕組みを構築した（パートナー制の場合）',
+      '小規模企業共済と終身保険を組み合わせた退職金形成計画を立てた',
+      '確定申告期・監査期の過重労働による健康リスクを保障設計に反映させた',
+      '法人契約・個人契約のどちらが税務上有利か確認した',
+      '事務所の企業価値・純資産評価額を定期的に見直した',
+      '終身保険金が出資比率に応じた買取資金をカバーできるか確認した',
+      '独立開業時の退職金制度の不存在を前提とした資金計画を立てた',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
