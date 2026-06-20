@@ -478,8 +478,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isTeacherWholeLife = occ.slug === 'teacher' && ins.slug === 'whole-life'
   const isCivilServantWholeLife = occ.slug === 'civil-servant' && ins.slug === 'whole-life'
   const isSalesWholeLife = occ.slug === 'sales' && ins.slug === 'whole-life'
+  const isDriverWholeLife = occ.slug === 'driver' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -44341,6 +44342,222 @@ export default async function OccupationInsurancePage({ params }: Props) {
   </section>
 
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isDriverWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">トラック運転手・ドライバーに終身保険が必要な理由</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    運送・物流業は労働災害発生率が全産業平均の約2.5倍。しかし「業務外」と判定された場合、労災は一切下りません。
+    高血圧・循環器系疾患の有病率が高いドライバーが「勤務中の心筋梗塞」で労災不認定になったケースは後を絶たず、
+    遺族が受け取れる保険金はゼロ、という悲劇が現実に起きています。
+    終身保険は労災認定の可否に関わらず確実に保険金を支払う「労災リスクのセーフティネット」として機能します。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">⚠ 労災不認定リスク</p>
+      <p className="text-red-700 text-sm leading-relaxed">
+        運送業の脳・心臓疾患労災申請のうち「業務外」認定件数は毎年上位。深夜・長距離運行中の突然死でも
+        「過労との因果関係が証明できない」として労災不認定になるケースがあります。
+        認定されなければ遺族補償給付はゼロです。
+      </p>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">📊 Gap_non_work の計算式</p>
+      <p className="text-amber-700 text-sm leading-relaxed">
+        <span className="font-mono">Gap_non_work = S_required − (P_kousei + R_severance)</span><br />
+        S_required: 遺族の必要生活費総額<br />
+        P_kousei: 遺族厚生年金（受給できた場合）<br />
+        R_severance: 退職金・会社弔慰金<br />
+        ドライバー平均では Gap_non_work は 1,500〜2,500万円 に達します。
+      </p>
+    </div>
+  </div>
+  <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+    <p className="text-sm text-gray-600 leading-relaxed">
+      <span className="font-bold text-gray-800">データ出典：</span>
+      厚生労働省「脳・心臓疾患の労災補償状況」(mhlw.go.jp/stf/newpage_33879.html) によれば、
+      運輸業・郵便業は脳・心臓疾患の労災支給決定件数において全産業中トップクラス（28.9%）を占めます。
+    </p>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">ケース別シミュレーション：保険の有無で手取りがどう変わるか</h2>
+  <div className="grid md:grid-cols-2 gap-6">
+    <div className="border-2 border-red-300 rounded-xl p-6 bg-red-50">
+      <p className="font-bold text-red-800 text-lg mb-3">ケースA：労災不認定・保険なし</p>
+      <ul className="space-y-2 text-sm text-red-700">
+        <li>・遺族厚生年金：月額約9万円（受給要件を満たせば）</li>
+        <li>・会社弔慰金：50〜100万円（会社規定による）</li>
+        <li>・退職金：200〜400万円（勤続年数次第）</li>
+        <li className="font-bold">→ 受取総額：300〜600万円</li>
+        <li className="text-red-900 font-bold">→ 必要額との Gap：▲1,500〜2,000万円</li>
+      </ul>
+      <p className="mt-3 text-xs text-red-600">子ども2人・住宅ローン残高1,500万円の場合</p>
+    </div>
+    <div className="border-2 border-green-300 rounded-xl p-6 bg-green-50">
+      <p className="font-bold text-green-800 text-lg mb-3">ケースB：終身保険2,000万円あり</p>
+      <ul className="space-y-2 text-sm text-green-700">
+        <li>・遺族厚生年金：月額約9万円</li>
+        <li>・会社弔慰金：50〜100万円</li>
+        <li>・退職金：200〜400万円</li>
+        <li>・終身保険金：2,000万円</li>
+        <li className="font-bold">→ 受取総額：2,300〜2,600万円</li>
+        <li className="text-green-900 font-bold">→ Gap ほぼ解消・家族の生活基盤を維持</li>
+      </ul>
+      <p className="mt-3 text-xs text-green-600">労災認定の有無に関わらず保険金は支払われる</p>
+    </div>
+  </div>
+  <p className="text-sm text-gray-600 mt-4 leading-relaxed">
+    出典：国土交通省「自動車運送事業の労働時間・労働条件について」(mlit.go.jp/jidosha/content/001911404.pdf)、
+    厚生労働省「令和5年 労働災害発生状況」(mhlw.go.jp/content/001309208.pdf)
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">ドライバー特有の3大リスク</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">🚛</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 脳・心臓疾患リスク：全産業中28.9%</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          厚生労働省データによると、運輸業・郵便業は脳・心臓疾患の労災支給決定件数で全産業トップクラス。
+          長時間・深夜運転、不規則な食事・睡眠が循環器疾患リスクを押し上げます。
+        </p>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⚖</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 労災不認定リスク：「業務外」判定の壁</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          休憩時間中・車中仮眠中の発症は「業務起因性なし」と判定されるケースがあります。
+          申請件数に対する支給決定率は全産業平均より低く、不認定リスクは高いといえます。
+        </p>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">💰</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 退職金・弔慰金の少なさ：中小零細企業が多い業態</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          運送会社の多くは従業員50人未満の中小企業。退職金制度がない・あっても少額というケースが多く、
+          遺族が受け取る一時金が極めて限定的になりがちです。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">ドライバーが終身保険を選ぶ際の5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: '死亡保障額は「労災不認定」前提で計算する',
+        body: '遺族厚生年金と会社弔慰金だけでは不足する金額（Gap_non_work）を終身保険でカバーする。住宅ローン残高＋教育費＋生活費10年分を目安に。'
+      },
+      {
+        num: '02',
+        title: '告知は正確に・持病・既往症は必ず申告する',
+        body: '高血圧・糖尿病など持病がある場合、通常の終身保険では引受謝絶になることも。引受基準緩和型・無選択型の検討も視野に入れる。'
+      },
+      {
+        num: '03',
+        title: '払込期間は「定年前完済」を基本にする',
+        body: '65歳払済にすれば定年後の保険料負担をゼロにでき、貯蓄性も高まる。長距離ドライバーは早めに加入し払込を終わらせる戦略が有効。'
+      },
+      {
+        num: '04',
+        title: '解約返戻金の活用プランを考えておく',
+        body: '終身保険は長期保有で解約返戻金が増加する。老後資金・子どもの教育資金として柔軟に活用できるため、ライフプラン全体で考える。'
+      },
+      {
+        num: '05',
+        title: '団体生命保険（会社の保険）との重複を確認する',
+        body: '運送会社によっては労働組合や事業主が加入する団体生命保険がある。その保障内容を確認し不足分のみ個人で補う設計が合理的。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">V氏（48歳・長距離トラック運転手）：労災不認定で保険金ゼロ</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        休憩中の車内で心筋梗塞を発症し死亡。「業務起因性が認められない」として労災不認定。
+        生命保険に未加入だったため遺族は弔慰金100万円のみ。住宅ローン残高2,000万円が残り、
+        妻がパートと実家の支援でなんとか生活している状況。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">W氏（52歳・配送ドライバー）：持病を告知せず契約が無効に</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        高血圧を申告せずに終身保険に加入。死亡後に会社の健康診断記録から発覚し、
+        告知義務違反として契約解除・保険金不払い。遺族は「加入していた」という安心感があっただけに衝撃が大きかった。
+        持病は必ず正確に告知し、引受基準緩和型を選ぶべきだった。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">X氏（44歳・運送会社勤務）：団体保険だけで個人保険なし</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        会社の団体生命保険（死亡保障500万円）があるからと個人保険に未加入。
+        退職・転職時に団体保険が失効し、その後個人で加入しようとしたが年齢と健康状態から保険料が高額になり断念。
+        会社の保険はあくまで「補完」であり、個人保険でのベース保障が必要。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      '遺族必要額（Gap_non_work）を住宅ローン・教育費・生活費で試算した',
+      '会社の労災・弔慰金・退職金の概算額を確認した',
+      '持病・既往症（高血圧・糖尿病など）を正確に把握し告知準備ができている',
+      '引受基準緩和型・無選択型など選択肢を調べた',
+      '払込期間（65歳払済など）を検討し月額保険料を試算した',
+      '会社の団体生命保険の内容を確認し重複・不足を整理した',
+      '解約返戻金の推移シミュレーションを見て老後資金計画と照合した',
+      '複数社（少なくとも3社以上）の見積もりを取り比較検討した',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
 
 </div>
 )}
