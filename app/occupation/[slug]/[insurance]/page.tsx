@@ -488,8 +488,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDesignerWholeLife = occ.slug === 'designer' && ins.slug === 'whole-life'
   const isManagerWholeLife = occ.slug === 'manager' && ins.slug === 'whole-life'
   const isManufacturingWholeLife = occ.slug === 'manufacturing' && ins.slug === 'whole-life'
+  const isPharmacistWholeLife = occ.slug === 'pharmacist' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -46940,6 +46941,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
 
 <AffiliateCTA primary="miraitecho" secondary="minnano" />
 
+</div>
+)}
+
+{isPharmacistWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">薬剤師×終身保険｜調剤薬局のM&amp;Aブリッジ資金をCash_bridge数式で設計する</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      薬剤師の終身保険設計には、大手比較サイトが一切触れない「調剤薬局の事業承継・M&amp;Aブリッジ資金確保の数式証明」があります。薬剤師は、病院勤務、ドラッグストア、調剤薬局などで多様な働き方を持ちますが、常に正確性を求められる調剤業務のプレッシャーや、恒常的な人材不足による過重労働が問題となっています。特に、独立して調剤薬局を経営する「開業薬剤師」の場合、従業員の給与や医薬品の仕入れ代金、店舗のリース料など多額の運転資金を抱えています。経営者が急死した際、調剤薬局の承継やM&amp;Aには時間がかかり、その間の運転資金がショートすれば倒産を免れません。調剤薬局のM&amp;A・事業承継完了までの期間を生き延びるためのブリッジ資金確保額Cash_bridgeは、高額な処方箋医薬品の月間仕入代金Cost_inventory、従業員給与Payroll、店舗賃料Rentの合計に、経営者死亡から事業譲渡が完了するまでの想定月数M_transition（約6〜12ヶ月）を乗じた額が、終身保険の死亡保険金DB_owner以下であることを示す、Cash_bridge=(Cost_inventory+Payroll+Rent)×M_transition≤DB_ownerという数式で表されます。終身保険は、調剤薬局の事業承継期間のつなぎ資金（ブリッジローン代替）および、経営者の退職金として機能します。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 開業薬剤師が急死すると、M&amp;A完了までの数ヶ月で資金繰りがショートし倒産するリスク</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>調剤業務のプレッシャーと人材不足による過重労働が常態化している</li>
+        <li>後継者（薬剤師免許を持つ親族）がいない場合、第三者へのM&amp;Aには数ヶ月を要する</li>
+        <li>この間、医薬品卸への支払いが滞れば信用不安から営業停止に至るリスクがある</li>
+        <li>小規模企業共済等の積立だけでは、事業承継期間の運転資金には不十分なケースが多い</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Cash_bridge=(Cost_inventory+Payroll+Rent)×M_transition≤DB_owner——終身保険でM&amp;Aを成功させる</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>Cost_inventory（医薬品仕入代金）・Payroll（従業員給与）・Rent（店舗賃料）の月間合計を算出する</li>
+        <li>M_transition（事業譲渡完了までの想定月数、約6〜12ヶ月）を乗じてブリッジ資金を計算する</li>
+        <li>DB_owner（終身保険の死亡保険金）がこの金額を上回るように保障額を設計するのが最適解</li>
+        <li>保険金が即座に着金することで、優良企業への高値M&amp;Aを実現する時間的猶予が生まれる</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      開業薬剤師のケース別・事業承継ブリッジ資金シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：事業保障の保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">調剤薬局オーナー（薬剤師）急死。後継者なし</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">死亡直後の資金繰り</div>
+            <div className="font-bold text-gray-900">医薬品卸への支払いが滞り、信用不安から営業停止</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">M&amp;A（事業譲渡）</div>
+            <div className="font-bold text-gray-900">資金ショートにより倒産、営業権の価値はゼロに</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">遺族への資産残存</div>
+            <div className="font-bold text-gray-900">負債のみが残り、相続放棄</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">キーマンの死で高収益事業が瞬時に崩壊</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">資金繰りの破綻が優良事業の価値をゼロにする</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：法人・個人契約の終身保険3,000万円
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左。法人で全期払いの終身保険等に加入済み</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">死亡直後の資金繰り</div>
+            <div className="font-bold text-red-700">保険金3,000万円が着金し、仕入代金と従業員給与を維持</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">M&amp;A（事業譲渡）</div>
+            <div className="font-bold text-red-700">半年かけて優良企業へ高値でM&amp;Aを実行し、数千万の利益</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">遺族への資産残存</div>
+            <div className="font-bold text-red-700">売却益＋保険金の残余が遺族に渡り、生活は安泰</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">保険のキャッシュが時間を買い、事業価値を極大化</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">終身保険が事業の高値売却と遺族の安心を両立させる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://joshrc.net/archives/16817" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">医療・福祉分野の労災補償状況</a>　中小企業基盤整備機構・<a href="https://skyosai.smrj.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">小規模企業共済</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      薬剤師特有のリスクデータ：政府統計3件から読み解く終身保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：医療・福祉分野の労災補償状況とCash_bridge数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          調剤業務のプレッシャーや恒常的な人材不足による過重労働が、薬剤師の労災補償状況からも裏付けられている。調剤薬局のM&amp;A・事業承継完了までのブリッジ資金Cash_bridgeは、医薬品仕入代金・従業員給与・店舗賃料の月間合計に、事業譲渡完了までの想定月数を乗じた額として算出され、終身保険の死亡保険金でこの金額をカバーする設計が求められる。
+        </p>
+        <a href="https://joshrc.net/archives/16817" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：医療・福祉分野の労災補償状況（joshrc.net）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：小規模企業共済制度の活用実態と限界</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          中小企業基盤整備機構の小規模企業共済制度は、開業薬剤師の退職金代替として活用されている。しかし、共済金の受け取りには一定の手続き期間が必要であり、経営者死亡直後の即時資金需要（医薬品卸への支払い等）には対応できない。終身保険による即時のキャッシュ確保機能との組み合わせが不可欠である。
+        </p>
+        <a href="https://skyosai.smrj.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：小規模企業共済制度（中小企業基盤整備機構）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：相続税法基本通達第12条が示す事業承継時の非課税枠活用</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          国税庁の相続税法基本通達第12条は、生命保険金の非課税枠の取り扱いを定めている。調剤薬局オーナーの事業承継時には、非課税枠を活用した終身保険の保険金が、相続税負担の軽減と事業継続資金の確保を同時に実現する。
+        </p>
+        <a href="https://www.nta.go.jp/law/tsutatsu/kihon/sisan/sozoku2/01/03.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：相続税法基本通達第12条（国税庁）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      薬剤師（開業薬剤師）の終身保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Cash_bridge数式で事業承継期間のブリッジ資金を事前に計算する（最重要）</p>
+          <p className="text-sm text-gray-600">医薬品仕入代金・従業員給与・店舗賃料の月間合計と想定承継期間から、必要な終身保険の保障額を算出する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">後継者の有無を確認し、M&amp;A前提の保障設計を行う</p>
+          <p className="text-sm text-gray-600">後継者がいない場合、第三者へのM&amp;Aに数ヶ月かかることを前提に、保障額に余裕を持たせる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">法人契約と個人契約のどちらが税務上有利か顧問税理士に確認する</p>
+          <p className="text-sm text-gray-600">支払保険料の損金算入の扱い等、契約形態による違いを事前に確認する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">小規模企業共済と終身保険を組み合わせ、即時資金と退職金形成の両方をカバーする</p>
+          <p className="text-sm text-gray-600">共済の手続き期間の長さを終身保険の即時性で補う設計を行う。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">医薬品仕入代金等の運転資金規模を定期的に見直す</p>
+          <p className="text-sm text-gray-600">事業規模の変化に応じて、必要なブリッジ資金額・保障額を定期的に再計算する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：薬剤師が終身保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「後継者がいない調剤薬局オーナーが急死し、医薬品卸への支払いが滞り営業停止に至った」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">ZZ氏（調剤薬局オーナー薬剤師）。後継者となる親族に薬剤師免許を持つ者がいなかった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">急死後、第三者へのM&amp;Aには時間がかかったが、その間の運転資金が確保できなかった。医薬品卸への支払いが滞り、信用不安から営業停止に至り、最終的に営業権の価値がゼロになった。</span></p>
+          <p><span className="font-bold text-red-700 font-bold">教訓：</span><span className="text-red-700">後継者がいない場合のM&amp;Aには数ヶ月の時間がかかることを前提に、終身保険でブリッジ資金を確保しておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「小規模企業共済だけで十分と判断し、即時資金確保の手段を準備しなかった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AB氏（調剤薬局オーナー）。小規模企業共済に加入していたため、それで十分だと考えていた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">共済金の受け取りには手続き期間が必要であり、急死直後の医薬品卸への支払い等の即時資金需要には全く対応できなかった。</span></p>
+          <p><span className="font-bold text-red-700 font-bold">教訓：</span><span className="text-red-700">小規模企業共済は退職金代替として有効だが、死亡直後の即時資金需要には終身保険による現金確保が不可欠である。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「運転資金規模の見直しを行わず、事業拡大後の保障額が不足していた」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AC氏（調剤薬局オーナー）。事業拡大により店舗数・従業員数が増加していた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">終身保険の保障額は事業拡大前の規模を前提に設定したままであり、実際の運転資金規模に対して大幅に不足していることが死亡後に判明した。</span></p>
+          <p><span className="font-bold text-red-700 font-bold">教訓：</span><span className="text-red-700">事業規模の変化に応じて、終身保険の保障額を定期的に見直すべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      薬剤師×終身保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          'Cash_bridge=(Cost_inventory+Payroll+Rent)×M_transitionを計算しブリッジ資金を把握した',
+          '後継者の有無を確認し、M&A前提の保障設計を行った',
+          '法人契約・個人契約のどちらが税務上有利か確認した',
+          '小規模企業共済と終身保険を組み合わせた資金計画を立てた',
+          '医薬品仕入代金等の運転資金規模を正確に把握した',
+          '事業譲渡完了までの想定期間（6〜12ヶ月）を見積もった',
+          '相続税法第12条（生命保険金の非課税枠）を活用した設計を行った',
+          '事業規模の変化に応じて保障額を見直す計画を立てた',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
 </div>
 )}
 
