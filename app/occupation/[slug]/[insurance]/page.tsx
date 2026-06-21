@@ -489,8 +489,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManagerWholeLife = occ.slug === 'manager' && ins.slug === 'whole-life'
   const isManufacturingWholeLife = occ.slug === 'manufacturing' && ins.slug === 'whole-life'
   const isPharmacistWholeLife = occ.slug === 'pharmacist' && ins.slug === 'whole-life'
+  const isRealEstateWholeLife = occ.slug === 'real-estate' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -47165,6 +47166,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '事業譲渡完了までの想定期間（6〜12ヶ月）を見積もった',
           '相続税法第12条（生命保険金の非課税枠）を活用した設計を行った',
           '事業規模の変化に応じて保障額を見直す計画を立てた',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isRealEstateWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">不動産業×終身保険｜成約サイクルの資金の谷をCF_valley数式で埋める設計術</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      不動産業の終身保険設計には、大手比較サイトが一切触れない「成約までの資金繰りの谷を終身保険の流動性で埋める数式証明」があります。不動産業界（営業職・宅建士等）は、成果主義（歩合給）の色彩が非常に強く、好況時と不況時の収入格差が激しい業界です。また、独立して不動産仲介業を開業するハードルが比較的低いため、多くの営業マンが個人事業主や小規模法人の代表として独立しますが、その瞬間に企業の退職金制度や厚生年金から外れ、保障の空白地帯に突入します。不動産の取引は成約までのリードタイムが長く、収入が途絶える「谷」の期間をどう乗り切るかが死活問題となります。終身保険の契約者貸付機能は、この「谷」を埋める最強の運転資金調達ツールとなります。不動産仲介業の成約サイクルと資金繰りのギャップを埋める最適化モデルでは、成約（入金）までの期間に発生する資金の谷CF_valleyは、案件発生から成約・仲介手数料入金までの期間T_closeにわたる固定費の積分として表され、これが手元の現金準備Cash_reserveと終身保険の契約者貸付枠Loan_policyの合計以下であることを示す、CF_valley=∫[0,T_close]Fixed_Costs dt≤Cash_reserve+Loan_policyという数式で表されます。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 独立開業の瞬間に保障の空白地帯へ突入——成約までの「谷」が黒字倒産を招くリスク</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>不動産の取引は成約までのリードタイムが長く、収入が途絶える期間が数ヶ月続くことがある</li>
+        <li>独立開業すると企業の退職金制度・厚生年金から外れ、国民年金のみの加入となる</li>
+        <li>銀行融資の審査に時間がかかり、事務所家賃や広告費が払えずに黒字倒産する事例がある</li>
+        <li>案件成約直前の資金ショートにより、本来得られるはずだった仲介手数料が幻になることがある</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ CF_valley=∫[0,T_close]Fixed_Costs dt≤Cash_reserve+Loan_policy——終身保険が谷を埋める</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>T_close（案件発生から成約・入金までの期間）が長いほど資金の谷が深くなる</li>
+        <li>Cash_reserve（手元現金）だけでは不足する場合、Loan_policy（契約者貸付枠）が補完する</li>
+        <li>終身保険なら電話一本・無審査で翌日には解約返戻金の一定割合を低金利で引き出せる</li>
+        <li>案件成約後の仲介手数料で即座に返済すれば、実質的なダメージは皆無となる</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      不動産仲介業者のケース別・成約サイクルと資金繰りの谷シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：保険なし・手元現金のみで勝負
+        </div>
+        <p className="text-sm text-gray-600 mb-4">独立系不動産仲介。大型案件成約まであと3ヶ月</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">資金ショート危機</div>
+            <div className="font-bold text-gray-900">広告費月50万円が払えず、集客がストップし倒産</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">案件成約後</div>
+            <div className="font-bold text-gray-900">倒産しているため仲介手数料1,000万円は幻に</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">老後・退職時</div>
+            <div className="font-bold text-gray-900">国民年金のみで老後不安</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">キャッシュフローの谷底で事業が頓挫する</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">資金の谷が大型案件の成約を無駄にする</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：終身保険のキャッシュバリューを保持
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左。サラリーマン時代から終身保険に積立（返戻金500万）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">資金ショート危機</div>
+            <div className="font-bold text-red-700">契約者貸付で200万円を調達し、広告費と家賃を完済</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">案件成約後</div>
+            <div className="font-bold text-red-700">手数料1,000万円受領。貸付金200万＋利息を返済し大黒字</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">老後・退職時</div>
+            <div className="font-bold text-red-700">解約返戻金500万＋αを非課税枠等を利用し退職金化</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">保険の流動性が高ボラティリティ事業を支える</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">終身保険が資金の谷を埋め大型成約を実らせる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法</a>　厚生労働省・<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/25/dl/gaikyou.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">産業別の労働時間</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      不動産業特有のリスクデータ：政府統計3件から読み解く終身保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：国民年金法における独立開業者の年金実態とCF_valley数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          独立開業した不動産業者は国民年金のみの加入となり、企業の厚生年金から外れる。不動産仲介業の成約サイクルと資金繰りのギャップCF_valleyは、案件発生から成約までの期間にわたる固定費の積分として算出され、これを手元現金と終身保険の契約者貸付枠の合計でカバーする設計が求められる。
+        </p>
+        <a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：国民年金法における独立開業者の年金実態</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：産業別の労働時間データが示す歩合給依存の実態</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          就労条件総合調査の産業別労働時間データからは、不動産業の歩合給依存度の高さと労働時間の実態が見える。好況時と不況時の収入格差が激しい業界特性が、資金繰りの谷を生み出す根本的な要因となっている。
+        </p>
+        <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/25/dl/gaikyou.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：就労条件総合調査（厚生労働省）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：フリーランス実態調査が示す独立系不動産仲介業者の社会保障実態</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          内閣官房によるフリーランス実態調査では、独立系不動産仲介業者の社会保障加入実態が裏付けられている。独立のハードルが比較的低い業界であるがゆえに、保障の空白地帯に突入するリスクへの認識が不足しがちである。
+        </p>
+        <a href="https://www.cao.go.jp/zei-cho/content/3noukan5kai3.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：フリーランス実態調査（内閣官房）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      不動産業の終身保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">CF_valley数式で成約までの資金の谷を事前に計算する（最重要）</p>
+          <p className="text-sm text-gray-600">過去の成約サイクルの期間と固定費から、資金の谷の深さを把握し、終身保険の契約者貸付枠でどの程度カバーすべきかを設計する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">会社員時代から早期に終身保険へ加入し、独立前に解約返戻金を積み上げておく</p>
+          <p className="text-sm text-gray-600">独立後に新規加入するより、会社員時代から継続している方が、独立直後から十分な流動性を確保できる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">契約者貸付の審査の有無・着金スピードを事前に確認する</p>
+          <p className="text-sm text-gray-600">資金ショート時に即座に資金調達できるよう、加入時に契約者貸付の条件を確認しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">独立開業時の保障の空白（厚生年金から国民年金への変化）を理解する</p>
+          <p className="text-sm text-gray-600">独立の瞬間に保障が大きく変わることを前提に、終身保険による自助努力の備えを進める。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">65歳時の解約返戻金を退職金代替として非課税枠を活用しながら受け取る計画を立てる</p>
+          <p className="text-sm text-gray-600">解約返戻金の受け取り方法（一括・年金形式等）を検討し、税制上有利な受け取り方を選択する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：不動産業者が終身保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「大型案件成約直前に資金繰りが悪化し、広告費が払えず黒字倒産した」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AD氏（独立系不動産仲介業者）。大型案件の成約まであと3ヶ月という状況だった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">広告費（月50万円）が払えず集客がストップし、結果的に倒産に至った。倒産後に案件が成約していたため、本来得られるはずだった仲介手数料1,000万円が幻になった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">成約までの資金の谷を事前に見積もり、終身保険の契約者貸付等で乗り切る準備をしておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「独立後に終身保険へ新規加入しようとしたが、十分な解約返戻金がなかった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AE氏（独立直後の不動産仲介業者）。独立を機に終身保険への加入を検討した。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">独立後に新規加入したため、独立直後の資金繰りの谷に対しては十分な解約返戻金が積み上がっておらず、契約者貸付による資金調達ができなかった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">会社員時代から早期に終身保険へ加入し、独立前に十分な解約返戻金を積み上げておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「契約者貸付の着金スピードを確認せず、資金需要に対応できなかった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AF氏（不動産仲介業者）。終身保険には加入していたが、契約者貸付の手続きを詳しく確認していなかった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">急な資金需要が発生した際、契約者貸付の手続きに想定より時間がかかり、結果的に他の高金利の借入に依存することとなった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">契約者貸付の審査の有無・着金スピードを加入時に確認し、緊急時に速やかに利用できる状態にしておくべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      不動産業×終身保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          'CF_valley=∫[0,T_close]Fixed_Costs dtを計算し資金の谷の深さを把握した',
+          '会社員時代から早期に終身保険へ加入した（または加入を検討した）',
+          '契約者貸付の審査の有無・着金スピードを確認した',
+          '独立開業時の保障の空白（厚生年金から国民年金への変化）を理解した',
+          '過去の成約サイクルの期間（T_close）を確認した',
+          '65歳時の解約返戻金を退職金代替として受け取る計画を立てた',
+          '非課税枠を活用した解約返戻金の受け取り方法を検討した',
+          '終身保険の契約者貸付枠が資金の谷をカバーできる規模か確認した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
