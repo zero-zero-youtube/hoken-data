@@ -491,8 +491,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPharmacistWholeLife = occ.slug === 'pharmacist' && ins.slug === 'whole-life'
   const isRealEstateWholeLife = occ.slug === 'real-estate' && ins.slug === 'whole-life'
   const isFinanceWholeLife = occ.slug === 'finance' && ins.slug === 'whole-life'
+  const isPartTimeWholeLife = occ.slug === 'part-time' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -47635,6 +47636,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '自己都合退職時の企業年金・退職金の減額率を確認した',
           '健康保険法第99条の傷病手当金の支給期間（1年6ヶ月）を理解した',
           '株式市場の変動に影響されない資産（終身保険）の比率を確保した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isPartTimeWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">パート・アルバイト×終身保険｜葬儀費用と死後整理資金をS_minimum数式で確保する方法</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      パート・アルバイトの終身保険設計には、大手比較サイトが一切触れない「葬儀費用と死後の整理資金を担保するミニマム保障設計の数式証明」があります。パート・アルバイト等の非正規雇用者は、厚生年金に加入できないケースが多く（いわゆる年収の壁・労働時間要件）、国民年金第1号被保険者となることが多くあります。この場合、死亡時の遺族保障は「遺族基礎年金」のみとなり、退職金制度も皆無です。収入が低く貯蓄余力がないため、万が一の死亡時に「自分の葬儀代すら残せない」「残された子供の学費が払えない」という深刻な事態に直面します。非正規雇用者における、葬儀費用および死後の整理資金を担保するミニマム保障額S_minimumは、葬儀費用Cost_funeralと死後事務費用Cost_debt_clearanceの合計が、月額数千円程度の少額保険料P_micro_premiumを積み立てた総額に等しいことを示す、S_minimum=Cost_funeral+Cost_debt_clearance=ΣP_micro_premium×(1+i)^Tという数式で表されます。少額の保険料（マイクロプレミアム）から始められる終身保険は、非正規雇用者が尊厳ある最期を迎え、家族に最低限の資産を遺すための「最後の命綱」となります。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 国民年金法第37条——遺族基礎年金は子が18歳になった時点で完全に支給が停止する</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>パート・アルバイトは厚生年金に加入できないケースが多く、退職金制度も皆無である</li>
+        <li>貯蓄余力がなく、万が一の死亡時に葬儀代すら捻出できない事態に陥るリスクがある</li>
+        <li>子が18歳以上の場合、遺族基礎年金は対象外となり公的保障がゼロになる</li>
+        <li>シングルマザー等の場合、子が消費者金融で借金して葬儀代を支払う事例が存在する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ S_minimum=Cost_funeral+Cost_debt_clearance=ΣP_micro_premium×(1+i)^T——少額保険料が命綱</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>Cost_funeral（葬儀費用）とCost_debt_clearance（死後の整理資金）の合計が最低限必要な保障額</li>
+        <li>P_micro_premium（月額数千円程度の少額保険料）から無理なく始められる設計が現実的</li>
+        <li>少額でも終身保険に加入していれば、葬儀代と当面の生活費を即座に現金で確保できる</li>
+        <li>解約して数十万円の現金を医療費等に充てることも可能な柔軟性がある</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      パート・アルバイトのケース別・葬儀費用と死後の整理資金シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：日々の生活費のみで保険未加入
+        </div>
+        <p className="text-sm text-gray-600 mb-4">50歳パート（シングルマザー）、大学生の子1人。急死</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">公的遺族年金</div>
+            <div className="font-bold text-gray-900">0円（子が18歳以上のため遺族基礎年金不支給）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">葬儀・死後費用</div>
+            <div className="font-bold text-gray-900">約150万円。子が消費者金融で借金して支払う</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">残された子の生活</div>
+            <div className="font-bold text-gray-900">大学中退、フルタイムフリーターへ転落</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">生存時の老後</div>
+            <div className="font-bold text-gray-900">基礎年金（月6.5万）のみで生活保護の危機</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">親の死が子の将来を完全に破壊する</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：月3,000円の少額終身保険に加入
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左。若年期より少額の終身保険（保障300万）に加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">公的遺族年金</div>
+            <div className="font-bold text-red-700">0円（同様に不支給）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">葬儀・死後費用</div>
+            <div className="font-bold text-red-700">保険金300万円から支払い、借金ゼロ</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">残された子の生活</div>
+            <div className="font-bold text-red-700">残り150万円で当面の学費・家賃を賄い、無事卒業</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">生存時の老後</div>
+            <div className="font-bold text-red-700">解約して数十万円の現金を手術代等に充てることが可能</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">少額の保険料が貧困の連鎖を防ぐ防波堤となる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法（遺族基礎年金）</a>　内閣府・<a href="https://www.esri.cao.go.jp/jp/esri/archive/snaq/snaq166/snaq166_h.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">就業構造基本調査</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      パート・アルバイト特有のリスクデータ：政府統計3件から読み解く終身保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：国民年金法第37条の遺族基礎年金支給終了要件とS_minimum数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          国民年金法に基づく遺族基礎年金は、子が18歳になった時点で完全に支給が停止する。非正規雇用者のミニマム保障額S_minimumは、葬儀費用と死後の整理資金の合計が、月額数千円程度の少額保険料を積み立てた総額に等しくなるよう設計される。少額でも終身保険に加入していれば、葬儀代と当面の生活費を即座に現金で確保できる。
+        </p>
+        <a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：国民年金法（遺族基礎年金の支給要件）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：就業構造基本調査が示す非正規雇用者の社会保険加入実態</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          内閣府の就業構造基本調査では、非正規雇用者の社会保険加入実態・退職金制度の不存在が裏付けられている。パート・アルバイトは厚生年金に加入できないケースが多く、企業退職金もないため、死亡時・老後の両方で保障が極度に薄い構造的な課題を抱えている。
+        </p>
+        <a href="https://www.esri.cao.go.jp/jp/esri/archive/snaq/snaq166/snaq166_h.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：就業構造基本調査（内閣府）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：年金制度基礎資料が示す国民年金第1号被保険者の給付水準</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          厚生労働省の年金制度基礎資料では、国民年金第1号被保険者の年金給付水準が示されている。老齢基礎年金のみでは月額6.5万円程度にとどまり、生活保護の危機に直面するリスクが高い。死亡時の葬儀費用すら確保できない事態を防ぐため、終身保険による少額の備えが重要である。
+        </p>
+        <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/nenkin/nenkin/zaisei01/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：年金制度基礎資料（厚生労働省）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      パート・アルバイトの終身保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">S_minimum数式で葬儀費用・死後整理資金の最低限の保障額を計算する（最重要）</p>
+          <p className="text-sm text-gray-600">葬儀費用（150万円程度）と死後事務費用の合計を把握し、その水準をカバーできる少額終身保険を検討する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">月額数千円程度の少額保険料（マイクロプレミアム）から無理なく始める</p>
+          <p className="text-sm text-gray-600">収入が低い場合でも、無理のない範囲の保険料設定で死亡保障を確保することが現実的な選択肢となる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">子が18歳になった時点で遺族基礎年金が支給停止になることを理解する</p>
+          <p className="text-sm text-gray-600">子の年齢によって公的保障の有無が大きく変わることを前提に、保障設計を行う。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">若年期からの早期加入で、保険料を抑えつつ十分な保障を確保する</p>
+          <p className="text-sm text-gray-600">早期加入により、少額の保険料でも比較的大きな死亡保険金額を確保できる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">生存時の解約返戻金を、医療費等の緊急資金として活用する選択肢も持っておく</p>
+          <p className="text-sm text-gray-600">死亡保障だけでなく、生存時の資金需要にも対応できる終身保険の柔軟性を理解しておく。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：パート・アルバイトが終身保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「子が18歳以上のため遺族基礎年金が不支給。葬儀代を子が借金で支払った」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AJ氏（50歳パート、シングルマザー）。大学生の子供がいた。急死した。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">国民年金法第37条の規定により、子が18歳以上であったため遺族基礎年金は支給されなかった。貯蓄がなく、葬儀代（約150万円）を子が消費者金融で借金して支払うこととなった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">子の年齢によって遺族基礎年金の支給有無が大きく変わることを理解し、少額でも終身保険に加入しておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「保険加入を後回しにし続け、急死時に葬儀代すら準備できていなかった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AK氏（パート従業員）。保険料の負担を惜しみ、保険加入を先延ばしにしていた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">不慮の事故で急死した際、葬儀代を含む死後の整理資金が全く準備されていなかった。残された家族が経済的に大きな負担を負うこととなった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">月額数千円程度の少額保険料でも、早期に加入しておくことで死後の家族の負担を大きく軽減できる。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「老後の生活費が老齢基礎年金のみとなり、医療費の負担に苦しんだ」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AL氏（パート従業員）。終身保険には加入していたが、生存時の活用方法を理解していなかった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">老後、老齢基礎年金（月6.5万円程度）のみで生活していたところ、急な医療費の負担が発生した。終身保険の解約返戻金を活用できることを知らず、資金繰りに苦労した。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">終身保険は死亡保障だけでなく、生存時の解約返戻金を緊急資金として活用できることを理解しておくべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      パート・アルバイト×終身保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          'S_minimum=Cost_funeral+Cost_debt_clearanceを計算し最低限の保障額を把握した',
+          '月額数千円程度の無理のない保険料を設定した',
+          '子が18歳になった時点で遺族基礎年金が支給停止になることを理解した',
+          '若年期からの早期加入を検討した（または既に加入している）',
+          '葬儀費用の概算（150万円程度）を把握した',
+          '老齢基礎年金のみの老後生活水準（月6.5万円程度）を理解した',
+          '生存時の解約返戻金を緊急資金として活用できることを理解した',
+          '残された家族への経済的負担を最小化する保障額を設定した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
