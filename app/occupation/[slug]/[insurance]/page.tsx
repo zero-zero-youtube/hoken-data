@@ -498,8 +498,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isNursePersonalAccident = occ.slug === 'nurse' && ins.slug === 'personal-accident'
   const isTeacherPersonalAccident = occ.slug === 'teacher' && ins.slug === 'personal-accident'
   const isDriverPersonalAccident = occ.slug === 'driver' && ins.slug === 'personal-accident'
+  const isRestaurantPersonalAccident = occ.slug === 'restaurant' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -49230,6 +49231,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '就業不能補償の待機期間（免責日数）と手持ち資金を照合した',
         '後遺障害等級ごとの給付額シミュレーションを確認した',
         '保険料を年払いにして割引が適用されるか確認した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isRestaurantPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">飲食店経営者・調理師の傷害保険｜L_food_poisoning数式で見る食中毒の財務的インパクト</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      飲食店経営・調理師の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「食中毒発生時の財務的インパクトの数式証明」があります。飲食店業は、労働災害と対顧客賠償リスクの双方が極めて高い業種です。厚生労働省の統計によると、小売業や社会福祉施設に次いで死傷者数が増加しており、「転倒」「切れ・こすれ」、高温の油や熱湯による「火傷」が厨房内で日常的に発生しています。さらに致命的なのが、提供した食品に起因する食中毒（腸管出血性大腸菌O-157やノロウイルス等）の発生です。食中毒が発生した場合、被害者への損害賠償のみならず、保健所による営業停止処分、そして風評被害による客足の減少という複合的なダメージを受け、店舗の存続自体が危ぶまれる事態に直面します。食中毒事故が発生した場合の飲食店側の総損失L_food_poisoningは、被害に遭った顧客の数N_victimと1人あたりの平均医療費・慰謝料の合計の積に、保健所等による営業停止日数D_stopにわたる1日あたりの平均営業利益π_dの合計、そして弁護士費用や原因究明の調査費用C_legalを加えた額として、L_food_poisoning=N_victim×(C_med_avg+C_cons_avg)+Σπ_d[d=1〜D_stop]+C_legalという数式で表されます。食中毒事故は一過性の事故と異なり、N_victimが数十名規模に膨れ上がる特性があり、損害額が指数関数的に増大します。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 製造物責任法（PL法）は無過失責任——食中毒は過失の有無を問わず賠償責任を負う</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• 製造・加工された食品に欠陥（食中毒菌の混入等）があれば、過失の有無を問わず無過失責任を負う</li>
+        <li>• 食中毒事故はN_victim（被害者数）が数十名規模に膨れ上がる特性があり、損害額が指数関数的に増大する</li>
+        <li>• 被害者への賠償のみならず、保健所による営業停止処分・風評被害による複合的なダメージを受ける</li>
+        <li>• 営業停止による逸失利益が、被害者への賠償額を上回るケースも少なくない</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ L_food_poisoning=N_victim×(C_med_avg+C_cons_avg)+Σπ_d+C_legal——保険でこの総損失をゼロに</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• N_victim×(C_med_avg+C_cons_avg)（被害者数×1人あたりの医療費・慰謝料）が賠償の本体</li>
+        <li>• Σπ_d（営業停止日数×1日あたりの営業利益）が見落とされがちな逸失利益の本体</li>
+        <li>• 生産物賠償責任保険（PL保険）と店舗休業保険を組み合わせることで、この総損失をほぼゼロに圧縮できる</li>
+        <li>• C_legal（弁護士費用・調査費用）も保険の特約でカバーできる場合がある</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      飲食店経営者のケース別・集団食中毒の財務的インパクトシミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：生産物賠償・店舗休業保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">生食用カキで46名規模のノロウイルス集団食中毒発生。営業停止＋自主休業10日</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への損害賠償金</div>
+            <div className="font-bold text-gray-900">5,000,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">営業停止による逸失利益</div>
+            <div className="font-bold text-gray-900">10,000,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">従業員の厨房内火傷</div>
+            <div className="font-bold text-gray-900">労災保険適用（休業4日目以降80%支給）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約15,000,000円（倒産の危機）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">集団食中毒が店舗を倒産の危機に追い込む</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：各種賠償保険・休業保険あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。生産物賠償責任保険・店舗休業保険に事前加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への損害賠償金</div>
+            <div className="font-bold text-red-700">0円（生産物賠償責任保険/PL保険でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">営業停止による逸失利益</div>
+            <div className="font-bold text-red-700">0円（店舗休業保険により営業利益を補填）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">従業員の厨房内火傷</div>
+            <div className="font-bold text-red-700">労災80%＋企業用傷害保険で残り20%の差額を補填</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">保険が集団食中毒による倒産危機を完全に回避させる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：国民生活センター・<a href="https://www.kokusen.go.jp/wko/pdf/wko-202304_12.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">PL法に基づく食品事故の賠償事例</a>　<a href="https://elaws.e-gov.go.jp/document?lawid=319AC0000000085" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">製造物責任法</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">飲食店経営者特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：PL法に基づく食品事故の賠償事例とL_food_poisoning数式証明
+          <a href="https://www.kokusen.go.jp/wko/pdf/wko-202304_12.pdf" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（国民生活センター）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          国民生活センターの資料では、O-157等の食品事故における賠償事例が示されている。食中毒事故が発生した場合の総損失L_food_poisoningは、被害者数×1人あたりの医療費・慰謝料に、営業停止日数にわたる営業利益の損失（Σπ_d）、弁護士費用等（C_legal）を加えた額として算出される。被害者数が数十名規模になることで損害額が指数関数的に増大するため、PL保険の上限額設定には十分な余裕が必要である。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：製造物責任法が定める加工食品の無過失責任
+          <a href="https://elaws.e-gov.go.jp/document?lawid=319AC0000000085" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          製造物責任法第3条は、製造または加工された食品（刺身の盛り合わせ、調理済み惣菜など）に欠陥があり消費者の生命・身体を侵害した場合、飲食店側は過失の有無を問わず無過失責任を負うと規定している。つまり、十分な衛生管理を行っていたとしても、結果として食中毒が発生すれば賠償責任を免れない。生産物賠償責任保険（PL保険）への加入は飲食店経営において必須の対策である。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：食品衛生法が定める衛生管理と営業停止処分の根拠
+          <a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000233" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          食品衛生法第6条は、不潔、異物の混入または付着等により人の健康を損なうおそれのある食品の販売等を禁止している。この規定に基づき保健所による営業停止処分が行われ、被害者への賠償と並行して営業停止による逸失利益（Σπ_d）も発生する複合的なダメージとなる。店舗休業保険はこの逸失利益リスクに対応する保険である。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">飲食店経営者の傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'L_food_poisoning数式で食中毒発生時の総損失規模を理解する（最重要）', body: '被害者数が数十名規模になり得ることを前提に、賠償額と営業停止による逸失利益の両方を見積もる。N_victim×(C_med_avg+C_cons_avg)が賠償の本体、Σπ_dが逸失利益の本体であることを認識して保険設計に臨む。' },
+        { title: '生産物賠償責任保険（PL保険）に必ず加入する', body: '製造物責任法は無過失責任であるため、十分な衛生管理を行っていても賠償責任を免れないことを理解し、PL保険で備える。保険金額の上限設定は想定される被害者数と1人あたり賠償額を積算して決定する。' },
+        { title: '店舗休業保険で営業停止期間の逸失利益をカバーする', body: '被害者への賠償額よりも、営業停止による逸失利益が大きくなるケースが多いことを認識し、休業保険を検討する。Σπ_dの試算には月次売上から固定費を除いた営業利益ベースを使用する。' },
+        { title: '厨房内事故（火傷・切創等）の労災保険適用範囲とその限界を理解する', body: '労災の80%でカバーされない残り20%を、企業用傷害保険で補完する設計を行う。厨房内の転倒・切創・火傷は飲食業で最も多い労災であり、企業用傷害保険は従業員のモラルリスク対策としても有効である。' },
+        { title: '弁護士費用・原因究明調査費用への備えも検討する', body: '食中毒事故の原因究明には専門的な調査（菌の培養・同定検査等）が必要となるケースが多く、その費用（C_legal）も保険でカバーできるか確認する。特約として弁護士費用補償が付帯できる保険商品を選ぶと安心である。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BE：集団食中毒で営業停止となり、逸失利益が賠償額を上回る規模に達した</p>
+        <p className="text-red-600 text-sm mb-2">
+          BE氏（飲食店経営者）。提供した生食用カキにより46名規模のノロウイルス集団食中毒が発生した。製造物責任法第3条に基づき被害者への賠償（500万円）に加え、保健所の営業停止命令とその後の自主休業（合計10日間）による逸失利益が1,000万円発生した。生産物賠償責任保険・店舗休業保険に未加入であったため、合計約1,500万円の自己負担となり、倒産の危機に直面した。
+        </p>
+        <p className="text-red-500 text-xs">教訓：食中毒は過失の有無を問わず無過失責任を負うことを理解し、生産物賠償責任保険と店舗休業保険の両方に加入しておくべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BF：十分な衛生管理を行っていたが、無過失責任により賠償を免れなかった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BF氏（飲食店経営者）。食品衛生法に基づく衛生管理を徹底していたつもりだったが、それでも食中毒が発生し、製造物責任法の無過失責任の規定により、過失の有無にかかわらず賠償責任を負うこととなった。「衛生管理をしっかりしていたのに」という主張は法的に通らず、生産物賠償責任保険（PL保険）の加入を怠っていたことで多額の賠償を自己負担することとなった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：十分な衛生管理を行っていても、結果として食中毒が発生すれば賠償責任を免れないことを理解し、保険による備えを怠らないべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BG：厨房内の火傷事故で、労災の80%を超える部分が従業員の自己負担となった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BG氏（飲食店経営者）。従業員が厨房内で高温の油による火傷を負い、長期休業となった。労災保険からは給付基礎日額の80%が支給されたが、残り20%は企業用傷害保険に加入していなかったため従業員の自己負担となり、労使関係に悪影響が及んだ。また、従業員の代替採用・教育コストも発生し、経営者側の負担も想定外に膨らんだ。
+        </p>
+        <p className="text-red-500 text-xs">教訓：労災の給付水準（80%）の限界を理解し、企業用傷害保険で残り20%を補完する体制を整えておくべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      飲食店経営者の傷害保険・個人賠償 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'L_food_poisoning数式で食中毒発生時の総損失規模を理解した',
+        '生産物賠償責任保険（PL保険）に加入した',
+        '店舗休業保険で営業停止期間の逸失利益をカバーする設計を行った',
+        '製造物責任法（無過失責任）の規定を正しく理解した',
+        '厨房内事故の労災保険適用範囲とその限界（80%）を理解した',
+        '企業用傷害保険で労災の残り20%を補完する体制を整えた',
+        '弁護士費用・原因究明調査費用への備えを検討した',
+        '被害者数が数十名規模になる可能性を前提に保険の上限額を設定した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
