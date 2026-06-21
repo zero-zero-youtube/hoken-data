@@ -490,8 +490,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isManufacturingWholeLife = occ.slug === 'manufacturing' && ins.slug === 'whole-life'
   const isPharmacistWholeLife = occ.slug === 'pharmacist' && ins.slug === 'whole-life'
   const isRealEstateWholeLife = occ.slug === 'real-estate' && ins.slug === 'whole-life'
+  const isFinanceWholeLife = occ.slug === 'finance' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -47400,6 +47401,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '65歳時の解約返戻金を退職金代替として受け取る計画を立てた',
           '非課税枠を活用した解約返戻金の受け取り方法を検討した',
           '終身保険の契約者貸付枠が資金の谷をカバーできる規模か確認した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isFinanceWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">金融・保険業×終身保険｜人的資本リスクをPortfolio_risk_adj数式でヘッジする設計術</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      金融・保険業の終身保険設計には、大手比較サイトが一切触れない「人的資本リスクをヘッジするポートフォリオ最適化の数式証明」があります。金融・保険業は、厳格なコンプライアンス、莫大なノルマ、顧客資産を扱う重圧から、全産業の中でも精神的ストレスが極めて高い労働環境にあります。就労条件総合調査によれば、金融業・保険業の週所定労働時間は38時間12分と最も短い部類に入りますが、それは表向きの数字であり、実態としての精神的疲労は計り知れません。退職金制度や企業年金は非常に充実している傾向にありますが、メンタルヘルス不調による中途退職リスクが常在します。金融従事者が自身の人的資本リスクをヘッジするポートフォリオ最適化モデルでは、リスク調整済みポートフォリオPortfolio_risk_adjは、株式Stocksへの配分α、企業の退職金R_corporate（メンタル不調による中途退職で大きく目減りするハイリスク資産）への配分β、終身保険の解約返戻金CV_whole_life（市場暴落や自己都合退職に影響されない無リスク資産）への配分γの加重合計として、Portfolio_risk_adj=α・Stocks+β・R_corporate+γ・CV_whole_lifeという数式で表されます。精神的ストレスが高いほど、この無リスク資産γのウエイトを高めるべきです。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 メンタル不調による中途退職が、相場暴落期に「シーケンス・オブ・リターン・リスク」を直撃する</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>週所定労働時間38時間12分という数字の裏に、計り知れない精神的疲労が隠れている</li>
+        <li>うつ病等で退職に至った場合、企業年金・退職金は自己都合扱いで大幅に減額される</li>
+        <li>手持ちの株式や投資信託がたまたま相場暴落期だった場合、底値での売却を強いられる</li>
+        <li>金融のプロであっても、流動性リスクと暴落の二重苦に陥るリスクから逃れられない</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Portfolio_risk_adj=α・Stocks+β・R_corporate+γ・CV_whole_life——終身保険が無リスク資産になる</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>α・Stocks（株式配分）は相場変動の影響を直接受けるハイリスク・ハイリターン資産</li>
+        <li>β・R_corporate（企業の退職金）はメンタル不調による中途退職で目減りするリスク資産</li>
+        <li>γ・CV_whole_life（終身保険の解約返戻金）は市場暴落・自己都合退職に影響されない無リスク資産</li>
+        <li>精神的ストレスが高い金融従事者ほど、γのウエイトを高める設計が合理的である</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融従事者のケース別・相場暴落とメンタル不調退職のシミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：株式投資と企業退職金のみに依存
+        </div>
+        <p className="text-sm text-gray-600 mb-4">45歳銀行員、うつ病で退職。株式相場は暴落中</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">退職時のキャッシュ</div>
+            <div className="font-bold text-gray-900">自己都合退職で退職金は想定の半分以下</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">投資資産への影響</div>
+            <div className="font-bold text-gray-900">生活費のため、含み損の株式を泣く泣く損切り</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時保障</div>
+            <div className="font-bold text-gray-900">株式の評価額のみ（暴落時は遺族保障も目減り）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">金融のプロが流動性リスクと暴落の二重苦に陥る</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">退職と暴落の同時発生が資産形成を破壊する</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：終身保険をコア資産として保有
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左。低解約返戻金型終身保険の払込が完了し返戻率105%</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">退職時のキャッシュ</div>
+            <div className="font-bold text-red-700">退職金に加え、終身保険の契約者貸付で数百万を即日確保</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">投資資産への影響</div>
+            <div className="font-bold text-red-700">保険から借り入れることで、株式の回復を待つ（ホールド）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">死亡時保障</div>
+            <div className="font-bold text-red-700">相場に関係なく、確定した数千万円の死亡保険金を支給</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">保険の確定利回りがポートフォリオ全体を救済する</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">終身保険が暴落時の底値売りを回避させる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省・<a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/25/dl/gaikyou.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">就労条件総合調査</a>　<a href="https://laws.e-gov.go.jp/law/211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">健康保険法</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融従事者特有のリスクデータ：政府統計3件から読み解く終身保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：金融・保険業の労働時間データとPortfolio_risk_adj数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          就労条件総合調査によれば、金融業・保険業の週所定労働時間は38時間12分と最も短い部類に入るが、それは表向きの数字であり実態としての精神的疲労は計り知れない。人的資本リスクをヘッジするポートフォリオ最適化モデルPortfolio_risk_adjは、株式・企業退職金・終身保険の解約返戻金への配分の加重合計として表され、精神的ストレスが高いほど終身保険（無リスク資産）のウエイトを高めるべきである。
+        </p>
+        <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/25/dl/gaikyou.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：就労条件総合調査（厚生労働省）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：過労死等防止対策白書が示す金融業界の高ストレス労働環境</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          過労死等防止対策白書では、金融業界特有の高ストレス労働環境が分析されている。厳格なコンプライアンス、莫大なノルマ、顧客資産を扱う重圧が、メンタルヘルス不調による中途退職リスクを常在化させている。
+        </p>
+        <a href="https://www.mhlw.go.jp/stf/newpage_65250.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：過労死等防止対策白書（厚生労働省）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：健康保険法第99条の傷病手当金の制度的限界</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          健康保険法第99条に基づく傷病手当金は標準報酬月額の3分の2、最長1年6ヶ月という制度的限界がある。休職期間満了後に退職となった場合、企業年金や退職金は自己都合扱いで激減し、相場暴落期と重なれば資産形成への打撃はさらに大きくなる。
+        </p>
+        <a href="https://laws.e-gov.go.jp/law/211AC0000000070" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：健康保険法第99条（e-Gov法令検索）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融従事者の終身保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Portfolio_risk_adj数式で自身のポートフォリオの無リスク資産比率を計算する（最重要）</p>
+          <p className="text-sm text-gray-600">株式・企業退職金・終身保険への配分比率を見直し、精神的ストレスの高さに応じて終身保険の比率を高める。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">低解約返戻金型終身保険で効率的に確定利回りの資産を形成する</p>
+          <p className="text-sm text-gray-600">早期の払込完了により、返戻率の高い確定利回り資産を効率的に積み上げる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">相場暴落時の「シーケンス・オブ・リターン・リスク」を理解する</p>
+          <p className="text-sm text-gray-600">退職・収入減少のタイミングが相場暴落と重なるリスクを認識し、株式の底値売りを回避する手段を準備する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">契約者貸付制度を、相場暴落時の株式ホールド資金として活用する計画を立てる</p>
+          <p className="text-sm text-gray-600">生活費が必要な際に株式を売却せず、終身保険からの借入で乗り切る選択肢を持っておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">自己都合退職時の企業年金・退職金の減額率を確認する</p>
+          <p className="text-sm text-gray-600">メンタル不調等による中途退職時の減額リスクを事前に把握し、終身保険でその差を補う。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：金融従事者が終身保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「相場暴落期にうつ病で退職し、含み損の株式を泣く泣く損切りした」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AG氏（45歳銀行員）。うつ病により退職した。退職時、株式相場は暴落していた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">健康保険法第99条に基づく傷病手当金の支給期間（1年6ヶ月）が終了し、自己都合退職となったため退職金は想定の半分以下となった。生活費のため、含み損を抱えた株式を底値で売却せざるを得なかった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">傷病手当金の支給期間には限界があることを理解し、終身保険等の市場変動に影響されない資産を準備しておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「企業年金・退職金に全面依存し、無リスク資産の比率がゼロだった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AH氏（証券会社勤務）。企業年金・退職金制度が充実していたため、それに全面的に依存していた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">メンタル不調による中途退職で、想定していた企業年金・退職金が大幅に減額された。終身保険等の無リスク資産を持っていなかったため、資産形成計画全体が崩壊した。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">企業の退職金制度はメンタル不調による中途退職リスクに脆弱であることを理解し、終身保険等の無リスク資産を組み込むべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「契約者貸付の存在を知らず、生活費のために株式を底値で売却した」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AI氏（金融機関勤務）。終身保険には加入していたが、契約者貸付制度の存在を知らなかった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">相場暴落期に生活費が必要になった際、終身保険からの借入という選択肢を知らず、保有していた株式を底値で売却することとなった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">終身保険の契約者貸付制度は、相場暴落時に株式を売却せずに乗り切るための重要な選択肢であり、加入時にその仕組みを理解しておくべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      金融従事者×終身保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          'Portfolio_risk_adj=α・Stocks+β・R_corporate+γ・CV_whole_lifeを計算しポートフォリオを把握した',
+          '精神的ストレスの高さに応じて終身保険（無リスク資産）の比率を見直した',
+          '低解約返戻金型終身保険で効率的な資産形成を進めた',
+          '相場暴落時の「シーケンス・オブ・リターン・リスク」を理解した',
+          '契約者貸付制度の金利・上限額を把握した',
+          '自己都合退職時の企業年金・退職金の減額率を確認した',
+          '健康保険法第99条の傷病手当金の支給期間（1年6ヶ月）を理解した',
+          '株式市場の変動に影響されない資産（終身保険）の比率を確保した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
