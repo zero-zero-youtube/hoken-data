@@ -492,8 +492,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isRealEstateWholeLife = occ.slug === 'real-estate' && ins.slug === 'whole-life'
   const isFinanceWholeLife = occ.slug === 'finance' && ins.slug === 'whole-life'
   const isPartTimeWholeLife = occ.slug === 'part-time' && ins.slug === 'whole-life'
+  const isSelfEmployedWholeLife = occ.slug === 'self-employed' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -47870,6 +47871,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '老齢基礎年金のみの老後生活水準（月6.5万円程度）を理解した',
           '生存時の解約返戻金を緊急資金として活用できることを理解した',
           '残された家族への経済的負担を最小化する保障額を設定した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isSelfEmployedWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">自営業・個人事業主×終身保険｜廃業・事業清算のエグジットコストをAsset_exit数式で確保する</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      自営業・個人事業主の終身保険設計には、大手比較サイトが一切触れない「事業の出口戦略（廃業・事業清算）に向けた資産形成の数式証明」があります。自営業・個人事業主は、国民年金のみの加入であり、基礎年金は満額でも年間約80万円弱と極めて薄い水準です。企業退職金制度は存在せず、事業が失敗すれば自己破産に直結します。また、事業承継時や高齢での廃業時には、店舗のスケルトン戻し（原状回復）、在庫の廃棄処分、事業用ローンの清算など多額の「資産整理・清算費用（エグジットコスト）」が発生します。小規模企業共済等の公的制度の掛金限度額を補完し、事業清算コストを確保する積立モデルでは、廃業・事業清算時に必要な総資産額Asset_exitは、小規模企業共済の積立P_kyosaiを運用利回りr_kで運用した額と、共済の枠を超えた余剰資金を投下する終身保険料P_wholeを運用利回りr_wで運用した額の合計が、廃業コストCost_closure以上であることを示す、Asset_exit=ΣP_kyosai×(1+r_k)+ΣP_whole×(1+r_w)^t≥Cost_closureという数式で表されます。終身保険は、この「事業の出口戦略」に向けた確実な資金準備手法であり、経営者死亡時には遺族年金の極端な少なさを一撃で補完する究極のセーフティネットです。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 国民年金のみの基礎年金は年間約80万円弱——廃業時の清算コストが老後資金を直撃する</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>企業退職金制度は存在せず、事業が失敗すれば自己破産に直結するリスクを常に抱えている</li>
+        <li>事業用借入金や賃貸借契約の原状回復義務は、民法第898条・899条により相続人に承継される</li>
+        <li>高齢の子がいない配偶者には、国民年金法上の遺族基礎年金が一切支給されない</li>
+        <li>廃業時の店舗解体費・在庫処分費の支払いで、なけなしの貯蓄が消滅する事例が存在する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Asset_exit=ΣP_kyosai×(1+r_k)+ΣP_whole×(1+r_w)^t≥Cost_closure——終身保険が出口戦略を支える</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>P_kyosai（小規模企業共済の積立）には掛金限度額（月7万円）があり、それを超える資金需要がある</li>
+        <li>P_whole（共済枠を超えた終身保険料）を組み合わせることで、より大きな資産形成が可能になる</li>
+        <li>Cost_closure（廃業コスト）を事前に見積もり、Asset_exitがこれを上回るように設計する</li>
+        <li>経営者死亡時には、終身保険が遺族年金の薄さを一撃で補完するセーフティネットとなる</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      自営業者のケース別・廃業時の事業清算コストシミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：公的年金のみ・事業資金繰りカツカツ
+        </div>
+        <p className="text-sm text-gray-600 mb-4">65歳自営業（子独立済）。夫急死、店舗解体費500万。</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時公的年金</div>
+            <div className="font-bold text-gray-900">遺族基礎年金ゼロ（子がいないため）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">廃業・清算コスト</div>
+            <div className="font-bold text-gray-900">手元現金から500万支払い、貯金ゼロへ転落</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">配偶者の老後生活</div>
+            <div className="font-bold text-gray-900">月額約6.5万円の老齢基礎年金のみで極貧状態</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">事業の終焉が残された家族の経済的死を招く</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">廃業コストが老後資産を完全に奪う</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：終身保険 兼 小規模企業共済で防衛
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左。事業好調期に終身保険1,500万に加入済み。</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">死亡時公的年金</div>
+            <div className="font-bold text-red-700">遺族基礎年金ゼロ（同様）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">廃業・清算コスト</div>
+            <div className="font-bold text-red-700">終身保険1,500万円から500万円支払い、1,000万残存</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">配偶者の老後生活</div>
+            <div className="font-bold text-red-700">年金＋手元資金1,000万で生活基盤を余裕で維持</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">保険による確実なエグジット資金が家族を守る</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">終身保険が廃業コストと老後資金を両方守る</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：中小企業基盤整備機構・<a href="https://skyosai.smrj.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">小規模企業共済</a>　<a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民年金法第37条</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      自営業者特有のリスクデータ：政府統計3件から読み解く終身保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：小規模企業共済制度の限界とAsset_exit数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          中小企業基盤整備機構の小規模企業共済制度には掛金限度額（月7万円）があり、それを超える事業清算資金の需要には対応できない。廃業・事業清算時に必要な総資産額Asset_exitは、小規模企業共済の積立と終身保険料の運用合計が、廃業コスト以上であることを示す数式で表され、共済枠を超える部分を終身保険で補完する設計が求められる。
+        </p>
+        <a href="https://skyosai.smrj.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：小規模企業共済制度（中小企業基盤整備機構）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：国民年金法第37条の遺族基礎年金支給要件と高齢自営業者のリスク</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          国民年金法に基づく遺族基礎年金は、子のある配偶者または子にのみ支給される。高齢で子が独立済みの自営業者の配偶者は、遺族基礎年金の対象外となり、死亡時の公的保障がゼロになる。事業用借入金や賃貸借契約の原状回復義務は民法第898条・899条により相続人に承継されるため、保障の薄さと負債の重さが同時に遺族を圧迫する。
+        </p>
+        <a href="https://souzoku-mikachi.com/izokukisonenkin-sikyuuyouken/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：国民年金法第37条（遺族基礎年金の支給要件）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：小規模企業共済制度の現状が示す加入実態と限度額の詳細</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          中小企業庁の資料では、小規模企業共済の加入実態・限度額に関する詳細データが示されている。多くの自営業者が共済に加入しているものの、限度額の制約から廃業コストを完全にカバーできていない実態が浮かび上がる。
+        </p>
+        <a href="https://www.chusho.meti.go.jp/koukai/shingikai/kyousai/027/001.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：小規模企業共済制度の現状について（中小企業庁）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      自営業・個人事業主の終身保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Asset_exit数式で廃業時の清算コストと必要な総資産額を計算する（最重要）</p>
+          <p className="text-sm text-gray-600">店舗解体費・事業ローン残債・在庫処分費等の廃業コストを見積もり、小規模企業共済と終身保険でカバーする設計を行う。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">小規模企業共済の限度額を超える部分を終身保険で補完する</p>
+          <p className="text-sm text-gray-600">月7万円の共済限度額だけでは不足する場合、終身保険で追加の資産形成を進める。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">子の有無・年齢にかかわらず配偶者の生活保障を確保する</p>
+          <p className="text-sm text-gray-600">遺族基礎年金が支給されないケースを前提に、終身保険で十分な死亡保険金額を設定する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">事業用負債は相続人に承継されることを前提に保障額を設計する</p>
+          <p className="text-sm text-gray-600">民法第898条・899条に基づき事業用借入金が相続人に承継されることを理解し、保険金で完済できる水準に設定する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">事業好調期に計画的に終身保険へ資金を投入する</p>
+          <p className="text-sm text-gray-600">事業が好調なタイミングで保険料負担を厚くし、将来の廃業・清算コストに備える。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：自営業者が終身保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「高齢で子が独立済みのため遺族基礎年金がゼロ。廃業費用で貯金が消滅した」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AM氏（65歳自営業）。子は既に独立していた。夫が急死し、店舗解体費500万円が必要になった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">国民年金法第37条の規定により、子のある配偶者に該当しない高齢の妻には遺族基礎年金が一切支給されなかった。事業の在庫処分と店舗解体費を請求され、なけなしの貯蓄が消滅した。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">子の有無・年齢にかかわらず、自営業者は終身保険で配偶者の生活保障を確保しておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「小規模企業共済の限度額だけで十分と判断し、廃業コストをカバーできなかった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AN氏（自営業）。小規模企業共済に上限まで加入していたため、それで十分だと考えていた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">実際の廃業コスト（店舗解体費・在庫処分費等）が共済の積立額を大幅に上回り、不足分を補う手段がなかった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">小規模企業共済には限度額があることを理解し、終身保険で不足分を補完する設計が必要である。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「事業用負債が相続人に承継されることを知らず、保障額を低く設定していた」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AO氏（自営業）。終身保険に加入していたが、保障額は事業用負債を考慮せず低めに設定していた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">死亡後、民法第899条に基づき事業用借入金が遺族に相続されることが判明し、終身保険の保険金では完済できず、不足分が遺族の負担となった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">事業用負債は必ず遺族に相続されることを前提に、終身保険の保障額を正確に設計すべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      自営業・個人事業主×終身保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          'Asset_exit=ΣP_kyosai×(1+r_k)+ΣP_whole×(1+r_w)^t≥Cost_closureを計算した',
+          '小規模企業共済の限度額（月7万円）を超える部分を終身保険で補完した',
+          '子の有無・年齢にかかわらず配偶者の生活保障を確保した',
+          '事業用負債が相続人に承継されることを理解した（民法第898条・899条）',
+          '店舗解体費・在庫処分費等の廃業コストを見積もった',
+          '事業好調期に計画的に終身保険へ資金を投入する計画を立てた',
+          '終身保険の保険金で事業用負債を完済できる水準か確認した',
+          '配偶者の老後生活水準（老齢基礎年金のみの場合）を把握した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
