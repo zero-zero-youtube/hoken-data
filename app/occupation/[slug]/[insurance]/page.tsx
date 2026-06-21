@@ -495,8 +495,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isSelfEmployedWholeLife = occ.slug === 'self-employed' && ins.slug === 'whole-life'
   const isFreelanceWholeLife = occ.slug === 'freelance' && ins.slug === 'whole-life'
   const isFreelanceEngineerPersonalAccident = occ.slug === 'freelance-engineer' && ins.slug === 'personal-accident'
+  const isNursePersonalAccident = occ.slug === 'nurse' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -48575,6 +48576,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '国民健康保険には傷病手当金が存在しないことを理解した',
           '客先での作業中のデータ損失等の損害賠償リスクを認識した',
           '特別加入の給付基礎日額の設定水準を確認した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isNursePersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">看護師×傷害保険・個人賠償｜針刺し事故の期待損失をE_needle数式で把握する</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      看護師の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「針刺し事故における感染確率と期待損失の数式証明」があります。医療現場の最前線に立つ看護師は、患者対応に伴う特有の身体的リスクを抱えています。特に顕著なのが「針刺し・切創事故による血液媒介感染症のリスク」と「患者の移乗・体位変換に伴う腰痛」です。国内の推計では年間5万件の針刺し事故が発生しており、そのうち61.4%を看護師が占めています。また、看護職の腰痛有訴率は68.1%に達していますが、厚生労働省の労災認定基準において、腰痛は「突発的な出来事による急激な力の作用」が証明されない限り災害性の労災として認定されにくく、慢性的な業務負荷による腰痛は私傷病扱いとなり、休業時の給付水準が低下するリスクがあります。針刺し事故による期待損失額E_needleは、単なる物理的負傷にとどまらず、年間の血液曝露回数N_exposeと、各ウイルスについて曝露を条件とした感染確率P(I_v|E)と感染成立時の生涯医療費・逸失利益C_vの積の合計、そして感染の有無が確定するまでの追跡期間における精神的苦痛等の損失L_psychの和として、E_needle=N_expose×(Σ P(I_v|E)×C_v)+L_psychという数式で表されます。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 看護師は針刺し事故の61.4%を占め、腰痛有訴率は68.1%——労災認定されにくい構造的リスク</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>腰痛は「突発的な出来事による急激な力の作用」が証明されない限り、災害性の労災として認定されにくい</li>
+        <li>私傷病扱いの場合、健康保険の傷病手当金は66.6%にとどまり、労災の80%より給付水準が低い</li>
+        <li>針刺し事故は感染の有無が確定するまでの追跡期間における精神的苦痛も大きな損失要因となる</li>
+        <li>労災保険は確定した疾病に対する補償が主であり、不確定期間の損失には民間保険が必要となる</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ E_needle=N_expose×(Σ P(I_v|E)×C_v)+L_psych——傷害保険がL_psychを補完する</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>N_expose（年間の血液曝露回数）が多いほど期待損失は増大する</li>
+        <li>P(I_v|E)×C_v（ウイルス別の感染確率×生涯損失）が物理的リスクの本体となる</li>
+        <li>L_psych（追跡期間の精神的苦痛・予防内服の副作用・休業損失）は労災では補填されにくい領域</li>
+        <li>就業不能・傷害保険の通院給付金・休業補償特約が、この民間保険でしか埋まらない領域をカバーする</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      看護師のケース別・私傷病扱いの腰痛による休業シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：傷害保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">患者の体位変換中に急性腰痛を発症、5日間休業。労災基準を満たさず私病扱い</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">医療費自己負担</div>
+            <div className="font-bold text-gray-900">30,000円（健康保険3割負担）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">休業中の逸失利益</div>
+            <div className="font-bold text-gray-900">約40,000円（最初の3日間無給＋残り2日間の1/3減収）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約70,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">私傷病扱いが給付水準を下げる</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">労災認定の壁が経済的負担を増やす</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：就業不能・傷害保険あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。4日目以降に健康保険の傷病手当金（2/3）が支給</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">医療費自己負担</div>
+            <div className="font-bold text-red-700">0円（傷害保険の通院給付金で補填）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">休業中の逸失利益</div>
+            <div className="font-bold text-red-700">0円（就業不能・休業補償特約でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">私傷病扱いでも保険で完全にカバー</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">傷害保険が労災認定の壁を無効化する</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://irouren.or.jp/publication/%E5%8C%BB%E7%99%82%E5%8A%B4%E5%83%8D563%E5%8F%B7-p11-18.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">看護職員の腰痛有訴率実態調査</a>　厚生労働省・<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/slide.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">休業補償のスライド率</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      看護師特有のリスクデータ：政府統計3件から読み解く傷害・賠償保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：針刺し事故の発生件数とE_needle数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          国内の推計では年間5万件の針刺し事故が発生しており、そのうち61.4%を看護師が占めている。針刺し事故による期待損失額E_needleは、年間の血液曝露回数と各ウイルスの感染確率・生涯損失の積の合計に、追跡期間における精神的苦痛等の損失を加えた額として算出される。労災保険は確定した疾病への補償が主であり、不確定期間の損失には民間保険による補完が必要である。
+        </p>
+        <a href="http://jrgoicp.umin.ac.jp/activity/zeroday/%E5%90%89%E5%B7%9D%E5%BE%B920130716.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：針刺し事故の発生件数と職業感染リスク（日本環境感染学会）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：看護職員の腰痛有訴率68.1%と労災認定の壁</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          看護職の腰痛有訴率は68.1%に達しているが、災害性の原因（突発的な出来事による急激な力の作用）が証明されない限り、労災として認定されにくい。慢性的な業務負荷による腰痛は私傷病扱いとなり、休業時の給付水準が労災の80%から健康保険の66.6%へ低下する。
+        </p>
+        <a href="https://irouren.or.jp/publication/%E5%8C%BB%E7%99%82%E5%8A%B4%E5%83%8D563%E5%8F%B7-p11-18.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：看護職員の腰痛有訴率実態調査（医療労働563号）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：労働基準法第76条に基づく休業補償のスライド率の制度的限界</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          厚生労働省の休業補償のスライド率資料では、労災と健康保険の給付水準の差が示されている。私傷病扱いとなった場合の給付水準の低さを、民間の傷害保険・就業不能保険で補完する必要性が裏付けられている。
+        </p>
+        <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/slide.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：休業補償のスライド率（厚生労働省）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      看護師の傷害・賠償保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">E_needle数式で針刺し事故の期待損失を事前に理解する（最重要）</p>
+          <p className="text-sm text-gray-600">血液曝露回数や感染確率を踏まえ、傷害保険でどの程度の損失をカバーすべきかを把握する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">腰痛が労災認定されにくい構造を理解し、私傷病扱いに備える</p>
+          <p className="text-sm text-gray-600">災害性の原因が証明されない慢性腰痛は私傷病扱いとなることを前提に、傷害保険で給付水準の差を補う。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">通院給付金・休業補償特約のある傷害保険を選ぶ</p>
+          <p className="text-sm text-gray-600">私傷病扱いとなった場合でも、通院・休業をカバーする特約があるかを確認する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">患者の転倒・負傷時の使用者責任との関係を理解する</p>
+          <p className="text-sm text-gray-600">民法第715条に基づき原則として病院が賠償責任を負うが、重大な過失がある場合の求償リスクも理解しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">針刺し事故発生時の追跡期間中の精神的苦痛への備えも検討する</p>
+          <p className="text-sm text-gray-600">感染確定までの期間の精神的負担・予防内服の副作用等、労災では補填されにくい領域への備えを検討する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：看護師が傷害・賠償保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「腰痛が労災認定されず、傷害保険もなかったため給付水準が低下した」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AV氏（看護師）。患者の体位変換中に急性腰痛を発症し、5日間の休業を要した。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">労働基準法に基づく労災認定基準（災害性の原因）を満たさず、私傷病扱いとなった。最初の3日間は無給、4日目以降も健康保険の傷病手当金（2/3）のみで、傷害保険にも加入していなかったため、給付水準の低下分を自己負担することとなった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">腰痛が労災認定されにくい構造を理解し、傷害保険・就業不能保険でこの給付水準の差を補完しておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「針刺し事故後の追跡期間の精神的負担に対する備えがなかった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AW氏（看護師）。患者対応中に針刺し事故に遭い、感染の有無が確定するまでの追跡期間に強い精神的苦痛を抱えた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">労災保険は確定した疾病に対する補償が主であり、感染が確定しなかった場合の追跡期間中の精神的苦痛や予防内服の副作用に対する経済的補填が一切なかった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">針刺し事故のリスクが高い職業であることを踏まえ、追跡期間中の損失にも対応できる傷害保険の特約を検討すべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「患者の転倒事故で重大な過失を指摘され、求償リスクに直面した」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AX氏（看護師）。患者の移乗中に誤って患者を転倒させ、負傷させてしまった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">民法第715条に基づき原則として病院（使用者）が賠償責任を負ったが、重大な過失が認められたため、病院から一部の求償を受けるリスクに直面した。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">重大な過失がある場合は個人にも求償されるリスクがあることを理解し、個人としての賠償責任保険も検討すべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      看護師×傷害・賠償保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          'E_needle数式で針刺し事故の期待損失を理解した',
+          '腰痛が労災認定されにくい構造（私傷病扱い）を理解した',
+          '通院給付金・休業補償特約のある傷害保険を確認した',
+          '私傷病扱いの場合の給付水準（健康保険66.6%）を把握した',
+          '患者の転倒・負傷時の使用者責任（民法第715条）の範囲を理解した',
+          '重大な過失がある場合の求償リスクに備えた',
+          '針刺し事故の追跡期間中の精神的苦痛への備えを検討した',
+          '年間5万件・看護師61.4%という針刺し事故の規模を認識した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
