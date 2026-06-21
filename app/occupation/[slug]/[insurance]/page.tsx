@@ -502,8 +502,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isHairdresserPersonalAccident = occ.slug === 'hairdresser' && ins.slug === 'personal-accident'
   const isDoctorPersonalAccident = occ.slug === 'doctor' && ins.slug === 'personal-accident'
   const isPharmacistPersonalAccident = occ.slug === 'pharmacist' && ins.slug === 'personal-accident'
+  const isConstructionPersonalAccident = occ.slug === 'construction' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident || isConstructionPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -50082,6 +50083,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '処方箋処理枚数・労働時間とエラー発生確率の関係を理解した',
         '医師と薬剤師の過失割合（連帯賠償責任）の判例傾向を理解した',
         '保険の上限額が想定される最大賠償額をカバーできるか確認した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isConstructionPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">建設業・現場作業員の傷害保険｜L_gap数式で見る労災20%所得ギャップの正体</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      建設業・現場作業員の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「労災保険適用時における20%の所得ギャップの数式証明」があります。建設業における死亡者数は年間230人を超えており、13次防（第13次労働災害防止計画）の重点業種に指定されています。「墜落・転落」「はさまれ・巻き込まれ」などの重大事故発生率が全業種で最高水準にあります。現場作業員にとって、業務中の事故は確実に労災保険（療養補償・休業補償）の対象となりますが、大きな誤解として「労災が下りれば収入は完全に補償される」という認識があります。労働基準法および労災保険法の規定上、休業補償は「給付基礎日額の60%」と「休業特別支給金20%」の合計80%が上限です。残りの20%の収入減は、数ヶ月に及ぶ長期休業において、住宅ローンや生活費の支払いに致命的な影響（保障ギャップ）をもたらします。建設作業員が重傷を負い、長期休業（D日）を余儀なくされた場合の純経済的損失額L_gapは、給付基礎日額W_dailyと最初の3日間（待期期間）における使用者の休業補償支払率R_employerに基づく不足分、そして4日目以降の20%の所得ギャップの合計として、L_gap=W_daily×min(D,3)×(1−R_employer)+W_daily×max(0,D−3)×0.2という数式で表されます。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 「労災が下りれば収入は完全に補償される」は誤解——上限80%、残り20%は恒久的な逸失利益</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• 休業補償は「給付基礎日額の60%」＋「休業特別支給金20%」の合計80%が上限である</li>
+        <li>• 休業4日目以降、労災からは80%しか支給されないため、残りの20%が積み上がっていく</li>
+        <li>• 数ヶ月に及ぶ長期休業では、20%の収入減が住宅ローンや生活費の支払いに致命的な影響を及ぼす</li>
+        <li>• 最初の3日間（待期期間）も使用者の支払率に応じた不足分が生じる可能性がある</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ L_gap=W_daily×min(D,3)×(1−R_employer)+W_daily×max(0,D−3)×0.2——民間保険で20%を埋める</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• W_daily（給付基礎日額）に基づき、不足する20%の規模を正確に計算できる</li>
+        <li>• D（休業日数）が長くなるほど、L_gap（純経済的損失額）が積み上がっていく</li>
+        <li>• 所得補償保険・傷害保険の休業補償特約を併用すれば、この20%のギャップを完全に埋められる</li>
+        <li>• 長期休業が想定される現場作業員ほど、この民間保険による備えの重要性が高まる</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      現場作業員のケース別・労災保険の20%所得ギャップシミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：労災保険のみ・民間傷害保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">足場からの墜落事故で脊椎を損傷、6ヶ月（180日）休業。月収45万円（日額15,000円）</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">待期期間（最初の3日分）</div>
+            <div className="font-bold text-gray-900">27,000円支給（18,000円の減収）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">休業4日目〜180日目の収入</div>
+            <div className="font-bold text-gray-900">2,124,000円（労災80%支給。531,000円の減収）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">6ヶ月間の総収入減</div>
+            <div className="font-bold text-gray-900">549,000円の純損失（家計直撃）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">医療費</div>
+            <div className="font-bold text-gray-900">0円（労災による療養補償で全額給付）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">長期休業の20%ギャップが家計を直撃する</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：労災保険＋所得補償・傷害保険あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。所得補償・傷害保険に事前加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">待期期間（最初の3日分）</div>
+            <div className="font-bold text-red-700">45,000円（不足分を傷害保険でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">休業4日目〜180日目の収入</div>
+            <div className="font-bold text-red-700">2,655,000円（残り20%を民間保険で補完）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">6ヶ月間の総収入減</div>
+            <div className="font-bold text-red-700">実質的な減収0円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">医療費</div>
+            <div className="font-bold text-red-700">0円（同左）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">所得補償保険が20%のギャップを完全に埋める</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省・<a href="https://www.mhlw.go.jp/stf/newpage_73382.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労働災害発生状況</a>　<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">休業補償と労災保険制度の仕組み</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">建設業特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：建設業の労働災害発生状況とL_gap数式証明
+          <a href="https://www.mhlw.go.jp/stf/newpage_73382.html" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（厚生労働省）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          建設業における死亡者数は年間230人を超えており、13次防の重点業種に指定されている。「墜落・転落」「はさまれ・巻き込まれ」などの重大事故発生率は全業種で最高水準にある。労災保険適用時における20%の所得ギャップL_gapは、給付基礎日額に基づく待期期間の不足分と、4日目以降の20%の所得ギャップの合計として算出され、長期休業ほどこの純損失額が積み上がる。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：休業補償と労災保険制度の仕組みが示す80%の上限
+          <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/index.html" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（厚生労働省）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          厚生労働省の休業補償と労災保険制度の仕組み解説では、休業補償が「給付基礎日額の60%」と「休業特別支給金20%」の合計80%が上限であることが示されている。「労災が下りれば収入は完全に補償される」という誤解を解消し、残り20%への備えの必要性を裏付けている。月収45万円・180日休業のケースでは、この20%ギャップが54.9万円の純損失に積み上がる。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：労働安全衛生法に基づく事業者の安全管理義務
+          <a href="https://elaws.e-gov.go.jp/document?lawid=347AC0000000057" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          労働安全衛生法第20条・第21条は、事業者に対して機械の危険や墜落の危険等を防止するための措置（足場の設置や安全帯の使用義務）を講ずるよう義務付けている。これらの措置があっても重大事故は発生し得るため、休業時の所得ギャップへの個人としての備えが重要である。事業者側の安全管理義務と、作業員個人の保険加入は別次元の対策として両立させる必要がある。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">建設業（現場作業員）の傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'L_gap数式で長期休業時の20%所得ギャップを事前に計算する（最重要）', body: '給付基礎日額（W_daily）と想定休業日数（D）から、L_gap=W_daily×min(D,3)×(1−R_employer)+W_daily×max(0,D−3)×0.2の式を用いて、労災でカバーされない20%の規模を正確に把握する。月収・休業日数が大きいほどL_gapは急速に拡大する。' },
+        { title: '所得補償保険・傷害保険の休業補償特約に加入する', body: '労災の80%でカバーされない部分を、民間の所得補償保険・傷害保険で補完する。特に住宅ローンを抱える現場作業員は、月々の固定費を賄えなくなるリスクを正確に試算した上で加入額を決定する。' },
+        { title: '待期期間（最初の3日間）の不足分への備えも検討する', body: '使用者の支払いが円滑に行われないリスクも考慮し、待期期間の不足分もカバーできる保険を選ぶ。特に下請けの立場では、元請けとの契約関係により支払い遅延が発生するリスクがある。' },
+        { title: '長期休業が想定される重大事故のリスクを正しく認識する', body: '墜落・転落等の重大事故は長期休業につながりやすく、20%ギャップの累積額が大きくなることを理解する。建設業の重大事故は回復に数ヶ月〜1年以上要するケースも少なくない。' },
+        { title: '「労災が下りれば完全に補償される」という誤解を解消する', body: '労災保険の上限が80%であることを正確に理解し、誤った安心感を持たないようにする。労災保険は「療養補償」では全額カバーされるが、「休業補償」は上限80%であることを区別して理解する。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BQ：労災保険があれば収入は完全に補償されると誤解し、20%のギャップに気づかなかった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BQ氏（現場作業員）。足場からの墜落事故で脊椎を損傷し、6ヶ月間の長期休業を余儀なくされた。「労災が下りれば収入は完全に補償される」と思い込んでいたが、実際は給付基礎日額の80%しか支給されず、残りの20%が6ヶ月間で54.9万円の純損失として積み上がった。住宅ローンの支払いに困窮し、家族に深刻な影響が及んだ。
+        </p>
+        <p className="text-red-500 text-xs">教訓：労働基準法および労災保険法の規定（休業補償の上限80%）を正確に理解し、所得補償保険等で残り20%を補完すべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BR：待期期間（最初の3日間）の使用者支払いが円滑に行われなかった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BR氏（現場作業員）。下請けの立場であったため、労働基準法第76条に基づく使用者の休業補償支払いが円滑に行われなかった。法律上は使用者が平均賃金の60%を補償する義務があるが、下請け関係の事情により支払いが遅延・不足し、待期期間中の生活費が確保できなかった。傷害保険があれば即日補償が受けられたはずである。
+        </p>
+        <p className="text-red-500 text-xs">教訓：使用者の支払いが円滑に行われないリスクも想定し、傷害保険等で待期期間の不足分にも備えるべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BS：長期休業が想定される重大事故のリスクを軽視し、保険による備えを怠った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BS氏（現場作業員）。墜落・転落等の重大事故のリスクを軽視し、傷害保険・所得補償保険に加入していなかった。実際に重大事故が発生し、長期休業を余儀なくされた際、20%の所得ギャップが想定以上に積み上がり、家計に深刻な打撃を受けた。「自分は大丈夫」という正常性バイアスが最大の失敗要因であった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：建設業は重大事故発生率が全業種で最高水準にあることを理解し、早期に所得補償保険・傷害保険への加入を検討すべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      建設業（現場作業員）の傷害保険 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'L_gap数式で長期休業時の20%所得ギャップを計算した',
+        '所得補償保険・傷害保険の休業補償特約に加入した',
+        '待期期間（最初の3日間）の不足分への備えを検討した',
+        '「労災が下りれば完全に補償される」という誤解を解消した',
+        '休業補償の上限（給付基礎日額の80%）を正確に理解した',
+        '下請け関係等による使用者の支払い遅延リスクを想定した',
+        '長期休業が想定される重大事故のリスクを正しく認識した',
+        '労働安全衛生法に基づく安全管理義務の内容を理解した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
