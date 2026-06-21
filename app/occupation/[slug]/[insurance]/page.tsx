@@ -504,8 +504,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPharmacistPersonalAccident = occ.slug === 'pharmacist' && ins.slug === 'personal-accident'
   const isConstructionPersonalAccident = occ.slug === 'construction' && ins.slug === 'personal-accident'
   const isCivilServantPersonalAccident = occ.slug === 'civil-servant' && ins.slug === 'personal-accident'
+  const isSelfEmployedPersonalAccident = occ.slug === 'self-employed' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident || isConstructionPersonalAccident || isCivilServantPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident || isConstructionPersonalAccident || isCivilServantPersonalAccident || isSelfEmployedPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -50508,6 +50509,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '安定収入が賠償請求において不利に働く可能性を理解した',
         '地方公務員災害補償法の適用範囲（公務・通勤のみ）を理解した',
         '保険の上限額が想定される最大賠償額をカバーできるか確認した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isSelfEmployedPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">自営業・個人事業主の傷害保険｜Gap_NHI数式で見る傷病手当金不在の絶対的損失幅</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      自営業・個人事業主の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「傷病手当金不在による絶対的損失幅のモデリングの数式証明」があります。自営業・個人事業主の最大かつ最も看過されがちなリスクは、「国民健康保険には原則として傷病手当金が存在しない」という絶対的な制度格差です。会社員であれば、業務外の病気やケガ（休日のスポーツでの骨折など）で休業しても、健康保険から最長1年6ヶ月間、平均標準報酬日額の3分の2（約66.6%）が「傷病手当金」として支給されます。しかし、国民健康保険に加入する自営業者は、休業した瞬間に収入が完全にゼロになるだけでなく、固定費（家賃やリース代等）の支払いは継続するため、キャッシュフローが急速に悪化します。個人事業主が傷病により長期間（Mヶ月）休業した場合の、会社員との「制度的保障格差Gap_NHI」は、休業前の月間平均所得W_monthlyの3分の2をMヶ月分積算した額として、Gap_NHI=Σ(W_monthly×2/3)[m=1〜M]という数式で算定されます。会社員であればこの額が給付されますが、個人事業主は支給ゼロであるため、このGap_NHIそのものが「民間保険（所得補償保険や就業不能保険、傷害保険）で自発的にカバーしなければならない絶対的リスク量」となります。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 国民健康保険には原則として傷病手当金が存在しない——会社員との絶対的な制度格差</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• 会社員であれば最長1年6ヶ月間、平均標準報酬日額の3分の2が傷病手当金として支給される</li>
+        <li>• 国民健康保険には原則としてこの制度がなく、新型コロナの特例措置等の極めて限定的な例外を除き支給ゼロ</li>
+        <li>• 休業した瞬間に収入が完全にゼロになる一方、家賃やリース代等の固定費の支払いは継続する</li>
+        <li>• 業務外の病気・ケガでも、この保障の空白は会社員との間に絶対的な格差を生み出している</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Gap_NHI=Σ(W_monthly×2/3)——この絶対的リスク量を民間保険で自発的にカバーする</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• W_monthly（休業前の月間平均所得）の3分の2が、会社員であれば保障される水準</li>
+        <li>• M（休業月数）が長くなるほど、Gap_NHI（制度的保障格差）が積み上がっていく</li>
+        <li>• 所得補償保険や就業不能保険であれば、この格差を完全にカバーする給付設計が可能</li>
+        <li>• 業務外の事故であっても、傷害保険の入院・手術給付金で医療費部分は相殺できる</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      自営業者のケース別・傷病手当金不在による制度的保障格差シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：国保のみ・傷害/所得補償保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">個人事業主（月額所得50万円）が休日のスポーツ中にアキレス腱を断裂、3ヶ月間（90日）休業</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">医療費（手術・入院）</div>
+            <div className="font-bold text-gray-900">約100,000円（高額療養費制度適用後）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">休業中の収入（傷病手当金）</div>
+            <div className="font-bold text-gray-900">0円（国保には制度なし）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">逸失利益</div>
+            <div className="font-bold text-gray-900">1,500,000円（50万円×3ヶ月がゼロに）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約1,600,000円の純減＋固定費</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">傷病手当金の不在が3ヶ月で160万円の純損失を生む</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：国保＋傷害保険・就業不能保険あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。所得補償保険（月額50万円給付に設計）に事前加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">医療費（手術・入院）</div>
+            <div className="font-bold text-red-700">0円（入院・手術給付金で相殺）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">休業中の収入（傷病手当金）</div>
+            <div className="font-bold text-red-700">0円（国保には制度なし・同左）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">逸失利益</div>
+            <div className="font-bold text-red-700">0円（所得補償保険で月額50万円給付に設計）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質的な生活費・事業維持費のマイナスを回避</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">所得補償保険が傷病手当金の不在を完全に代替する</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省・<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuhoshidou/index.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険制度の概要</a>　<a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国民健康保険法第58条</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">自営業者特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：国民健康保険制度の概要とGap_NHI数式証明
+          <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuhoshidou/index.html" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（厚生労働省）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          厚生労働省の国民健康保険制度の概要では、傷病手当金が任意給付であり、原則として支給されないことが確認されている。会社員との制度的保障格差Gap_NHI=Σ(W_monthly×2/3)[m=1〜M]は、休業前の月間平均所得（W_monthly）の3分の2を休業月数（M）分積算した額として算定され、これが個人事業主が自発的に民間保険でカバーすべき絶対的リスク量となる。月収50万円・3ヶ月休業では約100万円の格差が生じる計算になる。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：国民健康保険法第58条が定める任意給付の限定性
+          <a href="https://elaws.e-gov.go.jp/document?lawid=333AC0000000192" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          国民健康保険法第58条は、疾病、負傷、出産又は死亡に関して、条例等で傷病手当金等の任意給付を行うことができると規定しているが、新型コロナウイルス感染症の特例措置等の極めて限定的なケースを除き、原則として各自治体は一般の疾病・負傷に対する傷病手当金を支給していない。「任意給付ができる」という規定が「原則として支給しない」実態に繋がっていることを、個人事業主は正確に理解しておく必要がある。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：個人事業主の実態調査が示す休業リスクとBCPの必要性
+          <a href="https://www.chusho.meti.go.jp/" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（中小企業庁）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          中小企業庁の個人事業主の実態調査では、事業主の休業リスクと事業継続計画（BCP）に関する資料が示されている。傷病手当金の不在という制度的格差を踏まえ、個人事業主には民間保険による自発的なリスク管理が不可欠であることが裏付けられている。特に一人で事業を営む個人事業主にとって、本人の休業は事業そのものの停止を意味するため、備えの優先度は会社員よりも高い。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">自営業・個人事業主の傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'Gap_NHI数式で傷病手当金不在による制度的保障格差を計算する（最重要）', body: '月間平均所得（W_monthly）の3分の2を休業想定月数（M）分積算し、Gap_NHI=Σ(W_monthly×2/3)を算定する。この金額が所得補償保険でカバーすべき「最低限のリスク量」となる。月収50万円・3ヶ月で約100万円が目安。' },
+        { title: '所得補償保険・就業不能保険で傷病手当金の代替を設計する', body: '国保には傷病手当金が原則存在しないことを前提に、民間保険で同等の給付水準を自発的に構築する。給付開始日（免責期間）と給付期間（最大何年か）を確認し、自身の業態に合った設計を行う。' },
+        { title: '業務外の事故・私生活上の事故も保障範囲に含める', body: '休日のスポーツ等、業務に関係しない事故であっても収入ゼロのリスクは同様に発生することを理解する。「業務外の事故だから保険は不要」という誤解が最も多い失敗パターンである。' },
+        { title: '店舗外での事業活動中の対人・対物賠償リスクにも備える', body: '納品や出張時に他者に損害を与えた場合の賠償責任（民法第709条）にも個人賠償責任保険で備える。特に顧客の自宅や事務所での作業中に物損を起こすリスクは、業種によって高い。' },
+        { title: '固定費（家賃・リース代等）の支払い継続を前提とした保障額を設計する', body: '休業中も継続する固定費を踏まえ、逸失利益だけでなく固定費分も加味した保障額を検討する。特に店舗型事業者は、売上ゼロの状態で家賃・光熱費・リース代が継続するため、固定費の把握が保険設計の鍵となる。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BW：国保には傷病手当金がないことを知らず、3ヶ月の休業で160万円の純損失を被った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BW氏（個人事業主、月額所得50万円）。休日のスポーツ中にアキレス腱を断裂し、3ヶ月間全く仕事ができなくなった。国民健康保険法第58条に基づき傷病手当金は任意給付であり、原則として支給されないため、収入が完全にゼロとなり、逸失利益150万円を含め約160万円の純損失を被った。「保険証があれば医療費は3割負担で大丈夫」という思い込みが、休業補償の盲点を見落とす原因となった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：国保には傷病手当金が原則存在しないことを理解し、所得補償保険等で自発的にこの格差をカバーすべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BX：業務外の事故だから保険は不要と判断し、休業時の備えを怠った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BX氏（個人事業主）。業務に関係しない私生活上の事故であったため、保険の必要性を感じていなかった。実際に業務外の事故で長期休業となった際、業務上・業務外を問わず収入がゼロになることに変わりはなく、固定費の支払いと収入ゼロが重なり資金繰りが急速に悪化した。「業務上の事故だけ備えれば十分」という誤解が、最大の落とし穴となった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：業務上・業務外を問わず、休業すれば収入がゼロになる構造的リスクを理解し、傷害保険・所得補償保険で備えるべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BY：固定費の存在を考慮せず、逸失利益分のみの保障額を設定していた</p>
+        <p className="text-red-600 text-sm mb-2">
+          BY氏（個人事業主）。所得補償保険には加入していたが、逸失利益のみを基準に保障額を設定していた。休業中も店舗の家賃・リース代等の固定費の支払いが継続したため、逸失利益分の保険金だけでは固定費をカバーできず、資金繰りに苦労した。月収50万円の逸失利益に対して月20万円の固定費が上乗せされ、実質的な資金不足は想定の1.4倍に膨らんだ。
+        </p>
+        <p className="text-red-500 text-xs">教訓：休業中も継続する固定費を考慮し、逸失利益分に加えて固定費分も加味した保障額を設計すべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      自営業・個人事業主の傷害保険 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'Gap_NHI=Σ(W_monthly×2/3)を計算し制度的保障格差を把握した',
+        '所得補償保険・就業不能保険で傷病手当金の代替を設計した',
+        '業務外の事故・私生活上の事故も保障範囲に含めた',
+        '店舗外での事業活動中の対人・対物賠償リスクに個人賠償責任保険で備えた',
+        '固定費（家賃・リース代等）の支払い継続を前提とした保障額を設計した',
+        '国民健康保険法第58条（任意給付の限定性）を理解した',
+        '高額療養費制度適用後の医療費自己負担額を把握した',
+        '想定される休業月数（M）に応じた保障期間を確認した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
