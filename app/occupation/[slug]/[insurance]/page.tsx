@@ -501,8 +501,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isRestaurantPersonalAccident = occ.slug === 'restaurant' && ins.slug === 'personal-accident'
   const isHairdresserPersonalAccident = occ.slug === 'hairdresser' && ins.slug === 'personal-accident'
   const isDoctorPersonalAccident = occ.slug === 'doctor' && ins.slug === 'personal-accident'
+  const isPharmacistPersonalAccident = occ.slug === 'pharmacist' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -49869,6 +49870,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '刑法第211条（業務上過失致死傷）の存在を理解した',
         '医療安全対策を徹底し重大な注意義務違反を未然に防ぐ意識を持った',
         '個人賠償責任保険の上限額が想定される最大賠償額をカバーできるか確認した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isPharmacistPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">薬剤師の傷害保険・個人賠償｜E_pharm数式で見る調剤過誤リスクの連帯賠償構造</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      薬剤師の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「調剤過誤におけるポアソン分布モデルと賠償期待値の数式証明」があります。調剤薬局や病院に勤務する薬剤師は、単に医師の指示通りに薬を出すだけでなく、「最後の砦」として処方内容を監査する法的義務を負っています。そのため、名称類似薬の取り違えや過量投与といった調剤過誤は、薬剤師自身の直接的な過失となります。さらに深刻なのは、処方箋を発行した医師のミスであったとしても、薬剤師が「疑義照会義務」を怠りそのまま調剤・交付して患者が死傷した場合、医師とともに数千万円の連帯賠償責任を負う判例が多数存在することです。調剤エラーの発生確率P_errorは、1日あたりの処方箋処理枚数や労働時間λに依存するポアソン分布に従うと仮定され、過量投与を見逃し致死的な結果を招く期待損失E_pharmは、エラーが致死的な結果を招く確率P_fatal|errorと、総損害賠償額C_damagesに医師と薬剤師の過失割合R_liability_shareを乗じた額の積として、E_pharm=(1−e^(−λ))×P_fatal|error×(C_damages×R_liability_share)という数式で表されます。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 薬剤師法第24条の疑義照会義務——医師のミスでも薬剤師が数千万円の連帯賠償責任を負う</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• 処方箋に疑わしい点があるときは、処方医師に確認した後でなければ調剤してはならない義務がある</li>
+        <li>• この義務を怠ると、医師のミスであっても薬剤師に連帯賠償責任が課せられる判例が多数存在する</li>
+        <li>• 名称類似薬の取り違えは薬剤師自身の直接的な過失として扱われる</li>
+        <li>• 1日あたりの処方箋処理枚数が多いほど、調剤エラーの発生確率は統計的に増大する</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ E_pharm=(1−e^(−λ))×P_fatal|error×(C_damages×R_liability_share)——薬剤師賠償責任保険が必須</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• λ（処方箋処理枚数・労働時間）が多いほど、調剤エラーの発生確率が統計的に高まる</li>
+        <li>• R_liability_share（医師と薬剤師の過失割合）に応じて連帯賠償責任の規模が決まる</li>
+        <li>• 薬剤師賠償責任保険に加入していれば、この連帯賠償責任を保険でカバーできる</li>
+        <li>• 業務外の私生活上の事故（自転車事故等）には、傷害・個人賠償保険で別途備える必要がある</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      薬剤師のケース別・疑義照会義務違反による連帯賠償シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：薬剤師賠償責任保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">医師が常用量5倍を誤処方、疑義照会せず調剤投与。患者が多臓器不全で死亡、賠償約2,365万円</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への損害賠償金</div>
+            <div className="font-bold text-gray-900">23,650,000円（医師と連帯して支払い義務）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">訴訟・弁護士費用</div>
+            <div className="font-bold text-gray-900">約2,000,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">個人の業務外事故リスク</div>
+            <div className="font-bold text-gray-900">残存（自転車事故等は別枠で自己負担）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約25,650,000円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">疑義照会義務違反が2,500万円超の連帯賠償を招く</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：薬剤師賠償責任保険あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。薬剤師賠償責任保険・傷害・個人賠償保険に事前加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への損害賠償金</div>
+            <div className="font-bold text-red-700">0円（薬剤師賠償責任保険でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">訴訟・弁護士費用</div>
+            <div className="font-bold text-red-700">0円（特約等による支援）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">個人の業務外事故リスク</div>
+            <div className="font-bold text-red-700">傷害・個人賠償でカバー</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">薬剤師賠償責任保険が連帯賠償リスクを完全に防ぐ</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=335AC0000000146" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">薬剤師法第24条（疑義照会義務）</a>　日本医療機能評価機構・<a href="https://www.yakkyoku-hiyari.jcqhc.or.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">薬局ヒヤリ・ハット事例</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">薬剤師特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：薬局ヒヤリ・ハット事例とE_pharm数式証明
+          <a href="https://www.yakkyoku-hiyari.jcqhc.or.jp/" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（日本医療機能評価機構）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          日本医療機能評価機構の薬局ヒヤリ・ハット事例収集・分析事業では、名称類似薬の取り違え等に関する統計データが示されている。調剤エラーの発生確率は処方箋処理枚数や労働時間（λ）に依存するポアソン分布に従うと仮定され、致死的な結果を招く期待損失E_pharmは、エラーが致死的結果を招く確率（P_fatal|error）と総損害賠償額（C_damages）・過失割合（R_liability_share）の積として算出される。λが増大するほどE_pharmは指数関数的に増大する。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：薬剤師法第24条の疑義照会義務違反のリスク
+          <a href="https://elaws.e-gov.go.jp/document?lawid=335AC0000000146" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          薬剤師法第24条は、薬剤師が処方箋の中に疑わしい点があるときは、処方箋を交付した医師等に問い合わせて確かめた後でなければ調剤してはならないと規定している。この義務違反が民法第709条の過失の法的根拠となり、医師のミスであっても薬剤師に連帯賠償責任が課せられる。過失割合（R_liability_share）は事案によって異なるが、50%以上の割合で薬剤師側の責任が認定された判例も存在する。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：調剤過誤に関する判例データが示す連帯賠償の規模
+          <a href="https://www.courts.go.jp/" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（裁判所）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          裁判所の判例データでは、ベナンバックス過量投与等に関する連帯賠償判例が示されている。医師と薬剤師が連帯して数千万円規模の賠償を命じられるケースが多数存在し、薬剤師賠償責任保険による備えが不可欠である。判例では、薬剤師が疑義照会を怠った場合に、医師と連帯して2,365万円の賠償が命じられた事例が存在する。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">薬剤師の傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'E_pharm数式で調剤過誤の期待損失を理解する（最重要）', body: '処方箋処理枚数や労働時間（λ）に応じてエラー発生確率がポアソン分布に従って高まることを理解し、薬剤師賠償責任保険の必要性を認識する。λが増大するほどE_pharmは指数関数的に増大する事実を直視する。' },
+        { title: '薬剤師賠償責任保険に必ず加入する', body: '疑義照会義務違反による連帯賠償責任は数千万円規模に達することを理解し、専用の保険で備える。職能団体（日本薬剤師会等）が提供する薬剤師賠償責任保険は比較的低コストで加入できる。' },
+        { title: '疑義照会義務（薬剤師法第24条）を徹底し、過誤を未然に防ぐ', body: '保険加入と並行して、疑義照会義務を徹底することが、過誤防止の最も重要な対策である。日頃から処方内容の確認を怠らない習慣を身につけることがリスク低減の基本である。' },
+        { title: '業務外の私生活上の事故には別途傷害・個人賠償保険で備える', body: '薬剤師賠償責任保険は業務上の調剤過誤のみが対象であり、私生活上の事故は別枠で備える必要がある。通勤中の自転車事故や休日のスポーツ中の事故は、個人賠償責任保険で別途カバーする。' },
+        { title: '処方箋処理枚数・労働時間の管理を通じてエラー発生確率を下げる', body: '過重労働がE_pharm数式のλを増大させ、エラー発生確率を高めることを理解し、労働環境の改善にも留意する。保険加入だけでなく、リスク源そのものの低減が最善策である。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BN：疑義照会を怠り、医師のミスに対しても連帯賠償責任を負った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BN氏（薬剤師）。医師が常用量の5倍を誤処方したが、疑義照会を行わずにそのまま調剤・投与した。薬剤師法第24条に基づく疑義照会義務を怠ったため、患者死亡後、医師と連帯して約2,365万円の損害賠償責任を負った。薬剤師賠償責任保険に加入していなかったため、全額を自己負担することとなった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：疑義照会義務を徹底することに加え、薬剤師賠償責任保険への加入が不可欠である。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BO：薬剤師賠償責任保険があるから安心と過信し、私生活の事故への備えを怠った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BO氏（薬剤師）。薬剤師賠償責任保険に加入していたため、保険は十分だと考えていた。休日の私生活上の事故（自転車事故）が発生した際、薬剤師賠償責任保険は業務上の調剤過誤のみが対象であり、私生活上の事故は一切カバーされないことが判明した。結果的に相手方への賠償を全額自己負担することとなった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：薬剤師賠償責任保険の対象範囲（業務上の調剤過誤のみ）を正確に理解し、私生活上の事故には別途個人賠償責任保険が必要である。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BP：過重労働によりエラー発生確率が高まっていたことに気づかなかった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BP氏（薬剤師）。人材不足により処方箋処理枚数・労働時間が著しく増加していた。E_pharm数式のλが急増していたにもかかわらず、その統計的リスクを認識していなかった。結果的に集中力低下による調剤過誤を起こしてしまい、患者に健康被害を与えてしまった。薬剤師賠償責任保険への加入後だったため損害賠償はカバーされたが、精神的苦痛は計り知れないものがあった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：過重労働がエラー発生確率を高めることを理解し、労働環境の改善と保険による備えの両方を進めるべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      薬剤師の傷害保険・個人賠償 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'E_pharm数式で調剤過誤の期待損失を理解した',
+        '薬剤師賠償責任保険に加入した',
+        '疑義照会義務（薬剤師法第24条）を徹底する意識を持った',
+        '薬剤師賠償責任保険の対象範囲（業務上の調剤過誤のみ）を理解した',
+        '業務外の私生活上の事故に備えた個人賠償責任保険に加入した',
+        '処方箋処理枚数・労働時間とエラー発生確率の関係を理解した',
+        '医師と薬剤師の過失割合（連帯賠償責任）の判例傾向を理解した',
+        '保険の上限額が想定される最大賠償額をカバーできるか確認した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
