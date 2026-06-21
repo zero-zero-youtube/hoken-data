@@ -494,8 +494,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isPartTimeWholeLife = occ.slug === 'part-time' && ins.slug === 'whole-life'
   const isSelfEmployedWholeLife = occ.slug === 'self-employed' && ins.slug === 'whole-life'
   const isFreelanceWholeLife = occ.slug === 'freelance' && ins.slug === 'whole-life'
+  const isFreelanceEngineerPersonalAccident = occ.slug === 'freelance-engineer' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -48340,6 +48341,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
           'フリーランス新法は社会保障の拡充ではないことを正しく理解した',
           '想定される収入ゼロの期間（T_downturn）を見積もった',
           '残された家族への借金の相殺と生活費確保が両立できる保障額を設定した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isFreelanceEngineerPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">フリーランスエンジニア×傷害保険・個人賠償｜労災未加入時の損失をL_free数式で把握する</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      フリーランスエンジニアの傷害保険・個人賠償設計には、大手比較サイトが一切触れない「労災未加入時の自己負担額と保障空白の数式証明」があります。フリーランスエンジニアは、オフィスワークや在宅勤務が中心であるため、一見すると重大な労働災害リスクは低いと認識されがちです。しかし、彼らの最大のリスクは「労働基準法上の労働者ではないため、原則として公的労災保険の対象外となる」という法制度上の初期条件にあります。2024年11月より特定受託事業者（フリーランス）の労災保険特別加入が制度化されましたが、未加入者の割合は依然として高く、就業中の転倒や通勤途上の事故において完全な「保障の空白」が生じます。フリーランスが労災保険に未加入の状態で業務中・通勤中の事故に遭った場合の純損失L_freeは、国民健康保険には傷病手当金が存在しない事実を考慮し、1日あたりの逸失利益W_tの就業不能日数D分の合計、総医療費C_medに公的医療保険の自己負担割合R_copay（通常0.3）を乗じた額、そして業務遂行中の他者に対する損害賠償額C_liabの合計として、L_free=Σ(W_t)[t=1〜D]+C_med×R_copay+C_liabという数式で表されます。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 労災保険特別加入は未加入率が依然高い——客先貸与機材の破損が個人に直接降りかかる</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>労働基準法上の労働者ではないため、特別加入をしない限り労災保険の対象外となる</li>
+        <li>国民健康保険には傷病手当金が存在せず、休業による収入の断絶が医療費負担と重なる二重打撃</li>
+        <li>業務に使用する高額な貸与機材（PCや検証用サーバー等）を破損させた場合の賠償責任は個人に直接降りかかる</li>
+        <li>客先での作業中の過失によるデータ損失等の損害賠償も、法人格を持たない個人が直接負う</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ L_free=Σ(W_t)+C_med×R_copay+C_liab——労災特別加入と傷害保険でこの損失をゼロに近づける</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>W_t（1日あたりの逸失利益）×D（就業不能日数）が休業損失の本体となる</li>
+        <li>労災保険（特別加入含む）に加入していればC_medの自己負担はゼロ、休業4日目以降は給付基礎日額の80%が補償される</li>
+        <li>C_liab（業務遂行中の他者への損害賠償額）は受託物賠償保険でカバーできる</li>
+        <li>特別加入と民間の傷害・賠償保険を組み合わせることで、L_freeをほぼゼロに圧縮できる</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      フリーランスエンジニアのケース別・労災未加入時の自己負担シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：保険未加入・特例労災なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">在宅勤務中トイレに向かう途中で転倒、手首骨折（休業30日）。客先貸与端末（時価40万円）も破損</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">医療費自己負担</div>
+            <div className="font-bold text-gray-900">150,000円（健康保険3割負担）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">休業中の逸失利益</div>
+            <div className="font-bold text-gray-900">600,000円（日額2万円×30日分全額減収）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">対物賠償責任</div>
+            <div className="font-bold text-gray-900">400,000円（端末代金全額負担）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">1,150,000円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">保障の空白が一度の事故で100万円超の損失を生む</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：労災特別加入＋傷害・受託物賠償保険あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。事前に労災特別加入と各種保険に加入済み</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">医療費自己負担</div>
+            <div className="font-bold text-red-700">0円（労災による療養補償給付）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">休業中の逸失利益</div>
+            <div className="font-bold text-red-700">120,000円（最初の3日間＋20%減収分。傷害保険で相殺可能）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">対物賠償責任</div>
+            <div className="font-bold text-red-700">0円（受託物賠償責任保険でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円〜120,000円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">特別加入＋保険で損失をほぼゼロに圧縮できる</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省・<a href="https://www.mhlw.go.jp/content/001262830.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">フリーランスの労災特別加入制度</a>　<a href="https://www.mhlw.go.jp/content/000807035.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">テレワークにおける労働災害の補償基準</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      フリーランスエンジニア特有のリスクデータ：政府統計3件から読み解く傷害・賠償保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：フリーランスの労災特別加入制度とL_free数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          2024年11月より特定受託事業者（フリーランス）の労災保険特別加入が制度化されたが、未加入者の割合は依然として高い。労災未加入時の自己負担額L_freeは、休業による逸失利益、総医療費の自己負担分、業務遂行中の損害賠償額の合計として算出される。特別加入していれば医療費の自己負担はゼロ、休業4日目以降は給付基礎日額の80%が補償される。
+        </p>
+        <a href="https://www.mhlw.go.jp/content/001262830.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：フリーランスの労災特別加入制度（厚生労働省）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：テレワークにおける労働災害の補償基準（業務遂行性の判断）</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          厚生労働省のテレワークにおける労働災害の補償基準では、業務遂行性・起因性の判断基準が示されている。在宅勤務中のトイレへの離席は生理的行為として業務遂行性・起因性が認められる事象とされており、特別加入していれば在宅勤務中の事故も労災の対象となる。
+        </p>
+        <a href="https://www.mhlw.go.jp/content/000807035.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：テレワークにおける労働災害の補償基準（厚生労働省）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：民法第709条（不法行為）に基づく業務中の機材破損責任</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          業務に使用する貸与機材（PCや検証用サーバー等）を破損させた場合、民法第709条の不法行為責任に基づき、法人格を持たない個人が損害賠償責任を直接負う。客先での作業中の過失によるデータ損失等の損害も同様であり、受託物賠償責任保険による備えが不可欠である。
+        </p>
+        <a href="https://elaws.e-gov.go.jp/document?lawid=129AC0000000089" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：民法第709条（e-Gov法令検索）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      フリーランスエンジニアの傷害・賠償保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">労災保険の特別加入（労働者災害補償保険法第33条）に加入する（最重要）</p>
+          <p className="text-sm text-gray-600">2024年11月から制度化された特別加入を利用することで、業務中・通勤中の事故が労災保険の対象になる。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">L_free数式で労災未加入時の自己負担額を事前に計算する</p>
+          <p className="text-sm text-gray-600">休業による逸失利益、医療費の自己負担分、対物賠償額を見積もり、保険でどの程度カバーすべきかを設計する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">客先からの貸与機材を破損した場合の受託物賠償責任保険を検討する</p>
+          <p className="text-sm text-gray-600">高額な検証用端末等の貸与機材の破損は個人に直接降りかかるため、専用の保険でカバーする。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">在宅勤務中の事故も業務遂行性が認められる場合があることを理解する</p>
+          <p className="text-sm text-gray-600">生理的行為としての離席等は業務遂行性が認められるケースがあるため、特別加入の対象範囲を正確に理解しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">就業不能・傷害保険で休業4日目以降の所得補償を補完する</p>
+          <p className="text-sm text-gray-600">労災特別加入の給付基礎日額の80%でカバーされない部分を、民間の就業不能・傷害保険で補完する。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：フリーランスエンジニアが傷害・賠償保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「労災特別加入をせず、在宅勤務中の事故で全額自己負担となった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AS氏（フリーランスエンジニア）。労災保険の特別加入の保険料負担を惜しみ、加入していなかった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">在宅勤務中の転倒事故で手首を骨折し、休業30日を要した。労働者災害補償保険法第33条に基づく特別加入をしていなかったため、医療費・休業による逸失利益の全額が自己負担となった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">特別加入は比較的低コストで利用できるため、フリーランスエンジニアは必ず加入を検討すべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「客先貸与の高額機材を破損し、民法上の賠償責任を個人で負った」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AT氏（フリーランスエンジニア）。客先から貸与されていた高額な検証用端末を作業中に破損させた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">民法第709条の不法行為責任に基づき、端末代金（時価40万円）の全額を個人で負担することとなった。受託物賠償責任保険に加入していなかったため、この損害を回避する手段がなかった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">客先から機材を借りる業務がある場合、受託物賠償責任保険への加入が不可欠である。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「在宅勤務中の事故が業務遂行性の対象になることを知らず、労災特別加入の恩恵を活かせなかった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AU氏（フリーランスエンジニア）。労災特別加入をしていたが、在宅勤務中の事故が対象になることを知らなかった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">在宅勤務中の事故発生時、労災の申請を行わず、結果的に通常の健康保険のみで対応することとなり、給付水準が低くなった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">テレワークにおける労働災害の補償基準を理解し、特別加入の対象範囲を正確に把握しておくべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      フリーランスエンジニア×傷害・賠償保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          '労災保険の特別加入（労働者災害補償保険法第33条）に加入した',
+          'L_free=Σ(W_t)+C_med×R_copay+C_liabを計算し自己負担額を把握した',
+          '客先貸与機材の破損に備えた受託物賠償責任保険を検討した',
+          '在宅勤務中の事故も業務遂行性が認められる場合があることを理解した',
+          '就業不能・傷害保険で休業4日目以降の所得補償を補完した',
+          '国民健康保険には傷病手当金が存在しないことを理解した',
+          '客先での作業中のデータ損失等の損害賠償リスクを認識した',
+          '特別加入の給付基礎日額の設定水準を確認した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
