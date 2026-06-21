@@ -496,8 +496,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFreelanceWholeLife = occ.slug === 'freelance' && ins.slug === 'whole-life'
   const isFreelanceEngineerPersonalAccident = occ.slug === 'freelance-engineer' && ins.slug === 'personal-accident'
   const isNursePersonalAccident = occ.slug === 'nurse' && ins.slug === 'personal-accident'
+  const isTeacherPersonalAccident = occ.slug === 'teacher' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -48810,6 +48811,240 @@ export default async function OccupationInsurancePage({ params }: Props) {
           '重大な過失がある場合の求償リスクに備えた',
           '針刺し事故の追跡期間中の精神的苦痛への備えを検討した',
           '年間5万件・看護師61.4%という針刺し事故の規模を認識した',
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
+            <span className="text-sm text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isTeacherPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-2xl font-bold text-gray-900 mb-6">教員・教師×傷害保険・個人賠償｜私生活の事故賠償をD_total数式で正しく理解する</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      教員・教師の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「重大事故の発生確率と損害賠償総額の数式証明」があります。教員は、部活動の指導中や体育の授業中において、生徒の死亡や重度障害という極めて重大な事故リスクを管理する立場にあります。公立学校の教員の場合、業務上の過失に対しては「国家賠償法」が適用されるため、原則として自治体が賠償責任を負い、教員個人が直接被害者から賠償請求されることはありません。しかし、教員にとって真の脅威は「私生活上の事故（自転車通勤や休日等）」における個人賠償リスクです。安定した収入と社会的地位を持つ教員は、被害者側から見れば確実な賠償能力を持つと判断されやすく、訴訟において最高額水準の賠償が命じられる傾向があります。交通事故やスポーツ事故における賠償額D_totalは、治療・介護費C_medと慰謝料C_consに、基礎収入W_avgと生活費控除率R_livとライプニッツ係数（就労可能年数nと法定利率rに基づく）を用いた逸失利益を加えた額として、D_total=C_med+C_cons+(W_avg×(1-R_liv)×((1-(1+r)^(-n))/r))という数式で表されます。被害者が若年層である場合、就労可能年数nが極めて長くなるため、逸失利益が膨張します。
+    </p>
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-lg p-5 mb-4">
+      <p className="font-bold text-red-800 mb-2">🚨 私生活上の事故は国家賠償法の対象外——教員個人が9,000万円超の賠償を命じられる判例が存在</p>
+      <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+        <li>公立学校教員の職務中の事故は国家賠償法により自治体が賠償責任を負う</li>
+        <li>しかし自転車通勤や休日のスポーツ等、私生活上の事故は教員個人の全額自己責任となる</li>
+        <li>安定収入のある教員は確実な賠償能力があると判断され、高額賠償が命じられやすい</li>
+        <li>被害者が児童・学生等の若年層の場合、就労可能年数が長く逸失利益が膨張する</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ D_total=C_med+C_cons+(W_avg×(1-R_liv)×((1-(1+r)^(-n))/r))——個人賠償責任保険が必須</p>
+      <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
+        <li>W_avg（基礎収入）×(1-R_liv)（生活費控除後）にライプニッツ係数を乗じた逸失利益が賠償額の中核</li>
+        <li>n（就労可能年数）が長い若年層の被害者ほど、賠償額が指数関数的に増大する</li>
+        <li>実際に自転車事故で11歳男児加害者ケースで9,521万円、高校生加害者ケースで9,266万円の判例が存在する</li>
+        <li>個人賠償責任保険（上限1億円程度）に加入していれば、この巨額な賠償を全額カバーできる</li>
+      </ul>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S2: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      教員のケース別・私生活上の自転車事故による個人賠償シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：個人賠償責任保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">私生活で自転車走行中、歩行者と衝突し重篤な障害（言語機能の喪失等）を負わせた</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への賠償金</div>
+            <div className="font-bold text-gray-900">92,660,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">訴訟・弁護士費用</div>
+            <div className="font-bold text-gray-900">約3,000,000円〜</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約95,660,000円（自己破産による失職の危機）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-gray-900">職務外であるため国家賠償法は適用されない</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">私生活上の事故が教員の人生を破壊する</div>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：個人賠償責任保険あり（上限1億円）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左。判例に準拠し約9,266万円の賠償が命じられたケース</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への賠償金</div>
+            <div className="font-bold text-red-700">0円（保険金で全額充当）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">訴訟・弁護士費用</div>
+            <div className="font-bold text-red-700">0円（示談交渉サービス・弁護士費用特約）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">総合評価</div>
+            <div className="font-bold text-red-700">保険が教員の身分と生活を完全に守る</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">個人賠償責任保険が9,000万円超の賠償を無効化する</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：文部科学省・<a href="https://www.mext.go.jp/a_menu/sports/jyujitsu/1323968.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">学校管理下の事故統計</a>　<a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000125" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">国家賠償法</a>
+    </p>
+  </section>
+
+  {/* S3: リスクデータ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      教員特有のリスクデータ：政府統計3件から読み解く傷害・賠償保険の必要性
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク①：学校管理下の事故統計とD_total数式証明</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          日本スポーツ振興センターの統計によれば、学校管理下の事故給付件数は増加傾向にあり、柔道の練習中や体操競技での死亡・障害事例が絶えない。交通事故やスポーツ事故における賠償額D_totalは、治療・介護費と慰謝料に、基礎収入と生活費控除率とライプニッツ係数を用いた逸失利益を加えた額として算出され、被害者が若年層であるほど賠償額が膨張する。
+        </p>
+        <a href="https://www.mext.go.jp/a_menu/sports/jyujitsu/1323968.htm" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：学校管理下における体育活動・部活動中の事故統計（文部科学省）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク②：自転車事故における高額賠償判例の実態</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          実際に自転車事故で11歳の男児が加害者となったケースで9,521万円、高校生が加害者のケースで9,266万円の賠償が命じられている。教員も同様の私生活上の事故で、これに準ずる規模の賠償を命じられるリスクがある。
+        </p>
+        <a href="https://www.courts.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：東京地裁判例（裁判所ウェブサイト）</a>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="font-bold text-gray-900 mb-3">リスク③：国家賠償法が示す職務中・職務外の責任範囲の違い</h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          国家賠償法第1条は、公権力の行使に当たる公務員（公立学校の教員など）がその職務を行うについて故意または過失によって違法に他人に損害を加えたときは、国または公共団体が賠償の責に任ずると規定している。これにより教員個人の直接責任は職務中は免責されるが、私生活（自転車通勤など）で第三者に損害を与えた場合は民法第709条が適用され、全額が個人の責任となる。
+        </p>
+        <a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000125" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-sm">出典：国家賠償法（e-Gov法令検索）</a>
+      </div>
+    </div>
+  </section>
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S4: 5つのチェックポイント */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      教員の傷害・賠償保険選び5つのチェックポイント
+    </h2>
+    <div className="space-y-4">
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">D_total数式で私生活上の事故における賠償額の規模を理解する（最重要）</p>
+          <p className="text-sm text-gray-600">被害者が若年層の場合、逸失利益が膨張し賠償額が9,000万円規模に達することを理解しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">個人賠償責任保険（上限1億円程度）に必ず加入する</p>
+          <p className="text-sm text-gray-600">国家賠償法は職務中の事故にしか適用されないため、私生活上の事故に備えた個人賠償責任保険が不可欠である。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">自転車通勤等の私生活上のリスクを正しく認識する</p>
+          <p className="text-sm text-gray-600">通勤中の事故であっても、私生活上の行為とみなされれば国家賠償法の対象外となることを理解しておく。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">示談交渉サービス・弁護士費用特約の有無を確認する</p>
+          <p className="text-sm text-gray-600">高額な賠償請求に対応するための訴訟・弁護士費用も保険でカバーできるかを確認する。</p>
+        </div>
+      </div>
+      <div className="flex gap-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">部活動指導等の職務中の事故と私生活上の事故の境界を理解する</p>
+          <p className="text-sm text-gray-600">国家賠償法が適用される範囲（職務中）と適用されない範囲（私生活）を正確に区別しておく。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 失敗事例3選 */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      よくある失敗事例3選：教員が傷害・賠償保険で後悔したパターン
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例①「私生活の自転車事故で9,000万円超の賠償を命じられ、自己破産に至った」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AY氏（公立学校教員）。私生活において自転車で走行中、歩行者と衝突し重篤な障害を負わせた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">職務外であるため国家賠償法は適用されず、民法第709条に基づき約9,266万円の賠償が全額個人の責任となった。個人賠償責任保険に加入していなかったため、自己破産による失職の危機に直面した。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">私生活上の事故は国家賠償法の対象外であることを理解し、個人賠償責任保険に必ず加入しておくべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例②「国家賠償法があるから安心と過信し、私生活上のリスクへの備えを怠った」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">AZ氏（公立学校教員）。職務中の事故は国家賠償法でカバーされるため、保険加入の必要性を感じていなかった。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">休日のスポーツ中に第三者に損害を与えた際、国家賠償法は職務中の事故にしか適用されないことが判明し、全額が個人の責任となった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">国家賠償法の適用範囲（職務中のみ）を正しく理解し、私生活上のリスクには別途個人賠償責任保険で備えるべきである。</span></p>
+        </div>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 className="font-bold text-red-800 mb-3">事例③「賠償額の規模を見誤り、保険の上限額が不十分だった」</h3>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-bold text-gray-700">状況：</span><span className="text-gray-600">BA氏（公立学校教員）。個人賠償責任保険には加入していたが、上限額を1,000万円程度と低めに設定していた。</span></p>
+          <p><span className="font-bold text-gray-700">問題：</span><span className="text-gray-600">実際の事故で被害者が若年層であったため、逸失利益が膨張し、賠償額が保険の上限額を大幅に超える事態となった。</span></p>
+          <p><span className="font-bold text-red-700">教訓：</span><span className="text-red-700">被害者が若年層の場合は賠償額が9,000万円規模に達する可能性があることを理解し、十分な上限額（1億円程度）の保険を選ぶべきである。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      教員×傷害・賠償保険の最終確認チェックリスト8項目
+    </h2>
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <ul className="space-y-3">
+        {[
+          'D_total数式で私生活上の事故における賠償額の規模を理解した',
+          '個人賠償責任保険（上限1億円程度）に加入した',
+          '国家賠償法の適用範囲（職務中のみ）を正しく理解した',
+          '自転車通勤等の私生活上のリスクを認識した',
+          '示談交渉サービス・弁護士費用特約の有無を確認した',
+          '部活動指導等の職務中の事故と私生活上の事故の境界を理解した',
+          '被害者が若年層の場合の逸失利益の膨張リスクを理解した',
+          '保険の上限額が想定される最大賠償額をカバーできるか確認した',
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="flex-shrink-0 w-5 h-5 border-2 border-blue-400 rounded mt-0.5" />
