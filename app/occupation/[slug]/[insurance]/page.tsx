@@ -503,8 +503,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDoctorPersonalAccident = occ.slug === 'doctor' && ins.slug === 'personal-accident'
   const isPharmacistPersonalAccident = occ.slug === 'pharmacist' && ins.slug === 'personal-accident'
   const isConstructionPersonalAccident = occ.slug === 'construction' && ins.slug === 'personal-accident'
+  const isCivilServantPersonalAccident = occ.slug === 'civil-servant' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident || isConstructionPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident || isConstructionPersonalAccident || isCivilServantPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -50295,6 +50296,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '下請け関係等による使用者の支払い遅延リスクを想定した',
         '長期休業が想定される重大事故のリスクを正しく認識した',
         '労働安全衛生法に基づく安全管理義務の内容を理解した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isCivilServantPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">地方公務員の傷害保険・個人賠償｜B(e)数式で見る公務災害補償の保障空白と私生活リスク</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      地方公務員の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「公務災害補償制度の給付上限と私生活の保障空白の数式証明」があります。地方公務員は「地方公務員災害補償法」によって手厚い公務災害認定（年間約3万〜4万件の給付）が守られています。これにより、業務中の怪我や病気に対する経済的不安は民間企業に比べて格段に少なくなっています。また、窓口業務中の対人トラブルで訴えられた場合でも、国家賠償法の働きによって自治体が防波堤となります。しかし、この手厚い保護が及ぶのはあくまで「公務」に関する範囲のみです。完全な「私生活」における不法行為（スキー場での衝突、自転車での人身事故など）による損害賠償責任には無防備であることが多く、一度事故を起こせば、安定した給与が長期にわたって差し押さえられるリスクがあります。地方公務員における負傷および損害事象eに対する公的保障関数B(e)は、公務・通勤の場合は医療費C_medと休業補償（給与Wの80%以上）の合計、私生活上の不法行為（対人・対物事故）の場合は0となる、明確なステップ関数（場合分け）で表されます。公務中であれば医療費と休業補償が支給されますが、私生活において他者の財物や身体を損壊した場合、公務災害基金からの救済は一切なく、全額が自己資産からの拠出となります。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 手厚い公務災害補償も「公務」の範囲のみ——私生活の事故には完全に無防備</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• 地方公務員災害補償法による給付は年間約3万〜4万件と手厚いが、対象は公務・通勤のみ</li>
+        <li>• 私生活における不法行為（スキー場での衝突、自転車での人身事故等）は公務災害基金の対象外</li>
+        <li>• 一度私生活上の事故を起こせば、安定した給与が長期にわたって差し押さえられるリスクがある</li>
+        <li>• 休日のスノーボード事故で約4,043万円の賠償を命じられた判例水準のケースが存在する</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ B(e)のステップ関数——私生活の保障空白を個人賠償責任保険で埋める</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• 公務・通勤中であればB(e)=C_med+W×0.8（医療費＋給与の80%以上）が支給される</li>
+        <li>• 私生活上の不法行為の場合はB(e)=0——公務災害基金からの救済は一切ない</li>
+        <li>• 個人賠償責任保険（無制限タイプ）に加入すれば、私生活上の事故もこのB(e)=0の空白を埋められる</li>
+        <li>• 公務員は安定した給与があるため差押えのリスクが高く、無制限の賠償保障が望ましい</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      地方公務員のケース別・私生活上の事故と個人賠償シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：個人賠償責任保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">休日にスキー場でスノーボード中に制御を失い他人に激突、後遺障害を負わせ賠償4,043万円</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への賠償金</div>
+            <div className="font-bold text-gray-900">40,430,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">自身のケガの治療</div>
+            <div className="font-bold text-gray-900">健康保険適用で3割負担</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">キャリアへの影響</div>
+            <div className="font-bold text-gray-900">給与差押え、自己破産による失職リスク増大</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約40,430,000円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">公務災害の手厚さが私生活事故には及ばない</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：個人賠償責任保険あり（無制限）
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。個人賠償責任保険（無制限タイプ）に事前加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への賠償金</div>
+            <div className="font-bold text-red-700">0円（保険金で全額カバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">自身のケガの治療</div>
+            <div className="font-bold text-red-700">傷害保険でカバー</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">キャリアへの影響</div>
+            <div className="font-bold text-red-700">示談解決により身分と生活水準を保全</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">個人賠償責任保険が公務員の身分と生活を守る</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：地方公務員災害補償基金・<a href="https://www.chikousai.go.jp/gyoumu/toukei/pdf/r6/r6gaiyou.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">常勤地方公務員災害補償統計</a>　<a href="https://elaws.e-gov.go.jp/document?lawid=342AC0000000121" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">地方公務員災害補償法</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">地方公務員特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：常勤地方公務員災害補償統計とB(e)数式証明
+          <a href="https://www.chikousai.go.jp/gyoumu/toukei/pdf/r6/r6gaiyou.pdf" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（地方公務員災害補償基金）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          地方公務員災害補償基金の令和6年度統計では、年間約3万〜4万件の公務災害給付が示されている。地方公務員における公的保障関数B(e)は、公務・通勤の場合は医療費（C_med）と休業補償（給与W×0.8以上）の合計、私生活上の不法行為の場合はゼロという明確なステップ関数で表され、私生活の保障空白の大きさを示している。この空白を個人賠償責任保険で埋めることが、地方公務員の保険設計の核心である。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：地方公務員災害補償法が定める公務災害の範囲
+          <a href="https://elaws.e-gov.go.jp/document?lawid=342AC0000000121" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          地方公務員災害補償法第25条等は、地方公務員が公務上または通勤により負傷した場合に療養補償・休業補償等を支給する規定を定めている。この保障が及ぶのは公務・通勤の範囲のみであり、私生活上の事故には適用されない。手厚い公務災害補償制度を持つ地方公務員にとって、「私生活」における保障の欠如は盲点になりやすい最大のリスクポイントである。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：国家賠償法が示す職務中・職務外の責任範囲の違い
+          <a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000125" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          国家賠償法第1条は、公務員が職務を行うについて故意または過失によって違法に他人に損害を加えた場合、国または公共団体が賠償責任を負うと規定している。職務中の過失は自治体が賠償するが、休日の私生活上の事故は完全に個人の責任となることが、この条文から明確に読み取れる。窓口業務中の対人トラブルは守られるが、私生活のトラブルは無防備であることを正確に理解しておく必要がある。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">地方公務員の傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'B(e)数式で公務・私生活の保障の境界を理解する（最重要）', body: '公務災害補償が私生活上の事故には全く適用されないことを理解し、個人賠償責任保険の必要性を認識する。B(e)=0（私生活上の不法行為の場合）という事実を直視することが保険設計の出発点である。' },
+        { title: '個人賠償責任保険（無制限タイプ）に加入する', body: '公務員は安定した給与があり差押えリスクが高いため、無制限の賠償保障がある保険を選ぶ。スノーボード事故の約4,043万円判例のような高額賠償に対応するためには、上限設定のある保険では不十分な場合がある。' },
+        { title: '休日のスポーツ・レジャー活動のリスクを正しく認識する', body: 'スキー・スノーボード等のレジャー活動中の事故は、公務災害の対象外であることを理解しておく。休日の活動中こそ個人賠償責任保険が唯一の防護線となることを認識する。' },
+        { title: '国家賠償法の適用範囲（職務中のみ）を正確に理解する', body: '窓口業務中の対人トラブルは国家賠償法でカバーされるが、私生活上のトラブルは対象外であることを理解する。「公務員だから保険は不要」という思い込みの根拠を検証し、誤った安心感を解消する。' },
+        { title: '示談交渉サービス・弁護士費用特約の有無を確認する', body: '高額な賠償請求に対応するための訴訟・弁護士費用も保険でカバーできるかを確認する。示談交渉を保険会社が代行してくれるサービスが付帯された保険を選ぶことで、精神的負担も大幅に軽減できる。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BT：公務災害補償の手厚さに安心し、私生活の事故への備えを怠った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BT氏（地方公務員）。地方公務員災害補償法による手厚い保障があるため、保険加入の必要性を感じていなかった。休日にスキー場でスノーボード中に他人に激突し、後遺障害を負わせて約4,043万円の賠償を命じられた。公務災害の適用は不可であり、個人賠償責任保険にも加入していなかったため、全額を自己負担することとなり、給与の差押えという深刻な事態に陥った。
+        </p>
+        <p className="text-red-500 text-xs">教訓：公務災害補償は私生活上の事故には適用されないことを理解し、個人賠償責任保険に加入すべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BU：国家賠償法があるから安心と過信し、私生活上のトラブルへの備えを怠った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BU氏（地方公務員）。窓口業務中の対人トラブルは国家賠償法でカバーされるため、保険は不要だと考えていた。休日の私生活上のトラブルで第三者に損害を与えた際、国家賠償法は職務中の事故にしか適用されないことが判明し、全額が個人の責任となった。「公務員だから守られている」という誤解が最大の落とし穴となった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：国家賠償法の適用範囲（職務中のみ）を正しく理解し、私生活上のリスクには個人賠償責任保険で備えるべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BV：安定した給与があるため賠償リスクを軽視し、給与差押えの危機に直面した</p>
+        <p className="text-red-600 text-sm mb-2">
+          BV氏（地方公務員）。安定した給与があることから、賠償リスクへの備えを軽視していた。私生活上の事故で高額な賠償を命じられた際、安定収入があることが逆に「確実な賠償能力」と判断され、給与の差押えという深刻な事態に直面した。公務員の安定収入が賠償請求においてマイナスに働くというパラドックスに気づけなかった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：公務員の安定収入は賠償請求において不利に働く可能性があることを理解し、十分な賠償保険に加入しておくべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      地方公務員の傷害保険・個人賠償 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'B(e)数式で公務・私生活の保障の境界を理解した',
+        '個人賠償責任保険（無制限タイプ）に加入した',
+        '休日のスポーツ・レジャー活動のリスクを認識した',
+        '国家賠償法の適用範囲（職務中のみ）を正確に理解した',
+        '示談交渉サービス・弁護士費用特約の有無を確認した',
+        '安定収入が賠償請求において不利に働く可能性を理解した',
+        '地方公務員災害補償法の適用範囲（公務・通勤のみ）を理解した',
+        '保険の上限額が想定される最大賠償額をカバーできるか確認した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
