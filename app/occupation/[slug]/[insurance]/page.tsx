@@ -500,8 +500,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isDriverPersonalAccident = occ.slug === 'driver' && ins.slug === 'personal-accident'
   const isRestaurantPersonalAccident = occ.slug === 'restaurant' && ins.slug === 'personal-accident'
   const isHairdresserPersonalAccident = occ.slug === 'hairdresser' && ins.slug === 'personal-accident'
+  const isDoctorPersonalAccident = occ.slug === 'doctor' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -49656,6 +49657,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '顔面・露出部の後遺障害による慰謝料増額リスクを理解した',
         '美容師法に基づく衛生管理・安全義務の基準を理解した',
         '保険の上限額が想定される最大賠償額をカバーできるか確認した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isDoctorPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">医師の傷害保険・個人賠償｜D_med数式で見る医師賠償保険の境界線と私生活リスク</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      医師の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「医師賠償責任保険の境界線と私生活上の個人賠償リスクの数式証明」があります。医師は職業の性質上、些細な判断ミスが患者の生命に直結するため、数千万〜数億円規模の賠償責任を伴う「医療過誤リスク」に常に晒されています。過去の判例でも、腹部CT検査を怠った注意義務違反で約1,590万円、肺がんの見落としで約4,200万円といった高額賠償が命じられています。そのため、医師賠償責任保険への加入は業界の常識となっています。しかし、勤務医の多くが見落としているのが「私生活上の個人賠償リスク」と「医療過誤保険」の厳格な境界線です。医師賠償責任保険は「医療行為」に起因する損害のみを対象とするため、通勤中の自転車事故や休日のスポーツ中の事故は一切保障されません。医療過誤とみなされる場合の損害賠償額D_medは、患者死亡時の完全な逸失利益・慰謝料L_totalに、適切な医療が提供された場合の生存確率P_survival_optimalと実際の生存確率P_survival_actualの差分（寄与度）を乗じた額として、D_med=L_total×max(0, P_survival_optimal−P_survival_actual)という数式で表されます。医師は高い支払い能力を持つと推定されるため、交通事故等の加害者となった場合、容赦のない賠償請求を受けます。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 医師賠償責任保険は「医療行為」のみが対象——私生活の自転車事故は絶対に保障されない</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• 通勤中の自転車事故や休日のスポーツ中の事故は、医師賠償責任保険の対象外である</li>
+        <li>• 医師は高い支払い能力を持つと推定され、私生活上の事故で容赦のない賠償請求を受けやすい</li>
+        <li>• 実際に「ながら運転」の自転車事故で、約6,779万円の賠償が命じられた判例が存在する</li>
+        <li>• 医療行為に起因しない事故である限り、医師賠償責任保険は「絶対におりない」</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ D_med=L_total×max(0, P_survival_optimal−P_survival_actual)——個人賠償責任保険で別枠の備えを</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• 医師賠償責任保険は医療過誤D_medのみをカバーし、私生活上の事故は完全に対象外</li>
+        <li>• 個人賠償責任保険に別途加入することで、私生活上の事故による巨額の賠償リスクをカバーできる</li>
+        <li>• 傷害保険を併用すれば、自身の負傷（労災の通勤災害適用外の場合も含む）への備えも確保できる</li>
+        <li>• 医師賠償責任保険と個人賠償責任保険は、対象範囲が全く異なる「別の保険」であることを理解する</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      医師のケース別・私生活上の自転車事故と個人賠償シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：医師賠償責任保険のみ加入
+        </div>
+        <p className="text-sm text-gray-600 mb-4">通勤のために自転車運転中、ながら運転で歩行者と衝突し死亡。賠償額6,779万円</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">医療過誤による賠償</div>
+            <div className="font-bold text-gray-900">0円（医師賠償でカバー）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">私生活の自転車事故賠償</div>
+            <div className="font-bold text-gray-900">67,790,000円（全額自己負担）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">自身のケガ（傷害）</div>
+            <div className="font-bold text-gray-900">労災の通勤災害適用外（経路逸脱時）なら全額自己負担</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約67,790,000円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">医師賠償保険があっても私生活事故は守れない</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：医師賠償＋個人賠償責任保険加入
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。個人賠償責任保険・傷害保険に事前加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">医療過誤による賠償</div>
+            <div className="font-bold text-red-700">0円（医師賠償でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">私生活の自転車事故賠償</div>
+            <div className="font-bold text-red-700">0円（個人賠償責任保険でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">自身のケガ（傷害）</div>
+            <div className="font-bold text-red-700">0円（傷害保険でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">2つの保険の併用が医師を完全に守る</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://www.courts.go.jp/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">医療過誤訴訟・自転車重大事故の判例データベース</a>　<a href="https://elaws.e-gov.go.jp/document?lawid=140AC0000000045" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">刑法第211条</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">医師特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：医療過誤訴訟・自転車重大事故の判例とD_med数式証明
+          <a href="https://www.courts.go.jp/" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（裁判所）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          裁判所の判例データベースでは、腹部CT検査を怠った注意義務違反で約1,590万円、肺がんの見落としで約4,200万円といった高額賠償が示されている。医療過誤とみなされる場合の損害賠償額D_medは、患者死亡時の完全な逸失利益・慰謝料（L_total）に、適切な医療と実際の医療の生存確率の差分（P_survival_optimal−P_survival_actual）を乗じた額として算出される。医師賠償責任保険はこのD_medをカバーするが、私生活上の事故は対象外であることを正確に理解する必要がある。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：刑法第211条（業務上過失致死傷）に基づく刑事責任の重さ
+          <a href="https://elaws.e-gov.go.jp/document?lawid=140AC0000000045" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          刑法第211条は、医療事故において極めて重大な注意義務違反が認められた場合、民事上の賠償だけでなく刑事罰の対象となることを規定している。過去には都立広尾病院事件や横浜市大病院事件など、刑事責任が問われた重大事例が存在する。医師賠償責任保険は民事上の賠償をカバーするが、刑事責任そのものは保険の対象外であることを理解しておく必要がある。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：医療安全対策に関する行政情報が示す事故防止の重要性
+          <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/anzen/index.html" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（厚生労働省）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          厚生労働省の医療安全対策に関する行政情報では、医療事故防止のためのガイドラインが示されている。これらの対策を講じていても医療過誤は発生し得るため、医師賠償責任保険への加入が不可欠である一方、私生活上の事故には別途個人賠償責任保険が必要である。医師は「医師賠償で全てのリスクがカバーされている」という思い込みを持ちやすいが、それは誤りである。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">医師の傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'D_med数式で医療過誤と私生活事故の賠償構造の違いを理解する（最重要）', body: '医師賠償責任保険が対象とする範囲（医療行為のみ）を正確に理解し、私生活事故は対象外であることを認識する。D_medは医療行為の質差分に基づく賠償額であり、私生活上の事故には全く別の計算式が適用される。' },
+        { title: '個人賠償責任保険に別途加入し、私生活上の事故に備える', body: '通勤中の自転車事故や休日のスポーツ中の事故は、医師賠償責任保険ではカバーされないため、個人賠償責任保険が必須である。上限額は少なくとも1億円規模のものを選ぶことを推奨する。' },
+        { title: '医師賠償責任保険の対象範囲（医療行為のみ）を正確に理解する', body: '「医師だから保険は十分」という思い込みを避け、医療行為以外のリスクへの備えを別途検討する。医師賠償責任保険と個人賠償責任保険は対象範囲が全く異なる別の保険である。' },
+        { title: '通勤手段による労災適用範囲の違いを理解する', body: '経路逸脱時の事故は通勤災害として認められない可能性があることを理解し、傷害保険で補完する。特に自転車通勤の場合、路上での事故が医師賠償責任保険でも労災でも保障されないケースがある。' },
+        { title: '刑事責任が問われる可能性のある重大な注意義務違反のリスクも認識する', body: '刑法第211条に基づく刑事罰の対象となるケースもあることを理解し、医療安全対策を徹底する。保険でカバーできない刑事責任リスクの存在を認識することが、最終的なリスク管理の出発点である。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BK：医師賠償責任保険があるから安心と過信し、私生活の自転車事故で6,700万円超の賠償を負った</p>
+        <p className="text-red-600 text-sm mb-2">
+          BK氏（勤務医）。通勤のために自転車を運転中、ながら運転で歩行者と衝突し死亡させてしまった。この事故は「医療行為」ではないため、医師賠償責任保険は適用されなかった。個人賠償責任保険に加入していなかったため、約6,779万円の賠償を全額自己負担することとなった。医師賠償責任保険に加入していたことで「保険は十分」と過信していたことが根本的な原因である。
+        </p>
+        <p className="text-red-500 text-xs">教訓：医師賠償責任保険は医療行為のみを対象とすることを理解し、私生活上の事故には別途個人賠償責任保険が必要である。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BL：経路逸脱時の通勤事故が労災適用外と判明し、治療費を全額自己負担した</p>
+        <p className="text-red-600 text-sm mb-2">
+          BL氏（勤務医）。通勤途中に私的な用事で経路を逸脱し、その際に事故に遭った。労災の通勤災害適用基準では、私的理由による経路逸脱中の事故は適用外となるため、治療費を全額自己負担することとなった。医師として多忙な日々の中で、私的な立ち寄りが日常的になっていたが、その間の事故リスクへの認識が不足していた。
+        </p>
+        <p className="text-red-500 text-xs">教訓：通勤手段による労災適用範囲の違いを理解し、傷害保険でその空白を補完すべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BM：医療過誤の重大性を見誤り、刑事責任を問われる事態に発展した</p>
+        <p className="text-red-600 text-sm mb-2">
+          BM氏（勤務医）。重大な注意義務違反による医療事故を起こしてしまった。刑法第211条に基づき、民事上の賠償だけでなく刑事責任を問われる事態となった。医師賠償責任保険は民事上の賠償をカバーするが、刑事責任そのものは保険の対象外であり、刑事手続きへの対応は全て自己負担となった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：医療安全対策を徹底し、重大な注意義務違反を未然に防ぐことが、保険加入以上に重要であることを理解すべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      医師の傷害保険・個人賠償 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'D_med数式で医療過誤と私生活事故の賠償構造の違いを理解した',
+        '個人賠償責任保険に別途加入した',
+        '医師賠償責任保険の対象範囲（医療行為のみ）を正確に理解した',
+        '通勤手段による労災適用範囲の違いを理解した',
+        '傷害保険で通勤災害適用外のリスクを補完した',
+        '刑法第211条（業務上過失致死傷）の存在を理解した',
+        '医療安全対策を徹底し重大な注意義務違反を未然に防ぐ意識を持った',
+        '個人賠償責任保険の上限額が想定される最大賠償額をカバーできるか確認した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
