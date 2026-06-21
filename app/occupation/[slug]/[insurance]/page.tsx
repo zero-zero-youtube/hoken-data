@@ -499,8 +499,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isTeacherPersonalAccident = occ.slug === 'teacher' && ins.slug === 'personal-accident'
   const isDriverPersonalAccident = occ.slug === 'driver' && ins.slug === 'personal-accident'
   const isRestaurantPersonalAccident = occ.slug === 'restaurant' && ins.slug === 'personal-accident'
+  const isHairdresserPersonalAccident = occ.slug === 'hairdresser' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -49443,6 +49444,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '企業用傷害保険で労災の残り20%を補完する体制を整えた',
         '弁護士費用・原因究明調査費用への備えを検討した',
         '被害者数が数十名規模になる可能性を前提に保険の上限額を設定した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isHairdresserPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">美容師・理容師の傷害保険｜R_beauty数式で見る施術ミス賠償の増大メカニズム</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      美容師・理容師の傷害保険・個人賠償設計には、大手比較サイトが一切触れない「施術ミスに伴う賠償額の増大モデルの数式証明」があります。美容師およびエステティシャンは、長時間の立ち仕事や不自然な姿勢による職業病（腱鞘炎や腰痛）に加え、刃物（ハサミやカミソリ）による切創事故リスクが常に存在します。しかし、財務的により深刻なリスクは「対人賠償責任リスク」です。カラー剤やパーマ液による化学熱傷、脂肪冷却機器等のエステ機器の誤操作による凍傷・火傷など、顧客の身体に対する直接的な施術ミスは、高額な賠償請求に直結します。美容室においては、個人賠償責任保険では「業務遂行中」が免責となるため、専用の施設賠償・業務遂行賠償責任保険への加入が不可欠です。美容施術による対人賠償リスクR_beautyは、治療費・通院費等のC_med、休業による逸失利益C_lost_wage、そして顔面や露出部等の「外見」に後遺障害を残した場合の標準的な傷害慰謝料C_base_consに醜状障害（顔面の傷跡や色素沈着など）に伴う慰謝料増額係数α_scar（α＞1）を乗じた額の合計として、R_beauty=C_med+C_lost_wage+(C_base_cons×α_scar)という数式で表されます。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 個人賠償責任保険は「業務遂行中」が免責——美容室専用の業務遂行賠償責任保険が必須</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• カラー剤・パーマ液による化学熱傷、エステ機器の誤操作による凍傷・火傷が高額賠償に直結する</li>
+        <li>• 顔面や露出部の後遺障害は慰謝料増額係数α_scar（α＞1）により慰謝料が跳ね上がる</li>
+        <li>• 治療費自体は数万円でも、後遺症と精神的苦痛に対する慰謝料として200万円規模の請求が発生するケースがある</li>
+        <li>• 店舗設備の不備（配管詰まり等）による階下テナントへの漏水事故等、対物賠償リスクも併存する</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ R_beauty=C_med+C_lost_wage+(C_base_cons×α_scar)——専用の業務遂行賠償責任保険が解決策</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• C_base_cons×α_scar（標準慰謝料×醜状障害の増額係数）が賠償額を大きく左右する要因</li>
+        <li>• 個人賠償責任保険の「業務遂行中の免責」を埋めるため、美容業務遂行賠償責任特約が不可欠</li>
+        <li>• 施設賠償責任保険を併用すれば、店舗設備に起因する対物賠償（漏水事故等）もカバーできる</li>
+        <li>• 弁護士費用特約があれば、示談交渉や訴訟対応の費用負担も回避できる</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      美容師・エステティシャンのケース別・施術ミスと施設賠償シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：施設賠償・業務遂行賠償なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">脂肪冷却機器の施術ミスで顧客に第2度凍傷。同月、配管詰まりで階下テナントへ漏水事故</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">階下への漏水損害賠償</div>
+            <div className="font-bold text-gray-900">2,294,461円（内装修繕・休業損害等）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">顧客の火傷への賠償金</div>
+            <div className="font-bold text-gray-900">648,376円（治療費・交通費・慰謝料等）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">弁護士依頼費用</div>
+            <div className="font-bold text-gray-900">300,000円〜</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-gray-900">約3,242,837円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">2つの事故が重なり300万円超の自己負担に</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：店舗総合保険・業務遂行賠償あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。事前に店舗総合保険・業務遂行賠償責任特約に加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">階下への漏水損害賠償</div>
+            <div className="font-bold text-red-700">0円（施設賠償責任保険でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">顧客の火傷への賠償金</div>
+            <div className="font-bold text-red-700">0円（美容業務遂行賠償責任特約でカバー）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">弁護士依頼費用</div>
+            <div className="font-bold text-red-700">0円（弁護士費用特約）</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終自己負担額</div>
+            <div className="font-bold text-red-700">実質0円</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">専用保険が2つの事故を同時に無効化する</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：<a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">美容師法</a>　厚生労働省・<a href="https://www.mhlw.go.jp/bunya/kenkou/seikatsu-eisei04/03.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">理容・美容の衛生管理指針</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">美容師・理容師特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：美容師法に基づく安全管理義務とR_beauty数式証明
+          <a href="https://elaws.e-gov.go.jp/document?lawid=332AC0000000163" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（e-Gov法令）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          美容師法は美容業務における衛生管理と安全義務の法的基準を定めている。美容施術による対人賠償リスクR_beautyは、治療費（C_med）、休業による逸失利益（C_lost_wage）、そして醜状障害に伴う慰謝料増額係数（α_scar）を乗じた標準慰謝料（C_base_cons）の合計として算出され、顔面等の後遺障害は慰謝料を大きく増大させる。同法を遵守していても施術ミスは発生し得るため、業務遂行賠償責任保険による備えが不可欠である。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：エステ・美容医療の熱傷事故判例の実態
+          <a href="https://www.courts.go.jp/" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（裁判所・東京地裁令和元年6月6日判決等）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          裁判所の判例データでは、エステや美容医療における熱傷事故の判例が示されている。治療費自体は数万円程度であっても、後遺症と精神的苦痛に対する慰謝料として200万円規模の請求が発生するケースが存在する。α_scar（醜状障害による増額係数）の影響で、顔面に傷跡が残った場合の賠償総額は治療費の数十倍に達することがある。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：理容・美容の衛生管理指針が示す事故防止の重要性
+          <a href="https://www.mhlw.go.jp/bunya/kenkou/seikatsu-eisei04/03.html" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（厚生労働省）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          厚生労働省の理容・美容のページでは、衛生管理指針や事故防止マニュアルが示されている。これらの指針を守っていても施術ミスは発生し得るため、業務遂行賠償責任保険による備えが不可欠である。特にカラー剤・パーマ液等の化学製品による皮膚障害は、施術後数日から数週間後に症状が顕在化するケースもある。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">美容師・理容師の傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'R_beauty数式で施術ミスによる賠償額の増大要因を理解する（最重要）', body: '顔面や露出部の後遺障害は慰謝料増額係数α_scarにより賠償額が大きく跳ね上がることを理解する。治療費のみで賠償リスクを見積もると大幅に過小評価する。' },
+        { title: '個人賠償責任保険ではなく、業務遂行賠償責任保険に加入する', body: '個人賠償責任保険は「業務遂行中」が免責となるため、専用の業務遂行賠償責任保険が必要である。美容サロン専用の店舗総合保険に業務遂行賠償責任特約を付帯するのが最も合理的。' },
+        { title: '施設賠償責任保険で店舗設備に起因する対物賠償もカバーする', body: '配管詰まり等の店舗設備の不備による漏水事故等、対物賠償リスクも併せて備える。施設賠償責任保険と業務遂行賠償責任保険はセットで加入することで包括的なリスクカバーが実現できる。' },
+        { title: '弁護士費用特約の有無を確認する', body: '高額な賠償請求が発生した場合の示談交渉・訴訟対応の費用も保険でカバーできるか確認する。示談交渉には専門的な法的知識が必要であり、弁護士費用は数十万円規模になることがある。' },
+        { title: 'カラー剤・パーマ液等の化学製品によるリスクも保障範囲に含める', body: '化学熱傷等のリスクが業務遂行賠償責任保険の対象範囲に含まれているか確認しておく。施術後に遅発性に発症する皮膚障害も対象範囲に含まれているかを事前に確認することが重要。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BH：エステ機器の施術ミスと店舗設備の不備が同月に重なり、300万円超の自己負担となった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BH氏（エステティックサロン経営者）。脂肪冷却機器の施術ミスにより顧客に第2度凍傷を負わせ、同じ月にシャンプー台の配管詰まりにより階下テナントへ漏水事故を起こした。民法第709条（不法行為）に基づく対人賠償と、施設の不備による対物賠償が同時に発生したが、施設賠償・業務遂行賠償責任保険に未加入であったため、合計約324万円を自己負担することとなった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：業務遂行賠償責任保険と施設賠償責任保険の両方に加入し、複合的なリスクに備えるべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BI：個人賠償責任保険に加入していたが、業務中の施術ミスは免責だった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BI氏（美容師）。個人賠償責任保険に加入していたため、施術ミスも保障されると思っていた。実際に顧客の施術中にカラー剤による化学熱傷トラブルが発生した際、個人賠償責任保険の「業務遂行中」の免責規定により保険金が支払われなかった。約50万円の賠償を全額自己負担することとなり、資金繰りが一時的に悪化した。
+        </p>
+        <p className="text-red-500 text-xs">教訓：個人賠償責任保険と業務遂行賠償責任保険は別物であることを理解し、業務に関連するリスクには専用の保険が必要である。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BJ：醜状障害による慰謝料増額を見誤り、保険の上限額が不十分だった</p>
+        <p className="text-red-600 text-sm mb-2">
+          BJ氏（美容師）。施術ミスにより顧客の顔面に傷を残してしまった。治療費自体は数万円であったが、醜状障害に伴う慰謝料増額係数（α_scar）により、慰謝料総額が200万円規模に膨れ上がり、加入していた業務遂行賠償責任保険の上限額（100万円）を超える部分を自己負担することとなった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：顔面等の後遺障害は慰謝料が大きく増額されることを理解し、十分な上限額（最低でも1,000万円規模）の保険に加入しておくべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      美容師・理容師の傷害保険・個人賠償 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'R_beauty数式で施術ミスによる賠償額の増大要因を理解した',
+        '個人賠償責任保険ではなく業務遂行賠償責任保険に加入した',
+        '施設賠償責任保険で店舗設備に起因する対物賠償もカバーした',
+        '弁護士費用特約の有無を確認した',
+        'カラー剤・パーマ液等の化学製品によるリスクが保障範囲に含まれているか確認した',
+        '顔面・露出部の後遺障害による慰謝料増額リスクを理解した',
+        '美容師法に基づく衛生管理・安全義務の基準を理解した',
+        '保険の上限額が想定される最大賠償額をカバーできるか確認した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
