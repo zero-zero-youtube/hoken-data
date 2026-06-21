@@ -505,8 +505,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isConstructionPersonalAccident = occ.slug === 'construction' && ins.slug === 'personal-accident'
   const isCivilServantPersonalAccident = occ.slug === 'civil-servant' && ins.slug === 'personal-accident'
   const isSelfEmployedPersonalAccident = occ.slug === 'self-employed' && ins.slug === 'personal-accident'
+  const isEngineerPersonalAccident = occ.slug === 'engineer' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident || isConstructionPersonalAccident || isCivilServantPersonalAccident || isSelfEmployedPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident || isRestaurantPersonalAccident || isHairdresserPersonalAccident || isDoctorPersonalAccident || isPharmacistPersonalAccident || isConstructionPersonalAccident || isCivilServantPersonalAccident || isSelfEmployedPersonalAccident || isEngineerPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -50721,6 +50722,218 @@ export default async function OccupationInsurancePage({ params }: Props) {
         '国民健康保険法第58条（任意給付の限定性）を理解した',
         '高額療養費制度適用後の医療費自己負担額を把握した',
         '想定される休業月数（M）に応じた保障期間を確認した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
+</div>
+)}
+
+{isEngineerPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">エンジニアの傷害保険・個人賠償｜E[Loss]数式で見る自転車通勤事故とテレワーク労災の境界線</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      システムエンジニア・プログラマーの傷害保険・個人賠償設計には、大手比較サイトが一切触れない「テレワーク環境下の労災認定境界線と自転車通勤事故の経済的損失期待値の数式証明」があります。システムエンジニアやプログラマーは、オフィスワークおよびテレワークを主体とするため、工場や建設現場と比較して物理的な労働災害の発生率は極めて低いです。しかしながら、自転車通勤時の重大な加害事故リスクや、在宅勤務時における労災認定の境界線（グレーゾーン）の存在が、深刻な経済的リスクを生み出しています。在宅勤務における労働災害の認定は、労働者災害補償保険法第7条に基づく「業務遂行性」と「業務起因性」の有無によって判断されます。自宅における業務中の離席（トイレ等の生理的行為）に伴う転倒事故は労災認定の対象となりますが、私的な外出や家事・育児中の負傷は業務遂行性が否定され公的保障の対象外となります。この経済的損失の期待値E[Loss]は、自転車事故による加害確率P_bikeと対人・対物賠償額D_liabilityの積に、私生活または適用外となるテレワーク中の傷害発生確率P_accidentと、治療費自己負担額C_medおよび最初の3日間の所得喪失・4日目から治癒までの期間の20%の所得喪失を加えた額の積を足した値として、E[Loss]=P_bike×D_liability+P_accident×(C_med+∫[0,3]W_daily×1.0dt+∫[3,T]W_daily×0.2dt)という数式で表されます。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-2">🚨 自転車通勤の加害事故が9,000万円超の賠償を生む——労災の通勤災害は自身の負傷しか保障しない</p>
+      <ul className="text-red-600 text-sm space-y-1">
+        <li>• 神戸地裁の判例では、自転車事故で女性が意識不明の重体となり約9,521万円の賠償が命じられた</li>
+        <li>• 労災保険の通勤災害は自身の負傷のみを保障し、被害者への賠償責任は一切カバーしない</li>
+        <li>• 在宅勤務中の私的な外出や家事・育児中の負傷は、業務遂行性が否定され公的保障の対象外となる</li>
+        <li>• 事故発生時の示談交渉・訴訟費用も、保険なしでは数百万円規模の自己負担となる</li>
+      </ul>
+    </div>
+    {/* アンバーインフォボックス */}
+    <div className="bg-amber-50 border border-amber-400 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">⚠️ E[Loss]=P_bike×D_liability+P_accident×(...)——個人賠償責任保険と傷害保険の併用が解決策</p>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• P_bike×D_liability（自転車事故の加害確率×賠償額）が最大のリスク要因</li>
+        <li>• 個人賠償責任保険（1億円程度）に加入していれば、この巨額な賠償を全額カバーできる</li>
+        <li>• P_accident（私生活上の事故発生確率）に対しては、傷害保険の所得補償特約で備える</li>
+        <li>• 労災の休業補償が最大80%にとどまることを理解し、残り20%も民間保険で補完する</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース別シミュレーション */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      エンジニアのケース別・自転車通勤事故と私生活負傷シミュレーション
+    </h2>
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースA：傷害・個人賠償保険なし
+        </div>
+        <p className="text-sm text-gray-600 mb-4">自転車通勤中に対人事故。判例水準で賠償約9,521万円。同時に私生活で負傷し1ヶ月休業</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">被害者への賠償額</div>
+            <div className="font-bold text-gray-900">95,210,000円</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">示談交渉・訴訟関連費用</div>
+            <div className="font-bold text-gray-900">自己負担（約3,000,000円）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">私生活負傷の休業損害（1ヶ月）</div>
+            <div className="font-bold text-gray-900">賃金100%喪失（有給消化後は無収入）</div>
+          </div>
+          <div className="bg-white rounded p-3 border border-blue-100">
+            <div className="text-xs text-gray-500 mb-1">最終的な経済的自己負担額</div>
+            <div className="font-bold text-gray-900">約98,210,000円（自己破産リスク極大）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-blue-700 text-xl">通勤中の自転車事故が人生を破壊する規模の負債を生む</div>
+        </div>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+          ケースB：個人賠償1億円・傷害保険あり
+        </div>
+        <p className="text-sm text-gray-600 mb-4">同左条件。事前に個人賠償責任保険・傷害保険に加入</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded p-3 border border-red-100">
+            <div className="text-xs text-gray-500 mb-1">保険金による賠償充当額</div>
+            <div className="font-bold text-red-700">95,210,000円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">示談交渉・訴訟関連費用</div>
+            <div className="font-bold text-red-700">保険付帯サービス・弁護士費用特約で0円</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">私生活負傷の休業損害（1ヶ月）</div>
+            <div className="font-bold text-red-700">所得補償特約により喪失分を補填</div>
+          </div>
+          <div className="bg-red-50 rounded p-3 border border-red-200">
+            <div className="text-xs text-gray-500 mb-1">最終的な経済的自己負担額</div>
+            <div className="font-bold text-red-700">0円（完全保護）</div>
+          </div>
+        </div>
+        <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+          <div className="text-xs text-gray-600 mb-1">結論</div>
+          <div className="font-bold text-red-700 text-xl">2つの保険の併用が9,800万円超の損失を完全に防ぐ</div>
+        </div>
+      </div>
+    </div>
+    <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+      根拠：厚生労働省・<a href="https://www.mhlw.go.jp/content/000807035.pdf" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">テレワークにおける適切な労務管理のためのガイドライン</a>　<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">労災補償制度の概要</a>
+    </p>
+  </section>
+
+  {/* S4: リスクデータ3件 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">エンジニア特有のリスクデータ（政府統計3件）</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク①：テレワークの業務遂行性判断基準とE[Loss]数式証明
+          <a href="https://www.mhlw.go.jp/content/000807035.pdf" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（厚生労働省ガイドライン）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          厚生労働省のテレワークガイドラインでは、在宅勤務中の業務遂行性・業務起因性の判断基準が示されている。自宅における業務中の離席（トイレ等）に伴う転倒は労災認定の対象となるが、私的な外出や家事・育児中の負傷は対象外となる。経済的損失の期待値E[Loss]は、自転車事故の賠償リスク（P_bike×D_liability）と私生活上の傷害リスク（P_accident×費用総額）の合算として算出され、どちらのリスクも保険なしでは壊滅的な損失を招く。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク②：自転車事故の不法行為責任に関する判例の実態
+          <a href="https://www.courts.go.jp/" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（裁判所・神戸地裁平成25年7月4日判決）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          神戸地裁平成25年7月4日判決では、夜間に自転車で走行していた小学5年生の男子が62歳女性と正面衝突し、約9,521万円という巨額の損害賠償が命じられている。エンジニアが通勤途上で同様の事故を起こした場合、労災保険は自身の負傷のみを保障し、被害者への賠償責任は一切カバーされない。自転車通勤者にとって個人賠償責任保険は「任意」ではなく「必須」の保険である。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">
+          リスク③：労災補償制度における休業補償の80%上限
+          <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/" rel="noopener noreferrer" target="_blank" className="ml-2 text-sm text-blue-600 underline font-normal">（厚生労働省）</a>
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          厚生労働省の労災補償制度の概要では、休業補償が最初の3日間は使用者負担、4日目以降は給付基礎日額の80%が上限であることが示されている。残りの20%の所得喪失は、民間の傷害保険による所得補償でカバーする必要がある。特に長期休業が続く場合、E[Loss]の∫[3,T]W_daily×0.2dtの項が積み上がり、家計への影響が無視できない規模となる。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: CTA② */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S6: 5つのチェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">エンジニアの傷害保険・個人賠償選び5つのチェックポイント</h2>
+    <div className="space-y-4 mb-8">
+      {[
+        { title: 'E[Loss]数式で自転車事故と私生活傷害の経済的損失期待値を理解する（最重要）', body: '自転車通勤の加害事故リスク（P_bike×D_liability）と私生活上の傷害リスク（P_accident×費用総額）の両方を踏まえ、必要な保険の規模を把握する。判例水準の賠償額（9,521万円）を前提に、保険の上限額を設定する。' },
+        { title: '個人賠償責任保険（1億円程度）に加入する', body: '自転車事故の賠償額が9,000万円規模に達する判例が存在することを理解し、十分な保障額の保険を選ぶ。「無制限」タイプの個人賠償責任保険が最も確実であり、年間保険料も数千円程度と安価な場合が多い。' },
+        { title: 'テレワーク中の業務遂行性の境界線を正確に理解する', body: '業務中の離席は労災対象だが、私的な外出・家事育児中の負傷は対象外であることを理解しておく。テレワーク中の「グレーゾーン」を傷害保険でカバーすることが、在宅勤務者の最重要リスク管理となる。' },
+        { title: '傷害保険の所得補償特約で休業中の収入減少に備える', body: '労災の休業補償が80%にとどまることを理解し、残り20%や私生活上の傷害による所得喪失を民間保険で補完する。特に住宅ローンを抱えるエンジニアは、月々の固定費を賄えなくなるリスクを正確に試算した上で加入額を決定する。' },
+        { title: '示談交渉サービス・弁護士費用特約の有無を確認する', body: '高額な賠償請求に対応するための訴訟・弁護士費用も保険でカバーできるかを確認する。自転車事故の賠償交渉は長期化することが多く、弁護士費用特約があれば精神的・経済的負担を大幅に軽減できる。' },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">{i + 1}. {item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗CA：自転車通勤中の加害事故で9,500万円超の賠償を負い、自己破産の危機に陥った</p>
+        <p className="text-red-600 text-sm mb-2">
+          CA氏（システムエンジニア）。自転車通勤中に対人事故を起こし、被害者に重篤な障害を負わせた。民法第709条に基づく不法行為責任により、判例水準の約9,521万円の賠償を命じられた。個人賠償責任保険に加入していなかったため、自己破産リスクに直面した。「エンジニアは机の前で仕事するから保険は不要」という思い込みが最大の落とし穴となった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：自転車通勤の加害事故は巨額の賠償に直結することを理解し、個人賠償責任保険に必ず加入すべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗CB：在宅勤務中の家事中の負傷が労災適用外と判明し、全額自己負担となった</p>
+        <p className="text-red-600 text-sm mb-2">
+          CB氏（システムエンジニア）。在宅勤務の休憩時間中に家事を行っていた際に負傷した。労働者災害補償保険法第7条に基づく業務遂行性の判断基準において、家事中の負傷は業務遂行性が否定され、労災の対象外となった。治療費・休業損害を全額自己負担することとなり、「在宅勤務中は全て労災の対象」という誤解が原因だった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：テレワーク中の労災認定の境界線を正確に理解し、私生活上のリスクには傷害保険で備えるべきである。</p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗CC：労災の休業補償が80%にとどまることを知らず、残り20%の所得ギャップに苦しんだ</p>
+        <p className="text-red-600 text-sm mb-2">
+          CC氏（システムエンジニア）。在宅勤務中の業務遂行性が認められる事故で労災が適用されたが、給付基礎日額の80%しか支給されず、残り20%の所得ギャップが長期休業で積み上がり、生活費の確保に苦労した。「労災が認定されれば全て補償される」という誤解が、20%のギャップを見落とす原因となった。
+        </p>
+        <p className="text-red-500 text-xs">教訓：労災保険の給付水準（80%上限）を正確に理解し、傷害保険の所得補償特約で残り20%を補完すべきである。</p>
+      </div>
+    </div>
+  </section>
+
+  {/* S7: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      エンジニアの傷害保険・個人賠償 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        'E[Loss]数式で自転車事故と私生活傷害の経済的損失期待値を理解した',
+        '個人賠償責任保険（1億円程度）に加入した',
+        'テレワーク中の業務遂行性の境界線を理解した',
+        '傷害保険の所得補償特約で休業中の収入減少に備えた',
+        '示談交渉サービス・弁護士費用特約の有無を確認した',
+        '労災の休業補償が80%上限であることを理解した',
+        '自転車事故の賠償額が9,000万円規模に達する可能性を認識した',
+        '保険の上限額が想定される最大賠償額をカバーできるか確認した',
       ].map((item, i) => (
         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
           <span className="text-blue-500 font-bold mt-0.5">☐</span>
