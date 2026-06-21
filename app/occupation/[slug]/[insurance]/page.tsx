@@ -487,8 +487,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isLawyerWholeLife = occ.slug === 'lawyer' && ins.slug === 'whole-life'
   const isDesignerWholeLife = occ.slug === 'designer' && ins.slug === 'whole-life'
   const isManagerWholeLife = occ.slug === 'manager' && ins.slug === 'whole-life'
+  const isManufacturingWholeLife = occ.slug === 'manufacturing' && ins.slug === 'whole-life'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -46665,6 +46666,269 @@ export default async function OccupationInsurancePage({ params }: Props) {
       '学費・生活費への備えを団信とは別に終身保険で確保した',
       '労働基準法第41条（管理監督者）の適用範囲を理解した',
       '充足率（Replacement_Rate）が1.0以上となるよう保障額を設計した',
+    ].map((item, i) => (
+      <label key={i} className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
+        <span className="text-sm text-gray-800 leading-relaxed">{item}</span>
+      </label>
+    ))}
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+</div>
+)}
+
+{isManufacturingWholeLife && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+
+{/* S1: リード文 + 2色インフォボックス */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-4">製造業・工場勤務の終身保険——企業規模退職金格差をGap_scale数式で補完する設計法</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    製造業・工場勤務の終身保険設計には、大手比較サイトが一切触れない「企業規模による退職金格差を終身保険の積立機能で補完する数式証明」があります。
+    製造業は日本の基幹産業ですが、工場勤務においては夜勤交代制や重量物運搬、機械作業による労働災害リスクが常在しています。
+    就労条件総合調査によれば、製造業における退職金制度の導入率は80%を超え高い水準にあるものの、
+    大企業（1,000人以上）と中小企業（30〜99人）では退職金額に圧倒的な格差が存在します。
+    中小メーカーに勤務する工場労働者の場合、企業の退職金だけでは老後資金が不足する可能性が高く、
+    終身保険による「企業規模格差の穴埋め」が必須の資産形成アプローチとなります。
+    企業規模による退職金格差Gap_scaleは、大企業（製造業）の平均退職金R_large_corp（例：2,000万円以上）から、
+    勤務先の中小メーカーの退職金見込額R_sme（例：800万円）と
+    終身保険の解約返戻金による自助努力分CV_whole_life（目標1,200万円）の合計を引いた額がゼロ以下となることを示す、
+    Gap_scale=R_large_corp−(R_sme+CV_whole_life)≤0という数式で表されます。
+  </p>
+  <div className="grid md:grid-cols-2 gap-4 mb-6">
+    <div className="bg-red-50 border-l-4 border-red-400 p-5 rounded-r-lg">
+      <p className="font-bold text-red-800 mb-2">🚨 製造業の退職金制度導入率80%超でも、企業規模で受給額に圧倒的な格差が存在</p>
+      <ul className="text-red-700 text-sm leading-relaxed space-y-1">
+        <li>・大企業（1,000人以上）と中小企業（30〜99人）の退職金額には数百万〜千万円規模の差がある</li>
+        <li>・中小メーカー勤務の場合、企業の退職金だけでは老後2,000万円問題に直面しやすい</li>
+        <li>・工場内での巻き込まれ事故等による死亡災害は後を絶たない</li>
+        <li>・会社からの死亡退職金・弔慰金規定が薄弱で、遺族の生活再建に十分な一時金が確保できない事例がある</li>
+      </ul>
+    </div>
+    <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+      <p className="font-bold text-amber-800 mb-2">⚠️ Gap_scale=R_large_corp−(R_sme+CV_whole_life)≤0——終身保険で大企業並みの保障を実現</p>
+      <ul className="text-amber-700 text-sm leading-relaxed space-y-1">
+        <li>・R_large_corp（大企業の退職金水準）を目標値として設定する</li>
+        <li>・R_sme（中小メーカーの退職金見込額）との差を終身保険のCV_whole_lifeで埋める設計</li>
+        <li>・毎月の終身保険料を確実な積立として継続することで、企業規模の格差を自助努力で補える</li>
+        <li>・死亡時の一時金も即日現金で支払われ、社内貸付制度がない場合の資金繰りにも対応できる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S2: ケース別シミュレーション */}
+<section>
+  <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+    工場勤務者のケース別・企業規模による退職金格差シミュレーション
+  </h2>
+  <div className="space-y-6">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースA：会社の退職金制度のみに依存
+      </div>
+      <p className="text-sm text-gray-600 mb-4">中小メーカー勤務（40歳）。退職金規定は薄い</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">生存時の退職金（60歳）</div>
+          <div className="font-bold text-gray-900">約800万円のみ（老後2,000万円問題に直面）</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">不慮の労災死亡時</div>
+          <div className="font-bold text-gray-900">労災年金は出るが、当面のまとまった現金（一時金）不足</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">資金の流動性</div>
+          <div className="font-bold text-gray-900">社内貸付制度等がないため、急な病気時に資金ショート</div>
+        </div>
+        <div className="bg-white rounded p-3 border border-blue-100">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-gray-900">企業規模の格差がそのまま老後の貧困に直結</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-blue-100 rounded p-3 border border-blue-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-blue-700 text-xl">中小企業の薄い退職金が老後資金不足を招く</div>
+      </div>
+    </div>
+
+    <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="inline-block bg-red-600 text-white text-sm font-bold px-3 py-1 rounded mb-4">
+        ケースB：格差を埋める終身保険1,500万円加入
+      </div>
+      <p className="text-sm text-gray-600 mb-4">同左。毎月2万円の終身保険で確実な積立を実行</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="bg-white rounded p-3 border border-red-100">
+          <div className="text-xs text-gray-500 mb-1">生存時の退職金（60歳）</div>
+          <div className="font-bold text-red-700">会社800万＋保険解約返戻金約1,000万＝1,800万円</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">不慮の労災死亡時</div>
+          <div className="font-bold text-red-700">1,500万円の死亡保険金が即日現金で支払われる</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">資金の流動性</div>
+          <div className="font-bold text-red-700">契約者貸付を利用し、学費や医療費を柔軟に調達</div>
+        </div>
+        <div className="bg-red-50 rounded p-3 border border-red-200">
+          <div className="text-xs text-gray-500 mb-1">総合評価</div>
+          <div className="font-bold text-red-700">自助努力により大企業並みの保障・退職金水準を実現</div>
+        </div>
+      </div>
+      <div className="mt-4 bg-red-100 rounded p-3 border border-red-300">
+        <div className="text-xs text-gray-600 mb-1">結論</div>
+        <div className="font-bold text-red-700 text-xl">終身保険が企業規模格差を完全に解消する</div>
+      </div>
+    </div>
+  </div>
+  <p className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded border">
+    根拠：厚生労働省・<a href="https://fpeo.co.jp/news/news-8325/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">就労条件総合調査（退職金制度）</a>　<a href="https://joshrc.net/archives/16817" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline">製造業の精神障害等労災補償状況</a>
+  </p>
+</section>
+
+{/* S3: 特有リスクデータ3件 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">製造業・工場勤務特有の3大リスク——政府統計で見るGap_scale設計の根拠</h2>
+  <div className="space-y-4">
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">🏭</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">① 企業規模による退職金格差とGap_scale数式証明</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          就労条件総合調査によれば、製造業における退職金制度の導入率は80%を超えるものの、
+          大企業（1,000人以上）と中小企業（30〜99人）では退職金額に圧倒的な格差が存在する。
+          Gap_scaleは大企業の平均退職金から中小メーカーの退職金見込額と終身保険の解約返戻金の合計を引いた額として算出され、
+          この格差を終身保険で穴埋めする設計が中小企業勤務者には不可欠である。
+        </p>
+        <a href="https://fpeo.co.jp/news/news-8325/" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：就労条件総合調査（退職金制度・企業規模格差）</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">⚙</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">② 製造業の精神障害等労災補償状況が示す工場勤務のリスク</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          製造業の精神障害等労災補償状況からは、工場内事故・夜勤交代制等による労働災害リスクの実態が見える。
+          中小メーカー勤務の労働者が事故死した場合、会社からの独自の死亡退職金・弔慰金規定が薄弱であり、
+          遺族の生活再建に十分な一時金が確保できない失敗事例が存在する。
+        </p>
+        <a href="https://joshrc.net/archives/16817" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：製造業の精神障害等労災補償状況</a>
+      </div>
+    </div>
+    <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">📋</div>
+      <div>
+        <p className="font-bold text-gray-900 mb-1">③ 就労条件総合調査の詳細データが示す企業規模別の実態</p>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          厚生労働省「令和5年就労条件総合調査」では、企業規模別の退職金制度の実態が詳細に示されている。
+          中小メーカー勤務の場合、企業の退職金だけでは老後資金が不足する可能性が高いことが、
+          データから明確に裏付けられている。
+        </p>
+        <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/23/chousa.html" rel="noopener noreferrer" target="_blank" className="text-blue-600 underline text-xs mt-1 inline-block">出典：厚生労働省 令和5年就労条件総合調査</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+{/* S4: 5つのチェックポイント */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">製造業・工場勤務の終身保険選び——5つのチェックポイント</h2>
+  <div className="space-y-4">
+    {[
+      {
+        num: '01',
+        title: 'Gap_scale数式で企業規模による退職金格差を事前に計算する（最重要）',
+        body: '勤務先の退職金見込額と大企業水準との差を把握し、終身保険でどの程度補完すべきかを設計する。就業規則・退職金規定を確認し、定年時の具体的な受給見込額を算出しておく。'
+      },
+      {
+        num: '02',
+        title: '毎月の終身保険料を確実な積立として継続する',
+        body: '月2万円程度でも長期間継続することで、企業規模の格差を自助努力で補える水準に達する。自動引き落としで「強制積立」の仕組みを作ることが長期継続のコツ。'
+      },
+      {
+        num: '03',
+        title: '工場内事故・労働災害のリスクを保障額に反映させる',
+        body: '巻き込まれ事故等のリスクが常在することを前提に、十分な死亡保険金額を設定する。労災保険の遺族補償年金は長期的な収入保障だが、当面の一時金は終身保険でカバーする。'
+      },
+      {
+        num: '04',
+        title: '会社の死亡退職金・弔慰金規定の水準を確認する',
+        body: '勤務先の弔慰金規定が薄弱な場合、終身保険でその不足分を補う設計を行う。就業規則の弔慰金規定を人事部に確認し、支給額の上限と条件を把握しておく。'
+      },
+      {
+        num: '05',
+        title: '契約者貸付制度を、社内貸付制度がない場合の代替資金繰り手段として理解する',
+        body: '急な病気・学費等の資金需要に対して、契約者貸付が柔軟な調達手段となることを理解しておく。中小企業では福利厚生が手薄なケースが多いため、この機能の重要性は特に高い。'
+      }
+    ].map(item => (
+      <div key={item.num} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+        <span className="flex-shrink-0 text-3xl font-bold text-gray-200">{item.num}</span>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+          <p className="text-sm text-gray-700 leading-relaxed">{item.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* S5: よくある失敗事例3選 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">よくある失敗事例3選</h2>
+  <div className="space-y-4">
+    <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
+      <p className="font-bold text-red-800 mb-2">WW氏（55歳・中小メーカー勤務）：大企業並みの退職金を期待し、老後資金計画が崩壊</p>
+      <p className="text-sm text-red-700 leading-relaxed">
+        大企業並みの退職金を期待していたWW氏。実際の退職金は約800万円にとどまり、老後2,000万円問題に直面した。
+        終身保険等の自助努力での資産形成を行っていなかったため、老後資金が大幅に不足する事態となった。
+        中小企業の退職金水準は大企業と大きく異なることを前提に、
+        終身保険等で早期から自助努力の資産形成を進めるべきだった。
+        Gap_scaleの計算を40代のうちに実施し、必要な積立額を把握することが重要。
+      </p>
+    </div>
+    <div className="p-5 bg-orange-50 border border-orange-200 rounded-xl">
+      <p className="font-bold text-orange-800 mb-2">XX氏（38歳・工場勤務）：工場内事故で死亡、会社の弔慰金規定が薄弱で遺族の生活再建困難</p>
+      <p className="text-sm text-orange-700 leading-relaxed">
+        工場内での巻き込まれ事故により死亡したXX氏。
+        労災保険の遺族補償年金は支給されたが、会社独自の死亡退職金・弔慰金規定が薄弱であり、
+        遺族の生活再建に十分な一時金が確保できなかった。
+        会社の弔慰金規定が薄い場合、終身保険による死亡保険金（即日現金）でその不足分を補う必要がある。
+        労災の年金は長期的な収入保障だが、当面の一時資金には終身保険が不可欠。
+      </p>
+    </div>
+    <div className="p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+      <p className="font-bold text-yellow-800 mb-2">YY氏（42歳・工場勤務）：社内貸付制度がなく急な資金需要に対応できず生活破綻</p>
+      <p className="text-sm text-yellow-700 leading-relaxed">
+        終身保険には未加入で貯蓄も少なかったYY氏。
+        子供の急な学費需要と自身の医療費が重なり、社内貸付制度もないため資金繰りに苦労した。
+        終身保険の契約者貸付制度は、社内貸付制度がない場合の重要な資金繰り手段となるため、
+        早期の加入を検討すべきだった。
+        中小企業では福利厚生が手薄なケースが多く、自前でセーフティネットを構築する意識が必要。
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* S6: 最終チェックリスト8項目 */}
+<section>
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前の最終チェックリスト（8項目）</h2>
+  <div className="bg-gray-50 rounded-xl p-6 space-y-3">
+    {[
+      'Gap_scale=R_large_corp−(R_sme+CV_whole_life)≤0を計算し格差を把握した',
+      '毎月の終身保険料を確実な積立として継続する計画を立てた',
+      '工場内事故・労働災害のリスクを保障額に反映させた',
+      '会社の死亡退職金・弔慰金規定の水準を確認した',
+      '終身保険の死亡保険金額が労災保険の不足分を補えるか確認した',
+      '契約者貸付制度を代替資金繰り手段として理解した',
+      '大企業と中小企業の退職金水準の差を把握した',
+      '60歳時点の確保資金（会社退職金＋解約返戻金）が目標額に達するか計算した',
     ].map((item, i) => (
       <label key={i} className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600 flex-shrink-0" />
