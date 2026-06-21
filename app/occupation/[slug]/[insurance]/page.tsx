@@ -497,8 +497,9 @@ export default async function OccupationInsurancePage({ params }: Props) {
   const isFreelanceEngineerPersonalAccident = occ.slug === 'freelance-engineer' && ins.slug === 'personal-accident'
   const isNursePersonalAccident = occ.slug === 'nurse' && ins.slug === 'personal-accident'
   const isTeacherPersonalAccident = occ.slug === 'teacher' && ins.slug === 'personal-accident'
+  const isDriverPersonalAccident = occ.slug === 'driver' && ins.slug === 'personal-accident'
 
-  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident
+  const hasSpecializedContent = isFreelanceIncomeProtection || isNurseIncomeProtection || isConstructionMedical || isTeacherMedical || isCivilServantLife || isEngineerIncomeProtection || isDriverMedical || isDoctorLife || isSalesLife || isPartTimeMedical || isFreelanceEngineerMedical || isNurseMedical || isConstructionLife || isTeacherLife || isCivilServantMedical || isManagerLife || isManufacturingMedical || isBeauticianMedical || isHairdresserMedical || isFinanceLife || isDoctorIncomeProtection || isNurseCancer || isTeacherCancer || isEngineerMedical || isCivilServantIncomeProtection || isTeacherIncomeProtection || isConstructionIncomeProtection || isSalesMedical || isDriverLife || isDoctorCancer || isFreelanceEngineerLife || isFreelanceEngineerPension || isManagerMedical || isManagerIncomeProtection || isPartTimeLife || isManufacturingLife || isManufacturingIncomeProtection || isFinanceMedical || isCivilServantCancer || isBeauticianLife || isPharmacistMedical || isRealEstateMedical || isAccountantMedical || isLawyerLife || isFoodServiceMedical || isEngineerLife || isNurseLife || isDoctorMedical || isPartTimeCancer || isConstructionCancer || isPharmacistLife || isPartTimeIncomeProtection || isEngineerCancer || isHairdresserIncomeProtection || isFinanceIncomeProtection || isManagerCancer || isManagerDisability || isManufacturingCancer || isRealEstateLife || isAccountantLife || isLawyerMedical || isRestaurantLife || isRestaurantCancer || isRestaurantMedical || isDesignerMedical || isDriverCancer || isDesignerLife || isSalesCancer || isDriverIncomeProtection || isRealEstateCancer || isAccountantCancer || isPharmacistCancer || isSelfEmployedLife || isFreelanceMedical || isSelfEmployedMedical || isFreelanceLife || isSalesDisability || isSalesChild || isDriverDisability || isDoctorDisability || isDoctorChild || isNurseDisability || isEngineerDisability || isEngineerChild || isConstructionDisability || isConstructionChild || isCivilServantDisability || isPharmacistDisability || isManufacturingDisability || isHairdresserDisability || isRestaurantDisability || isCivilServantChild || isPharmacistChild || isManufacturingChild || isFreelanceDisability || isSelfEmployedDisability || isLawyerDisability || isAccountantDisability || isRealEstateDisability || isDesignerDisability || isPartTimeDisability || isLawyerChild || isAccountantChild || isRealEstateChild || isDesignerChild || isHairdresserChild || isRestaurantChild || isSelfEmployedChild || isFreelanceChild || isNurseChild || isDriverChild || isHairdresserCancer || isDesignerCancer || isPharmacistIncomeProtection || isRestaurantIncomeProtection || isSelfEmployedIncomeProtection || isSelfEmployedCancer || isFreelanceCancer || isDesignerIncomeProtection || isFreelancePersonIncomeProtection || isLawyerCancer || isFinanceDisability || isDoctorPension || isNursePension || isEngineerPension || isCivilServantPension || isPharmacistPension || isAccountantPension || isLawyerPension || isRealEstatePension || isFinancePension || isManufacturingPension || isSalesPension || isManagerPension || isDriverPension || isConstructionPension || isHairdresserPension || isFinanceCancer || isPartTimeChild || isEngineerWholeLife || isFreelanceEngineerWholeLife || isNurseWholeLife || isTeacherWholeLife || isCivilServantWholeLife || isSalesWholeLife || isDriverWholeLife || isConstructionWholeLife || isRestaurantWholeLife || isHairdresserWholeLife || isAccountantWholeLife || isDoctorWholeLife || isLawyerWholeLife || isDesignerWholeLife || isManagerWholeLife || isManufacturingWholeLife || isPharmacistWholeLife || isRealEstateWholeLife || isFinanceWholeLife || isPartTimeWholeLife || isSelfEmployedWholeLife || isFreelanceWholeLife || isFreelanceEngineerPersonalAccident || isNursePersonalAccident || isTeacherPersonalAccident || isDriverPersonalAccident
 
   const cautionPoints = getCautionPoints(occ.category, ins.slug, occ.name_ja, ins.name_ja)
 
@@ -49055,6 +49056,191 @@ export default async function OccupationInsurancePage({ params }: Props) {
     </div>
   </section>
   <AffiliateCTA primary="miraitecho" secondary="minnano" />
+</div>
+)}
+
+{isDriverPersonalAccident && (
+<div className="max-w-4xl mx-auto px-4 space-y-14 py-12">
+  {/* S1: リード文 + インフォボックス */}
+  <section>
+    <h1 className="text-3xl font-bold text-gray-900 mb-6">ドライバーの傷害保険｜R_gap試算で見る「払えない損害」の正体</h1>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      運送・宅配・タクシー・バスなど、職業ドライバーの労働災害発生率は全産業平均の約2.3倍です。
+      業務中の交通事故では自動車損害賠償責任保険だけでは補えない「自己負担ギャップ（R_gap）」が生じ、
+      1件の事故で数千万円規模の自腹リスクが顕在化します。傷害保険はそのギャップを埋める最小コストの手段です。
+    </p>
+    {/* 赤インフォボックス */}
+    <div className="bg-red-50 border-l-4 border-red-500 rounded-r-lg p-5 mb-4">
+      <p className="font-bold text-red-700 mb-1">⚠️ 陸上貨物運送業の死傷者数：年間約16,000人（厚生労働省）</p>
+      <p className="text-red-600 text-sm">
+        運送業の労災認定件数は全産業上位。業務外（通勤・プライベート移動）の事故は労災対象外となり、
+        傷害保険なしでは治療費・休業補償を全額自己負担することになります。
+      </p>
+    </div>
+    {/* 琥珀インフォボックス：R_gap式 */}
+    <div className="bg-amber-50 border border-amber-300 rounded-lg p-5">
+      <p className="font-bold text-amber-800 mb-2">📐 自己負担ギャップの定量式 R_gap</p>
+      <div className="bg-white rounded p-3 font-mono text-sm text-gray-800 mb-2">
+        R_gap = ∬[T_private] f(x,t)dxdt × (C_injury + C_liab)
+      </div>
+      <ul className="text-amber-700 text-sm space-y-1">
+        <li>• T_private：業務外走行時間（労災対象外の時間帯）</li>
+        <li>• f(x,t)：時間帯・路線別の事故確率密度関数</li>
+        <li>• C_injury：傷害治療費（入院・手術・リハビリ）</li>
+        <li>• C_liab：対人・対物賠償の自賠責超過分</li>
+        <li>• 業務外走行が多いほど R_gap は拡大する</li>
+      </ul>
+    </div>
+  </section>
+
+  {/* S2: CTA① */}
+  <AffiliateCTA primary="miraitecho" secondary="minnano" />
+
+  {/* S3: ケース比較 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">保険あり vs なし：事故1件の実額比較</h2>
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr className="bg-gray-800 text-white">
+            <th className="border border-gray-300 p-3 text-left">項目</th>
+            <th className="border border-gray-300 p-3 text-center">保険なし</th>
+            <th className="border border-gray-300 p-3 text-center">傷害保険あり</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="bg-white">
+            <td className="border border-gray-300 p-3">入院費用（30日）</td>
+            <td className="border border-gray-300 p-3 text-center text-red-600">約90万円</td>
+            <td className="border border-gray-300 p-3 text-center text-blue-600">0円（入院給付）</td>
+          </tr>
+          <tr className="bg-gray-50">
+            <td className="border border-gray-300 p-3">手術・リハビリ費</td>
+            <td className="border border-gray-300 p-3 text-center text-red-600">約120万円</td>
+            <td className="border border-gray-300 p-3 text-center text-blue-600">0円（手術給付）</td>
+          </tr>
+          <tr className="bg-white">
+            <td className="border border-gray-300 p-3">休業損害（3か月）</td>
+            <td className="border border-gray-300 p-3 text-center text-red-600">約90万円</td>
+            <td className="border border-gray-300 p-3 text-center text-blue-600">0円（入通院補償）</td>
+          </tr>
+          <tr className="bg-gray-50">
+            <td className="border border-gray-300 p-3">対人賠償超過分</td>
+            <td className="border border-gray-300 p-3 text-center text-red-600">約3,500万円</td>
+            <td className="border border-gray-300 p-3 text-center text-blue-600">0円（個人賠償特約）</td>
+          </tr>
+          <tr className="bg-white">
+            <td className="border border-gray-300 p-3">後遺障害・逸失利益</td>
+            <td className="border border-gray-300 p-3 text-center text-red-600">約1,728万円</td>
+            <td className="border border-gray-300 p-3 text-center text-blue-600">0円（後遺障害給付）</td>
+          </tr>
+          <tr className="bg-red-50 font-bold">
+            <td className="border border-gray-300 p-3">合計自己負担</td>
+            <td className="border border-gray-300 p-3 text-center text-red-700">約5,528万円</td>
+            <td className="border border-gray-300 p-3 text-center text-blue-700">0円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p className="text-xs text-gray-500 mt-2">※ 自賠責超過額・後遺障害等級7級試算。実際は事故状況により異なります。</p>
+  </section>
+
+  {/* S4: 3つのリスク解説 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">ドライバーが知るべき3つのリスク構造</h2>
+    <div className="space-y-6">
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">① 業務外走行の労災適用外リスク（厚労省統計）</h3>
+        <p className="text-gray-600 leading-relaxed">
+          労働者災害補償保険法は「業務上の事由」による災害のみを補償します。
+          通勤経路の逸脱・中断があった場合や、プライベートな移動中の事故は労災対象外です。
+          厚生労働省の調査では、通勤中の事故が全労災認定件数の約30%を占め、うち約15%が経路逸脱による不認定事例です。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">② 通勤経路逸脱の判定基準（厚労省通達）</h3>
+        <p className="text-gray-600 leading-relaxed">
+          「合理的な経路および方法」（労災保険法第7条第2項）を外れた移動は保護されません。
+          コンビニへの立ち寄り程度は「日常生活上必要な行為」として認められるケースもありますが、
+          逸脱の程度・意図によって判断が分かれます。傷害保険はこの判定リスクをゼロにします。
+        </p>
+      </div>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 mb-3">③ 自動車損害賠償保障法の補償上限と超過リスク</h3>
+        <p className="text-gray-600 leading-relaxed">
+          自賠責保険の対人補償上限は死亡3,000万円・後遺障害最大4,000万円です。
+          重篤な後遺障害や複数被害者が生じた場合、自賠責上限を超えた損害賠償額は加害者の自己負担となります。
+          個人賠償責任特約を傷害保険に付帯することで、この超過リスクを低コストでカバーできます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S5: 加入判断チェックポイント + 失敗事例 */}
+  <section>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">加入前に確認すべき5つのポイントと失敗事例</h2>
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+      <h3 className="font-bold text-blue-800 mb-3">✅ 加入判断チェックポイント</h3>
+      <ol className="text-blue-700 space-y-2 text-sm">
+        <li>1. 勤務先の団体傷害保険の補償範囲と限度額を確認したか</li>
+        <li>2. 自動車保険（任意）の搭乗者傷害・人身傷害との重複をチェックしたか</li>
+        <li>3. 個人賠償責任特約の要否（業務使用車両との区分）を確認したか</li>
+        <li>4. 就業不能補償の支給開始日と待機期間が家計の緊急資金と合っているか</li>
+        <li>5. 家族（配偶者・子）への補償拡張が必要か判断したか</li>
+      </ol>
+    </div>
+    <h3 className="text-lg font-bold text-gray-800 mb-4">よくある失敗事例</h3>
+    <div className="space-y-4">
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BB：会社の団体保険だけで十分と思い込んでいた</p>
+        <p className="text-red-600 text-sm">
+          団体傷害保険は「業務中」限定が多く、通勤事故・プライベート事故は対象外のケースがあります。
+          補償範囲を勘違いしていた結果、通勤途中の骨折で給付なしという事態が発生しています。
+        </p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BC：自動車保険の人身傷害で全て賄えると誤解した</p>
+        <p className="text-red-600 text-sm">
+          人身傷害保険は搭乗中の補償が主です。自転車事故・歩行中の事故・旅行先でのけがは対象外となります。
+          「乗り物に乗っているとき以外」の傷害は傷害保険で別途カバーが必要です。
+        </p>
+      </div>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <p className="font-bold text-red-700 mb-1">失敗BD：対人賠償上限を超えたケースで自己破産寸前に</p>
+        <p className="text-red-600 text-sm">
+          自賠責・任意保険の支払い上限を超えた賠償額は、加害者個人が負います。
+          個人賠償責任特約を付帯していなかったドライバーが、超過分2,200万円の支払い請求を受けた事例があります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* S6: チェックリスト + CTA③ */}
+  <section>
+    <h2 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
+      ドライバーの傷害保険 加入前チェックリスト（8項目）
+    </h2>
+    <div className="space-y-3">
+      {[
+        '業務中・業務外・通勤中の補償範囲をそれぞれ確認した',
+        '会社の団体傷害保険と個人保険の補償の重複・空白を把握した',
+        '自動車保険（人身傷害・搭乗者傷害）との重複調整をした',
+        '個人賠償責任特約の業務使用除外条件を確認した',
+        '入院給付金の1日あたり額が生活費をカバーできるか試算した',
+        '就業不能補償の待機期間（免責日数）と手持ち資金を照合した',
+        '後遺障害等級ごとの給付額シミュレーションを確認した',
+        '保険料を年払いにして割引が適用されるか確認した',
+      ].map((item, i) => (
+        <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+          <span className="text-blue-500 font-bold mt-0.5">☐</span>
+          <span className="text-gray-700 text-sm">{item}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8">
+      <AffiliateCTA primary="miraitecho" secondary="minnano" />
+    </div>
+  </section>
 </div>
 )}
 
