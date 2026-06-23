@@ -14,12 +14,14 @@ const OCCUPATION_SLUGS = [
   'sales', 'manager', 'finance',
   'construction', 'manufacturing',
   'driver', 'restaurant', 'hairdresser',
-  'part-time', 'secretary', 'accountant', 'counselor',
+  'part-time', 'accountant',
+  'lawyer', 'real-estate', 'self-employed', 'freelance',
 ]
 
 const INSURANCE_SLUGS = [
   'medical', 'life', 'income-protection', 'cancer',
   'auto', 'fire', 'personal-accident', 'pension', 'child', 'whole-life',
+  'disability',
 ]
 
 const AGE_SLUGS = ['20dai', '30dai', '40dai', '50dai']
@@ -40,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/privacy`,                            lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
   ]
 
-  // /occupation/[slug] × 20
+  // /occupation/[slug] × 22
   const occupationPages: MetadataRoute.Sitemap = OCCUPATION_SLUGS.map(slug => ({
     url: `${BASE_URL}/occupation/${slug}`,
     lastModified: now,
@@ -48,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  // /occupation/[slug]/[insurance] × 200
+  // /occupation/[slug]/[insurance] × 242
   const occupationInsurancePages: MetadataRoute.Sitemap = OCCUPATION_SLUGS.flatMap(occ =>
     INSURANCE_SLUGS.map(ins => ({
       url: `${BASE_URL}/occupation/${occ}/${ins}`,
@@ -58,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  // /insurance/[slug] × 10
+  // /insurance/[slug] × 11
   const insurancePages: MetadataRoute.Sitemap = INSURANCE_SLUGS.map(slug => ({
     url: `${BASE_URL}/insurance/${slug}`,
     lastModified: now,
@@ -66,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  // /prefecture/[pref]/[occupation] × 200
+  // /prefecture/[pref]/[occupation] × 220
   const prefecturePages: MetadataRoute.Sitemap = PREFECTURE_SLUGS.flatMap(pref =>
     OCCUPATION_SLUGS.map(occ => ({
       url: `${BASE_URL}/prefecture/${pref}/${occ}`,
@@ -76,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  // /age/[age]/[insurance] × 40
+  // /age/[age]/[insurance] × 44
   const agePages: MetadataRoute.Sitemap = AGE_SLUGS.flatMap(age =>
     INSURANCE_SLUGS.map(ins => ({
       url: `${BASE_URL}/age/${age}/${ins}`,
