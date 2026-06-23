@@ -56,6 +56,7 @@ type InsuranceInfo = {
   name: string
   rate: number | null
   fixed?: [number, number]
+  ageFixed?: Record<string, [number, number]>
   ageNotes: Record<string, string>
 }
 
@@ -103,7 +104,12 @@ const INSURANCE_DATA: Record<string, InsuranceInfo> = {
   'auto': {
     name: '自動車保険',
     rate: null,
-    fixed: [3000, 8000],
+    ageFixed: {
+      '20dai': [8000, 20000],
+      '30dai': [5000, 12000],
+      '40dai': [4000, 10000],
+      '50dai': [5000, 11000],
+    },
     ageNotes: {
       '20dai': '20代は事故率が高く保険料が割高になりがち。ゴールド免許取得を目指しながら任意保険で備えましょう。',
       '30dai': '家族が増え、日常的に車を使う機会が増える時期。家族全員をカバーできる保険内容の確認が重要です。',
@@ -114,7 +120,12 @@ const INSURANCE_DATA: Record<string, InsuranceInfo> = {
   'fire': {
     name: '火災保険',
     rate: null,
-    fixed: [1000, 3000],
+    ageFixed: {
+      '20dai': [500, 2000],
+      '30dai': [2000, 5000],
+      '40dai': [1500, 4000],
+      '50dai': [1500, 3500],
+    },
     ageNotes: {
       '20dai': '賃貸住まいが多い20代は少額の家財保険が中心。地震保険の付帯も検討しましょう。',
       '30dai': '住宅購入時に必須となる火災保険。建物と家財を適切な保障額でカバーし、地震保険も合わせて加入を。',
@@ -200,14 +211,15 @@ export default async function AgeInsurancePage(
 
   let premiumManStr: string
   let premiumWomanStr: string
+  const activeFixed = ins.ageFixed?.[ageSlug] ?? ins.fixed ?? null
   if (ins.rate) {
     const pm = Math.round(incomeMan   * 10000 * ins.rate / 12)
     const pw = Math.round(incomeWoman * 10000 * ins.rate / 12)
     premiumManStr   = `${pm.toLocaleString()}円/月`
     premiumWomanStr = `${pw.toLocaleString()}円/月`
-  } else if (ins.fixed) {
-    premiumManStr   = `${ins.fixed[0].toLocaleString()}〜${ins.fixed[1].toLocaleString()}円/月`
-    premiumWomanStr = `${ins.fixed[0].toLocaleString()}〜${ins.fixed[1].toLocaleString()}円/月`
+  } else if (activeFixed) {
+    premiumManStr   = `${activeFixed[0].toLocaleString()}〜${activeFixed[1].toLocaleString()}円/月`
+    premiumWomanStr = `${activeFixed[0].toLocaleString()}〜${activeFixed[1].toLocaleString()}円/月`
   } else {
     premiumManStr   = '要問合せ'
     premiumWomanStr = '要問合せ'
